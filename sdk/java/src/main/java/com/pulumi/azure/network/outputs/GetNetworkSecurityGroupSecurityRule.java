@@ -9,7 +9,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkSecurityGroupSecurityRule {
@@ -37,7 +36,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
      * @return A List of destination Application Security Group IDs
      * 
      */
-    private @Nullable List<String> destinationApplicationSecurityGroupIds;
+    private List<String> destinationApplicationSecurityGroupIds;
     /**
      * @return The Destination Port or Range.
      * 
@@ -78,7 +77,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
      * @return A List of source Application Security Group IDs
      * 
      */
-    private @Nullable List<String> sourceApplicationSecurityGroupIds;
+    private List<String> sourceApplicationSecurityGroupIds;
     /**
      * @return The Source Port or Range.
      * 
@@ -120,7 +119,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
      * 
      */
     public List<String> destinationApplicationSecurityGroupIds() {
-        return this.destinationApplicationSecurityGroupIds == null ? List.of() : this.destinationApplicationSecurityGroupIds;
+        return this.destinationApplicationSecurityGroupIds;
     }
     /**
      * @return The Destination Port or Range.
@@ -179,7 +178,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
      * 
      */
     public List<String> sourceApplicationSecurityGroupIds() {
-        return this.sourceApplicationSecurityGroupIds == null ? List.of() : this.sourceApplicationSecurityGroupIds;
+        return this.sourceApplicationSecurityGroupIds;
     }
     /**
      * @return The Source Port or Range.
@@ -205,7 +204,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         private String description;
         private String destinationAddressPrefix;
         private List<String> destinationAddressPrefixes;
-        private @Nullable List<String> destinationApplicationSecurityGroupIds;
+        private List<String> destinationApplicationSecurityGroupIds;
         private String destinationPortRange;
         private List<String> destinationPortRanges;
         private String direction;
@@ -214,7 +213,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         private String protocol;
         private String sourceAddressPrefix;
         private List<String> sourceAddressPrefixes;
-        private @Nullable List<String> sourceApplicationSecurityGroupIds;
+        private List<String> sourceApplicationSecurityGroupIds;
         private String sourcePortRange;
         private List<String> sourcePortRanges;
         public Builder() {}
@@ -274,8 +273,10 @@ public final class GetNetworkSecurityGroupSecurityRule {
             return destinationAddressPrefixes(List.of(destinationAddressPrefixes));
         }
         @CustomType.Setter
-        public Builder destinationApplicationSecurityGroupIds(@Nullable List<String> destinationApplicationSecurityGroupIds) {
-
+        public Builder destinationApplicationSecurityGroupIds(List<String> destinationApplicationSecurityGroupIds) {
+            if (destinationApplicationSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "destinationApplicationSecurityGroupIds");
+            }
             this.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
             return this;
         }
@@ -353,8 +354,10 @@ public final class GetNetworkSecurityGroupSecurityRule {
             return sourceAddressPrefixes(List.of(sourceAddressPrefixes));
         }
         @CustomType.Setter
-        public Builder sourceApplicationSecurityGroupIds(@Nullable List<String> sourceApplicationSecurityGroupIds) {
-
+        public Builder sourceApplicationSecurityGroupIds(List<String> sourceApplicationSecurityGroupIds) {
+            if (sourceApplicationSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "sourceApplicationSecurityGroupIds");
+            }
             this.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
             return this;
         }

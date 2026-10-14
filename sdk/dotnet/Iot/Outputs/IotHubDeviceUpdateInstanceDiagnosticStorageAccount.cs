@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Iot.Outputs
         /// <summary>
         /// Connection String of the Diagnostic Storage Account.
         /// </summary>
-        public readonly string ConnectionString;
+        public readonly string? ConnectionString;
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Connection String of the Diagnostic Storage Account.
+        /// 
+        /// &gt; **Note:** Exactly one of `ConnectionString` or `ConnectionStringWo` must be specified.
+        /// </summary>
+        public readonly string? ConnectionStringWo;
+        /// <summary>
+        /// An integer value used to trigger an update for `ConnectionStringWo`. Possible values are integers greater than `1`.
+        /// </summary>
+        public readonly int? ConnectionStringWoVersion;
         /// <summary>
         /// Resource ID of the Diagnostic Storage Account.
         /// </summary>
@@ -24,11 +35,17 @@ namespace Pulumi.Azure.Iot.Outputs
 
         [OutputConstructor]
         private IotHubDeviceUpdateInstanceDiagnosticStorageAccount(
-            string connectionString,
+            string? connectionString,
+
+            string? connectionStringWo,
+
+            int? connectionStringWoVersion,
 
             string id)
         {
             ConnectionString = connectionString;
+            ConnectionStringWo = connectionStringWo;
+            ConnectionStringWoVersion = connectionStringWoVersion;
             Id = id;
         }
     }

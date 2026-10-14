@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.arckubernetes.ClusterArgs;
  * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.arckubernetes.ClusterExtension;
  * import com.pulumi.azure.arckubernetes.ClusterExtensionArgs;
  * import java.util.ArrayList;
@@ -58,7 +59,9 @@ import javax.annotation.Nullable;
  *             .name("example-akcc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Map.of("input", "testdata/public.cer")).result())
+ *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("testdata/public.cer")
+ *                 .build()).result())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -151,14 +154,14 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
         return this.currentVersion;
     }
     /**
-     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
     @Export(name="extensionType", refs={String.class}, tree="[0]")
     private Output<String> extensionType;
 
     /**
-     * @return Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * @return Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
     public Output<String> extensionType() {

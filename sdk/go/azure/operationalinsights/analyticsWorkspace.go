@@ -85,7 +85,7 @@ type AnalyticsWorkspace struct {
 	InternetIngestionAccessType pulumi.StringPtrOutput `pulumi:"internetIngestionAccessType"`
 	// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 	//
-	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 	InternetQueryAccessType pulumi.StringPtrOutput `pulumi:"internetQueryAccessType"`
 	// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
@@ -95,7 +95,7 @@ type AnalyticsWorkspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrOutput `pulumi:"reservationCapacityInGbPerDay"`
@@ -109,7 +109,7 @@ type AnalyticsWorkspace struct {
 	//
 	// > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 	//
-	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 	//
 	// > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 	Sku pulumi.StringOutput `pulumi:"sku"`
@@ -173,7 +173,7 @@ type analyticsWorkspaceState struct {
 	InternetIngestionAccessType *string `pulumi:"internetIngestionAccessType"`
 	// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 	//
-	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 	InternetQueryAccessType *string `pulumi:"internetQueryAccessType"`
 	// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
@@ -183,7 +183,7 @@ type analyticsWorkspaceState struct {
 	Name *string `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
@@ -197,7 +197,7 @@ type analyticsWorkspaceState struct {
 	//
 	// > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 	//
-	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 	//
 	// > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 	Sku *string `pulumi:"sku"`
@@ -224,7 +224,7 @@ type AnalyticsWorkspaceState struct {
 	InternetIngestionAccessType pulumi.StringPtrInput
 	// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 	//
-	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 	InternetQueryAccessType pulumi.StringPtrInput
 	// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
@@ -234,7 +234,7 @@ type AnalyticsWorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
@@ -248,7 +248,7 @@ type AnalyticsWorkspaceState struct {
 	//
 	// > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 	//
-	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 	//
 	// > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 	Sku pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type analyticsWorkspaceArgs struct {
 	InternetIngestionAccessType *string `pulumi:"internetIngestionAccessType"`
 	// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 	//
-	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 	InternetQueryAccessType *string `pulumi:"internetQueryAccessType"`
 	// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
@@ -287,7 +287,7 @@ type analyticsWorkspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
@@ -299,7 +299,7 @@ type analyticsWorkspaceArgs struct {
 	//
 	// > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 	//
-	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 	//
 	// > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 	Sku *string `pulumi:"sku"`
@@ -325,7 +325,7 @@ type AnalyticsWorkspaceArgs struct {
 	InternetIngestionAccessType pulumi.StringPtrInput
 	// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 	//
-	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+	// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 	InternetQueryAccessType pulumi.StringPtrInput
 	// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
@@ -333,7 +333,7 @@ type AnalyticsWorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
@@ -345,7 +345,7 @@ type AnalyticsWorkspaceArgs struct {
 	//
 	// > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 	//
-	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+	// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 	//
 	// > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 	Sku pulumi.StringPtrInput
@@ -477,7 +477,7 @@ func (o AnalyticsWorkspaceOutput) InternetIngestionAccessType() pulumi.StringPtr
 
 // Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 //
-// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+// > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
 func (o AnalyticsWorkspaceOutput) InternetQueryAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringPtrOutput { return v.InternetQueryAccessType }).(pulumi.StringPtrOutput)
 }
@@ -502,7 +502,7 @@ func (o AnalyticsWorkspaceOutput) PrimarySharedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringOutput { return v.PrimarySharedKey }).(pulumi.StringOutput)
 }
 
-// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+// The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 //
 // > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 func (o AnalyticsWorkspaceOutput) ReservationCapacityInGbPerDay() pulumi.IntPtrOutput {
@@ -528,7 +528,7 @@ func (o AnalyticsWorkspaceOutput) SecondarySharedKey() pulumi.StringOutput {
 //
 // > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 //
-// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+// > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 //
 // > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
 func (o AnalyticsWorkspaceOutput) Sku() pulumi.StringOutput {

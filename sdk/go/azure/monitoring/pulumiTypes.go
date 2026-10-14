@@ -4806,7 +4806,7 @@ type AlertProcessingRuleActionGroupSchedule struct {
 	EffectiveUntil *string `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence *AlertProcessingRuleActionGroupScheduleRecurrence `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -4828,7 +4828,7 @@ type AlertProcessingRuleActionGroupScheduleArgs struct {
 	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence AlertProcessingRuleActionGroupScheduleRecurrencePtrInput `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -4926,7 +4926,7 @@ func (o AlertProcessingRuleActionGroupScheduleOutput) Recurrence() AlertProcessi
 	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleActionGroupScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -4985,7 +4985,7 @@ func (o AlertProcessingRuleActionGroupSchedulePtrOutput) Recurrence() AlertProce
 	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleActionGroupSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *string {
 		if v == nil {
@@ -7584,7 +7584,7 @@ type AlertProcessingRuleSuppressionSchedule struct {
 	EffectiveUntil *string `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence *AlertProcessingRuleSuppressionScheduleRecurrence `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -7606,7 +7606,7 @@ type AlertProcessingRuleSuppressionScheduleArgs struct {
 	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence AlertProcessingRuleSuppressionScheduleRecurrencePtrInput `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -7704,7 +7704,7 @@ func (o AlertProcessingRuleSuppressionScheduleOutput) Recurrence() AlertProcessi
 	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleSuppressionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -7763,7 +7763,7 @@ func (o AlertProcessingRuleSuppressionSchedulePtrOutput) Recurrence() AlertProce
 	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleSuppressionSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *string {
 		if v == nil {
@@ -9545,7 +9545,7 @@ type AutoscaleSettingProfileFixedDate struct {
 	End string `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start string `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9565,7 +9565,7 @@ type AutoscaleSettingProfileFixedDateArgs struct {
 	End pulumi.StringInput `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start pulumi.StringInput `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9656,7 +9656,7 @@ func (o AutoscaleSettingProfileFixedDateOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDateOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -9705,7 +9705,7 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
 		if v == nil {
@@ -9722,7 +9722,7 @@ type AutoscaleSettingProfileRecurrence struct {
 	Hours int `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes int `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9744,7 +9744,7 @@ type AutoscaleSettingProfileRecurrenceArgs struct {
 	Hours pulumi.IntInput `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9840,7 +9840,7 @@ func (o AutoscaleSettingProfileRecurrenceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -9899,7 +9899,7 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *string {
 		if v == nil {
@@ -11724,7 +11724,7 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) RecordStartTi
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounter struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
@@ -11746,7 +11746,7 @@ type DataCollectionRuleDataSourcesPerformanceCounterInput interface {
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11807,7 +11807,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionR
 	return o
 }
 
-// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
@@ -12071,7 +12071,7 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) Index(i pul
 }
 
 type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label string `pulumi:"label"`
 	// The value of the filter.
 	Value string `pulumi:"value"`
@@ -12089,7 +12089,7 @@ type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterInput int
 }
 
 type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label pulumi.StringInput `pulumi:"label"`
 	// The value of the filter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -12146,7 +12146,7 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput
 	return o
 }
 
-// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter) string { return v.Label }).(pulumi.StringOutput)
 }
@@ -12305,7 +12305,7 @@ type DataCollectionRuleDataSourcesWindowsEventLog struct {
 	Name string `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams []string `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -12325,7 +12325,7 @@ type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -12390,7 +12390,7 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }
@@ -16625,7 +16625,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvalu
 type ScheduledQueryRulesAlertV2Identity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId *string `pulumi:"principalId"`
@@ -16649,7 +16649,7 @@ type ScheduledQueryRulesAlertV2IdentityInput interface {
 type ScheduledQueryRulesAlertV2IdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -16738,7 +16738,7 @@ func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2Id
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -16784,7 +16784,7 @@ func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) Elem() ScheduledQueryRulesA
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) []string {
 		if v == nil {
@@ -17902,7 +17902,7 @@ type GetActionGroupEventHubReceiver struct {
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId string `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
 }
 
 // GetActionGroupEventHubReceiverInput is an input type that accepts GetActionGroupEventHubReceiverArgs and GetActionGroupEventHubReceiverOutput values.
@@ -17928,7 +17928,7 @@ type GetActionGroupEventHubReceiverArgs struct {
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (GetActionGroupEventHubReceiverArgs) ElementType() reflect.Type {
@@ -18008,8 +18008,8 @@ func (o GetActionGroupEventHubReceiverOutput) TenantId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o GetActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetActionGroupEventHubReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+func (o GetActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
 type GetActionGroupEventHubReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -20215,7 +20215,7 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) Index(i p
 }
 
 type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label string `pulumi:"label"`
 	// The value of the filter.
 	Value string `pulumi:"value"`
@@ -20233,7 +20233,7 @@ type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterInput i
 }
 
 type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label pulumi.StringInput `pulumi:"label"`
 	// The value of the filter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -20290,7 +20290,7 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutp
 	return o
 }
 
-// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter) string { return v.Label }).(pulumi.StringOutput)
 }
@@ -20669,9 +20669,9 @@ type GetDataCollectionRuleDestination struct {
 	// A `azureMonitorMetrics` block as defined above.
 	AzureMonitorMetrics []GetDataCollectionRuleDestinationAzureMonitorMetric `pulumi:"azureMonitorMetrics"`
 	// One or more `eventHub` blocks as defined below.
-	EventHub *GetDataCollectionRuleDestinationEventHub `pulumi:"eventHub"`
+	EventHub GetDataCollectionRuleDestinationEventHub `pulumi:"eventHub"`
 	// One or more `eventHubDirect` blocks as defined below.
-	EventHubDirect *GetDataCollectionRuleDestinationEventHubDirect `pulumi:"eventHubDirect"`
+	EventHubDirect GetDataCollectionRuleDestinationEventHubDirect `pulumi:"eventHubDirect"`
 	// One or more `logAnalytics` blocks as defined below.
 	LogAnalytics []GetDataCollectionRuleDestinationLogAnalytic `pulumi:"logAnalytics"`
 	// One or more `monitorAccount` blocks as defined below.
@@ -20699,9 +20699,9 @@ type GetDataCollectionRuleDestinationArgs struct {
 	// A `azureMonitorMetrics` block as defined above.
 	AzureMonitorMetrics GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput `pulumi:"azureMonitorMetrics"`
 	// One or more `eventHub` blocks as defined below.
-	EventHub GetDataCollectionRuleDestinationEventHubPtrInput `pulumi:"eventHub"`
+	EventHub GetDataCollectionRuleDestinationEventHubInput `pulumi:"eventHub"`
 	// One or more `eventHubDirect` blocks as defined below.
-	EventHubDirect GetDataCollectionRuleDestinationEventHubDirectPtrInput `pulumi:"eventHubDirect"`
+	EventHubDirect GetDataCollectionRuleDestinationEventHubDirectInput `pulumi:"eventHubDirect"`
 	// One or more `logAnalytics` blocks as defined below.
 	LogAnalytics GetDataCollectionRuleDestinationLogAnalyticArrayInput `pulumi:"logAnalytics"`
 	// One or more `monitorAccount` blocks as defined below.
@@ -20773,15 +20773,15 @@ func (o GetDataCollectionRuleDestinationOutput) AzureMonitorMetrics() GetDataCol
 }
 
 // One or more `eventHub` blocks as defined below.
-func (o GetDataCollectionRuleDestinationOutput) EventHub() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ApplyT(func(v GetDataCollectionRuleDestination) *GetDataCollectionRuleDestinationEventHub { return v.EventHub }).(GetDataCollectionRuleDestinationEventHubPtrOutput)
+func (o GetDataCollectionRuleDestinationOutput) EventHub() GetDataCollectionRuleDestinationEventHubOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) GetDataCollectionRuleDestinationEventHub { return v.EventHub }).(GetDataCollectionRuleDestinationEventHubOutput)
 }
 
 // One or more `eventHubDirect` blocks as defined below.
-func (o GetDataCollectionRuleDestinationOutput) EventHubDirect() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ApplyT(func(v GetDataCollectionRuleDestination) *GetDataCollectionRuleDestinationEventHubDirect {
+func (o GetDataCollectionRuleDestinationOutput) EventHubDirect() GetDataCollectionRuleDestinationEventHubDirectOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) GetDataCollectionRuleDestinationEventHubDirect {
 		return v.EventHubDirect
-	}).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
+	}).(GetDataCollectionRuleDestinationEventHubDirectOutput)
 }
 
 // One or more `logAnalytics` blocks as defined below.
@@ -20973,47 +20973,6 @@ func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDes
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubOutput).ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx)
-}
-
-// GetDataCollectionRuleDestinationEventHubPtrInput is an input type that accepts GetDataCollectionRuleDestinationEventHubArgs, GetDataCollectionRuleDestinationEventHubPtr and GetDataCollectionRuleDestinationEventHubPtrOutput values.
-// You can construct a concrete instance of `GetDataCollectionRuleDestinationEventHubPtrInput` via:
-//
-//	        GetDataCollectionRuleDestinationEventHubArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDataCollectionRuleDestinationEventHubPtrInput interface {
-	pulumi.Input
-
-	ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput
-	ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput
-}
-
-type getDataCollectionRuleDestinationEventHubPtrType GetDataCollectionRuleDestinationEventHubArgs
-
-func GetDataCollectionRuleDestinationEventHubPtr(v *GetDataCollectionRuleDestinationEventHubArgs) GetDataCollectionRuleDestinationEventHubPtrInput {
-	return (*getDataCollectionRuleDestinationEventHubPtrType)(v)
-}
-
-func (*getDataCollectionRuleDestinationEventHubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHub)(nil)).Elem()
-}
-
-func (i *getDataCollectionRuleDestinationEventHubPtrType) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (i *getDataCollectionRuleDestinationEventHubPtrType) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubPtrOutput)
-}
-
 type GetDataCollectionRuleDestinationEventHubOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubOutput) ElementType() reflect.Type {
@@ -21028,16 +20987,6 @@ func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleD
 	return o
 }
 
-func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDataCollectionRuleDestinationEventHub) *GetDataCollectionRuleDestinationEventHub {
-		return &v
-	}).(GetDataCollectionRuleDestinationEventHubPtrOutput)
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHub) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -21046,50 +20995,6 @@ func (o GetDataCollectionRuleDestinationEventHubOutput) EventHubId() pulumi.Stri
 // Specifies the name of the Data Collection Rule.
 func (o GetDataCollectionRuleDestinationEventHubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHub) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDataCollectionRuleDestinationEventHubPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDataCollectionRuleDestinationEventHubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHub)(nil)).Elem()
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) GetDataCollectionRuleDestinationEventHub {
-		if v != nil {
-			return *v
-		}
-		var ret GetDataCollectionRuleDestinationEventHub
-		return ret
-	}).(GetDataCollectionRuleDestinationEventHubOutput)
-}
-
-// The resource ID of the Event Hub.
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) EventHubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EventHubId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the Data Collection Rule.
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataCollectionRuleDestinationEventHubDirect struct {
@@ -21129,47 +21034,6 @@ func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectOutput).ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx)
-}
-
-// GetDataCollectionRuleDestinationEventHubDirectPtrInput is an input type that accepts GetDataCollectionRuleDestinationEventHubDirectArgs, GetDataCollectionRuleDestinationEventHubDirectPtr and GetDataCollectionRuleDestinationEventHubDirectPtrOutput values.
-// You can construct a concrete instance of `GetDataCollectionRuleDestinationEventHubDirectPtrInput` via:
-//
-//	        GetDataCollectionRuleDestinationEventHubDirectArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDataCollectionRuleDestinationEventHubDirectPtrInput interface {
-	pulumi.Input
-
-	ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput
-	ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput
-}
-
-type getDataCollectionRuleDestinationEventHubDirectPtrType GetDataCollectionRuleDestinationEventHubDirectArgs
-
-func GetDataCollectionRuleDestinationEventHubDirectPtr(v *GetDataCollectionRuleDestinationEventHubDirectArgs) GetDataCollectionRuleDestinationEventHubDirectPtrInput {
-	return (*getDataCollectionRuleDestinationEventHubDirectPtrType)(v)
-}
-
-func (*getDataCollectionRuleDestinationEventHubDirectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHubDirect)(nil)).Elem()
-}
-
-func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
-}
-
 type GetDataCollectionRuleDestinationEventHubDirectOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubDirectOutput) ElementType() reflect.Type {
@@ -21184,16 +21048,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectio
 	return o
 }
 
-func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDataCollectionRuleDestinationEventHubDirect) *GetDataCollectionRuleDestinationEventHubDirect {
-		return &v
-	}).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubDirectOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHubDirect) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -21202,50 +21056,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectOutput) EventHubId() pulum
 // Specifies the name of the Data Collection Rule.
 func (o GetDataCollectionRuleDestinationEventHubDirectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHubDirect) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDataCollectionRuleDestinationEventHubDirectPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHubDirect)(nil)).Elem()
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubDirectOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) GetDataCollectionRuleDestinationEventHubDirect {
-		if v != nil {
-			return *v
-		}
-		var ret GetDataCollectionRuleDestinationEventHubDirect
-		return ret
-	}).(GetDataCollectionRuleDestinationEventHubDirectOutput)
-}
-
-// The resource ID of the Event Hub.
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) EventHubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EventHubId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the Data Collection Rule.
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataCollectionRuleDestinationLogAnalytic struct {
@@ -22998,9 +22808,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubPtrInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubDirectInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubDirectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubDirectPtrInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubDirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationMonitorAccountInput)(nil)).Elem(), GetDataCollectionRuleDestinationMonitorAccountArgs{})
@@ -23311,9 +23119,7 @@ func init() {
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubOutput{})
-	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubPtrOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubDirectOutput{})
-	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubDirectPtrOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationMonitorAccountOutput{})

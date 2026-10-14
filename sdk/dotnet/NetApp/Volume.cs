@@ -28,7 +28,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
         [Output("acceptGrowCapacityPoolForShortTermCloneSplit")]
         public Output<string?> AcceptGrowCapacityPoolForShortTermCloneSplit { get; private set; } = null!;
@@ -44,6 +44,16 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("azureVmwareDataStoreEnabled")]
         public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `False`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `BreakthroughModeEnabled` can only be set to `True` when `LargeVolumeEnabled` is also `True`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+        /// 
+        /// &gt; **Note:** `CoolAccess` cannot be configured at the same time the volume is created with `BreakthroughModeEnabled` set to `True`. Cool access can be enabled on a subsequent update of the volume.
+        /// </summary>
+        [Output("breakthroughModeEnabled")]
+        public Output<bool?> BreakthroughModeEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `CoolAccess` block as defined below.
@@ -110,7 +120,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
         [Output("largeVolumeEnabled")]
         public Output<bool?> LargeVolumeEnabled { get; private set; } = null!;
@@ -134,7 +144,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Output("networkFeatures")]
         public Output<string> NetworkFeatures { get; private set; } = null!;
@@ -182,7 +192,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> Smb3ProtocolEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Output("smbAccessBasedEnumerationEnabled")]
         public Output<bool?> SmbAccessBasedEnumerationEnabled { get; private set; } = null!;
@@ -194,7 +204,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> SmbContinuousAvailabilityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Output("smbNonBrowsableEnabled")]
         public Output<bool?> SmbNonBrowsableEnabled { get; private set; } = null!;
@@ -206,7 +216,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum Storage Quota allowed for a file system in Gigabytes.
+        /// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `BreakthroughModeEnabled` set to `True`.
         /// </summary>
         [Output("storageQuotaInGb")]
         public Output<int> StorageQuotaInGb { get; private set; } = null!;
@@ -238,7 +248,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> VolumePath { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -292,7 +302,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
         [Input("acceptGrowCapacityPoolForShortTermCloneSplit")]
         public Input<string>? AcceptGrowCapacityPoolForShortTermCloneSplit { get; set; }
@@ -308,6 +318,16 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
+
+        /// <summary>
+        /// A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `False`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `BreakthroughModeEnabled` can only be set to `True` when `LargeVolumeEnabled` is also `True`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+        /// 
+        /// &gt; **Note:** `CoolAccess` cannot be configured at the same time the volume is created with `BreakthroughModeEnabled` set to `True`. Cool access can be enabled on a subsequent update of the volume.
+        /// </summary>
+        [Input("breakthroughModeEnabled")]
+        public Input<bool>? BreakthroughModeEnabled { get; set; }
 
         /// <summary>
         /// A `CoolAccess` block as defined below.
@@ -380,7 +400,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
         [Input("largeVolumeEnabled")]
         public Input<bool>? LargeVolumeEnabled { get; set; }
@@ -398,7 +418,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
@@ -452,7 +472,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
@@ -464,7 +484,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Input("smbNonBrowsableEnabled")]
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
@@ -476,7 +496,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
 
         /// <summary>
-        /// The maximum Storage Quota allowed for a file system in Gigabytes.
+        /// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `BreakthroughModeEnabled` set to `True`.
         /// </summary>
         [Input("storageQuotaInGb", required: true)]
         public Input<int> StorageQuotaInGb { get; set; } = null!;
@@ -514,7 +534,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> VolumePath { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -530,7 +550,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
         [Input("acceptGrowCapacityPoolForShortTermCloneSplit")]
         public Input<string>? AcceptGrowCapacityPoolForShortTermCloneSplit { get; set; }
@@ -546,6 +566,16 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
+
+        /// <summary>
+        /// A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `False`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `BreakthroughModeEnabled` can only be set to `True` when `LargeVolumeEnabled` is also `True`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+        /// 
+        /// &gt; **Note:** `CoolAccess` cannot be configured at the same time the volume is created with `BreakthroughModeEnabled` set to `True`. Cool access can be enabled on a subsequent update of the volume.
+        /// </summary>
+        [Input("breakthroughModeEnabled")]
+        public Input<bool>? BreakthroughModeEnabled { get; set; }
 
         /// <summary>
         /// A `CoolAccess` block as defined below.
@@ -618,7 +648,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
         [Input("largeVolumeEnabled")]
         public Input<bool>? LargeVolumeEnabled { get; set; }
@@ -648,7 +678,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
@@ -702,7 +732,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
@@ -714,7 +744,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Input("smbNonBrowsableEnabled")]
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
@@ -726,7 +756,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
 
         /// <summary>
-        /// The maximum Storage Quota allowed for a file system in Gigabytes.
+        /// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `BreakthroughModeEnabled` set to `True`.
         /// </summary>
         [Input("storageQuotaInGb")]
         public Input<int>? StorageQuotaInGb { get; set; }
@@ -764,7 +794,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? VolumePath { get; set; }
 
         /// <summary>
-        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

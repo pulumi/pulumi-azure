@@ -129,7 +129,7 @@ type FhirService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 	OciArtifacts FhirServiceOciArtifactArrayOutput `pulumi:"ociArtifacts"`
 	// Whether public networks access is enabled.
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -198,7 +198,7 @@ type fhirServiceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name *string `pulumi:"name"`
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 	OciArtifacts []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
 	// Whether public networks access is enabled.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -229,7 +229,7 @@ type FhirServiceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name pulumi.StringPtrInput
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 	OciArtifacts FhirServiceOciArtifactArrayInput
 	// Whether public networks access is enabled.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -264,7 +264,7 @@ type fhirServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name *string `pulumi:"name"`
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 	OciArtifacts []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
 	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -294,7 +294,7 @@ type FhirServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name pulumi.StringPtrInput
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 	OciArtifacts FhirServiceOciArtifactArrayInput
 	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -436,7 +436,7 @@ func (o FhirServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/azure/healthcare-apis/fhir/de-identified-export).
 func (o FhirServiceOutput) OciArtifacts() FhirServiceOciArtifactArrayOutput {
 	return o.ApplyT(func(v *FhirService) FhirServiceOciArtifactArrayOutput { return v.OciArtifacts }).(FhirServiceOciArtifactArrayOutput)
 }

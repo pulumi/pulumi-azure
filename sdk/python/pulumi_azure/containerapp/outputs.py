@@ -760,7 +760,7 @@ class AppRegistry(dict):
                  password_secret_name: Optional[_builtins.str] = None,
                  username: Optional[_builtins.str] = None):
         """
-        :param _builtins.str server: The hostname for the Container Registry.
+        :param _builtins.str server: The FQDN for the Container Registry.
                
                The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         :param _builtins.str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
@@ -781,7 +781,7 @@ class AppRegistry(dict):
     @pulumi.getter
     def server(self) -> _builtins.str:
         """
-        The hostname for the Container Registry.
+        The FQDN for the Container Registry.
 
         The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         """
@@ -2737,7 +2737,7 @@ class EnvironmentCertificateCertificateKeyVault(dict):
         :param _builtins.str key_vault_secret_id: The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
         :param _builtins.str identity: The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
                
-               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
         """
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if identity is not None:
@@ -2757,7 +2757,7 @@ class EnvironmentCertificateCertificateKeyVault(dict):
         """
         The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 
-        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
         """
         return pulumi.get(self, "identity")
 
@@ -5281,7 +5281,7 @@ class GetAppRegistryResult(dict):
         """
         :param _builtins.str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param _builtins.str password_secret_name: The name of the Secret Reference containing the password value for the user on the Container Registry.
-        :param _builtins.str server: The hostname for the Container Registry.
+        :param _builtins.str server: The FQDN for the Container Registry.
         :param _builtins.str username: The username used for this Container Registry.
         """
         pulumi.set(__self__, "identity", identity)
@@ -5309,7 +5309,7 @@ class GetAppRegistryResult(dict):
     @pulumi.getter
     def server(self) -> _builtins.str:
         """
-        The hostname for the Container Registry.
+        The FQDN for the Container Registry.
         """
         return pulumi.get(self, "server")
 

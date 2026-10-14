@@ -225,13 +225,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ",",
-//				"input":     exampleNetworkManagerAdminRule.SourcePortRanges,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = network.NewNetworkManagerDeployment(ctx, "example", &network.NetworkManagerDeploymentArgs{
 //				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Location:         pulumi.String("eastus"),
@@ -240,7 +233,10 @@ import (
 //					exampleNetworkManagerSecurityAdminConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Triggers: pulumi.StringMap{
-//					"source_port_ranges": invokeJoin.Result,
+//					"source_port_ranges": std.JoinOutput(ctx, std.JoinOutputArgs{
+//						Separator: pulumi.String(","),
+//						Input:     exampleNetworkManagerAdminRule.SourcePortRanges,
+//					}, nil).Result(),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleNetworkManagerAdminRule,
@@ -259,7 +255,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //

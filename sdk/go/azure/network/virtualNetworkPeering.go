@@ -150,10 +150,10 @@ import (
 // }
 // vnet = append(vnet, __res)
 // }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, map[string]interface{}{
-// "input": vnet[val0].AddressSpace[val0],
-// "newbits": 13,
-// "netnum": 0,
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: vnet[val0].AddressSpace[val0],
+// Newbits: 13,
+// Netnum: 0,
 // }, nil)
 // if err != nil {
 // return err
@@ -248,29 +248,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ",",
-//				"input":     example_2.AddressSpaces,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = network.NewVirtualNetworkPeering(ctx, "example-1", &network.VirtualNetworkPeeringArgs{
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
 //				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": invokeJoin.Result,
+//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
+//						Separator: pulumi.String(","),
+//						Input:     example_2.AddressSpaces,
+//					}, nil).Result(),
 //				},
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeJoin1, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ",",
-//				"input":     example_1.AddressSpaces,
-//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -280,7 +269,10 @@ import (
 //				VirtualNetworkName:     example_2.Name,
 //				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": invokeJoin1.Result,
+//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
+//						Separator: pulumi.String(","),
+//						Input:     example_1.AddressSpaces,
+//					}, nil).Result(),
 //				},
 //			})
 //			if err != nil {
@@ -301,7 +293,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Watcher Flow Log.
     /// 
-    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `StorageAccount` with no existing management rules, until the issue is fixed.
+    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `StorageAccount` with no existing management rules, until the issue is fixed.
     /// 
     /// ## Example Usage
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Output("version")]
         public Output<int?> Version { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

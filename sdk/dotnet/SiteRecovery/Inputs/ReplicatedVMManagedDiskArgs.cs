@@ -33,7 +33,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// <summary>
         /// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Creating replicated vm with `TargetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `Timeout` for `Create`.
+        /// &gt; **Note:** Creating replicated vm with `TargetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `Timeout` for `Create`.
         /// </summary>
         [Input("targetDiskEncryptionSetId")]
         public Input<string>? TargetDiskEncryptionSetId { get; set; }

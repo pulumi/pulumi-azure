@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *             .name(server.get("hex"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
  *             .hostname("www.mywebsite.com")
- *             .appServiceName(exampleAppService.name())
+ *             .appServiceName(exampleAppService.get("name"))
  *             .resourceGroupName(example.name())
  *             .build());
  * 

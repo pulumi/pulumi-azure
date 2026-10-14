@@ -94,18 +94,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ".",
-//				"input": pulumi.StringArray{
-//					exampleCNameRecord.Name,
-//					exampleCNameRecord.ZoneName,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname:          invokeJoin.Result,
+//				Hostname: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						exampleCNameRecord.Name,
+//						exampleCNameRecord.ZoneName,
+//					},
+//				}, nil).Result(),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class RoleManagementPolicyNotificationRulesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `NotificationTarget` block as defined below to configure notfications on active role assignments.
+        /// A `NotificationTarget` block as defined below to configure notifications on active role assignments.
         /// </summary>
         [Input("activeAssignments")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesActiveAssignmentsGetArgs>? ActiveAssignments { get; set; }

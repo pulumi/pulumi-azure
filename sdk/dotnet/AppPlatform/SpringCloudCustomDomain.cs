@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppPlatform
     ///                 exampleCNameRecord.Name,
     ///                 exampleCNameRecord.ZoneName,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///     });
     /// 

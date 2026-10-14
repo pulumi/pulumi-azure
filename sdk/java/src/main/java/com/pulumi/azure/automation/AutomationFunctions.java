@@ -1406,6 +1406,7 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1425,7 +1426,9 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variable", StdFunctions.jsondecode(Map.of("input", example.value())).result());
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
      *     }
      * }
      * }
@@ -1450,6 +1453,7 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1469,7 +1473,9 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variable", StdFunctions.jsondecode(Map.of("input", example.value())).result());
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
      *     }
      * }
      * }
@@ -1494,6 +1500,7 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1513,7 +1520,9 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variable", StdFunctions.jsondecode(Map.of("input", example.value())).result());
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
      *     }
      * }
      * }
@@ -1538,6 +1547,7 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1557,7 +1567,9 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variable", StdFunctions.jsondecode(Map.of("input", example.value())).result());
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
      *     }
      * }
      * }
@@ -1582,6 +1594,7 @@ public final class AutomationFunctions {
      * import com.pulumi.azure.automation.AutomationFunctions;
      * import com.pulumi.azure.automation.inputs.GetVariableObjectArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1601,7 +1614,9 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variable", StdFunctions.jsondecode(Map.of("input", example.value())).result());
+     *         ctx.export("variable", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.value())
+     *             .build()).result());
      *     }
      * }
      * }

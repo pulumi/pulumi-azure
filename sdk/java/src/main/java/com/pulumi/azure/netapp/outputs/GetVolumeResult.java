@@ -26,12 +26,17 @@ public final class GetVolumeResult {
     private String acceptGrowCapacityPoolForShortTermCloneSplit;
     private String accountName;
     /**
+     * @return Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+     * 
+     */
+    private Boolean breakthroughModeEnabled;
+    /**
      * @return An Advanced Ransomware Protection (ARP) data protection block.
      * 
      */
     private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
     /**
-     * @return A data protecion backup policy block
+     * @return A data protection backup policy block
      * 
      */
     private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
@@ -128,6 +133,13 @@ public final class GetVolumeResult {
         return this.accountName;
     }
     /**
+     * @return Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+     * 
+     */
+    public Boolean breakthroughModeEnabled() {
+        return this.breakthroughModeEnabled;
+    }
+    /**
      * @return An Advanced Ransomware Protection (ARP) data protection block.
      * 
      */
@@ -135,7 +147,7 @@ public final class GetVolumeResult {
         return this.dataProtectionAdvancedRansomwares;
     }
     /**
-     * @return A data protecion backup policy block
+     * @return A data protection backup policy block
      * 
      */
     public List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies() {
@@ -273,6 +285,7 @@ public final class GetVolumeResult {
     public static final class Builder {
         private String acceptGrowCapacityPoolForShortTermCloneSplit;
         private String accountName;
+        private Boolean breakthroughModeEnabled;
         private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
         private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
@@ -300,6 +313,7 @@ public final class GetVolumeResult {
     	      Objects.requireNonNull(defaults);
     	      this.acceptGrowCapacityPoolForShortTermCloneSplit = defaults.acceptGrowCapacityPoolForShortTermCloneSplit;
     	      this.accountName = defaults.accountName;
+    	      this.breakthroughModeEnabled = defaults.breakthroughModeEnabled;
     	      this.dataProtectionAdvancedRansomwares = defaults.dataProtectionAdvancedRansomwares;
     	      this.dataProtectionBackupPolicies = defaults.dataProtectionBackupPolicies;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
@@ -338,6 +352,14 @@ public final class GetVolumeResult {
               throw new MissingRequiredPropertyException("GetVolumeResult", "accountName");
             }
             this.accountName = accountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder breakthroughModeEnabled(Boolean breakthroughModeEnabled) {
+            if (breakthroughModeEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "breakthroughModeEnabled");
+            }
+            this.breakthroughModeEnabled = breakthroughModeEnabled;
             return this;
         }
         @CustomType.Setter
@@ -533,6 +555,7 @@ public final class GetVolumeResult {
             final var _resultValue = new GetVolumeResult();
             _resultValue.acceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             _resultValue.accountName = accountName;
+            _resultValue.breakthroughModeEnabled = breakthroughModeEnabled;
             _resultValue.dataProtectionAdvancedRansomwares = dataProtectionAdvancedRansomwares;
             _resultValue.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
             _resultValue.dataProtectionReplications = dataProtectionReplications;

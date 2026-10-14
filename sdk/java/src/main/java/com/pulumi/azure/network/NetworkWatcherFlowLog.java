@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Watcher Flow Log.
  * 
- * &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
+ * &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
  * 
  * ## Example Usage
  * 
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -282,14 +282,14 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.trafficAnalytics);
     }
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> version;
 
     /**
-     * @return The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * @return The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     public Output<Optional<Integer>> version() {

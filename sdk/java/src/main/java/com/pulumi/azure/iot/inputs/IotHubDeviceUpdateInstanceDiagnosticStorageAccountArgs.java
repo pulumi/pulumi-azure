@@ -6,8 +6,11 @@ package com.pulumi.azure.iot.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +21,51 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extend
      * Connection String of the Diagnostic Storage Account.
      * 
      */
-    @Import(name="connectionString", required=true)
-    private Output<String> connectionString;
+    @Import(name="connectionString")
+    private @Nullable Output<String> connectionString;
 
     /**
      * @return Connection String of the Diagnostic Storage Account.
      * 
      */
-    public Output<String> connectionString() {
-        return this.connectionString;
+    public Optional<Output<String>> connectionString() {
+        return Optional.ofNullable(this.connectionString);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Connection String of the Diagnostic Storage Account.
+     * 
+     * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+     * 
+     */
+    @Import(name="connectionStringWo")
+    private @Nullable Output<String> connectionStringWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Connection String of the Diagnostic Storage Account.
+     * 
+     * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+     * 
+     */
+    public Optional<Output<String>> connectionStringWo() {
+        return Optional.ofNullable(this.connectionStringWo);
+    }
+
+    /**
+     * An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+     * 
+     */
+    @Import(name="connectionStringWoVersion")
+    private @Nullable Output<Integer> connectionStringWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+     * 
+     */
+    public Optional<Output<Integer>> connectionStringWoVersion() {
+        return Optional.ofNullable(this.connectionStringWoVersion);
     }
 
     /**
@@ -48,6 +87,8 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extend
 
     private IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs $) {
         this.connectionString = $.connectionString;
+        this.connectionStringWo = $.connectionStringWo;
+        this.connectionStringWoVersion = $.connectionStringWoVersion;
         this.id = $.id;
     }
 
@@ -75,7 +116,7 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extend
          * @return builder
          * 
          */
-        public Builder connectionString(Output<String> connectionString) {
+        public Builder connectionString(@Nullable Output<String> connectionString) {
             $.connectionString = connectionString;
             return this;
         }
@@ -88,6 +129,54 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extend
          */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
+        }
+
+        /**
+         * @param connectionStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Connection String of the Diagnostic Storage Account.
+         * 
+         * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringWo(@Nullable Output<String> connectionStringWo) {
+            $.connectionStringWo = connectionStringWo;
+            return this;
+        }
+
+        /**
+         * @param connectionStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Connection String of the Diagnostic Storage Account.
+         * 
+         * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringWo(String connectionStringWo) {
+            return connectionStringWo(Output.of(connectionStringWo));
+        }
+
+        /**
+         * @param connectionStringWoVersion An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringWoVersion(@Nullable Output<Integer> connectionStringWoVersion) {
+            $.connectionStringWoVersion = connectionStringWoVersion;
+            return this;
+        }
+
+        /**
+         * @param connectionStringWoVersion An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringWoVersion(Integer connectionStringWoVersion) {
+            return connectionStringWoVersion(Output.of(connectionStringWoVersion));
         }
 
         /**
@@ -112,9 +201,6 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs extend
         }
 
         public IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs build() {
-            if ($.connectionString == null) {
-                throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs", "connectionString");
-            }
             if ($.id == null) {
                 throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs", "id");
             }

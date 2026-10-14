@@ -2982,7 +2982,7 @@ class BackendCircuitBreakerRule(dict):
         :param 'BackendCircuitBreakerRuleFailureConditionArgs' failure_condition: A `failure_condition` block as defined below.
         :param _builtins.str name: The name of the circuit breaker rule.
         :param _builtins.str trip_duration: Specifies the duration for which the circuit remains open before retrying, in ISO 8601 format.
-        :param _builtins.bool accept_retry_after_enabled: Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        :param _builtins.bool accept_retry_after_enabled: Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
         """
         pulumi.set(__self__, "failure_condition", failure_condition)
         pulumi.set(__self__, "name", name)
@@ -3018,7 +3018,7 @@ class BackendCircuitBreakerRule(dict):
     @pulumi.getter(name="acceptRetryAfterEnabled")
     def accept_retry_after_enabled(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+        Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
         """
         return pulumi.get(self, "accept_retry_after_enabled")
 

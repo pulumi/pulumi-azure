@@ -6737,7 +6737,7 @@ type FactoryGithubConfiguration struct {
 	AccountName string `pulumi:"accountName"`
 	// Specifies the branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+	// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
 	GitUrl *string `pulumi:"gitUrl"`
 	// Is automated publishing enabled? Defaults to `true`.
 	//
@@ -6765,7 +6765,7 @@ type FactoryGithubConfigurationArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+	// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
 	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
 	// Is automated publishing enabled? Defaults to `true`.
 	//
@@ -6864,7 +6864,7 @@ func (o FactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
 func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) *string { return v.GitUrl }).(pulumi.StringPtrOutput)
 }
@@ -6930,7 +6930,7 @@ func (o FactoryGithubConfigurationPtrOutput) BranchName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
 func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
 		if v == nil {

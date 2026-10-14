@@ -45,14 +45,14 @@ class NamespaceArgs:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
-               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -170,7 +170,7 @@ class NamespaceArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -210,7 +210,7 @@ class NamespaceArgs:
         """
         Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 
-        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         """
         return pulumi.get(self, "premium_messaging_partitions")
 
@@ -277,14 +277,14 @@ class _NamespaceState:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
-               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
@@ -452,7 +452,7 @@ class _NamespaceState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -492,7 +492,7 @@ class _NamespaceState:
         """
         Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 
-        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         """
         return pulumi.get(self, "premium_messaging_partitions")
 
@@ -597,7 +597,7 @@ class Namespace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ServiceBus` - 2024-01-01
+        * `Microsoft.ServiceBus` - 2026-01-01
 
         ## Import
 
@@ -615,14 +615,14 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
-               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
@@ -662,7 +662,7 @@ class Namespace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ServiceBus` - 2024-01-01
+        * `Microsoft.ServiceBus` - 2026-01-01
 
         ## Import
 
@@ -781,14 +781,14 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
-               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+               > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
@@ -903,7 +903,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -931,7 +931,7 @@ class Namespace(pulumi.CustomResource):
         """
         Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 
-        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         """
         return pulumi.get(self, "premium_messaging_partitions")
 

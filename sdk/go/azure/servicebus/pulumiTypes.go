@@ -720,7 +720,7 @@ func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) 
 type SubscriptionClientScopedSubscription struct {
 	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 	ClientId *string `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable *bool `pulumi:"isClientScopedSubscriptionDurable"`
@@ -742,7 +742,7 @@ type SubscriptionClientScopedSubscriptionInput interface {
 type SubscriptionClientScopedSubscriptionArgs struct {
 	// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+	// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 	IsClientScopedSubscriptionDurable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionDurable"`
@@ -829,7 +829,7 @@ func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSu
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 //
-// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 func (o SubscriptionClientScopedSubscriptionOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -870,7 +870,7 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClient
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 //
-// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+// > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 func (o SubscriptionClientScopedSubscriptionPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *string {
 		if v == nil {

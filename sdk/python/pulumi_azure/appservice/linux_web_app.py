@@ -34,6 +34,7 @@ class LinuxWebAppArgs:
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['LinuxWebAppIdentityArgs']] = None,
@@ -68,6 +69,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
@@ -82,11 +84,11 @@ class LinuxWebAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -95,7 +97,7 @@ class LinuxWebAppArgs:
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -120,6 +122,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_to_end_tls_encryption_enabled is not None:
+            pulumi.set(__self__, "end_to_end_tls_encryption_enabled", end_to_end_tls_encryption_enabled)
         if ftp_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if https_only is not None:
@@ -312,6 +316,18 @@ class LinuxWebAppArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
+
+    @end_to_end_tls_encryption_enabled.setter
+    def end_to_end_tls_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "end_to_end_tls_encryption_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
     def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -461,11 +477,11 @@ class LinuxWebAppArgs:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -507,7 +523,7 @@ class LinuxWebAppArgs:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -531,6 +547,7 @@ class _LinuxWebAppState:
                  custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
                  default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -574,6 +591,7 @@ class _LinuxWebAppState:
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
@@ -598,11 +616,11 @@ class _LinuxWebAppState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -611,7 +629,7 @@ class _LinuxWebAppState:
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -637,6 +655,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_to_end_tls_encryption_enabled is not None:
+            pulumi.set(__self__, "end_to_end_tls_encryption_enabled", end_to_end_tls_encryption_enabled)
         if ftp_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if hosting_environment_id is not None:
@@ -835,6 +855,18 @@ class _LinuxWebAppState:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
+
+    @end_to_end_tls_encryption_enabled.setter
+    def end_to_end_tls_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "end_to_end_tls_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
@@ -1106,11 +1138,11 @@ class _LinuxWebAppState:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1152,7 +1184,7 @@ class _LinuxWebAppState:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -1177,6 +1209,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']]] = None,
@@ -1253,6 +1286,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']] identity: An `identity` block as defined below.
@@ -1270,11 +1304,11 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1283,7 +1317,7 @@ class LinuxWebApp(pulumi.CustomResource):
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         ...
     @overload
@@ -1358,6 +1392,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']]] = None,
@@ -1396,6 +1431,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["end_to_end_tls_encryption_enabled"] = end_to_end_tls_encryption_enabled
             __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
@@ -1454,6 +1490,7 @@ class LinuxWebApp(pulumi.CustomResource):
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1501,6 +1538,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
@@ -1525,11 +1563,11 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1538,7 +1576,7 @@ class LinuxWebApp(pulumi.CustomResource):
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1556,6 +1594,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["end_to_end_tls_encryption_enabled"] = end_to_end_tls_encryption_enabled
         __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["hosting_environment_id"] = hosting_environment_id
         __props__.__dict__["https_only"] = https_only
@@ -1681,6 +1720,14 @@ class LinuxWebApp(pulumi.CustomResource):
         Should the Linux Web App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
@@ -1864,11 +1911,11 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1898,7 +1945,7 @@ class LinuxWebApp(pulumi.CustomResource):
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 

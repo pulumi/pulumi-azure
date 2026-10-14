@@ -179,7 +179,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -237,7 +237,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      */
     declare public readonly customBgpAddresses: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionCustomBgpAddresses | undefined>;
     /**
@@ -431,7 +431,7 @@ export interface VirtualNetworkGatewayConnectionState {
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      */
     customBgpAddresses?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionCustomBgpAddresses | undefined>;
     /**
@@ -544,7 +544,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      */
     customBgpAddresses?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionCustomBgpAddresses | undefined>;
     /**

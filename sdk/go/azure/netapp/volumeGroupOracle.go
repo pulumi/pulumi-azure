@@ -14,7 +14,7 @@ import (
 
 // Manages a Application Volume Group for Oracle application.
 //
-// > **Note:** This feature is intended to be used for Oracle workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-oracle-introduction) document as the starting point to understand this feature before using it with Terraform.
+// > **Note:** This feature is intended to be used for Oracle workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-introduction) document as the starting point to understand this feature before using it with Terraform.
 //
 // ## Example Usage
 //
@@ -406,7 +406,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2026-01-01
+// * `Microsoft.NetApp` - 2026-05-01
 //
 // ## Import
 //

@@ -80,7 +80,7 @@ import (
 //
 // ## Import
 //
-// SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.
+// SingleSignOn on the Datadog Monitor can be imported using the `single sign on resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default

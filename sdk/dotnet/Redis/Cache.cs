@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         /// </summary>
         public InputList<string> Zones
         {
@@ -717,7 +717,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         /// </summary>
         public InputList<string> Zones
         {

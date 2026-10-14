@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppService
     ///                 exampleCNameRecord.Name,
     ///                 exampleCNameRecord.ZoneName,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });

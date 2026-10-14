@@ -72,6 +72,11 @@ public final class GetQueueResult {
      * 
      */
     private Integer maxSizeInMegabytes;
+    /**
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+     * 
+     */
+    private Integer maximumMessageSizeInKb;
     private String name;
     private String namespaceId;
     /**
@@ -180,6 +185,13 @@ public final class GetQueueResult {
     public Integer maxSizeInMegabytes() {
         return this.maxSizeInMegabytes;
     }
+    /**
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+     * 
+     */
+    public Integer maximumMessageSizeInKb() {
+        return this.maximumMessageSizeInKb;
+    }
     public String name() {
         return this.name;
     }
@@ -236,6 +248,7 @@ public final class GetQueueResult {
         private String lockDuration;
         private Integer maxDeliveryCount;
         private Integer maxSizeInMegabytes;
+        private Integer maximumMessageSizeInKb;
         private String name;
         private String namespaceId;
         private Boolean partitioningEnabled;
@@ -257,6 +270,7 @@ public final class GetQueueResult {
     	      this.lockDuration = defaults.lockDuration;
     	      this.maxDeliveryCount = defaults.maxDeliveryCount;
     	      this.maxSizeInMegabytes = defaults.maxSizeInMegabytes;
+    	      this.maximumMessageSizeInKb = defaults.maximumMessageSizeInKb;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
     	      this.partitioningEnabled = defaults.partitioningEnabled;
@@ -362,6 +376,14 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
+        public Builder maximumMessageSizeInKb(Integer maximumMessageSizeInKb) {
+            if (maximumMessageSizeInKb == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "maximumMessageSizeInKb");
+            }
+            this.maximumMessageSizeInKb = maximumMessageSizeInKb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetQueueResult", "name");
@@ -423,6 +445,7 @@ public final class GetQueueResult {
             _resultValue.lockDuration = lockDuration;
             _resultValue.maxDeliveryCount = maxDeliveryCount;
             _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
+            _resultValue.maximumMessageSizeInKb = maximumMessageSizeInKb;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
             _resultValue.partitioningEnabled = partitioningEnabled;

@@ -198,7 +198,7 @@ def get_network_manager_connectivity_configuration(name: Optional[_builtins.str]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of this Network Manager Connectivity Configuration.
@@ -245,7 +245,7 @@ def get_network_manager_connectivity_configuration_output(name: pulumi.Input[Opt
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of this Network Manager Connectivity Configuration.

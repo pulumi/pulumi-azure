@@ -514,7 +514,7 @@ class GetServiceStatusExtensionServiceResult(dict):
                  startup_type: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str startup_type: The behavior of the service when the Arc-enabled machine starts up.
+        :param _builtins.str startup_type: The behaviour of the service when the Arc-enabled machine starts up.
         :param _builtins.str status: The current status of the service.
         """
         pulumi.set(__self__, "startup_type", startup_type)
@@ -524,7 +524,7 @@ class GetServiceStatusExtensionServiceResult(dict):
     @pulumi.getter(name="startupType")
     def startup_type(self) -> _builtins.str:
         """
-        The behavior of the service when the Arc-enabled machine starts up.
+        The behaviour of the service when the Arc-enabled machine starts up.
         """
         return pulumi.get(self, "startup_type")
 
@@ -543,7 +543,7 @@ class GetServiceStatusGuestConfigurationServiceResult(dict):
                  startup_type: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str startup_type: The behavior of the service when the Arc-enabled machine starts up.
+        :param _builtins.str startup_type: The behaviour of the service when the Arc-enabled machine starts up.
         :param _builtins.str status: The current status of the service.
         """
         pulumi.set(__self__, "startup_type", startup_type)
@@ -553,7 +553,7 @@ class GetServiceStatusGuestConfigurationServiceResult(dict):
     @pulumi.getter(name="startupType")
     def startup_type(self) -> _builtins.str:
         """
-        The behavior of the service when the Arc-enabled machine starts up.
+        The behaviour of the service when the Arc-enabled machine starts up.
         """
         return pulumi.get(self, "startup_type")
 

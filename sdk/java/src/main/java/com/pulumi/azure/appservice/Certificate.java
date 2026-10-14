@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.Certificate;
  * import com.pulumi.azure.appservice.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,7 +58,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .pfxBlob(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
+ *             .pfxBlob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("certificate.pfx")
+ *                 .build()).result())
  *             .password("password123!")
  *             .build());
  * 

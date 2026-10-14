@@ -126,14 +126,14 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     @Import(name="rbacScopeId")
     private @Nullable Output<String> rbacScopeId;
 
     /**
-     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * @return The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     public Optional<Output<String>> rbacScopeId() {
@@ -355,7 +355,7 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
          * 
          * @return builder
          * 

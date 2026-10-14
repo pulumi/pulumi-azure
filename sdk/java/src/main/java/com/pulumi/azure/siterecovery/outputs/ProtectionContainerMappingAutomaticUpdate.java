@@ -15,7 +15,7 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
      * 
-     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
      * 
      */
     private @Nullable String authenticationType;
@@ -29,7 +29,7 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
      * 
-     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
      * 
      */
     public Optional<String> authenticationType() {

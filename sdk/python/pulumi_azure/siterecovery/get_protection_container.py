@@ -115,7 +115,7 @@ def get_protection_container(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Specifies the name of the protection container.
     :param _builtins.str recovery_fabric_name: The name of the fabric that contains the protection container.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the protection container is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the protection container is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated protection container resides.
     """
     __args__ = dict()
@@ -162,7 +162,7 @@ def get_protection_container_output(name: pulumi.Input[Optional[_builtins.str]] 
 
     :param _builtins.str name: Specifies the name of the protection container.
     :param _builtins.str recovery_fabric_name: The name of the fabric that contains the protection container.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the protection container is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the protection container is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated protection container resides.
     """
     __args__ = dict()

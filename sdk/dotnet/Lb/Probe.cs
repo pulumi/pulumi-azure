@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Lb
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -101,6 +101,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        /// </summary>
+        [Output("noHealthyBackendsBehavior")]
+        public Output<string?> NoHealthyBackendsBehavior { get; private set; } = null!;
 
         /// <summary>
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -197,6 +203,12 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        /// </summary>
+        [Input("noHealthyBackendsBehavior")]
+        public Input<string>? NoHealthyBackendsBehavior { get; set; }
+
+        /// <summary>
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         /// </summary>
         [Input("numberOfProbes")]
@@ -259,6 +271,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        /// </summary>
+        [Input("noHealthyBackendsBehavior")]
+        public Input<string>? NoHealthyBackendsBehavior { get; set; }
 
         /// <summary>
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.

@@ -87,7 +87,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     @Import(name="customBgpAddresses")
@@ -96,7 +96,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     /**
      * @return A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     public Optional<Output<VirtualNetworkGatewayConnectionCustomBgpAddressesArgs>> customBgpAddresses() {
@@ -548,7 +548,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         /**
          * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
          * The block can only be used on `IPSec` / `activeactive` connections,
-         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         /**
          * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
          * The block can only be used on `IPSec` / `activeactive` connections,
-         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
          * @return builder
          * 

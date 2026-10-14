@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
- * import com.pulumi.time.Static;
+ * import com.pulumiverse.time.Static;
  * import com.pulumi.azure.pim.EligibleRoleAssignment;
  * import com.pulumi.azure.pim.EligibleRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.EligibleRoleAssignmentScheduleArgs;
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.management.Group;
  * import com.pulumi.azure.management.GroupArgs;
- * import com.pulumi.time.Static;
+ * import com.pulumiverse.time.Static;
  * import com.pulumi.azure.pim.EligibleRoleAssignment;
  * import com.pulumi.azure.pim.EligibleRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.EligibleRoleAssignmentScheduleArgs;
@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:pim/eligibleRoleAssignment:EligibleRoleAssignment")
 public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     /**
-     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> condition() {

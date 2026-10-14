@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     certificateLocation: "Unknown",
  *     blob: std.filebase64({
  *         input: "app_service_public_certificate.cer",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

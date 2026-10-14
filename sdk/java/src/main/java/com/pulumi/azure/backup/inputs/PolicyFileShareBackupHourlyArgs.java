@@ -46,14 +46,14 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+     * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     @Import(name="windowDuration", required=true)
     private Output<Integer> windowDuration;
 
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     public Output<Integer> windowDuration() {
@@ -129,7 +129,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          * 
          * @return builder
          * 

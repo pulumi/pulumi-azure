@@ -193,15 +193,26 @@ namespace Pulumi.Azure.Monitoring
         /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleIdentityResult> Identities;
+        /// <summary>
+        /// The immutable ID of the Data Collection Rule.
+        /// </summary>
         public readonly string ImmutableId;
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. A rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// </summary>
         public readonly string Kind;
         /// <summary>
         /// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The endpoint used for ingesting logs.
+        /// </summary>
+        public readonly string LogsIngestionEndpoint;
+        /// <summary>
+        /// The endpoint used for ingesting metrics.
+        /// </summary>
+        public readonly string MetricsIngestionEndpoint;
         /// <summary>
         /// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         /// </summary>
@@ -238,6 +249,10 @@ namespace Pulumi.Azure.Monitoring
 
             string location,
 
+            string logsIngestionEndpoint,
+
+            string metricsIngestionEndpoint,
+
             string name,
 
             string resourceGroupName,
@@ -256,6 +271,8 @@ namespace Pulumi.Azure.Monitoring
             ImmutableId = immutableId;
             Kind = kind;
             Location = location;
+            LogsIngestionEndpoint = logsIngestionEndpoint;
+            MetricsIngestionEndpoint = metricsIngestionEndpoint;
             Name = name;
             ResourceGroupName = resourceGroupName;
             StreamDeclarations = streamDeclarations;

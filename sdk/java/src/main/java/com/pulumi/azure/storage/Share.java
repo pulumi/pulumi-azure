@@ -204,14 +204,14 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.quota;
     }
     /**
-     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     @Export(name="rbacScopeId", refs={String.class}, tree="[0]")
     private Output<String> rbacScopeId;
 
     /**
-     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * @return The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     public Output<String> rbacScopeId() {

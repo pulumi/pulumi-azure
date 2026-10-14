@@ -127,7 +127,7 @@ namespace Pulumi.Azure.PaloAlto
     ///     {
     ///         Name = "example-rulestack",
     ///         ResourceGroupName = example.Name,
-    ///         Location = example.Locatio,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()

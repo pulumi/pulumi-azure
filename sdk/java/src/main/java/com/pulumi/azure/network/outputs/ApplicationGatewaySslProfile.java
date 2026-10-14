@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewaySslProfile {
     /**
+     * @return Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+     * 
+     */
+    private @Nullable String clientAuthenticationMode;
+    /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
@@ -26,27 +31,38 @@ public final class ApplicationGatewaySslProfile {
      */
     private String name;
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
     /**
-     * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * @return The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     private @Nullable List<String> trustedClientCertificateNames;
     /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
+     * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
+     * 
      */
     private @Nullable Boolean verifyClientCertificateIssuerDn;
     /**
-     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * @return Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+     * 
+     * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
      * 
      */
     private @Nullable String verifyClientCertificateRevocation;
 
     private ApplicationGatewaySslProfile() {}
+    /**
+     * @return Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+     * 
+     */
+    public Optional<String> clientAuthenticationMode() {
+        return Optional.ofNullable(this.clientAuthenticationMode);
+    }
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -62,14 +78,14 @@ public final class ApplicationGatewaySslProfile {
         return this.name;
     }
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     public Optional<ApplicationGatewaySslProfileSslPolicy> sslPolicy() {
         return Optional.ofNullable(this.sslPolicy);
     }
     /**
-     * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * @return The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     public List<String> trustedClientCertificateNames() {
@@ -78,12 +94,16 @@ public final class ApplicationGatewaySslProfile {
     /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
+     * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
+     * 
      */
     public Optional<Boolean> verifyClientCertificateIssuerDn() {
         return Optional.ofNullable(this.verifyClientCertificateIssuerDn);
     }
     /**
-     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * @return Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+     * 
+     * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
      * 
      */
     public Optional<String> verifyClientCertificateRevocation() {
@@ -99,6 +119,7 @@ public final class ApplicationGatewaySslProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String clientAuthenticationMode;
         private @Nullable String id;
         private String name;
         private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
@@ -108,6 +129,7 @@ public final class ApplicationGatewaySslProfile {
         public Builder() {}
         public Builder(ApplicationGatewaySslProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clientAuthenticationMode = defaults.clientAuthenticationMode;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.sslPolicy = defaults.sslPolicy;
@@ -116,6 +138,12 @@ public final class ApplicationGatewaySslProfile {
     	      this.verifyClientCertificateRevocation = defaults.verifyClientCertificateRevocation;
         }
 
+        @CustomType.Setter
+        public Builder clientAuthenticationMode(@Nullable String clientAuthenticationMode) {
+
+            this.clientAuthenticationMode = clientAuthenticationMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
 
@@ -159,6 +187,7 @@ public final class ApplicationGatewaySslProfile {
         }
         public ApplicationGatewaySslProfile build() {
             final var _resultValue = new ApplicationGatewaySslProfile();
+            _resultValue.clientAuthenticationMode = clientAuthenticationMode;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.sslPolicy = sslPolicy;

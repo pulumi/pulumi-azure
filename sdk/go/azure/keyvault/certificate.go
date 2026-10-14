@@ -104,8 +104,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "certificate-to-import.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate-to-import.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -114,7 +114,7 @@ import (
 //				Name:       pulumi.String("imported-cert"),
 //				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: invokeFilebase64.Result,
+//					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
 //				},
 //			})

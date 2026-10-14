@@ -908,7 +908,7 @@ class AppIngressTrafficWeightArgs:
 class AppRegistryArgsDict(TypedDict):
     server: pulumi.Input[_builtins.str]
     """
-    The hostname for the Container Registry.
+    The FQDN for the Container Registry.
 
     The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
     """
@@ -935,7 +935,7 @@ class AppRegistryArgs:
                  password_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] server: The hostname for the Container Registry.
+        :param pulumi.Input[_builtins.str] server: The FQDN for the Container Registry.
                
                The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         :param pulumi.Input[_builtins.str] identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
@@ -956,7 +956,7 @@ class AppRegistryArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[_builtins.str]:
         """
-        The hostname for the Container Registry.
+        The FQDN for the Container Registry.
 
         The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         """
@@ -3469,7 +3469,7 @@ class EnvironmentCertificateCertificateKeyVaultArgsDict(TypedDict):
     """
     The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 
-    > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+    > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
     """
 
 @pulumi.input_type
@@ -3481,7 +3481,7 @@ class EnvironmentCertificateCertificateKeyVaultArgs:
         :param pulumi.Input[_builtins.str] key_vault_secret_id: The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] identity: The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
                
-               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+               > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
         """
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if identity is not None:
@@ -3505,7 +3505,7 @@ class EnvironmentCertificateCertificateKeyVaultArgs:
         """
         The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 
-        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
         """
         return pulumi.get(self, "identity")
 

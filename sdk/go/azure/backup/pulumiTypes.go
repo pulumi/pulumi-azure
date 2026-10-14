@@ -209,7 +209,7 @@ type PolicyFileShareBackupHourly struct {
 	Interval int `pulumi:"interval"`
 	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime string `pulumi:"startTime"`
-	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 	WindowDuration int `pulumi:"windowDuration"`
 }
 
@@ -229,7 +229,7 @@ type PolicyFileShareBackupHourlyArgs struct {
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 	WindowDuration pulumi.IntInput `pulumi:"windowDuration"`
 }
 
@@ -320,7 +320,7 @@ func (o PolicyFileShareBackupHourlyOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 func (o PolicyFileShareBackupHourlyOutput) WindowDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) int { return v.WindowDuration }).(pulumi.IntOutput)
 }
@@ -369,7 +369,7 @@ func (o PolicyFileShareBackupHourlyPtrOutput) StartTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 func (o PolicyFileShareBackupHourlyPtrOutput) WindowDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackupHourly) *int {
 		if v == nil {
@@ -902,7 +902,7 @@ type PolicyFileShareRetentionYearly struct {
 	//
 	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays *bool `pulumi:"includeLastDays"`
-	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months []string `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -930,7 +930,7 @@ type PolicyFileShareRetentionYearlyArgs struct {
 	//
 	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
-	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months pulumi.StringArrayInput `pulumi:"months"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -1032,7 +1032,7 @@ func (o PolicyFileShareRetentionYearlyOutput) IncludeLastDays() pulumi.BoolPtrOu
 	return o.ApplyT(func(v PolicyFileShareRetentionYearly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
 }
 
-// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 func (o PolicyFileShareRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
 }
@@ -1103,7 +1103,7 @@ func (o PolicyFileShareRetentionYearlyPtrOutput) IncludeLastDays() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 func (o PolicyFileShareRetentionYearlyPtrOutput) Months() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionYearly) []string {
 		if v == nil {

@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }

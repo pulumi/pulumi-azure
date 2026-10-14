@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const test = new azure.datafactory.LinkedServiceAzureSearch("test", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     url: std.join({
+ *     url: std.joinOutput({
  *         separator: "",
  *         input: [
  *             "https://",

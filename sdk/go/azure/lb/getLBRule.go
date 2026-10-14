@@ -20,7 +20,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetLBRule(ctx *pulumi.Context, args *GetLBRuleArgs, opts ...pulumi.InvokeOption) (*GetLBRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBRuleResult

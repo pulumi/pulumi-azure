@@ -90,7 +90,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     declare public /*out*/ readonly ordererEndpoints: pulumi.Output<string[]>;
     /**
@@ -110,7 +110,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceEndpoints: pulumi.Output<string[]>;
     /**
-     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     declare public /*out*/ readonly storageEndpoints: pulumi.Output<string[]>;
     /**
@@ -199,7 +199,7 @@ export interface ServerState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     ordererEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface ServerState {
      */
     serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     storageEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

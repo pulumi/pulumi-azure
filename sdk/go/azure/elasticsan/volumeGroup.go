@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleElasticSan, err := elasticsan.NewElasticSan(ctx, "example", &elasticsan.ElasticSanArgs{
-//				Name:              pulumi.String("examplees-es"),
+//				Name:              pulumi.String("examples-es"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				BaseSizeInTib:     pulumi.Int(1),

@@ -104,16 +104,16 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new azure.dns.TxtRecord("example", {
- *     name: std.join({
+ *     name: std.split({
+ *         separator: ".",
+ *         text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
+ *     }).then(invoke => std.join({
  *         separator: ".",
  *         input: [
  *             "_dnsauth",
- *             std.split({
- *                 separator: ".",
- *                 text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
- *             }).result[0],
+ *             invoke.result?.[0],
  *         ],
- *     }).result,
+ *     })).then(invoke => invoke.result),
  *     zoneName: exampleAzurermDnsZone.name,
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  *     ttl: 3600,
@@ -136,7 +136,7 @@ import * as utilities from "../utilities";
  *     name: std.split({
  *         separator: ".",
  *         text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
- *     }).result[0],
+ *     }).then(invoke => invoke.result?.[0]),
  *     zoneName: exampleAzurermDnsZone.name,
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  *     ttl: 3600,

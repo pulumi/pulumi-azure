@@ -86,7 +86,7 @@ type SavedSearch struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The function alias if the query serves as a function. Changing this forces a new resource to be created.
 	FunctionAlias pulumi.StringPtrOutput `pulumi:"functionAlias"`
-	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 	FunctionParameters pulumi.StringArrayOutput `pulumi:"functionParameters"`
 	// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
@@ -146,7 +146,7 @@ type savedSearchState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The function alias if the query serves as a function. Changing this forces a new resource to be created.
 	FunctionAlias *string `pulumi:"functionAlias"`
-	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 	FunctionParameters []string `pulumi:"functionParameters"`
 	// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -165,7 +165,7 @@ type SavedSearchState struct {
 	DisplayName pulumi.StringPtrInput
 	// The function alias if the query serves as a function. Changing this forces a new resource to be created.
 	FunctionAlias pulumi.StringPtrInput
-	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 	FunctionParameters pulumi.StringArrayInput
 	// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type savedSearchArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The function alias if the query serves as a function. Changing this forces a new resource to be created.
 	FunctionAlias *string `pulumi:"functionAlias"`
-	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 	FunctionParameters []string `pulumi:"functionParameters"`
 	// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -208,7 +208,7 @@ type SavedSearchArgs struct {
 	DisplayName pulumi.StringInput
 	// The function alias if the query serves as a function. Changing this forces a new resource to be created.
 	FunctionAlias pulumi.StringPtrInput
-	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+	// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 	FunctionParameters pulumi.StringArrayInput
 	// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
@@ -322,7 +322,7 @@ func (o SavedSearchOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SavedSearch) pulumi.StringPtrOutput { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
 
-// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
+// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).
 func (o SavedSearchOutput) FunctionParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SavedSearch) pulumi.StringArrayOutput { return v.FunctionParameters }).(pulumi.StringArrayOutput)
 }

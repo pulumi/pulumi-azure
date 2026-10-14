@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DocumentDB` - 2025-09-01
+ * * `Microsoft.DocumentDB` - 2026-06-01
  * 
  * ## Import
  * 
@@ -166,6 +166,24 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<List<MongoClusterConnectionString>> connectionStrings() {
         return this.connectionStrings;
+    }
+    /**
+     * Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     * 
+     * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     * 
+     */
+    @Export(name="cosmosDbNetworkBypassEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> cosmosDbNetworkBypassEnabled;
+
+    /**
+     * @return Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     * 
+     * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     * 
+     */
+    public Output<Optional<Boolean>> cosmosDbNetworkBypassEnabled() {
+        return Codegen.optional(this.cosmosDbNetworkBypassEnabled);
     }
     /**
      * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.

@@ -150,6 +150,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
  * import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -205,7 +206,9 @@ import javax.annotation.Nullable;
  *             .language("CSharp")
  *             .files(FunctionAppFunctionFileArgs.builder()
  *                 .name("run.csx")
- *                 .content(StdFunctions.file(Map.of("input", "exampledata/run.csx")).result())
+ *                 .content(StdFunctions.file(FileArgs.builder()
+ *                     .input("exampledata/run.csx")
+ *                     .build()).result())
  *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(

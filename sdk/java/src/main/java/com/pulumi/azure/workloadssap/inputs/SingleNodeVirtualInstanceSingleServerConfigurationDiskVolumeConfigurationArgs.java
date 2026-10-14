@@ -61,14 +61,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeC
     }
 
     /**
-     * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+     * Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="volumeName", required=true)
     private Output<String> volumeName;
 
     /**
-     * @return Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+     * @return Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> volumeName() {
@@ -166,7 +166,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeC
         }
 
         /**
-         * @param volumeName Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * @param volumeName Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeC
         }
 
         /**
-         * @param volumeName Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * @param volumeName Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

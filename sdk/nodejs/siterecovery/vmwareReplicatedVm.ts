@@ -128,7 +128,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      */
     declare public readonly applianceName: pulumi.Output<string>;
     /**
-     * The ID of the stroage account that should be used for logging during replication.
+     * The ID of the storage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *
@@ -180,7 +180,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      */
     declare public readonly networkInterfaces: pulumi.Output<outputs.siterecovery.VmwareReplicatedVmNetworkInterface[] | undefined>;
     /**
-     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      */
     declare public readonly physicalServerCredentialName: pulumi.Output<string>;
     /**
@@ -331,7 +331,7 @@ export interface VmwareReplicatedVmState {
      */
     applianceName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the stroage account that should be used for logging during replication.
+     * The ID of the storage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *
@@ -383,7 +383,7 @@ export interface VmwareReplicatedVmState {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.VmwareReplicatedVmNetworkInterface>[] | undefined>;
     /**
-     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      */
     physicalServerCredentialName?: pulumi.Input<string | undefined>;
     /**
@@ -449,7 +449,7 @@ export interface VmwareReplicatedVmArgs {
      */
     applianceName: pulumi.Input<string>;
     /**
-     * The ID of the stroage account that should be used for logging during replication.
+     * The ID of the storage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *
@@ -501,7 +501,7 @@ export interface VmwareReplicatedVmArgs {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.VmwareReplicatedVmNetworkInterface>[] | undefined>;
     /**
-     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      */
     physicalServerCredentialName: pulumi.Input<string>;
     /**

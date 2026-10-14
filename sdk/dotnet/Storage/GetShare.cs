@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly int Quota;
         /// <summary>
-        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// The ID that is supposed to be used as the `Scope` of an `azure.authorization.Assignment` for this File Share.
         /// </summary>
         public readonly string RbacScopeId;
         public readonly string StorageAccountId;

@@ -35,7 +35,7 @@ class KubernetesClusterExtensionArgs:
         The set of arguments for constructing a KubernetesClusterExtension resource.
 
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -80,7 +80,7 @@ class KubernetesClusterExtensionArgs:
     @pulumi.getter(name="extensionType")
     def extension_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "extension_type")
 
@@ -208,7 +208,7 @@ class _KubernetesClusterExtensionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] current_version: The current version of the extension.
-        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input['KubernetesClusterExtensionPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -305,7 +305,7 @@ class _KubernetesClusterExtensionState:
     @pulumi.getter(name="extensionType")
     def extension_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "extension_type")
 
@@ -455,7 +455,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
-        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -600,7 +600,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] current_version: The current version of the extension.
-        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -670,7 +670,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     @pulumi.getter(name="extensionType")
     def extension_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+        Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "extension_type")
 

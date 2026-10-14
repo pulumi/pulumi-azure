@@ -39,7 +39,7 @@ namespace Pulumi.Azure.ExpressRoute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetCircuitPeeringResult> InvokeAsync(GetCircuitPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.ExpressRoute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetCircuitPeeringResult> Invoke(GetCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.ExpressRoute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetCircuitPeeringResult> Invoke(GetCircuitPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringInvokeArgs(), options.WithDefaults());
@@ -182,6 +182,14 @@ namespace Pulumi.Azure.ExpressRoute
         /// Indicates if IPv4 is enabled.
         /// </summary>
         public readonly bool Ipv4Enabled;
+        /// <summary>
+        /// A block describing the IPv6 configuration, if enabled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCircuitPeeringIpv6Result> Ipv6s;
+        /// <summary>
+        /// A block describing the Microsoft Peering configuration, if applicable.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCircuitPeeringMicrosoftPeeringConfigResult> MicrosoftPeeringConfigs;
         public readonly int PeerAsn;
         /// <summary>
         /// The type of the ExpressRoute Circuit Peering.
@@ -192,17 +200,20 @@ namespace Pulumi.Azure.ExpressRoute
         /// </summary>
         public readonly string PrimaryAzurePort;
         /// <summary>
-        /// The primary peer address prefix.
+        /// A subnet for the primary link.
         /// </summary>
         public readonly string PrimaryPeerAddressPrefix;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The ID of the Route Filter.
+        /// </summary>
         public readonly string RouteFilterId;
         /// <summary>
         /// The secondary port used by Azure for this peering.
         /// </summary>
         public readonly string SecondaryAzurePort;
         /// <summary>
-        /// The secondary peer address prefix.
+        /// A subnet for the secondary link.
         /// </summary>
         public readonly string SecondaryPeerAddressPrefix;
         public readonly string SharedKey;
@@ -222,6 +233,10 @@ namespace Pulumi.Azure.ExpressRoute
             string id,
 
             bool ipv4Enabled,
+
+            ImmutableArray<Outputs.GetCircuitPeeringIpv6Result> ipv6s,
+
+            ImmutableArray<Outputs.GetCircuitPeeringMicrosoftPeeringConfigResult> microsoftPeeringConfigs,
 
             int peerAsn,
 
@@ -248,6 +263,8 @@ namespace Pulumi.Azure.ExpressRoute
             GatewayManagerEtag = gatewayManagerEtag;
             Id = id;
             Ipv4Enabled = ipv4Enabled;
+            Ipv6s = ipv6s;
+            MicrosoftPeeringConfigs = microsoftPeeringConfigs;
             PeerAsn = peerAsn;
             PeeringType = peeringType;
             PrimaryAzurePort = primaryAzurePort;

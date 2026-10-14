@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("hsm-key-vesrion", example.Version)
+//			ctx.Export("hsm-key-version", example.Version)
 //			return nil
 //		})
 //	}

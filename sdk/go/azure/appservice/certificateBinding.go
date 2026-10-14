@@ -94,15 +94,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeTrim, err := std.Trim(ctx, map[string]interface{}{
-//				"input":  exampleCNameRecord.Fqdn,
-//				"cutset": ".",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname:          invokeTrim.Result,
+//				Hostname: std.TrimOutput(ctx, std.TrimOutputArgs{
+//					Input:  exampleCNameRecord.Fqdn,
+//					Cutset: pulumi.String("."),
+//				}, nil).Result(),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{

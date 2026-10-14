@@ -94,20 +94,20 @@ import javax.annotation.Nullable;
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var example_staging = new AppServiceSlot("example-staging", AppServiceSlotArgs.builder()
  *             .name("staging")
- *             .appServiceName(exampleAppService.name())
+ *             .appServiceName(exampleAppService.get("name"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleSlotVirtualNetworkSwiftConnection = new SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", SlotVirtualNetworkSwiftConnectionArgs.builder()
- *             .slotName(example_staging.name())
- *             .appServiceId(exampleAppService.id())
+ *             .slotName(example_staging.get("name"))
+ *             .appServiceId(exampleAppService.get("id"))
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 

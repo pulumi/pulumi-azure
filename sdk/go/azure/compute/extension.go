@@ -80,8 +80,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -98,7 +98,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: invokeFile.Result,
+//						PublicKey: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{

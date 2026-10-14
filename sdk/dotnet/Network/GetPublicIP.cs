@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithDefaults());
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
@@ -473,6 +473,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string DomainNameLabel;
         /// <summary>
+        /// Scope for the domain name label.
+        /// </summary>
+        public readonly string DomainNameLabelScope;
+        /// <summary>
+        /// The Edge Zone within the Azure Region where this Public IP exists.
+        /// </summary>
+        public readonly string EdgeZone;
+        /// <summary>
         /// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         /// </summary>
         public readonly string Fqdn;
@@ -501,6 +509,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// If specified then public IP address allocated will be provided from the public IP prefix resource.
+        /// </summary>
+        public readonly string PublicIpPrefixId;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The fully qualified domain name that resolves to this public IP address.
@@ -510,6 +522,10 @@ namespace Pulumi.Azure.Network
         /// The SKU of the Public IP.
         /// </summary>
         public readonly string Sku;
+        /// <summary>
+        /// The SKU Tier that is used for the Public IP.
+        /// </summary>
+        public readonly string SkuTier;
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
@@ -529,6 +545,10 @@ namespace Pulumi.Azure.Network
 
             string domainNameLabel,
 
+            string domainNameLabelScope,
+
+            string edgeZone,
+
             string fqdn,
 
             string id,
@@ -545,11 +565,15 @@ namespace Pulumi.Azure.Network
 
             string name,
 
+            string publicIpPrefixId,
+
             string resourceGroupName,
 
             string reverseFqdn,
 
             string sku,
+
+            string skuTier,
 
             ImmutableDictionary<string, string> tags,
 
@@ -559,6 +583,8 @@ namespace Pulumi.Azure.Network
             DdosProtectionMode = ddosProtectionMode;
             DdosProtectionPlanId = ddosProtectionPlanId;
             DomainNameLabel = domainNameLabel;
+            DomainNameLabelScope = domainNameLabelScope;
+            EdgeZone = edgeZone;
             Fqdn = fqdn;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
@@ -567,9 +593,11 @@ namespace Pulumi.Azure.Network
             IpVersion = ipVersion;
             Location = location;
             Name = name;
+            PublicIpPrefixId = publicIpPrefixId;
             ResourceGroupName = resourceGroupName;
             ReverseFqdn = reverseFqdn;
             Sku = sku;
+            SkuTier = skuTier;
             Tags = tags;
             Zones = zones;
         }

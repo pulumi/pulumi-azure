@@ -19,14 +19,14 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
     public static final EligibleRoleAssignmentArgs Empty = new EligibleRoleAssignmentArgs();
 
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<String> condition;
 
     /**
-     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> condition() {
@@ -174,7 +174,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

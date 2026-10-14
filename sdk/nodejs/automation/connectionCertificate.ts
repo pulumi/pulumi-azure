@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     automationAccountName: exampleAccount.name,
  *     base64: std.filebase64({
  *         input: "certificate.pfx",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * const exampleConnectionCertificate = new azure.automation.ConnectionCertificate("example", {
  *     name: "connection-example",

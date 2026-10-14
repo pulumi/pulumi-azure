@@ -148,7 +148,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly profileName: pulumi.Output<string>;
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      */
     declare public readonly querystringCachingBehaviour: pulumi.Output<string | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface EndpointState {
      */
     profileName?: pulumi.Input<string | undefined>;
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      */
     querystringCachingBehaviour?: pulumi.Input<string | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface EndpointArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      */
     querystringCachingBehaviour?: pulumi.Input<string | undefined>;
     /**

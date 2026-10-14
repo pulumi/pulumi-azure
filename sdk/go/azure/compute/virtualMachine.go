@@ -138,7 +138,7 @@ import (
 //
 // * `Microsoft.Compute` - 2024-03-01, 2023-04-02
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -206,7 +206,7 @@ type VirtualMachine struct {
 	//
 	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
-	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
@@ -308,7 +308,7 @@ type virtualMachineState struct {
 	//
 	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
-	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones *string `pulumi:"zones"`
 }
 
@@ -369,7 +369,7 @@ type VirtualMachineState struct {
 	//
 	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
-	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrInput
 }
 
@@ -434,7 +434,7 @@ type virtualMachineArgs struct {
 	//
 	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
-	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones *string `pulumi:"zones"`
 }
 
@@ -496,7 +496,7 @@ type VirtualMachineArgs struct {
 	//
 	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
-	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrInput
 }
 
@@ -712,7 +712,7 @@ func (o VirtualMachineOutput) VmSize() pulumi.StringOutput {
 //
 // > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 //
-// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
 func (o VirtualMachineOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Zones }).(pulumi.StringPtrOutput)
 }

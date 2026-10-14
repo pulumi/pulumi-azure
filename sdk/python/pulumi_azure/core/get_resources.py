@@ -119,7 +119,7 @@ def get_resources(name: Optional[_builtins.str] = None,
     :param _builtins.str name: The name of the Resource.
     :param Mapping[str, _builtins.str] required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param _builtins.str resource_group_name: The name of the Resource group where the Resources are located.
-    :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+    :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
     """
     __args__ = dict()
     __args__['name'] = name
@@ -148,7 +148,7 @@ def get_resources_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] =
     :param _builtins.str name: The name of the Resource.
     :param Mapping[str, _builtins.str] required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param _builtins.str resource_group_name: The name of the Resource group where the Resources are located.
-    :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+    :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
     """
     __args__ = dict()
     __args__['name'] = name

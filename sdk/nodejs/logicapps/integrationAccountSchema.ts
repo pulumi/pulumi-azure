@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     content: std.file({
  *         input: "testdata/integration_account_schema_content.xsd",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

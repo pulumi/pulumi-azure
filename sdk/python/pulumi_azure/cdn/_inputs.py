@@ -822,7 +822,7 @@ class EndpointDeliveryRuleArgs:
 class EndpointDeliveryRuleCacheExpirationActionArgsDict(TypedDict):
     behavior: pulumi.Input[_builtins.str]
     """
-    The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+    The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
     """
     duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -835,7 +835,7 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
                  behavior: pulumi.Input[_builtins.str],
                  duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] behavior: The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        :param pulumi.Input[_builtins.str] behavior: The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         :param pulumi.Input[_builtins.str] duration: Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -846,7 +846,7 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
     @pulumi.getter
     def behavior(self) -> pulumi.Input[_builtins.str]:
         """
-        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         """
         return pulumi.get(self, "behavior")
 
@@ -870,7 +870,7 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
 class EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict(TypedDict):
     behavior: pulumi.Input[_builtins.str]
     """
-    The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+    The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
     """
     parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -883,7 +883,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
                  behavior: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] behavior: The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        :param pulumi.Input[_builtins.str] behavior: The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         :param pulumi.Input[_builtins.str] parameters: Comma separated list of parameter values.
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -894,7 +894,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
     @pulumi.getter
     def behavior(self) -> pulumi.Input[_builtins.str]:
         """
-        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         """
         return pulumi.get(self, "behavior")
 
@@ -2631,7 +2631,7 @@ class EndpointGlobalDeliveryRuleArgs:
 class EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict(TypedDict):
     behavior: pulumi.Input[_builtins.str]
     """
-    The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+    The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
     """
     duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2644,7 +2644,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
                  behavior: pulumi.Input[_builtins.str],
                  duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] behavior: The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        :param pulumi.Input[_builtins.str] behavior: The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         :param pulumi.Input[_builtins.str] duration: Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -2655,7 +2655,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
     @pulumi.getter
     def behavior(self) -> pulumi.Input[_builtins.str]:
         """
-        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         """
         return pulumi.get(self, "behavior")
 
@@ -2679,7 +2679,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
 class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict(TypedDict):
     behavior: pulumi.Input[_builtins.str]
     """
-    The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+    The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
     """
     parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2692,7 +2692,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
                  behavior: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] behavior: The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        :param pulumi.Input[_builtins.str] behavior: The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         :param pulumi.Input[_builtins.str] parameters: Comma separated list of parameter values.
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -2703,7 +2703,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
     @pulumi.getter
     def behavior(self) -> pulumi.Input[_builtins.str]:
         """
-        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         """
         return pulumi.get(self, "behavior")
 

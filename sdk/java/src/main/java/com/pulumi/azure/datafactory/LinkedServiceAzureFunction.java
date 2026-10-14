@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", LinkedServiceAzureFunctionArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .url(String.format("https://%s", example.defaultHostname()))
+ *             .url(String.format("https://%s", example.get("defaultHostname")))
  *             .key("foo")
  *             .build());
  * 

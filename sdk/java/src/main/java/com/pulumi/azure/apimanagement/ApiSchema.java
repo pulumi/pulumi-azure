@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ApiSchema;
  * import com.pulumi.azure.apimanagement.ApiSchemaArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,7 +58,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.resourceGroupName())
  *             .schemaId("example-schema")
  *             .contentType("application/vnd.ms-azure-apim.xsd+xml")
- *             .value(StdFunctions.file(Map.of("input", "api_management_api_schema.xml")).result())
+ *             .value(StdFunctions.file(FileArgs.builder()
+ *                 .input("api_management_api_schema.xml")
+ *                 .build()).result())
  *             .build());
  * 
  *     }

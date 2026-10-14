@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -123,7 +124,9 @@ import javax.annotation.Nullable;
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
  *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
+ *                 .publicKey(StdFunctions.file(FileArgs.builder()
+ *                     .input("~/.ssh/id_rsa.pub")
+ *                     .build()).result())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
@@ -367,7 +370,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      * 
      * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * 
@@ -378,7 +381,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      * 
      * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * 

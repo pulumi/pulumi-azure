@@ -17,7 +17,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCollectionRuleDataSource {
@@ -40,7 +39,7 @@ public final class GetDataCollectionRuleDataSource {
      * @return One or more `logFile` blocks as defined below.
      * 
      */
-    private @Nullable List<GetDataCollectionRuleDataSourceLogFile> logFiles;
+    private List<GetDataCollectionRuleDataSourceLogFile> logFiles;
     /**
      * @return One or more `performanceCounter` blocks as defined below.
      * 
@@ -50,7 +49,7 @@ public final class GetDataCollectionRuleDataSource {
      * @return One or more `platformTelemetry` blocks as defined below.
      * 
      */
-    private @Nullable List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries;
+    private List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries;
     /**
      * @return One or more `prometheusForwarder` blocks as defined below.
      * 
@@ -99,7 +98,7 @@ public final class GetDataCollectionRuleDataSource {
      * 
      */
     public List<GetDataCollectionRuleDataSourceLogFile> logFiles() {
-        return this.logFiles == null ? List.of() : this.logFiles;
+        return this.logFiles;
     }
     /**
      * @return One or more `performanceCounter` blocks as defined below.
@@ -113,7 +112,7 @@ public final class GetDataCollectionRuleDataSource {
      * 
      */
     public List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries() {
-        return this.platformTelemetries == null ? List.of() : this.platformTelemetries;
+        return this.platformTelemetries;
     }
     /**
      * @return One or more `prometheusForwarder` blocks as defined below.
@@ -156,9 +155,9 @@ public final class GetDataCollectionRuleDataSource {
         private List<GetDataCollectionRuleDataSourceDataImport> dataImports;
         private List<GetDataCollectionRuleDataSourceExtension> extensions;
         private List<GetDataCollectionRuleDataSourceIisLog> iisLogs;
-        private @Nullable List<GetDataCollectionRuleDataSourceLogFile> logFiles;
+        private List<GetDataCollectionRuleDataSourceLogFile> logFiles;
         private List<GetDataCollectionRuleDataSourcePerformanceCounter> performanceCounters;
-        private @Nullable List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries;
+        private List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries;
         private List<GetDataCollectionRuleDataSourcePrometheusForwarder> prometheusForwarders;
         private List<GetDataCollectionRuleDataSourceSyslog> syslogs;
         private List<GetDataCollectionRuleDataSourceWindowsEventLog> windowsEventLogs;
@@ -212,8 +211,10 @@ public final class GetDataCollectionRuleDataSource {
             return iisLogs(List.of(iisLogs));
         }
         @CustomType.Setter
-        public Builder logFiles(@Nullable List<GetDataCollectionRuleDataSourceLogFile> logFiles) {
-
+        public Builder logFiles(List<GetDataCollectionRuleDataSourceLogFile> logFiles) {
+            if (logFiles == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "logFiles");
+            }
             this.logFiles = logFiles;
             return this;
         }
@@ -232,8 +233,10 @@ public final class GetDataCollectionRuleDataSource {
             return performanceCounters(List.of(performanceCounters));
         }
         @CustomType.Setter
-        public Builder platformTelemetries(@Nullable List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries) {
-
+        public Builder platformTelemetries(List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries) {
+            if (platformTelemetries == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "platformTelemetries");
+            }
             this.platformTelemetries = platformTelemetries;
             return this;
         }

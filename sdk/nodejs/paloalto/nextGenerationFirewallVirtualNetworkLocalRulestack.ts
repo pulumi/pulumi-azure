@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
  *     name: "example-rulestack",
  *     resourceGroupName: example.name,
- *     location: example.locatio,
+ *     location: example.location,
  * });
  * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("example", {
  *     name: "example-rulestack-rule",

@@ -69,7 +69,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Output("plan")]
         public Output<string?> Plan { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The table's retention in days. Possible values are between `4` and `730`.
         /// 
-        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Input("plan")]
         public Input<string>? Plan { get; set; }
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The table's retention in days. Possible values are between `4` and `730`.
         /// 
-        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+        /// &gt; **Note:** The `Name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Input("plan")]
         public Input<string>? Plan { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The table's retention in days. Possible values are between `4` and `730`.
         /// 
-        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+        /// &gt; **Note:** The `RetentionInDays` is fixed to `30` when `Plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

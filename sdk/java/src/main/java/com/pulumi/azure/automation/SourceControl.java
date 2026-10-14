@@ -223,14 +223,14 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
         return this.security;
     }
     /**
-     * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      * 
      */
     @Export(name="sourceControlType", refs={String.class}, tree="[0]")
     private Output<String> sourceControlType;
 
     /**
-     * @return The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * @return The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      * 
      */
     public Output<String> sourceControlType() {

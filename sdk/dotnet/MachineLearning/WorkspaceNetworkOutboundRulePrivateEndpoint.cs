@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        /// &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         /// </summary>
         [Output("serviceResourceId")]
         public Output<string> ServiceResourceId { get; private set; } = null!;
@@ -134,10 +134,11 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> SparkEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`, `Amlworkspace`, `Blob`, `Table`, `Queue`, `File`, `Web`, `Dfs`, `redisCache`, and `Account`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
+        /// | Cognitive Services         | `Account`                                 |
         /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
         /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |
@@ -207,7 +208,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        /// &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         /// </summary>
         [Input("serviceResourceId", required: true)]
         public Input<string> ServiceResourceId { get; set; } = null!;
@@ -219,10 +220,11 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? SparkEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`, `Amlworkspace`, `Blob`, `Table`, `Queue`, `File`, `Web`, `Dfs`, `redisCache`, and `Account`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
+        /// | Cognitive Services         | `Account`                                 |
         /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
         /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |
@@ -254,7 +256,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        /// &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         /// </summary>
         [Input("serviceResourceId")]
         public Input<string>? ServiceResourceId { get; set; }
@@ -266,10 +268,11 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? SparkEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`, `Amlworkspace`, `Blob`, `Table`, `Queue`, `File`, `Web`, `Dfs`, `redisCache`, and `Account`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
+        /// | Cognitive Services         | `Account`                                 |
         /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
         /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |

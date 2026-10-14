@@ -17,14 +17,14 @@ public final class NetworkManagerSecurityAdminConfigurationArgs extends com.pulu
     public static final NetworkManagerSecurityAdminConfigurationArgs Empty = new NetworkManagerSecurityAdminConfigurationArgs();
 
     /**
-     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      * 
      */
     @Import(name="applyOnNetworkIntentPolicyBasedServices")
     private @Nullable Output<String> applyOnNetworkIntentPolicyBasedServices;
 
     /**
-     * @return A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+     * @return A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      * 
      */
     public Optional<Output<String>> applyOnNetworkIntentPolicyBasedServices() {
@@ -104,7 +104,7 @@ public final class NetworkManagerSecurityAdminConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param applyOnNetworkIntentPolicyBasedServices A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+         * @param applyOnNetworkIntentPolicyBasedServices A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class NetworkManagerSecurityAdminConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param applyOnNetworkIntentPolicyBasedServices A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+         * @param applyOnNetworkIntentPolicyBasedServices A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
          * 
          * @return builder
          * 

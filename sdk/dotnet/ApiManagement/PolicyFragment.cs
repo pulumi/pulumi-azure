@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Value = Std.File.Invoke(new()
     ///         {
     ///             Input = "policy-fragment-1.xml",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

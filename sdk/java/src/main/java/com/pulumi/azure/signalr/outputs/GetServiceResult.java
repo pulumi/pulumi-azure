@@ -3,11 +3,17 @@
 
 package com.pulumi.azure.signalr.outputs;
 
+import com.pulumi.azure.signalr.outputs.GetServiceCor;
+import com.pulumi.azure.signalr.outputs.GetServiceIdentity;
+import com.pulumi.azure.signalr.outputs.GetServiceLiveTrace;
+import com.pulumi.azure.signalr.outputs.GetServiceSkus;
+import com.pulumi.azure.signalr.outputs.GetServiceUpstreamEndpoint;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -19,20 +25,45 @@ public final class GetServiceResult {
      */
     private Boolean aadAuthEnabled;
     /**
+     * @return Whether the log category `ConnectivityLogs` is enabled.
+     * 
+     */
+    private Boolean connectivityLogsEnabled;
+    /**
+     * @return A `cors` block as documented below.
+     * 
+     */
+    private List<GetServiceCor> cors;
+    /**
      * @return The FQDN of the SignalR service.
      * 
      */
     private String hostname;
+    /**
+     * @return Whether the log category `HttpRequestLogs` is enabled.
+     * 
+     */
+    private Boolean httpRequestLogsEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    private List<GetServiceIdentity> identities;
+    /**
      * @return The publicly accessible IP of the SignalR service.
      * 
      */
     private String ipAddress;
+    /**
+     * @return A `liveTrace` block as defined below.
+     * 
+     */
+    private List<GetServiceLiveTrace> liveTraces;
     /**
      * @return Is local auth enable for this SignalR serviced?
      * 
@@ -43,6 +74,15 @@ public final class GetServiceResult {
      * 
      */
     private String location;
+    /**
+     * @return Whether the log category `MessagingLogs` is enabled.
+     * 
+     */
+    private Boolean messagingLogsEnabled;
+    /**
+     * @return The name of the SKU.
+     * 
+     */
     private String name;
     /**
      * @return The primary access key of the SignalR service.
@@ -85,12 +125,27 @@ public final class GetServiceResult {
      * 
      */
     private Integer serverlessConnectionTimeoutInSeconds;
+    /**
+     * @return Specifies the service mode.
+     * 
+     */
+    private String serviceMode;
+    /**
+     * @return A `sku` block as documented below.
+     * 
+     */
+    private List<GetServiceSkus> skus;
     private Map<String,String> tags;
     /**
      * @return Is tls client cert enabled for this SignalR service?
      * 
      */
     private Boolean tlsClientCertEnabled;
+    /**
+     * @return One or more `upstreamEndpoint` blocks as documented below.
+     * 
+     */
+    private List<GetServiceUpstreamEndpoint> upstreamEndpoints;
 
     private GetServiceResult() {}
     /**
@@ -101,11 +156,32 @@ public final class GetServiceResult {
         return this.aadAuthEnabled;
     }
     /**
+     * @return Whether the log category `ConnectivityLogs` is enabled.
+     * 
+     */
+    public Boolean connectivityLogsEnabled() {
+        return this.connectivityLogsEnabled;
+    }
+    /**
+     * @return A `cors` block as documented below.
+     * 
+     */
+    public List<GetServiceCor> cors() {
+        return this.cors;
+    }
+    /**
      * @return The FQDN of the SignalR service.
      * 
      */
     public String hostname() {
         return this.hostname;
+    }
+    /**
+     * @return Whether the log category `HttpRequestLogs` is enabled.
+     * 
+     */
+    public Boolean httpRequestLogsEnabled() {
+        return this.httpRequestLogsEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -115,11 +191,25 @@ public final class GetServiceResult {
         return this.id;
     }
     /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    public List<GetServiceIdentity> identities() {
+        return this.identities;
+    }
+    /**
      * @return The publicly accessible IP of the SignalR service.
      * 
      */
     public String ipAddress() {
         return this.ipAddress;
+    }
+    /**
+     * @return A `liveTrace` block as defined below.
+     * 
+     */
+    public List<GetServiceLiveTrace> liveTraces() {
+        return this.liveTraces;
     }
     /**
      * @return Is local auth enable for this SignalR serviced?
@@ -135,6 +225,17 @@ public final class GetServiceResult {
     public String location() {
         return this.location;
     }
+    /**
+     * @return Whether the log category `MessagingLogs` is enabled.
+     * 
+     */
+    public Boolean messagingLogsEnabled() {
+        return this.messagingLogsEnabled;
+    }
+    /**
+     * @return The name of the SKU.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -197,6 +298,20 @@ public final class GetServiceResult {
     public Integer serverlessConnectionTimeoutInSeconds() {
         return this.serverlessConnectionTimeoutInSeconds;
     }
+    /**
+     * @return Specifies the service mode.
+     * 
+     */
+    public String serviceMode() {
+        return this.serviceMode;
+    }
+    /**
+     * @return A `sku` block as documented below.
+     * 
+     */
+    public List<GetServiceSkus> skus() {
+        return this.skus;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -206,6 +321,13 @@ public final class GetServiceResult {
      */
     public Boolean tlsClientCertEnabled() {
         return this.tlsClientCertEnabled;
+    }
+    /**
+     * @return One or more `upstreamEndpoint` blocks as documented below.
+     * 
+     */
+    public List<GetServiceUpstreamEndpoint> upstreamEndpoints() {
+        return this.upstreamEndpoints;
     }
 
     public static Builder builder() {
@@ -218,11 +340,17 @@ public final class GetServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean aadAuthEnabled;
+        private Boolean connectivityLogsEnabled;
+        private List<GetServiceCor> cors;
         private String hostname;
+        private Boolean httpRequestLogsEnabled;
         private String id;
+        private List<GetServiceIdentity> identities;
         private String ipAddress;
+        private List<GetServiceLiveTrace> liveTraces;
         private Boolean localAuthEnabled;
         private String location;
+        private Boolean messagingLogsEnabled;
         private String name;
         private String primaryAccessKey;
         private String primaryConnectionString;
@@ -233,17 +361,26 @@ public final class GetServiceResult {
         private String secondaryConnectionString;
         private Integer serverPort;
         private Integer serverlessConnectionTimeoutInSeconds;
+        private String serviceMode;
+        private List<GetServiceSkus> skus;
         private Map<String,String> tags;
         private Boolean tlsClientCertEnabled;
+        private List<GetServiceUpstreamEndpoint> upstreamEndpoints;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aadAuthEnabled = defaults.aadAuthEnabled;
+    	      this.connectivityLogsEnabled = defaults.connectivityLogsEnabled;
+    	      this.cors = defaults.cors;
     	      this.hostname = defaults.hostname;
+    	      this.httpRequestLogsEnabled = defaults.httpRequestLogsEnabled;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.ipAddress = defaults.ipAddress;
+    	      this.liveTraces = defaults.liveTraces;
     	      this.localAuthEnabled = defaults.localAuthEnabled;
     	      this.location = defaults.location;
+    	      this.messagingLogsEnabled = defaults.messagingLogsEnabled;
     	      this.name = defaults.name;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
@@ -254,8 +391,11 @@ public final class GetServiceResult {
     	      this.secondaryConnectionString = defaults.secondaryConnectionString;
     	      this.serverPort = defaults.serverPort;
     	      this.serverlessConnectionTimeoutInSeconds = defaults.serverlessConnectionTimeoutInSeconds;
+    	      this.serviceMode = defaults.serviceMode;
+    	      this.skus = defaults.skus;
     	      this.tags = defaults.tags;
     	      this.tlsClientCertEnabled = defaults.tlsClientCertEnabled;
+    	      this.upstreamEndpoints = defaults.upstreamEndpoints;
         }
 
         @CustomType.Setter
@@ -267,11 +407,38 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder connectivityLogsEnabled(Boolean connectivityLogsEnabled) {
+            if (connectivityLogsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "connectivityLogsEnabled");
+            }
+            this.connectivityLogsEnabled = connectivityLogsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cors(List<GetServiceCor> cors) {
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "cors");
+            }
+            this.cors = cors;
+            return this;
+        }
+        public Builder cors(GetServiceCor... cors) {
+            return cors(List.of(cors));
+        }
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             if (hostname == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "hostname");
             }
             this.hostname = hostname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpRequestLogsEnabled(Boolean httpRequestLogsEnabled) {
+            if (httpRequestLogsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "httpRequestLogsEnabled");
+            }
+            this.httpRequestLogsEnabled = httpRequestLogsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -283,12 +450,34 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder identities(List<GetServiceIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetServiceIdentity... identities) {
+            return identities(List.of(identities));
+        }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             if (ipAddress == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "ipAddress");
             }
             this.ipAddress = ipAddress;
             return this;
+        }
+        @CustomType.Setter
+        public Builder liveTraces(List<GetServiceLiveTrace> liveTraces) {
+            if (liveTraces == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "liveTraces");
+            }
+            this.liveTraces = liveTraces;
+            return this;
+        }
+        public Builder liveTraces(GetServiceLiveTrace... liveTraces) {
+            return liveTraces(List.of(liveTraces));
         }
         @CustomType.Setter
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
@@ -304,6 +493,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "location");
             }
             this.location = location;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder messagingLogsEnabled(Boolean messagingLogsEnabled) {
+            if (messagingLogsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "messagingLogsEnabled");
+            }
+            this.messagingLogsEnabled = messagingLogsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -387,6 +584,25 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceMode(String serviceMode) {
+            if (serviceMode == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceMode");
+            }
+            this.serviceMode = serviceMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skus(List<GetServiceSkus> skus) {
+            if (skus == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "skus");
+            }
+            this.skus = skus;
+            return this;
+        }
+        public Builder skus(GetServiceSkus... skus) {
+            return skus(List.of(skus));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "tags");
@@ -402,14 +618,31 @@ public final class GetServiceResult {
             this.tlsClientCertEnabled = tlsClientCertEnabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder upstreamEndpoints(List<GetServiceUpstreamEndpoint> upstreamEndpoints) {
+            if (upstreamEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "upstreamEndpoints");
+            }
+            this.upstreamEndpoints = upstreamEndpoints;
+            return this;
+        }
+        public Builder upstreamEndpoints(GetServiceUpstreamEndpoint... upstreamEndpoints) {
+            return upstreamEndpoints(List.of(upstreamEndpoints));
+        }
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.aadAuthEnabled = aadAuthEnabled;
+            _resultValue.connectivityLogsEnabled = connectivityLogsEnabled;
+            _resultValue.cors = cors;
             _resultValue.hostname = hostname;
+            _resultValue.httpRequestLogsEnabled = httpRequestLogsEnabled;
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.ipAddress = ipAddress;
+            _resultValue.liveTraces = liveTraces;
             _resultValue.localAuthEnabled = localAuthEnabled;
             _resultValue.location = location;
+            _resultValue.messagingLogsEnabled = messagingLogsEnabled;
             _resultValue.name = name;
             _resultValue.primaryAccessKey = primaryAccessKey;
             _resultValue.primaryConnectionString = primaryConnectionString;
@@ -420,8 +653,11 @@ public final class GetServiceResult {
             _resultValue.secondaryConnectionString = secondaryConnectionString;
             _resultValue.serverPort = serverPort;
             _resultValue.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
+            _resultValue.serviceMode = serviceMode;
+            _resultValue.skus = skus;
             _resultValue.tags = tags;
             _resultValue.tlsClientCertEnabled = tlsClientCertEnabled;
+            _resultValue.upstreamEndpoints = upstreamEndpoints;
             return _resultValue;
         }
     }

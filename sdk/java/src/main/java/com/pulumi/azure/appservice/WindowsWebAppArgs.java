@@ -183,6 +183,21 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    @Import(name="endToEndTlsEncryptionEnabled")
+    private @Nullable Output<Boolean> endToEndTlsEncryptionEnabled;
+
+    /**
+     * @return Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> endToEndTlsEncryptionEnabled() {
+        return Optional.ofNullable(this.endToEndTlsEncryptionEnabled);
+    }
+
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      * 
      */
@@ -365,7 +380,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Import(name="storageAccounts")
@@ -374,7 +389,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more `storageAccount` blocks as defined below.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Optional<Output<List<WindowsWebAppStorageAccountArgs>>> storageAccounts() {
@@ -431,22 +446,22 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
-     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -475,7 +490,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -484,7 +499,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -504,6 +519,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         this.clientCertificateMode = $.clientCertificateMode;
         this.connectionStrings = $.connectionStrings;
         this.enabled = $.enabled;
+        this.endToEndTlsEncryptionEnabled = $.endToEndTlsEncryptionEnabled;
         this.ftpPublishBasicAuthenticationEnabled = $.ftpPublishBasicAuthenticationEnabled;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
@@ -768,6 +784,27 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param endToEndTlsEncryptionEnabled Whether to enable end-to-end TLS encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endToEndTlsEncryptionEnabled(@Nullable Output<Boolean> endToEndTlsEncryptionEnabled) {
+            $.endToEndTlsEncryptionEnabled = endToEndTlsEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param endToEndTlsEncryptionEnabled Whether to enable end-to-end TLS encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endToEndTlsEncryptionEnabled(Boolean endToEndTlsEncryptionEnabled) {
+            return endToEndTlsEncryptionEnabled(Output.of(endToEndTlsEncryptionEnabled));
+        }
+
+        /**
          * @param ftpPublishBasicAuthenticationEnabled Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
          * 
          * @return builder
@@ -1022,7 +1059,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1035,7 +1072,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1047,7 +1084,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1124,11 +1161,11 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
          * 
-         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
          * 
          * @return builder
          * 
@@ -1139,11 +1176,11 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
          * 
-         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
          * 
          * @return builder
          * 
@@ -1180,7 +1217,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Web App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
          * 
          * @return builder
          * 
@@ -1193,7 +1230,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Web App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
          * 
          * @return builder
          * 

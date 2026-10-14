@@ -61,7 +61,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -119,7 +119,7 @@ type PublicIp struct {
 	//
 	// > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 	//
-	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -215,7 +215,7 @@ type publicIpState struct {
 	//
 	// > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 	//
-	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -276,7 +276,7 @@ type PublicIpState struct {
 	//
 	// > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 	//
-	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -337,7 +337,7 @@ type publicIpArgs struct {
 	//
 	// > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 	//
-	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -395,7 +395,7 @@ type PublicIpArgs struct {
 	//
 	// > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 	//
-	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+	// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -590,7 +590,7 @@ func (o PublicIpOutput) ReverseFqdn() pulumi.StringPtrOutput {
 //
 // > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
 //
-// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+// > **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
 func (o PublicIpOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

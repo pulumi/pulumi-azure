@@ -61,7 +61,7 @@ func LookupFabric(ctx *pulumi.Context, args *LookupFabricArgs, opts ...pulumi.In
 type LookupFabricArgs struct {
 	// Specifies the name of the Site Recovery Replication Fabric.
 	Name string `pulumi:"name"`
-	// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+	// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated Recovery Services Vault resides.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -87,7 +87,7 @@ func LookupFabricOutput(ctx *pulumi.Context, args LookupFabricOutputArgs, opts .
 type LookupFabricOutputArgs struct {
 	// Specifies the name of the Site Recovery Replication Fabric.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+	// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
 	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated Recovery Services Vault resides.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

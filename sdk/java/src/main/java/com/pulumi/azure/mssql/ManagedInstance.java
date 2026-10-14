@@ -272,7 +272,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -612,7 +612,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
      * 
-     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     @Export(name="storageIops", refs={Integer.class}, tree="[0]")
@@ -621,7 +621,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
      * 
-     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     public Output<Integer> storageIops() {
@@ -630,7 +630,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
-     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     @Export(name="storageSizeInGb", refs={Integer.class}, tree="[0]")
@@ -639,7 +639,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
-     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     public Output<Integer> storageSizeInGb() {
@@ -704,7 +704,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
-     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
      * 
      */
     @Export(name="zoneRedundantEnabled", refs={Boolean.class}, tree="[0]")
@@ -713,7 +713,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
-     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
      * 
      */
     public Output<Optional<Boolean>> zoneRedundantEnabled() {

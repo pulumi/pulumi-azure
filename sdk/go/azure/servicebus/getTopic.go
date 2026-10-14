@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ServiceBus` - 2024-01-01
+// * `Microsoft.ServiceBus` - 2026-01-01
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
@@ -80,9 +80,11 @@ type LookupTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
-	Name               string `pulumi:"name"`
-	NamespaceId        string `pulumi:"namespaceId"`
+	MaxSizeInMegabytes int `pulumi:"maxSizeInMegabytes"`
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+	MaximumMessageSizeInKb int    `pulumi:"maximumMessageSizeInKb"`
+	Name                   string `pulumi:"name"`
+	NamespaceId            string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
 	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection.
@@ -158,6 +160,11 @@ func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 // Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o LookupTopicResultOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTopicResult) int { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
+}
+
+// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+func (o LookupTopicResultOutput) MaximumMessageSizeInKb() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTopicResult) int { return v.MaximumMessageSizeInKb }).(pulumi.IntOutput)
 }
 
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {

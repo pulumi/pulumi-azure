@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ProtectionContainerMappingAutomaticUpdate struct {
 	// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 	//
-	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	AutomationAccountId string `pulumi:"automationAccountId"`
@@ -36,7 +36,7 @@ type ProtectionContainerMappingAutomaticUpdateInput interface {
 type ProtectionContainerMappingAutomaticUpdateArgs struct {
 	// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 	//
-	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
@@ -121,7 +121,7 @@ func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMa
 
 // The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 //
-// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
 func (o ProtectionContainerMappingAutomaticUpdateOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
@@ -157,7 +157,7 @@ func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Elem() ProtectionCon
 
 // The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 //
-// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
 		if v == nil {
@@ -186,7 +186,7 @@ type ReplicatedVMManagedDisk struct {
 	TargetDiskEncryption *ReplicatedVMManagedDiskTargetDiskEncryption `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
 	TargetDiskType string `pulumi:"targetDiskType"`
@@ -216,7 +216,7 @@ type ReplicatedVMManagedDiskArgs struct {
 	TargetDiskEncryption ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
@@ -296,7 +296,7 @@ func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryption() ReplicatedVMManage
 
 // The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 //
-// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }

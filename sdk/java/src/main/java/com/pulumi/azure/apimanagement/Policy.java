@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.Policy;
  * import com.pulumi.azure.apimanagement.PolicyArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -74,7 +75,9 @@ import javax.annotation.Nullable;
  * 
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .apiManagementId(exampleService.id())
- *             .xmlContent(StdFunctions.file(Map.of("input", "example.xml")).result())
+ *             .xmlContent(StdFunctions.file(FileArgs.builder()
+ *                 .input("example.xml")
+ *                 .build()).result())
  *             .build());
  * 
  *     }}{@code
@@ -91,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Management service Policys can be imported using the `resource id`, e.g.
+ * API Management service Policies can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1

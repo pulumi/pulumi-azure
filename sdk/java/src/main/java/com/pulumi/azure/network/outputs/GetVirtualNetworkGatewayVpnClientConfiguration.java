@@ -15,7 +15,7 @@ import java.util.Objects;
 public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The client id of the Azure VPN application.
-     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * This setting is incompatible with the use of
      * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
@@ -83,7 +83,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     private GetVirtualNetworkGatewayVpnClientConfiguration() {}
     /**
      * @return The client id of the Azure VPN application.
-     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * This setting is incompatible with the use of
      * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 

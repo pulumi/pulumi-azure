@@ -105,6 +105,8 @@ type LinuxWebApp struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
@@ -151,11 +153,11 @@ type LinuxWebApp struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -167,7 +169,7 @@ type LinuxWebApp struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -241,6 +243,8 @@ type linuxWebAppState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
@@ -287,11 +291,11 @@ type linuxWebAppState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -303,7 +307,7 @@ type linuxWebAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -334,6 +338,8 @@ type LinuxWebAppState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service.
@@ -380,11 +386,11 @@ type LinuxWebAppState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -396,7 +402,7 @@ type LinuxWebAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -427,6 +433,8 @@ type linuxWebAppArgs struct {
 	ConnectionStrings []LinuxWebAppConnectionString `pulumi:"connectionStrings"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
@@ -459,11 +467,11 @@ type linuxWebAppArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -475,7 +483,7 @@ type linuxWebAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -503,6 +511,8 @@ type LinuxWebAppArgs struct {
 	ConnectionStrings LinuxWebAppConnectionStringArrayInput
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
@@ -535,11 +545,11 @@ type LinuxWebAppArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -551,7 +561,7 @@ type LinuxWebAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -704,6 +714,11 @@ func (o LinuxWebAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+func (o LinuxWebAppOutput) EndToEndTlsEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.EndToEndTlsEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 func (o LinuxWebAppOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
@@ -816,11 +831,11 @@ func (o LinuxWebAppOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 //
 // > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 //
-// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 func (o LinuxWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -841,7 +856,7 @@ func (o LinuxWebAppOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.B
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 //
-// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 func (o LinuxWebAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

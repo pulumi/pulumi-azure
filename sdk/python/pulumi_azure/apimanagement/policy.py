@@ -169,7 +169,7 @@ class Policy(pulumi.CustomResource):
             value="Example Value")
         example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml")["result"])
+            xml_content=std.file(input="example.xml").result)
         ```
 
         ## API Providers
@@ -181,7 +181,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        API Management service Policys can be imported using the `resource id`, e.g.
+        API Management service Policies can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1
@@ -230,7 +230,7 @@ class Policy(pulumi.CustomResource):
             value="Example Value")
         example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml")["result"])
+            xml_content=std.file(input="example.xml").result)
         ```
 
         ## API Providers
@@ -242,7 +242,7 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        API Management service Policys can be imported using the `resource id`, e.g.
+        API Management service Policies can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1

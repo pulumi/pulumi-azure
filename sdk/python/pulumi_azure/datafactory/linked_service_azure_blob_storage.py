@@ -50,7 +50,7 @@ class LinkedServiceAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] connection_string: The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         :param pulumi.Input[_builtins.str] connection_string_insecure: The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
                
-               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -150,7 +150,7 @@ class LinkedServiceAzureBlobStorageArgs:
         """
         The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
 
-        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         """
         return pulumi.get(self, "connection_string_insecure")
 
@@ -325,7 +325,7 @@ class _LinkedServiceAzureBlobStorageState:
         :param pulumi.Input[_builtins.str] connection_string: The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         :param pulumi.Input[_builtins.str] connection_string_insecure: The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
                
-               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
@@ -415,7 +415,7 @@ class _LinkedServiceAzureBlobStorageState:
         """
         The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
 
-        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         """
         return pulumi.get(self, "connection_string_insecure")
 
@@ -586,12 +586,12 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']]] = None,
                  sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey']]] = None,
                  storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -638,13 +638,13 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         :param pulumi.Input[_builtins.str] connection_string_insecure: The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
                
-               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         ...
@@ -710,12 +710,12 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']]] = None,
                  sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey']]] = None,
                  storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -769,12 +769,12 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+            sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']]] = None,
             sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
             service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
-            service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+            service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey']]] = None,
             storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
             use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LinkedServiceAzureBlobStorage':
@@ -792,13 +792,13 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         :param pulumi.Input[_builtins.str] connection_string_insecure: The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
                
-               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+               > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -857,7 +857,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         """
         The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
 
-        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+        > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         """
         return pulumi.get(self, "connection_string_insecure")
 

@@ -226,7 +226,7 @@ class GetGatewayConnectionResult:
     def private_link_fast_path_enabled(self) -> _builtins.bool:
         """
         If `true`, data packets will bypass the Express Route gateway when accessing private-links.
-        This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+        This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
         """
         return pulumi.get(self, "private_link_fast_path_enabled")
 
@@ -358,7 +358,7 @@ def get_gateway_connection(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Virtual Network Gateway Connection.
@@ -418,7 +418,7 @@ def get_gateway_connection_output(name: pulumi.Input[Optional[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Virtual Network Gateway Connection.

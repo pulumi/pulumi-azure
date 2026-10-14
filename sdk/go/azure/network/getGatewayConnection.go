@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGatewayConnectionResult
@@ -103,7 +103,7 @@ type GetGatewayConnectionResult struct {
 	// is `Vnet2Vnet`).
 	PeerVirtualNetworkGatewayId string `pulumi:"peerVirtualNetworkGatewayId"`
 	// If `true`, data packets will bypass the Express Route gateway when accessing private-links.
-	// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+	// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
 	PrivateLinkFastPathEnabled bool   `pulumi:"privateLinkFastPathEnabled"`
 	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	ResourceGuid               string `pulumi:"resourceGuid"`
@@ -242,7 +242,7 @@ func (o GetGatewayConnectionResultOutput) PeerVirtualNetworkGatewayId() pulumi.S
 }
 
 // If `true`, data packets will bypass the Express Route gateway when accessing private-links.
-// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
 func (o GetGatewayConnectionResultOutput) PrivateLinkFastPathEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.PrivateLinkFastPathEnabled }).(pulumi.BoolOutput)
 }

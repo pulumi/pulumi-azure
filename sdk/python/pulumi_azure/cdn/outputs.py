@@ -623,7 +623,7 @@ class EndpointDeliveryRuleCacheExpirationAction(dict):
                  behavior: _builtins.str,
                  duration: Optional[_builtins.str] = None):
         """
-        :param _builtins.str behavior: The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        :param _builtins.str behavior: The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         :param _builtins.str duration: Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -634,7 +634,7 @@ class EndpointDeliveryRuleCacheExpirationAction(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         """
         return pulumi.get(self, "behavior")
 
@@ -653,7 +653,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
                  behavior: _builtins.str,
                  parameters: Optional[_builtins.str] = None):
         """
-        :param _builtins.str behavior: The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        :param _builtins.str behavior: The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         :param _builtins.str parameters: Comma separated list of parameter values.
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -664,7 +664,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         """
         return pulumi.get(self, "behavior")
 
@@ -2082,7 +2082,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
                  behavior: _builtins.str,
                  duration: Optional[_builtins.str] = None):
         """
-        :param _builtins.str behavior: The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        :param _builtins.str behavior: The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         :param _builtins.str duration: Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -2093,7 +2093,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         """
         return pulumi.get(self, "behavior")
 
@@ -2112,7 +2112,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
                  behavior: _builtins.str,
                  parameters: Optional[_builtins.str] = None):
         """
-        :param _builtins.str behavior: The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        :param _builtins.str behavior: The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         :param _builtins.str parameters: Comma separated list of parameter values.
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -2123,7 +2123,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
     @pulumi.getter
     def behavior(self) -> _builtins.str:
         """
-        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         """
         return pulumi.get(self, "behavior")
 

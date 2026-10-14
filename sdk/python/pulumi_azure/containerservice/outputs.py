@@ -645,7 +645,7 @@ class AutomaticClusterServiceMeshCertificateAuthority(dict):
         :param _builtins.str certificate_object_name: The intermediate certificate object name in Azure Key Vault.
         :param _builtins.str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param _builtins.str key_vault_id: The resource ID of the Key Vault.
         :param _builtins.str root_certificate_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -677,7 +677,7 @@ class AutomaticClusterServiceMeshCertificateAuthority(dict):
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -4353,12 +4353,12 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.bool node_public_ip_enabled: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param _builtins.str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param _builtins.bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
-        :param _builtins.str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param _builtins.str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param _builtins.int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param _builtins.str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param _builtins.str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
@@ -4371,7 +4371,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.str temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param _builtins.str type: The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
                
-               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         :param _builtins.bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param _builtins.str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
@@ -4620,7 +4620,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[_builtins.str]:
         """
-        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         """
@@ -4646,7 +4646,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[_builtins.str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -4708,7 +4708,7 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
-        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         """
         return pulumi.get(self, "type")
 
@@ -5595,7 +5595,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
                
                > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
@@ -5623,7 +5623,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -6161,7 +6161,7 @@ class KubernetesClusterKeyManagementService(dict):
                  key_vault_key_id: _builtins.str,
                  key_vault_network_access: Optional[_builtins.str] = None):
         """
-        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param _builtins.str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -6172,7 +6172,7 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> _builtins.str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -7631,7 +7631,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
                  outbound_ip_prefix_ids: Optional[Sequence[_builtins.str]] = None,
                  outbound_ports_allocated: Optional[_builtins.int] = None):
         """
-        :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         :param Sequence[_builtins.str] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
         :param _builtins.int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
         :param _builtins.int managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
@@ -7667,7 +7667,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     @pulumi.getter(name="backendPoolType")
     def backend_pool_type(self) -> Optional[_builtins.str]:
         """
-        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         """
         return pulumi.get(self, "backend_pool_type")
 
@@ -8498,7 +8498,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         :param Sequence[_builtins.str] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param Mapping[str, _builtins.str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
-               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -8529,7 +8529,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
-        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -8630,7 +8630,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
                  node_soak_duration_in_minutes: Optional[_builtins.int] = None,
                  undrainable_node_behavior: Optional[_builtins.str] = None):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
                
@@ -8653,7 +8653,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -9049,7 +9049,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthority(dict):
         :param _builtins.str cert_object_name: The intermediate certificate object name in Azure Key Vault.
         :param _builtins.str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param _builtins.str key_vault_id: The resource ID of the Key Vault.
         :param _builtins.str root_cert_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -9081,7 +9081,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthority(dict):
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -11319,7 +11319,7 @@ class GetAutomaticClusterServiceMeshResult(dict):
         :param _builtins.bool external_ingress_gateway_enabled: If the Istio External Ingress Gateway is enabled.
         :param _builtins.bool internal_ingress_gateway_enabled: If the Istio Internal Ingress Gateway is enabled.
         :param _builtins.str proxy_redirect_mechanism: The proxy redirect mechanism configured for the Istio service mesh.
-        :param Sequence[_builtins.str] revisions: List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+        :param Sequence[_builtins.str] revisions: List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
         """
         pulumi.set(__self__, "certificate_authorities", certificate_authorities)
         pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
@@ -11363,7 +11363,7 @@ class GetAutomaticClusterServiceMeshResult(dict):
     @pulumi.getter
     def revisions(self) -> Sequence[_builtins.str]:
         """
-        List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+        List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
         """
         return pulumi.get(self, "revisions")
 
@@ -11530,7 +11530,7 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
                  node_soak_duration_in_minutes: _builtins.int,
                  undrainable_node_behavior: _builtins.str):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
@@ -11546,7 +11546,7 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> _builtins.int:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -11869,7 +11869,7 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
                  node_soak_duration_in_minutes: _builtins.int,
                  undrainable_node_behavior: _builtins.str):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         :param _builtins.str undrainable_node_behavior: The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
@@ -11884,7 +11884,7 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> _builtins.int:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -12153,7 +12153,7 @@ class GetKubernetesClusterKeyManagementServiceResult(dict):
                  key_vault_key_id: _builtins.str,
                  key_vault_network_access: _builtins.str):
         """
-        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param _builtins.str key_vault_network_access: Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -12163,7 +12163,7 @@ class GetKubernetesClusterKeyManagementServiceResult(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> _builtins.str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 

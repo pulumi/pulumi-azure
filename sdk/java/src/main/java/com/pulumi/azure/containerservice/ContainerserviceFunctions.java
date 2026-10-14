@@ -90,7 +90,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-04-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args) {
@@ -141,7 +141,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-04-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args) {
@@ -192,7 +192,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-04-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOptions options) {
@@ -243,7 +243,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-04-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOutputOptions options) {
@@ -294,7 +294,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2026-04-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args, InvokeOptions options) {
@@ -344,7 +344,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
@@ -394,7 +394,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -444,7 +444,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
@@ -494,7 +494,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOutputOptions options) {
@@ -544,7 +544,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
@@ -1092,7 +1092,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
@@ -1140,7 +1140,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -1188,7 +1188,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
@@ -1236,7 +1236,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOutputOptions options) {
@@ -1284,7 +1284,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -1332,7 +1332,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
@@ -1380,7 +1380,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -1428,7 +1428,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
@@ -1476,7 +1476,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOutputOptions options) {
@@ -1524,7 +1524,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {

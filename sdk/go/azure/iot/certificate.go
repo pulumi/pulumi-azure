@@ -49,8 +49,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "example.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				IothubName:         exampleIoTHub.Name,
 //				IsVerified:         pulumi.Bool(true),
-//				CertificateContent: invokeFilebase64.Result,
+//				CertificateContent: pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

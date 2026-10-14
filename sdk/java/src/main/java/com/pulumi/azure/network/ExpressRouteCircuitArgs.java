@@ -154,14 +154,14 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      * 
      */
     @Import(name="rateLimitingEnabled")
     private @Nullable Output<Boolean> rateLimitingEnabled;
 
     /**
-     * @return Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * @return Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> rateLimitingEnabled() {
@@ -445,7 +445,7 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
          * 
          * @return builder
          * 

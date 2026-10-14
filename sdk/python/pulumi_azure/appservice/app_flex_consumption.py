@@ -60,7 +60,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
                
-               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[_builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
@@ -75,7 +75,7 @@ class AppFlexConsumptionArgs:
                
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
-               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -88,10 +88,10 @@ class AppFlexConsumptionArgs:
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input['AppFlexConsumptionStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[_builtins.str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
@@ -101,17 +101,17 @@ class AppFlexConsumptionArgs:
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "runtime_name", runtime_name)
@@ -200,7 +200,7 @@ class AppFlexConsumptionArgs:
         """
         The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
 
-        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 
@@ -292,7 +292,7 @@ class AppFlexConsumptionArgs:
 
         > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
 
-        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         """
         return pulumi.get(self, "app_settings")
 
@@ -426,7 +426,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -462,7 +462,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -538,11 +538,11 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -570,7 +570,7 @@ class AppFlexConsumptionArgs:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -635,7 +635,7 @@ class _AppFlexConsumptionState:
                
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
-               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -651,11 +651,11 @@ class _AppFlexConsumptionState:
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -665,7 +665,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
                
-               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
@@ -680,17 +680,17 @@ class _AppFlexConsumptionState:
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         if always_readies is not None:
             pulumi.set(__self__, "always_readies", always_readies)
@@ -799,7 +799,7 @@ class _AppFlexConsumptionState:
 
         > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
 
-        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         """
         return pulumi.get(self, "app_settings")
 
@@ -969,7 +969,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -1017,7 +1017,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -1115,7 +1115,7 @@ class _AppFlexConsumptionState:
         """
         The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
 
-        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 
@@ -1251,11 +1251,11 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1283,7 +1283,7 @@ class _AppFlexConsumptionState:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -1406,7 +1406,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
-               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1419,16 +1419,16 @@ class AppFlexConsumption(pulumi.CustomResource):
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
                
-               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']] sticky_settings: A `sticky_settings` block as defined below.
@@ -1442,17 +1442,17 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         ...
     @overload
@@ -1706,7 +1706,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
-               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+               > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1722,11 +1722,11 @@ class AppFlexConsumption(pulumi.CustomResource):
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -1736,7 +1736,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
                
-               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict', 'outputs.AppFlexConsumptionSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
@@ -1751,17 +1751,17 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[_builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
                
-               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1830,7 +1830,7 @@ class AppFlexConsumption(pulumi.CustomResource):
 
         > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
 
-        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
+        > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/azure/azure-functions/functions-app-settings.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1944,7 +1944,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -1976,7 +1976,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -2042,7 +2042,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         """
         The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
 
-        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 
@@ -2134,11 +2134,11 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -2158,7 +2158,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 
-        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 

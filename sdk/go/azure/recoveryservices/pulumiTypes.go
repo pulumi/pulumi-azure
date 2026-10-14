@@ -20,7 +20,7 @@ type VaultEncryption struct {
 	KeyId string `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 	//
-	// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+	// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 	//
 	// > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
@@ -46,7 +46,7 @@ type VaultEncryptionArgs struct {
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 	//
-	// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+	// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 	//
 	// > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
@@ -143,7 +143,7 @@ func (o VaultEncryptionOutput) KeyId() pulumi.StringOutput {
 
 // Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 //
-// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 //
 // > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 func (o VaultEncryptionOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
@@ -201,7 +201,7 @@ func (o VaultEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
 
 // Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 //
-// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+// > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 //
 // > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
 func (o VaultEncryptionPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
@@ -432,7 +432,7 @@ type VaultMonitoring struct {
 	AlertsForAllJobFailuresEnabled *bool `pulumi:"alertsForAllJobFailuresEnabled"`
 	// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
 	AlertsForAllReplicationIssuesEnabled *bool `pulumi:"alertsForAllReplicationIssuesEnabled"`
-	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
 	AlertsForCriticalOperationFailuresEnabled *bool `pulumi:"alertsForCriticalOperationFailuresEnabled"`
 	// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
 	EmailNotificationsForSiteRecoveryEnabled *bool `pulumi:"emailNotificationsForSiteRecoveryEnabled"`
@@ -456,7 +456,7 @@ type VaultMonitoringArgs struct {
 	AlertsForAllJobFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllJobFailuresEnabled"`
 	// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
 	AlertsForAllReplicationIssuesEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllReplicationIssuesEnabled"`
-	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
 	AlertsForCriticalOperationFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForCriticalOperationFailuresEnabled"`
 	// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
 	EmailNotificationsForSiteRecoveryEnabled pulumi.BoolPtrInput `pulumi:"emailNotificationsForSiteRecoveryEnabled"`
@@ -554,7 +554,7 @@ func (o VaultMonitoringOutput) AlertsForAllReplicationIssuesEnabled() pulumi.Boo
 	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllReplicationIssuesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
 func (o VaultMonitoringOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForCriticalOperationFailuresEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -618,7 +618,7 @@ func (o VaultMonitoringPtrOutput) AlertsForAllReplicationIssuesEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
 func (o VaultMonitoringPtrOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultMonitoring) *bool {
 		if v == nil {

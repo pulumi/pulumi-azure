@@ -320,7 +320,7 @@ def get_automatic_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-04-01
+    * `Microsoft.ContainerService` - 2026-05-01
 
 
     :param _builtins.str name: The name of the Managed Kubernetes Automatic Cluster.
@@ -379,7 +379,7 @@ def get_automatic_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService` - 2026-04-01
+    * `Microsoft.ContainerService` - 2026-05-01
 
 
     :param _builtins.str name: The name of the Managed Kubernetes Automatic Cluster.

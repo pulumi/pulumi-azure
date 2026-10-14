@@ -36,9 +36,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("id", example.Id)
-//			ctx.Export("exampleOutput", std.Jsondecode(ctx, map[string]interface{}{
-//				"input": example.OutputContent,
-//			}, nil).Result.ExampleOutput.Value.(pulumi.AnyOutput))
+//			ctx.Export("exampleOutput", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
+//				Input: example.OutputContent,
+//			}, nil).Result.ExampleOutput.Value))
 //			return nil
 //		})
 //	}

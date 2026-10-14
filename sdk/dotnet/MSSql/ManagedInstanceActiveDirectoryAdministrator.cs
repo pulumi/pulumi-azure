@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Azuread = Pulumi.Azuread;
+    /// using AzureAD = Pulumi.AzureAD;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -71,18 +71,18 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var reader = new Azuread.DirectoryRole("reader", new()
+    ///     var reader = new AzureAD.DirectoryRole("reader", new()
     ///     {
     ///         DisplayName = "Directory Readers",
     ///     });
     /// 
-    ///     var exampleDirectoryRoleMember = new Azuread.DirectoryRoleMember("example", new()
+    ///     var exampleDirectoryRoleMember = new AzureAD.DirectoryRoleMember("example", new()
     ///     {
     ///         RoleObjectId = reader.ObjectId,
-    ///         MemberObjectId = exampleManagedInstance.Identity?.PrincipalId,
+    ///         MemberObjectId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var admin = new Azuread.User("admin", new()
+    ///     var admin = new AzureAD.User("admin", new()
     ///     {
     ///         UserPrincipalName = "ms.admin@example.com",
     ///         DisplayName = "Ms Admin",
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2025-01-01
     /// 
     /// ## Import
     /// 

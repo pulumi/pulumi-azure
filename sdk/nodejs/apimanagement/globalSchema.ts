@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     type: "xml",
  *     value: std.file({
  *         input: "api_management_api_schema.xml",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

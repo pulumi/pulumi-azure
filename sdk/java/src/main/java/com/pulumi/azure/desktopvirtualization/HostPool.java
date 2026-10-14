@@ -137,18 +137,18 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-     * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-     * `Persistent` should be used if the host pool type is `Personal`
+     * The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+     * 
+     * &gt; **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
      * 
      */
     @Export(name="loadBalancerType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerType;
 
     /**
-     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-     * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-     * `Persistent` should be used if the host pool type is `Personal`
+     * @return The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+     * 
+     * &gt; **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
      * 
      */
     public Output<String> loadBalancerType() {

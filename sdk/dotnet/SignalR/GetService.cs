@@ -158,17 +158,37 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly bool AadAuthEnabled;
         /// <summary>
+        /// Whether the log category `ConnectivityLogs` is enabled.
+        /// </summary>
+        public readonly bool ConnectivityLogsEnabled;
+        /// <summary>
+        /// A `Cors` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceCorResult> Cors;
+        /// <summary>
         /// The FQDN of the SignalR service.
         /// </summary>
         public readonly string Hostname;
+        /// <summary>
+        /// Whether the log category `HttpRequestLogs` is enabled.
+        /// </summary>
+        public readonly bool HttpRequestLogsEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `Identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
+        /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// A `LiveTrace` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceLiveTraceResult> LiveTraces;
         /// <summary>
         /// Is local auth enable for this SignalR serviced?
         /// </summary>
@@ -177,6 +197,13 @@ namespace Pulumi.Azure.SignalR
         /// Specifies the supported Azure location where the SignalR service exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Whether the log category `MessagingLogs` is enabled.
+        /// </summary>
+        public readonly bool MessagingLogsEnabled;
+        /// <summary>
+        /// The name of the SKU.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The primary access key of the SignalR service.
@@ -211,25 +238,49 @@ namespace Pulumi.Azure.SignalR
         /// The serverless connection timeout of this SignalR service.
         /// </summary>
         public readonly int ServerlessConnectionTimeoutInSeconds;
+        /// <summary>
+        /// Specifies the service mode.
+        /// </summary>
+        public readonly string ServiceMode;
+        /// <summary>
+        /// A `Sku` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceSkusResult> Skus;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Is tls client cert enabled for this SignalR service?
         /// </summary>
         public readonly bool TlsClientCertEnabled;
+        /// <summary>
+        /// One or more `UpstreamEndpoint` blocks as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceUpstreamEndpointResult> UpstreamEndpoints;
 
         [OutputConstructor]
         private GetServiceResult(
             bool aadAuthEnabled,
 
+            bool connectivityLogsEnabled,
+
+            ImmutableArray<Outputs.GetServiceCorResult> cors,
+
             string hostname,
+
+            bool httpRequestLogsEnabled,
 
             string id,
 
+            ImmutableArray<Outputs.GetServiceIdentityResult> identities,
+
             string ipAddress,
+
+            ImmutableArray<Outputs.GetServiceLiveTraceResult> liveTraces,
 
             bool localAuthEnabled,
 
             string location,
+
+            bool messagingLogsEnabled,
 
             string name,
 
@@ -251,16 +302,28 @@ namespace Pulumi.Azure.SignalR
 
             int serverlessConnectionTimeoutInSeconds,
 
+            string serviceMode,
+
+            ImmutableArray<Outputs.GetServiceSkusResult> skus,
+
             ImmutableDictionary<string, string> tags,
 
-            bool tlsClientCertEnabled)
+            bool tlsClientCertEnabled,
+
+            ImmutableArray<Outputs.GetServiceUpstreamEndpointResult> upstreamEndpoints)
         {
             AadAuthEnabled = aadAuthEnabled;
+            ConnectivityLogsEnabled = connectivityLogsEnabled;
+            Cors = cors;
             Hostname = hostname;
+            HttpRequestLogsEnabled = httpRequestLogsEnabled;
             Id = id;
+            Identities = identities;
             IpAddress = ipAddress;
+            LiveTraces = liveTraces;
             LocalAuthEnabled = localAuthEnabled;
             Location = location;
+            MessagingLogsEnabled = messagingLogsEnabled;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             PrimaryConnectionString = primaryConnectionString;
@@ -271,8 +334,11 @@ namespace Pulumi.Azure.SignalR
             SecondaryConnectionString = secondaryConnectionString;
             ServerPort = serverPort;
             ServerlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
+            ServiceMode = serviceMode;
+            Skus = skus;
             Tags = tags;
             TlsClientCertEnabled = tlsClientCertEnabled;
+            UpstreamEndpoints = upstreamEndpoints;
         }
     }
 }

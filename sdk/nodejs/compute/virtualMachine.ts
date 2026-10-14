@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *
  * * `Microsoft.Compute` - 2024-03-01, 2023-04-02
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -233,7 +233,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      *
      * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     declare public readonly zones: pulumi.Output<string | undefined>;
 
@@ -425,7 +425,7 @@ export interface VirtualMachineState {
      *
      * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     zones?: pulumi.Input<string | undefined>;
 }
@@ -537,7 +537,7 @@ export interface VirtualMachineArgs {
      *
      * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     zones?: pulumi.Input<string | undefined>;
 }

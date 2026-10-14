@@ -282,11 +282,11 @@ class ManagedCertificate(pulumi.CustomResource):
             ttl=300,
             record=example_app_service["defaultSiteHostname"])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.join(separator=".",
+            hostname=std.join_output(separator=".",
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ])["result"],
+                ]).result,
             app_service_name=example_app_service["name"],
             resource_group_name=example_resource_group.name)
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
@@ -371,11 +371,11 @@ class ManagedCertificate(pulumi.CustomResource):
             ttl=300,
             record=example_app_service["defaultSiteHostname"])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.join(separator=".",
+            hostname=std.join_output(separator=".",
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ])["result"],
+                ]).result,
             app_service_name=example_app_service["name"],
             resource_group_name=example_resource_group.name)
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)

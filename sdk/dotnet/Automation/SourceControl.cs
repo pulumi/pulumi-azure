@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Automation
         public Output<Outputs.SourceControlSecurity> Security { get; private set; } = null!;
 
         /// <summary>
-        /// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+        /// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         /// </summary>
         [Output("sourceControlType")]
         public Output<string> SourceControlType { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Automation
         public Input<Inputs.SourceControlSecurityArgs> Security { get; set; } = null!;
 
         /// <summary>
-        /// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+        /// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         /// </summary>
         [Input("sourceControlType", required: true)]
         public Input<string> SourceControlType { get; set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Automation
         public Input<Inputs.SourceControlSecurityGetArgs>? Security { get; set; }
 
         /// <summary>
-        /// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+        /// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         /// </summary>
         [Input("sourceControlType")]
         public Input<string>? SourceControlType { get; set; }

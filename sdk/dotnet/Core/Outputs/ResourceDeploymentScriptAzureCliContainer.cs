@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class ResourceDeploymentScriptAzureCliContainer
     {
         /// <summary>
-        /// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        /// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         /// </summary>
         public readonly string? ContainerGroupName;
 

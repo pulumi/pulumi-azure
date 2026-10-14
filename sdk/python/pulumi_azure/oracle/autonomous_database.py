@@ -400,6 +400,7 @@ class _AutonomousDatabaseState:
                  mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocid: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -429,6 +430,7 @@ class _AutonomousDatabaseState:
                > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+        :param pulumi.Input[_builtins.str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
@@ -471,6 +473,8 @@ class _AutonomousDatabaseState:
             pulumi.set(__self__, "name", name)
         if national_character_set is not None:
             pulumi.set(__self__, "national_character_set", national_character_set)
+        if ocid is not None:
+            pulumi.set(__self__, "ocid", ocid)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subnet_id is not None:
@@ -706,6 +710,18 @@ class _AutonomousDatabaseState:
     @national_character_set.setter
     def national_character_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "national_character_set", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+        """
+        return pulumi.get(self, "ocid")
+
+    @ocid.setter
+    def ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ocid", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -1061,6 +1077,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_id"] = virtual_network_id
+            __props__.__dict__["ocid"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AutonomousDatabase, __self__).__init__(
@@ -1092,6 +1109,7 @@ class AutonomousDatabase(pulumi.CustomResource):
             mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            ocid: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1125,6 +1143,7 @@ class AutonomousDatabase(pulumi.CustomResource):
                > **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] national_character_set: The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+        :param pulumi.Input[_builtins.str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
@@ -1152,6 +1171,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         __props__.__dict__["mtls_connection_required"] = mtls_connection_required
         __props__.__dict__["name"] = name
         __props__.__dict__["national_character_set"] = national_character_set
+        __props__.__dict__["ocid"] = ocid
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -1308,6 +1328,14 @@ class AutonomousDatabase(pulumi.CustomResource):
         The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
         """
         return pulumi.get(self, "national_character_set")
+
+    @_builtins.property
+    @pulumi.getter
+    def ocid(self) -> pulumi.Output[_builtins.str]:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+        """
+        return pulumi.get(self, "ocid")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

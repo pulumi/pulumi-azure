@@ -154,10 +154,26 @@ namespace Pulumi.Azure.Storage
         public Output<string?> AccountKind { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Output("accountReplicationType")]
         public Output<string> AccountReplicationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The `AccountReplicationType` that the Storage Account is migrating to.
+        /// </summary>
+        [Output("accountReplicationTypeMigratingTo")]
+        public Output<string> AccountReplicationTypeMigratingTo { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether a replication type migration is in progress.
+        /// </summary>
+        [Output("accountReplicationTypeMigrationInProgress")]
+        public Output<bool> AccountReplicationTypeMigrationInProgress { get; private set; } = null!;
 
         /// <summary>
         /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
@@ -540,10 +556,13 @@ namespace Pulumi.Azure.Storage
         public Output<string?> ProvisionedBillingModelVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+
         [Output("publicNetworkAccessEnabled")]
-        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -893,7 +912,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Input("accountReplicationType", required: true)]
         public Input<string> AccountReplicationType { get; set; } = null!;
@@ -1063,8 +1086,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -1159,10 +1185,26 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Input("accountReplicationType")]
         public Input<string>? AccountReplicationType { get; set; }
+
+        /// <summary>
+        /// The `AccountReplicationType` that the Storage Account is migrating to.
+        /// </summary>
+        [Input("accountReplicationTypeMigratingTo")]
+        public Input<string>? AccountReplicationTypeMigratingTo { get; set; }
+
+        /// <summary>
+        /// Whether a replication type migration is in progress.
+        /// </summary>
+        [Input("accountReplicationTypeMigrationInProgress")]
+        public Input<bool>? AccountReplicationTypeMigrationInProgress { get; set; }
 
         /// <summary>
         /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
@@ -1575,8 +1617,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

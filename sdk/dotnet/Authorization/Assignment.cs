@@ -212,16 +212,23 @@ namespace Pulumi.Azure.Authorization
     ///         PrincipalType = "ServicePrincipal",
     ///         Description = "Role Based Access Control Administrator role assignment with ABAC Condition.",
     ///         ConditionVersion = "2.0",
-    ///         Condition = @$"(
+    ///         Condition = Output.Tuple(Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }), Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         })).Apply(values =&gt;
+    ///         {
+    ///             var invoke = values.Item1;
+    ///             var invoke1 = values.Item2;
+    ///             return @$"(
     ///  (
     ///   !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
     ///  )
     ///  OR
     ///  (
-    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         }).Result}}}
+    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke.Result}}}
     ///  )
     /// )
     /// AND
@@ -231,13 +238,11 @@ namespace Pulumi.Azure.Authorization
     ///  )
     ///  OR
     ///  (
-    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         }).Result}}}
+    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke1.Result}}}
     ///  )
     /// )
-    /// ",
+    /// ";
+    ///         }),
     ///     });
     /// 
     /// });

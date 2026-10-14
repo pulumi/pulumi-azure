@@ -378,6 +378,20 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
         return this.nationalCharacterSet;
     }
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     * 
+     */
+    @Export(name="ocid", refs={String.class}, tree="[0]")
+    private Output<String> ocid;
+
+    /**
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     * 
+     */
+    public Output<String> ocid() {
+        return this.ocid;
+    }
+    /**
      * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      * 
      */

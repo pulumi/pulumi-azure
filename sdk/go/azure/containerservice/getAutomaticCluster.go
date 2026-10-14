@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2026-04-01
+// * `Microsoft.ContainerService` - 2026-05-01
 func LookupAutomaticCluster(ctx *pulumi.Context, args *LookupAutomaticClusterArgs, opts ...pulumi.InvokeOption) (*LookupAutomaticClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAutomaticClusterResult

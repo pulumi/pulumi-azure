@@ -19,7 +19,7 @@ public final class GroupPolicyAssignmentOverride {
      */
     private @Nullable List<GroupPolicyAssignmentOverrideSelector> selectors;
     /**
-     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
      * 
      */
     private String value;
@@ -33,7 +33,7 @@ public final class GroupPolicyAssignmentOverride {
         return this.selectors == null ? List.of() : this.selectors;
     }
     /**
-     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
      * 
      */
     public String value() {

@@ -85,7 +85,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Output("connectionStringInsecure")]
         public Output<string?> ConnectionStringInsecure { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }

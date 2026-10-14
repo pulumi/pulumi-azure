@@ -20,6 +20,21 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     public static final ApplicationGatewaySslProfileArgs Empty = new ApplicationGatewaySslProfileArgs();
 
     /**
+     * Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+     * 
+     */
+    @Import(name="clientAuthenticationMode")
+    private @Nullable Output<String> clientAuthenticationMode;
+
+    /**
+     * @return Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+     * 
+     */
+    public Optional<Output<String>> clientAuthenticationMode() {
+        return Optional.ofNullable(this.clientAuthenticationMode);
+    }
+
+    /**
      * The ID of the Rewrite Rule Set
      * 
      */
@@ -50,14 +65,14 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * a `sslPolicy` block as defined below.
+     * An `sslPolicy` block as defined below.
      * 
      */
     @Import(name="sslPolicy")
     private @Nullable Output<ApplicationGatewaySslProfileSslPolicyArgs> sslPolicy;
 
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewaySslProfileSslPolicyArgs>> sslPolicy() {
@@ -65,14 +80,14 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     @Import(name="trustedClientCertificateNames")
     private @Nullable Output<List<String>> trustedClientCertificateNames;
 
     /**
-     * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * @return The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     public Optional<Output<List<String>>> trustedClientCertificateNames() {
@@ -82,6 +97,8 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     /**
      * Should client certificate issuer DN be verified? Defaults to `false`.
      * 
+     * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
+     * 
      */
     @Import(name="verifyClientCertificateIssuerDn")
     private @Nullable Output<Boolean> verifyClientCertificateIssuerDn;
@@ -89,20 +106,26 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
+     * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
+     * 
      */
     public Optional<Output<Boolean>> verifyClientCertificateIssuerDn() {
         return Optional.ofNullable(this.verifyClientCertificateIssuerDn);
     }
 
     /**
-     * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+     * 
+     * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
      * 
      */
     @Import(name="verifyClientCertificateRevocation")
     private @Nullable Output<String> verifyClientCertificateRevocation;
 
     /**
-     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * @return Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+     * 
+     * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
      * 
      */
     public Optional<Output<String>> verifyClientCertificateRevocation() {
@@ -112,6 +135,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     private ApplicationGatewaySslProfileArgs() {}
 
     private ApplicationGatewaySslProfileArgs(ApplicationGatewaySslProfileArgs $) {
+        this.clientAuthenticationMode = $.clientAuthenticationMode;
         this.id = $.id;
         this.name = $.name;
         this.sslPolicy = $.sslPolicy;
@@ -136,6 +160,27 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
 
         public Builder(ApplicationGatewaySslProfileArgs defaults) {
             $ = new ApplicationGatewaySslProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clientAuthenticationMode Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthenticationMode(@Nullable Output<String> clientAuthenticationMode) {
+            $.clientAuthenticationMode = clientAuthenticationMode;
+            return this;
+        }
+
+        /**
+         * @param clientAuthenticationMode Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthenticationMode(String clientAuthenticationMode) {
+            return clientAuthenticationMode(Output.of(clientAuthenticationMode));
         }
 
         /**
@@ -181,7 +226,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sslPolicy a `sslPolicy` block as defined below.
+         * @param sslPolicy An `sslPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +237,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sslPolicy a `sslPolicy` block as defined below.
+         * @param sslPolicy An `sslPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -202,7 +247,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param trustedClientCertificateNames The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * @param trustedClientCertificateNames The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          * 
          * @return builder
          * 
@@ -213,7 +258,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param trustedClientCertificateNames The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * @param trustedClientCertificateNames The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          * 
          * @return builder
          * 
@@ -223,7 +268,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param trustedClientCertificateNames The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * @param trustedClientCertificateNames The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          * 
          * @return builder
          * 
@@ -234,6 +279,8 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
 
         /**
          * @param verifyClientCertificateIssuerDn Should client certificate issuer DN be verified? Defaults to `false`.
+         * 
+         * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
          * 
          * @return builder
          * 
@@ -246,6 +293,8 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         /**
          * @param verifyClientCertificateIssuerDn Should client certificate issuer DN be verified? Defaults to `false`.
          * 
+         * &gt; **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
+         * 
          * @return builder
          * 
          */
@@ -254,7 +303,9 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param verifyClientCertificateRevocation Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * @param verifyClientCertificateRevocation Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+         * 
+         * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
          * 
          * @return builder
          * 
@@ -265,7 +316,9 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param verifyClientCertificateRevocation Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * @param verifyClientCertificateRevocation Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+         * 
+         * &gt; **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
          * 
          * @return builder
          * 

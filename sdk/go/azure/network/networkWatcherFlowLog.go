@@ -14,7 +14,7 @@ import (
 
 // Manages a Network Watcher Flow Log.
 //
-// > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
+// > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
 //
 // ## Example Usage
 //
@@ -110,7 +110,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -144,7 +144,7 @@ type NetworkWatcherFlowLog struct {
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
@@ -218,7 +218,7 @@ type networkWatcherFlowLogState struct {
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version *int `pulumi:"version"`
 }
 
@@ -245,7 +245,7 @@ type NetworkWatcherFlowLogState struct {
 	TargetResourceId pulumi.StringPtrInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
-	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrInput
 }
 
@@ -276,7 +276,7 @@ type networkWatcherFlowLogArgs struct {
 	TargetResourceId string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version *int `pulumi:"version"`
 }
 
@@ -304,7 +304,7 @@ type NetworkWatcherFlowLogArgs struct {
 	TargetResourceId pulumi.StringInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
-	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 	Version pulumi.IntPtrInput
 }
 
@@ -449,7 +449,7 @@ func (o NetworkWatcherFlowLogOutput) TrafficAnalytics() NetworkWatcherFlowLogTra
 	}).(NetworkWatcherFlowLogTrafficAnalyticsPtrOutput)
 }
 
-// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
 func (o NetworkWatcherFlowLogOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }

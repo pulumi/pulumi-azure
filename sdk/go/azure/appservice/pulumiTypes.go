@@ -2682,7 +2682,7 @@ type AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -2728,7 +2728,7 @@ type AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -2873,7 +2873,7 @@ func (o AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Output) LoginParameters
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -3015,7 +3015,7 @@ func (o AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParamet
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -6946,7 +6946,7 @@ func (o AppFlexConsumptionSiteConfigScmIpRestrictionHeadersPtrOutput) XForwarded
 }
 
 type AppFlexConsumptionSiteCredential struct {
-	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password *string `pulumi:"password"`
@@ -6964,7 +6964,7 @@ type AppFlexConsumptionSiteCredentialInput interface {
 }
 
 type AppFlexConsumptionSiteCredentialArgs struct {
-	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -7021,7 +7021,7 @@ func (o AppFlexConsumptionSiteCredentialOutput) ToAppFlexConsumptionSiteCredenti
 	return o
 }
 
-// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+// The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 func (o AppFlexConsumptionSiteCredentialOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppFlexConsumptionSiteCredential) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -10217,7 +10217,7 @@ type LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -10263,7 +10263,7 @@ type LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -10408,7 +10408,7 @@ func (o LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters()
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -10550,7 +10550,7 @@ func (o LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParameter
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -14192,7 +14192,7 @@ type LinuxFunctionAppSiteConfigApplicationStack struct {
 	JavaVersion *string `pulumi:"javaVersion"`
 	// The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
 	NodeVersion *string `pulumi:"nodeVersion"`
-	// The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+	// The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 	PowershellCoreVersion *string `pulumi:"powershellCoreVersion"`
 	// The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
 	PythonVersion *string `pulumi:"pythonVersion"`
@@ -14224,7 +14224,7 @@ type LinuxFunctionAppSiteConfigApplicationStackArgs struct {
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
 	// The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+	// The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 	PowershellCoreVersion pulumi.StringPtrInput `pulumi:"powershellCoreVersion"`
 	// The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
@@ -14335,7 +14335,7 @@ func (o LinuxFunctionAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.S
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfigApplicationStack) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+// The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 func (o LinuxFunctionAppSiteConfigApplicationStackOutput) PowershellCoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSiteConfigApplicationStack) *string { return v.PowershellCoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -14421,7 +14421,7 @@ func (o LinuxFunctionAppSiteConfigApplicationStackPtrOutput) NodeVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+// The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 func (o LinuxFunctionAppSiteConfigApplicationStackPtrOutput) PowershellCoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -15487,7 +15487,7 @@ func (o LinuxFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHo
 }
 
 type LinuxFunctionAppSiteCredential struct {
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password *string `pulumi:"password"`
@@ -15505,7 +15505,7 @@ type LinuxFunctionAppSiteCredentialInput interface {
 }
 
 type LinuxFunctionAppSiteCredentialArgs struct {
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -15562,7 +15562,7 @@ func (o LinuxFunctionAppSiteCredentialOutput) ToLinuxFunctionAppSiteCredentialOu
 	return o
 }
 
-// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 func (o LinuxFunctionAppSiteCredentialOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSiteCredential) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -17775,7 +17775,7 @@ type LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -17821,7 +17821,7 @@ type LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -17968,7 +17968,7 @@ func (o LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Output) LoginParamete
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -18110,7 +18110,7 @@ func (o LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParam
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -21757,7 +21757,7 @@ type LinuxFunctionAppSlotSiteConfigApplicationStack struct {
 	JavaVersion *string `pulumi:"javaVersion"`
 	// The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
 	NodeVersion *string `pulumi:"nodeVersion"`
-	// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+	// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
 	PowershellCoreVersion *string `pulumi:"powershellCoreVersion"`
 	// The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
 	PythonVersion *string `pulumi:"pythonVersion"`
@@ -21787,7 +21787,7 @@ type LinuxFunctionAppSlotSiteConfigApplicationStackArgs struct {
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
 	// The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+	// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
 	PowershellCoreVersion pulumi.StringPtrInput `pulumi:"powershellCoreVersion"`
 	// The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
@@ -21896,7 +21896,7 @@ func (o LinuxFunctionAppSlotSiteConfigApplicationStackOutput) NodeVersion() pulu
 	return o.ApplyT(func(v LinuxFunctionAppSlotSiteConfigApplicationStack) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
 func (o LinuxFunctionAppSlotSiteConfigApplicationStackOutput) PowershellCoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxFunctionAppSlotSiteConfigApplicationStack) *string { return v.PowershellCoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -21980,7 +21980,7 @@ func (o LinuxFunctionAppSlotSiteConfigApplicationStackPtrOutput) NodeVersion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+// The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
 func (o LinuxFunctionAppSlotSiteConfigApplicationStackPtrOutput) PowershellCoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlotSiteConfigApplicationStack) *string {
 		if v == nil {
@@ -25756,7 +25756,7 @@ type LinuxWebAppAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -25802,7 +25802,7 @@ type LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -25943,7 +25943,7 @@ func (o LinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() pulu
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -26085,7 +26085,7 @@ func (o LinuxWebAppAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParameters() p
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxWebAppAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -30475,7 +30475,7 @@ type LinuxWebAppSiteConfigApplicationStack struct {
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion *string `pulumi:"nodeVersion"`
-	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 	//
 	// > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 	PhpVersion *string `pulumi:"phpVersion"`
@@ -30525,7 +30525,7 @@ type LinuxWebAppSiteConfigApplicationStackArgs struct {
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 	//
 	// > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
@@ -30670,7 +30670,7 @@ func (o LinuxWebAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.String
 	return o.ApplyT(func(v LinuxWebAppSiteConfigApplicationStack) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 //
 // > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 func (o LinuxWebAppSiteConfigApplicationStackOutput) PhpVersion() pulumi.StringPtrOutput {
@@ -30816,7 +30816,7 @@ func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) NodeVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 //
 // > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 func (o LinuxWebAppSiteConfigApplicationStackPtrOutput) PhpVersion() pulumi.StringPtrOutput {
@@ -35114,7 +35114,7 @@ type LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -35160,7 +35160,7 @@ type LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -35303,7 +35303,7 @@ func (o LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() 
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -35445,7 +35445,7 @@ func (o LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParameters
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -39858,7 +39858,7 @@ type LinuxWebAppSlotSiteConfigApplicationStack struct {
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion *string `pulumi:"nodeVersion"`
-	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 	//
 	// > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 	PhpVersion *string `pulumi:"phpVersion"`
@@ -39906,7 +39906,7 @@ type LinuxWebAppSlotSiteConfigApplicationStackArgs struct {
 	//
 	// > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
 	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+	// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 	//
 	// > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
@@ -40049,7 +40049,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) NodeVersion() pulumi.St
 	return o.ApplyT(func(v LinuxWebAppSlotSiteConfigApplicationStack) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 //
 // > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 func (o LinuxWebAppSlotSiteConfigApplicationStackOutput) PhpVersion() pulumi.StringPtrOutput {
@@ -40193,7 +40193,7 @@ func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) NodeVersion() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 //
 // > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
 func (o LinuxWebAppSlotSiteConfigApplicationStackPtrOutput) PhpVersion() pulumi.StringPtrOutput {
@@ -46383,7 +46383,7 @@ type WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -46429,7 +46429,7 @@ type WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -46574,7 +46574,7 @@ func (o WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -46716,7 +46716,7 @@ func (o WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParamet
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -51434,7 +51434,7 @@ func (o WindowsFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XForwarded
 }
 
 type WindowsFunctionAppSiteCredential struct {
-	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password *string `pulumi:"password"`
@@ -51452,7 +51452,7 @@ type WindowsFunctionAppSiteCredentialInput interface {
 }
 
 type WindowsFunctionAppSiteCredentialArgs struct {
-	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Site Credentials Password used for publishing.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -51509,7 +51509,7 @@ func (o WindowsFunctionAppSiteCredentialOutput) ToWindowsFunctionAppSiteCredenti
 	return o
 }
 
-// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+// The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 func (o WindowsFunctionAppSiteCredentialOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFunctionAppSiteCredential) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -53726,7 +53726,7 @@ type WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -53772,7 +53772,7 @@ type WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -53921,7 +53921,7 @@ func (o WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Output) LoginParame
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -54065,7 +54065,7 @@ func (o WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginPar
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -61488,7 +61488,7 @@ type WindowsWebAppAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -61534,7 +61534,7 @@ type WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -61677,7 +61677,7 @@ func (o WindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() pu
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -61819,7 +61819,7 @@ func (o WindowsWebAppAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParameters()
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsWebAppAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -71555,7 +71555,7 @@ type WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2 struct {
 	LoginParameters map[string]string `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled *bool `pulumi:"wwwAuthenticationDisabled"`
@@ -71601,7 +71601,7 @@ type WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args struct {
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
 	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 	//
-	// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+	// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
 	// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
 	WwwAuthenticationDisabled pulumi.BoolPtrInput `pulumi:"wwwAuthenticationDisabled"`
@@ -71746,7 +71746,7 @@ func (o WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Output) LoginParameters(
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
 }
@@ -71888,7 +71888,7 @@ func (o WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) LoginParamete
 
 // The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 //
-// > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+// > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
 func (o WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2PtrOutput) TenantAuthEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2) *string {
 		if v == nil {
@@ -83413,7 +83413,7 @@ type GetLinuxFunctionAppSiteConfig struct {
 	// Is Scale Monitoring of the Functions Runtime enabled?
 	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// The Default action for traffic that does not match any `scmIpRestriction` rule.
-	ScmIpRestrictionDefaultAction *string `pulumi:"scmIpRestrictionDefaultAction"`
+	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions []GetLinuxFunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS for SSL requests to the SCM site.
@@ -83501,7 +83501,7 @@ type GetLinuxFunctionAppSiteConfigArgs struct {
 	// Is Scale Monitoring of the Functions Runtime enabled?
 	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// The Default action for traffic that does not match any `scmIpRestriction` rule.
-	ScmIpRestrictionDefaultAction pulumi.StringPtrInput `pulumi:"scmIpRestrictionDefaultAction"`
+	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions GetLinuxFunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS for SSL requests to the SCM site.
@@ -83724,8 +83724,8 @@ func (o GetLinuxFunctionAppSiteConfigOutput) RuntimeScaleMonitoringEnabled() pul
 }
 
 // The Default action for traffic that does not match any `scmIpRestriction` rule.
-func (o GetLinuxFunctionAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfig) *string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringPtrOutput)
+func (o GetLinuxFunctionAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxFunctionAppSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
 }
 
 // One or more `scmIpRestriction` blocks as defined above.

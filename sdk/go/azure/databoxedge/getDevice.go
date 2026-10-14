@@ -74,7 +74,7 @@ type LookupDeviceResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the product documentation.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the [product documentation](https://learn.microsoft.com/azure/templates/microsoft.databoxedge/databoxedgedevices).
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Databox Edge Device.
 	Tags map[string]string `pulumi:"tags"`
@@ -135,7 +135,7 @@ func (o LookupDeviceResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the product documentation.
+// The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the [product documentation](https://learn.microsoft.com/azure/templates/microsoft.databoxedge/databoxedgedevices).
 func (o LookupDeviceResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

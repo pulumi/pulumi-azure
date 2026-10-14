@@ -33,6 +33,7 @@ __all__ = [
     'RunBookPublishContentLinkHash',
     'ScheduleMonthlyOccurrence',
     'SourceControlSecurity',
+    'GetAccountEncryptionResult',
     'GetAccountIdentityResult',
     'GetAccountPrivateEndpointConnectionResult',
     'GetVariablesBoolResult',
@@ -879,6 +880,25 @@ class SourceControlSecurity(dict):
         The refresh token of specified rpeo.
         """
         return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class GetAccountEncryptionResult(dict):
+    def __init__(__self__, *,
+                 key_vault_key_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> _builtins.str:
+        return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

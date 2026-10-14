@@ -206,6 +206,11 @@ public final class GetLinuxWebAppResult {
      */
     private Boolean virtualNetworkBackupRestoreEnabled;
     /**
+     * @return Whether image pull traffic is routed through the virtual network integration.
+     * 
+     */
+    private Boolean virtualNetworkImagePullEnabled;
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -476,6 +481,13 @@ public final class GetLinuxWebAppResult {
         return this.virtualNetworkBackupRestoreEnabled;
     }
     /**
+     * @return Whether image pull traffic is routed through the virtual network integration.
+     * 
+     */
+    public Boolean virtualNetworkImagePullEnabled() {
+        return this.virtualNetworkImagePullEnabled;
+    }
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -537,6 +549,7 @@ public final class GetLinuxWebAppResult {
         private Map<String,String> tags;
         private String usage;
         private Boolean virtualNetworkBackupRestoreEnabled;
+        private Boolean virtualNetworkImagePullEnabled;
         private String virtualNetworkSubnetId;
         private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
@@ -580,6 +593,7 @@ public final class GetLinuxWebAppResult {
     	      this.tags = defaults.tags;
     	      this.usage = defaults.usage;
     	      this.virtualNetworkBackupRestoreEnabled = defaults.virtualNetworkBackupRestoreEnabled;
+    	      this.virtualNetworkImagePullEnabled = defaults.virtualNetworkImagePullEnabled;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
     	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
@@ -925,6 +939,14 @@ public final class GetLinuxWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder virtualNetworkImagePullEnabled(Boolean virtualNetworkImagePullEnabled) {
+            if (virtualNetworkImagePullEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "virtualNetworkImagePullEnabled");
+            }
+            this.virtualNetworkImagePullEnabled = virtualNetworkImagePullEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             if (virtualNetworkSubnetId == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "virtualNetworkSubnetId");
@@ -980,6 +1002,7 @@ public final class GetLinuxWebAppResult {
             _resultValue.tags = tags;
             _resultValue.usage = usage;
             _resultValue.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            _resultValue.virtualNetworkImagePullEnabled = virtualNetworkImagePullEnabled;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
             _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;

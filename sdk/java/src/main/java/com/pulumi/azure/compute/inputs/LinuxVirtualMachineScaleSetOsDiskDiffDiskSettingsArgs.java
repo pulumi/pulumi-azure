@@ -32,14 +32,14 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs extends
     }
 
     /**
-     * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="placement")
     private @Nullable Output<String> placement;
 
     /**
-     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> placement() {
@@ -93,7 +93,7 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs extends
         }
 
         /**
-         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs extends
         }
 
         /**
-         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * @param placement Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

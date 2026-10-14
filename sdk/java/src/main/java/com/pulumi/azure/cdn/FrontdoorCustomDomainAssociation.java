@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.cdn.FrontdoorRoute;
  * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainAssociation;
@@ -126,12 +127,12 @@ import javax.annotation.Nullable;
  *             .name("example-customDomain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(Map.ofEntries(
- *                 Map.entry("separator", "."),
- *                 Map.entry("input", Arrays.asList(                
+ *             .hostName(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
  *                     "contoso",
- *                     exampleZone.name()))
- *             )).result())
+ *                     exampleZone.name())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")

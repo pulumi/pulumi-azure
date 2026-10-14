@@ -369,6 +369,7 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -388,7 +389,9 @@ public final class ManagementFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -413,6 +416,7 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -432,7 +436,9 @@ public final class ManagementFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -457,6 +463,7 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -476,7 +483,9 @@ public final class ManagementFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -501,6 +510,7 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -520,7 +530,9 @@ public final class ManagementFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -545,6 +557,7 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -564,7 +577,9 @@ public final class ManagementFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }

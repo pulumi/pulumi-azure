@@ -69,14 +69,14 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
     }
 
     /**
-     * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+     * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
      * 
      */
     @Import(name="months", required=true)
     private Output<List<String>> months;
 
     /**
-     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
      * 
      */
     public Output<List<String>> months() {
@@ -220,7 +220,7 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * @param months The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          * 
          * @return builder
          * 

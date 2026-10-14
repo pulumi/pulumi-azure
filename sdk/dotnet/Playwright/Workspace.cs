@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Playwright
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
+        /// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
         /// </summary>
         [Output("dataplaneUri")]
         public Output<string> DataplaneUri { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Playwright
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Playwright Workspace.
+        /// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Playwright
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Playwright Workspace.
+        /// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Playwright
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
+        /// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
         /// </summary>
         [Input("dataplaneUri")]
         public Input<string>? DataplaneUri { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Playwright
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Playwright Workspace.
+        /// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

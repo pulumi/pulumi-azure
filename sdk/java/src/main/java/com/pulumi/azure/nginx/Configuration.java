@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.nginx.ConfigurationArgs;
  * import com.pulumi.azure.nginx.inputs.ConfigurationConfigFileArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -113,7 +114,8 @@ import javax.annotation.Nullable;
  *             .rootFile("/etc/nginx/nginx.conf")
  *             .configFiles(            
  *                 ConfigurationConfigFileArgs.builder()
- *                     .content(StdFunctions.base64encode(Map.of("input", """
+ *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input("""
  * http {
  *     server {
  *         listen 80;
@@ -127,11 +129,13 @@ import javax.annotation.Nullable;
  *         include site/*.conf;
  *     }
  * }
- *                     """)).result())
+ *                         """)
+ *                         .build()).result())
  *                     .virtualPath("/etc/nginx/nginx.conf")
  *                     .build(),
  *                 ConfigurationConfigFileArgs.builder()
- *                     .content(StdFunctions.base64encode(Map.of("input", """
+ *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input("""
  * location /bbb {
  *  default_type text/html;
  *  return 200 '<!doctype html><html lang=\"en\"><head></head><body>
@@ -139,7 +143,8 @@ import javax.annotation.Nullable;
  *   <div>at 10:38 am</div>
  *  </body></html>';
  * }
- *                     """)).result())
+ *                         """)
+ *                         .build()).result())
  *                     .virtualPath("/etc/nginx/site/b.conf")
  *                     .build())
  *             .build());

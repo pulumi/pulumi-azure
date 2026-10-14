@@ -142,6 +142,8 @@ type AutonomousDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
 	NationalCharacterSet pulumi.StringOutput `pulumi:"nationalCharacterSet"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+	Ocid pulumi.StringOutput `pulumi:"ocid"`
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
@@ -274,6 +276,8 @@ type autonomousDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
 	NationalCharacterSet *string `pulumi:"nationalCharacterSet"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+	Ocid *string `pulumi:"ocid"`
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
@@ -325,6 +329,8 @@ type AutonomousDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
 	NationalCharacterSet pulumi.StringPtrInput
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+	Ocid pulumi.StringPtrInput
 	// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
@@ -626,6 +632,11 @@ func (o AutonomousDatabaseOutput) Name() pulumi.StringOutput {
 // The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
 func (o AutonomousDatabaseOutput) NationalCharacterSet() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.NationalCharacterSet }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+func (o AutonomousDatabaseOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutonomousDatabase) pulumi.StringOutput { return v.Ocid }).(pulumi.StringOutput)
 }
 
 // The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.

@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Automation
     ///         Base64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Exportable = true,
     ///     });
     /// 

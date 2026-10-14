@@ -635,7 +635,7 @@ class WorkspaceGithubRepoArgsDict(TypedDict):
     """
     git_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+    Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 
     > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
     """
@@ -658,7 +658,7 @@ class WorkspaceGithubRepoArgs:
         :param pulumi.Input[_builtins.str] branch_name: Specifies the collaboration branch of the repository to get code from.
         :param pulumi.Input[_builtins.str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[_builtins.str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
-        :param pulumi.Input[_builtins.str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+        :param pulumi.Input[_builtins.str] git_url: Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
                
                > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         :param pulumi.Input[_builtins.str] last_commit_id: The last commit ID.
@@ -724,7 +724,7 @@ class WorkspaceGithubRepoArgs:
     @pulumi.getter(name="gitUrl")
     def git_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+        Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 
         > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         """

@@ -50,8 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "example.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				Name:              pulumi.String("example-cert"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
-//				Data:              invokeFilebase64.Result,
+//				Data:              pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -138,8 +138,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "example_cert.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example_cert.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -148,7 +148,7 @@ import (
 //				Name:       pulumi.String("example-cert"),
 //				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: invokeFilebase64.Result,
+//					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String("terraform"),
 //				},
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{

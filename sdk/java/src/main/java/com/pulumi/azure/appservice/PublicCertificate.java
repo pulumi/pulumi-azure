@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.PublicCertificate;
  * import com.pulumi.azure.appservice.PublicCertificateArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,15 +67,17 @@ import javax.annotation.Nullable;
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var examplePublicCertificate = new PublicCertificate("examplePublicCertificate", PublicCertificateArgs.builder()
  *             .resourceGroupName(example.name())
- *             .appServiceName(exampleAppService.name())
+ *             .appServiceName(exampleAppService.get("name"))
  *             .certificateName("example-public-certificate")
  *             .certificateLocation("Unknown")
- *             .blob(StdFunctions.filebase64(Map.of("input", "app_service_public_certificate.cer")).result())
+ *             .blob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("app_service_public_certificate.cer")
+ *                 .build()).result())
  *             .build());
  * 
  *     }

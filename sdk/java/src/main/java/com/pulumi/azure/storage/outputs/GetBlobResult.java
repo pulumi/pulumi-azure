@@ -17,6 +17,11 @@ public final class GetBlobResult {
      */
     private String accessTier;
     /**
+     * @return The cache control directive that is set on the blob.
+     * 
+     */
+    private String cacheControl;
+    /**
      * @return The MD5 sum of the blob contents.
      * 
      */
@@ -42,6 +47,11 @@ public final class GetBlobResult {
      */
     private Map<String,String> metadata;
     private String name;
+    /**
+     * @return The source URI used to copy the blob, if it was created from another blob.
+     * 
+     */
+    private String sourceUri;
     private String storageContainerId;
     /**
      * @return The type of the storage blob
@@ -61,6 +71,13 @@ public final class GetBlobResult {
      */
     public String accessTier() {
         return this.accessTier;
+    }
+    /**
+     * @return The cache control directive that is set on the blob.
+     * 
+     */
+    public String cacheControl() {
+        return this.cacheControl;
     }
     /**
      * @return The MD5 sum of the blob contents.
@@ -100,6 +117,13 @@ public final class GetBlobResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The source URI used to copy the blob, if it was created from another blob.
+     * 
+     */
+    public String sourceUri() {
+        return this.sourceUri;
+    }
     public String storageContainerId() {
         return this.storageContainerId;
     }
@@ -128,12 +152,14 @@ public final class GetBlobResult {
     @CustomType.Builder
     public static final class Builder {
         private String accessTier;
+        private String cacheControl;
         private String contentMd5;
         private String contentType;
         private String encryptionScope;
         private String id;
         private Map<String,String> metadata;
         private String name;
+        private String sourceUri;
         private String storageContainerId;
         private String type;
         private String url;
@@ -141,12 +167,14 @@ public final class GetBlobResult {
         public Builder(GetBlobResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessTier = defaults.accessTier;
+    	      this.cacheControl = defaults.cacheControl;
     	      this.contentMd5 = defaults.contentMd5;
     	      this.contentType = defaults.contentType;
     	      this.encryptionScope = defaults.encryptionScope;
     	      this.id = defaults.id;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
+    	      this.sourceUri = defaults.sourceUri;
     	      this.storageContainerId = defaults.storageContainerId;
     	      this.type = defaults.type;
     	      this.url = defaults.url;
@@ -158,6 +186,14 @@ public final class GetBlobResult {
               throw new MissingRequiredPropertyException("GetBlobResult", "accessTier");
             }
             this.accessTier = accessTier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cacheControl(String cacheControl) {
+            if (cacheControl == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "cacheControl");
+            }
+            this.cacheControl = cacheControl;
             return this;
         }
         @CustomType.Setter
@@ -209,6 +245,14 @@ public final class GetBlobResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceUri(String sourceUri) {
+            if (sourceUri == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "sourceUri");
+            }
+            this.sourceUri = sourceUri;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageContainerId(String storageContainerId) {
             if (storageContainerId == null) {
               throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerId");
@@ -235,12 +279,14 @@ public final class GetBlobResult {
         public GetBlobResult build() {
             final var _resultValue = new GetBlobResult();
             _resultValue.accessTier = accessTier;
+            _resultValue.cacheControl = cacheControl;
             _resultValue.contentMd5 = contentMd5;
             _resultValue.contentType = contentType;
             _resultValue.encryptionScope = encryptionScope;
             _resultValue.id = id;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
+            _resultValue.sourceUri = sourceUri;
             _resultValue.storageContainerId = storageContainerId;
             _resultValue.type = type;
             _resultValue.url = url;

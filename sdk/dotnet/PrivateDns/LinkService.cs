@@ -12,7 +12,7 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Manages a Private Link Service.
     /// 
-    /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+    /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/azure/private-link/).
     /// 
     /// ## Example Usage
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.PrivateDns
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 

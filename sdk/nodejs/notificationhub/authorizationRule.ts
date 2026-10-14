@@ -111,7 +111,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
-     * The Primary Connetion String associated with this Authorization Rule.
+     * The Primary Connection String associated with this Authorization Rule.
      */
     declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
-     * The Secondary Connetion String associated with this Authorization Rule.
+     * The Secondary Connection String associated with this Authorization Rule.
      */
     declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export interface AuthorizationRuleState {
      */
     primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
-     * The Primary Connetion String associated with this Authorization Rule.
+     * The Primary Connection String associated with this Authorization Rule.
      */
     primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
@@ -228,7 +228,7 @@ export interface AuthorizationRuleState {
      */
     secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
-     * The Secondary Connetion String associated with this Authorization Rule.
+     * The Secondary Connection String associated with this Authorization Rule.
      */
     secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**

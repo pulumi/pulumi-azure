@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.attestation.Provider;
  * import com.pulumi.azure.attestation.ProviderArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,7 +55,9 @@ import javax.annotation.Nullable;
  *             .name("exampleprovider")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .policySigningCertificateData(StdFunctions.file(Map.of("input", "./example/cert.pem")).result())
+ *             .policySigningCertificateData(StdFunctions.file(FileArgs.builder()
+ *                 .input("./example/cert.pem")
+ *                 .build()).result())
  *             .build());
  * 
  *     }

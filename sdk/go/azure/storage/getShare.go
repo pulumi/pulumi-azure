@@ -86,7 +86,7 @@ type LookupShareResult struct {
 	Name     string            `pulumi:"name"`
 	// The quota of the File Share in GB.
 	Quota int `pulumi:"quota"`
-	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 	RbacScopeId      string `pulumi:"rbacScopeId"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
@@ -151,7 +151,7 @@ func (o LookupShareResultOutput) Quota() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupShareResult) int { return v.Quota }).(pulumi.IntOutput)
 }
 
-// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 func (o LookupShareResultOutput) RbacScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupShareResult) string { return v.RbacScopeId }).(pulumi.StringOutput)
 }

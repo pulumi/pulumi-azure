@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.arckubernetes.ClusterArgs;
  * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.arckubernetes.ClusterExtension;
  * import com.pulumi.azure.arckubernetes.ClusterExtensionArgs;
  * import com.pulumi.azure.arckubernetes.FluxConfiguration;
@@ -67,7 +68,9 @@ import javax.annotation.Nullable;
  *             .name("example-akcc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Map.of("input", "testdata/public.cer")).result())
+ *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("testdata/public.cer")
+ *                 .build()).result())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())

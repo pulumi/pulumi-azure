@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     data: std.filebase64({
  *         input: "example.pfx",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * const exampleGatewayHostNameConfiguration = new azure.apimanagement.GatewayHostNameConfiguration("example", {
  *     name: "example-host-name-configuration",

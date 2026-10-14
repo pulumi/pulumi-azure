@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInterfaceResult
@@ -71,12 +71,20 @@ type LookupNetworkInterfaceResult struct {
 	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
 	// List of DNS servers applied to the specified Network Interface.
 	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
+	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+	AuxiliaryMode string `pulumi:"auxiliaryMode"`
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+	AuxiliarySku string `pulumi:"auxiliarySku"`
 	// The list of DNS servers used by the specified Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+	EdgeZone string `pulumi:"edgeZone"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The internal DNS name label of the specified Network Interface.
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
+	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+	InternalDomainNameSuffix string `pulumi:"internalDomainNameSuffix"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []GetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// Indicate if IP forwarding is set on the specified Network Interface.
@@ -142,9 +150,24 @@ func (o LookupNetworkInterfaceResultOutput) AppliedDnsServers() pulumi.StringArr
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.AppliedDnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+func (o LookupNetworkInterfaceResultOutput) AuxiliaryMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.AuxiliaryMode }).(pulumi.StringOutput)
+}
+
+// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+func (o LookupNetworkInterfaceResultOutput) AuxiliarySku() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.AuxiliarySku }).(pulumi.StringOutput)
+}
+
 // The list of DNS servers used by the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+func (o LookupNetworkInterfaceResultOutput) EdgeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.EdgeZone }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -155,6 +178,11 @@ func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringOutput {
 // The internal DNS name label of the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) InternalDnsNameLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.InternalDnsNameLabel }).(pulumi.StringOutput)
+}
+
+// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+func (o LookupNetworkInterfaceResultOutput) InternalDomainNameSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.InternalDomainNameSuffix }).(pulumi.StringOutput)
 }
 
 // One or more `ipConfiguration` blocks as defined below.

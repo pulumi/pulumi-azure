@@ -50,16 +50,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeSplit, err := std.Split(ctx, map[string]interface{}{
-//				"separator": "/",
-//				"text":      builtin.Id,
+//			invokeSplit, err := std.Split(ctx, &std.SplitArgs{
+//				Separator: "/",
+//				Text:      builtin.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeSplit1, err := std.Split(ctx, map[string]interface{}{
-//				"separator": "/",
-//				"text":      builtin.Id,
+//			invokeSplit1, err := std.Split(ctx, &std.SplitArgs{
+//				Separator: "/",
+//				Text:      builtin.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -75,7 +75,7 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
+//						RoleDefinitionId:   invokeSplit.Result[int(len(invokeSplit1.Result)-1)],
 //					},
 //				},
 //			})

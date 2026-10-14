@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
- *     name: "examplees-es",
+ *     name: "examples-es",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     baseSizeInTib: 1,

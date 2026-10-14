@@ -42,7 +42,7 @@ namespace Pulumi.Azure.PrivateLink
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.PrivateLink
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:privatelink/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.PrivateLink
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:privatelink/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -174,6 +174,14 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly ImmutableArray<string> AutoApprovalSubscriptionIds;
         /// <summary>
+        /// The destination IP address of the Private Link Service.
+        /// </summary>
+        public readonly string DestinationIpAddress;
+        /// <summary>
+        /// List of FQDNs allowed for the Private Link Service.
+        /// </summary>
+        public readonly ImmutableArray<string> Fqdns;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -210,6 +218,10 @@ namespace Pulumi.Azure.PrivateLink
 
             ImmutableArray<string> autoApprovalSubscriptionIds,
 
+            string destinationIpAddress,
+
+            ImmutableArray<string> fqdns,
+
             string id,
 
             ImmutableArray<string> loadBalancerFrontendIpConfigurationIds,
@@ -230,6 +242,8 @@ namespace Pulumi.Azure.PrivateLink
         {
             Alias = alias;
             AutoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
+            DestinationIpAddress = destinationIpAddress;
+            Fqdns = fqdns;
             Id = id;
             LoadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             Location = location;

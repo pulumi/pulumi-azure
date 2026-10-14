@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentCustomDomain;
  * import com.pulumi.azure.containerapp.EnvironmentCustomDomainArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -70,7 +71,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEnvironmentCustomDomain = new EnvironmentCustomDomain("exampleEnvironmentCustomDomain", EnvironmentCustomDomainArgs.builder()
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .certificateBlobBase64(StdFunctions.filebase64(Map.of("input", "testacc.pfx")).result())
+ *             .certificateBlobBase64(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("testacc.pfx")
+ *                 .build()).result())
  *             .certificatePassword("TestAcc")
  *             .dnsSuffix("acceptancetest.contoso.com")
  *             .build());

@@ -124,7 +124,7 @@ type Watcher struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
 	ScriptName pulumi.StringOutput `pulumi:"scriptName"`
-	// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+	// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 	ScriptParameters pulumi.StringMapOutput `pulumi:"scriptParameters"`
 	// Specify the name of the Hybrid work group the watcher will run on.
 	ScriptRunOn pulumi.StringOutput `pulumi:"scriptRunOn"`
@@ -190,7 +190,7 @@ type watcherState struct {
 	Name *string `pulumi:"name"`
 	// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
 	ScriptName *string `pulumi:"scriptName"`
-	// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+	// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 	ScriptParameters map[string]string `pulumi:"scriptParameters"`
 	// Specify the name of the Hybrid work group the watcher will run on.
 	ScriptRunOn *string `pulumi:"scriptRunOn"`
@@ -215,7 +215,7 @@ type WatcherState struct {
 	Name pulumi.StringPtrInput
 	// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
 	ScriptName pulumi.StringPtrInput
-	// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+	// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 	ScriptParameters pulumi.StringMapInput
 	// Specify the name of the Hybrid work group the watcher will run on.
 	ScriptRunOn pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type watcherArgs struct {
 	Name *string `pulumi:"name"`
 	// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
 	ScriptName string `pulumi:"scriptName"`
-	// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+	// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 	ScriptParameters map[string]string `pulumi:"scriptParameters"`
 	// Specify the name of the Hybrid work group the watcher will run on.
 	ScriptRunOn string `pulumi:"scriptRunOn"`
@@ -268,7 +268,7 @@ type WatcherArgs struct {
 	Name pulumi.StringPtrInput
 	// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
 	ScriptName pulumi.StringInput
-	// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+	// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 	ScriptParameters pulumi.StringMapInput
 	// Specify the name of the Hybrid work group the watcher will run on.
 	ScriptRunOn pulumi.StringInput
@@ -398,7 +398,7 @@ func (o WatcherOutput) ScriptName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.ScriptName }).(pulumi.StringOutput)
 }
 
-// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
 func (o WatcherOutput) ScriptParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Watcher) pulumi.StringMapOutput { return v.ScriptParameters }).(pulumi.StringMapOutput)
 }

@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "fabrikam",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",

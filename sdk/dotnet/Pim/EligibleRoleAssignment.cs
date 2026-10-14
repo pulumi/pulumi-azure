@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumi.Time;
+    /// using Time = Pulumiverse.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumi.Time;
+    /// using Time = Pulumiverse.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Pim
     public partial class EligibleRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         /// </summary>
         [Output("condition")]
         public Output<string?> Condition { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Pim
     public sealed class EligibleRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Pim
     public sealed class EligibleRoleAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }

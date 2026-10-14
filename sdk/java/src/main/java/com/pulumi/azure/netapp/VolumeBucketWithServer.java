@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Declaring a `server` block on more than one bucket of the same volume overwrites the shared server configuration. Only the first bucket should manage the server, via this resource.
  * 
- * &gt; **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
+ * &gt; **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
  * 
  * &gt; **Note:** Buckets are supported on cool-access and large NetApp volumes. Buckets are not supported on cache volumes. Deleting the parent volume cascade-deletes its buckets.
  * 
@@ -64,6 +64,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerFileSystemNfsUserArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerServerArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -139,7 +140,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketSelfSignedCert = new SelfSignedCert("bucketSelfSignedCert", SelfSignedCertArgs.builder()
- *             .privateKeyPem(bucket.privateKeyPem())
+ *             .privateKeyPem(bucket.get("privateKeyPem"))
  *             .subject(Arrays.asList(Map.of("commonName", "example-bucket.example.internal")))
  *             .dnsNames(Arrays.asList("example-bucket.example.internal"))
  *             .validityPeriodHours(8760)
@@ -158,7 +159,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .server(VolumeBucketWithServerServerArgs.builder()
  *                 .fqdn("example-bucket.example.internal")
- *                 .certificatePem(StdFunctions.base64encode(Map.of("input", String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))).result())
+ *                 .certificatePem(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                     .input(String.format("%s%s", bucketSelfSignedCert.get("certPem"),bucket.get("privateKeyPem")))
+ *                     .build()).result())
  *                 .build())
  *             .build());
  * 
@@ -425,7 +428,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  * 
  * ## Import
  * 

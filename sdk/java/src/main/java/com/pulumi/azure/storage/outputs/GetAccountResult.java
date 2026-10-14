@@ -285,6 +285,11 @@ public final class GetAccountResult {
      */
     private String primaryWebMicrosoftHost;
     /**
+     * @return The public network access setting of the Storage Account.
+     * 
+     */
+    private String publicNetworkAccess;
+    /**
      * @return The encryption key type of the queue.
      * 
      */
@@ -855,6 +860,13 @@ public final class GetAccountResult {
         return this.primaryWebMicrosoftHost;
     }
     /**
+     * @return The public network access setting of the Storage Account.
+     * 
+     */
+    public String publicNetworkAccess() {
+        return this.publicNetworkAccess;
+    }
+    /**
      * @return The encryption key type of the queue.
      * 
      */
@@ -1193,6 +1205,7 @@ public final class GetAccountResult {
         private String primaryWebInternetHost;
         private String primaryWebMicrosoftEndpoint;
         private String primaryWebMicrosoftHost;
+        private String publicNetworkAccess;
         private String queueEncryptionKeyType;
         private @Nullable String resourceGroupName;
         private String secondaryAccessKey;
@@ -1289,6 +1302,7 @@ public final class GetAccountResult {
     	      this.primaryWebInternetHost = defaults.primaryWebInternetHost;
     	      this.primaryWebMicrosoftEndpoint = defaults.primaryWebMicrosoftEndpoint;
     	      this.primaryWebMicrosoftHost = defaults.primaryWebMicrosoftHost;
+    	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.queueEncryptionKeyType = defaults.queueEncryptionKeyType;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
@@ -1763,6 +1777,14 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            if (publicNetworkAccess == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "publicNetworkAccess");
+            }
+            this.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queueEncryptionKeyType(String queueEncryptionKeyType) {
             if (queueEncryptionKeyType == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "queueEncryptionKeyType");
@@ -2135,6 +2157,7 @@ public final class GetAccountResult {
             _resultValue.primaryWebInternetHost = primaryWebInternetHost;
             _resultValue.primaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
             _resultValue.primaryWebMicrosoftHost = primaryWebMicrosoftHost;
+            _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.queueEncryptionKeyType = queueEncryptionKeyType;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryAccessKey = secondaryAccessKey;

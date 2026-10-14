@@ -98,7 +98,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
      * 
      */
     @Import(name="principalId")
@@ -107,7 +107,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -147,7 +147,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
-     * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+     * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
      */
     @Import(name="roleDefinitionName")
@@ -156,7 +156,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      * 
-     * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+     * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
      * 
      */
     public Optional<Output<String>> roleDefinitionName() {
@@ -327,7 +327,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param principalId The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param principalId The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+         * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
          * 
-         * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+         * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
          * 
-         * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+         * &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
          * 
          * @return builder
          * 

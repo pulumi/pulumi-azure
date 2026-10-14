@@ -132,9 +132,21 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly accountKind: pulumi.Output<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     declare public readonly accountReplicationType: pulumi.Output<string>;
+    /**
+     * The `accountReplicationType` that the Storage Account is migrating to.
+     */
+    declare public /*out*/ readonly accountReplicationTypeMigratingTo: pulumi.Output<string>;
+    /**
+     * Whether a replication type migration is in progress.
+     */
+    declare public /*out*/ readonly accountReplicationTypeMigrationInProgress: pulumi.Output<boolean>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
@@ -396,9 +408,13 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly provisionedBillingModelVersion: pulumi.Output<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      */
-    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+     */
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
@@ -604,6 +620,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accessTier"] = state?.accessTier;
             resourceInputs["accountKind"] = state?.accountKind;
             resourceInputs["accountReplicationType"] = state?.accountReplicationType;
+            resourceInputs["accountReplicationTypeMigratingTo"] = state?.accountReplicationTypeMigratingTo;
+            resourceInputs["accountReplicationTypeMigrationInProgress"] = state?.accountReplicationTypeMigrationInProgress;
             resourceInputs["accountTier"] = state?.accountTier;
             resourceInputs["allowNestedItemsToBePublic"] = state?.allowNestedItemsToBePublic;
             resourceInputs["allowedCopyScope"] = state?.allowedCopyScope;
@@ -664,6 +682,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryWebMicrosoftEndpoint"] = state?.primaryWebMicrosoftEndpoint;
             resourceInputs["primaryWebMicrosoftHost"] = state?.primaryWebMicrosoftHost;
             resourceInputs["provisionedBillingModelVersion"] = state?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["queueEncryptionKeyType"] = state?.queueEncryptionKeyType;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
@@ -748,6 +767,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["networkRules"] = args?.networkRules;
             resourceInputs["nfsv3Enabled"] = args?.nfsv3Enabled;
             resourceInputs["provisionedBillingModelVersion"] = args?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["queueEncryptionKeyType"] = args?.queueEncryptionKeyType;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -758,6 +778,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["sharedAccessKeyEnabled"] = args?.sharedAccessKeyEnabled;
             resourceInputs["tableEncryptionKeyType"] = args?.tableEncryptionKeyType;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountReplicationTypeMigratingTo"] = undefined /*out*/;
+            resourceInputs["accountReplicationTypeMigrationInProgress"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["primaryBlobConnectionString"] = undefined /*out*/;
             resourceInputs["primaryBlobEndpoint"] = undefined /*out*/;
@@ -853,9 +875,21 @@ export interface AccountState {
      */
     accountKind?: pulumi.Input<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     accountReplicationType?: pulumi.Input<string | undefined>;
+    /**
+     * The `accountReplicationType` that the Storage Account is migrating to.
+     */
+    accountReplicationTypeMigratingTo?: pulumi.Input<string | undefined>;
+    /**
+     * Whether a replication type migration is in progress.
+     */
+    accountReplicationTypeMigrationInProgress?: pulumi.Input<boolean | undefined>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
@@ -1117,7 +1151,11 @@ export interface AccountState {
      */
     provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -1325,7 +1363,11 @@ export interface AccountArgs {
      */
     accountKind?: pulumi.Input<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     accountReplicationType: pulumi.Input<string>;
     /**
@@ -1445,7 +1487,11 @@ export interface AccountArgs {
      */
     provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**

@@ -1342,7 +1342,7 @@ type AccountCustomDomain struct {
 	Name string `pulumi:"name"`
 	// Should the Custom Domain Name be validated by using indirect CNAME validation?
 	//
-	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
 	UseSubdomain *bool `pulumi:"useSubdomain"`
 }
 
@@ -1362,7 +1362,7 @@ type AccountCustomDomainArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Should the Custom Domain Name be validated by using indirect CNAME validation?
 	//
-	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+	// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
 	UseSubdomain pulumi.BoolPtrInput `pulumi:"useSubdomain"`
 }
 
@@ -1450,7 +1450,7 @@ func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
 
 // Should the Custom Domain Name be validated by using indirect CNAME validation?
 //
-// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountCustomDomainOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
@@ -1491,7 +1491,7 @@ func (o AccountCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 
 // Should the Custom Domain Name be validated by using indirect CNAME validation?
 //
-// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+// > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
 func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountCustomDomain) *bool {
 		if v == nil {
@@ -5039,6 +5039,10 @@ type BlobInventoryPolicyRuleFilter struct {
 	//
 	// > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes []string `pulumi:"blobTypes"`
+	// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+	//
+	// > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+	CreatedWithinDays *int `pulumi:"createdWithinDays"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes []string `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
@@ -5073,6 +5077,10 @@ type BlobInventoryPolicyRuleFilterArgs struct {
 	//
 	// > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+	//
+	// > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+	CreatedWithinDays pulumi.IntPtrInput `pulumi:"createdWithinDays"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes pulumi.StringArrayInput `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
@@ -5175,6 +5183,13 @@ func (o BlobInventoryPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
+// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+//
+// > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+func (o BlobInventoryPolicyRuleFilterOutput) CreatedWithinDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *int { return v.CreatedWithinDays }).(pulumi.IntPtrOutput)
+}
+
 // A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 func (o BlobInventoryPolicyRuleFilterOutput) ExcludePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.ExcludePrefixes }).(pulumi.StringArrayOutput)
@@ -5240,6 +5255,18 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) BlobTypes() pulumi.StringArrayOu
 		}
 		return v.BlobTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+//
+// > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) CreatedWithinDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedWithinDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
@@ -5568,6 +5595,130 @@ func (o DataLakeGen2PathAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2Pat
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeGen2PathAce {
 		return vs[0].([]DataLakeGen2PathAce)[vs[1].(int)]
 	}).(DataLakeGen2PathAceOutput)
+}
+
+type DiscoveryWorkspaceScope struct {
+	// The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+	DisplayName string `pulumi:"displayName"`
+	// A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+	TagKeysOnlies []string `pulumi:"tagKeysOnlies"`
+	// A map of tag key-value pairs that resources must have to be included in this scope.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// DiscoveryWorkspaceScopeInput is an input type that accepts DiscoveryWorkspaceScopeArgs and DiscoveryWorkspaceScopeOutput values.
+// You can construct a concrete instance of `DiscoveryWorkspaceScopeInput` via:
+//
+//	DiscoveryWorkspaceScopeArgs{...}
+type DiscoveryWorkspaceScopeInput interface {
+	pulumi.Input
+
+	ToDiscoveryWorkspaceScopeOutput() DiscoveryWorkspaceScopeOutput
+	ToDiscoveryWorkspaceScopeOutputWithContext(context.Context) DiscoveryWorkspaceScopeOutput
+}
+
+type DiscoveryWorkspaceScopeArgs struct {
+	// The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+	TagKeysOnlies pulumi.StringArrayInput `pulumi:"tagKeysOnlies"`
+	// A map of tag key-value pairs that resources must have to be included in this scope.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (DiscoveryWorkspaceScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryWorkspaceScope)(nil)).Elem()
+}
+
+func (i DiscoveryWorkspaceScopeArgs) ToDiscoveryWorkspaceScopeOutput() DiscoveryWorkspaceScopeOutput {
+	return i.ToDiscoveryWorkspaceScopeOutputWithContext(context.Background())
+}
+
+func (i DiscoveryWorkspaceScopeArgs) ToDiscoveryWorkspaceScopeOutputWithContext(ctx context.Context) DiscoveryWorkspaceScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryWorkspaceScopeOutput)
+}
+
+// DiscoveryWorkspaceScopeArrayInput is an input type that accepts DiscoveryWorkspaceScopeArray and DiscoveryWorkspaceScopeArrayOutput values.
+// You can construct a concrete instance of `DiscoveryWorkspaceScopeArrayInput` via:
+//
+//	DiscoveryWorkspaceScopeArray{ DiscoveryWorkspaceScopeArgs{...} }
+type DiscoveryWorkspaceScopeArrayInput interface {
+	pulumi.Input
+
+	ToDiscoveryWorkspaceScopeArrayOutput() DiscoveryWorkspaceScopeArrayOutput
+	ToDiscoveryWorkspaceScopeArrayOutputWithContext(context.Context) DiscoveryWorkspaceScopeArrayOutput
+}
+
+type DiscoveryWorkspaceScopeArray []DiscoveryWorkspaceScopeInput
+
+func (DiscoveryWorkspaceScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiscoveryWorkspaceScope)(nil)).Elem()
+}
+
+func (i DiscoveryWorkspaceScopeArray) ToDiscoveryWorkspaceScopeArrayOutput() DiscoveryWorkspaceScopeArrayOutput {
+	return i.ToDiscoveryWorkspaceScopeArrayOutputWithContext(context.Background())
+}
+
+func (i DiscoveryWorkspaceScopeArray) ToDiscoveryWorkspaceScopeArrayOutputWithContext(ctx context.Context) DiscoveryWorkspaceScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryWorkspaceScopeArrayOutput)
+}
+
+type DiscoveryWorkspaceScopeOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryWorkspaceScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryWorkspaceScope)(nil)).Elem()
+}
+
+func (o DiscoveryWorkspaceScopeOutput) ToDiscoveryWorkspaceScopeOutput() DiscoveryWorkspaceScopeOutput {
+	return o
+}
+
+func (o DiscoveryWorkspaceScopeOutput) ToDiscoveryWorkspaceScopeOutputWithContext(ctx context.Context) DiscoveryWorkspaceScopeOutput {
+	return o
+}
+
+// The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+func (o DiscoveryWorkspaceScopeOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiscoveryWorkspaceScope) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+func (o DiscoveryWorkspaceScopeOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiscoveryWorkspaceScope) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+func (o DiscoveryWorkspaceScopeOutput) TagKeysOnlies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiscoveryWorkspaceScope) []string { return v.TagKeysOnlies }).(pulumi.StringArrayOutput)
+}
+
+// A map of tag key-value pairs that resources must have to be included in this scope.
+func (o DiscoveryWorkspaceScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DiscoveryWorkspaceScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type DiscoveryWorkspaceScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryWorkspaceScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiscoveryWorkspaceScope)(nil)).Elem()
+}
+
+func (o DiscoveryWorkspaceScopeArrayOutput) ToDiscoveryWorkspaceScopeArrayOutput() DiscoveryWorkspaceScopeArrayOutput {
+	return o
+}
+
+func (o DiscoveryWorkspaceScopeArrayOutput) ToDiscoveryWorkspaceScopeArrayOutputWithContext(ctx context.Context) DiscoveryWorkspaceScopeArrayOutput {
+	return o
+}
+
+func (o DiscoveryWorkspaceScopeArrayOutput) Index(i pulumi.IntInput) DiscoveryWorkspaceScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiscoveryWorkspaceScope {
+		return vs[0].([]DiscoveryWorkspaceScope)[vs[1].(int)]
+	}).(DiscoveryWorkspaceScopeOutput)
 }
 
 type LocalUserPermissionScope struct {
@@ -10735,6 +10886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemAceArrayInput)(nil)).Elem(), DataLakeGen2FilesystemAceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathAceInput)(nil)).Elem(), DataLakeGen2PathAceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathAceArrayInput)(nil)).Elem(), DataLakeGen2PathAceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryWorkspaceScopeInput)(nil)).Elem(), DiscoveryWorkspaceScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryWorkspaceScopeArrayInput)(nil)).Elem(), DiscoveryWorkspaceScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopeInput)(nil)).Elem(), LocalUserPermissionScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopeArrayInput)(nil)).Elem(), LocalUserPermissionScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopePermissionsInput)(nil)).Elem(), LocalUserPermissionScopePermissionsArgs{})
@@ -10866,6 +11019,8 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceArrayOutput{})
+	pulumi.RegisterOutputType(DiscoveryWorkspaceScopeOutput{})
+	pulumi.RegisterOutputType(DiscoveryWorkspaceScopeArrayOutput{})
 	pulumi.RegisterOutputType(LocalUserPermissionScopeOutput{})
 	pulumi.RegisterOutputType(LocalUserPermissionScopeArrayOutput{})
 	pulumi.RegisterOutputType(LocalUserPermissionScopePermissionsOutput{})

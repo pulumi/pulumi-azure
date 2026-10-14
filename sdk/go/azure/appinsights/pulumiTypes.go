@@ -22,7 +22,7 @@ type StandardWebTestRequest struct {
 	Headers []StandardWebTestRequestHeader `pulumi:"headers"`
 	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
 	HttpVerb *string `pulumi:"httpVerb"`
-	// Should the parsing of dependend requests be enabled? Defaults to `true`.
+	// Should the parsing of dependent requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled *bool `pulumi:"parseDependentRequestsEnabled"`
 	// The WebTest request URL.
 	Url string `pulumi:"url"`
@@ -48,7 +48,7 @@ type StandardWebTestRequestArgs struct {
 	Headers StandardWebTestRequestHeaderArrayInput `pulumi:"headers"`
 	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
 	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
-	// Should the parsing of dependend requests be enabled? Defaults to `true`.
+	// Should the parsing of dependent requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled pulumi.BoolPtrInput `pulumi:"parseDependentRequestsEnabled"`
 	// The WebTest request URL.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -151,7 +151,7 @@ func (o StandardWebTestRequestOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
 }
 
-// Should the parsing of dependend requests be enabled? Defaults to `true`.
+// Should the parsing of dependent requests be enabled? Defaults to `true`.
 func (o StandardWebTestRequestOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *bool { return v.ParseDependentRequestsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -225,7 +225,7 @@ func (o StandardWebTestRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the parsing of dependend requests be enabled? Defaults to `true`.
+// Should the parsing of dependent requests be enabled? Defaults to `true`.
 func (o StandardWebTestRequestPtrOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StandardWebTestRequest) *bool {
 		if v == nil {
@@ -925,7 +925,7 @@ type WorkbookTemplateGallery struct {
 	ResourceType *string `pulumi:"resourceType"`
 	// Type of workbook supported by the workbook template. Defaults to `workbook`.
 	//
-	// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
+	// > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 	Type *string `pulumi:"type"`
 }
 
@@ -951,7 +951,7 @@ type WorkbookTemplateGalleryArgs struct {
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// Type of workbook supported by the workbook template. Defaults to `workbook`.
 	//
-	// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
+	// > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1028,7 +1028,7 @@ func (o WorkbookTemplateGalleryOutput) ResourceType() pulumi.StringPtrOutput {
 
 // Type of workbook supported by the workbook template. Defaults to `workbook`.
 //
-// > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
+// > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
 func (o WorkbookTemplateGalleryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

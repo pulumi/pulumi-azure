@@ -229,8 +229,8 @@ class CertificateBinding(pulumi.CustomResource):
                 "value": example_app_service["customDomainVerificationId"],
             }])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.trim(input=example_c_name_record.fqdn,
-                cutset=".")["result"],
+            hostname=std.trim_output(input=example_c_name_record.fqdn,
+                cutset=".").result,
             app_service_name=example_app_service["name"],
             resource_group_name=example_resource_group.name,
             opts = pulumi.ResourceOptions(depends_on=[example_txt_record]))
@@ -313,8 +313,8 @@ class CertificateBinding(pulumi.CustomResource):
                 "value": example_app_service["customDomainVerificationId"],
             }])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.trim(input=example_c_name_record.fqdn,
-                cutset=".")["result"],
+            hostname=std.trim_output(input=example_c_name_record.fqdn,
+                cutset=".").result,
             app_service_name=example_app_service["name"],
             resource_group_name=example_resource_group.name,
             opts = pulumi.ResourceOptions(depends_on=[example_txt_record]))

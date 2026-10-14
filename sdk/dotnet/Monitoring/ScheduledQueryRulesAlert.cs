@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 example2.Id,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Severity = 1,
     ///         Frequency = 5,
     ///         TimeWindow = 30,

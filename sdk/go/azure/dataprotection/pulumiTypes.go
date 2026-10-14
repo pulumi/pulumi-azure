@@ -1041,7 +1041,7 @@ func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) LifeCycles()
 }
 
 type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle struct {
-	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+	// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DataStoreType string `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration string `pulumi:"duration"`
@@ -1059,7 +1059,7 @@ type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput interface {
 }
 
 type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs struct {
-	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+	// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -1116,7 +1116,7 @@ func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) ToBack
 	return o
 }
 
-// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
 }
@@ -1369,7 +1369,7 @@ func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) WeeksOfMonths(
 }
 
 type BackupPolicyKubernetesClusterRetentionRuleLifeCycle struct {
-	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+	// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DataStoreType string `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration string `pulumi:"duration"`
@@ -1387,7 +1387,7 @@ type BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput interface {
 }
 
 type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs struct {
-	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+	// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -1444,7 +1444,7 @@ func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) ToBackupPolic
 	return o
 }
 
-// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
 }

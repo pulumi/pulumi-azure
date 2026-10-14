@@ -673,7 +673,7 @@ func (o EndpointDeliveryRuleArrayOutput) Index(i pulumi.IntInput) EndpointDelive
 }
 
 type EndpointDeliveryRuleCacheExpirationAction struct {
-	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 	Behavior string `pulumi:"behavior"`
 	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 	Duration *string `pulumi:"duration"`
@@ -691,7 +691,7 @@ type EndpointDeliveryRuleCacheExpirationActionInput interface {
 }
 
 type EndpointDeliveryRuleCacheExpirationActionArgs struct {
-	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
@@ -774,7 +774,7 @@ func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleC
 	}).(EndpointDeliveryRuleCacheExpirationActionPtrOutput)
 }
 
-// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 func (o EndpointDeliveryRuleCacheExpirationActionOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -808,7 +808,7 @@ func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointDeliv
 	}).(EndpointDeliveryRuleCacheExpirationActionOutput)
 }
 
-// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleCacheExpirationAction) *string {
 		if v == nil {
@@ -829,7 +829,7 @@ func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Duration() pulumi.St
 }
 
 type EndpointDeliveryRuleCacheKeyQueryStringAction struct {
-	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 	Behavior string `pulumi:"behavior"`
 	// Comma separated list of parameter values.
 	Parameters *string `pulumi:"parameters"`
@@ -847,7 +847,7 @@ type EndpointDeliveryRuleCacheKeyQueryStringActionInput interface {
 }
 
 type EndpointDeliveryRuleCacheKeyQueryStringActionArgs struct {
-	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Comma separated list of parameter values.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
@@ -930,7 +930,7 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryR
 	}).(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput)
 }
 
-// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -964,7 +964,7 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointD
 	}).(EndpointDeliveryRuleCacheKeyQueryStringActionOutput)
 }
 
-// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleCacheKeyQueryStringAction) *string {
 		if v == nil {
@@ -3879,7 +3879,7 @@ func (o EndpointGlobalDeliveryRulePtrOutput) UrlRewriteAction() EndpointGlobalDe
 }
 
 type EndpointGlobalDeliveryRuleCacheExpirationAction struct {
-	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 	Behavior string `pulumi:"behavior"`
 	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 	Duration *string `pulumi:"duration"`
@@ -3897,7 +3897,7 @@ type EndpointGlobalDeliveryRuleCacheExpirationActionInput interface {
 }
 
 type EndpointGlobalDeliveryRuleCacheExpirationActionArgs struct {
-	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
@@ -3980,7 +3980,7 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalD
 	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
 }
 
-// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -4014,7 +4014,7 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Elem() Endpoin
 	}).(EndpointGlobalDeliveryRuleCacheExpirationActionOutput)
 }
 
-// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
 func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheExpirationAction) *string {
 		if v == nil {
@@ -4035,7 +4035,7 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Duration() pul
 }
 
 type EndpointGlobalDeliveryRuleCacheKeyQueryStringAction struct {
-	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 	Behavior string `pulumi:"behavior"`
 	// Comma separated list of parameter values.
 	Parameters *string `pulumi:"parameters"`
@@ -4053,7 +4053,7 @@ type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput interface {
 }
 
 type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs struct {
-	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 	// Comma separated list of parameter values.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
@@ -4136,7 +4136,7 @@ func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlo
 	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
 }
 
-// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -4170,7 +4170,7 @@ func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() End
 	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput)
 }
 
-// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
 func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string {
 		if v == nil {

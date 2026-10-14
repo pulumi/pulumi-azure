@@ -204,7 +204,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 
@@ -272,7 +272,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  args: RegistryScopeMapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 

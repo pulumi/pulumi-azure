@@ -75,7 +75,7 @@ class CacheArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "family", family)
@@ -382,7 +382,7 @@ class CacheArgs:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         return pulumi.get(self, "zones")
 
@@ -462,7 +462,7 @@ class _CacheState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         if access_keys_authentication_enabled is not None:
             pulumi.set(__self__, "access_keys_authentication_enabled", access_keys_authentication_enabled)
@@ -871,7 +871,7 @@ class _CacheState:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         return pulumi.get(self, "zones")
 
@@ -990,7 +990,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         ...
     @overload
@@ -1215,7 +1215,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1488,7 +1488,7 @@ class Cache(pulumi.CustomResource):
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
         """
         return pulumi.get(self, "zones")
 

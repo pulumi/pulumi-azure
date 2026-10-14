@@ -2089,7 +2089,7 @@ class AlertProcessingRuleActionGroupSchedule(dict):
         :param _builtins.str effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param _builtins.str effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param 'AlertProcessingRuleActionGroupScheduleRecurrenceArgs' recurrence: A `recurrence` block as defined above.
-        :param _builtins.str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        :param _builtins.str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -2128,7 +2128,7 @@ class AlertProcessingRuleActionGroupSchedule(dict):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[_builtins.str]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 
@@ -2873,7 +2873,7 @@ class AlertProcessingRuleSuppressionSchedule(dict):
         :param _builtins.str effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param _builtins.str effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param 'AlertProcessingRuleSuppressionScheduleRecurrenceArgs' recurrence: A `recurrence` block as defined above.
-        :param _builtins.str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        :param _builtins.str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -2912,7 +2912,7 @@ class AlertProcessingRuleSuppressionSchedule(dict):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[_builtins.str]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 
@@ -3708,7 +3708,7 @@ class AutoscaleSettingProfileFixedDate(dict):
         """
         :param _builtins.str end: Specifies the end date for the profile, formatted as an RFC3339 date string.
         :param _builtins.str start: Specifies the start date for the profile, formatted as an RFC3339 date string.
-        :param _builtins.str timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+        :param _builtins.str timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -3735,7 +3735,7 @@ class AutoscaleSettingProfileFixedDate(dict):
     @pulumi.getter
     def timezone(self) -> Optional[_builtins.str]:
         """
-        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 
@@ -3751,7 +3751,7 @@ class AutoscaleSettingProfileRecurrence(dict):
         :param Sequence[_builtins.str] days: A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         :param _builtins.int hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
         :param _builtins.int minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-        :param _builtins.str timezone: The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        :param _builtins.str timezone: The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "hours", hours)
@@ -3787,7 +3787,7 @@ class AutoscaleSettingProfileRecurrence(dict):
     @pulumi.getter
     def timezone(self) -> Optional[_builtins.str]:
         """
-        The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 
@@ -4735,7 +4735,7 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
                  sampling_frequency_in_seconds: _builtins.int,
                  streams: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        :param Sequence[_builtins.str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         :param _builtins.str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param _builtins.int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         :param Sequence[_builtins.str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
@@ -4749,7 +4749,7 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @pulumi.getter(name="counterSpecifiers")
     def counter_specifiers(self) -> Sequence[_builtins.str]:
         """
-        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         """
         return pulumi.get(self, "counter_specifiers")
 
@@ -4871,7 +4871,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
                  label: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        :param _builtins.str label: The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         :param _builtins.str value: The value of the filter.
         """
         pulumi.set(__self__, "label", label)
@@ -4881,7 +4881,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
     @pulumi.getter
     def label(self) -> _builtins.str:
         """
-        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         """
         return pulumi.get(self, "label")
 
@@ -4990,7 +4990,7 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
         """
         :param _builtins.str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[_builtins.str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
-        :param Sequence[_builtins.str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+        :param Sequence[_builtins.str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "streams", streams)
@@ -5016,7 +5016,7 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
     @pulumi.getter(name="xPathQueries")
     def x_path_queries(self) -> Sequence[_builtins.str]:
         """
-        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         return pulumi.get(self, "x_path_queries")
 
@@ -6765,7 +6765,7 @@ class ScheduledQueryRulesAlertV2Identity(dict):
         :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[_builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+               > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         :param _builtins.str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         :param _builtins.str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         """
@@ -6791,7 +6791,7 @@ class ScheduledQueryRulesAlertV2Identity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+        > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -7223,7 +7223,7 @@ class GetActionGroupEventHubReceiverResult(dict):
                  name: _builtins.str,
                  subscription_id: _builtins.str,
                  tenant_id: _builtins.str,
-                 use_common_alert_schema: Optional[_builtins.bool] = None):
+                 use_common_alert_schema: _builtins.bool):
         """
         :param _builtins.str event_hub_name: The name of the specific Event Hub queue.
         :param _builtins.str event_hub_namespace: The namespace name of the Event Hub.
@@ -7237,8 +7237,7 @@ class GetActionGroupEventHubReceiverResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subscription_id", subscription_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
-        if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
@@ -7282,7 +7281,7 @@ class GetActionGroupEventHubReceiverResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[_builtins.bool]:
+    def use_common_alert_schema(self) -> _builtins.bool:
         """
         Indicates whether to use common alert schema.
         """
@@ -7629,37 +7628,35 @@ class GetDataCollectionRuleDataSourceResult(dict):
                  data_imports: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult'],
                  extensions: Sequence['outputs.GetDataCollectionRuleDataSourceExtensionResult'],
                  iis_logs: Sequence['outputs.GetDataCollectionRuleDataSourceIisLogResult'],
+                 log_files: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult'],
                  performance_counters: Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult'],
+                 platform_telemetries: Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult'],
                  prometheus_forwarders: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderResult'],
                  syslogs: Sequence['outputs.GetDataCollectionRuleDataSourceSyslogResult'],
                  windows_event_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsEventLogResult'],
-                 windows_firewall_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult'],
-                 log_files: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']] = None,
-                 platform_telemetries: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']] = None):
+                 windows_firewall_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult']):
         """
         :param Sequence['GetDataCollectionRuleDataSourceDataImportArgs'] data_imports: A `data_import` block as defined above.
         :param Sequence['GetDataCollectionRuleDataSourceExtensionArgs'] extensions: One or more `extension` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceIisLogArgs'] iis_logs: One or more `iis_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourcePerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderArgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceWindowsFirewallLogArgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourcePlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
         """
         pulumi.set(__self__, "data_imports", data_imports)
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "iis_logs", iis_logs)
+        pulumi.set(__self__, "log_files", log_files)
         pulumi.set(__self__, "performance_counters", performance_counters)
+        pulumi.set(__self__, "platform_telemetries", platform_telemetries)
         pulumi.set(__self__, "prometheus_forwarders", prometheus_forwarders)
         pulumi.set(__self__, "syslogs", syslogs)
         pulumi.set(__self__, "windows_event_logs", windows_event_logs)
         pulumi.set(__self__, "windows_firewall_logs", windows_firewall_logs)
-        if log_files is not None:
-            pulumi.set(__self__, "log_files", log_files)
-        if platform_telemetries is not None:
-            pulumi.set(__self__, "platform_telemetries", platform_telemetries)
 
     @_builtins.property
     @pulumi.getter(name="dataImports")
@@ -7686,12 +7683,28 @@ class GetDataCollectionRuleDataSourceResult(dict):
         return pulumi.get(self, "iis_logs")
 
     @_builtins.property
+    @pulumi.getter(name="logFiles")
+    def log_files(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']:
+        """
+        One or more `log_file` blocks as defined below.
+        """
+        return pulumi.get(self, "log_files")
+
+    @_builtins.property
     @pulumi.getter(name="performanceCounters")
     def performance_counters(self) -> Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult']:
         """
         One or more `performance_counter` blocks as defined below.
         """
         return pulumi.get(self, "performance_counters")
+
+    @_builtins.property
+    @pulumi.getter(name="platformTelemetries")
+    def platform_telemetries(self) -> Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']:
+        """
+        One or more `platform_telemetry` blocks as defined below.
+        """
+        return pulumi.get(self, "platform_telemetries")
 
     @_builtins.property
     @pulumi.getter(name="prometheusForwarders")
@@ -7724,22 +7737,6 @@ class GetDataCollectionRuleDataSourceResult(dict):
         One or more `windows_firewall_log` blocks as defined below.
         """
         return pulumi.get(self, "windows_firewall_logs")
-
-    @_builtins.property
-    @pulumi.getter(name="logFiles")
-    def log_files(self) -> Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']]:
-        """
-        One or more `log_file` blocks as defined below.
-        """
-        return pulumi.get(self, "log_files")
-
-    @_builtins.property
-    @pulumi.getter(name="platformTelemetries")
-    def platform_telemetries(self) -> Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']]:
-        """
-        One or more `platform_telemetry` blocks as defined below.
-        """
-        return pulumi.get(self, "platform_telemetries")
 
 
 @pulumi.output_type
@@ -8126,7 +8123,7 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult
                  label: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        :param _builtins.str label: The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         :param _builtins.str value: The value of the filter.
         """
         pulumi.set(__self__, "label", label)
@@ -8136,7 +8133,7 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult
     @pulumi.getter
     def label(self) -> _builtins.str:
         """
-        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         """
         return pulumi.get(self, "label")
 
@@ -8273,33 +8270,31 @@ class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
 class GetDataCollectionRuleDestinationResult(dict):
     def __init__(__self__, *,
                  azure_monitor_metrics: Sequence['outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult'],
+                 event_hub: 'outputs.GetDataCollectionRuleDestinationEventHubResult',
+                 event_hub_direct: 'outputs.GetDataCollectionRuleDestinationEventHubDirectResult',
                  log_analytics: Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult'],
                  monitor_accounts: Sequence['outputs.GetDataCollectionRuleDestinationMonitorAccountResult'],
                  storage_blob_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult'],
                  storage_blobs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobResult'],
-                 storage_table_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult'],
-                 event_hub: Optional['outputs.GetDataCollectionRuleDestinationEventHubResult'] = None,
-                 event_hub_direct: Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult'] = None):
+                 storage_table_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult']):
         """
         :param Sequence['GetDataCollectionRuleDestinationAzureMonitorMetricArgs'] azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param 'GetDataCollectionRuleDestinationEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
+        :param 'GetDataCollectionRuleDestinationEventHubDirectArgs' event_hub_direct: One or more `event_hub_direct` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDestinationLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDestinationMonitorAccountArgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDestinationStorageBlobDirectArgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDestinationStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDestinationStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
-        :param 'GetDataCollectionRuleDestinationEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
-        :param 'GetDataCollectionRuleDestinationEventHubDirectArgs' event_hub_direct: One or more `event_hub_direct` blocks as defined below.
         """
         pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        pulumi.set(__self__, "event_hub", event_hub)
+        pulumi.set(__self__, "event_hub_direct", event_hub_direct)
         pulumi.set(__self__, "log_analytics", log_analytics)
         pulumi.set(__self__, "monitor_accounts", monitor_accounts)
         pulumi.set(__self__, "storage_blob_directs", storage_blob_directs)
         pulumi.set(__self__, "storage_blobs", storage_blobs)
         pulumi.set(__self__, "storage_table_directs", storage_table_directs)
-        if event_hub is not None:
-            pulumi.set(__self__, "event_hub", event_hub)
-        if event_hub_direct is not None:
-            pulumi.set(__self__, "event_hub_direct", event_hub_direct)
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorMetrics")
@@ -8308,6 +8303,22 @@ class GetDataCollectionRuleDestinationResult(dict):
         A `azure_monitor_metrics` block as defined above.
         """
         return pulumi.get(self, "azure_monitor_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> 'outputs.GetDataCollectionRuleDestinationEventHubResult':
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @_builtins.property
+    @pulumi.getter(name="eventHubDirect")
+    def event_hub_direct(self) -> 'outputs.GetDataCollectionRuleDestinationEventHubDirectResult':
+        """
+        One or more `event_hub_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_direct")
 
     @_builtins.property
     @pulumi.getter(name="logAnalytics")
@@ -8348,22 +8359,6 @@ class GetDataCollectionRuleDestinationResult(dict):
         One or more `storage_table_direct` blocks as defined below.
         """
         return pulumi.get(self, "storage_table_directs")
-
-    @_builtins.property
-    @pulumi.getter(name="eventHub")
-    def event_hub(self) -> Optional['outputs.GetDataCollectionRuleDestinationEventHubResult']:
-        """
-        One or more `event_hub` blocks as defined below.
-        """
-        return pulumi.get(self, "event_hub")
-
-    @_builtins.property
-    @pulumi.getter(name="eventHubDirect")
-    def event_hub_direct(self) -> Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult']:
-        """
-        One or more `event_hub_direct` blocks as defined below.
-        """
-        return pulumi.get(self, "event_hub_direct")
 
 
 @pulumi.output_type

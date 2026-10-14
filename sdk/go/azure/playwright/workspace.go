@@ -67,11 +67,11 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
 	DataplaneUri pulumi.StringOutput `pulumi:"dataplaneUri"`
 	// The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Playwright Workspace.
+	// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -114,11 +114,11 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
 	DataplaneUri *string `pulumi:"dataplaneUri"`
 	// The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Playwright Workspace.
+	// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -129,11 +129,11 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
-	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+	// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
 	DataplaneUri pulumi.StringPtrInput
 	// The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Playwright Workspace.
+	// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Playwright Workspace.
+	// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -162,7 +162,7 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Playwright Workspace.
+	// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
 	ResourceGroupName pulumi.StringInput
@@ -257,7 +257,7 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+// The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
 func (o WorkspaceOutput) DataplaneUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DataplaneUri }).(pulumi.StringOutput)
 }
@@ -267,7 +267,7 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Playwright Workspace.
+// The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

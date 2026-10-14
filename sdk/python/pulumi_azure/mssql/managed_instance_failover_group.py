@@ -470,14 +470,14 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             virtual_network_name=failover_virtual_network.name)
         ```
 
-        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
+        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -671,14 +671,14 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             virtual_network_name=failover_virtual_network.name)
         ```
 
-        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
+        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 

@@ -66,7 +66,7 @@ class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
     """
     The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
-    > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+    > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
     """
 
 @pulumi.input_type
@@ -78,7 +78,7 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         :param pulumi.Input[_builtins.str] automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
                
-               > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+               > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
         if authentication_type is not None:
@@ -102,7 +102,7 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         """
         The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
-        > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+        > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
         """
         return pulumi.get(self, "authentication_type")
 
@@ -140,7 +140,7 @@ class ReplicatedVMManagedDiskArgsDict(TypedDict):
     """
     The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
-    > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+    > **Note:** Creating replicated vm with `target_disk_encryption_set_id` will take more time (up to 5 hours), please extend the `timeout` for `create`.
     """
 
 @pulumi.input_type
@@ -162,7 +162,7 @@ class ReplicatedVMManagedDiskArgs:
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param pulumi.Input[_builtins.str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
                
-               > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+               > **Note:** Creating replicated vm with `target_disk_encryption_set_id` will take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -252,7 +252,7 @@ class ReplicatedVMManagedDiskArgs:
         """
         The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
-        > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+        > **Note:** Creating replicated vm with `target_disk_encryption_set_id` will take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
 

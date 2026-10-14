@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -98,6 +98,10 @@ export class Probe extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     */
+    declare public readonly noHealthyBackendsBehavior: pulumi.Output<string | undefined>;
+    /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
     declare public readonly numberOfProbes: pulumi.Output<number | undefined>;
@@ -135,6 +139,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["loadBalancerRules"] = state?.loadBalancerRules;
             resourceInputs["loadbalancerId"] = state?.loadbalancerId;
             resourceInputs["name"] = state?.name;
+            resourceInputs["noHealthyBackendsBehavior"] = state?.noHealthyBackendsBehavior;
             resourceInputs["numberOfProbes"] = state?.numberOfProbes;
             resourceInputs["port"] = state?.port;
             resourceInputs["probeThreshold"] = state?.probeThreshold;
@@ -151,6 +156,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["intervalInSeconds"] = args?.intervalInSeconds;
             resourceInputs["loadbalancerId"] = args?.loadbalancerId;
             resourceInputs["name"] = args?.name;
+            resourceInputs["noHealthyBackendsBehavior"] = args?.noHealthyBackendsBehavior;
             resourceInputs["numberOfProbes"] = args?.numberOfProbes;
             resourceInputs["port"] = args?.port;
             resourceInputs["probeThreshold"] = args?.probeThreshold;
@@ -180,6 +186,10 @@ export interface ProbeState {
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     */
+    noHealthyBackendsBehavior?: pulumi.Input<string | undefined>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
@@ -218,6 +228,10 @@ export interface ProbeArgs {
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     */
+    noHealthyBackendsBehavior?: pulumi.Input<string | undefined>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */

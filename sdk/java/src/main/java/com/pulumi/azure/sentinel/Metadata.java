@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMetadata = new Metadata("exampleMetadata", MetadataArgs.builder()
- *             .name("exampl")
+ *             .name("example")
  *             .workspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .contentId(exampleAlertRuleNrt.name())
  *             .kind("AnalyticsRule")

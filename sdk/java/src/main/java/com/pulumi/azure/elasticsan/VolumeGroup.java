@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
- *             .name("examplees-es")
+ *             .name("examples-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)

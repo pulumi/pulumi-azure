@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? HttpVerb;
         /// <summary>
-        /// Should the parsing of dependend requests be enabled? Defaults to `True`.
+        /// Should the parsing of dependent requests be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? ParseDependentRequestsEnabled;
         /// <summary>

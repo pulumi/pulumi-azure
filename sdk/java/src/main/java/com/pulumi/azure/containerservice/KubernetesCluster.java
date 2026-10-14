@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerService` - 2025-10-01
+ * * `Microsoft.ContainerService` - 2026-05-01
  * 
  * ## Import
  * 
@@ -223,14 +223,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureActiveDirectoryRoleBasedAccessControl);
     }
     /**
-     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
      * 
      */
     @Export(name="azurePolicyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> azurePolicyEnabled;
 
     /**
-     * @return Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     * @return Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
      * 
      */
     public Output<Optional<Boolean>> azurePolicyEnabled() {
@@ -251,14 +251,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapProfile;
     }
     /**
-     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     @Export(name="confidentialComputing", refs={KubernetesClusterConfidentialComputing.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterConfidentialComputing> confidentialComputing;
 
     /**
-     * @return A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * @return A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     public Output<Optional<KubernetesClusterConfidentialComputing>> confidentialComputing() {
@@ -493,7 +493,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * A `ingressApplicationGateway` block as defined below.
      * 
-     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
      */
     @Export(name="ingressApplicationGateway", refs={KubernetesClusterIngressApplicationGateway.class}, tree="[0]")
@@ -502,21 +502,21 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return A `ingressApplicationGateway` block as defined below.
      * 
-     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
      */
     public Output<Optional<KubernetesClusterIngressApplicationGateway>> ingressApplicationGateway() {
         return Codegen.optional(this.ingressApplicationGateway);
     }
     /**
-     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
      * 
      */
     @Export(name="keyManagementService", refs={KubernetesClusterKeyManagementService.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterKeyManagementService> keyManagementService;
 
     /**
-     * @return A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * @return A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
      * 
      */
     public Output<Optional<KubernetesClusterKeyManagementService>> keyManagementService() {
@@ -607,7 +607,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.kubeletIdentity;
     }
     /**
-     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      * &gt; **Note:** Upgrading your cluster may take up to 10 minutes per node.
      * 
@@ -616,7 +616,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     private Output<String> kubernetesVersion;
 
     /**
-     * @return Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * @return Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      * &gt; **Note:** Upgrading your cluster may take up to 10 minutes per node.
      * 
@@ -841,7 +841,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.nodeResourceGroupId;
     }
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
@@ -850,7 +850,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> oidcIssuerEnabled;
 
     /**
-     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 

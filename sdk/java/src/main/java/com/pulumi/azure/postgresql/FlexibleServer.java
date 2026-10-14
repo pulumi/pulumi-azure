@@ -236,12 +236,16 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
      * 
+     * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
+     * 
      */
     @Export(name="autoGrowEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoGrowEnabled;
 
     /**
      * @return Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
      * 
      */
     public Output<Optional<Boolean>> autoGrowEnabled() {
@@ -529,8 +533,18 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sourceServerId() {
         return Codegen.optional(this.sourceServerId);
     }
+    @Export(name="storageIops", refs={Integer.class}, tree="[0]")
+    private Output<Integer> storageIops;
+
+    public Output<Integer> storageIops() {
+        return this.storageIops;
+    }
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * The max storage allowed for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * 
+     * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
      * 
      * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
@@ -541,7 +555,11 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     private Output<Integer> storageMb;
 
     /**
-     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * @return The max storage allowed for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * 
+     * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
      * 
      * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
@@ -551,10 +569,18 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     public Output<Integer> storageMb() {
         return this.storageMb;
     }
+    @Export(name="storageThroughput", refs={Integer.class}, tree="[0]")
+    private Output<Integer> storageThroughput;
+
+    public Output<Integer> storageThroughput() {
+        return this.storageThroughput;
+    }
     /**
      * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      * 
      * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * 
+     * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
      * 
      */
     @Export(name="storageTier", refs={String.class}, tree="[0]")
@@ -565,73 +591,41 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
      * 
+     * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
+     * 
      */
     public Output<String> storageTier() {
         return this.storageTier;
     }
     /**
-     * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+     * The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
      * 
      */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageType;
+
+    /**
+     * @return The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
+    }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-     * 
-     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-     * 
-     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-     * 
-     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-     * 
-     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-     * 
-     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-     * 
-     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-     * 
-     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-     * 
-     */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
-    /**
-     * @return Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-     * 
-     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-     * 
-     */
     public Output<Optional<String>> zone() {
         return Codegen.optional(this.zone);
     }

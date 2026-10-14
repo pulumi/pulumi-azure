@@ -79,14 +79,14 @@ public final class ManagedHardwareSecurityModuleKeyState extends com.pulumi.reso
     }
 
     /**
-     * Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyType")
     private @Nullable Output<String> keyType;
 
     /**
-     * @return Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+     * @return Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> keyType() {
@@ -300,7 +300,7 @@ public final class ManagedHardwareSecurityModuleKeyState extends com.pulumi.reso
         }
 
         /**
-         * @param keyType Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+         * @param keyType Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ManagedHardwareSecurityModuleKeyState extends com.pulumi.reso
         }
 
         /**
-         * @param keyType Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+         * @param keyType Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

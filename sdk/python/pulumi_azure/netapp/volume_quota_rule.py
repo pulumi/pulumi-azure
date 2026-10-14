@@ -37,7 +37,7 @@ class VolumeQuotaRuleArgs:
                
                > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
-               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
         pulumi.set(__self__, "quota_size_in_kib", quota_size_in_kib)
         pulumi.set(__self__, "quota_type", quota_type)
@@ -117,7 +117,7 @@ class VolumeQuotaRuleArgs:
 
         > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
-        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
         return pulumi.get(self, "quota_target")
 
@@ -145,7 +145,7 @@ class _VolumeQuotaRuleState:
                
                > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
-               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class _VolumeQuotaRuleState:
 
         > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
-        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
         return pulumi.get(self, "quota_target")
 
@@ -343,7 +343,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2026-01-01
+        * `Microsoft.NetApp` - 2026-05-01
 
         ## Import
 
@@ -363,7 +363,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
                
                > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
-               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         """
@@ -464,7 +464,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2026-01-01
+        * `Microsoft.NetApp` - 2026-05-01
 
         ## Import
 
@@ -547,7 +547,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
                
                > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
-               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+               > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
         """
@@ -595,7 +595,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
 
         > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
-        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
         return pulumi.get(self, "quota_target")
 

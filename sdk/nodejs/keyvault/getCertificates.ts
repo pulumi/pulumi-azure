@@ -19,10 +19,12 @@ import * as utilities from "../utilities";
  * const example = azure.keyvault.getCertificates({
  *     keyVaultId: existing.id,
  * });
- * const exampleGetCertificate = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
- *     name: __key,
+ * const exampleGetCertificate = example.then(example => std.toset({
+ *     input: example.names,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
- * }) }), {});
+ * }) }), {}));
  * ```
  */
 export function getCertificates(args: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
@@ -84,10 +86,12 @@ export interface GetCertificatesResult {
  * const example = azure.keyvault.getCertificates({
  *     keyVaultId: existing.id,
  * });
- * const exampleGetCertificate = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
- *     name: __key,
+ * const exampleGetCertificate = example.then(example => std.toset({
+ *     input: example.names,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
- * }) }), {});
+ * }) }), {}));
  * ```
  */
 export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificatesResult> {

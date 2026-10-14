@@ -167,7 +167,7 @@ type LinuxVirtualMachineScaleSet struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
@@ -381,7 +381,7 @@ type linuxVirtualMachineScaleSetState struct {
 	DataDisks []LinuxVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -540,7 +540,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayInput
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -703,7 +703,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	DataDisks []LinuxVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -861,7 +861,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayInput
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -1149,7 +1149,7 @@ func (o LinuxVirtualMachineScaleSetOutput) DataDisks() LinuxVirtualMachineScaleS
 
 // Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 //
-// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 //
 // > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 func (o LinuxVirtualMachineScaleSetOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {

@@ -107,7 +107,7 @@ namespace Pulumi.Azure.KeyVault
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
-    ///             }).Result,
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "",
     ///         },
     ///     });

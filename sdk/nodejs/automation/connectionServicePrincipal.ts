@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     subscriptionId: example.then(example => example.subscriptionId),
  *     certificateThumbprint: std.file({
  *         input: "automation_certificate_test.thumb",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

@@ -96,21 +96,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ".",
-//				"input": []interface{}{
-//					"contoso",
-//					exampleZone.Name,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			contoso, err := cdn.NewFrontdoorCustomDomain(ctx, "contoso", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("contoso-custom-domain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName:              invokeJoin.Result,
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						pulumi.String("contoso"),
+//						exampleZone.Name,
+//					},
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: "TLS12",
@@ -119,21 +115,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin1, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ".",
-//				"input": []interface{}{
-//					"fabrikam",
-//					exampleZone.Name,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			fabrikam, err := cdn.NewFrontdoorCustomDomain(ctx, "fabrikam", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("fabrikam-custom-domain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName:              invokeJoin1.Result,
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						pulumi.String("fabrikam"),
+//						exampleZone.Name,
+//					},
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: "TLS12",

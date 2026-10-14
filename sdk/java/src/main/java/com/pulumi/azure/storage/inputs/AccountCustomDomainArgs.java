@@ -35,7 +35,7 @@ public final class AccountCustomDomainArgs extends com.pulumi.resources.Resource
     /**
      * Should the Custom Domain Name be validated by using indirect CNAME validation?
      * 
-     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
      * 
      */
     @Import(name="useSubdomain")
@@ -44,7 +44,7 @@ public final class AccountCustomDomainArgs extends com.pulumi.resources.Resource
     /**
      * @return Should the Custom Domain Name be validated by using indirect CNAME validation?
      * 
-     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+     * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
      * 
      */
     public Optional<Output<Boolean>> useSubdomain() {
@@ -100,7 +100,7 @@ public final class AccountCustomDomainArgs extends com.pulumi.resources.Resource
         /**
          * @param useSubdomain Should the Custom Domain Name be validated by using indirect CNAME validation?
          * 
-         * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+         * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AccountCustomDomainArgs extends com.pulumi.resources.Resource
         /**
          * @param useSubdomain Should the Custom Domain Name be validated by using indirect CNAME validation?
          * 
-         * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+         * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
          * 
          * @return builder
          * 

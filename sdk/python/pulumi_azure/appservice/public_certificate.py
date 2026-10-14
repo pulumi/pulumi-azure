@@ -249,7 +249,7 @@ class PublicCertificate(pulumi.CustomResource):
             app_service_name=example_app_service["name"],
             certificate_name="example-public-certificate",
             certificate_location="Unknown",
-            blob=std.filebase64(input="app_service_public_certificate.cer")["result"])
+            blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
 
         ## API Providers
@@ -314,7 +314,7 @@ class PublicCertificate(pulumi.CustomResource):
             app_service_name=example_app_service["name"],
             certificate_name="example-public-certificate",
             certificate_location="Unknown",
-            blob=std.filebase64(input="app_service_public_certificate.cer")["result"])
+            blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
 
         ## API Providers

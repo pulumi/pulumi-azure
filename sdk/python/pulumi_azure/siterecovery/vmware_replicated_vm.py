@@ -47,13 +47,13 @@ class VmwareReplicatedVmArgs:
         The set of arguments for constructing a VmwareReplicatedVm resource.
 
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.
         :param pulumi.Input[_builtins.str] source_vm_name: The name of the source VM in VMWare. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_group_id: The ID of resource group where the VM should be created when a failover is done.
         :param pulumi.Input[_builtins.str] target_vm_name: Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
+        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the storage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -147,7 +147,7 @@ class VmwareReplicatedVmArgs:
     @pulumi.getter(name="physicalServerCredentialName")
     def physical_server_credential_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         """
         return pulumi.get(self, "physical_server_credential_name")
 
@@ -219,7 +219,7 @@ class VmwareReplicatedVmArgs:
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the stroage account that should be used for logging during replication.
+        The ID of the storage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 
@@ -449,7 +449,7 @@ class _VmwareReplicatedVmState:
         Input properties used for looking up and filtering VmwareReplicatedVm resources.
 
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
+        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the storage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -477,7 +477,7 @@ class _VmwareReplicatedVmState:
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block as defined below.
-        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.
         :param pulumi.Input[_builtins.str] source_vm_name: The name of the source VM in VMWare. Changing this forces a new resource to be created.
@@ -556,7 +556,7 @@ class _VmwareReplicatedVmState:
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the stroage account that should be used for logging during replication.
+        The ID of the storage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 
@@ -672,7 +672,7 @@ class _VmwareReplicatedVmState:
     @pulumi.getter(name="physicalServerCredentialName")
     def physical_server_credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         """
         return pulumi.get(self, "physical_server_credential_name")
 
@@ -943,7 +943,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
+        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the storage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -971,7 +971,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
-        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.
         :param pulumi.Input[_builtins.str] source_vm_name: The name of the source VM in VMWare. Changing this forces a new resource to be created.
@@ -1199,7 +1199,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
+        :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the storage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -1227,7 +1227,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
-        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.
         :param pulumi.Input[_builtins.str] source_vm_name: The name of the source VM in VMWare. Changing this forces a new resource to be created.
@@ -1285,7 +1285,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the stroage account that should be used for logging during replication.
+        The ID of the storage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 
@@ -1369,7 +1369,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     @pulumi.getter(name="physicalServerCredentialName")
     def physical_server_credential_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         """
         return pulumi.get(self, "physical_server_credential_name")
 

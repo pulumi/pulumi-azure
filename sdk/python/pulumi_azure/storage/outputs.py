@@ -48,6 +48,7 @@ __all__ = [
     'BlobInventoryPolicyRuleFilter',
     'DataLakeGen2FilesystemAce',
     'DataLakeGen2PathAce',
+    'DiscoveryWorkspaceScope',
     'LocalUserPermissionScope',
     'LocalUserPermissionScopePermissions',
     'LocalUserSshAuthorizedKey',
@@ -629,7 +630,7 @@ class AccountCustomDomain(dict):
         :param _builtins.str name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         :param _builtins.bool use_subdomain: Should the Custom Domain Name be validated by using indirect CNAME validation?
                
-               > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+               > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
         """
         pulumi.set(__self__, "name", name)
         if use_subdomain is not None:
@@ -649,7 +650,7 @@ class AccountCustomDomain(dict):
         """
         Should the Custom Domain Name be validated by using indirect CNAME validation?
 
-        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
         """
         return pulumi.get(self, "use_subdomain")
 
@@ -2107,6 +2108,8 @@ class BlobInventoryPolicyRuleFilter(dict):
         suggest = None
         if key == "blobTypes":
             suggest = "blob_types"
+        elif key == "createdWithinDays":
+            suggest = "created_within_days"
         elif key == "excludePrefixes":
             suggest = "exclude_prefixes"
         elif key == "includeBlobVersions":
@@ -2131,6 +2134,7 @@ class BlobInventoryPolicyRuleFilter(dict):
 
     def __init__(__self__, *,
                  blob_types: Sequence[_builtins.str],
+                 created_within_days: Optional[_builtins.int] = None,
                  exclude_prefixes: Optional[Sequence[_builtins.str]] = None,
                  include_blob_versions: Optional[_builtins.bool] = None,
                  include_deleted: Optional[_builtins.bool] = None,
@@ -2140,6 +2144,9 @@ class BlobInventoryPolicyRuleFilter(dict):
         :param Sequence[_builtins.str] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
                
                > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+        :param _builtins.int created_within_days: The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+               
+               > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `created_within_days` filter.
         :param Sequence[_builtins.str] exclude_prefixes: A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         :param _builtins.bool include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
                
@@ -2153,6 +2160,8 @@ class BlobInventoryPolicyRuleFilter(dict):
         :param Sequence[_builtins.str] prefix_matches: A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         pulumi.set(__self__, "blob_types", blob_types)
+        if created_within_days is not None:
+            pulumi.set(__self__, "created_within_days", created_within_days)
         if exclude_prefixes is not None:
             pulumi.set(__self__, "exclude_prefixes", exclude_prefixes)
         if include_blob_versions is not None:
@@ -2173,6 +2182,16 @@ class BlobInventoryPolicyRuleFilter(dict):
         > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         """
         return pulumi.get(self, "blob_types")
+
+    @_builtins.property
+    @pulumi.getter(name="createdWithinDays")
+    def created_within_days(self) -> Optional[_builtins.int]:
+        """
+        The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `created_within_days` filter.
+        """
+        return pulumi.get(self, "created_within_days")
 
     @_builtins.property
     @pulumi.getter(name="excludePrefixes")
@@ -2341,6 +2360,80 @@ class DataLakeGen2PathAce(dict):
         Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class DiscoveryWorkspaceScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+        elif key == "tagKeysOnlies":
+            suggest = "tag_keys_onlies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveryWorkspaceScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveryWorkspaceScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveryWorkspaceScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: _builtins.str,
+                 resource_types: Sequence[_builtins.str],
+                 tag_keys_onlies: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str display_name: The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+        :param Sequence[_builtins.str] resource_types: A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+        :param Sequence[_builtins.str] tag_keys_onlies: A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+        :param Mapping[str, _builtins.str] tags: A map of tag key-value pairs that resources must have to be included in this scope.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "resource_types", resource_types)
+        if tag_keys_onlies is not None:
+            pulumi.set(__self__, "tag_keys_onlies", tag_keys_onlies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[_builtins.str]:
+        """
+        A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeysOnlies")
+    def tag_keys_onlies(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+        """
+        return pulumi.get(self, "tag_keys_onlies")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of tag key-value pairs that resources must have to be included in this scope.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

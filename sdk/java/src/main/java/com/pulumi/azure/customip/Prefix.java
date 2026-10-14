@@ -85,6 +85,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.customip.Prefix;
  * import com.pulumi.azure.customip.PrefixArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -117,11 +118,11 @@ import javax.annotation.Nullable;
  *             .location(test.get("location"))
  *             .resourceGroupName(test.get("name"))
  *             .parentCustomIpPrefixId(global.id())
- *             .cidr(StdFunctions.cidrsubnet(Map.ofEntries(
- *                 Map.entry("input", global.cidr()),
- *                 Map.entry("newbits", 16),
- *                 Map.entry("netnum", 1)
- *             )).result())
+ *             .cidr(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                 .input(global.cidr())
+ *                 .newbits(16)
+ *                 .netnum(1)
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .zones("1")
  *             .build());
  * 
@@ -276,14 +277,14 @@ public class Prefix extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
+     * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="wanValidationSignedMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> wanValidationSignedMessage;
 
     /**
-     * @return The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
+     * @return The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> wanValidationSignedMessage() {
@@ -292,7 +293,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can&#39;t be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+     * &gt; **Note:** In regions with [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can&#39;t be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -301,7 +302,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can&#39;t be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+     * &gt; **Note:** In regions with [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can&#39;t be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      * 
      */
     public Output<Optional<List<String>>> zones() {

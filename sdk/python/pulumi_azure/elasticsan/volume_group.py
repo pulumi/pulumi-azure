@@ -294,7 +294,7 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
-            name="examplees-es",
+            name="examples-es",
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
@@ -442,7 +442,7 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
-            name="examplees-es",
+            name="examples-es",
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,

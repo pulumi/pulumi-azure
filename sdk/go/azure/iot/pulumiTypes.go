@@ -2214,7 +2214,14 @@ func (o IotHubDeviceUpdateAccountIdentityPtrOutput) Type() pulumi.StringPtrOutpu
 
 type IotHubDeviceUpdateInstanceDiagnosticStorageAccount struct {
 	// Connection String of the Diagnostic Storage Account.
-	ConnectionString string `pulumi:"connectionString"`
+	ConnectionString *string `pulumi:"connectionString"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Connection String of the Diagnostic Storage Account.
+	//
+	// > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+	ConnectionStringWo *string `pulumi:"connectionStringWo"`
+	// An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+	ConnectionStringWoVersion *int `pulumi:"connectionStringWoVersion"`
 	// Resource ID of the Diagnostic Storage Account.
 	Id string `pulumi:"id"`
 }
@@ -2232,7 +2239,14 @@ type IotHubDeviceUpdateInstanceDiagnosticStorageAccountInput interface {
 
 type IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs struct {
 	// Connection String of the Diagnostic Storage Account.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Connection String of the Diagnostic Storage Account.
+	//
+	// > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+	ConnectionStringWo pulumi.StringPtrInput `pulumi:"connectionStringWo"`
+	// An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+	ConnectionStringWoVersion pulumi.IntPtrInput `pulumi:"connectionStringWoVersion"`
 	// Resource ID of the Diagnostic Storage Account.
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -2315,8 +2329,21 @@ func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDevice
 }
 
 // Connection String of the Diagnostic Storage Account.
-func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) string { return v.ConnectionString }).(pulumi.StringOutput)
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Connection String of the Diagnostic Storage Account.
+//
+// > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionStringWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *string { return v.ConnectionStringWo }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionStringWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *int { return v.ConnectionStringWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Resource ID of the Diagnostic Storage Account.
@@ -2354,8 +2381,31 @@ func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ConnectionS
 		if v == nil {
 			return nil
 		}
-		return &v.ConnectionString
+		return v.ConnectionString
 	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Connection String of the Diagnostic Storage Account.
+//
+// > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ConnectionStringWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionStringWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ConnectionStringWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IotHubDeviceUpdateInstanceDiagnosticStorageAccount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionStringWoVersion
+	}).(pulumi.IntPtrOutput)
 }
 
 // Resource ID of the Diagnostic Storage Account.

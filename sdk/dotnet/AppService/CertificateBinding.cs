@@ -89,7 +89,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Input = exampleCNameRecord.Fqdn,
     ///             Cutset = ".",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     }, new CustomResourceOptions

@@ -74,8 +74,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "testdata/integration_account_agreement_content_as2.json",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "testdata/integration_account_agreement_content_as2.json",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -87,7 +87,7 @@ import (
 //				AgreementType:          pulumi.String("AS2"),
 //				HostPartnerName:        host.Name,
 //				GuestPartnerName:       guest.Name,
-//				Content:                invokeFile.Result,
+//				Content:                pulumi.String(invokeFile.Result),
 //				HostIdentity: &logicapps.IntegrationAccountAgreementHostIdentityArgs{
 //					Qualifier: pulumi.String("AS2Identity"),
 //					Value:     pulumi.String("FabrikamNY"),

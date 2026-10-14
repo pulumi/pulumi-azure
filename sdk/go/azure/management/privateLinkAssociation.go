@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
-//	"github.com/pulumi/pulumi-random/sdk/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,7 +93,7 @@ type PrivateLinkAssociation struct {
 
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//
-	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -146,7 +146,7 @@ func GetPrivateLinkAssociation(ctx *pulumi.Context,
 type privateLinkAssociationState struct {
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//
-	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	Name *string `pulumi:"name"`
@@ -161,7 +161,7 @@ type privateLinkAssociationState struct {
 type PrivateLinkAssociationState struct {
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//
-	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringPtrInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	Name pulumi.StringPtrInput
@@ -180,7 +180,7 @@ func (PrivateLinkAssociationState) ElementType() reflect.Type {
 type privateLinkAssociationArgs struct {
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//
-	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	Name *string `pulumi:"name"`
@@ -194,7 +194,7 @@ type privateLinkAssociationArgs struct {
 type PrivateLinkAssociationArgs struct {
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//
-	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	Name pulumi.StringPtrInput
@@ -293,7 +293,7 @@ func (o PrivateLinkAssociationOutput) ToPrivateLinkAssociationOutputWithContext(
 
 // Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 //
-// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.ManagementGroupId }).(pulumi.StringOutput)
 }

@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-random/sdk/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,23 +114,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": "=",
-//				"input": []interface{}{
-//					"UserAssignedIdentity",
-//					example.ID(),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:                pulumi.String("example-resource"),
-//				Location:            pulumi.Any(exampleAzurermResourceGroup.Location),
-//				ResourceGroupName:   pulumi.Any(exampleAzurermResourceGroup.Name),
-//				DefaultIdentityType: invokeJoin.Result,
-//				OfferType:           pulumi.String("Standard"),
-//				Kind:                pulumi.String("MongoDB"),
+//				Name:              pulumi.String("example-resource"),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				DefaultIdentityType: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("="),
+//					Input: pulumi.StringArray{
+//						pulumi.String("UserAssignedIdentity"),
+//						example.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				}, nil).Result(),
+//				OfferType: pulumi.String("Standard"),
+//				Kind:      pulumi.String("MongoDB"),
 //				Capabilities: cosmosdb.AccountCapabilityArray{
 //					&cosmosdb.AccountCapabilityArgs{
 //						Name: pulumi.String("EnableMongo"),

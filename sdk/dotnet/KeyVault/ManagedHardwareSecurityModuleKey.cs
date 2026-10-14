@@ -132,7 +132,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }

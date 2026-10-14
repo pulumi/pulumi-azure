@@ -28,7 +28,7 @@ class WorkspaceArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Playwright Workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -67,7 +67,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Playwright Workspace.
+        The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         """
         return pulumi.get(self, "name")
 
@@ -100,9 +100,9 @@ class _WorkspaceState:
         """
         Input properties used for looking up and filtering Workspace resources.
 
-        :param pulumi.Input[_builtins.str] dataplane_uri: The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+        :param pulumi.Input[_builtins.str] dataplane_uri: The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Playwright Workspace.
         :param pulumi.Input[_builtins.str] uuid: The ID in GUID format of the Playwright Workspace.
@@ -124,7 +124,7 @@ class _WorkspaceState:
     @pulumi.getter(name="dataplaneUri")
     def dataplane_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+        The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
         """
         return pulumi.get(self, "dataplane_uri")
 
@@ -148,7 +148,7 @@ class _WorkspaceState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Playwright Workspace.
+        The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         """
         return pulumi.get(self, "name")
 
@@ -241,7 +241,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Playwright Workspace.
         """
@@ -344,9 +344,9 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dataplane_uri: The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+        :param pulumi.Input[_builtins.str] dataplane_uri: The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Playwright Workspace should exist. Changing this forces a new Playwright Workspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Playwright Workspace.
         :param pulumi.Input[_builtins.str] uuid: The ID in GUID format of the Playwright Workspace.
@@ -367,7 +367,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="dataplaneUri")
     def dataplane_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+        The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
         """
         return pulumi.get(self, "dataplane_uri")
 
@@ -383,7 +383,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Playwright Workspace.
+        The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
         """
         return pulumi.get(self, "name")
 

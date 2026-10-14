@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
-    ///         Name = "examplees-es",
+    ///         Name = "examples-es",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         BaseSizeInTib = 1,

@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "testdata/public.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "testdata/public.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,7 +47,7 @@ import (
 //				Name:                      pulumi.String("example-akcc"),
 //				ResourceGroupName:         example.Name,
 //				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: invokeFilebase64.Result,
+//				AgentPublicKeyCertificate: pulumi.String(invokeFilebase64.Result),
 //				Identity: &arckubernetes.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

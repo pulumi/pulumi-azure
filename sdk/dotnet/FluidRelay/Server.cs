@@ -87,7 +87,7 @@ namespace Pulumi.Azure.FluidRelay
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+        /// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
         /// </summary>
         [Output("ordererEndpoints")]
         public Output<ImmutableArray<string>> OrdererEndpoints { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.FluidRelay
         public Output<ImmutableArray<string>> ServiceEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+        /// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
         /// </summary>
         [Output("storageEndpoints")]
         public Output<ImmutableArray<string>> StorageEndpoints { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.FluidRelay
         private InputList<string>? _ordererEndpoints;
 
         /// <summary>
-        /// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+        /// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
         /// </summary>
         public InputList<string> OrdererEndpoints
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.FluidRelay
         private InputList<string>? _storageEndpoints;
 
         /// <summary>
-        /// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+        /// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
         /// </summary>
         public InputList<string> StorageEndpoints
         {

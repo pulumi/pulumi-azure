@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core.Inputs
         }
 
         /// <summary>
-        /// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        /// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

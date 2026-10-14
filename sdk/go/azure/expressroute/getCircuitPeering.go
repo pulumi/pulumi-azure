@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetCircuitPeering(ctx *pulumi.Context, args *GetCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*GetCircuitPeeringResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCircuitPeeringResult
@@ -77,18 +77,23 @@ type GetCircuitPeeringResult struct {
 	Id string `pulumi:"id"`
 	// Indicates if IPv4 is enabled.
 	Ipv4Enabled bool `pulumi:"ipv4Enabled"`
-	PeerAsn     int  `pulumi:"peerAsn"`
+	// A block describing the IPv6 configuration, if enabled.
+	Ipv6s []GetCircuitPeeringIpv6 `pulumi:"ipv6s"`
+	// A block describing the Microsoft Peering configuration, if applicable.
+	MicrosoftPeeringConfigs []GetCircuitPeeringMicrosoftPeeringConfig `pulumi:"microsoftPeeringConfigs"`
+	PeerAsn                 int                                       `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering.
 	PeeringType string `pulumi:"peeringType"`
 	// The primary port used by Azure for this peering.
 	PrimaryAzurePort string `pulumi:"primaryAzurePort"`
-	// The primary peer address prefix.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
 	ResourceGroupName        string `pulumi:"resourceGroupName"`
-	RouteFilterId            string `pulumi:"routeFilterId"`
+	// The ID of the Route Filter.
+	RouteFilterId string `pulumi:"routeFilterId"`
 	// The secondary port used by Azure for this peering.
 	SecondaryAzurePort string `pulumi:"secondaryAzurePort"`
-	// The secondary peer address prefix.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
 	SharedKey                  string `pulumi:"sharedKey"`
 	// The VLAN ID used for this peering.
@@ -152,6 +157,18 @@ func (o GetCircuitPeeringResultOutput) Ipv4Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) bool { return v.Ipv4Enabled }).(pulumi.BoolOutput)
 }
 
+// A block describing the IPv6 configuration, if enabled.
+func (o GetCircuitPeeringResultOutput) Ipv6s() GetCircuitPeeringIpv6ArrayOutput {
+	return o.ApplyT(func(v GetCircuitPeeringResult) []GetCircuitPeeringIpv6 { return v.Ipv6s }).(GetCircuitPeeringIpv6ArrayOutput)
+}
+
+// A block describing the Microsoft Peering configuration, if applicable.
+func (o GetCircuitPeeringResultOutput) MicrosoftPeeringConfigs() GetCircuitPeeringMicrosoftPeeringConfigArrayOutput {
+	return o.ApplyT(func(v GetCircuitPeeringResult) []GetCircuitPeeringMicrosoftPeeringConfig {
+		return v.MicrosoftPeeringConfigs
+	}).(GetCircuitPeeringMicrosoftPeeringConfigArrayOutput)
+}
+
 func (o GetCircuitPeeringResultOutput) PeerAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) int { return v.PeerAsn }).(pulumi.IntOutput)
 }
@@ -166,7 +183,7 @@ func (o GetCircuitPeeringResultOutput) PrimaryAzurePort() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.PrimaryAzurePort }).(pulumi.StringOutput)
 }
 
-// The primary peer address prefix.
+// A subnet for the primary link.
 func (o GetCircuitPeeringResultOutput) PrimaryPeerAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.PrimaryPeerAddressPrefix }).(pulumi.StringOutput)
 }
@@ -175,6 +192,7 @@ func (o GetCircuitPeeringResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The ID of the Route Filter.
 func (o GetCircuitPeeringResultOutput) RouteFilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.RouteFilterId }).(pulumi.StringOutput)
 }
@@ -184,7 +202,7 @@ func (o GetCircuitPeeringResultOutput) SecondaryAzurePort() pulumi.StringOutput 
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.SecondaryAzurePort }).(pulumi.StringOutput)
 }
 
-// The secondary peer address prefix.
+// A subnet for the secondary link.
 func (o GetCircuitPeeringResultOutput) SecondaryPeerAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCircuitPeeringResult) string { return v.SecondaryPeerAddressPrefix }).(pulumi.StringOutput)
 }

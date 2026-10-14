@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Core
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getResourceGroupTemplateDeploymentResult =&gt; getResourceGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Result.ExampleOutput.Value,
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Core
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getResourceGroupTemplateDeploymentResult =&gt; getResourceGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Result.ExampleOutput.Value,
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
         ///     };
         /// });
         /// ```
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Core
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getResourceGroupTemplateDeploymentResult =&gt; getResourceGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Result.ExampleOutput.Value,
+        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
         ///     };
         /// });
         /// ```

@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `True`.
         /// 
-        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **Note:** When a `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `True`.
         /// 
-        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **Note:** When a `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>
@@ -1114,7 +1114,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `True`.
         /// 
-        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **Note:** When a `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>

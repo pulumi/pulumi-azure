@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var exampleGatewayCertificateAuthority = new Azure.ApiManagement.GatewayCertificateAuthority("example", new()

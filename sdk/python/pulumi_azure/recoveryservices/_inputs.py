@@ -36,7 +36,7 @@ class VaultEncryptionArgsDict(TypedDict):
     """
     Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
-    > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+    > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 
     > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
     """
@@ -57,7 +57,7 @@ class VaultEncryptionArgs:
         :param pulumi.Input[_builtins.str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
         :param pulumi.Input[_builtins.bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
                
-               > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+               > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
                
                > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: Specifies the user assigned identity ID to be used.
@@ -99,7 +99,7 @@ class VaultEncryptionArgs:
         """
         Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
-        > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+        > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 
         > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         """
@@ -231,7 +231,7 @@ class VaultMonitoringArgsDict(TypedDict):
     """
     alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+    Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
     """
     email_notifications_for_site_recovery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -250,7 +250,7 @@ class VaultMonitoringArgs:
         :param pulumi.Input[_builtins.bool] alerts_for_all_failover_issues_enabled: Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] alerts_for_all_replication_issues_enabled: Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        :param pulumi.Input[_builtins.bool] alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
         :param pulumi.Input[_builtins.bool] email_notifications_for_site_recovery_enabled: Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
         """
         if alerts_for_all_failover_issues_enabled is not None:
@@ -304,7 +304,7 @@ class VaultMonitoringArgs:
     @pulumi.getter(name="alertsForCriticalOperationFailuresEnabled")
     def alerts_for_critical_operation_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
         """
         return pulumi.get(self, "alerts_for_critical_operation_failures_enabled")
 

@@ -59,7 +59,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -73,7 +73,7 @@ type PublicIpPrefix struct {
 
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 	CustomIpPrefixId pulumi.StringPtrOutput `pulumi:"customIpPrefixId"`
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
@@ -89,7 +89,7 @@ type PublicIpPrefix struct {
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -138,7 +138,7 @@ func GetPublicIpPrefix(ctx *pulumi.Context,
 type publicIpPrefixState struct {
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 	CustomIpPrefixId *string `pulumi:"customIpPrefixId"`
 	// The IP address prefix value that was allocated.
 	IpPrefix *string `pulumi:"ipPrefix"`
@@ -154,7 +154,7 @@ type publicIpPrefixState struct {
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -171,7 +171,7 @@ type publicIpPrefixState struct {
 type PublicIpPrefixState struct {
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 	CustomIpPrefixId pulumi.StringPtrInput
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type PublicIpPrefixState struct {
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -208,7 +208,7 @@ func (PublicIpPrefixState) ElementType() reflect.Type {
 type publicIpPrefixArgs struct {
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 	CustomIpPrefixId *string `pulumi:"customIpPrefixId"`
 	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
 	IpVersion *string `pulumi:"ipVersion"`
@@ -222,7 +222,7 @@ type publicIpPrefixArgs struct {
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -240,7 +240,7 @@ type publicIpPrefixArgs struct {
 type PublicIpPrefixArgs struct {
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+	// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 	CustomIpPrefixId pulumi.StringPtrInput
 	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
 	IpVersion pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type PublicIpPrefixArgs struct {
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	//
@@ -357,7 +357,7 @@ func (o PublicIpPrefixOutput) ToPublicIpPrefixOutputWithContext(ctx context.Cont
 
 // The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 //
-// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+// > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 func (o PublicIpPrefixOutput) CustomIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringPtrOutput { return v.CustomIpPrefixId }).(pulumi.StringPtrOutput)
 }
@@ -394,7 +394,7 @@ func (o PublicIpPrefixOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
 func (o PublicIpPrefixOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

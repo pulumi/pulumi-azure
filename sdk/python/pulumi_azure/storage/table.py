@@ -160,8 +160,6 @@ class Table(pulumi.CustomResource):
         """
         Manages a Table within an Azure Storage Account.
 
-        > **Note:** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported when setting or retrieving ACLs for Tables.
-
         ## Example Usage
 
         ```python
@@ -205,8 +203,6 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Table within an Azure Storage Account.
-
-        > **Note:** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported when setting or retrieving ACLs for Tables.
 
         ## Example Usage
 

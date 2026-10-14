@@ -96,9 +96,9 @@ class KubernetesClusterArgs:
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
-        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterBootstrapProfileArgs'] bootstrap_profile: A `bootstrap_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -120,11 +120,11 @@ class KubernetesClusterArgs:
         :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
-               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
@@ -149,7 +149,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
@@ -441,7 +441,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="azurePolicyEnabled")
     def azure_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         """
         return pulumi.get(self, "azure_policy_enabled")
 
@@ -465,7 +465,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="confidentialComputing")
     def confidential_computing(self) -> pulumi.Input[Optional['KubernetesClusterConfidentialComputingArgs']]:
         """
-        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
 
@@ -619,7 +619,7 @@ class KubernetesClusterArgs:
         """
         A `ingress_application_gateway` block as defined below.
 
-        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         """
         return pulumi.get(self, "ingress_application_gateway")
 
@@ -631,7 +631,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="keyManagementService")
     def key_management_service(self) -> pulumi.Input[Optional['KubernetesClusterKeyManagementServiceArgs']]:
         """
-        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         """
         return pulumi.get(self, "key_management_service")
 
@@ -667,7 +667,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         """
@@ -835,7 +835,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """
@@ -1186,9 +1186,9 @@ class _KubernetesClusterState:
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
-        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterBootstrapProfileArgs'] bootstrap_profile: A `bootstrap_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[_builtins.str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
@@ -1214,15 +1214,15 @@ class _KubernetesClusterState:
         :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
-               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[_builtins.str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[_builtins.str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
@@ -1249,7 +1249,7 @@ class _KubernetesClusterState:
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[_builtins.str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -1534,7 +1534,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="azurePolicyEnabled")
     def azure_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         """
         return pulumi.get(self, "azure_policy_enabled")
 
@@ -1558,7 +1558,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="confidentialComputing")
     def confidential_computing(self) -> pulumi.Input[Optional['KubernetesClusterConfidentialComputingArgs']]:
         """
-        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
 
@@ -1760,7 +1760,7 @@ class _KubernetesClusterState:
         """
         A `ingress_application_gateway` block as defined below.
 
-        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         """
         return pulumi.get(self, "ingress_application_gateway")
 
@@ -1772,7 +1772,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="keyManagementService")
     def key_management_service(self) -> pulumi.Input[Optional['KubernetesClusterKeyManagementServiceArgs']]:
         """
-        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         """
         return pulumi.get(self, "key_management_service")
 
@@ -1856,7 +1856,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         """
@@ -2048,7 +2048,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """
@@ -2468,7 +2468,7 @@ class KubernetesCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-10-01
+        * `Microsoft.ContainerService` - 2026-05-01
 
         ## Import
 
@@ -2491,9 +2491,9 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         :param pulumi.Input[Union['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs', 'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict', 'outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
-        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[Union['KubernetesClusterBootstrapProfileArgs', 'KubernetesClusterBootstrapProfileArgsDict', 'outputs.KubernetesClusterBootstrapProfile']] bootstrap_profile: A `bootstrap_profile` block as defined below.
-        :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict', 'outputs.KubernetesClusterConfidentialComputing']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict', 'outputs.KubernetesClusterConfidentialComputing']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
         :param pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict', 'outputs.KubernetesClusterDefaultNodePool']] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
@@ -2516,11 +2516,11 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict', 'outputs.KubernetesClusterIngressApplicationGateway']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
-               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input[Union['KubernetesClusterKeyManagementServiceArgs', 'KubernetesClusterKeyManagementServiceArgsDict', 'outputs.KubernetesClusterKeyManagementService']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        :param pulumi.Input[Union['KubernetesClusterKeyManagementServiceArgs', 'KubernetesClusterKeyManagementServiceArgsDict', 'outputs.KubernetesClusterKeyManagementService']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input[Union['KubernetesClusterKeyVaultSecretsProviderArgs', 'KubernetesClusterKeyVaultSecretsProviderArgsDict', 'outputs.KubernetesClusterKeyVaultSecretsProvider']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[Union['KubernetesClusterKubeletIdentityArgs', 'KubernetesClusterKubeletIdentityArgsDict', 'outputs.KubernetesClusterKubeletIdentity']] kubelet_identity: A `kubelet_identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         :param pulumi.Input[Union['KubernetesClusterLinuxProfileArgs', 'KubernetesClusterLinuxProfileArgsDict', 'outputs.KubernetesClusterLinuxProfile']] linux_profile: A `linux_profile` block as defined below.
@@ -2546,7 +2546,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict', 'outputs.KubernetesClusterOmsAgent']] oms_agent: A `oms_agent` block as defined below.
@@ -2654,7 +2654,7 @@ class KubernetesCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-10-01
+        * `Microsoft.ContainerService` - 2026-05-01
 
         ## Import
 
@@ -2923,9 +2923,9 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         :param pulumi.Input[Union['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs', 'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict', 'outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
-        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[_builtins.bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[Union['KubernetesClusterBootstrapProfileArgs', 'KubernetesClusterBootstrapProfileArgsDict', 'outputs.KubernetesClusterBootstrapProfile']] bootstrap_profile: A `bootstrap_profile` block as defined below.
-        :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict', 'outputs.KubernetesClusterConfidentialComputing']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict', 'outputs.KubernetesClusterConfidentialComputing']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[_builtins.bool] cost_analysis_enabled: Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         :param pulumi.Input[_builtins.str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
@@ -2951,15 +2951,15 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict', 'outputs.KubernetesClusterIngressApplicationGateway']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
-               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input[Union['KubernetesClusterKeyManagementServiceArgs', 'KubernetesClusterKeyManagementServiceArgsDict', 'outputs.KubernetesClusterKeyManagementService']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+               > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        :param pulumi.Input[Union['KubernetesClusterKeyManagementServiceArgs', 'KubernetesClusterKeyManagementServiceArgsDict', 'outputs.KubernetesClusterKeyManagementService']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input[Union['KubernetesClusterKeyVaultSecretsProviderArgs', 'KubernetesClusterKeyVaultSecretsProviderArgsDict', 'outputs.KubernetesClusterKeyVaultSecretsProvider']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[_builtins.str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesClusterKubeAdminConfigArgs', 'KubernetesClusterKubeAdminConfigArgsDict', 'outputs.KubernetesClusterKubeAdminConfig']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[_builtins.str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesClusterKubeConfigArgs', 'KubernetesClusterKubeConfigArgsDict', 'outputs.KubernetesClusterKubeConfig']]]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterKubeletIdentityArgs', 'KubernetesClusterKubeletIdentityArgsDict', 'outputs.KubernetesClusterKubeletIdentity']] kubelet_identity: A `kubelet_identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param pulumi.Input[_builtins.str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         :param pulumi.Input[Union['KubernetesClusterLinuxProfileArgs', 'KubernetesClusterLinuxProfileArgsDict', 'outputs.KubernetesClusterLinuxProfile']] linux_profile: A `linux_profile` block as defined below.
@@ -2986,7 +2986,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[_builtins.str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -3182,7 +3182,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="azurePolicyEnabled")
     def azure_policy_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
         """
         return pulumi.get(self, "azure_policy_enabled")
 
@@ -3198,7 +3198,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="confidentialComputing")
     def confidential_computing(self) -> pulumi.Output[Optional['outputs.KubernetesClusterConfidentialComputing']]:
         """
-        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
 
@@ -3336,7 +3336,7 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         A `ingress_application_gateway` block as defined below.
 
-        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+        > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         """
         return pulumi.get(self, "ingress_application_gateway")
 
@@ -3344,7 +3344,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="keyManagementService")
     def key_management_service(self) -> pulumi.Output[Optional['outputs.KubernetesClusterKeyManagementService']]:
         """
-        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
         """
         return pulumi.get(self, "key_management_service")
 
@@ -3400,7 +3400,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         """
@@ -3532,7 +3532,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """

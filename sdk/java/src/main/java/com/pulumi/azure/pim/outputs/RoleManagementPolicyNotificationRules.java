@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoleManagementPolicyNotificationRules {
     /**
-     * @return A `notificationTarget` block as defined below to configure notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below to configure notifications on active role assignments.
      * 
      */
     private @Nullable RoleManagementPolicyNotificationRulesActiveAssignments activeAssignments;
@@ -31,7 +31,7 @@ public final class RoleManagementPolicyNotificationRules {
 
     private RoleManagementPolicyNotificationRules() {}
     /**
-     * @return A `notificationTarget` block as defined below to configure notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below to configure notifications on active role assignments.
      * 
      */
     public Optional<RoleManagementPolicyNotificationRulesActiveAssignments> activeAssignments() {

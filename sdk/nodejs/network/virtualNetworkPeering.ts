@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *             input: vnet[range].addressSpace[range],
  *             newbits: 13,
  *             netnum: 0,
- *         }).result,
+ *         }).then(invoke => invoke.result),
  *     }));
  * }
  * // enable global peering between the two virtual network
@@ -133,7 +133,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: example_1.name,
  *     remoteVirtualNetworkId: example_2.id,
  *     triggers: {
- *         remote_address_space: std.join({
+ *         remote_address_space: std.joinOutput({
  *             separator: ",",
  *             input: example_2.addressSpaces,
  *         }).result,
@@ -145,7 +145,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: example_2.name,
  *     remoteVirtualNetworkId: example_1.id,
  *     triggers: {
- *         remote_address_space: std.join({
+ *         remote_address_space: std.joinOutput({
  *             separator: ",",
  *             input: example_1.addressSpaces,
  *         }).result,
@@ -162,7 +162,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *

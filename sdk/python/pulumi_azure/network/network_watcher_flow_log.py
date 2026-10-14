@@ -47,7 +47,7 @@ class NetworkWatcherFlowLogArgs:
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "network_watcher_name", network_watcher_name)
@@ -192,7 +192,7 @@ class NetworkWatcherFlowLogArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
@@ -230,7 +230,7 @@ class _NetworkWatcherFlowLogState:
                
                > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -381,7 +381,7 @@ class _NetworkWatcherFlowLogState:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
@@ -411,7 +411,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         """
         Manages a Network Watcher Flow Log.
 
-        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
 
         ## Example Usage
 
@@ -468,7 +468,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -493,7 +493,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                
                > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         ...
     @overload
@@ -504,7 +504,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         """
         Manages a Network Watcher Flow Log.
 
-        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
 
         ## Example Usage
 
@@ -561,7 +561,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -670,7 +670,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                
                > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -775,7 +775,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 

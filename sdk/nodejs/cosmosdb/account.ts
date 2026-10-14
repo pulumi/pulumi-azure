@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *     name: "example-resource",
  *     location: exampleAzurermResourceGroup.location,
  *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     defaultIdentityType: std.join({
+ *     defaultIdentityType: std.joinOutput({
  *         separator: "=",
  *         input: [
  *             "UserAssignedIdentity",

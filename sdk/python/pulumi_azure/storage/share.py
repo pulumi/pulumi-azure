@@ -182,7 +182,7 @@ class _ShareState:
                > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
                > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
-        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The URL of the File Share
         """
@@ -289,7 +289,7 @@ class _ShareState:
     @pulumi.getter(name="rbacScopeId")
     def rbac_scope_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
         """
         return pulumi.get(self, "rbac_scope_id")
 
@@ -544,7 +544,7 @@ class Share(pulumi.CustomResource):
                > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
                > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
-        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] url: The URL of the File Share
         """
@@ -623,7 +623,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter(name="rbacScopeId")
     def rbac_scope_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
         """
         return pulumi.get(self, "rbac_scope_id")
 

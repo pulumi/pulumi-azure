@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()
  *             .name("example-rulestack")
  *             .resourceGroupName(example.name())
- *             .location(example.locatio())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()

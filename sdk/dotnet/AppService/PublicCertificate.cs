@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService
     ///         Blob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "app_service_public_certificate.cer",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

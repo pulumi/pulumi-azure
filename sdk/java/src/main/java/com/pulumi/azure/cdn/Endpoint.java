@@ -329,14 +329,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.profileName;
     }
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     @Export(name="querystringCachingBehaviour", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> querystringCachingBehaviour;
 
     /**
-     * @return Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * @return Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     public Output<Optional<String>> querystringCachingBehaviour() {

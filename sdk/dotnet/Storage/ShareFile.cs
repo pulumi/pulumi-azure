@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a File within an Azure Storage File Share.
     /// 
-    /// &gt; **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `StorageUseAzuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+    /// &gt; **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `StorageUseAzuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
     /// 
     /// ## Example Usage
     /// 

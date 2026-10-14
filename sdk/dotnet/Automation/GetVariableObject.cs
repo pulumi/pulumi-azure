@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Automation
         ///         ["variable"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
-        ///         }).Result,
+        ///         }).Apply(invoke =&gt; invoke.Result),
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Automation
         ///         ["variable"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
-        ///         }).Result,
+        ///         }).Apply(invoke =&gt; invoke.Result),
         ///     };
         /// });
         /// ```
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Automation
         ///         ["variable"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
-        ///         }).Result,
+        ///         }).Apply(invoke =&gt; invoke.Result),
         ///     };
         /// });
         /// ```

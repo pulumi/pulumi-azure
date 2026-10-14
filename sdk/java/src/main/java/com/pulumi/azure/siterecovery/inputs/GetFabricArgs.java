@@ -30,14 +30,14 @@ public final class GetFabricArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
      * 
      */
     @Import(name="recoveryVaultName", required=true)
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+     * @return The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
      * 
      */
     public Output<String> recoveryVaultName() {
@@ -107,7 +107,7 @@ public final class GetFabricArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+         * @param recoveryVaultName The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetFabricArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+         * @param recoveryVaultName The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
          * 
          * @return builder
          * 

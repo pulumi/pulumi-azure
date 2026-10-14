@@ -206,7 +206,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
      */
     declare public readonly zones: pulumi.Output<string[] | undefined>;
 
@@ -428,7 +428,7 @@ export interface CacheState {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
      */
     zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -530,7 +530,7 @@ export interface CacheArgs {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
      */
     zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

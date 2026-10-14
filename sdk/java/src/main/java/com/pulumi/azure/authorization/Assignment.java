@@ -257,6 +257,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.BasenameArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -306,7 +307,11 @@ import javax.annotation.Nullable;
  *   }{@literal @}{@code Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals }{{@code %s}}{@code
  *  )
  * )
- * ", StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result(),StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result()))
+ * ", StdFunctions.basename(BasenameArgs.builder()
+ *                 .input(builtin.roleDefinitionId())
+ *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
+ *                 .input(builtin.roleDefinitionId())
+ *                 .build()).result()))
  *             .build());
  * 
  *     }}{@code

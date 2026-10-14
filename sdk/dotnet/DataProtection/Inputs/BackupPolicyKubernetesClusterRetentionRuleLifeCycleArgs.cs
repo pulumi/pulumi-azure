@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
     public sealed class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        /// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataStoreType", required: true)]
         public Input<string> DataStoreType { get; set; } = null!;

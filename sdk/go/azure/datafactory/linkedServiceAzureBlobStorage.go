@@ -83,7 +83,7 @@ type LinkedServiceAzureBlobStorage struct {
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 	//
-	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 	ConnectionStringInsecure pulumi.StringPtrOutput `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
@@ -166,7 +166,7 @@ type linkedServiceAzureBlobStorageState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 	//
-	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 	ConnectionStringInsecure *string `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
@@ -202,7 +202,7 @@ type LinkedServiceAzureBlobStorageState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 	//
-	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 	ConnectionStringInsecure pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type linkedServiceAzureBlobStorageArgs struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 	//
-	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 	ConnectionStringInsecure *string `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
@@ -279,7 +279,7 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	ConnectionString pulumi.StringPtrInput
 	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 	//
-	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+	// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 	ConnectionStringInsecure pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
@@ -410,7 +410,7 @@ func (o LinkedServiceAzureBlobStorageOutput) ConnectionString() pulumi.StringPtr
 
 // The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
 //
-// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+// > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
 func (o LinkedServiceAzureBlobStorageOutput) ConnectionStringInsecure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringPtrOutput { return v.ConnectionStringInsecure }).(pulumi.StringPtrOutput)
 }

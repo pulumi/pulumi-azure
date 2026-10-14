@@ -20,6 +20,12 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
+        /// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+        /// 
+        /// &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `CreatedWithinDays` filter.
+        /// </summary>
+        public readonly int? CreatedWithinDays;
+        /// <summary>
         /// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         /// </summary>
         public readonly ImmutableArray<string> ExcludePrefixes;
@@ -50,6 +56,8 @@ namespace Pulumi.Azure.Storage.Outputs
         private BlobInventoryPolicyRuleFilter(
             ImmutableArray<string> blobTypes,
 
+            int? createdWithinDays,
+
             ImmutableArray<string> excludePrefixes,
 
             bool? includeBlobVersions,
@@ -61,6 +69,7 @@ namespace Pulumi.Azure.Storage.Outputs
             ImmutableArray<string> prefixMatches)
         {
             BlobTypes = blobTypes;
+            CreatedWithinDays = createdWithinDays;
             ExcludePrefixes = excludePrefixes;
             IncludeBlobVersions = includeBlobVersions;
             IncludeDeleted = includeDeleted;

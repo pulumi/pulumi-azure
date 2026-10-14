@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Storage
         public Output<int> Quota { get; private set; } = null!;
 
         /// <summary>
-        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// The ID that is supposed to be used as the `Scope` of an `azure.authorization.Assignment` for this File Share.
         /// </summary>
         [Output("rbacScopeId")]
         public Output<string> RbacScopeId { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Quota { get; set; }
 
         /// <summary>
-        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// The ID that is supposed to be used as the `Scope` of an `azure.authorization.Assignment` for this File Share.
         /// </summary>
         [Input("rbacScopeId")]
         public Input<string>? RbacScopeId { get; set; }

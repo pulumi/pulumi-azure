@@ -62,10 +62,10 @@ class SubnetArgs:
                
                > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param pulumi.Input[_builtins.bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The ID of the Route Table to associate with the subnet.
                
@@ -235,7 +235,7 @@ class SubnetArgs:
 
         > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
 
-        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
@@ -249,7 +249,7 @@ class SubnetArgs:
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         """
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 
@@ -369,10 +369,10 @@ class _SubnetState:
                
                > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param pulumi.Input[_builtins.bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The ID of the Route Table to associate with the subnet.
@@ -535,7 +535,7 @@ class _SubnetState:
 
         > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
 
-        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
@@ -549,7 +549,7 @@ class _SubnetState:
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         """
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 
@@ -677,7 +677,7 @@ class Subnet(pulumi.CustomResource):
                  route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict', 'outputs.SubnetServiceEndpoint']]]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -724,7 +724,7 @@ class Subnet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -757,10 +757,10 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param pulumi.Input[_builtins.bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The ID of the Route Table to associate with the subnet.
@@ -768,7 +768,7 @@ class Subnet(pulumi.CustomResource):
                > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
         :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]] service_endpoints: A `service_endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict', 'outputs.SubnetServiceEndpoint']]]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -825,7 +825,7 @@ class Subnet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -864,7 +864,7 @@ class Subnet(pulumi.CustomResource):
                  route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict', 'outputs.SubnetServiceEndpoint']]]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -925,7 +925,7 @@ class Subnet(pulumi.CustomResource):
             route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
             route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
+            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict', 'outputs.SubnetServiceEndpoint']]]]] = None,
             sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Subnet':
         """
@@ -955,10 +955,10 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param pulumi.Input[_builtins.bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The ID of the Route Table to associate with the subnet.
@@ -966,7 +966,7 @@ class Subnet(pulumi.CustomResource):
                > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
         :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]] service_endpoints: A `service_endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict', 'outputs.SubnetServiceEndpoint']]]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -1076,7 +1076,7 @@ class Subnet(pulumi.CustomResource):
 
         > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
 
-        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
@@ -1086,7 +1086,7 @@ class Subnet(pulumi.CustomResource):
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         """
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 

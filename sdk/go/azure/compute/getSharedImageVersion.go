@@ -68,7 +68,7 @@ type LookupSharedImageVersionArgs struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -119,7 +119,7 @@ type LookupSharedImageVersionOutputArgs struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

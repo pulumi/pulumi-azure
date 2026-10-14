@@ -26,10 +26,13 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, api_management_id=None, display_name=None, id=None, name=None):
+    def __init__(__self__, api_management_id=None, description=None, display_name=None, id=None, name=None):
         if api_management_id and not isinstance(api_management_id, str):
             raise TypeError("Expected argument 'api_management_id' to be a str")
         pulumi.set(__self__, "api_management_id", api_management_id)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -44,6 +47,14 @@ class GetWorkspaceResult:
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> _builtins.str:
         return pulumi.get(self, "api_management_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        The description of the API Management Workspace.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -74,6 +85,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             api_management_id=self.api_management_id,
+            description=self.description,
             display_name=self.display_name,
             id=self.id,
             name=self.name)
@@ -125,6 +137,7 @@ def get_workspace(api_management_id: Optional[_builtins.str] = None,
 
     return AwaitableGetWorkspaceResult(
         api_management_id=pulumi.get(__ret__, 'api_management_id'),
+        description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
@@ -173,6 +186,7 @@ def get_workspace_output(api_management_id: pulumi.Input[Optional[_builtins.str]
     __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         api_management_id=pulumi.get(__response__, 'api_management_id'),
+        description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name')))

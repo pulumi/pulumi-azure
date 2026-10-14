@@ -95,9 +95,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("advancedFilter")]
         public Output<Outputs.SystemTopicEventSubscriptionAdvancedFilter?> AdvancedFilter { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
-        /// </summary>
         [Output("advancedFilteringOnArraysEnabled")]
         public Output<bool?> AdvancedFilteringOnArraysEnabled { get; private set; } = null!;
 
@@ -107,11 +104,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("azureFunctionEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionAzureFunctionEndpoint?> AzureFunctionEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// A `DeadLetterIdentity` block as defined below.
-        /// 
-        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
-        /// </summary>
         [Output("deadLetterIdentity")]
         public Output<Outputs.SystemTopicEventSubscriptionDeadLetterIdentity?> DeadLetterIdentity { get; private set; } = null!;
 
@@ -121,9 +113,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("deliveryIdentity")]
         public Output<Outputs.SystemTopicEventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `DeliveryProperty` blocks as defined below.
-        /// </summary>
         [Output("deliveryProperties")]
         public Output<ImmutableArray<Outputs.SystemTopicEventSubscriptionDeliveryProperty>> DeliveryProperties { get; private set; } = null!;
 
@@ -153,13 +142,12 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription.
+        /// 
+        /// &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `TopicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
         /// </summary>
         [Output("includedEventTypes")]
         public Output<ImmutableArray<string>> IncludedEventTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of labels to assign to the event subscription.
-        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
@@ -175,9 +163,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `RetryPolicy` block as defined below.
-        /// </summary>
         [Output("retryPolicy")]
         public Output<Outputs.SystemTopicEventSubscriptionRetryPolicy> RetryPolicy { get; private set; } = null!;
 
@@ -193,9 +178,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("serviceBusTopicId")]
         public Output<string?> ServiceBusTopicId { get; private set; } = null!;
 
-        /// <summary>
-        /// A `StorageBlobDeadLetterDestination` block as defined below.
-        /// </summary>
         [Output("storageBlobDeadLetterDestination")]
         public Output<Outputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination?> StorageBlobDeadLetterDestination { get; private set; } = null!;
 
@@ -277,9 +259,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("advancedFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionAdvancedFilterArgs>? AdvancedFilter { get; set; }
 
-        /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
-        /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
 
@@ -289,11 +268,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("azureFunctionEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointArgs>? AzureFunctionEndpoint { get; set; }
 
-        /// <summary>
-        /// A `DeadLetterIdentity` block as defined below.
-        /// 
-        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
-        /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityArgs>? DeadLetterIdentity { get; set; }
 
@@ -305,10 +279,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("deliveryProperties")]
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs>? _deliveryProperties;
-
-        /// <summary>
-        /// One or more `DeliveryProperty` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs> DeliveryProperties
         {
             get => _deliveryProperties ?? (_deliveryProperties = new InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs>());
@@ -344,6 +314,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription.
+        /// 
+        /// &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `TopicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
         /// </summary>
         public InputList<string> IncludedEventTypes
         {
@@ -353,10 +325,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("labels")]
         private InputList<string>? _labels;
-
-        /// <summary>
-        /// A list of labels to assign to the event subscription.
-        /// </summary>
         public InputList<string> Labels
         {
             get => _labels ?? (_labels = new InputList<string>());
@@ -375,9 +343,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// A `RetryPolicy` block as defined below.
-        /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.SystemTopicEventSubscriptionRetryPolicyArgs>? RetryPolicy { get; set; }
 
@@ -393,9 +358,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("serviceBusTopicId")]
         public Input<string>? ServiceBusTopicId { get; set; }
 
-        /// <summary>
-        /// A `StorageBlobDeadLetterDestination` block as defined below.
-        /// </summary>
         [Input("storageBlobDeadLetterDestination")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs>? StorageBlobDeadLetterDestination { get; set; }
 
@@ -439,9 +401,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("advancedFilter")]
         public Input<Inputs.SystemTopicEventSubscriptionAdvancedFilterGetArgs>? AdvancedFilter { get; set; }
 
-        /// <summary>
-        /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `False`.
-        /// </summary>
         [Input("advancedFilteringOnArraysEnabled")]
         public Input<bool>? AdvancedFilteringOnArraysEnabled { get; set; }
 
@@ -451,11 +410,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("azureFunctionEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionAzureFunctionEndpointGetArgs>? AzureFunctionEndpoint { get; set; }
 
-        /// <summary>
-        /// A `DeadLetterIdentity` block as defined below.
-        /// 
-        /// &gt; **Note:** `StorageBlobDeadLetterDestination` must be specified when a `DeadLetterIdentity` is specified
-        /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityGetArgs>? DeadLetterIdentity { get; set; }
 
@@ -467,10 +421,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("deliveryProperties")]
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs>? _deliveryProperties;
-
-        /// <summary>
-        /// One or more `DeliveryProperty` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs> DeliveryProperties
         {
             get => _deliveryProperties ?? (_deliveryProperties = new InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs>());
@@ -506,6 +456,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription.
+        /// 
+        /// &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `TopicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
         /// </summary>
         public InputList<string> IncludedEventTypes
         {
@@ -515,10 +467,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("labels")]
         private InputList<string>? _labels;
-
-        /// <summary>
-        /// A list of labels to assign to the event subscription.
-        /// </summary>
         public InputList<string> Labels
         {
             get => _labels ?? (_labels = new InputList<string>());
@@ -537,9 +485,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `RetryPolicy` block as defined below.
-        /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.SystemTopicEventSubscriptionRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
@@ -555,9 +500,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("serviceBusTopicId")]
         public Input<string>? ServiceBusTopicId { get; set; }
 
-        /// <summary>
-        /// A `StorageBlobDeadLetterDestination` block as defined below.
-        /// </summary>
         [Input("storageBlobDeadLetterDestination")]
         public Input<Inputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationGetArgs>? StorageBlobDeadLetterDestination { get; set; }
 

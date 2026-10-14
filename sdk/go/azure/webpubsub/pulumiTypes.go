@@ -1551,6 +1551,254 @@ func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) Index(i 
 	}).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput)
 }
 
+type GetServiceIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The principal id of the system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the web pubsub.
+	Type string `pulumi:"type"`
+}
+
+// GetServiceIdentityInput is an input type that accepts GetServiceIdentityArgs and GetServiceIdentityOutput values.
+// You can construct a concrete instance of `GetServiceIdentityInput` via:
+//
+//	GetServiceIdentityArgs{...}
+type GetServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityOutput() GetServiceIdentityOutput
+	ToGetServiceIdentityOutputWithContext(context.Context) GetServiceIdentityOutput
+}
+
+type GetServiceIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The principal id of the system assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the web pubsub.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return i.ToGetServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityOutput)
+}
+
+// GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
+//
+//	GetServiceIdentityArray{ GetServiceIdentityArgs{...} }
+type GetServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput
+	ToGetServiceIdentityArrayOutputWithContext(context.Context) GetServiceIdentityArrayOutput
+}
+
+type GetServiceIdentityArray []GetServiceIdentityInput
+
+func (GetServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return i.ToGetServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityArrayOutput)
+}
+
+type GetServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return o
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+func (o GetServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The principal id of the system assigned identity.
+func (o GetServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity.
+func (o GetServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the web pubsub.
+func (o GetServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceIdentity {
+		return vs[0].([]GetServiceIdentity)[vs[1].(int)]
+	}).(GetServiceIdentityOutput)
+}
+
+type GetServiceLiveTrace struct {
+	// Whether the log category `ConnectivityLogs` is enabled.
+	ConnectivityLogsEnabled bool `pulumi:"connectivityLogsEnabled"`
+	// Whether the live trace is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Whether the log category `HttpRequestLogs` is enabled.
+	HttpRequestLogsEnabled bool `pulumi:"httpRequestLogsEnabled"`
+	// Whether the log category `MessagingLogs` is enabled.
+	MessagingLogsEnabled bool `pulumi:"messagingLogsEnabled"`
+}
+
+// GetServiceLiveTraceInput is an input type that accepts GetServiceLiveTraceArgs and GetServiceLiveTraceOutput values.
+// You can construct a concrete instance of `GetServiceLiveTraceInput` via:
+//
+//	GetServiceLiveTraceArgs{...}
+type GetServiceLiveTraceInput interface {
+	pulumi.Input
+
+	ToGetServiceLiveTraceOutput() GetServiceLiveTraceOutput
+	ToGetServiceLiveTraceOutputWithContext(context.Context) GetServiceLiveTraceOutput
+}
+
+type GetServiceLiveTraceArgs struct {
+	// Whether the log category `ConnectivityLogs` is enabled.
+	ConnectivityLogsEnabled pulumi.BoolInput `pulumi:"connectivityLogsEnabled"`
+	// Whether the live trace is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Whether the log category `HttpRequestLogs` is enabled.
+	HttpRequestLogsEnabled pulumi.BoolInput `pulumi:"httpRequestLogsEnabled"`
+	// Whether the log category `MessagingLogs` is enabled.
+	MessagingLogsEnabled pulumi.BoolInput `pulumi:"messagingLogsEnabled"`
+}
+
+func (GetServiceLiveTraceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLiveTrace)(nil)).Elem()
+}
+
+func (i GetServiceLiveTraceArgs) ToGetServiceLiveTraceOutput() GetServiceLiveTraceOutput {
+	return i.ToGetServiceLiveTraceOutputWithContext(context.Background())
+}
+
+func (i GetServiceLiveTraceArgs) ToGetServiceLiveTraceOutputWithContext(ctx context.Context) GetServiceLiveTraceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLiveTraceOutput)
+}
+
+// GetServiceLiveTraceArrayInput is an input type that accepts GetServiceLiveTraceArray and GetServiceLiveTraceArrayOutput values.
+// You can construct a concrete instance of `GetServiceLiveTraceArrayInput` via:
+//
+//	GetServiceLiveTraceArray{ GetServiceLiveTraceArgs{...} }
+type GetServiceLiveTraceArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLiveTraceArrayOutput() GetServiceLiveTraceArrayOutput
+	ToGetServiceLiveTraceArrayOutputWithContext(context.Context) GetServiceLiveTraceArrayOutput
+}
+
+type GetServiceLiveTraceArray []GetServiceLiveTraceInput
+
+func (GetServiceLiveTraceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLiveTrace)(nil)).Elem()
+}
+
+func (i GetServiceLiveTraceArray) ToGetServiceLiveTraceArrayOutput() GetServiceLiveTraceArrayOutput {
+	return i.ToGetServiceLiveTraceArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLiveTraceArray) ToGetServiceLiveTraceArrayOutputWithContext(ctx context.Context) GetServiceLiveTraceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLiveTraceArrayOutput)
+}
+
+type GetServiceLiveTraceOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLiveTraceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLiveTrace)(nil)).Elem()
+}
+
+func (o GetServiceLiveTraceOutput) ToGetServiceLiveTraceOutput() GetServiceLiveTraceOutput {
+	return o
+}
+
+func (o GetServiceLiveTraceOutput) ToGetServiceLiveTraceOutputWithContext(ctx context.Context) GetServiceLiveTraceOutput {
+	return o
+}
+
+// Whether the log category `ConnectivityLogs` is enabled.
+func (o GetServiceLiveTraceOutput) ConnectivityLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceLiveTrace) bool { return v.ConnectivityLogsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the live trace is enabled.
+func (o GetServiceLiveTraceOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceLiveTrace) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether the log category `HttpRequestLogs` is enabled.
+func (o GetServiceLiveTraceOutput) HttpRequestLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceLiveTrace) bool { return v.HttpRequestLogsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the log category `MessagingLogs` is enabled.
+func (o GetServiceLiveTraceOutput) MessagingLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceLiveTrace) bool { return v.MessagingLogsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetServiceLiveTraceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLiveTraceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLiveTrace)(nil)).Elem()
+}
+
+func (o GetServiceLiveTraceArrayOutput) ToGetServiceLiveTraceArrayOutput() GetServiceLiveTraceArrayOutput {
+	return o
+}
+
+func (o GetServiceLiveTraceArrayOutput) ToGetServiceLiveTraceArrayOutputWithContext(ctx context.Context) GetServiceLiveTraceArrayOutput {
+	return o
+}
+
+func (o GetServiceLiveTraceArrayOutput) Index(i pulumi.IntInput) GetServiceLiveTraceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLiveTrace {
+		return vs[0].([]GetServiceLiveTrace)[vs[1].(int)]
+	}).(GetServiceLiveTraceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerInput)(nil)).Elem(), HubEventHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerArrayInput)(nil)).Elem(), HubEventHandlerArray{})
@@ -1572,6 +1820,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SocketioSkuPtrInput)(nil)).Elem(), SocketioSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityInput)(nil)).Elem(), GetServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityArrayInput)(nil)).Elem(), GetServiceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLiveTraceInput)(nil)).Elem(), GetServiceLiveTraceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLiveTraceArrayInput)(nil)).Elem(), GetServiceLiveTraceArray{})
 	pulumi.RegisterOutputType(HubEventHandlerOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerArrayOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerAuthOutput{})
@@ -1592,4 +1844,8 @@ func init() {
 	pulumi.RegisterOutputType(SocketioSkuPtrOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceLiveTraceOutput{})
+	pulumi.RegisterOutputType(GetServiceLiveTraceArrayOutput{})
 }

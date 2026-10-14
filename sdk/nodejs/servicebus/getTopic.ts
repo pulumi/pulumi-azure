@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +81,10 @@ export interface GetTopicResult {
      * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     readonly maxSizeInMegabytes: number;
+    /**
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+     */
+    readonly maximumMessageSizeInKb: number;
     readonly name: string;
     readonly namespaceId: string;
     /**
@@ -121,7 +125,7 @@ export interface GetTopicResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

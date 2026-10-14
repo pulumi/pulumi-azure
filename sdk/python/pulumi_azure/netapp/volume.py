@@ -30,6 +30,7 @@ class VolumeArgs:
                  volume_path: pulumi.Input[_builtins.str],
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 breakthrough_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cool_access: pulumi.Input[Optional['VolumeCoolAccessArgs']] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_protection_advanced_ransomware: pulumi.Input[Optional['VolumeDataProtectionAdvancedRansomwareArgs']] = None,
@@ -65,13 +66,18 @@ class VolumeArgs:
                > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
                
                > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
-        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] accept_grow_capacity_pool_for_short_term_clone_split: While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
                
-               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] breakthrough_mode_enabled: A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+               
+               > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
         :param pulumi.Input['VolumeCoolAccessArgs'] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionAdvancedRansomwareArgs'] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
@@ -86,24 +92,24 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
-               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
                
                > **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
         :param pulumi.Input[_builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         :param pulumi.Input[_builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
-        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -116,6 +122,8 @@ class VolumeArgs:
             pulumi.set(__self__, "accept_grow_capacity_pool_for_short_term_clone_split", accept_grow_capacity_pool_for_short_term_clone_split)
         if azure_vmware_data_store_enabled is not None:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+        if breakthrough_mode_enabled is not None:
+            pulumi.set(__self__, "breakthrough_mode_enabled", breakthrough_mode_enabled)
         if cool_access is not None:
             pulumi.set(__self__, "cool_access", cool_access)
         if create_from_snapshot_resource_id is not None:
@@ -221,7 +229,7 @@ class VolumeArgs:
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> pulumi.Input[_builtins.int]:
         """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
+        The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         """
         return pulumi.get(self, "storage_quota_in_gb")
 
@@ -259,7 +267,7 @@ class VolumeArgs:
         """
         While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
 
-        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         """
         return pulumi.get(self, "accept_grow_capacity_pool_for_short_term_clone_split")
 
@@ -278,6 +286,22 @@ class VolumeArgs:
     @azure_vmware_data_store_enabled.setter
     def azure_vmware_data_store_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breakthroughModeEnabled")
+    def breakthrough_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+
+        > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
+        """
+        return pulumi.get(self, "breakthrough_mode_enabled")
+
+    @breakthrough_mode_enabled.setter
+    def breakthrough_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "breakthrough_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
@@ -407,7 +431,7 @@ class VolumeArgs:
         """
         A boolean specifying if the volume is a large volume. Defaults to `false`.
 
-        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         """
         return pulumi.get(self, "large_volume_enabled")
 
@@ -443,7 +467,7 @@ class VolumeArgs:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         """
         return pulumi.get(self, "network_features")
 
@@ -493,7 +517,7 @@ class VolumeArgs:
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
     def smb_access_based_enumeration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         """
         return pulumi.get(self, "smb_access_based_enumeration_enabled")
 
@@ -517,7 +541,7 @@ class VolumeArgs:
     @pulumi.getter(name="smbNonBrowsableEnabled")
     def smb_non_browsable_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         """
         return pulumi.get(self, "smb_non_browsable_enabled")
 
@@ -567,7 +591,7 @@ class VolumeArgs:
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         return pulumi.get(self, "zone")
 
@@ -582,6 +606,7 @@ class _VolumeState:
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 breakthrough_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cool_access: pulumi.Input[Optional['VolumeCoolAccessArgs']] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_protection_advanced_ransomware: pulumi.Input[Optional['VolumeDataProtectionAdvancedRansomwareArgs']] = None,
@@ -618,9 +643,14 @@ class _VolumeState:
 
         :param pulumi.Input[_builtins.str] accept_grow_capacity_pool_for_short_term_clone_split: While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
                
-               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] breakthrough_mode_enabled: A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+               
+               > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
         :param pulumi.Input['VolumeCoolAccessArgs'] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionAdvancedRansomwareArgs'] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
@@ -635,11 +665,11 @@ class _VolumeState:
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
-               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountTargetArgs']]] mount_targets: One or more `mount_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
                
@@ -652,18 +682,18 @@ class _VolumeState:
                
                > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         :param pulumi.Input[_builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
-        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         if accept_grow_capacity_pool_for_short_term_clone_split is not None:
             pulumi.set(__self__, "accept_grow_capacity_pool_for_short_term_clone_split", accept_grow_capacity_pool_for_short_term_clone_split)
@@ -671,6 +701,8 @@ class _VolumeState:
             pulumi.set(__self__, "account_name", account_name)
         if azure_vmware_data_store_enabled is not None:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+        if breakthrough_mode_enabled is not None:
+            pulumi.set(__self__, "breakthrough_mode_enabled", breakthrough_mode_enabled)
         if cool_access is not None:
             pulumi.set(__self__, "cool_access", cool_access)
         if create_from_snapshot_resource_id is not None:
@@ -740,7 +772,7 @@ class _VolumeState:
         """
         While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
 
-        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         """
         return pulumi.get(self, "accept_grow_capacity_pool_for_short_term_clone_split")
 
@@ -771,6 +803,22 @@ class _VolumeState:
     @azure_vmware_data_store_enabled.setter
     def azure_vmware_data_store_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breakthroughModeEnabled")
+    def breakthrough_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+
+        > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
+        """
+        return pulumi.get(self, "breakthrough_mode_enabled")
+
+    @breakthrough_mode_enabled.setter
+    def breakthrough_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "breakthrough_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
@@ -900,7 +948,7 @@ class _VolumeState:
         """
         A boolean specifying if the volume is a large volume. Defaults to `false`.
 
-        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         """
         return pulumi.get(self, "large_volume_enabled")
 
@@ -948,7 +996,7 @@ class _VolumeState:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         """
         return pulumi.get(self, "network_features")
 
@@ -1038,7 +1086,7 @@ class _VolumeState:
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
     def smb_access_based_enumeration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         """
         return pulumi.get(self, "smb_access_based_enumeration_enabled")
 
@@ -1062,7 +1110,7 @@ class _VolumeState:
     @pulumi.getter(name="smbNonBrowsableEnabled")
     def smb_non_browsable_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         """
         return pulumi.get(self, "smb_non_browsable_enabled")
 
@@ -1086,7 +1134,7 @@ class _VolumeState:
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
+        The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         """
         return pulumi.get(self, "storage_quota_in_gb")
 
@@ -1148,7 +1196,7 @@ class _VolumeState:
     @pulumi.getter
     def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         return pulumi.get(self, "zone")
 
@@ -1166,6 +1214,7 @@ class Volume(pulumi.CustomResource):
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 breakthrough_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
@@ -1215,9 +1264,14 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_grow_capacity_pool_for_short_term_clone_split: While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
                
-               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] breakthrough_mode_enabled: A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+               
+               > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
         :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
@@ -1232,10 +1286,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
-               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
                
@@ -1248,18 +1302,18 @@ class Volume(pulumi.CustomResource):
                
                > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         :param pulumi.Input[_builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
-        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         ...
     @overload
@@ -1299,6 +1353,7 @@ class Volume(pulumi.CustomResource):
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 breakthrough_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
@@ -1343,6 +1398,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
+            __props__.__dict__["breakthrough_mode_enabled"] = breakthrough_mode_enabled
             __props__.__dict__["cool_access"] = cool_access
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
             __props__.__dict__["data_protection_advanced_ransomware"] = data_protection_advanced_ransomware
@@ -1399,6 +1455,7 @@ class Volume(pulumi.CustomResource):
             accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            breakthrough_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
             create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
@@ -1411,7 +1468,7 @@ class Volume(pulumi.CustomResource):
             key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            mount_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict']]]]] = None,
+            mount_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict', 'outputs.VolumeMountTarget']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_features: pulumi.Input[Optional[_builtins.str]] = None,
             pool_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1439,9 +1496,14 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_grow_capacity_pool_for_short_term_clone_split: While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
                
-               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+               > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] breakthrough_mode_enabled: A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+               
+               > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
         :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
@@ -1456,11 +1518,11 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
-               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+               > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict']]]] mount_targets: One or more `mount_target` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict', 'outputs.VolumeMountTarget']]]] mount_targets: One or more `mount_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
                
@@ -1473,18 +1535,18 @@ class Volume(pulumi.CustomResource):
                
                > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        :param pulumi.Input[_builtins.bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         :param pulumi.Input[_builtins.bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
-        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
                
                > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         :param pulumi.Input[_builtins.float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1493,6 +1555,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["accept_grow_capacity_pool_for_short_term_clone_split"] = accept_grow_capacity_pool_for_short_term_clone_split
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
+        __props__.__dict__["breakthrough_mode_enabled"] = breakthrough_mode_enabled
         __props__.__dict__["cool_access"] = cool_access
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__.__dict__["data_protection_advanced_ransomware"] = data_protection_advanced_ransomware
@@ -1532,7 +1595,7 @@ class Volume(pulumi.CustomResource):
         """
         While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
 
-        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+        > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
         """
         return pulumi.get(self, "accept_grow_capacity_pool_for_short_term_clone_split")
 
@@ -1551,6 +1614,18 @@ class Volume(pulumi.CustomResource):
         Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "azure_vmware_data_store_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="breakthroughModeEnabled")
+    def breakthrough_mode_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `breakthrough_mode_enabled` can only be set to `true` when `large_volume_enabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+
+        > **Note:** `cool_access` cannot be configured at the same time the volume is created with `breakthrough_mode_enabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
+        """
+        return pulumi.get(self, "breakthrough_mode_enabled")
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
@@ -1640,7 +1715,7 @@ class Volume(pulumi.CustomResource):
         """
         A boolean specifying if the volume is a large volume. Defaults to `false`.
 
-        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+        > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
         """
         return pulumi.get(self, "large_volume_enabled")
 
@@ -1672,7 +1747,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
         """
         return pulumi.get(self, "network_features")
 
@@ -1734,7 +1809,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
     def smb_access_based_enumeration_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         """
         return pulumi.get(self, "smb_access_based_enumeration_enabled")
 
@@ -1750,7 +1825,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="smbNonBrowsableEnabled")
     def smb_non_browsable_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         """
         return pulumi.get(self, "smb_non_browsable_enabled")
 
@@ -1766,7 +1841,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> pulumi.Output[_builtins.int]:
         """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
+        The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthrough_mode_enabled` set to `true`.
         """
         return pulumi.get(self, "storage_quota_in_gb")
 
@@ -1808,7 +1883,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
         return pulumi.get(self, "zone")
 

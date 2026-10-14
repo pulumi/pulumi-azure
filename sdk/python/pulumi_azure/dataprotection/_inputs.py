@@ -777,7 +777,7 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs:
 class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgsDict(TypedDict):
     data_store_type: pulumi.Input[_builtins.str]
     """
-    The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+    The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
     """
     duration: pulumi.Input[_builtins.str]
     """
@@ -790,7 +790,7 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
                  data_store_type: pulumi.Input[_builtins.str],
                  duration: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] data_store_type: The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] data_store_type: The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
@@ -800,7 +800,7 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
     @pulumi.getter(name="dataStoreType")
     def data_store_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_store_type")
 
@@ -1024,7 +1024,7 @@ class BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs:
 class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgsDict(TypedDict):
     data_store_type: pulumi.Input[_builtins.str]
     """
-    The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+    The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
     """
     duration: pulumi.Input[_builtins.str]
     """
@@ -1037,7 +1037,7 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
                  data_store_type: pulumi.Input[_builtins.str],
                  duration: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] data_store_type: The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] data_store_type: The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
@@ -1047,7 +1047,7 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
     @pulumi.getter(name="dataStoreType")
     def data_store_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_store_type")
 

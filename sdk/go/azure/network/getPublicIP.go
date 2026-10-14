@@ -146,7 +146,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIPResult
@@ -175,6 +175,10 @@ type GetPublicIPResult struct {
 	DdosProtectionPlanId string `pulumi:"ddosProtectionPlanId"`
 	// The label for the Domain Name.
 	DomainNameLabel string `pulumi:"domainNameLabel"`
+	// Scope for the domain name label.
+	DomainNameLabelScope string `pulumi:"domainNameLabelScope"`
+	// The Edge Zone within the Azure Region where this Public IP exists.
+	EdgeZone string `pulumi:"edgeZone"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
@@ -188,13 +192,17 @@ type GetPublicIPResult struct {
 	// The IP version being used, for example `IPv4` or `IPv6`.
 	IpVersion string `pulumi:"ipVersion"`
 	// The region that this public ip exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	PublicIpPrefixId  string `pulumi:"publicIpPrefixId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The fully qualified domain name that resolves to this public IP address.
 	ReverseFqdn string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP.
 	Sku string `pulumi:"sku"`
+	// The SKU Tier that is used for the Public IP.
+	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones in which this Public IP is located.
@@ -253,6 +261,16 @@ func (o GetPublicIPResultOutput) DomainNameLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.DomainNameLabel }).(pulumi.StringOutput)
 }
 
+// Scope for the domain name label.
+func (o GetPublicIPResultOutput) DomainNameLabelScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.DomainNameLabelScope }).(pulumi.StringOutput)
+}
+
+// The Edge Zone within the Azure Region where this Public IP exists.
+func (o GetPublicIPResultOutput) EdgeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.EdgeZone }).(pulumi.StringOutput)
+}
+
 // Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 func (o GetPublicIPResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.Fqdn }).(pulumi.StringOutput)
@@ -292,6 +310,11 @@ func (o GetPublicIPResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// If specified then public IP address allocated will be provided from the public IP prefix resource.
+func (o GetPublicIPResultOutput) PublicIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.PublicIpPrefixId }).(pulumi.StringOutput)
+}
+
 func (o GetPublicIPResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -304,6 +327,11 @@ func (o GetPublicIPResultOutput) ReverseFqdn() pulumi.StringOutput {
 // The SKU of the Public IP.
 func (o GetPublicIPResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// The SKU Tier that is used for the Public IP.
+func (o GetPublicIPResultOutput) SkuTier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIPResult) string { return v.SkuTier }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assigned to the resource.

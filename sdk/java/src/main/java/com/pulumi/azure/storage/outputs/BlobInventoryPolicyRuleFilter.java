@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +22,13 @@ public final class BlobInventoryPolicyRuleFilter {
      * 
      */
     private List<String> blobTypes;
+    /**
+     * @return The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+     * 
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+     * 
+     */
+    private @Nullable Integer createdWithinDays;
     /**
      * @return A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
      * 
@@ -62,6 +70,15 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     public List<String> blobTypes() {
         return this.blobTypes;
+    }
+    /**
+     * @return The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+     * 
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+     * 
+     */
+    public Optional<Integer> createdWithinDays() {
+        return Optional.ofNullable(this.createdWithinDays);
     }
     /**
      * @return A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
@@ -115,6 +132,7 @@ public final class BlobInventoryPolicyRuleFilter {
     @CustomType.Builder
     public static final class Builder {
         private List<String> blobTypes;
+        private @Nullable Integer createdWithinDays;
         private @Nullable List<String> excludePrefixes;
         private @Nullable Boolean includeBlobVersions;
         private @Nullable Boolean includeDeleted;
@@ -124,6 +142,7 @@ public final class BlobInventoryPolicyRuleFilter {
         public Builder(BlobInventoryPolicyRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
+    	      this.createdWithinDays = defaults.createdWithinDays;
     	      this.excludePrefixes = defaults.excludePrefixes;
     	      this.includeBlobVersions = defaults.includeBlobVersions;
     	      this.includeDeleted = defaults.includeDeleted;
@@ -141,6 +160,12 @@ public final class BlobInventoryPolicyRuleFilter {
         }
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
+        }
+        @CustomType.Setter
+        public Builder createdWithinDays(@Nullable Integer createdWithinDays) {
+
+            this.createdWithinDays = createdWithinDays;
+            return this;
         }
         @CustomType.Setter
         public Builder excludePrefixes(@Nullable List<String> excludePrefixes) {
@@ -181,6 +206,7 @@ public final class BlobInventoryPolicyRuleFilter {
         public BlobInventoryPolicyRuleFilter build() {
             final var _resultValue = new BlobInventoryPolicyRuleFilter();
             _resultValue.blobTypes = blobTypes;
+            _resultValue.createdWithinDays = createdWithinDays;
             _resultValue.excludePrefixes = excludePrefixes;
             _resultValue.includeBlobVersions = includeBlobVersions;
             _resultValue.includeDeleted = includeDeleted;

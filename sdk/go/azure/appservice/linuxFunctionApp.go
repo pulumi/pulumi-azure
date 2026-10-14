@@ -136,6 +136,8 @@ type LinuxFunctionApp struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
@@ -152,7 +154,7 @@ type LinuxFunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
@@ -194,11 +196,11 @@ type LinuxFunctionApp struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -210,7 +212,7 @@ type LinuxFunctionApp struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -304,6 +306,8 @@ type linuxFunctionAppState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
@@ -320,7 +324,7 @@ type linuxFunctionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
@@ -362,11 +366,11 @@ type linuxFunctionAppState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -378,7 +382,7 @@ type linuxFunctionAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -425,6 +429,8 @@ type LinuxFunctionAppState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
@@ -441,7 +447,7 @@ type LinuxFunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -483,11 +489,11 @@ type LinuxFunctionAppState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -499,7 +505,7 @@ type LinuxFunctionAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -546,6 +552,8 @@ type linuxFunctionAppArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
@@ -558,7 +566,7 @@ type linuxFunctionAppArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// Should public network access be enabled for the Function App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -590,11 +598,11 @@ type linuxFunctionAppArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -606,7 +614,7 @@ type linuxFunctionAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -650,6 +658,8 @@ type LinuxFunctionAppArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
@@ -662,7 +672,7 @@ type LinuxFunctionAppArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Function App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -694,11 +704,11 @@ type LinuxFunctionAppArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
@@ -710,7 +720,7 @@ type LinuxFunctionAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -885,6 +895,11 @@ func (o LinuxFunctionAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+func (o LinuxFunctionAppOutput) EndToEndTlsEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.EndToEndTlsEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 func (o LinuxFunctionAppOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
@@ -925,7 +940,7 @@ func (o LinuxFunctionAppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 func (o LinuxFunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -1021,11 +1036,11 @@ func (o LinuxFunctionAppOutput) VirtualNetworkBackupRestoreEnabled() pulumi.Bool
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 //
 // > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
 //
-// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 func (o LinuxFunctionAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -1046,7 +1061,7 @@ func (o LinuxFunctionAppOutput) WebdeployPublishBasicAuthenticationEnabled() pul
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 //
-// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
 func (o LinuxFunctionAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

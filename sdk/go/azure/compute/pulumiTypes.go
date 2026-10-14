@@ -2738,7 +2738,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
 	Option string `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement *string `pulumi:"placement"`
 }
 
@@ -2758,7 +2758,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	Option pulumi.StringInput `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -2846,7 +2846,7 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringO
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -2887,7 +2887,7 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.Stri
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -5842,7 +5842,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pu
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -5860,7 +5860,7 @@ type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -5946,7 +5946,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -5985,7 +5985,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -10438,7 +10438,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabl
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -10456,7 +10456,7 @@ type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -10542,7 +10542,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option()
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -10581,7 +10581,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Optio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -22396,7 +22396,7 @@ type VirtualMachineStorageDataDisk struct {
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	//
-	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name string `pulumi:"name"`
@@ -22436,7 +22436,7 @@ type VirtualMachineStorageDataDiskArgs struct {
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	//
-	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -22530,7 +22530,7 @@ func (o VirtualMachineStorageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOut
 
 // Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 //
-// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
@@ -24255,7 +24255,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
 	Option string `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement *string `pulumi:"placement"`
 }
 
@@ -24275,7 +24275,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	Option pulumi.StringInput `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -24363,7 +24363,7 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.Strin
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -24404,7 +24404,7 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.St
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -27361,7 +27361,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -27379,7 +27379,7 @@ type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -27465,7 +27465,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -27504,7 +27504,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -32877,7 +32877,7 @@ type GetSharedImageVersionTargetRegion struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
@@ -32901,7 +32901,7 @@ type GetSharedImageVersionTargetRegionArgs struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
@@ -32964,7 +32964,7 @@ func (o GetSharedImageVersionTargetRegionOutput) ToGetSharedImageVersionTargetRe
 //
 // > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 //
-// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 func (o GetSharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumi/time";
+ * import * as time from "@pulumiverse/time";
  *
  * const primary = azure.core.getSubscription({});
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
- * const exampleStatic = new time.index.Static("example", {});
+ * const exampleStatic = new time.Static("example", {});
  * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("example", {
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
@@ -47,14 +47,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumi/time";
+ * import * as time from "@pulumiverse/time";
  *
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
  * const exampleGroup = new azure.management.Group("example", {name: "Example-Management-Group"});
- * const exampleStatic = new time.index.Static("example", {});
+ * const exampleStatic = new time.Static("example", {});
  * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("example", {
  *     scope: exampleGroup.id,
  *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
@@ -119,7 +119,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     declare public readonly condition: pulumi.Output<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
  */
 export interface EligibleRoleAssignmentState {
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     condition?: pulumi.Input<string | undefined>;
     /**
@@ -254,7 +254,7 @@ export interface EligibleRoleAssignmentState {
  */
 export interface EligibleRoleAssignmentArgs {
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     condition?: pulumi.Input<string | undefined>;
     /**

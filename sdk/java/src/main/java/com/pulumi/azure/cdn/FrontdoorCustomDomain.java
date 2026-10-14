@@ -175,6 +175,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.TxtRecordArgs;
  * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -189,20 +191,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TxtRecord("example", TxtRecordArgs.builder()
- *             .name(StdFunctions.join(Map.ofEntries(
- *                 Map.entry("separator", "."),
- *                 Map.entry("input", Arrays.asList(                
+ *             .name(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
  *                     "_dnsauth",
- *                     StdFunctions.split(Map.ofEntries(
- *                         Map.entry("separator", "."),
- *                         Map.entry("text", exampleAzurermCdnFrontdoorCustomDomain.hostName())
- *                     )).result()[0]))
- *             )).result())
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *                     StdFunctions.split(SplitArgs.builder()
+ *                         .separator(".")
+ *                         .text(exampleAzurermCdnFrontdoorCustomDomain.get("hostName"))
+ *                         .build()).result()[0])
+ *                 .build()).result())
+ *             .zoneName(exampleAzurermDnsZone.get("name"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
  *             .ttl(3600)
  *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAzurermCdnFrontdoorCustomDomain.validationToken())
+ *                 .value(exampleAzurermCdnFrontdoorCustomDomain.get("validationToken"))
  *                 .build())
  *             .build());
  * 
@@ -225,6 +227,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.CNameRecord;
  * import com.pulumi.azure.dns.CNameRecordArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -240,14 +243,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CNameRecord("example", CNameRecordArgs.builder()
- *             .name(StdFunctions.split(Map.ofEntries(
- *                 Map.entry("separator", "."),
- *                 Map.entry("text", exampleAzurermCdnFrontdoorCustomDomain.hostName())
- *             )).result()[0])
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .name(StdFunctions.split(SplitArgs.builder()
+ *                 .separator(".")
+ *                 .text(exampleAzurermCdnFrontdoorCustomDomain.get("hostName"))
+ *                 .build()).result()[0])
+ *             .zoneName(exampleAzurermDnsZone.get("name"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
  *             .ttl(3600)
- *             .record(exampleAzurermCdnFrontdoorEndpoint.hostName())
+ *             .record(exampleAzurermCdnFrontdoorEndpoint.get("hostName"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAzurermCdnFrontdoorRoute,

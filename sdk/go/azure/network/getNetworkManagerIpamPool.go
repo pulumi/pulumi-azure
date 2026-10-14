@@ -80,7 +80,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func LookupNetworkManagerIpamPool(ctx *pulumi.Context, args *LookupNetworkManagerIpamPoolArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerIpamPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkManagerIpamPoolResult

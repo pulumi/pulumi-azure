@@ -19,14 +19,14 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
     public static final NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs Empty = new NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs();
 
     /**
-     * The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+     * The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
      */
     @Import(name="destinationPortBehavior")
     private @Nullable Output<String> destinationPortBehavior;
 
     /**
-     * @return The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+     * @return The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
      */
     public Optional<Output<String>> destinationPortBehavior() {
@@ -90,7 +90,7 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
         }
 
         /**
-         * @param destinationPortBehavior The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+         * @param destinationPortBehavior The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
         }
 
         /**
-         * @param destinationPortBehavior The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+         * @param destinationPortBehavior The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
          * 
          * @return builder
          * 

@@ -332,7 +332,7 @@ func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProv
 }
 
 type ResourceDeploymentScriptAzureCliContainer struct {
-	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 	ContainerGroupName *string `pulumi:"containerGroupName"`
 }
 
@@ -348,7 +348,7 @@ type ResourceDeploymentScriptAzureCliContainerInput interface {
 }
 
 type ResourceDeploymentScriptAzureCliContainerArgs struct {
-	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
 }
 
@@ -429,7 +429,7 @@ func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScr
 	}).(ResourceDeploymentScriptAzureCliContainerPtrOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptAzureCliContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -458,7 +458,7 @@ func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) Elem() ResourceDeplo
 	}).(ResourceDeploymentScriptAzureCliContainerOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliContainer) *string {
 		if v == nil {
@@ -896,7 +896,7 @@ func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) Name() pulumi.S
 }
 
 type ResourceDeploymentScriptPowerShellContainer struct {
-	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 	ContainerGroupName *string `pulumi:"containerGroupName"`
 }
 
@@ -912,7 +912,7 @@ type ResourceDeploymentScriptPowerShellContainerInput interface {
 }
 
 type ResourceDeploymentScriptPowerShellContainerArgs struct {
-	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
 }
 
@@ -993,7 +993,7 @@ func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentS
 	}).(ResourceDeploymentScriptPowerShellContainerPtrOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptPowerShellContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -1022,7 +1022,7 @@ func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) Elem() ResourceDep
 	}).(ResourceDeploymentScriptPowerShellContainerOutput)
 }
 
-// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellContainer) *string {
 		if v == nil {
@@ -2813,7 +2813,7 @@ func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pu
 type ResourceGroupPolicyAssignmentOverride struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors []ResourceGroupPolicyAssignmentOverrideSelector `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value string `pulumi:"value"`
 }
 
@@ -2831,7 +2831,7 @@ type ResourceGroupPolicyAssignmentOverrideInput interface {
 type ResourceGroupPolicyAssignmentOverrideArgs struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors ResourceGroupPolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2893,7 +2893,7 @@ func (o ResourceGroupPolicyAssignmentOverrideOutput) Selectors() ResourceGroupPo
 	}).(ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
-// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 func (o ResourceGroupPolicyAssignmentOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupPolicyAssignmentOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3549,7 +3549,7 @@ func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.
 type ResourcePolicyAssignmentOverride struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors []ResourcePolicyAssignmentOverrideSelector `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value string `pulumi:"value"`
 }
 
@@ -3567,7 +3567,7 @@ type ResourcePolicyAssignmentOverrideInput interface {
 type ResourcePolicyAssignmentOverrideArgs struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors ResourcePolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3629,7 +3629,7 @@ func (o ResourcePolicyAssignmentOverrideOutput) Selectors() ResourcePolicyAssign
 	}).(ResourcePolicyAssignmentOverrideSelectorArrayOutput)
 }
 
-// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 func (o ResourcePolicyAssignmentOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourcePolicyAssignmentOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5438,7 +5438,7 @@ func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pul
 type SubscriptionPolicyAssignmentOverride struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors []SubscriptionPolicyAssignmentOverrideSelector `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value string `pulumi:"value"`
 }
 
@@ -5456,7 +5456,7 @@ type SubscriptionPolicyAssignmentOverrideInput interface {
 type SubscriptionPolicyAssignmentOverrideArgs struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors SubscriptionPolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5518,7 +5518,7 @@ func (o SubscriptionPolicyAssignmentOverrideOutput) Selectors() SubscriptionPoli
 	}).(SubscriptionPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
-// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 func (o SubscriptionPolicyAssignmentOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionPolicyAssignmentOverride) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5980,7 +5980,7 @@ type GetResourcesResource struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A map of tags assigned to this Resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
 	Type string `pulumi:"type"`
 }
 
@@ -6006,7 +6006,7 @@ type GetResourcesResourceArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A map of tags assigned to this Resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6086,7 +6086,7 @@ func (o GetResourcesResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetResourcesResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
 func (o GetResourcesResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourcesResource) string { return v.Type }).(pulumi.StringOutput)
 }

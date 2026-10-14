@@ -176,14 +176,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * @return The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -439,7 +439,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 

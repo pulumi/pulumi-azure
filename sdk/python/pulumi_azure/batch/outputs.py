@@ -3009,22 +3009,36 @@ class GetPoolFixedScaleResult(dict):
 @pulumi.output_type
 class GetPoolMountResult(dict):
     def __init__(__self__, *,
+                 azure_blob_file_systems: Sequence['outputs.GetPoolMountAzureBlobFileSystemResult'],
+                 azure_file_shares: Sequence['outputs.GetPoolMountAzureFileShareResult'],
                  cifs_mounts: Sequence['outputs.GetPoolMountCifsMountResult'],
-                 nfs_mounts: Sequence['outputs.GetPoolMountNfsMountResult'],
-                 azure_blob_file_systems: Optional[Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']] = None,
-                 azure_file_shares: Optional[Sequence['outputs.GetPoolMountAzureFileShareResult']] = None):
+                 nfs_mounts: Sequence['outputs.GetPoolMountNfsMountResult']):
         """
-        :param Sequence['GetPoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
-        :param Sequence['GetPoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
         :param Sequence['GetPoolMountAzureBlobFileSystemArgs'] azure_blob_file_systems: A `azure_blob_file_system` block defined as below.
         :param Sequence['GetPoolMountAzureFileShareArgs'] azure_file_shares: A `azure_file_share` block defined as below.
+        :param Sequence['GetPoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
+        :param Sequence['GetPoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
         """
+        pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
+        pulumi.set(__self__, "azure_file_shares", azure_file_shares)
         pulumi.set(__self__, "cifs_mounts", cifs_mounts)
         pulumi.set(__self__, "nfs_mounts", nfs_mounts)
-        if azure_blob_file_systems is not None:
-            pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
-        if azure_file_shares is not None:
-            pulumi.set(__self__, "azure_file_shares", azure_file_shares)
+
+    @_builtins.property
+    @pulumi.getter(name="azureBlobFileSystems")
+    def azure_blob_file_systems(self) -> Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']:
+        """
+        A `azure_blob_file_system` block defined as below.
+        """
+        return pulumi.get(self, "azure_blob_file_systems")
+
+    @_builtins.property
+    @pulumi.getter(name="azureFileShares")
+    def azure_file_shares(self) -> Sequence['outputs.GetPoolMountAzureFileShareResult']:
+        """
+        A `azure_file_share` block defined as below.
+        """
+        return pulumi.get(self, "azure_file_shares")
 
     @_builtins.property
     @pulumi.getter(name="cifsMounts")
@@ -3041,22 +3055,6 @@ class GetPoolMountResult(dict):
         A `nfs_mount` block defined as below.
         """
         return pulumi.get(self, "nfs_mounts")
-
-    @_builtins.property
-    @pulumi.getter(name="azureBlobFileSystems")
-    def azure_blob_file_systems(self) -> Optional[Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']]:
-        """
-        A `azure_blob_file_system` block defined as below.
-        """
-        return pulumi.get(self, "azure_blob_file_systems")
-
-    @_builtins.property
-    @pulumi.getter(name="azureFileShares")
-    def azure_file_shares(self) -> Optional[Sequence['outputs.GetPoolMountAzureFileShareResult']]:
-        """
-        A `azure_file_share` block defined as below.
-        """
-        return pulumi.get(self, "azure_file_shares")
 
 
 @pulumi.output_type

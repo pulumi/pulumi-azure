@@ -194,7 +194,7 @@ class ResourceDeploymentScriptAzureCliContainer(dict):
     def __init__(__self__, *,
                  container_group_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        :param _builtins.str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
@@ -203,7 +203,7 @@ class ResourceDeploymentScriptAzureCliContainer(dict):
     @pulumi.getter(name="containerGroupName")
     def container_group_name(self) -> Optional[_builtins.str]:
         """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
@@ -364,7 +364,7 @@ class ResourceDeploymentScriptPowerShellContainer(dict):
     def __init__(__self__, *,
                  container_group_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        :param _builtins.str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
@@ -373,7 +373,7 @@ class ResourceDeploymentScriptPowerShellContainer(dict):
     @pulumi.getter(name="containerGroupName")
     def container_group_name(self) -> Optional[_builtins.str]:
         """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
@@ -946,7 +946,7 @@ class ResourceGroupPolicyAssignmentOverride(dict):
                  value: _builtins.str,
                  selectors: Optional[Sequence['outputs.ResourceGroupPolicyAssignmentOverrideSelector']] = None):
         """
-        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param Sequence['ResourceGroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -957,7 +957,7 @@ class ResourceGroupPolicyAssignmentOverride(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 
@@ -1223,7 +1223,7 @@ class ResourcePolicyAssignmentOverride(dict):
                  value: _builtins.str,
                  selectors: Optional[Sequence['outputs.ResourcePolicyAssignmentOverrideSelector']] = None):
         """
-        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param Sequence['ResourcePolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -1234,7 +1234,7 @@ class ResourcePolicyAssignmentOverride(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 
@@ -1835,7 +1835,7 @@ class SubscriptionPolicyAssignmentOverride(dict):
                  value: _builtins.str,
                  selectors: Optional[Sequence['outputs.SubscriptionPolicyAssignmentOverrideSelector']] = None):
         """
-        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param Sequence['SubscriptionPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -1846,7 +1846,7 @@ class SubscriptionPolicyAssignmentOverride(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 
@@ -2024,7 +2024,7 @@ class GetResourcesResourceResult(dict):
         :param _builtins.str name: The name of the Resource.
         :param _builtins.str resource_group_name: The name of the Resource group where the Resources are located.
         :param Mapping[str, _builtins.str] tags: A map of tags assigned to this Resource.
-        :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+        :param _builtins.str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "location", location)
@@ -2077,7 +2077,7 @@ class GetResourcesResourceResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+        The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
         """
         return pulumi.get(self, "type")
 

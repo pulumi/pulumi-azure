@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetPublicIpPrefixResult {
     /**
+     * @return The Custom IP Prefix ID associated with the Public IP Prefix.
+     * 
+     */
+    private String customIpPrefixId;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -23,6 +28,11 @@ public final class GetPublicIpPrefixResult {
      * 
      */
     private String ipPrefix;
+    /**
+     * @return The IP Version in use.
+     * 
+     */
+    private String ipVersion;
     /**
      * @return The supported Azure location where the resource exists.
      * 
@@ -58,6 +68,13 @@ public final class GetPublicIpPrefixResult {
 
     private GetPublicIpPrefixResult() {}
     /**
+     * @return The Custom IP Prefix ID associated with the Public IP Prefix.
+     * 
+     */
+    public String customIpPrefixId() {
+        return this.customIpPrefixId;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -70,6 +87,13 @@ public final class GetPublicIpPrefixResult {
      */
     public String ipPrefix() {
         return this.ipPrefix;
+    }
+    /**
+     * @return The IP Version in use.
+     * 
+     */
+    public String ipVersion() {
+        return this.ipVersion;
     }
     /**
      * @return The supported Azure location where the resource exists.
@@ -129,8 +153,10 @@ public final class GetPublicIpPrefixResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String customIpPrefixId;
         private String id;
         private String ipPrefix;
+        private String ipVersion;
         private String location;
         private String name;
         private Integer prefixLength;
@@ -142,8 +168,10 @@ public final class GetPublicIpPrefixResult {
         public Builder() {}
         public Builder(GetPublicIpPrefixResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customIpPrefixId = defaults.customIpPrefixId;
     	      this.id = defaults.id;
     	      this.ipPrefix = defaults.ipPrefix;
+    	      this.ipVersion = defaults.ipVersion;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.prefixLength = defaults.prefixLength;
@@ -154,6 +182,14 @@ public final class GetPublicIpPrefixResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder customIpPrefixId(String customIpPrefixId) {
+            if (customIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpPrefixResult", "customIpPrefixId");
+            }
+            this.customIpPrefixId = customIpPrefixId;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -168,6 +204,14 @@ public final class GetPublicIpPrefixResult {
               throw new MissingRequiredPropertyException("GetPublicIpPrefixResult", "ipPrefix");
             }
             this.ipPrefix = ipPrefix;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipVersion(String ipVersion) {
+            if (ipVersion == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpPrefixResult", "ipVersion");
+            }
+            this.ipVersion = ipVersion;
             return this;
         }
         @CustomType.Setter
@@ -239,8 +283,10 @@ public final class GetPublicIpPrefixResult {
         }
         public GetPublicIpPrefixResult build() {
             final var _resultValue = new GetPublicIpPrefixResult();
+            _resultValue.customIpPrefixId = customIpPrefixId;
             _resultValue.id = id;
             _resultValue.ipPrefix = ipPrefix;
+            _resultValue.ipVersion = ipVersion;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.prefixLength = prefixLength;

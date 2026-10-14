@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Application Volume Group for SAP HANA application.
  *
- * > **Note:** This feature is intended to be used for SAP-HANA workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-introduction) document as the starting point to understand this feature before using it with Terraform.
+ * > **Note:** This feature is intended to be used for SAP-HANA workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-introduction) document as the starting point to understand this feature before using it with Terraform.
  *
  * ## Example Usage
  *
@@ -433,7 +433,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  *
  * ## Import
  *

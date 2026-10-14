@@ -103,8 +103,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
-//				"input": `http {
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: `http {
 //	    server {
 //	        listen 80;
 //	        location / {
@@ -124,8 +124,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode1, err := std.Base64encode(ctx, map[string]string{
-//				"input": `location /bbb {
+//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: `location /bbb {
 //	 default_type text/html;
 //	 return 200 '<!doctype html><html lang=\"en\"><head></head><body>
 //	  <div>this one will be updated</div>
@@ -144,11 +144,11 @@ import (
 //				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //				ConfigFiles: nginx.ConfigurationConfigFileArray{
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode.Result,
+//						Content:     pulumi.String(invokeBase64encode.Result),
 //						VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
 //					},
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode1.Result,
+//						Content:     pulumi.String(invokeBase64encode1.Result),
 //						VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
 //					},
 //				},

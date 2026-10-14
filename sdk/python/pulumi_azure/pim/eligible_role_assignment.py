@@ -35,7 +35,7 @@ class EligibleRoleAssignmentArgs:
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
                > **Note:** `condition_version` is required when specifying `condition` and vice versa.
@@ -97,7 +97,7 @@ class EligibleRoleAssignmentArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
@@ -171,7 +171,7 @@ class _EligibleRoleAssignmentState:
         """
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
 
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
                > **Note:** `condition_version` is required when specifying `condition` and vice versa.
@@ -206,7 +206,7 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter
     def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
@@ -338,7 +338,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
@@ -349,7 +349,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static["rfc3339"],
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -366,7 +366,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         example = azure.core.get_client_config()
         example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
@@ -377,7 +377,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static["rfc3339"],
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -409,7 +409,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
                > **Note:** `condition_version` is required when specifying `condition` and vice versa.
@@ -436,7 +436,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
@@ -447,7 +447,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static["rfc3339"],
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -464,7 +464,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         example = azure.core.get_client_config()
         example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
@@ -475,7 +475,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static["rfc3339"],
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -578,7 +578,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
                > **Note:** `condition_version` is required when specifying `condition` and vice versa.
@@ -609,7 +609,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 

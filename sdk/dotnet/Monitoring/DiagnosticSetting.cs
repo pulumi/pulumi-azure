@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **Note:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Output("logAnalyticsDestinationType")]
         public Output<string> LogAnalyticsDestinationType { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
         /// 
         /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **Note:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
         /// 
         /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **Note:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+        /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
         /// 
         /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>

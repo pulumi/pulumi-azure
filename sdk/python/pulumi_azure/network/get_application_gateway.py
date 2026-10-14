@@ -370,7 +370,7 @@ class GetApplicationGatewayResult:
     @pulumi.getter(name="sslPolicies")
     def ssl_policies(self) -> Sequence['outputs.GetApplicationGatewaySslPolicyResult']:
         """
-        a `ssl_policy` block as defined below.
+        An `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policies")
 
@@ -498,7 +498,7 @@ def get_application_gateway(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of this Application Gateway.
@@ -570,7 +570,7 @@ def get_application_gateway_output(name: pulumi.Input[Optional[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of this Application Gateway.

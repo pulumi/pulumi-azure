@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? HttpVerb { get; set; }
 
         /// <summary>
-        /// Should the parsing of dependend requests be enabled? Defaults to `True`.
+        /// Should the parsing of dependent requests be enabled? Defaults to `True`.
         /// </summary>
         [Input("parseDependentRequestsEnabled")]
         public Input<bool>? ParseDependentRequestsEnabled { get; set; }

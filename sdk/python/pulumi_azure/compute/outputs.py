@@ -1386,7 +1386,7 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
                
-               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -1406,7 +1406,7 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
         """
         Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 
-        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
         """
         return pulumi.get(self, "placement")
 
@@ -2869,7 +2869,7 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
                  placement: Optional[_builtins.str] = None):
         """
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -2887,7 +2887,7 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def placement(self) -> Optional[_builtins.str]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "placement")
 
@@ -4699,7 +4699,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
                  placement: Optional[_builtins.str] = None):
         """
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -4717,7 +4717,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def placement(self) -> Optional[_builtins.str]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "placement")
 
@@ -9386,7 +9386,7 @@ class VirtualMachineStorageDataDisk(dict):
                The following properties apply when using Unmanaged Disks:
         :param _builtins.str managed_disk_type: Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
                
-               > **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+               > **Note:** `managed_disk_type` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
         :param _builtins.str vhd_uri: Specifies the URI of the VHD file backing this Unmanaged Data Disk.
         :param _builtins.bool write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
                
@@ -9466,7 +9466,7 @@ class VirtualMachineStorageDataDisk(dict):
         """
         Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 
-        > **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+        > **Note:** `managed_disk_type` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
         """
         return pulumi.get(self, "managed_disk_type")
 
@@ -10223,7 +10223,7 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
                
-               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -10243,7 +10243,7 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
         """
         Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 
-        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
         """
         return pulumi.get(self, "placement")
 
@@ -11689,7 +11689,7 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
                  placement: Optional[_builtins.str] = None):
         """
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -11707,7 +11707,7 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def placement(self) -> Optional[_builtins.str]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "placement")
 
@@ -13779,7 +13779,7 @@ class GetSharedImageVersionTargetRegionResult(dict):
                
                > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
                
-               > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+               > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exclude_from_latest` set to `true`.
         :param _builtins.int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param _builtins.str storage_account_type: The storage account type for the image version.
         """
@@ -13795,7 +13795,7 @@ class GetSharedImageVersionTargetRegionResult(dict):
 
         > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 
-        > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+        > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exclude_from_latest` set to `true`.
         """
         return pulumi.get(self, "name")
 

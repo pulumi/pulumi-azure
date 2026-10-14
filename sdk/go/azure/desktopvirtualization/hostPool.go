@@ -86,9 +86,9 @@ type HostPool struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-	// `Persistent` should be used if the host pool type is `Personal`
+	// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+	//
+	// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
 	// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -166,9 +166,9 @@ type hostPoolState struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-	// `Persistent` should be used if the host pool type is `Personal`
+	// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+	//
+	// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
 	// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -208,9 +208,9 @@ type HostPoolState struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-	// `Persistent` should be used if the host pool type is `Personal`
+	// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+	//
+	// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 	LoadBalancerType pulumi.StringPtrInput
 	// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -254,9 +254,9 @@ type hostPoolArgs struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-	// `Persistent` should be used if the host pool type is `Personal`
+	// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+	//
+	// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -297,9 +297,9 @@ type HostPoolArgs struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-	// `Persistent` should be used if the host pool type is `Personal`
+	// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+	//
+	// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 	LoadBalancerType pulumi.StringInput
 	// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -434,9 +434,9 @@ func (o HostPoolOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-// `Persistent` should be used if the host pool type is `Personal`
+// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+//
+// > **Note:** `loadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
 func (o HostPoolOutput) LoadBalancerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.LoadBalancerType }).(pulumi.StringOutput)
 }

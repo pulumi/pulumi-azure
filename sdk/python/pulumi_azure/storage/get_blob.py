@@ -26,10 +26,13 @@ class GetBlobResult:
     """
     A collection of values returned by getBlob.
     """
-    def __init__(__self__, access_tier=None, content_md5=None, content_type=None, encryption_scope=None, id=None, metadata=None, name=None, storage_container_id=None, type=None, url=None):
+    def __init__(__self__, access_tier=None, cache_control=None, content_md5=None, content_type=None, encryption_scope=None, id=None, metadata=None, name=None, source_uri=None, storage_container_id=None, type=None, url=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
+        if cache_control and not isinstance(cache_control, str):
+            raise TypeError("Expected argument 'cache_control' to be a str")
+        pulumi.set(__self__, "cache_control", cache_control)
         if content_md5 and not isinstance(content_md5, str):
             raise TypeError("Expected argument 'content_md5' to be a str")
         pulumi.set(__self__, "content_md5", content_md5)
@@ -48,6 +51,9 @@ class GetBlobResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if source_uri and not isinstance(source_uri, str):
+            raise TypeError("Expected argument 'source_uri' to be a str")
+        pulumi.set(__self__, "source_uri", source_uri)
         if storage_container_id and not isinstance(storage_container_id, str):
             raise TypeError("Expected argument 'storage_container_id' to be a str")
         pulumi.set(__self__, "storage_container_id", storage_container_id)
@@ -65,6 +71,14 @@ class GetBlobResult:
         The access tier of the storage blob.
         """
         return pulumi.get(self, "access_tier")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> _builtins.str:
+        """
+        The cache control directive that is set on the blob.
+        """
+        return pulumi.get(self, "cache_control")
 
     @_builtins.property
     @pulumi.getter(name="contentMd5")
@@ -112,6 +126,14 @@ class GetBlobResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> _builtins.str:
+        """
+        The source URI used to copy the blob, if it was created from another blob.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @_builtins.property
     @pulumi.getter(name="storageContainerId")
     def storage_container_id(self) -> _builtins.str:
         return pulumi.get(self, "storage_container_id")
@@ -140,12 +162,14 @@ class AwaitableGetBlobResult(GetBlobResult):
             yield self
         return GetBlobResult(
             access_tier=self.access_tier,
+            cache_control=self.cache_control,
             content_md5=self.content_md5,
             content_type=self.content_type,
             encryption_scope=self.encryption_scope,
             id=self.id,
             metadata=self.metadata,
             name=self.name,
+            source_uri=self.source_uri,
             storage_container_id=self.storage_container_id,
             type=self.type,
             url=self.url)
@@ -182,12 +206,14 @@ def get_blob(metadata: Optional[Mapping[str, _builtins.str]] = None,
 
     return AwaitableGetBlobResult(
         access_tier=pulumi.get(__ret__, 'access_tier'),
+        cache_control=pulumi.get(__ret__, 'cache_control'),
         content_md5=pulumi.get(__ret__, 'content_md5'),
         content_type=pulumi.get(__ret__, 'content_type'),
         encryption_scope=pulumi.get(__ret__, 'encryption_scope'),
         id=pulumi.get(__ret__, 'id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
+        source_uri=pulumi.get(__ret__, 'source_uri'),
         storage_container_id=pulumi.get(__ret__, 'storage_container_id'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
@@ -221,12 +247,14 @@ def get_blob_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _built
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult)
     return __ret__.apply(lambda __response__: GetBlobResult(
         access_tier=pulumi.get(__response__, 'access_tier'),
+        cache_control=pulumi.get(__response__, 'cache_control'),
         content_md5=pulumi.get(__response__, 'content_md5'),
         content_type=pulumi.get(__response__, 'content_type'),
         encryption_scope=pulumi.get(__response__, 'encryption_scope'),
         id=pulumi.get(__response__, 'id'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
+        source_uri=pulumi.get(__response__, 'source_uri'),
         storage_container_id=pulumi.get(__response__, 'storage_container_id'),
         type=pulumi.get(__response__, 'type'),
         url=pulumi.get(__response__, 'url')))

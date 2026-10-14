@@ -79,7 +79,7 @@ type DicomService struct {
 	Cors DicomServiceCorsOutput `pulumi:"cors"`
 	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
 	DataPartitionsEnabled pulumi.BoolPtrOutput `pulumi:"dataPartitionsEnabled"`
-	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 	EncryptionKeyUrl pulumi.StringPtrOutput `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrOutput `pulumi:"identity"`
@@ -139,7 +139,7 @@ type dicomServiceState struct {
 	Cors *DicomServiceCors `pulumi:"cors"`
 	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
 	DataPartitionsEnabled *bool `pulumi:"dataPartitionsEnabled"`
-	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity *DicomServiceIdentity `pulumi:"identity"`
@@ -167,7 +167,7 @@ type DicomServiceState struct {
 	Cors DicomServiceCorsPtrInput
 	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
 	DataPartitionsEnabled pulumi.BoolPtrInput
-	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrInput
@@ -197,7 +197,7 @@ type dicomServiceArgs struct {
 	Cors *DicomServiceCors `pulumi:"cors"`
 	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
 	DataPartitionsEnabled *bool `pulumi:"dataPartitionsEnabled"`
-	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity *DicomServiceIdentity `pulumi:"identity"`
@@ -221,7 +221,7 @@ type DicomServiceArgs struct {
 	Cors DicomServiceCorsPtrInput
 	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
 	DataPartitionsEnabled pulumi.BoolPtrInput
-	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrInput
@@ -341,7 +341,7 @@ func (o DicomServiceOutput) DataPartitionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.BoolPtrOutput { return v.DataPartitionsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
 func (o DicomServiceOutput) EncryptionKeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringPtrOutput { return v.EncryptionKeyUrl }).(pulumi.StringPtrOutput)
 }

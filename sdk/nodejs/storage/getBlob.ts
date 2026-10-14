@@ -55,6 +55,10 @@ export interface GetBlobResult {
      */
     readonly accessTier: string;
     /**
+     * The cache control directive that is set on the blob.
+     */
+    readonly cacheControl: string;
+    /**
      * The MD5 sum of the blob contents.
      */
     readonly contentMd5: string;
@@ -75,6 +79,10 @@ export interface GetBlobResult {
      */
     readonly metadata: {[key: string]: string};
     readonly name: string;
+    /**
+     * The source URI used to copy the blob, if it was created from another blob.
+     */
+    readonly sourceUri: string;
     readonly storageContainerId: string;
     /**
      * The type of the storage blob

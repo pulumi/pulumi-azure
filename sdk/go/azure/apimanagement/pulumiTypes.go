@@ -6150,7 +6150,7 @@ func (o AuthorizationServerTokenBodyParameterArrayOutput) Index(i pulumi.IntInpu
 }
 
 type BackendCircuitBreakerRule struct {
-	// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+	// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
 	AcceptRetryAfterEnabled *bool `pulumi:"acceptRetryAfterEnabled"`
 	// A `failureCondition` block as defined below.
 	FailureCondition BackendCircuitBreakerRuleFailureCondition `pulumi:"failureCondition"`
@@ -6172,7 +6172,7 @@ type BackendCircuitBreakerRuleInput interface {
 }
 
 type BackendCircuitBreakerRuleArgs struct {
-	// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+	// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
 	AcceptRetryAfterEnabled pulumi.BoolPtrInput `pulumi:"acceptRetryAfterEnabled"`
 	// A `failureCondition` block as defined below.
 	FailureCondition BackendCircuitBreakerRuleFailureConditionInput `pulumi:"failureCondition"`
@@ -6259,7 +6259,7 @@ func (o BackendCircuitBreakerRuleOutput) ToBackendCircuitBreakerRulePtrOutputWit
 	}).(BackendCircuitBreakerRulePtrOutput)
 }
 
-// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
 func (o BackendCircuitBreakerRuleOutput) AcceptRetryAfterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendCircuitBreakerRule) *bool { return v.AcceptRetryAfterEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6303,7 +6303,7 @@ func (o BackendCircuitBreakerRulePtrOutput) Elem() BackendCircuitBreakerRuleOutp
 	}).(BackendCircuitBreakerRuleOutput)
 }
 
-// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
 func (o BackendCircuitBreakerRulePtrOutput) AcceptRetryAfterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackendCircuitBreakerRule) *bool {
 		if v == nil {

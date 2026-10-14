@@ -88,21 +88,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
-//				"separator": ".",
-//				"input": []interface{}{
-//					"contoso",
-//					exampleZone.Name,
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("example-customDomain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName:              invokeJoin.Result,
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						pulumi.String("contoso"),
+//						exampleZone.Name,
+//					},
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: "TLS12",

@@ -73,7 +73,7 @@ type LocalRulestack struct {
 	AntiVirusProfile pulumi.StringPtrOutput `pulumi:"antiVirusProfile"`
 	// The description for this Local Rulestack.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 	DnsSubscription pulumi.StringPtrOutput `pulumi:"dnsSubscription"`
 	// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
 	FileBlockingProfile pulumi.StringPtrOutput `pulumi:"fileBlockingProfile"`
@@ -128,7 +128,7 @@ type localRulestackState struct {
 	AntiVirusProfile *string `pulumi:"antiVirusProfile"`
 	// The description for this Local Rulestack.
 	Description *string `pulumi:"description"`
-	// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 	DnsSubscription *string `pulumi:"dnsSubscription"`
 	// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
 	FileBlockingProfile *string `pulumi:"fileBlockingProfile"`
@@ -151,7 +151,7 @@ type LocalRulestackState struct {
 	AntiVirusProfile pulumi.StringPtrInput
 	// The description for this Local Rulestack.
 	Description pulumi.StringPtrInput
-	// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 	DnsSubscription pulumi.StringPtrInput
 	// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
 	FileBlockingProfile pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type localRulestackArgs struct {
 	AntiVirusProfile *string `pulumi:"antiVirusProfile"`
 	// The description for this Local Rulestack.
 	Description *string `pulumi:"description"`
-	// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 	DnsSubscription *string `pulumi:"dnsSubscription"`
 	// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
 	FileBlockingProfile *string `pulumi:"fileBlockingProfile"`
@@ -202,7 +202,7 @@ type LocalRulestackArgs struct {
 	AntiVirusProfile pulumi.StringPtrInput
 	// The description for this Local Rulestack.
 	Description pulumi.StringPtrInput
-	// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 	DnsSubscription pulumi.StringPtrInput
 	// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
 	FileBlockingProfile pulumi.StringPtrInput
@@ -320,7 +320,7 @@ func (o LocalRulestackOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRulestack) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
 func (o LocalRulestackOutput) DnsSubscription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRulestack) pulumi.StringPtrOutput { return v.DnsSubscription }).(pulumi.StringPtrOutput)
 }

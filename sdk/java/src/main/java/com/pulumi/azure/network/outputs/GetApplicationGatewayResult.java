@@ -178,7 +178,7 @@ public final class GetApplicationGatewayResult {
      */
     private List<GetApplicationGatewaySslCertificate> sslCertificates;
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     private List<GetApplicationGatewaySslPolicy> sslPolicies;
@@ -415,7 +415,7 @@ public final class GetApplicationGatewayResult {
         return this.sslCertificates;
     }
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     public List<GetApplicationGatewaySslPolicy> sslPolicies() {

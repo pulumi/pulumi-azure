@@ -2655,6 +2655,106 @@ func (o SourceControlSecurityPtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccountEncryption struct {
+	KeyVaultKeyId          string `pulumi:"keyVaultKeyId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetAccountEncryptionInput is an input type that accepts GetAccountEncryptionArgs and GetAccountEncryptionOutput values.
+// You can construct a concrete instance of `GetAccountEncryptionInput` via:
+//
+//	GetAccountEncryptionArgs{...}
+type GetAccountEncryptionInput interface {
+	pulumi.Input
+
+	ToGetAccountEncryptionOutput() GetAccountEncryptionOutput
+	ToGetAccountEncryptionOutputWithContext(context.Context) GetAccountEncryptionOutput
+}
+
+type GetAccountEncryptionArgs struct {
+	KeyVaultKeyId          pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetAccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountEncryption)(nil)).Elem()
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutput() GetAccountEncryptionOutput {
+	return i.ToGetAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutputWithContext(ctx context.Context) GetAccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput)
+}
+
+// GetAccountEncryptionArrayInput is an input type that accepts GetAccountEncryptionArray and GetAccountEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetAccountEncryptionArrayInput` via:
+//
+//	GetAccountEncryptionArray{ GetAccountEncryptionArgs{...} }
+type GetAccountEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput
+	ToGetAccountEncryptionArrayOutputWithContext(context.Context) GetAccountEncryptionArrayOutput
+}
+
+type GetAccountEncryptionArray []GetAccountEncryptionInput
+
+func (GetAccountEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountEncryption)(nil)).Elem()
+}
+
+func (i GetAccountEncryptionArray) ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput {
+	return i.ToGetAccountEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountEncryptionArray) ToGetAccountEncryptionArrayOutputWithContext(ctx context.Context) GetAccountEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionArrayOutput)
+}
+
+type GetAccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountEncryption)(nil)).Elem()
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutput() GetAccountEncryptionOutput {
+	return o
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutputWithContext(ctx context.Context) GetAccountEncryptionOutput {
+	return o
+}
+
+func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+func (o GetAccountEncryptionOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountEncryption) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type GetAccountEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountEncryption)(nil)).Elem()
+}
+
+func (o GetAccountEncryptionArrayOutput) ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput {
+	return o
+}
+
+func (o GetAccountEncryptionArrayOutput) ToGetAccountEncryptionArrayOutputWithContext(ctx context.Context) GetAccountEncryptionArrayOutput {
+	return o
+}
+
+func (o GetAccountEncryptionArrayOutput) Index(i pulumi.IntInput) GetAccountEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountEncryption {
+		return vs[0].([]GetAccountEncryption)[vs[1].(int)]
+	}).(GetAccountEncryptionOutput)
+}
+
 type GetAccountIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Automation Account.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -3830,6 +3930,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrencePtrInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityInput)(nil)).Elem(), SourceControlSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityPtrInput)(nil)).Elem(), SourceControlSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionInput)(nil)).Elem(), GetAccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionArrayInput)(nil)).Elem(), GetAccountEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountPrivateEndpointConnectionInput)(nil)).Elem(), GetAccountPrivateEndpointConnectionArgs{})
@@ -3882,6 +3984,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrencePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityPtrOutput{})
+	pulumi.RegisterOutputType(GetAccountEncryptionOutput{})
+	pulumi.RegisterOutputType(GetAccountEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountPrivateEndpointConnectionOutput{})

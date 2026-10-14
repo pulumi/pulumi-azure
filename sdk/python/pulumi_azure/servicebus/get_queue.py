@@ -26,7 +26,7 @@ class GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, express_enabled=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_id=None, partitioning_enabled=None, requires_duplicate_detection=None, requires_session=None, status=None):
+    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, express_enabled=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, maximum_message_size_in_kb=None, name=None, namespace_id=None, partitioning_enabled=None, requires_duplicate_detection=None, requires_session=None, status=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -63,6 +63,9 @@ class GetQueueResult:
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+        if maximum_message_size_in_kb and not isinstance(maximum_message_size_in_kb, int):
+            raise TypeError("Expected argument 'maximum_message_size_in_kb' to be a int")
+        pulumi.set(__self__, "maximum_message_size_in_kb", maximum_message_size_in_kb)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -179,6 +182,14 @@ class GetQueueResult:
         return pulumi.get(self, "max_size_in_megabytes")
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSizeInKb")
+    def maximum_message_size_in_kb(self) -> _builtins.int:
+        """
+        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+        """
+        return pulumi.get(self, "maximum_message_size_in_kb")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -239,6 +250,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
             max_size_in_megabytes=self.max_size_in_megabytes,
+            maximum_message_size_in_kb=self.maximum_message_size_in_kb,
             name=self.name,
             namespace_id=self.namespace_id,
             partitioning_enabled=self.partitioning_enabled,
@@ -269,7 +281,7 @@ def get_queue(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Queue.
@@ -294,6 +306,7 @@ def get_queue(name: Optional[_builtins.str] = None,
         lock_duration=pulumi.get(__ret__, 'lock_duration'),
         max_delivery_count=pulumi.get(__ret__, 'max_delivery_count'),
         max_size_in_megabytes=pulumi.get(__ret__, 'max_size_in_megabytes'),
+        maximum_message_size_in_kb=pulumi.get(__ret__, 'maximum_message_size_in_kb'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
         partitioning_enabled=pulumi.get(__ret__, 'partitioning_enabled'),
@@ -322,7 +335,7 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Queue.
@@ -346,6 +359,7 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         lock_duration=pulumi.get(__response__, 'lock_duration'),
         max_delivery_count=pulumi.get(__response__, 'max_delivery_count'),
         max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
+        maximum_message_size_in_kb=pulumi.get(__response__, 'maximum_message_size_in_kb'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
         partitioning_enabled=pulumi.get(__response__, 'partitioning_enabled'),

@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetIpGroup(ctx *pulumi.Context, args *GetIpGroupArgs, opts ...pulumi.InvokeOption) (*GetIpGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpGroupResult
@@ -69,6 +69,10 @@ type GetIpGroupArgs struct {
 type GetIpGroupResult struct {
 	// A list of CIDRs or IP addresses.
 	Cidrs []string `pulumi:"cidrs"`
+	// A list of ID of Firewall.
+	FirewallIds []string `pulumi:"firewallIds"`
+	// A list of ID of Firewall Policy`.
+	FirewallPolicyIds []string `pulumi:"firewallPolicyIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The supported Azure location where the resource exists.
@@ -114,6 +118,16 @@ func (o GetIpGroupResultOutput) ToGetIpGroupResultOutputWithContext(ctx context.
 // A list of CIDRs or IP addresses.
 func (o GetIpGroupResultOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpGroupResult) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+// A list of ID of Firewall.
+func (o GetIpGroupResultOutput) FirewallIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpGroupResult) []string { return v.FirewallIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of ID of Firewall Policy`.
+func (o GetIpGroupResultOutput) FirewallPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpGroupResult) []string { return v.FirewallPolicyIds }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

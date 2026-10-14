@@ -37,7 +37,7 @@ public final class GetShareResult {
      */
     private Integer quota;
     /**
-     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * @return The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     private String rbacScopeId;
@@ -76,7 +76,7 @@ public final class GetShareResult {
         return this.quota;
     }
     /**
-     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * @return The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      * 
      */
     public String rbacScopeId() {

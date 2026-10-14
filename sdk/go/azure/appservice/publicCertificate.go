@@ -61,8 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
-//				"input": "app_service_public_certificate.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "app_service_public_certificate.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				AppServiceName:      exampleAppService.Name,
 //				CertificateName:     pulumi.String("example-public-certificate"),
 //				CertificateLocation: pulumi.String("Unknown"),
-//				Blob:                invokeFilebase64.Result,
+//				Blob:                pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

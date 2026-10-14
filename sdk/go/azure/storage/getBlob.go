@@ -63,6 +63,8 @@ type LookupBlobArgs struct {
 type LookupBlobResult struct {
 	// The access tier of the storage blob.
 	AccessTier string `pulumi:"accessTier"`
+	// The cache control directive that is set on the blob.
+	CacheControl string `pulumi:"cacheControl"`
 	// The MD5 sum of the blob contents.
 	ContentMd5 string `pulumi:"contentMd5"`
 	// The content type of the storage blob.
@@ -72,9 +74,11 @@ type LookupBlobResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A map of custom blob metadata.
-	Metadata           map[string]string `pulumi:"metadata"`
-	Name               string            `pulumi:"name"`
-	StorageContainerId string            `pulumi:"storageContainerId"`
+	Metadata map[string]string `pulumi:"metadata"`
+	Name     string            `pulumi:"name"`
+	// The source URI used to copy the blob, if it was created from another blob.
+	SourceUri          string `pulumi:"sourceUri"`
+	StorageContainerId string `pulumi:"storageContainerId"`
 	// The type of the storage blob
 	Type string `pulumi:"type"`
 	// The URL of the storage blob.
@@ -120,6 +124,11 @@ func (o LookupBlobResultOutput) AccessTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.AccessTier }).(pulumi.StringOutput)
 }
 
+// The cache control directive that is set on the blob.
+func (o LookupBlobResultOutput) CacheControl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.CacheControl }).(pulumi.StringOutput)
+}
+
 // The MD5 sum of the blob contents.
 func (o LookupBlobResultOutput) ContentMd5() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.ContentMd5 }).(pulumi.StringOutput)
@@ -147,6 +156,11 @@ func (o LookupBlobResultOutput) Metadata() pulumi.StringMapOutput {
 
 func (o LookupBlobResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source URI used to copy the blob, if it was created from another blob.
+func (o LookupBlobResultOutput) SourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.SourceUri }).(pulumi.StringOutput)
 }
 
 func (o LookupBlobResultOutput) StorageContainerId() pulumi.StringOutput {

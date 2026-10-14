@@ -170,7 +170,7 @@ namespace Pulumi.Azure.AppService
     ///                 Content = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "exampledata/run.csx",
-    ///                 }).Result,
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

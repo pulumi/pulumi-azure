@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +36,25 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
      */
     public Output<List<String>> blobTypes() {
         return this.blobTypes;
+    }
+
+    /**
+     * The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+     * 
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+     * 
+     */
+    @Import(name="createdWithinDays")
+    private @Nullable Output<Integer> createdWithinDays;
+
+    /**
+     * @return The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+     * 
+     * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+     * 
+     */
+    public Optional<Output<Integer>> createdWithinDays() {
+        return Optional.ofNullable(this.createdWithinDays);
     }
 
     /**
@@ -128,6 +148,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
 
     private BlobInventoryPolicyRuleFilterArgs(BlobInventoryPolicyRuleFilterArgs $) {
         this.blobTypes = $.blobTypes;
+        this.createdWithinDays = $.createdWithinDays;
         this.excludePrefixes = $.excludePrefixes;
         this.includeBlobVersions = $.includeBlobVersions;
         this.includeDeleted = $.includeDeleted;
@@ -188,6 +209,31 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
          */
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
+        }
+
+        /**
+         * @param createdWithinDays The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+         * 
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdWithinDays(@Nullable Output<Integer> createdWithinDays) {
+            $.createdWithinDays = createdWithinDays;
+            return this;
+        }
+
+        /**
+         * @param createdWithinDays The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+         * 
+         * &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdWithinDays(Integer createdWithinDays) {
+            return createdWithinDays(Output.of(createdWithinDays));
         }
 
         /**

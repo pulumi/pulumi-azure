@@ -68,7 +68,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
      */
     declare public /*out*/ readonly dataplaneUri: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The name which should be used for this Playwright Workspace.
+     * The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
-     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
+     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&pivots=playwright-test-runner#configure-the-browser-endpoint).
      */
     dataplaneUri?: pulumi.Input<string | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface WorkspaceState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The name which should be used for this Playwright Workspace.
+     * The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The name which should be used for this Playwright Workspace.
+     * The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**

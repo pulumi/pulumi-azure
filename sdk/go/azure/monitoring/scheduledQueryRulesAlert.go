@@ -86,8 +86,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
-//				"input": `let a=requests
+//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
+//				Input: `let a=requests
 //	  | where toint(resultCode) >= 500
 //	  | extend fail=1; let b=app('%s').requests
 //	  | where toint(resultCode) >= 500 | extend fail=1; a
@@ -95,7 +95,7 @@ import (
 //
 // `,
 //
-//				"args": pulumi.IDArray{
+//				Args: pulumi.IDArray{
 //					example2.ID(),
 //				},
 //			}, nil)
@@ -118,7 +118,7 @@ import (
 //				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Query may access data within multiple resources"),
 //				Enabled:      pulumi.Bool(true),
-//				Query:        invokeFormat.Result,
+//				Query:        pulumi.String(invokeFormat.Result),
 //				Severity:     pulumi.Int(1),
 //				Frequency:    pulumi.Int(5),
 //				TimeWindow:   pulumi.Int(30),

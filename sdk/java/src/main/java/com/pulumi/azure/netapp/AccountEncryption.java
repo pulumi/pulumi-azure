@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a NetApp Account Encryption Resource.
  * 
- * For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+ * For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/azure/azure-netapp-files/configure-customer-managed-keys)
  * 
  * ## Example Usage
  * 
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  * 
  * ## Import
  * 
@@ -253,14 +253,14 @@ public class AccountEncryption extends com.pulumi.resources.CustomResource {
         return this.netappAccountId;
     }
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     @Export(name="systemAssignedIdentityPrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> systemAssignedIdentityPrincipalId;
 
     /**
-     * @return The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * @return The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     public Output<Optional<String>> systemAssignedIdentityPrincipalId() {

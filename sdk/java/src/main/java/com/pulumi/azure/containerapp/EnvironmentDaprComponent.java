@@ -188,7 +188,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
     /**
      * A list of scopes to which this component applies.
      * 
-     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
@@ -197,7 +197,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
     /**
      * @return A list of scopes to which this component applies.
      * 
-     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     public Output<Optional<List<String>>> scopes() {

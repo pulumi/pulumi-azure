@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
- *             .memberObjectId(exampleManagedInstance.identity().principalId())
+ *             .memberObjectId(exampleManagedInstance.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 

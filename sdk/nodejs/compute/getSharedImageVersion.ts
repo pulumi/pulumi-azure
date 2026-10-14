@@ -59,7 +59,7 @@ export interface GetSharedImageVersionArgs {
      *
      * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      *
-     * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+     * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
      */
     name: string;
     /**
@@ -174,7 +174,7 @@ export interface GetSharedImageVersionOutputArgs {
      *
      * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      *
-     * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+     * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
      */
     name: pulumi.Input<string>;
     /**

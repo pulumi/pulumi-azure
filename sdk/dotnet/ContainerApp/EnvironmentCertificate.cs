@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CertificatePassword = "$3cretSqu1rreL",
     ///     });
     /// 
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ContainerApp
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "path/to/certificate_file.pfx",
-    ///             }).Result,
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "",
     ///         },
     ///     }, new CustomResourceOptions

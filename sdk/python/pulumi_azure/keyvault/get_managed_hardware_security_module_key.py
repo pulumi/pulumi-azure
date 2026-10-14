@@ -186,7 +186,7 @@ def get_managed_hardware_security_module_key(managed_hsm_id: Optional[_builtins.
 
     example = azure.keyvault.get_managed_hardware_security_module_key(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
         name=example_azurerm_key_vault_managed_hardware_security_module_key["name"])
-    pulumi.export("hsm-key-vesrion", example.version)
+    pulumi.export("hsm-key-version", example.version)
     ```
 
 
@@ -231,7 +231,7 @@ def get_managed_hardware_security_module_key_output(managed_hsm_id: pulumi.Input
 
     example = azure.keyvault.get_managed_hardware_security_module_key(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
         name=example_azurerm_key_vault_managed_hardware_security_module_key["name"])
-    pulumi.export("hsm-key-vesrion", example.version)
+    pulumi.export("hsm-key-version", example.version)
     ```
 
 

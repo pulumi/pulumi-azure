@@ -26,6 +26,7 @@ class MongoClusterArgs:
                  administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_network_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -53,6 +54,9 @@ class MongoClusterArgs:
                > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
+        :param pulumi.Input[_builtins.bool] cosmos_db_network_bypass_enabled: Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+               
+               > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input['MongoClusterCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
@@ -88,6 +92,8 @@ class MongoClusterArgs:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
         if compute_tier is not None:
             pulumi.set(__self__, "compute_tier", compute_tier)
+        if cosmos_db_network_bypass_enabled is not None:
+            pulumi.set(__self__, "cosmos_db_network_bypass_enabled", cosmos_db_network_bypass_enabled)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
@@ -184,6 +190,20 @@ class MongoClusterArgs:
     @compute_tier.setter
     def compute_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_tier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cosmosDbNetworkBypassEnabled")
+    def cosmos_db_network_bypass_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+
+        > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+        """
+        return pulumi.get(self, "cosmos_db_network_bypass_enabled")
+
+    @cosmos_db_network_bypass_enabled.setter
+    def cosmos_db_network_bypass_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cosmos_db_network_bypass_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -406,6 +426,7 @@ class _MongoClusterState:
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]] = None,
+                 cosmos_db_network_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -434,6 +455,9 @@ class _MongoClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]] connection_strings: One or more `connection_strings` blocks as defined below.
+        :param pulumi.Input[_builtins.bool] cosmos_db_network_bypass_enabled: Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+               
+               > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input['MongoClusterCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
@@ -471,6 +495,8 @@ class _MongoClusterState:
             pulumi.set(__self__, "compute_tier", compute_tier)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
+        if cosmos_db_network_bypass_enabled is not None:
+            pulumi.set(__self__, "cosmos_db_network_bypass_enabled", cosmos_db_network_bypass_enabled)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
@@ -569,6 +595,20 @@ class _MongoClusterState:
     @connection_strings.setter
     def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cosmosDbNetworkBypassEnabled")
+    def cosmos_db_network_bypass_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+
+        > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+        """
+        return pulumi.get(self, "cosmos_db_network_bypass_enabled")
+
+    @cosmos_db_network_bypass_enabled.setter
+    def cosmos_db_network_bypass_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cosmos_db_network_bypass_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -805,6 +845,7 @@ class MongoCluster(pulumi.CustomResource):
                  administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_network_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -854,7 +895,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB` - 2025-09-01
+        * `Microsoft.DocumentDB` - 2026-06-01
 
         ## Import
 
@@ -873,6 +914,9 @@ class MongoCluster(pulumi.CustomResource):
                > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
+        :param pulumi.Input[_builtins.bool] cosmos_db_network_bypass_enabled: Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+               
+               > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
@@ -936,7 +980,7 @@ class MongoCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB` - 2025-09-01
+        * `Microsoft.DocumentDB` - 2026-06-01
 
         ## Import
 
@@ -966,6 +1010,7 @@ class MongoCluster(pulumi.CustomResource):
                  administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_network_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -997,6 +1042,7 @@ class MongoCluster(pulumi.CustomResource):
             __props__.__dict__["administrator_username"] = administrator_username
             __props__.__dict__["authentication_methods"] = authentication_methods
             __props__.__dict__["compute_tier"] = compute_tier
+            __props__.__dict__["cosmos_db_network_bypass_enabled"] = cosmos_db_network_bypass_enabled
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_api_mode_enabled"] = data_api_mode_enabled
@@ -1037,6 +1083,7 @@ class MongoCluster(pulumi.CustomResource):
             authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
             connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict', 'outputs.MongoClusterConnectionString']]]]] = None,
+            cosmos_db_network_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             create_mode: pulumi.Input[Optional[_builtins.str]] = None,
             customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
             data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1069,6 +1116,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict', 'outputs.MongoClusterConnectionString']]]] connection_strings: One or more `connection_strings` blocks as defined below.
+        :param pulumi.Input[_builtins.bool] cosmos_db_network_bypass_enabled: Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+               
+               > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
@@ -1105,6 +1155,7 @@ class MongoCluster(pulumi.CustomResource):
         __props__.__dict__["authentication_methods"] = authentication_methods
         __props__.__dict__["compute_tier"] = compute_tier
         __props__.__dict__["connection_strings"] = connection_strings
+        __props__.__dict__["cosmos_db_network_bypass_enabled"] = cosmos_db_network_bypass_enabled
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["data_api_mode_enabled"] = data_api_mode_enabled
@@ -1166,6 +1217,16 @@ class MongoCluster(pulumi.CustomResource):
         One or more `connection_strings` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
+
+    @_builtins.property
+    @pulumi.getter(name="cosmosDbNetworkBypassEnabled")
+    def cosmos_db_network_bypass_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+
+        > **Note:** `cosmos_db_network_bypass_enabled` can only be set to `true` when `public_network_access` is `Disabled`, `authentication_methods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+        """
+        return pulumi.get(self, "cosmos_db_network_bypass_enabled")
 
     @_builtins.property
     @pulumi.getter(name="createMode")

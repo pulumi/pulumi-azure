@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationGatewayResult
@@ -123,7 +123,7 @@ type LookupApplicationGatewayResult struct {
 	Skus []GetApplicationGatewaySkus `pulumi:"skus"`
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []GetApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicies []GetApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []GetApplicationGatewaySslProfile `pulumi:"sslProfiles"`
@@ -336,7 +336,7 @@ func (o LookupApplicationGatewayResultOutput) SslCertificates() GetApplicationGa
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslCertificate { return v.SslCertificates }).(GetApplicationGatewaySslCertificateArrayOutput)
 }
 
-// a `sslPolicy` block as defined below.
+// An `sslPolicy` block as defined below.
 func (o LookupApplicationGatewayResultOutput) SslPolicies() GetApplicationGatewaySslPolicyArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslPolicy { return v.SslPolicies }).(GetApplicationGatewaySslPolicyArrayOutput)
 }

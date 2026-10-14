@@ -1813,7 +1813,7 @@ class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -1868,7 +1868,7 @@ class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -3888,7 +3888,7 @@ class AppFlexConsumptionSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param _builtins.str name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -3900,7 +3900,7 @@ class AppFlexConsumptionSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -5379,7 +5379,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -5434,7 +5434,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -7316,7 +7316,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                
                > **Note:** The value `21` is currently in Preview for `java_version`.
         :param _builtins.str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
-        :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+        :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
         :param _builtins.str python_version: The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param _builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -7376,7 +7376,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[_builtins.str]:
         """
-        The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+        The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -7970,7 +7970,7 @@ class LinuxFunctionAppSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param _builtins.str name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -7982,7 +7982,7 @@ class LinuxFunctionAppSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -9069,7 +9069,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -9124,7 +9124,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -11010,7 +11010,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
         :param _builtins.str java_version: The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         :param _builtins.str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
-        :param _builtins.str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+        :param _builtins.str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
         :param _builtins.str python_version: The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param _builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -11068,7 +11068,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[_builtins.str]:
         """
-        The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+        The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -13005,7 +13005,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -13060,7 +13060,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -15171,7 +15171,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param _builtins.str python_version: The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -15295,7 +15295,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[_builtins.str]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 
         > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -17289,7 +17289,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -17344,7 +17344,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -19467,7 +19467,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts`, `22-lts` and `24-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param _builtins.str python_version: The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -19589,7 +19589,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[_builtins.str]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
 
         > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -22327,7 +22327,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -22382,7 +22382,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -24767,7 +24767,7 @@ class WindowsFunctionAppSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param _builtins.str name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -24779,7 +24779,7 @@ class WindowsFunctionAppSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -25866,7 +25866,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -25921,7 +25921,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -29651,7 +29651,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -29706,7 +29706,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -34266,7 +34266,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param _builtins.str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param _builtins.str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
                
-               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+               > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         :param Sequence[_builtins.str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
@@ -34321,7 +34321,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
 
-        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
         """
         return pulumi.get(self, "tenant_auth_endpoint")
 
@@ -39792,6 +39792,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
                  remote_debugging_enabled: _builtins.bool,
                  remote_debugging_version: _builtins.str,
                  runtime_scale_monitoring_enabled: _builtins.bool,
+                 scm_ip_restriction_default_action: _builtins.str,
                  scm_ip_restrictions: Sequence['outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionResult'],
                  scm_minimum_tls_version: _builtins.str,
                  scm_type: _builtins.str,
@@ -39799,8 +39800,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
                  use32_bit_worker: _builtins.bool,
                  vnet_route_all_enabled: _builtins.bool,
                  websockets_enabled: _builtins.bool,
-                 worker_count: _builtins.int,
-                 scm_ip_restriction_default_action: Optional[_builtins.str] = None):
+                 worker_count: _builtins.int):
         """
         :param _builtins.bool always_on: If this Linux Web App is Always On enabled.
         :param _builtins.str api_definition_url: The URL of the API definition that describes this Linux Function App.
@@ -39829,6 +39829,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param _builtins.bool remote_debugging_enabled: Is Remote Debugging enabled?
         :param _builtins.str remote_debugging_version: The Remote Debugging Version.
         :param _builtins.bool runtime_scale_monitoring_enabled: Is Scale Monitoring of the Functions Runtime enabled?
+        :param _builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule.
         :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param _builtins.str scm_minimum_tls_version: The minimum version of TLS for SSL requests to the SCM site.
         :param _builtins.bool scm_use_main_ip_restriction: Is the Linux Function App `ip_restriction` configuration used for the SCM also?
@@ -39836,7 +39837,6 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param _builtins.bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param _builtins.bool websockets_enabled: Are Web Sockets enabled?
         :param _builtins.int worker_count: The number of Workers for this Linux Function App.
-        :param _builtins.str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule.
         """
         pulumi.set(__self__, "always_on", always_on)
         pulumi.set(__self__, "api_definition_url", api_definition_url)
@@ -39868,6 +39868,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
         pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
         pulumi.set(__self__, "scm_type", scm_type)
@@ -39876,8 +39877,6 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         pulumi.set(__self__, "websockets_enabled", websockets_enabled)
         pulumi.set(__self__, "worker_count", worker_count)
-        if scm_ip_restriction_default_action is not None:
-            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
 
     @_builtins.property
     @pulumi.getter(name="alwaysOn")
@@ -40111,6 +40110,14 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         return pulumi.get(self, "runtime_scale_monitoring_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> _builtins.str:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @_builtins.property
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Sequence['outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionResult']:
         """
@@ -40170,14 +40177,6 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         The number of Workers for this Linux Function App.
         """
         return pulumi.get(self, "worker_count")
-
-    @_builtins.property
-    @pulumi.getter(name="scmIpRestrictionDefaultAction")
-    def scm_ip_restriction_default_action(self) -> Optional[_builtins.str]:
-        """
-        The Default action for traffic that does not match any `scm_ip_restriction` rule.
-        """
-        return pulumi.get(self, "scm_ip_restriction_default_action")
 
 
 @pulumi.output_type
@@ -43129,19 +43128,18 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
     def __init__(__self__, *,
                  requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
                  slow_request_with_paths: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathResult'],
-                 status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult'],
-                 slow_requests: Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']] = None):
+                 slow_requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult'],
+                 status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']):
         """
         :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs'] requests: A `requests` block as defined above.
         :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs'] slow_request_with_paths: (Optional) One or more `slow_request_with_path` blocks as defined above.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
         :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
         """
         pulumi.set(__self__, "requests", requests)
         pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
+        pulumi.set(__self__, "slow_requests", slow_requests)
         pulumi.set(__self__, "status_codes", status_codes)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
 
     @_builtins.property
     @pulumi.getter
@@ -43160,20 +43158,20 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
         return pulumi.get(self, "slow_request_with_paths")
 
     @_builtins.property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']:
+        """
+        A `slow_request` block as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @_builtins.property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']:
         """
         A `status_code` block as defined above.
         """
         return pulumi.get(self, "status_codes")
-
-    @_builtins.property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']]:
-        """
-        A `slow_request` block as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
 
 
 @pulumi.output_type

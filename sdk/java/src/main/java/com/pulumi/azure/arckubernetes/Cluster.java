@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Arc Kubernetes Cluster.
  * 
- * &gt; **Note:** Installing and configuring the Azure Arc Agent on your Kubernetes Cluster to establish connectivity is outside the scope of this document. For more details refer to [Deploy agents to your cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview#deploy-agents-to-your-cluster) and [Connect an existing Kubernetes Cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#connect-an-existing-kubernetes-cluster). If you encounter issues connecting your Kubernetes Cluster to Azure Arc, we&#39;d recommend opening a ticket with Microsoft Support.
+ * &gt; **Note:** Installing and configuring the Azure Arc Agent on your Kubernetes Cluster to establish connectivity is outside the scope of this document. For more details refer to [Deploy agents to your cluster](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-agent-overview#deploy-agents-to-your-cluster) and [Connect an existing Kubernetes Cluster](https://learn.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#connect-an-existing-kubernetes-cluster). If you encounter issues connecting your Kubernetes Cluster to Azure Arc, we&#39;d recommend opening a ticket with Microsoft Support.
  * 
  * ## Example Usage
  * 
@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.arckubernetes.ClusterArgs;
  * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -59,7 +60,9 @@ import javax.annotation.Nullable;
  *             .name("example-akcc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Map.of("input", "testdata/public.cer")).result())
+ *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("testdata/public.cer")
+ *                 .build()).result())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())

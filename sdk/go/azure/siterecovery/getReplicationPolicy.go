@@ -61,7 +61,7 @@ func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyA
 type LookupReplicationPolicyArgs struct {
 	// Specifies the name of the Azure Site Recovery replication policy.
 	Name string `pulumi:"name"`
-	// The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+	// The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated Azure Site Recovery replication policy resides.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -89,7 +89,7 @@ func LookupReplicationPolicyOutput(ctx *pulumi.Context, args LookupReplicationPo
 type LookupReplicationPolicyOutputArgs struct {
 	// Specifies the name of the Azure Site Recovery replication policy.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+	// The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
 	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated Azure Site Recovery replication policy resides.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

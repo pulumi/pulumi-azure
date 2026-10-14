@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     description: "Test Managed App Definition",
  *     authorizations: [{
  *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: std.split({
+ *         roleDefinitionId: Promise.all([builtin.then(builtin => std.split({
  *             separator: "/",
- *             text: builtin.then(builtin => builtin.id),
- *         }).result[std.split({
+ *             text: builtin.id,
+ *         })), builtin.then(builtin => std.split({
  *             separator: "/",
- *             text: builtin.then(builtin => builtin.id),
- *         }).result.length - 1],
+ *             text: builtin.id,
+ *         })).then(invoke => invoke.result.length)]).then(([invoke, length]) => invoke.result[length - 1]),
  *     }],
  * });
  * const exampleApplication = new azure.managedapplication.Application("example", {

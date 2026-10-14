@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     record: exampleAppService.defaultSiteHostname,
  * });
  * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
- *     hostname: std.join({
+ *     hostname: std.joinOutput({
  *         separator: ".",
  *         input: [
  *             exampleCNameRecord.name,

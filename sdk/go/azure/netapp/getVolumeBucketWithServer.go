@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2026-01-01
+// * `Microsoft.NetApp` - 2026-05-01
 func LookupVolumeBucketWithServer(ctx *pulumi.Context, args *LookupVolumeBucketWithServerArgs, opts ...pulumi.InvokeOption) (*LookupVolumeBucketWithServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeBucketWithServerResult

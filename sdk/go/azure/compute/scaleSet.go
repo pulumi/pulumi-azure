@@ -120,8 +120,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -173,7 +173,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: invokeFile.Result,
+//							KeyData: pulumi.String(invokeFile.Result),
 //						},
 //					},
 //				},
@@ -279,8 +279,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -304,7 +304,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: invokeFile.Result,
+//							KeyData: pulumi.String(invokeFile.Result),
 //						},
 //					},
 //				},

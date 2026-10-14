@@ -135,7 +135,7 @@ import * as utilities from "../utilities";
  *     scopeAccess: "SecurityAdmin",
  *     configurationIds: [exampleNetworkManagerSecurityAdminConfiguration.id],
  *     triggers: {
- *         source_port_ranges: std.join({
+ *         source_port_ranges: std.joinOutput({
  *             separator: ",",
  *             input: exampleNetworkManagerAdminRule.sourcePortRanges,
  *         }).result,
@@ -150,7 +150,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *

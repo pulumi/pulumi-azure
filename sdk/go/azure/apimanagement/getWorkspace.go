@@ -84,6 +84,8 @@ type LookupWorkspaceArgs struct {
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
 	ApiManagementId string `pulumi:"apiManagementId"`
+	// The description of the API Management Workspace.
+	Description string `pulumi:"description"`
 	// The display name of the API Management Workspace.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
@@ -125,6 +127,11 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 
 func (o LookupWorkspaceResultOutput) ApiManagementId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ApiManagementId }).(pulumi.StringOutput)
+}
+
+// The description of the API Management Workspace.
+func (o LookupWorkspaceResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // The display name of the API Management Workspace.

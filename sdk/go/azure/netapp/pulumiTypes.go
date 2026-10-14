@@ -2379,7 +2379,7 @@ func (o VolumeCoolAccessPtrOutput) TieringPolicy() pulumi.StringPtrOutput {
 type VolumeDataProtectionAdvancedRansomware struct {
 	// Enable or disable the Advanced Ransomware Protection feature.
 	//
-	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
 	//
 	// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
 	ProtectionEnabled bool `pulumi:"protectionEnabled"`
@@ -2399,7 +2399,7 @@ type VolumeDataProtectionAdvancedRansomwareInput interface {
 type VolumeDataProtectionAdvancedRansomwareArgs struct {
 	// Enable or disable the Advanced Ransomware Protection feature.
 	//
-	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
 	//
 	// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
 	ProtectionEnabled pulumi.BoolInput `pulumi:"protectionEnabled"`
@@ -2484,7 +2484,7 @@ func (o VolumeDataProtectionAdvancedRansomwareOutput) ToVolumeDataProtectionAdva
 
 // Enable or disable the Advanced Ransomware Protection feature.
 //
-// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
 //
 // > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
 func (o VolumeDataProtectionAdvancedRansomwareOutput) ProtectionEnabled() pulumi.BoolOutput {
@@ -2517,7 +2517,7 @@ func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) Elem() VolumeDataProtec
 
 // Enable or disable the Advanced Ransomware Protection feature.
 //
-// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
 //
 // > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
 func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) ProtectionEnabled() pulumi.BoolPtrOutput {
@@ -2536,7 +2536,7 @@ type VolumeDataProtectionBackupPolicy struct {
 	BackupVaultId string `pulumi:"backupVaultId"`
 	// Enables the backup policy on the volume, defaults to `true`.
 	//
-	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
 	PolicyEnabled *bool `pulumi:"policyEnabled"`
 }
 
@@ -2558,7 +2558,7 @@ type VolumeDataProtectionBackupPolicyArgs struct {
 	BackupVaultId pulumi.StringInput `pulumi:"backupVaultId"`
 	// Enables the backup policy on the volume, defaults to `true`.
 	//
-	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
 	PolicyEnabled pulumi.BoolPtrInput `pulumi:"policyEnabled"`
 }
 
@@ -2651,7 +2651,7 @@ func (o VolumeDataProtectionBackupPolicyOutput) BackupVaultId() pulumi.StringOut
 
 // Enables the backup policy on the volume, defaults to `true`.
 //
-// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
 func (o VolumeDataProtectionBackupPolicyOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeDataProtectionBackupPolicy) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2702,7 +2702,7 @@ func (o VolumeDataProtectionBackupPolicyPtrOutput) BackupVaultId() pulumi.String
 
 // Enables the backup policy on the volume, defaults to `true`.
 //
-// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
 func (o VolumeDataProtectionBackupPolicyPtrOutput) PolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionBackupPolicy) *bool {
 		if v == nil {
@@ -3297,7 +3297,7 @@ type VolumeGroupOracleVolume struct {
 	MountIpAddresses          []string `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name string `pulumi:"name"`
-	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
 	//
@@ -3305,7 +3305,7 @@ type VolumeGroupOracleVolume struct {
 	Protocols string `pulumi:"protocols"`
 	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 	//
-	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
@@ -3313,7 +3313,7 @@ type VolumeGroupOracleVolume struct {
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
-	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SubnetId string `pulumi:"subnetId"`
@@ -3325,7 +3325,7 @@ type VolumeGroupOracleVolume struct {
 	VolumePath string `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName string `pulumi:"volumeSpecName"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -3358,7 +3358,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	MountIpAddresses          pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
 	//
@@ -3366,7 +3366,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	Protocols pulumi.StringInput `pulumi:"protocols"`
 	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 	//
-	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
@@ -3374,7 +3374,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
-	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -3386,7 +3386,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	VolumePath pulumi.StringInput `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
@@ -3489,7 +3489,7 @@ func (o VolumeGroupOracleVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
 func (o VolumeGroupOracleVolumeOutput) NetworkFeatures() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
 }
@@ -3503,7 +3503,7 @@ func (o VolumeGroupOracleVolumeOutput) Protocols() pulumi.StringOutput {
 
 // The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 //
-// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 func (o VolumeGroupOracleVolumeOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
@@ -3523,7 +3523,7 @@ func (o VolumeGroupOracleVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOut
 	return o.ApplyT(func(v VolumeGroupOracleVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
 }
 
-// The maximum Storage Quota allowed for a file system in Gigabytes.
+// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 func (o VolumeGroupOracleVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
 }
@@ -3553,7 +3553,7 @@ func (o VolumeGroupOracleVolumeOutput) VolumeSpecName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
 func (o VolumeGroupOracleVolumeOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -3910,7 +3910,7 @@ func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPo
 }
 
 type VolumeGroupOracleVolumeExportPolicyRule struct {
-	// A comma-sperated list of allowed client IPv4 addresses.
+	// A comma-separated list of allowed client IPv4 addresses.
 	AllowedClients string `pulumi:"allowedClients"`
 	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
 	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
@@ -3938,7 +3938,7 @@ type VolumeGroupOracleVolumeExportPolicyRuleInput interface {
 }
 
 type VolumeGroupOracleVolumeExportPolicyRuleArgs struct {
-	// A comma-sperated list of allowed client IPv4 addresses.
+	// A comma-separated list of allowed client IPv4 addresses.
 	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
 	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
 	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
@@ -4005,7 +4005,7 @@ func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) ToVolumeGroupOracleVolume
 	return o
 }
 
-// A comma-sperated list of allowed client IPv4 addresses.
+// A comma-separated list of allowed client IPv4 addresses.
 func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
 }
@@ -4080,11 +4080,11 @@ type VolumeGroupSapHanaVolume struct {
 	Name string `pulumi:"name"`
 	// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
-	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 	//
 	// > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
 	Protocols string `pulumi:"protocols"`
-	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
@@ -4092,7 +4092,7 @@ type VolumeGroupSapHanaVolume struct {
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
-	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SubnetId string `pulumi:"subnetId"`
@@ -4104,7 +4104,7 @@ type VolumeGroupSapHanaVolume struct {
 	VolumePath string `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName string `pulumi:"volumeSpecName"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -4139,11 +4139,11 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
-	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 	//
 	// > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
 	Protocols pulumi.StringInput `pulumi:"protocols"`
-	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
@@ -4151,7 +4151,7 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
-	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -4163,7 +4163,7 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	VolumePath pulumi.StringInput `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
@@ -4273,14 +4273,14 @@ func (o VolumeGroupSapHanaVolumeOutput) NetworkFeatures() pulumi.StringPtrOutput
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
 }
 
-// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 //
 // > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
 func (o VolumeGroupSapHanaVolumeOutput) Protocols() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.Protocols }).(pulumi.StringOutput)
 }
 
-// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 func (o VolumeGroupSapHanaVolumeOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
@@ -4300,7 +4300,7 @@ func (o VolumeGroupSapHanaVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOu
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
 }
 
-// The maximum Storage Quota allowed for a file system in Gigabytes.
+// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
 func (o VolumeGroupSapHanaVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
 }
@@ -4330,7 +4330,7 @@ func (o VolumeGroupSapHanaVolumeOutput) VolumeSpecName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -4687,7 +4687,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotP
 }
 
 type VolumeGroupSapHanaVolumeExportPolicyRule struct {
-	// A comma-sperated list of allowed client IPv4 addresses.
+	// A comma-separated list of allowed client IPv4 addresses.
 	AllowedClients string `pulumi:"allowedClients"`
 	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
 	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
@@ -4715,7 +4715,7 @@ type VolumeGroupSapHanaVolumeExportPolicyRuleInput interface {
 }
 
 type VolumeGroupSapHanaVolumeExportPolicyRuleArgs struct {
-	// A comma-sperated list of allowed client IPv4 addresses.
+	// A comma-separated list of allowed client IPv4 addresses.
 	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
 	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
 	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
@@ -4782,7 +4782,7 @@ func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToVolumeGroupSapHanaVolu
 	return o
 }
 
-// A comma-sperated list of allowed client IPv4 addresses.
+// A comma-separated list of allowed client IPv4 addresses.
 func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
 }

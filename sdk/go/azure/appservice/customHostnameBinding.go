@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
-//	"github.com/pulumi/pulumi-random/sdk/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

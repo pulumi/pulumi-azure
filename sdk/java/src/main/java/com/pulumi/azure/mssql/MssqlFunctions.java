@@ -870,7 +870,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args) {
@@ -886,7 +886,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args) {
@@ -902,7 +902,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOptions options) {
@@ -918,7 +918,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOutputOptions options) {
@@ -934,7 +934,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args, InvokeOptions options) {
@@ -982,7 +982,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args) {
@@ -1030,7 +1030,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args) {
@@ -1078,7 +1078,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOptions options) {
@@ -1126,7 +1126,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOutputOptions options) {
@@ -1174,7 +1174,7 @@ public final class MssqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Sql` - 2023-08-01-preview
+     * * `Microsoft.Sql` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args, InvokeOptions options) {

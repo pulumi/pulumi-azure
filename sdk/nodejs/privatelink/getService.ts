@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +63,14 @@ export interface GetServiceResult {
      * The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
      */
     readonly autoApprovalSubscriptionIds: string[];
+    /**
+     * The destination IP address of the Private Link Service.
+     */
+    readonly destinationIpAddress: string;
+    /**
+     * List of FQDNs allowed for the Private Link Service.
+     */
+    readonly fqdns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -115,7 +123,7 @@ export interface GetServiceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

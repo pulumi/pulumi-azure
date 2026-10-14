@@ -431,7 +431,7 @@ class LinkService(pulumi.CustomResource):
         """
         Manages a Private Link Service.
 
-        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/azure/private-link/).
 
         ## Example Usage
 
@@ -498,7 +498,7 @@ class LinkService(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -534,7 +534,7 @@ class LinkService(pulumi.CustomResource):
         """
         Manages a Private Link Service.
 
-        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+        > **Note:** Private Link is now in [GA](https://docs.microsoft.com/azure/private-link/).
 
         ## Example Usage
 
@@ -601,7 +601,7 @@ class LinkService(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 

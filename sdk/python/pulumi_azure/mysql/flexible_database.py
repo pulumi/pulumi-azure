@@ -27,11 +27,11 @@ class FlexibleDatabaseArgs:
         """
         The set of arguments for constructing a FlexibleDatabase resource.
 
-        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "charset", charset)
         pulumi.set(__self__, "collation", collation)
@@ -44,7 +44,7 @@ class FlexibleDatabaseArgs:
     @pulumi.getter
     def charset(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "charset")
 
@@ -56,7 +56,7 @@ class FlexibleDatabaseArgs:
     @pulumi.getter
     def collation(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
@@ -92,7 +92,7 @@ class FlexibleDatabaseArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -112,9 +112,9 @@ class _FlexibleDatabaseState:
         """
         Input properties used for looking up and filtering FlexibleDatabase resources.
 
-        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
@@ -133,7 +133,7 @@ class _FlexibleDatabaseState:
     @pulumi.getter
     def charset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "charset")
 
@@ -145,7 +145,7 @@ class _FlexibleDatabaseState:
     @pulumi.getter
     def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
@@ -157,7 +157,7 @@ class _FlexibleDatabaseState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -247,9 +247,9 @@ class FlexibleDatabase(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
@@ -366,9 +366,9 @@ class FlexibleDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] charset: Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] collation: Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         """
@@ -387,7 +387,7 @@ class FlexibleDatabase(pulumi.CustomResource):
     @pulumi.getter
     def charset(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "charset")
 
@@ -395,7 +395,7 @@ class FlexibleDatabase(pulumi.CustomResource):
     @pulumi.getter
     def collation(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
@@ -403,7 +403,7 @@ class FlexibleDatabase(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

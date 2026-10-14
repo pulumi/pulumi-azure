@@ -115,6 +115,8 @@ type WindowsWebAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
@@ -153,7 +155,7 @@ type WindowsWebAppSlot struct {
 	SiteCredentials WindowsWebAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -163,11 +165,11 @@ type WindowsWebAppSlot struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -246,6 +248,8 @@ type windowsWebAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
@@ -284,7 +288,7 @@ type windowsWebAppSlotState struct {
 	SiteCredentials []WindowsWebAppSlotSiteCredential `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags map[string]string `pulumi:"tags"`
@@ -294,11 +298,11 @@ type windowsWebAppSlotState struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -337,6 +341,8 @@ type WindowsWebAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service Slot.
@@ -375,7 +381,7 @@ type WindowsWebAppSlotState struct {
 	SiteCredentials WindowsWebAppSlotSiteCredentialArrayInput
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags pulumi.StringMapInput
@@ -385,11 +391,11 @@ type WindowsWebAppSlotState struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -428,6 +434,8 @@ type windowsWebAppSlotArgs struct {
 	ConnectionStrings []WindowsWebAppSlotConnectionString `pulumi:"connectionStrings"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
@@ -452,7 +460,7 @@ type windowsWebAppSlotArgs struct {
 	SiteConfig WindowsWebAppSlotSiteConfig `pulumi:"siteConfig"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags map[string]string `pulumi:"tags"`
@@ -462,11 +470,11 @@ type windowsWebAppSlotArgs struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -502,6 +510,8 @@ type WindowsWebAppSlotArgs struct {
 	ConnectionStrings WindowsWebAppSlotConnectionStringArrayInput
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
@@ -526,7 +536,7 @@ type WindowsWebAppSlotArgs struct {
 	SiteConfig WindowsWebAppSlotSiteConfigInput
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags pulumi.StringMapInput
@@ -536,11 +546,11 @@ type WindowsWebAppSlotArgs struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -704,6 +714,11 @@ func (o WindowsWebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+func (o WindowsWebAppSlotOutput) EndToEndTlsEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.EndToEndTlsEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 func (o WindowsWebAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
@@ -790,7 +805,7 @@ func (o WindowsWebAppSlotOutput) SiteCredentials() WindowsWebAppSlotSiteCredenti
 
 // One or more `storageAccount` blocks as defined below.
 //
-// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 func (o WindowsWebAppSlotOutput) StorageAccounts() WindowsWebAppSlotStorageAccountArrayOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotStorageAccountArrayOutput { return v.StorageAccounts }).(WindowsWebAppSlotStorageAccountArrayOutput)
 }
@@ -812,11 +827,11 @@ func (o WindowsWebAppSlotOutput) VirtualNetworkImagePullEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 //
 // > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
 //
-// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 func (o WindowsWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

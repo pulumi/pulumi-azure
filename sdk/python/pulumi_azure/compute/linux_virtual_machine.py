@@ -103,7 +103,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -480,7 +480,7 @@ class LinuxVirtualMachineArgs:
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -976,7 +976,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -1331,7 +1331,7 @@ class _LinuxVirtualMachineState:
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -1971,7 +1971,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
@@ -2029,7 +2029,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -2155,7 +2155,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
@@ -2421,7 +2421,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[_builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -2674,7 +2674,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """

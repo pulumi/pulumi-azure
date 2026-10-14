@@ -17,14 +17,14 @@ public final class EndpointDeliveryRuleCacheExpirationActionArgs extends com.pul
     public static final EndpointDeliveryRuleCacheExpirationActionArgs Empty = new EndpointDeliveryRuleCacheExpirationActionArgs();
 
     /**
-     * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+     * The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
      */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
     /**
-     * @return The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+     * @return The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
      */
     public Output<String> behavior() {
@@ -72,7 +72,7 @@ public final class EndpointDeliveryRuleCacheExpirationActionArgs extends com.pul
         }
 
         /**
-         * @param behavior The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * @param behavior The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EndpointDeliveryRuleCacheExpirationActionArgs extends com.pul
         }
 
         /**
-         * @param behavior The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * @param behavior The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          * 
          * @return builder
          * 

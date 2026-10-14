@@ -597,7 +597,7 @@ type SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration s
 	SizeInGb int `pulumi:"sizeInGb"`
 	// The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
-	// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+	// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 	VolumeName string `pulumi:"volumeName"`
 }
 
@@ -619,7 +619,7 @@ type SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationAr
 	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
 	// The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput `pulumi:"skuName"`
-	// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+	// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringInput `pulumi:"volumeName"`
 }
 
@@ -695,7 +695,7 @@ func (o SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguratio
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 func (o SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationOutput) VolumeName() pulumi.StringOutput {
 	return o.ApplyT(func(v SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration) string {
 		return v.VolumeName
@@ -3799,7 +3799,7 @@ type ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDi
 	SizeInGb int `pulumi:"sizeInGb"`
 	// The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
-	// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+	// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 	VolumeName string `pulumi:"volumeName"`
 }
 
@@ -3821,7 +3821,7 @@ type ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDi
 	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
 	// The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput `pulumi:"skuName"`
-	// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+	// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringInput `pulumi:"volumeName"`
 }
 
@@ -3897,7 +3897,7 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguratio
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+// Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
 func (o ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationOutput) VolumeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration) string {
 		return v.VolumeName

@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.DefinitionArgs;
  * import com.pulumi.azure.managedapplication.inputs.DefinitionAuthorizationArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -75,13 +76,13 @@ import javax.annotation.Nullable;
  *             .description("Test Managed App Definition")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .servicePrincipalId(current.objectId())
- *                 .roleDefinitionId(StdFunctions.split(Map.ofEntries(
- *                     Map.entry("separator", "/"),
- *                     Map.entry("text", builtin.id())
- *                 )).result()[StdFunctions.split(Map.ofEntries(
- *                     Map.entry("separator", "/"),
- *                     Map.entry("text", builtin.id())
- *                 )).result().size() - 1])
+ *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
+ *                     .separator("/")
+ *                     .text(builtin.id())
+ *                     .build()).result()[StdFunctions.split(SplitArgs.builder()
+ *                     .separator("/")
+ *                     .text(builtin.id())
+ *                     .build()).result().size() - 1])
  *                 .build())
  *             .build());
  * 

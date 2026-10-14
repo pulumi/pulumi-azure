@@ -60,15 +60,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "example.xml",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "example.xml",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewPolicy(ctx, "example", &apimanagement.PolicyArgs{
 //				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				XmlContent:      invokeFile.Result,
+//				XmlContent:      pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -88,7 +88,7 @@ import (
 //
 // ## Import
 //
-// API Management service Policys can be imported using the `resource id`, e.g.
+// API Management service Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1

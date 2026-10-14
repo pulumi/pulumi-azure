@@ -67,19 +67,19 @@ import javax.annotation.Nullable;
  *             .name("some-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleAppServiceSlot = new AppServiceSlot("exampleAppServiceSlot", AppServiceSlotArgs.builder()
  *             .name("staging")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServiceName(exampleAppService.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServiceName(exampleAppService.get("name"))
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", SlotCustomHostnameBindingArgs.builder()
- *             .appServiceSlotId(exampleAppServiceSlot.id())
+ *             .appServiceSlotId(exampleAppServiceSlot.get("id"))
  *             .hostname("www.mywebsite.com")
  *             .build());
  * 

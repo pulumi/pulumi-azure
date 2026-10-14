@@ -69,7 +69,7 @@ type LookupDirectoryArgs struct {
 type LookupDirectoryResult struct {
 	// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
 	BillingType string `pulumi:"billingType"`
-	// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+	// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
 	DataResidencyLocation string `pulumi:"dataResidencyLocation"`
 	DomainName            string `pulumi:"domainName"`
 	// The date from which the billing type took effect. May not be populated until after the first billing cycle.
@@ -122,7 +122,7 @@ func (o LookupDirectoryResultOutput) BillingType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.BillingType }).(pulumi.StringOutput)
 }
 
-// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
 func (o LookupDirectoryResultOutput) DataResidencyLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DataResidencyLocation }).(pulumi.StringOutput)
 }

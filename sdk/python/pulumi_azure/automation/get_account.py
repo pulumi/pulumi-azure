@@ -27,7 +27,19 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, hybrid_service_url=None, id=None, identities=None, name=None, primary_key=None, private_endpoint_connections=None, resource_group_name=None, secondary_key=None):
+    def __init__(__self__, dsc_primary_access_key=None, dsc_secondary_access_key=None, dsc_server_endpoint=None, encryptions=None, endpoint=None, hybrid_service_url=None, id=None, identities=None, local_authentication_enabled=None, location=None, name=None, primary_key=None, private_endpoint_connections=None, public_network_access_enabled=None, resource_group_name=None, secondary_key=None, sku_name=None, tags=None):
+        if dsc_primary_access_key and not isinstance(dsc_primary_access_key, str):
+            raise TypeError("Expected argument 'dsc_primary_access_key' to be a str")
+        pulumi.set(__self__, "dsc_primary_access_key", dsc_primary_access_key)
+        if dsc_secondary_access_key and not isinstance(dsc_secondary_access_key, str):
+            raise TypeError("Expected argument 'dsc_secondary_access_key' to be a str")
+        pulumi.set(__self__, "dsc_secondary_access_key", dsc_secondary_access_key)
+        if dsc_server_endpoint and not isinstance(dsc_server_endpoint, str):
+            raise TypeError("Expected argument 'dsc_server_endpoint' to be a str")
+        pulumi.set(__self__, "dsc_server_endpoint", dsc_server_endpoint)
+        if encryptions and not isinstance(encryptions, list):
+            raise TypeError("Expected argument 'encryptions' to be a list")
+        pulumi.set(__self__, "encryptions", encryptions)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -40,6 +52,12 @@ class GetAccountResult:
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
+        if local_authentication_enabled and not isinstance(local_authentication_enabled, bool):
+            raise TypeError("Expected argument 'local_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,12 +67,53 @@ class GetAccountResult:
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
+        if sku_name and not isinstance(sku_name, str):
+            raise TypeError("Expected argument 'sku_name' to be a str")
+        pulumi.set(__self__, "sku_name", sku_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dscPrimaryAccessKey")
+    def dsc_primary_access_key(self) -> _builtins.str:
+        """
+        The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_primary_access_key")
+
+    @_builtins.property
+    @pulumi.getter(name="dscSecondaryAccessKey")
+    def dsc_secondary_access_key(self) -> _builtins.str:
+        """
+        The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_secondary_access_key")
+
+    @_builtins.property
+    @pulumi.getter(name="dscServerEndpoint")
+    def dsc_server_endpoint(self) -> _builtins.str:
+        """
+        The DSC Server Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_server_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryptions(self) -> Sequence['outputs.GetAccountEncryptionResult']:
+        """
+        An `encryption` block as defined below.
+        """
+        return pulumi.get(self, "encryptions")
 
     @_builtins.property
     @pulumi.getter
@@ -68,7 +127,8 @@ class GetAccountResult:
     @pulumi.getter(name="hybridServiceUrl")
     def hybrid_service_url(self) -> _builtins.str:
         """
-        The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        The URL of automation hybrid service which is used for
+        hybrid worker on-boarding With this Automation Account.
         """
         return pulumi.get(self, "hybrid_service_url")
 
@@ -84,9 +144,25 @@ class GetAccountResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetAccountIdentityResult']:
         """
-        (Optional) An `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> _builtins.bool:
+        """
+        Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
@@ -107,6 +183,14 @@ class GetAccountResult:
         return pulumi.get(self, "private_endpoint_connections")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> _builtins.bool:
+        """
+        Whether public network access is allowed for the automation account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -119,6 +203,22 @@ class GetAccountResult:
         """
         return pulumi.get(self, "secondary_key")
 
+    @_builtins.property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> _builtins.str:
+        """
+        The SKU of the account. Possible values are `Basic` and `Free`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
@@ -126,15 +226,24 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            dsc_primary_access_key=self.dsc_primary_access_key,
+            dsc_secondary_access_key=self.dsc_secondary_access_key,
+            dsc_server_endpoint=self.dsc_server_endpoint,
+            encryptions=self.encryptions,
             endpoint=self.endpoint,
             hybrid_service_url=self.hybrid_service_url,
             id=self.id,
             identities=self.identities,
+            local_authentication_enabled=self.local_authentication_enabled,
+            location=self.location,
             name=self.name,
             primary_key=self.primary_key,
             private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access_enabled=self.public_network_access_enabled,
             resource_group_name=self.resource_group_name,
-            secondary_key=self.secondary_key)
+            secondary_key=self.secondary_key,
+            sku_name=self.sku_name,
+            tags=self.tags)
 
 
 def get_account(name: Optional[_builtins.str] = None,
@@ -172,15 +281,24 @@ def get_account(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:automation/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        dsc_primary_access_key=pulumi.get(__ret__, 'dsc_primary_access_key'),
+        dsc_secondary_access_key=pulumi.get(__ret__, 'dsc_secondary_access_key'),
+        dsc_server_endpoint=pulumi.get(__ret__, 'dsc_server_endpoint'),
+        encryptions=pulumi.get(__ret__, 'encryptions'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         hybrid_service_url=pulumi.get(__ret__, 'hybrid_service_url'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
+        local_authentication_enabled=pulumi.get(__ret__, 'local_authentication_enabled'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         primary_key=pulumi.get(__ret__, 'primary_key'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
-        secondary_key=pulumi.get(__ret__, 'secondary_key'))
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
@@ -215,12 +333,21 @@ def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:automation/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
+        dsc_primary_access_key=pulumi.get(__response__, 'dsc_primary_access_key'),
+        dsc_secondary_access_key=pulumi.get(__response__, 'dsc_secondary_access_key'),
+        dsc_server_endpoint=pulumi.get(__response__, 'dsc_server_endpoint'),
+        encryptions=pulumi.get(__response__, 'encryptions'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         hybrid_service_url=pulumi.get(__response__, 'hybrid_service_url'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
+        local_authentication_enabled=pulumi.get(__response__, 'local_authentication_enabled'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         primary_key=pulumi.get(__response__, 'primary_key'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
-        secondary_key=pulumi.get(__response__, 'secondary_key')))
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags')))

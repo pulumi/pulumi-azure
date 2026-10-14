@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -193,6 +193,10 @@ namespace Pulumi.Azure.ServiceBus
         /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         public readonly int MaxSizeInMegabytes;
+        /// <summary>
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+        /// </summary>
+        public readonly int MaximumMessageSizeInKb;
         public readonly string Name;
         public readonly string NamespaceId;
         /// <summary>
@@ -228,6 +232,8 @@ namespace Pulumi.Azure.ServiceBus
 
             int maxSizeInMegabytes,
 
+            int maximumMessageSizeInKb,
+
             string name,
 
             string namespaceId,
@@ -247,6 +253,7 @@ namespace Pulumi.Azure.ServiceBus
             ExpressEnabled = expressEnabled;
             Id = id;
             MaxSizeInMegabytes = maxSizeInMegabytes;
+            MaximumMessageSizeInKb = maximumMessageSizeInKb;
             Name = name;
             NamespaceId = namespaceId;
             PartitioningEnabled = partitioningEnabled;

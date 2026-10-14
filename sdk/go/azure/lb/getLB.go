@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func GetLB(ctx *pulumi.Context, args *GetLBArgs, opts ...pulumi.InvokeOption) (*GetLBResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBResult

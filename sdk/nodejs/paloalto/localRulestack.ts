@@ -80,7 +80,7 @@ export class LocalRulestack extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
     declare public readonly dnsSubscription: pulumi.Output<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface LocalRulestackState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
     dnsSubscription?: pulumi.Input<string | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface LocalRulestackArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
     dnsSubscription?: pulumi.Input<string | undefined>;
     /**

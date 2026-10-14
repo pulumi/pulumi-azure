@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.Certificate;
  * import com.pulumi.azure.apimanagement.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -67,7 +68,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .data(StdFunctions.filebase64(Map.of("input", "example.pfx")).result())
+ *             .data(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("example.pfx")
+ *                 .build()).result())
  *             .build());
  * 
  *     }}{@code
@@ -100,6 +103,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyKeyPropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretPropertiesArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -153,7 +157,9 @@ import javax.annotation.Nullable;
  *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Map.of("input", "example_cert.pfx")).result())
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input("example_cert.pfx")
+ *                     .build()).result())
  *                 .password("terraform")
  *                 .build())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()

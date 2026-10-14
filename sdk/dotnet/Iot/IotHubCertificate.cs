@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Iot
     ///         CertificateContent = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.cer",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

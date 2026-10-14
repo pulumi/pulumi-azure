@@ -17,14 +17,14 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
     public static final FlexibleDatabaseArgs Empty = new FlexibleDatabaseArgs();
 
     /**
-     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="charset", required=true)
     private Output<String> charset;
 
     /**
-     * @return Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+     * @return Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> charset() {
@@ -32,14 +32,14 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="collation", required=true)
     private Output<String> collation;
 
     /**
-     * @return Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+     * @return Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> collation() {
@@ -47,14 +47,14 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+     * @return Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,7 +120,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param charset Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+         * @param charset Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param charset Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+         * @param charset Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param collation Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+         * @param collation Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param collation Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+         * @param collation Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+         * @param name Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class FlexibleDatabaseArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+         * @param name Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

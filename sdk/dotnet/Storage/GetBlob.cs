@@ -161,6 +161,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string AccessTier;
         /// <summary>
+        /// The cache control directive that is set on the blob.
+        /// </summary>
+        public readonly string CacheControl;
+        /// <summary>
         /// The MD5 sum of the blob contents.
         /// </summary>
         public readonly string ContentMd5;
@@ -181,6 +185,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
+        /// <summary>
+        /// The source URI used to copy the blob, if it was created from another blob.
+        /// </summary>
+        public readonly string SourceUri;
         public readonly string StorageContainerId;
         /// <summary>
         /// The type of the storage blob
@@ -195,6 +203,8 @@ namespace Pulumi.Azure.Storage
         private GetBlobResult(
             string accessTier,
 
+            string cacheControl,
+
             string contentMd5,
 
             string contentType,
@@ -207,6 +217,8 @@ namespace Pulumi.Azure.Storage
 
             string name,
 
+            string sourceUri,
+
             string storageContainerId,
 
             string type,
@@ -214,12 +226,14 @@ namespace Pulumi.Azure.Storage
             string url)
         {
             AccessTier = accessTier;
+            CacheControl = cacheControl;
             ContentMd5 = contentMd5;
             ContentType = contentType;
             EncryptionScope = encryptionScope;
             Id = id;
             Metadata = metadata;
             Name = name;
+            SourceUri = sourceUri;
             StorageContainerId = storageContainerId;
             Type = type;
             Url = url;

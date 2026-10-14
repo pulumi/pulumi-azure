@@ -20,11 +20,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// One or more `EventHub` blocks as defined below.
         /// </summary>
-        public readonly Outputs.GetDataCollectionRuleDestinationEventHubResult? EventHub;
+        public readonly Outputs.GetDataCollectionRuleDestinationEventHubResult EventHub;
         /// <summary>
         /// One or more `EventHubDirect` blocks as defined below.
         /// </summary>
-        public readonly Outputs.GetDataCollectionRuleDestinationEventHubDirectResult? EventHubDirect;
+        public readonly Outputs.GetDataCollectionRuleDestinationEventHubDirectResult EventHubDirect;
         /// <summary>
         /// One or more `LogAnalytics` blocks as defined below.
         /// </summary>
@@ -50,9 +50,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
         private GetDataCollectionRuleDestinationResult(
             ImmutableArray<Outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult> azureMonitorMetrics,
 
-            Outputs.GetDataCollectionRuleDestinationEventHubResult? eventHub,
+            Outputs.GetDataCollectionRuleDestinationEventHubResult eventHub,
 
-            Outputs.GetDataCollectionRuleDestinationEventHubDirectResult? eventHubDirect,
+            Outputs.GetDataCollectionRuleDestinationEventHubDirectResult eventHubDirect,
 
             ImmutableArray<Outputs.GetDataCollectionRuleDestinationLogAnalyticResult> logAnalytics,
 

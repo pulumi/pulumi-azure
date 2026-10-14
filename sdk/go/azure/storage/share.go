@@ -111,7 +111,7 @@ type Share struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntOutput `pulumi:"quota"`
-	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 	RbacScopeId pulumi.StringOutput `pulumi:"rbacScopeId"`
 	// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -175,7 +175,7 @@ type shareState struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota *int `pulumi:"quota"`
-	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 	RbacScopeId *string `pulumi:"rbacScopeId"`
 	// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -204,7 +204,7 @@ type ShareState struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntPtrInput
-	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 	RbacScopeId pulumi.StringPtrInput
 	// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -392,7 +392,7 @@ func (o ShareOutput) Quota() pulumi.IntOutput {
 	return o.ApplyT(func(v *Share) pulumi.IntOutput { return v.Quota }).(pulumi.IntOutput)
 }
 
-// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+// The ID that is supposed to be used as the `scope` of an `authorization.Assignment` for this File Share.
 func (o ShareOutput) RbacScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.RbacScopeId }).(pulumi.StringOutput)
 }

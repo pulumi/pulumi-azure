@@ -38,7 +38,7 @@ import (
 //			}
 //			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
 //				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResrouceGroup.Name),
+//				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //			})
 //			if err != nil {

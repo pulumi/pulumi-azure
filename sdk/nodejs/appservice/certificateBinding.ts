@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
- *     hostname: std.trim({
+ *     hostname: std.trimOutput({
  *         input: exampleCNameRecord.fqdn,
  *         cutset: ".",
  *     }).result,

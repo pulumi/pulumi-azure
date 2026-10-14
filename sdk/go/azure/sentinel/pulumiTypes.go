@@ -1603,7 +1603,7 @@ func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) Al
 type AlertRuleNrtAlertDetailsOverrideDynamicProperty struct {
 	// The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
 	Name string `pulumi:"name"`
-	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 	Value string `pulumi:"value"`
 }
 
@@ -1621,7 +1621,7 @@ type AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput interface {
 type AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs struct {
 	// The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1681,7 +1681,7 @@ func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) Name() pulumi.Str
 	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverrideDynamicProperty) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverrideDynamicProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2697,7 +2697,7 @@ func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInp
 type AlertRuleScheduledAlertDetailsOverrideDynamicProperty struct {
 	// The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
 	Name string `pulumi:"name"`
-	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 	Value string `pulumi:"value"`
 }
 
@@ -2715,7 +2715,7 @@ type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput interface {
 type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs struct {
 	// The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2775,7 +2775,7 @@ func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) Name() pulu
 	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverrideDynamicProperty) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
 func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverrideDynamicProperty) string { return v.Value }).(pulumi.StringOutput)
 }

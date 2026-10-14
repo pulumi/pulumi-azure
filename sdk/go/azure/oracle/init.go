@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AutonomousDatabaseCloneFromBackup{}
 	case "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase":
 		r = &AutonomousDatabaseCloneFromDatabase{}
+	case "azure:oracle/autonomousDatabaseCrossRegionDisasterRecovery:AutonomousDatabaseCrossRegionDisasterRecovery":
+		r = &AutonomousDatabaseCrossRegionDisasterRecovery{}
 	case "azure:oracle/cloudVmCluster:CloudVmCluster":
 		r = &CloudVmCluster{}
 	case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -68,6 +70,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"oracle/autonomousDatabaseCloneFromDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/autonomousDatabaseCrossRegionDisasterRecovery",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

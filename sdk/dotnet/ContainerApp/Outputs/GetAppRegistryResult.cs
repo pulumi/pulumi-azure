@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string PasswordSecretName;
         /// <summary>
-        /// The hostname for the Container Registry.
+        /// The FQDN for the Container Registry.
         /// </summary>
         public readonly string Server;
         /// <summary>

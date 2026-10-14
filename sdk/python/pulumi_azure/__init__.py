@@ -7409,6 +7409,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "oracle/autonomousDatabaseCrossRegionDisasterRecovery",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/autonomousDatabaseCrossRegionDisasterRecovery:AutonomousDatabaseCrossRegionDisasterRecovery": "AutonomousDatabaseCrossRegionDisasterRecovery"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "oracle/cloudVmCluster",
   "fqn": "pulumi_azure.oracle",
   "classes": {
@@ -8733,6 +8741,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/dataLakeGen2Path:DataLakeGen2Path": "DataLakeGen2Path"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/discoveryWorkspace",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/discoveryWorkspace:DiscoveryWorkspace": "DiscoveryWorkspace"
   }
  },
  {

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes azurermRedisEnterpriseCluster and azurermRedisEnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+// Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes the removed `azurermRedisEnterpriseCluster` and `azurermRedisEnterpriseDatabase` resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 //
 // ## Example Usage
 //
@@ -212,7 +212,7 @@ type ManagedRedis struct {
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 	//
-	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -280,7 +280,7 @@ type managedRedisState struct {
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 	//
-	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags map[string]string `pulumi:"tags"`
@@ -313,7 +313,7 @@ type ManagedRedisState struct {
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 	//
-	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapInput
@@ -348,7 +348,7 @@ type managedRedisArgs struct {
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 	//
-	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags map[string]string `pulumi:"tags"`
@@ -380,7 +380,7 @@ type ManagedRedisArgs struct {
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 	//
-	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapInput
@@ -526,7 +526,7 @@ func (o ManagedRedisOutput) ResourceGroupName() pulumi.StringOutput {
 //
 // > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 //
-// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
 func (o ManagedRedisOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedRedis) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

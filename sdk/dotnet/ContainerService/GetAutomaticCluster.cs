@@ -41,7 +41,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-04-01
+        /// * `Microsoft.ContainerService` - 2026-05-01
         /// </summary>
         public static Task<GetAutomaticClusterResult> InvokeAsync(GetAutomaticClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomaticClusterResult>("azure:containerservice/getAutomaticCluster:getAutomaticCluster", args ?? new GetAutomaticClusterArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-04-01
+        /// * `Microsoft.ContainerService` - 2026-05-01
         /// </summary>
         public static Output<GetAutomaticClusterResult> Invoke(GetAutomaticClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomaticClusterResult>("azure:containerservice/getAutomaticCluster:getAutomaticCluster", args ?? new GetAutomaticClusterInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2026-04-01
+        /// * `Microsoft.ContainerService` - 2026-05-01
         /// </summary>
         public static Output<GetAutomaticClusterResult> Invoke(GetAutomaticClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomaticClusterResult>("azure:containerservice/getAutomaticCluster:getAutomaticCluster", args ?? new GetAutomaticClusterInvokeArgs(), options.WithDefaults());

@@ -128,7 +128,7 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -137,7 +137,7 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
     private @Nullable Output<String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -159,6 +159,36 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * The endpoint used for ingesting logs.
+     * 
+     */
+    @Import(name="logsIngestionEndpoint")
+    private @Nullable Output<String> logsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting logs.
+     * 
+     */
+    public Optional<Output<String>> logsIngestionEndpoint() {
+        return Optional.ofNullable(this.logsIngestionEndpoint);
+    }
+
+    /**
+     * The endpoint used for ingesting metrics.
+     * 
+     */
+    @Import(name="metricsIngestionEndpoint")
+    private @Nullable Output<String> metricsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting metrics.
+     * 
+     */
+    public Optional<Output<String>> metricsIngestionEndpoint() {
+        return Optional.ofNullable(this.metricsIngestionEndpoint);
     }
 
     /**
@@ -233,6 +263,8 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
         this.immutableId = $.immutableId;
         this.kind = $.kind;
         this.location = $.location;
+        this.logsIngestionEndpoint = $.logsIngestionEndpoint;
+        this.metricsIngestionEndpoint = $.metricsIngestionEndpoint;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.streamDeclarations = $.streamDeclarations;
@@ -415,7 +447,7 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
          * 
          * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
          * 
@@ -428,7 +460,7 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
          * 
          * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
          * 
@@ -458,6 +490,48 @@ public final class DataCollectionRuleState extends com.pulumi.resources.Resource
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param logsIngestionEndpoint The endpoint used for ingesting logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsIngestionEndpoint(@Nullable Output<String> logsIngestionEndpoint) {
+            $.logsIngestionEndpoint = logsIngestionEndpoint;
+            return this;
+        }
+
+        /**
+         * @param logsIngestionEndpoint The endpoint used for ingesting logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsIngestionEndpoint(String logsIngestionEndpoint) {
+            return logsIngestionEndpoint(Output.of(logsIngestionEndpoint));
+        }
+
+        /**
+         * @param metricsIngestionEndpoint The endpoint used for ingesting metrics.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsIngestionEndpoint(@Nullable Output<String> metricsIngestionEndpoint) {
+            $.metricsIngestionEndpoint = metricsIngestionEndpoint;
+            return this;
+        }
+
+        /**
+         * @param metricsIngestionEndpoint The endpoint used for ingesting metrics.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsIngestionEndpoint(String metricsIngestionEndpoint) {
+            return metricsIngestionEndpoint(Output.of(metricsIngestionEndpoint));
         }
 
         /**

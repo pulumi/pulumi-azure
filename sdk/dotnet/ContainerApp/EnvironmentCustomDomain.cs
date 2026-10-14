@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testacc.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CertificatePassword = "TestAcc",
     ///         DnsSuffix = "acceptancetest.contoso.com",
     ///     });

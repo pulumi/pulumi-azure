@@ -57,7 +57,7 @@ namespace Pulumi.Azure.DataFactory
     ///                 exampleService.Name,
     ///                 ".search.windows.net",
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         SearchServiceKey = exampleService.PrimaryKey,
     ///     });
     /// 

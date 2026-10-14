@@ -417,7 +417,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
                  immutability: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -469,7 +469,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -542,7 +542,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
                  immutability: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -589,7 +589,7 @@ class BackupVault(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
             immutability: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -609,7 +609,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.

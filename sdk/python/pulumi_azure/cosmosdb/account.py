@@ -1294,11 +1294,11 @@ class Account(pulumi.CustomResource):
             name="example-resource",
             location=example_azurerm_resource_group["location"],
             resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join(separator="=",
+            default_identity_type=std.join_output(separator="=",
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ])["result"],
+                ]).result,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{
@@ -1424,11 +1424,11 @@ class Account(pulumi.CustomResource):
             name="example-resource",
             location=example_azurerm_resource_group["location"],
             resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join(separator="=",
+            default_identity_type=std.join_output(separator="=",
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ])["result"],
+                ]).result,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{

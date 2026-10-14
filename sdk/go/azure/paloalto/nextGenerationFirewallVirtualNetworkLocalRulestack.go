@@ -130,7 +130,7 @@ import (
 //			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
 //				Name:              pulumi.String("example-rulestack"),
 //				ResourceGroupName: example.Name,
-//				Location:          example.Locatio,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

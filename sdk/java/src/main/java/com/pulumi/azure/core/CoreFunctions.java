@@ -933,6 +933,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -952,7 +953,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -977,6 +980,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -996,7 +1000,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1021,6 +1027,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1040,7 +1047,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1065,6 +1074,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1084,7 +1094,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1109,6 +1121,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1128,7 +1141,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1482,6 +1497,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1500,7 +1516,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1525,6 +1543,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1543,7 +1562,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1568,6 +1589,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1586,7 +1608,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1611,6 +1635,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1629,7 +1654,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -1654,6 +1681,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1672,7 +1700,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -2234,6 +2264,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2252,7 +2283,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -2277,6 +2310,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2295,7 +2329,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -2320,6 +2356,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2338,7 +2375,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -2363,6 +2402,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2381,7 +2421,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }
@@ -2406,6 +2448,7 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2424,7 +2467,9 @@ public final class CoreFunctions {
      *             .build());
      * 
      *         ctx.export("id", example.id());
-     *         ctx.export("exampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+     *         ctx.export("exampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.outputContent())
+     *             .build()).result().exampleOutput().value());
      *     }
      * }
      * }

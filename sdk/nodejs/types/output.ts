@@ -943,7 +943,7 @@ export namespace apimanagement {
 
     export interface BackendCircuitBreakerRule {
         /**
-         * Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         * Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
          */
         acceptRetryAfterEnabled?: boolean;
         /**
@@ -2624,7 +2624,7 @@ export namespace appinsights {
          */
         httpVerb?: string;
         /**
-         * Should the parsing of dependend requests be enabled? Defaults to `true`.
+         * Should the parsing of dependent requests be enabled? Defaults to `true`.
          */
         parseDependentRequestsEnabled?: boolean;
         /**
@@ -2717,7 +2717,7 @@ export namespace appinsights {
         /**
          * Type of workbook supported by the workbook template. Defaults to `workbook`.
          *
-         * > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
+         * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
          */
         type?: string;
     }
@@ -4010,7 +4010,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -4543,7 +4543,7 @@ export namespace appservice {
 
     export interface AppFlexConsumptionSiteCredential {
         /**
-         * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -5411,7 +5411,7 @@ export namespace appservice {
         /**
          * The Default action for traffic that does not match any `scmIpRestriction` rule.
          */
-        scmIpRestrictionDefaultAction?: string;
+        scmIpRestrictionDefaultAction: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -6540,7 +6540,7 @@ export namespace appservice {
         /**
          * A `slowRequest` block as defined above.
          */
-        slowRequests?: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        slowRequests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * A `statusCode` block as defined above.
          */
@@ -9246,7 +9246,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -9754,7 +9754,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          */
         powershellCoreVersion?: string;
         /**
@@ -9923,7 +9923,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -10258,7 +10258,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -10764,7 +10764,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+         * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
          */
         powershellCoreVersion?: string;
         /**
@@ -11333,7 +11333,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -11911,7 +11911,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -12497,7 +12497,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -13077,7 +13077,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -13850,7 +13850,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -14484,7 +14484,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -14819,7 +14819,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -15851,7 +15851,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -17111,7 +17111,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -18549,7 +18549,7 @@ export namespace arcmachine {
 
     export interface GetServiceStatusExtensionService {
         /**
-         * The behavior of the service when the Arc-enabled machine starts up.
+         * The behaviour of the service when the Arc-enabled machine starts up.
          */
         startupType: string;
         /**
@@ -18560,7 +18560,7 @@ export namespace arcmachine {
 
     export interface GetServiceStatusGuestConfigurationService {
         /**
-         * The behavior of the service when the Arc-enabled machine starts up.
+         * The behaviour of the service when the Arc-enabled machine starts up.
          */
         startupType: string;
         /**
@@ -18588,7 +18588,7 @@ export namespace authorization {
         /**
          * A list of data actions allowed by this role.
          */
-        dataActions?: string[];
+        dataActions: string[];
         /**
          * A list of actions which are denied by this role.
          */
@@ -18596,7 +18596,7 @@ export namespace authorization {
         /**
          * A list of data actions which are denied by this role.
          */
-        notDataActions?: string[];
+        notDataActions: string[];
     }
 
     export interface RoleDefinitionPermission {
@@ -18834,6 +18834,11 @@ export namespace automation {
          * The type of the connection field definition.
          */
         type: string;
+    }
+
+    export interface GetAccountEncryption {
+        keyVaultKeyId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface GetAccountIdentity {
@@ -19296,7 +19301,7 @@ export namespace backup {
          */
         startTime: string;
         /**
-         * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+         * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          */
         windowDuration: number;
     }
@@ -19360,7 +19365,7 @@ export namespace backup {
          */
         includeLastDays?: boolean;
         /**
-         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          */
         months: string[];
         /**
@@ -19883,11 +19888,11 @@ export namespace batch {
         /**
          * A `azureBlobFileSystem` block defined as below.
          */
-        azureBlobFileSystems?: outputs.batch.GetPoolMountAzureBlobFileSystem[];
+        azureBlobFileSystems: outputs.batch.GetPoolMountAzureBlobFileSystem[];
         /**
          * A `azureFileShare` block defined as below.
          */
-        azureFileShares?: outputs.batch.GetPoolMountAzureFileShare[];
+        azureFileShares: outputs.batch.GetPoolMountAzureFileShare[];
         /**
          * A `cifsMount` block defined as below.
          */
@@ -21078,7 +21083,7 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleCacheExpirationAction {
         /**
-         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          */
         behavior: string;
         /**
@@ -21089,7 +21094,7 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleCacheKeyQueryStringAction {
         /**
-         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          */
         behavior: string;
         /**
@@ -21472,7 +21477,7 @@ export namespace cdn {
 
     export interface EndpointGlobalDeliveryRuleCacheExpirationAction {
         /**
-         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          */
         behavior: string;
         /**
@@ -21483,7 +21488,7 @@ export namespace cdn {
 
     export interface EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
         /**
-         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          */
         behavior: string;
         /**
@@ -24017,7 +24022,7 @@ export namespace cognitive {
         /**
          * The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+         * > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
          */
         name: string;
         /**
@@ -24879,7 +24884,7 @@ export namespace compute {
          *
          * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          *
-         * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+         * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
          */
         name: string;
         /**
@@ -25371,7 +25376,7 @@ export namespace compute {
         /**
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: string;
     }
@@ -25801,7 +25806,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -26325,7 +26330,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -27605,7 +27610,7 @@ export namespace compute {
         /**
          * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
          *
-         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
          */
         managedDiskType: string;
         /**
@@ -27844,7 +27849,7 @@ export namespace compute {
         /**
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: string;
     }
@@ -28274,7 +28279,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -29391,7 +29396,7 @@ export namespace containerapp {
          */
         passwordSecretName?: string;
         /**
-         * The hostname for the Container Registry.
+         * The FQDN for the Container Registry.
          *
          * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
          */
@@ -29943,7 +29948,7 @@ export namespace containerapp {
         /**
          * The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
          *
-         * > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+         * > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
          */
         identity?: string;
         /**
@@ -30187,7 +30192,7 @@ export namespace containerapp {
          */
         passwordSecretName: string;
         /**
-         * The hostname for the Container Registry.
+         * The FQDN for the Container Registry.
          */
         server: string;
         /**
@@ -31285,7 +31290,7 @@ export namespace containerservice {
         /**
          * The intermediate certificate private key object name in Azure Key Vault.
          *
-         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          */
         keyObjectName: string;
         /**
@@ -31759,7 +31764,7 @@ export namespace containerservice {
          */
         proxyRedirectMechanism: string;
         /**
-         * List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+         * List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
          */
         revisions: string[];
     }
@@ -31823,7 +31828,7 @@ export namespace containerservice {
 
     export interface GetClusterNodePoolUpgradeSetting {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
          */
         drainTimeoutInMinutes: number;
         /**
@@ -31945,7 +31950,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
          */
         drainTimeoutInMinutes: number;
         /**
@@ -32049,7 +32054,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: string;
         /**
@@ -33024,7 +33029,7 @@ export namespace containerservice {
          */
         onlyCriticalAddonsEnabled?: boolean;
         /**
-         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          *
          * > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
          */
@@ -33038,7 +33043,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
          *
          * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
          */
@@ -33072,7 +33077,7 @@ export namespace containerservice {
         /**
          * The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          *
-         * > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+         * > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
          */
         type?: string;
         /**
@@ -33320,7 +33325,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          */
         drainTimeoutInMinutes?: number;
         /**
@@ -33473,7 +33478,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: string;
         /**
@@ -33877,7 +33882,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
         /**
-         * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+         * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
          */
         backendPoolType?: string;
         /**
@@ -34124,7 +34129,7 @@ export namespace containerservice {
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
-         * > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+         * > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
          */
         nodePublicIpTags?: {[key: string]: string};
     }
@@ -34146,7 +34151,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          */
         drainTimeoutInMinutes?: number;
         /**
@@ -34259,7 +34264,7 @@ export namespace containerservice {
         /**
          * The intermediate certificate private key object name in Azure Key Vault.
          *
-         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          */
         keyObjectName: string;
         /**
@@ -34859,7 +34864,7 @@ export namespace core {
          */
         tags: {[key: string]: string};
         /**
-         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
          */
         type: string;
     }
@@ -34905,7 +34910,7 @@ export namespace core {
 
     export interface ResourceDeploymentScriptAzureCliContainer {
         /**
-         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          */
         containerGroupName?: string;
     }
@@ -34949,7 +34954,7 @@ export namespace core {
 
     export interface ResourceDeploymentScriptPowerShellContainer {
         /**
-         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          */
         containerGroupName?: string;
     }
@@ -35123,7 +35128,7 @@ export namespace core {
          */
         selectors?: outputs.core.ResourceGroupPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -35189,7 +35194,7 @@ export namespace core {
          */
         selectors?: outputs.core.ResourcePolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -35362,7 +35367,7 @@ export namespace core {
          */
         selectors?: outputs.core.SubscriptionPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -37340,7 +37345,7 @@ export namespace datafactory {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+         * Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
          */
         gitUrl?: string;
         /**
@@ -38523,7 +38528,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         * The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -38578,7 +38583,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         * The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -40943,7 +40948,7 @@ export namespace elasticsan {
         /**
          * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
+         * > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-planning) for more details.
          */
         name: string;
         /**
@@ -42565,7 +42570,7 @@ export namespace eventhub {
         /**
          * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          *
-         * > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
+         * > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honour the setting.
          */
         defaultAction: string;
         /**
@@ -43131,7 +43136,7 @@ export namespace eventhub {
         /**
          * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          *
-         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
          */
         clientId?: string;
         /**
@@ -43183,6 +43188,70 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: string;
+    }
+
+}
+
+export namespace expressroute {
+    export interface GetCircuitPeeringIpv6 {
+        /**
+         * A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         */
+        enabled: boolean;
+        /**
+         * A `microsoftPeering` block as defined below.
+         */
+        microsoftPeerings: outputs.expressroute.GetCircuitPeeringIpv6MicrosoftPeering[];
+        /**
+         * A subnet for the primary link.
+         */
+        primaryPeerAddressPrefix: string;
+        /**
+         * The ID of the Route Filter.
+         */
+        routeFilterId: string;
+        /**
+         * A subnet for the secondary link.
+         */
+        secondaryPeerAddressPrefix: string;
+    }
+
+    export interface GetCircuitPeeringIpv6MicrosoftPeering {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities: string[];
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn: number;
+        /**
+         * he Routing Registry against which the AS number and prefixes are registered.
+         */
+        routingRegistryName: string;
+    }
+
+    export interface GetCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities: string[];
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn: number;
+        /**
+         * he Routing Registry against which the AS number and prefixes are registered.
+         */
+        routingRegistryName: string;
     }
 
 }
@@ -47087,7 +47156,18 @@ export namespace iot {
         /**
          * Connection String of the Diagnostic Storage Account.
          */
-        connectionString: string;
+        connectionString?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Connection String of the Diagnostic Storage Account.
+         *
+         * > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+         */
+        connectionStringWo?: string;
+        /**
+         * An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+         */
+        connectionStringWoVersion?: number;
         /**
          * Resource ID of the Diagnostic Storage Account.
          */
@@ -49507,7 +49587,7 @@ export namespace machinelearning {
         /**
          * SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
          *
-         * > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+         * > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
          */
         keyValue?: string;
     }
@@ -50312,7 +50392,7 @@ export namespace management {
          */
         selectors?: outputs.management.GroupPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -51066,7 +51146,7 @@ export namespace monitoring {
          */
         recurrence?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrence;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: string;
     }
@@ -51309,7 +51389,7 @@ export namespace monitoring {
          */
         recurrence?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrence;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: string;
     }
@@ -51535,7 +51615,7 @@ export namespace monitoring {
          */
         start: string;
         /**
-         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          */
         timezone?: string;
     }
@@ -51554,7 +51634,7 @@ export namespace monitoring {
          */
         minutes: number;
         /**
-         * The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+         * The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          */
         timezone?: string;
     }
@@ -51818,7 +51898,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesPerformanceCounter {
         /**
-         * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+         * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          */
         counterSpecifiers: string[];
         /**
@@ -51863,7 +51943,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter {
         /**
-         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         * The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
          */
         label: string;
         /**
@@ -51901,7 +51981,7 @@ export namespace monitoring {
          */
         streams: string[];
         /**
-         * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+         * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          */
         xPathQueries: string[];
     }
@@ -52240,7 +52320,7 @@ export namespace monitoring {
         /**
          * Indicates whether to use common alert schema.
          */
-        useCommonAlertSchema?: boolean;
+        useCommonAlertSchema: boolean;
     }
 
     export interface GetActionGroupItsmReceiver {
@@ -52379,7 +52459,7 @@ export namespace monitoring {
         /**
          * One or more `logFile` blocks as defined below.
          */
-        logFiles?: outputs.monitoring.GetDataCollectionRuleDataSourceLogFile[];
+        logFiles: outputs.monitoring.GetDataCollectionRuleDataSourceLogFile[];
         /**
          * One or more `performanceCounter` blocks as defined below.
          */
@@ -52387,7 +52467,7 @@ export namespace monitoring {
         /**
          * One or more `platformTelemetry` blocks as defined below.
          */
-        platformTelemetries?: outputs.monitoring.GetDataCollectionRuleDataSourcePlatformTelemetry[];
+        platformTelemetries: outputs.monitoring.GetDataCollectionRuleDataSourcePlatformTelemetry[];
         /**
          * One or more `prometheusForwarder` blocks as defined below.
          */
@@ -52550,7 +52630,7 @@ export namespace monitoring {
 
     export interface GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter {
         /**
-         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         * The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
          */
         label: string;
         /**
@@ -52612,11 +52692,11 @@ export namespace monitoring {
         /**
          * One or more `eventHub` blocks as defined below.
          */
-        eventHub?: outputs.monitoring.GetDataCollectionRuleDestinationEventHub;
+        eventHub: outputs.monitoring.GetDataCollectionRuleDestinationEventHub;
         /**
          * One or more `eventHubDirect` blocks as defined below.
          */
-        eventHubDirect?: outputs.monitoring.GetDataCollectionRuleDestinationEventHubDirect;
+        eventHubDirect: outputs.monitoring.GetDataCollectionRuleDestinationEventHubDirect;
         /**
          * One or more `logAnalytics` blocks as defined below.
          */
@@ -53107,7 +53187,7 @@ export namespace monitoring {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
          *
-         * > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+         * > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
          */
         identityIds?: string[];
         /**
@@ -54904,7 +54984,7 @@ export namespace netapp {
         /**
          * Enable or disable the Advanced Ransomware Protection feature.
          *
-         * > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+         * > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
          *
          * > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
          */
@@ -54923,7 +55003,7 @@ export namespace netapp {
         /**
          * Enables the backup policy on the volume, defaults to `true`.
          *
-         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
          */
         policyEnabled?: boolean;
     }
@@ -55050,7 +55130,7 @@ export namespace netapp {
          */
         name: string;
         /**
-         * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
          */
         networkFeatures: string;
         /**
@@ -55062,7 +55142,7 @@ export namespace netapp {
         /**
          * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
          *
-         * > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+         * > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
          */
         proximityPlacementGroupId?: string;
         /**
@@ -55078,7 +55158,7 @@ export namespace netapp {
          */
         snapshotDirectoryVisible: boolean;
         /**
-         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         * The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
          */
         storageQuotaInGb: number;
         /**
@@ -55102,7 +55182,7 @@ export namespace netapp {
          */
         volumeSpecName: string;
         /**
-         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
          */
         zone?: string;
     }
@@ -55135,7 +55215,7 @@ export namespace netapp {
 
     export interface VolumeGroupOracleVolumeExportPolicyRule {
         /**
-         * A comma-sperated list of allowed client IPv4 addresses.
+         * A comma-separated list of allowed client IPv4 addresses.
          */
         allowedClients: string;
         /**
@@ -55203,13 +55283,13 @@ export namespace netapp {
          */
         networkFeatures: string;
         /**
-         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
          *
          * > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
          */
         protocols: string;
         /**
-         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
          */
         proximityPlacementGroupId?: string;
         /**
@@ -55225,7 +55305,7 @@ export namespace netapp {
          */
         snapshotDirectoryVisible: boolean;
         /**
-         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         * The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
          */
         storageQuotaInGb: number;
         /**
@@ -55249,7 +55329,7 @@ export namespace netapp {
          */
         volumeSpecName: string;
         /**
-         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         zone?: string;
     }
@@ -55282,7 +55362,7 @@ export namespace netapp {
 
     export interface VolumeGroupSapHanaVolumeExportPolicyRule {
         /**
-         * A comma-sperated list of allowed client IPv4 addresses.
+         * A comma-separated list of allowed client IPv4 addresses.
          */
         allowedClients: string;
         /**
@@ -56184,6 +56264,10 @@ export namespace network {
 
     export interface ApplicationGatewaySslProfile {
         /**
+         * Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+         */
+        clientAuthenticationMode?: string;
+        /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
@@ -56192,19 +56276,23 @@ export namespace network {
          */
         name: string;
         /**
-         * a `sslPolicy` block as defined below.
+         * An `sslPolicy` block as defined below.
          */
         sslPolicy?: outputs.network.ApplicationGatewaySslProfileSslPolicy;
         /**
-         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          */
         trustedClientCertificateNames?: string[];
         /**
          * Should client certificate issuer DN be verified? Defaults to `false`.
+         *
+         * > **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
          */
         verifyClientCertificateIssuerDn?: boolean;
         /**
-         * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+         *
+         * > **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
          */
         verifyClientCertificateRevocation?: string;
     }
@@ -57985,6 +58073,10 @@ export namespace network {
 
     export interface GetApplicationGatewaySslProfile {
         /**
+         * The client authentication mode used by the SSL Profile.
+         */
+        clientAuthenticationMode: string;
+        /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
@@ -57993,11 +58085,11 @@ export namespace network {
          */
         name: string;
         /**
-         * a `sslPolicy` block as defined below.
+         * An `sslPolicy` block as defined below.
          */
         sslPolicies: outputs.network.GetApplicationGatewaySslProfileSslPolicy[];
         /**
-         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          */
         trustedClientCertificateNames: string[];
         /**
@@ -58540,7 +58632,7 @@ export namespace network {
         /**
          * A List of destination Application Security Group IDs
          */
-        destinationApplicationSecurityGroupIds?: string[];
+        destinationApplicationSecurityGroupIds: string[];
         /**
          * The Destination Port or Range.
          */
@@ -58573,7 +58665,7 @@ export namespace network {
         /**
          * A List of source Application Security Group IDs
          */
-        sourceApplicationSecurityGroupIds?: string[];
+        sourceApplicationSecurityGroupIds: string[];
         /**
          * The Source Port or Range.
          */
@@ -58850,7 +58942,7 @@ export namespace network {
     export interface GetVirtualNetworkGatewayVpnClientConfiguration {
         /**
          * The client id of the Azure VPN application.
-         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
          * This setting is incompatible with the use of
          * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
          */
@@ -59293,7 +59385,7 @@ export namespace network {
 
     export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
         /**
-         * The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+         * The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
          */
         destinationPortBehavior?: string;
         /**
@@ -59374,7 +59466,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          */
         addressPrefixType: string;
     }
@@ -59385,7 +59477,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          */
         addressPrefixType: string;
     }
@@ -59463,7 +59555,7 @@ export namespace network {
         /**
          * A list of management group IDs.
          *
-         * > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+         * > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
          */
         managementGroupIds?: string[];
         /**
@@ -60107,7 +60199,7 @@ export namespace network {
         /**
          * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
          *
-         * > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+         * > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          */
         enforcement: string;
     }
@@ -60294,7 +60386,7 @@ export namespace network {
     export interface VirtualNetworkGatewayVpnClientConfiguration {
         /**
          * The client id of the Azure VPN application.
-         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
          */
         aadAudience?: string;
         /**
@@ -60485,13 +60577,13 @@ export namespace network {
          *
          * > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
          *
-         * > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         * > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
          */
         privateEndpointNetworkPolicies?: string;
         /**
          * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
          *
-         * > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
          */
         privateLinkServiceNetworkPoliciesEnabled?: boolean;
         /**
@@ -63044,7 +63136,7 @@ export namespace pim {
 
     export interface GetRoleManagementPolicyNotificationRule {
         /**
-         * A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+         * A `notificationTarget` block as defined below with the details of notifications on active role assignments.
          */
         activeAssignments: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignment[];
         /**
@@ -63259,7 +63351,7 @@ export namespace pim {
          */
         requireMultifactorAuthentication: boolean;
         /**
-         * Is ticket information requrired during activation of the role.
+         * Is ticket information required during activation of the role.
          */
         requireTicketInfo: boolean;
         /**
@@ -63326,7 +63418,7 @@ export namespace pim {
 
     export interface RoleManagementPolicyNotificationRules {
         /**
-         * A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         * A `notificationTarget` block as defined below to configure notifications on active role assignments.
          */
         activeAssignments: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignments;
         /**
@@ -63699,7 +63791,7 @@ export namespace postgresql {
         /**
          * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
          *
-         * > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+         * > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
          *
          * > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
          */
@@ -63798,7 +63890,7 @@ export namespace postgresql {
         /**
          * The start minute for maintenance window. Defaults to `0`.
          *
-         * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+         * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          */
         startMinute?: number;
     }
@@ -64312,7 +64404,7 @@ export namespace recoveryservices {
         /**
          * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          *
-         * > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+         * > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          *
          * > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
          */
@@ -64358,7 +64450,7 @@ export namespace recoveryservices {
          */
         alertsForAllReplicationIssuesEnabled?: boolean;
         /**
-         * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+         * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
          */
         alertsForCriticalOperationFailuresEnabled?: boolean;
         /**
@@ -64786,7 +64878,7 @@ export namespace role {
         /**
          * A list of data actions allowed by this role.
          */
-        dataActions?: string[];
+        dataActions: string[];
         /**
          * A list of actions which are denied by this role.
          */
@@ -64794,7 +64886,7 @@ export namespace role {
         /**
          * A list of data actions which are denied by this role.
          */
-        notDataActions?: string[];
+        notDataActions: string[];
     }
 
 }
@@ -65203,7 +65295,7 @@ export namespace sentinel {
          */
         name: string;
         /**
-         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          */
         value: string;
     }
@@ -65315,7 +65407,7 @@ export namespace sentinel {
          */
         name: string;
         /**
-         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          */
         value: string;
     }
@@ -65894,7 +65986,7 @@ export namespace servicebus {
         /**
          * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          *
-         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
          */
         clientId?: string;
         /**
@@ -66427,6 +66519,85 @@ export namespace servicefabric {
 }
 
 export namespace signalr {
+    export interface GetServiceCor {
+        /**
+         * A list of origins which should be able to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+    }
+
+    export interface GetServiceIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to the SignalR service.
+         */
+        identityIds: string[];
+        /**
+         * The principal id of the system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the signalR service.
+         */
+        type: string;
+    }
+
+    export interface GetServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled.
+         */
+        connectivityLogsEnabled: boolean;
+        /**
+         * Whether live trace is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled.
+         */
+        httpRequestLogsEnabled: boolean;
+        /**
+         * Whether the log category `MessagingLogs` is enabled.
+         */
+        messagingLogsEnabled: boolean;
+    }
+
+    export interface GetServiceSkus {
+        /**
+         * The capacity of the SKU.
+         */
+        capacity: number;
+        /**
+         * Specifies the name of the SignalR service.
+         */
+        name: string;
+    }
+
+    export interface GetServiceUpstreamEndpoint {
+        /**
+         * The pattern that categories match on.
+         */
+        categoryPatterns: string[];
+        /**
+         * The pattern that events match on.
+         */
+        eventPatterns: string[];
+        /**
+         * The pattern that hubs match on.
+         */
+        hubPatterns: string[];
+        /**
+         * The upstream URL Template.
+         */
+        urlTemplate: string;
+        /**
+         * The Managed Identity ID assigned to this SignalR upstream setting.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface ServiceCor {
         /**
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -66645,7 +66816,7 @@ export namespace siterecovery {
         /**
          * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
          *
-         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
          */
         authenticationType?: string;
         /**
@@ -66670,7 +66841,7 @@ export namespace siterecovery {
         /**
          * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          *
-         * > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+         * > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
          */
         targetDiskEncryptionSetId?: string;
         /**
@@ -67715,7 +67886,7 @@ export namespace storage {
         /**
          * Should the Custom Domain Name be validated by using indirect CNAME validation?
          *
-         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
          */
         useSubdomain?: boolean;
     }
@@ -68108,6 +68279,12 @@ export namespace storage {
          */
         blobTypes: string[];
         /**
+         * The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+         *
+         * > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+         */
+        createdWithinDays?: number;
+        /**
          * A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
          */
         excludePrefixes?: string[];
@@ -68179,6 +68356,25 @@ export namespace storage {
          * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
          */
         type: string;
+    }
+
+    export interface DiscoveryWorkspaceScope {
+        /**
+         * The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+         */
+        displayName: string;
+        /**
+         * A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+         */
+        resourceTypes: string[];
+        /**
+         * A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+         */
+        tagKeysOnlies?: string[];
+        /**
+         * A map of tag key-value pairs that resources must have to be included in this scope.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface GetAccountAzureFilesAuthentication {
@@ -69382,7 +69578,7 @@ export namespace synapse {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+         * Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
          *
          * > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
          */
@@ -69913,6 +70109,44 @@ export namespace webpubsub {
         subresourceName: string;
     }
 
+    export interface GetServiceIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+         */
+        identityIds: string[];
+        /**
+         * The principal id of the system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the web pubsub.
+         */
+        type: string;
+    }
+
+    export interface GetServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled.
+         */
+        connectivityLogsEnabled: boolean;
+        /**
+         * Whether the live trace is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled.
+         */
+        httpRequestLogsEnabled: boolean;
+        /**
+         * Whether the log category `MessagingLogs` is enabled.
+         */
+        messagingLogsEnabled: boolean;
+    }
+
     export interface HubEventHandler {
         /**
          * An `auth` block as defined below.
@@ -70130,7 +70364,7 @@ export namespace workloadssap {
          */
         skuName: string;
         /**
-         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          */
         volumeName: string;
     }
@@ -70435,7 +70669,7 @@ export namespace workloadssap {
          */
         skuName: string;
         /**
-         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          */
         volumeName: string;
     }

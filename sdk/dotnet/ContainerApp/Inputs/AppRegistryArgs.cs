@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? PasswordSecretName { get; set; }
 
         /// <summary>
-        /// The hostname for the Container Registry.
+        /// The FQDN for the Container Registry.
         /// 
         /// The authentication details must also be supplied, `Identity` and `Username`/`PasswordSecretName` are mutually exclusive.
         /// </summary>

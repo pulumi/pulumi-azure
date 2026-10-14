@@ -218,7 +218,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             location="West Europe")
         example_local_rulestack = azure.paloalto.LocalRulestack("example",
             name="example",
-            resource_group_name=example_azurerm_resrouce_group["name"],
+            resource_group_name=example.name,
             location=example.location)
         example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("example",
             name="example",
@@ -270,7 +270,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             location="West Europe")
         example_local_rulestack = azure.paloalto.LocalRulestack("example",
             name="example",
-            resource_group_name=example_azurerm_resrouce_group["name"],
+            resource_group_name=example.name,
             location=example.location)
         example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("example",
             name="example",

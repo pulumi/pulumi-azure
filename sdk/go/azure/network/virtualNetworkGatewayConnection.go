@@ -287,7 +287,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -310,7 +310,7 @@ type VirtualNetworkGatewayConnection struct {
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
@@ -419,7 +419,7 @@ type virtualNetworkGatewayConnectionState struct {
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
@@ -479,7 +479,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
@@ -543,7 +543,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
@@ -604,7 +604,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
@@ -762,7 +762,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.Strin
 
 // A `customBgpAddresses` block which is documented below.
 // The block can only be used on `IPSec` / `activeactive` connections,
-// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 func (o VirtualNetworkGatewayConnectionOutput) CustomBgpAddresses() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
 		return v.CustomBgpAddresses

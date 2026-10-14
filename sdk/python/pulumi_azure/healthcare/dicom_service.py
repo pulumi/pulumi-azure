@@ -37,7 +37,7 @@ class DicomServiceArgs:
         :param pulumi.Input[_builtins.str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
-        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -105,7 +105,7 @@ class DicomServiceArgs:
     @pulumi.getter(name="encryptionKeyUrl")
     def encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         """
         return pulumi.get(self, "encryption_key_url")
 
@@ -208,7 +208,7 @@ class _DicomServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]] authentications: The `authentication` block as defined below.
         :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
-        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -285,7 +285,7 @@ class _DicomServiceState:
     @pulumi.getter(name="encryptionKeyUrl")
     def encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         """
         return pulumi.get(self, "encryption_key_url")
 
@@ -461,7 +461,7 @@ class DicomService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict', 'outputs.DicomServiceCors']] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
-        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict', 'outputs.DicomServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -599,7 +599,7 @@ class DicomService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict', 'outputs.DicomServiceAuthentication']]]] authentications: The `authentication` block as defined below.
         :param pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict', 'outputs.DicomServiceCors']] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
-        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        :param pulumi.Input[_builtins.str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict', 'outputs.DicomServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
@@ -656,7 +656,7 @@ class DicomService(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKeyUrl")
     def encryption_key_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         """
         return pulumi.get(self, "encryption_key_url")
 

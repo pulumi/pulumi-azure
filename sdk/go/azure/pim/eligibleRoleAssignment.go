@@ -26,8 +26,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/pim"
-//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -87,8 +87,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/pim"
-//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -158,7 +158,7 @@ import (
 type EligibleRoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
@@ -219,7 +219,7 @@ func GetEligibleRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EligibleRoleAssignment resources.
 type eligibleRoleAssignmentState struct {
-	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
@@ -242,7 +242,7 @@ type eligibleRoleAssignmentState struct {
 }
 
 type EligibleRoleAssignmentState struct {
-	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
@@ -269,7 +269,7 @@ func (EligibleRoleAssignmentState) ElementType() reflect.Type {
 }
 
 type eligibleRoleAssignmentArgs struct {
-	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
@@ -291,7 +291,7 @@ type eligibleRoleAssignmentArgs struct {
 
 // The set of arguments for constructing a EligibleRoleAssignment resource.
 type EligibleRoleAssignmentArgs struct {
-	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
 	//
@@ -398,7 +398,7 @@ func (o EligibleRoleAssignmentOutput) ToEligibleRoleAssignmentOutputWithContext(
 	return o
 }
 
-// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 func (o EligibleRoleAssignmentOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
 }

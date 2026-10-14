@@ -72,9 +72,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var db = new Account("db", AccountArgs.builder()
- *             .name(String.format("tfex-cosmos-db-%s", ri.result()))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
+ *             .name(String.format("tfex-cosmos-db-%s", ri.get("result")))
+ *             .location(example.get("location"))
+ *             .resourceGroupName(example.get("name"))
  *             .offerType("Standard")
  *             .kind("MongoDB")
  *             .automaticFailoverEnabled(true)
@@ -130,6 +130,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountIdentityArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -144,21 +145,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserAssignedIdentity("example", UserAssignedIdentityArgs.builder()
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .location(exampleAzurermResourceGroup.get("location"))
  *             .name("example-resource")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-resource")
- *             .location(exampleAzurermResourceGroup.location())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .defaultIdentityType(StdFunctions.join(Map.ofEntries(
- *                 Map.entry("separator", "="),
- *                 Map.entry("input", Arrays.asList(                
+ *             .location(exampleAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .defaultIdentityType(StdFunctions.join(JoinArgs.builder()
+ *                 .separator("=")
+ *                 .input(                
  *                     "UserAssignedIdentity",
- *                     example.id()))
- *             )).result())
+ *                     example.id())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .offerType("Standard")
  *             .kind("MongoDB")
  *             .capabilities(AccountCapabilityArgs.builder()

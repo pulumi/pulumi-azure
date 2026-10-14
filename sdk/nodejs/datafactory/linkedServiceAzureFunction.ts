@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = azurerm.FunctionApp({
+ * const example = azurerm.functionApp({
  *     name: "test-azure-functions",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

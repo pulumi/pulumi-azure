@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, dns_endpoint_type=None, https_traffic_only_enabled=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, dns_endpoint_type=None, https_traffic_only_enabled=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, public_network_access=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -187,6 +187,9 @@ class GetAccountResult:
         if primary_web_microsoft_host and not isinstance(primary_web_microsoft_host, str):
             raise TypeError("Expected argument 'primary_web_microsoft_host' to be a str")
         pulumi.set(__self__, "primary_web_microsoft_host", primary_web_microsoft_host)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if queue_encryption_key_type and not isinstance(queue_encryption_key_type, str):
             raise TypeError("Expected argument 'queue_encryption_key_type' to be a str")
         pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
@@ -734,6 +737,14 @@ class GetAccountResult:
         return pulumi.get(self, "primary_web_microsoft_host")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> _builtins.str:
+        """
+        The public network access setting of the Storage Account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
     @pulumi.getter(name="queueEncryptionKeyType")
     def queue_encryption_key_type(self) -> _builtins.str:
         """
@@ -1110,6 +1121,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             primary_web_internet_host=self.primary_web_internet_host,
             primary_web_microsoft_endpoint=self.primary_web_microsoft_endpoint,
             primary_web_microsoft_host=self.primary_web_microsoft_host,
+            public_network_access=self.public_network_access,
             queue_encryption_key_type=self.queue_encryption_key_type,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
@@ -1243,6 +1255,7 @@ def get_account(min_tls_version: Optional[_builtins.str] = None,
         primary_web_internet_host=pulumi.get(__ret__, 'primary_web_internet_host'),
         primary_web_microsoft_endpoint=pulumi.get(__ret__, 'primary_web_microsoft_endpoint'),
         primary_web_microsoft_host=pulumi.get(__ret__, 'primary_web_microsoft_host'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         queue_encryption_key_type=pulumi.get(__ret__, 'queue_encryption_key_type'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
@@ -1373,6 +1386,7 @@ def get_account_output(min_tls_version: pulumi.Input[Optional[Optional[_builtins
         primary_web_internet_host=pulumi.get(__response__, 'primary_web_internet_host'),
         primary_web_microsoft_endpoint=pulumi.get(__response__, 'primary_web_microsoft_endpoint'),
         primary_web_microsoft_host=pulumi.get(__response__, 'primary_web_microsoft_host'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         queue_encryption_key_type=pulumi.get(__response__, 'queue_encryption_key_type'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),

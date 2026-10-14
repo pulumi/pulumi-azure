@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.CustomHostnameBinding;
  * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.appservice.ManagedCertificate;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
@@ -89,7 +90,7 @@ import javax.annotation.Nullable;
  *             .name("example-app")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
@@ -98,7 +99,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAppService.customDomainVerificationId())
+ *                 .value(exampleAppService.get("customDomainVerificationId"))
  *                 .build())
  *             .build());
  * 
@@ -107,17 +108,17 @@ import javax.annotation.Nullable;
  *             .zoneName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
- *             .record(exampleAppService.defaultSiteHostname())
+ *             .record(exampleAppService.get("defaultSiteHostname"))
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
- *             .hostname(StdFunctions.join(Map.ofEntries(
- *                 Map.entry("separator", "."),
- *                 Map.entry("input", Arrays.asList(                
+ *             .hostname(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
  *                     exampleCNameRecord.name(),
- *                     exampleCNameRecord.zoneName()))
- *             )).result())
- *             .appServiceName(exampleAppService.name())
+ *                     exampleCNameRecord.zoneName())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *             .appServiceName(exampleAppService.get("name"))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 

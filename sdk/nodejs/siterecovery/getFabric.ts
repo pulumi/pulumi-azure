@@ -45,7 +45,7 @@ export interface GetFabricArgs {
      */
     name: string;
     /**
-     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
      */
     recoveryVaultName: string;
     /**
@@ -111,7 +111,7 @@ export interface GetFabricOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+     * The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**

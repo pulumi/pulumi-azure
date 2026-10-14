@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ImmutableId { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources, and a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `DataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
         /// 
         /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
@@ -78,6 +78,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used for ingesting logs.
+        /// </summary>
+        [Output("logsIngestionEndpoint")]
+        public Output<string> LogsIngestionEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used for ingesting metrics.
+        /// </summary>
+        [Output("metricsIngestionEndpoint")]
+        public Output<string> MetricsIngestionEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
@@ -192,7 +204,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.DataCollectionRuleIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources, and a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `DataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
         /// 
         /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
@@ -298,7 +310,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ImmutableId { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources. And a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `WindowsEventLog` data sources, and a rule of kind `Windows` does not allow for `Syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `DataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
         /// 
         /// &gt; **Note:** Once `Kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
@@ -310,6 +322,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The endpoint used for ingesting logs.
+        /// </summary>
+        [Input("logsIngestionEndpoint")]
+        public Input<string>? LogsIngestionEndpoint { get; set; }
+
+        /// <summary>
+        /// The endpoint used for ingesting metrics.
+        /// </summary>
+        [Input("metricsIngestionEndpoint")]
+        public Input<string>? MetricsIngestionEndpoint { get; set; }
 
         /// <summary>
         /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     agentPublicKeyCertificate: std.filebase64({
  *         input: "testdata/public.cer",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -101,7 +101,7 @@ export class ClusterExtension extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
-     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     declare public readonly extensionType: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export interface ClusterExtensionState {
      */
     currentVersion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     extensionType?: pulumi.Input<string | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface ClusterExtensionArgs {
      */
     configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     extensionType: pulumi.Input<string>;
     /**

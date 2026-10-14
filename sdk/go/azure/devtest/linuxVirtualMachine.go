@@ -60,8 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //				Location:            example.Location,
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
-//				SshKey:              invokeFile.Result,
+//				SshKey:              pulumi.String(invokeFile.Result),
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
 //				StorageType:         pulumi.String("Premium"),

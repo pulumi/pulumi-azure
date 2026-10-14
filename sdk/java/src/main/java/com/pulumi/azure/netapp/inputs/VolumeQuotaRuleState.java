@@ -66,7 +66,7 @@ public final class VolumeQuotaRuleState extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
-     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
      */
     @Import(name="quotaTarget")
@@ -77,7 +77,7 @@ public final class VolumeQuotaRuleState extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
-     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
      */
     public Optional<Output<String>> quotaTarget() {
@@ -211,7 +211,7 @@ public final class VolumeQuotaRuleState extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
-         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VolumeQuotaRuleState extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
-         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
          * 
          * @return builder
          * 

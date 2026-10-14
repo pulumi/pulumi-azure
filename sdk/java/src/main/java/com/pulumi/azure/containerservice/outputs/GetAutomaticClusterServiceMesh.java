@@ -34,7 +34,7 @@ public final class GetAutomaticClusterServiceMesh {
      */
     private String proxyRedirectMechanism;
     /**
-     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
      * 
      */
     private List<String> revisions;
@@ -69,7 +69,7 @@ public final class GetAutomaticClusterServiceMesh {
         return this.proxyRedirectMechanism;
     }
     /**
-     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
      * 
      */
     public List<String> revisions() {

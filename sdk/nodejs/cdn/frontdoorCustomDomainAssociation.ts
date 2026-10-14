@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     name: "example-customDomain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: std.join({
+ *     hostName: std.joinOutput({
  *         separator: ".",
  *         input: [
  *             "contoso",

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -146,7 +146,7 @@ public class NetworkSecurityPerimeterAssociation extends com.pulumi.resources.Cu
      * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
      * 
      * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
-     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behaviour.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
@@ -156,7 +156,7 @@ public class NetworkSecurityPerimeterAssociation extends com.pulumi.resources.Cu
      * @return The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
      * 
      * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
-     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behaviour.
      * 
      */
     public Output<String> resourceId() {

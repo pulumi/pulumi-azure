@@ -910,7 +910,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicProperty(dict):
                  value: _builtins.str):
         """
         :param _builtins.str name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        :param _builtins.str value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        :param _builtins.str value: The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -927,7 +927,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicProperty(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         return pulumi.get(self, "value")
 
@@ -1359,7 +1359,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicProperty(dict):
                  value: _builtins.str):
         """
         :param _builtins.str name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        :param _builtins.str value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        :param _builtins.str value: The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1376,7 +1376,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicProperty(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         return pulumi.get(self, "value")
 

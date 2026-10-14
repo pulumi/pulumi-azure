@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     /**
-     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
      * 
      */
     private @Nullable String backendPoolType;
@@ -62,7 +62,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
 
     private KubernetesClusterNetworkProfileLoadBalancerProfile() {}
     /**
-     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
      * 
      */
     public Optional<String> backendPoolType() {

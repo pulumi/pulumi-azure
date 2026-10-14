@@ -159,8 +159,16 @@ type Account struct {
 	//
 	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+	//
+	// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+	//
+	// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
+	// The `accountReplicationType` that the Storage Account is migrating to.
+	AccountReplicationTypeMigratingTo pulumi.StringOutput `pulumi:"accountReplicationTypeMigratingTo"`
+	// Whether a replication type migration is in progress.
+	AccountReplicationTypeMigrationInProgress pulumi.BoolOutput `pulumi:"accountReplicationTypeMigrationInProgress"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
@@ -301,8 +309,10 @@ type Account struct {
 	PrimaryWebMicrosoftHost pulumi.StringOutput `pulumi:"primaryWebMicrosoftHost"`
 	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
 	ProvisionedBillingModelVersion pulumi.StringPtrOutput `pulumi:"provisionedBillingModelVersion"`
-	// Whether the public network access is enabled? Defaults to `true`.
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
+	// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrOutput `pulumi:"queueEncryptionKeyType"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -457,8 +467,16 @@ type accountState struct {
 	//
 	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+	//
+	// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+	//
+	// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
+	// The `accountReplicationType` that the Storage Account is migrating to.
+	AccountReplicationTypeMigratingTo *string `pulumi:"accountReplicationTypeMigratingTo"`
+	// Whether a replication type migration is in progress.
+	AccountReplicationTypeMigrationInProgress *bool `pulumi:"accountReplicationTypeMigrationInProgress"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
@@ -599,7 +617,9 @@ type accountState struct {
 	PrimaryWebMicrosoftHost *string `pulumi:"primaryWebMicrosoftHost"`
 	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
 	ProvisionedBillingModelVersion *string `pulumi:"provisionedBillingModelVersion"`
-	// Whether the public network access is enabled? Defaults to `true`.
+	// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
@@ -708,8 +728,16 @@ type AccountState struct {
 	//
 	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+	//
+	// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+	//
+	// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 	AccountReplicationType pulumi.StringPtrInput
+	// The `accountReplicationType` that the Storage Account is migrating to.
+	AccountReplicationTypeMigratingTo pulumi.StringPtrInput
+	// Whether a replication type migration is in progress.
+	AccountReplicationTypeMigrationInProgress pulumi.BoolPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
@@ -850,7 +878,9 @@ type AccountState struct {
 	PrimaryWebMicrosoftHost pulumi.StringPtrInput
 	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
 	ProvisionedBillingModelVersion pulumi.StringPtrInput
-	// Whether the public network access is enabled? Defaults to `true`.
+	// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
+	// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrInput
@@ -963,7 +993,11 @@ type accountArgs struct {
 	//
 	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+	//
+	// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+	//
+	// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
@@ -1033,7 +1067,9 @@ type accountArgs struct {
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
 	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
 	ProvisionedBillingModelVersion *string `pulumi:"provisionedBillingModelVersion"`
-	// Whether the public network access is enabled? Defaults to `true`.
+	// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
@@ -1071,7 +1107,11 @@ type AccountArgs struct {
 	//
 	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+	//
+	// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+	//
+	// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
@@ -1141,7 +1181,9 @@ type AccountArgs struct {
 	Nfsv3Enabled pulumi.BoolPtrInput
 	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
 	ProvisionedBillingModelVersion pulumi.StringPtrInput
-	// Whether the public network access is enabled? Defaults to `true`.
+	// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
+	// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrInput
@@ -1270,9 +1312,23 @@ func (o AccountOutput) AccountKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountKind }).(pulumi.StringPtrOutput)
 }
 
-// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+//
+// > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+//
+// > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
 func (o AccountOutput) AccountReplicationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountReplicationType }).(pulumi.StringOutput)
+}
+
+// The `accountReplicationType` that the Storage Account is migrating to.
+func (o AccountOutput) AccountReplicationTypeMigratingTo() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountReplicationTypeMigratingTo }).(pulumi.StringOutput)
+}
+
+// Whether a replication type migration is in progress.
+func (o AccountOutput) AccountReplicationTypeMigrationInProgress() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.AccountReplicationTypeMigrationInProgress }).(pulumi.BoolOutput)
 }
 
 // Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
@@ -1595,9 +1651,14 @@ func (o AccountOutput) ProvisionedBillingModelVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ProvisionedBillingModelVersion }).(pulumi.StringPtrOutput)
 }
 
-// Whether the public network access is enabled? Defaults to `true`.
-func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+func (o AccountOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// Deprecated: `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 // The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

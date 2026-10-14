@@ -1063,7 +1063,7 @@ type AutomaticClusterServiceMeshCertificateAuthority struct {
 	CertificateObjectName string `pulumi:"certificateObjectName"`
 	// The intermediate certificate private key object name in Azure Key Vault.
 	//
-	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 	KeyObjectName string `pulumi:"keyObjectName"`
 	// The resource ID of the Key Vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -1089,7 +1089,7 @@ type AutomaticClusterServiceMeshCertificateAuthorityArgs struct {
 	CertificateObjectName pulumi.StringInput `pulumi:"certificateObjectName"`
 	// The intermediate certificate private key object name in Azure Key Vault.
 	//
-	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 	KeyObjectName pulumi.StringInput `pulumi:"keyObjectName"`
 	// The resource ID of the Key Vault.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -1186,7 +1186,7 @@ func (o AutomaticClusterServiceMeshCertificateAuthorityOutput) CertificateObject
 
 // The intermediate certificate private key object name in Azure Key Vault.
 //
-// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 func (o AutomaticClusterServiceMeshCertificateAuthorityOutput) KeyObjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomaticClusterServiceMeshCertificateAuthority) string { return v.KeyObjectName }).(pulumi.StringOutput)
 }
@@ -1247,7 +1247,7 @@ func (o AutomaticClusterServiceMeshCertificateAuthorityPtrOutput) CertificateObj
 
 // The intermediate certificate private key object name in Azure Key Vault.
 //
-// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 func (o AutomaticClusterServiceMeshCertificateAuthorityPtrOutput) KeyObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomaticClusterServiceMeshCertificateAuthority) *string {
 		if v == nil {
@@ -9044,7 +9044,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	//
 	// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
@@ -9052,7 +9052,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku *string `pulumi:"osSku"`
@@ -9072,7 +9072,7 @@ type KubernetesClusterDefaultNodePool struct {
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
 	Type *string `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
@@ -9149,7 +9149,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	//
 	// > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
@@ -9157,7 +9157,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
@@ -9177,7 +9177,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	TemporaryNameForRotation pulumi.StringPtrInput `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporaryNameForRotation` must be specified when attempting a change.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
@@ -9385,7 +9385,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OnlyCriticalAddonsEnabled() pulu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.OnlyCriticalAddonsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 //
 // > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
@@ -9402,7 +9402,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 //
 // > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
@@ -9443,7 +9443,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) TemporaryNameForRotation() pulum
 
 // The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 //
-// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9713,7 +9713,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OnlyCriticalAddonsEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 //
 // > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
@@ -9745,7 +9745,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 //
 // > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
@@ -9821,7 +9821,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) TemporaryNameForRotation() pu
 
 // The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 //
-// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -11395,7 +11395,7 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOu
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	//
@@ -11421,7 +11421,7 @@ type KubernetesClusterDefaultNodePoolUpgradeSettingsInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes pulumi.IntPtrInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	//
@@ -11512,7 +11512,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClust
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *int { return v.DrainTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -11560,7 +11560,7 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() Kuberne
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *int {
 		if v == nil {
@@ -12724,7 +12724,7 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 }
 
 type KubernetesClusterKeyManagementService struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
@@ -12742,7 +12742,7 @@ type KubernetesClusterKeyManagementServiceInput interface {
 }
 
 type KubernetesClusterKeyManagementServiceArgs struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
@@ -12825,7 +12825,7 @@ func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManag
 	}).(KubernetesClusterKeyManagementServicePtrOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -12859,7 +12859,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) Elem() KubernetesCluster
 	}).(KubernetesClusterKeyManagementServiceOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -16163,7 +16163,7 @@ func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) SecurityEnab
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
-	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
 	BackendPoolType *string `pulumi:"backendPoolType"`
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
@@ -16199,7 +16199,7 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
-	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
 	BackendPoolType pulumi.StringPtrInput `pulumi:"backendPoolType"`
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
@@ -16300,7 +16300,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) BackendPoolType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *string { return v.BackendPoolType }).(pulumi.StringPtrOutput)
 }
@@ -16370,7 +16370,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() Kube
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
 }
 
-// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) BackendPoolType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *string {
 		if v == nil {
@@ -17813,7 +17813,7 @@ type KubernetesClusterNodePoolNodeNetworkProfile struct {
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -17835,7 +17835,7 @@ type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -17930,7 +17930,7 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ApplicationSecurityGr
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
-// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
 }
@@ -17981,7 +17981,7 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ApplicationSecurit
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
-// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -18107,7 +18107,7 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) I
 }
 
 type KubernetesClusterNodePoolUpgradeSettings struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes *int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge *string `pulumi:"maxSurge"`
@@ -18133,7 +18133,7 @@ type KubernetesClusterNodePoolUpgradeSettingsInput interface {
 }
 
 type KubernetesClusterNodePoolUpgradeSettingsArgs struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 	DrainTimeoutInMinutes pulumi.IntPtrInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
@@ -18224,7 +18224,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodeP
 	}).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *int { return v.DrainTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -18275,7 +18275,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClus
 	}).(KubernetesClusterNodePoolUpgradeSettingsOutput)
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) DrainTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *int {
 		if v == nil {
@@ -19173,7 +19173,7 @@ type KubernetesClusterServiceMeshProfileCertificateAuthority struct {
 	CertObjectName string `pulumi:"certObjectName"`
 	// The intermediate certificate private key object name in Azure Key Vault.
 	//
-	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 	KeyObjectName string `pulumi:"keyObjectName"`
 	// The resource ID of the Key Vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -19199,7 +19199,7 @@ type KubernetesClusterServiceMeshProfileCertificateAuthorityArgs struct {
 	CertObjectName pulumi.StringInput `pulumi:"certObjectName"`
 	// The intermediate certificate private key object name in Azure Key Vault.
 	//
-	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 	KeyObjectName pulumi.StringInput `pulumi:"keyObjectName"`
 	// The resource ID of the Key Vault.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -19296,7 +19296,7 @@ func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) CertObjec
 
 // The intermediate certificate private key object name in Azure Key Vault.
 //
-// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) KeyObjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.KeyObjectName }).(pulumi.StringOutput)
 }
@@ -19357,7 +19357,7 @@ func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) CertOb
 
 // The intermediate certificate private key object name in Azure Key Vault.
 //
-// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
 func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) KeyObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
 		if v == nil {
@@ -25379,7 +25379,7 @@ type GetAutomaticClusterServiceMesh struct {
 	InternalIngressGatewayEnabled bool `pulumi:"internalIngressGatewayEnabled"`
 	// The proxy redirect mechanism configured for the Istio service mesh.
 	ProxyRedirectMechanism string `pulumi:"proxyRedirectMechanism"`
-	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
 	Revisions []string `pulumi:"revisions"`
 }
 
@@ -25403,7 +25403,7 @@ type GetAutomaticClusterServiceMeshArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"internalIngressGatewayEnabled"`
 	// The proxy redirect mechanism configured for the Istio service mesh.
 	ProxyRedirectMechanism pulumi.StringInput `pulumi:"proxyRedirectMechanism"`
-	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
 	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
 }
 
@@ -25480,7 +25480,7 @@ func (o GetAutomaticClusterServiceMeshOutput) ProxyRedirectMechanism() pulumi.St
 	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) string { return v.ProxyRedirectMechanism }).(pulumi.StringOutput)
 }
 
-// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
 func (o GetAutomaticClusterServiceMeshOutput) Revisions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) []string { return v.Revisions }).(pulumi.StringArrayOutput)
 }
@@ -25882,7 +25882,7 @@ func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput)
 }
 
 type GetClusterNodePoolUpgradeSetting struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
@@ -25906,7 +25906,7 @@ type GetClusterNodePoolUpgradeSettingInput interface {
 }
 
 type GetClusterNodePoolUpgradeSettingArgs struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
@@ -25969,7 +25969,7 @@ func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSetti
 	return o
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 func (o GetClusterNodePoolUpgradeSettingOutput) DrainTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) int { return v.DrainTimeoutInMinutes }).(pulumi.IntOutput)
 }
@@ -26491,7 +26491,7 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSetting struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge       string `pulumi:"maxSurge"`
@@ -26514,7 +26514,7 @@ type GetKubernetesClusterAgentPoolProfileUpgradeSettingInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs struct {
-	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes pulumi.IntInput `pulumi:"drainTimeoutInMinutes"`
 	// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
 	MaxSurge       pulumi.StringInput `pulumi:"maxSurge"`
@@ -26576,7 +26576,7 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernete
 	return o
 }
 
-// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) DrainTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) int { return v.DrainTimeoutInMinutes }).(pulumi.IntOutput)
 }
@@ -27230,7 +27230,7 @@ func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 }
 
 type GetKubernetesClusterKeyManagementService struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
 	KeyVaultNetworkAccess string `pulumi:"keyVaultNetworkAccess"`
@@ -27248,7 +27248,7 @@ type GetKubernetesClusterKeyManagementServiceInput interface {
 }
 
 type GetKubernetesClusterKeyManagementServiceArgs struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
 	KeyVaultNetworkAccess pulumi.StringInput `pulumi:"keyVaultNetworkAccess"`
@@ -27305,7 +27305,7 @@ func (o GetKubernetesClusterKeyManagementServiceOutput) ToGetKubernetesClusterKe
 	return o
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 func (o GetKubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }

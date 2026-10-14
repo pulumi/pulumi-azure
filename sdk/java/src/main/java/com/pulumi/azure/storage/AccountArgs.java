@@ -63,14 +63,22 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     * 
+     * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     * 
+     * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      * 
      */
     @Import(name="accountReplicationType", required=true)
     private Output<String> accountReplicationType;
 
     /**
-     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * @return Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     * 
+     * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     * 
+     * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      * 
      */
     public Output<String> accountReplicationType() {
@@ -478,16 +486,35 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
+     * @deprecated
+     * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether the public network access is enabled? Defaults to `true`.
+     * @deprecated
+     * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -673,6 +700,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.networkRules = $.networkRules;
         this.nfsv3Enabled = $.nfsv3Enabled;
         this.provisionedBillingModelVersion = $.provisionedBillingModelVersion;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
         this.resourceGroupName = $.resourceGroupName;
@@ -750,7 +778,11 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+         * 
+         * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+         * 
+         * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
          * 
          * @return builder
          * 
@@ -761,7 +793,11 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+         * 
+         * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+         * 
+         * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
          * 
          * @return builder
          * 
@@ -1315,22 +1351,47 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
+         * @param publicNetworkAccess The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
          */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }

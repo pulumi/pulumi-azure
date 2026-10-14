@@ -46,12 +46,12 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const reader = new azuread.index.DirectoryRole("reader", {displayName: "Directory Readers"});
- * const exampleDirectoryRoleMember = new azuread.index.DirectoryRoleMember("example", {
+ * const reader = new azuread.DirectoryRole("reader", {displayName: "Directory Readers"});
+ * const exampleDirectoryRoleMember = new azuread.DirectoryRoleMember("example", {
  *     roleObjectId: reader.objectId,
- *     memberObjectId: exampleManagedInstance.identity?.principalId,
+ *     memberObjectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
  * });
- * const admin = new azuread.index.User("admin", {
+ * const admin = new azuread.User("admin", {
  *     userPrincipalName: "ms.admin@example.com",
  *     displayName: "Ms Admin",
  *     mailNickname: "ms.admin",
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *

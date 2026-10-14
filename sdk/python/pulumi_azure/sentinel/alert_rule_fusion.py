@@ -171,7 +171,7 @@ class AlertRuleFusion(pulumi.CustomResource):
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]]] = None,
                  __props__=None):
         """
         Manages a Sentinel Fusion Alert Rule.
@@ -217,7 +217,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]] sources: One or more `source` blocks as defined below.
         """
         ...
     @overload
@@ -282,7 +282,7 @@ class AlertRuleFusion(pulumi.CustomResource):
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,7 +313,7 @@ class AlertRuleFusion(pulumi.CustomResource):
             alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None) -> 'AlertRuleFusion':
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]]] = None) -> 'AlertRuleFusion':
         """
         Get an existing AlertRuleFusion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -324,7 +324,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]] sources: One or more `source` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -22,6 +22,11 @@ __all__ = [
     'ServiceNetworkAclPublicNetwork',
     'ServiceSku',
     'ServiceUpstreamEndpoint',
+    'GetServiceCorResult',
+    'GetServiceIdentityResult',
+    'GetServiceLiveTraceResult',
+    'GetServiceSkusResult',
+    'GetServiceUpstreamEndpointResult',
 ]
 
 @pulumi.output_type
@@ -458,6 +463,217 @@ class ServiceUpstreamEndpoint(dict):
     def user_assigned_identity_id(self) -> Optional[_builtins.str]:
         """
         Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetServiceCorResult(dict):
+    def __init__(__self__, *,
+                 allowed_origins: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] allowed_origins: A list of origins which should be able to make cross-origin calls.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[_builtins.str]:
+        """
+        A list of origins which should be able to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+
+@pulumi.output_type
+class GetServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to the SignalR service.
+        :param _builtins.str principal_id: The principal id of the system assigned identity.
+        :param _builtins.str tenant_id: The tenant id of the system assigned identity.
+        :param _builtins.str type: The type of identity used for the signalR service.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to the SignalR service.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal id of the system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant id of the system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of identity used for the signalR service.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceLiveTraceResult(dict):
+    def __init__(__self__, *,
+                 connectivity_logs_enabled: _builtins.bool,
+                 enabled: _builtins.bool,
+                 http_request_logs_enabled: _builtins.bool,
+                 messaging_logs_enabled: _builtins.bool):
+        """
+        :param _builtins.bool connectivity_logs_enabled: Whether the log category `ConnectivityLogs` is enabled.
+        :param _builtins.bool enabled: Whether live trace is enabled.
+        :param _builtins.bool http_request_logs_enabled: Whether the log category `HttpRequestLogs` is enabled.
+        :param _builtins.bool messaging_logs_enabled: Whether the log category `MessagingLogs` is enabled.
+        """
+        pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
+        pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `ConnectivityLogs` is enabled.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether live trace is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `HttpRequestLogs` is enabled.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `MessagingLogs` is enabled.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
+
+
+@pulumi.output_type
+class GetServiceSkusResult(dict):
+    def __init__(__self__, *,
+                 capacity: _builtins.int,
+                 name: _builtins.str):
+        """
+        :param _builtins.int capacity: The capacity of the SKU.
+        :param _builtins.str name: Specifies the name of the SignalR service.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> _builtins.int:
+        """
+        The capacity of the SKU.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Specifies the name of the SignalR service.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetServiceUpstreamEndpointResult(dict):
+    def __init__(__self__, *,
+                 category_patterns: Sequence[_builtins.str],
+                 event_patterns: Sequence[_builtins.str],
+                 hub_patterns: Sequence[_builtins.str],
+                 url_template: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
+        """
+        :param Sequence[_builtins.str] category_patterns: The pattern that categories match on.
+        :param Sequence[_builtins.str] event_patterns: The pattern that events match on.
+        :param Sequence[_builtins.str] hub_patterns: The pattern that hubs match on.
+        :param _builtins.str url_template: The upstream URL Template.
+        :param _builtins.str user_assigned_identity_id: The Managed Identity ID assigned to this SignalR upstream setting.
+        """
+        pulumi.set(__self__, "category_patterns", category_patterns)
+        pulumi.set(__self__, "event_patterns", event_patterns)
+        pulumi.set(__self__, "hub_patterns", hub_patterns)
+        pulumi.set(__self__, "url_template", url_template)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="categoryPatterns")
+    def category_patterns(self) -> Sequence[_builtins.str]:
+        """
+        The pattern that categories match on.
+        """
+        return pulumi.get(self, "category_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="eventPatterns")
+    def event_patterns(self) -> Sequence[_builtins.str]:
+        """
+        The pattern that events match on.
+        """
+        return pulumi.get(self, "event_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="hubPatterns")
+    def hub_patterns(self) -> Sequence[_builtins.str]:
+        """
+        The pattern that hubs match on.
+        """
+        return pulumi.get(self, "hub_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> _builtins.str:
+        """
+        The upstream URL Template.
+        """
+        return pulumi.get(self, "url_template")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The Managed Identity ID assigned to this SignalR upstream setting.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 

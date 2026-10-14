@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .name("examplefunctionapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .osType("linux")
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .name("exampleoutput")
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .streamAnalyticsJobName(exampleJob.name())
- *             .functionApp(exampleFunctionApp.name())
+ *             .functionApp(exampleFunctionApp.get("name"))
  *             .functionName("examplefunctionname")
  *             .apiKey("exampleapikey")
  *             .build());

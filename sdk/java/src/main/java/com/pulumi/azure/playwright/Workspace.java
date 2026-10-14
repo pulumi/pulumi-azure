@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:playwright/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
+     * The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
      * 
      */
     @Export(name="dataplaneUri", refs={String.class}, tree="[0]")
     private Output<String> dataplaneUri;
 
     /**
-     * @return The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/en-us/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
+     * @return The data plane service API URI of the Playwright Workspace. The format of URI is `https://{location}.api.playwright.microsoft.com/playwrightworkspaces/{uuid}`. To use the Playwright Workspace remote browsers, apply the URI according to the [documentation](https://learn.microsoft.com/azure/app-testing/playwright-workspaces/quickstart-run-end-to-end-tests?tabs=playwrightcli&amp;pivots=playwright-test-runner#configure-the-browser-endpoint).
      * 
      */
     public Output<String> dataplaneUri() {
@@ -107,14 +107,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name which should be used for this Playwright Workspace.
+     * The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Playwright Workspace.
+     * @return The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      * 
      */
     public Output<String> name() {

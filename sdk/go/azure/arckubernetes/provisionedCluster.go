@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/arckubernetes"
 //	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
-//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,11 +42,11 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := azuread.NewGroup(ctx, "example", &azuread.GroupArgs{
-//				DisplayName: "example-adg",
-//				Owners: []*string{
-//					current.ObjectId,
+//				DisplayName: pulumi.String("example-adg"),
+//				Owners: pulumi.StringArray{
+//					pulumi.String(current.ObjectId),
 //				},
-//				SecurityEnabled: true,
+//				SecurityEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -58,7 +58,7 @@ import (
 //				AzureActiveDirectory: &arckubernetes.ProvisionedClusterAzureActiveDirectoryArgs{
 //					AzureRbacEnabled: pulumi.Bool(true),
 //					AdminGroupObjectIds: pulumi.StringArray{
-//						exampleGroup.Id,
+//						exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					TenantId: pulumi.String(current.TenantId),
 //				},

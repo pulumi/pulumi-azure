@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ProxyRedirectMechanism;
         /// <summary>
-        /// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+        /// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
         /// </summary>
         public readonly ImmutableArray<string> Revisions;
 

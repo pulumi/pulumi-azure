@@ -18,7 +18,7 @@ import (
 //
 // > **Note:** The **first** bucket on a volume must be created with the `netapp.VolumeBucketWithServer` resource, which sets up the shared bucket server (FQDN and certificate). Every additional bucket on the same volume is then created with this server-less resource. Declaring a `server` block on more than one bucket would overwrite the shared server configuration, which is why this resource intentionally does not expose one.
 //
-// > **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
+// > **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
 //
 // > **Note:** Buckets are supported on cool-access and large NetApp volumes. Buckets are not supported on cache volumes. Deleting the parent volume cascade-deletes its buckets.
 //
@@ -148,8 +148,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
-//				"input": fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -164,7 +164,7 @@ import (
 //				},
 //				Server: &netapp.VolumeBucketWithServerServerArgs{
 //					Fqdn:           pulumi.String("example-bucket.example.internal"),
-//					CertificatePem: invokeBase64encode.Result,
+//					CertificatePem: pulumi.String(invokeBase64encode.Result),
 //				},
 //			})
 //			if err != nil {
@@ -195,7 +195,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2026-01-01
+// * `Microsoft.NetApp` - 2026-05-01
 //
 // ## Import
 //

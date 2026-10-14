@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.CustomHostnameBinding;
  * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.TrimArgs;
  * import com.pulumi.azure.appservice.ManagedCertificate;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
@@ -78,7 +79,7 @@ import javax.annotation.Nullable;
  *             .name("mywebapp")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
@@ -91,7 +92,7 @@ import javax.annotation.Nullable;
  *             .zoneName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
- *             .record(exampleAppService.defaultSiteHostname())
+ *             .record(exampleAppService.get("defaultSiteHostname"))
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
@@ -100,16 +101,16 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAppService.customDomainVerificationId())
+ *                 .value(exampleAppService.get("customDomainVerificationId"))
  *                 .build())
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
- *             .hostname(StdFunctions.trim(Map.ofEntries(
- *                 Map.entry("input", exampleCNameRecord.fqdn()),
- *                 Map.entry("cutset", ".")
- *             )).result())
- *             .appServiceName(exampleAppService.name())
+ *             .hostname(StdFunctions.trim(TrimArgs.builder()
+ *                 .input(exampleCNameRecord.fqdn())
+ *                 .cutset(".")
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *             .appServiceName(exampleAppService.get("name"))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleTxtRecord)

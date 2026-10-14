@@ -131,7 +131,7 @@ def get_network_manager_network_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Network Manager Network Group.
@@ -189,7 +189,7 @@ def get_network_manager_network_group_output(name: pulumi.Input[Optional[_builti
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Network Manager Network Group.

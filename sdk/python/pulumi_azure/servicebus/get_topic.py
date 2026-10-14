@@ -26,7 +26,7 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, default_message_ttl=None, duplicate_detection_history_time_window=None, express_enabled=None, id=None, max_size_in_megabytes=None, name=None, namespace_id=None, partitioning_enabled=None, requires_duplicate_detection=None, status=None, support_ordering=None):
+    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, default_message_ttl=None, duplicate_detection_history_time_window=None, express_enabled=None, id=None, max_size_in_megabytes=None, maximum_message_size_in_kb=None, name=None, namespace_id=None, partitioning_enabled=None, requires_duplicate_detection=None, status=None, support_ordering=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -48,6 +48,9 @@ class GetTopicResult:
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+        if maximum_message_size_in_kb and not isinstance(maximum_message_size_in_kb, int):
+            raise TypeError("Expected argument 'maximum_message_size_in_kb' to be a int")
+        pulumi.set(__self__, "maximum_message_size_in_kb", maximum_message_size_in_kb)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -124,6 +127,14 @@ class GetTopicResult:
         return pulumi.get(self, "max_size_in_megabytes")
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSizeInKb")
+    def maximum_message_size_in_kb(self) -> _builtins.int:
+        """
+        Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+        """
+        return pulumi.get(self, "maximum_message_size_in_kb")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -179,6 +190,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             express_enabled=self.express_enabled,
             id=self.id,
             max_size_in_megabytes=self.max_size_in_megabytes,
+            maximum_message_size_in_kb=self.maximum_message_size_in_kb,
             name=self.name,
             namespace_id=self.namespace_id,
             partitioning_enabled=self.partitioning_enabled,
@@ -209,7 +221,7 @@ def get_topic(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Topic.
@@ -229,6 +241,7 @@ def get_topic(name: Optional[_builtins.str] = None,
         express_enabled=pulumi.get(__ret__, 'express_enabled'),
         id=pulumi.get(__ret__, 'id'),
         max_size_in_megabytes=pulumi.get(__ret__, 'max_size_in_megabytes'),
+        maximum_message_size_in_kb=pulumi.get(__ret__, 'maximum_message_size_in_kb'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
         partitioning_enabled=pulumi.get(__ret__, 'partitioning_enabled'),
@@ -257,7 +270,7 @@ def get_topic_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of this Service Bus Topic.
@@ -276,6 +289,7 @@ def get_topic_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         express_enabled=pulumi.get(__response__, 'express_enabled'),
         id=pulumi.get(__response__, 'id'),
         max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
+        maximum_message_size_in_kb=pulumi.get(__response__, 'maximum_message_size_in_kb'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
         partitioning_enabled=pulumi.get(__response__, 'partitioning_enabled'),

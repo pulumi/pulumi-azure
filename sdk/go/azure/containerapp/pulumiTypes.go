@@ -1337,7 +1337,7 @@ type AppRegistry struct {
 	Identity *string `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName *string `pulumi:"passwordSecretName"`
-	// The hostname for the Container Registry.
+	// The FQDN for the Container Registry.
 	//
 	// The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 	Server string `pulumi:"server"`
@@ -1363,7 +1363,7 @@ type AppRegistryArgs struct {
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
-	// The hostname for the Container Registry.
+	// The FQDN for the Container Registry.
 	//
 	// The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 	Server pulumi.StringInput `pulumi:"server"`
@@ -1434,7 +1434,7 @@ func (o AppRegistryOutput) PasswordSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistry) *string { return v.PasswordSecretName }).(pulumi.StringPtrOutput)
 }
 
-// The hostname for the Container Registry.
+// The FQDN for the Container Registry.
 //
 // The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 func (o AppRegistryOutput) Server() pulumi.StringOutput {
@@ -4730,7 +4730,7 @@ func (o AppTemplateVolumeArrayOutput) Index(i pulumi.IntInput) AppTemplateVolume
 type EnvironmentCertificateCertificateKeyVault struct {
 	// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
 	Identity *string `pulumi:"identity"`
 	// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
@@ -4750,7 +4750,7 @@ type EnvironmentCertificateCertificateKeyVaultInput interface {
 type EnvironmentCertificateCertificateKeyVaultArgs struct {
 	// The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+	// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
 	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
@@ -4835,7 +4835,7 @@ func (o EnvironmentCertificateCertificateKeyVaultOutput) ToEnvironmentCertificat
 
 // The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 //
-// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
 func (o EnvironmentCertificateCertificateKeyVaultOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentCertificateCertificateKeyVault) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
@@ -4871,7 +4871,7 @@ func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) Elem() EnvironmentCe
 
 // The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 //
-// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+// > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
 func (o EnvironmentCertificateCertificateKeyVaultPtrOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentCertificateCertificateKeyVault) *string {
 		if v == nil {
@@ -9709,7 +9709,7 @@ type GetAppRegistry struct {
 	Identity string `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for the user on the Container Registry.
 	PasswordSecretName string `pulumi:"passwordSecretName"`
-	// The hostname for the Container Registry.
+	// The FQDN for the Container Registry.
 	Server string `pulumi:"server"`
 	// The username used for this Container Registry.
 	Username string `pulumi:"username"`
@@ -9731,7 +9731,7 @@ type GetAppRegistryArgs struct {
 	Identity pulumi.StringInput `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for the user on the Container Registry.
 	PasswordSecretName pulumi.StringInput `pulumi:"passwordSecretName"`
-	// The hostname for the Container Registry.
+	// The FQDN for the Container Registry.
 	Server pulumi.StringInput `pulumi:"server"`
 	// The username used for this Container Registry.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -9798,7 +9798,7 @@ func (o GetAppRegistryOutput) PasswordSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.PasswordSecretName }).(pulumi.StringOutput)
 }
 
-// The hostname for the Container Registry.
+// The FQDN for the Container Registry.
 func (o GetAppRegistryOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.Server }).(pulumi.StringOutput)
 }

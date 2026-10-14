@@ -212,7 +212,7 @@ def get_lb_rule(loadbalancer_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.
@@ -252,7 +252,7 @@ def get_lb_rule_output(loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.

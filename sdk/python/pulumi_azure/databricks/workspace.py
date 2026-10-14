@@ -878,7 +878,7 @@ class Workspace(pulumi.CustomResource):
 
         * `Microsoft.Databricks` - 2026-01-01
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -965,7 +965,7 @@ class Workspace(pulumi.CustomResource):
 
         * `Microsoft.Databricks` - 2026-01-01
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 

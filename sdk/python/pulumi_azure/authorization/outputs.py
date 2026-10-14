@@ -101,25 +101,23 @@ class GetRoleDefinitionPermissionResult(dict):
                  actions: Sequence[_builtins.str],
                  condition: _builtins.str,
                  condition_version: _builtins.str,
+                 data_actions: Sequence[_builtins.str],
                  not_actions: Sequence[_builtins.str],
-                 data_actions: Optional[Sequence[_builtins.str]] = None,
-                 not_data_actions: Optional[Sequence[_builtins.str]] = None):
+                 not_data_actions: Sequence[_builtins.str]):
         """
         :param Sequence[_builtins.str] actions: A list of actions supported by this role.
         :param _builtins.str condition: The conditions on this role definition, which limits the resources it can be assigned to.
         :param _builtins.str condition_version: The version of the condition.
-        :param Sequence[_builtins.str] not_actions: A list of actions which are denied by this role.
         :param Sequence[_builtins.str] data_actions: A list of data actions allowed by this role.
+        :param Sequence[_builtins.str] not_actions: A list of actions which are denied by this role.
         :param Sequence[_builtins.str] not_data_actions: A list of data actions which are denied by this role.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "condition_version", condition_version)
+        pulumi.set(__self__, "data_actions", data_actions)
         pulumi.set(__self__, "not_actions", not_actions)
-        if data_actions is not None:
-            pulumi.set(__self__, "data_actions", data_actions)
-        if not_data_actions is not None:
-            pulumi.set(__self__, "not_data_actions", not_data_actions)
+        pulumi.set(__self__, "not_data_actions", not_data_actions)
 
     @_builtins.property
     @pulumi.getter
@@ -146,6 +144,14 @@ class GetRoleDefinitionPermissionResult(dict):
         return pulumi.get(self, "condition_version")
 
     @_builtins.property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Sequence[_builtins.str]:
+        """
+        A list of data actions allowed by this role.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @_builtins.property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Sequence[_builtins.str]:
         """
@@ -154,16 +160,8 @@ class GetRoleDefinitionPermissionResult(dict):
         return pulumi.get(self, "not_actions")
 
     @_builtins.property
-    @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of data actions allowed by this role.
-        """
-        return pulumi.get(self, "data_actions")
-
-    @_builtins.property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[Sequence[_builtins.str]]:
+    def not_data_actions(self) -> Sequence[_builtins.str]:
         """
         A list of data actions which are denied by this role.
         """

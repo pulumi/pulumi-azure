@@ -217,7 +217,7 @@ class TxtRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict']]]]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict', 'outputs.TxtRecordRecord']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -265,7 +265,7 @@ class TxtRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict', 'outputs.TxtRecordRecord']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         """
@@ -332,7 +332,7 @@ class TxtRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict']]]]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict', 'outputs.TxtRecordRecord']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -369,7 +369,7 @@ class TxtRecord(pulumi.CustomResource):
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict']]]]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict', 'outputs.TxtRecordRecord']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None) -> 'TxtRecord':
         """
@@ -382,7 +382,7 @@ class TxtRecord(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS TXT Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TxtRecordRecordArgs', 'TxtRecordRecordArgsDict', 'outputs.TxtRecordRecord']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         """

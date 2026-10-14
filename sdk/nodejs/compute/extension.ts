@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *         username: "adminuser",
  *         publicKey: std.file({
  *             input: "~/.ssh/id_rsa.pub",
- *         }).result,
+ *         }).then(invoke => invoke.result),
  *     }],
  *     osDisk: {
  *         caching: "ReadWrite",

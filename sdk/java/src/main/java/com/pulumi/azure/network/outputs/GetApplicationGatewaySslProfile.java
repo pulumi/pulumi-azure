@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewaySslProfile {
     /**
+     * @return The client authentication mode used by the SSL Profile.
+     * 
+     */
+    private String clientAuthenticationMode;
+    /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
@@ -24,12 +29,12 @@ public final class GetApplicationGatewaySslProfile {
      */
     private String name;
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     private List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies;
     /**
-     * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * @return The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     private List<String> trustedClientCertificateNames;
@@ -46,6 +51,13 @@ public final class GetApplicationGatewaySslProfile {
 
     private GetApplicationGatewaySslProfile() {}
     /**
+     * @return The client authentication mode used by the SSL Profile.
+     * 
+     */
+    public String clientAuthenticationMode() {
+        return this.clientAuthenticationMode;
+    }
+    /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
@@ -60,14 +72,14 @@ public final class GetApplicationGatewaySslProfile {
         return this.name;
     }
     /**
-     * @return a `sslPolicy` block as defined below.
+     * @return An `sslPolicy` block as defined below.
      * 
      */
     public List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies() {
         return this.sslPolicies;
     }
     /**
-     * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+     * @return The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
      * 
      */
     public List<String> trustedClientCertificateNames() {
@@ -97,6 +109,7 @@ public final class GetApplicationGatewaySslProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String clientAuthenticationMode;
         private String id;
         private String name;
         private List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies;
@@ -106,6 +119,7 @@ public final class GetApplicationGatewaySslProfile {
         public Builder() {}
         public Builder(GetApplicationGatewaySslProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clientAuthenticationMode = defaults.clientAuthenticationMode;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.sslPolicies = defaults.sslPolicies;
@@ -114,6 +128,14 @@ public final class GetApplicationGatewaySslProfile {
     	      this.verifyClientCertificateRevocation = defaults.verifyClientCertificateRevocation;
         }
 
+        @CustomType.Setter
+        public Builder clientAuthenticationMode(String clientAuthenticationMode) {
+            if (clientAuthenticationMode == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "clientAuthenticationMode");
+            }
+            this.clientAuthenticationMode = clientAuthenticationMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -170,6 +192,7 @@ public final class GetApplicationGatewaySslProfile {
         }
         public GetApplicationGatewaySslProfile build() {
             final var _resultValue = new GetApplicationGatewaySslProfile();
+            _resultValue.clientAuthenticationMode = clientAuthenticationMode;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.sslPolicies = sslPolicies;

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
@@ -172,6 +172,10 @@ namespace Pulumi.Azure.Network
     public sealed class GetPublicIpPrefixResult
     {
         /// <summary>
+        /// The Custom IP Prefix ID associated with the Public IP Prefix.
+        /// </summary>
+        public readonly string CustomIpPrefixId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -179,6 +183,10 @@ namespace Pulumi.Azure.Network
         /// The Public IP address range, in CIDR notation.
         /// </summary>
         public readonly string IpPrefix;
+        /// <summary>
+        /// The IP Version in use.
+        /// </summary>
+        public readonly string IpVersion;
         /// <summary>
         /// The supported Azure location where the resource exists.
         /// </summary>
@@ -208,9 +216,13 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetPublicIpPrefixResult(
+            string customIpPrefixId,
+
             string id,
 
             string ipPrefix,
+
+            string ipVersion,
 
             string location,
 
@@ -228,8 +240,10 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> zones)
         {
+            CustomIpPrefixId = customIpPrefixId;
             Id = id;
             IpPrefix = ipPrefix;
+            IpVersion = ipVersion;
             Location = location;
             Name = name;
             PrefixLength = prefixLength;

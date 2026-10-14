@@ -115,11 +115,11 @@ import javax.annotation.Nullable;
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", VirtualNetworkSwiftConnectionArgs.builder()
- *             .appServiceId(exampleAppService.id())
+ *             .appServiceId(exampleAppService.get("id"))
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
@@ -214,13 +214,13 @@ import javax.annotation.Nullable;
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAppServicePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .build());
  * 
  *         var exampleVirtualNetworkSwiftConnection = new VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", VirtualNetworkSwiftConnectionArgs.builder()
- *             .appServiceId(exampleFunctionApp.id())
+ *             .appServiceId(exampleFunctionApp.get("id"))
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 

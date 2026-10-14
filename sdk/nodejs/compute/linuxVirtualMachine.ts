@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *         username: "adminuser",
  *         publicKey: std.file({
  *             input: "~/.ssh/id_rsa.pub",
- *         }).result,
+ *         }).then(invoke => invoke.result),
  *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
@@ -191,7 +191,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -602,7 +602,7 @@ export interface LinuxVirtualMachineState {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -869,7 +869,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */

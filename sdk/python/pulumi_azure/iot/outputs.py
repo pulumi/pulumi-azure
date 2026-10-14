@@ -1149,6 +1149,10 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
         suggest = None
         if key == "connectionString":
             suggest = "connection_string"
+        elif key == "connectionStringWo":
+            suggest = "connection_string_wo"
+        elif key == "connectionStringWoVersion":
+            suggest = "connection_string_wo_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IotHubDeviceUpdateInstanceDiagnosticStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -1162,22 +1166,26 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_string: _builtins.str,
-                 id: _builtins.str):
+                 id: _builtins.str,
+                 connection_string: Optional[_builtins.str] = None,
+                 connection_string_wo: Optional[_builtins.str] = None,
+                 connection_string_wo_version: Optional[_builtins.int] = None):
         """
-        :param _builtins.str connection_string: Connection String of the Diagnostic Storage Account.
         :param _builtins.str id: Resource ID of the Diagnostic Storage Account.
+        :param _builtins.str connection_string: Connection String of the Diagnostic Storage Account.
+        :param _builtins.str connection_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Connection String of the Diagnostic Storage Account.
+               
+               > **Note:** Exactly one of `connection_string` or `connection_string_wo` must be specified.
+        :param _builtins.int connection_string_wo_version: An integer value used to trigger an update for `connection_string_wo`. Possible values are integers greater than `1`.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> _builtins.str:
-        """
-        Connection String of the Diagnostic Storage Account.
-        """
-        return pulumi.get(self, "connection_string")
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if connection_string_wo is not None:
+            pulumi.set(__self__, "connection_string_wo", connection_string_wo)
+        if connection_string_wo_version is not None:
+            pulumi.set(__self__, "connection_string_wo_version", connection_string_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -1186,6 +1194,33 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
         Resource ID of the Diagnostic Storage Account.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[_builtins.str]:
+        """
+        Connection String of the Diagnostic Storage Account.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionStringWo")
+    def connection_string_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Connection String of the Diagnostic Storage Account.
+
+        > **Note:** Exactly one of `connection_string` or `connection_string_wo` must be specified.
+        """
+        return pulumi.get(self, "connection_string_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionStringWoVersion")
+    def connection_string_wo_version(self) -> Optional[_builtins.int]:
+        """
+        An integer value used to trigger an update for `connection_string_wo`. Possible values are integers greater than `1`.
+        """
+        return pulumi.get(self, "connection_string_wo_version")
 
 
 @pulumi.output_type

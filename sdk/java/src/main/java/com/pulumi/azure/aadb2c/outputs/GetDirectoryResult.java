@@ -17,7 +17,7 @@ public final class GetDirectoryResult {
      */
     private String billingType;
     /**
-     * @return Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+     * @return Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
      * 
      */
     private String dataResidencyLocation;
@@ -58,7 +58,7 @@ public final class GetDirectoryResult {
         return this.billingType;
     }
     /**
-     * @return Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+     * @return Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
      * 
      */
     public String dataResidencyLocation() {

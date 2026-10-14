@@ -25,10 +25,25 @@ public final class GetNetworkInterfaceResult {
      */
     private List<String> appliedDnsServers;
     /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+     * 
+     */
+    private String auxiliaryMode;
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+     * 
+     */
+    private String auxiliarySku;
+    /**
      * @return The list of DNS servers used by the specified Network Interface.
      * 
      */
     private List<String> dnsServers;
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+     * 
+     */
+    private String edgeZone;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -39,6 +54,11 @@ public final class GetNetworkInterfaceResult {
      * 
      */
     private String internalDnsNameLabel;
+    /**
+     * @return Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+     * 
+     */
+    private String internalDomainNameSuffix;
     /**
      * @return One or more `ipConfiguration` blocks as defined below.
      * 
@@ -107,11 +127,32 @@ public final class GetNetworkInterfaceResult {
         return this.appliedDnsServers;
     }
     /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+     * 
+     */
+    public String auxiliaryMode() {
+        return this.auxiliaryMode;
+    }
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+     * 
+     */
+    public String auxiliarySku() {
+        return this.auxiliarySku;
+    }
+    /**
      * @return The list of DNS servers used by the specified Network Interface.
      * 
      */
     public List<String> dnsServers() {
         return this.dnsServers;
+    }
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+     * 
+     */
+    public String edgeZone() {
+        return this.edgeZone;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -126,6 +167,13 @@ public final class GetNetworkInterfaceResult {
      */
     public String internalDnsNameLabel() {
         return this.internalDnsNameLabel;
+    }
+    /**
+     * @return Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+     * 
+     */
+    public String internalDomainNameSuffix() {
+        return this.internalDomainNameSuffix;
     }
     /**
      * @return One or more `ipConfiguration` blocks as defined below.
@@ -212,9 +260,13 @@ public final class GetNetworkInterfaceResult {
     public static final class Builder {
         private Boolean acceleratedNetworkingEnabled;
         private List<String> appliedDnsServers;
+        private String auxiliaryMode;
+        private String auxiliarySku;
         private List<String> dnsServers;
+        private String edgeZone;
         private String id;
         private String internalDnsNameLabel;
+        private String internalDomainNameSuffix;
         private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
         private Boolean ipForwardingEnabled;
         private String location;
@@ -231,9 +283,13 @@ public final class GetNetworkInterfaceResult {
     	      Objects.requireNonNull(defaults);
     	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.appliedDnsServers = defaults.appliedDnsServers;
+    	      this.auxiliaryMode = defaults.auxiliaryMode;
+    	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
+    	      this.edgeZone = defaults.edgeZone;
     	      this.id = defaults.id;
     	      this.internalDnsNameLabel = defaults.internalDnsNameLabel;
+    	      this.internalDomainNameSuffix = defaults.internalDomainNameSuffix;
     	      this.ipConfigurations = defaults.ipConfigurations;
     	      this.ipForwardingEnabled = defaults.ipForwardingEnabled;
     	      this.location = defaults.location;
@@ -267,6 +323,22 @@ public final class GetNetworkInterfaceResult {
             return appliedDnsServers(List.of(appliedDnsServers));
         }
         @CustomType.Setter
+        public Builder auxiliaryMode(String auxiliaryMode) {
+            if (auxiliaryMode == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "auxiliaryMode");
+            }
+            this.auxiliaryMode = auxiliaryMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder auxiliarySku(String auxiliarySku) {
+            if (auxiliarySku == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "auxiliarySku");
+            }
+            this.auxiliarySku = auxiliarySku;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             if (dnsServers == null) {
               throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "dnsServers");
@@ -276,6 +348,14 @@ public final class GetNetworkInterfaceResult {
         }
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
+        }
+        @CustomType.Setter
+        public Builder edgeZone(String edgeZone) {
+            if (edgeZone == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "edgeZone");
+            }
+            this.edgeZone = edgeZone;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -291,6 +371,14 @@ public final class GetNetworkInterfaceResult {
               throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "internalDnsNameLabel");
             }
             this.internalDnsNameLabel = internalDnsNameLabel;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder internalDomainNameSuffix(String internalDomainNameSuffix) {
+            if (internalDomainNameSuffix == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "internalDomainNameSuffix");
+            }
+            this.internalDomainNameSuffix = internalDomainNameSuffix;
             return this;
         }
         @CustomType.Setter
@@ -391,9 +479,13 @@ public final class GetNetworkInterfaceResult {
             final var _resultValue = new GetNetworkInterfaceResult();
             _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.appliedDnsServers = appliedDnsServers;
+            _resultValue.auxiliaryMode = auxiliaryMode;
+            _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
+            _resultValue.edgeZone = edgeZone;
             _resultValue.id = id;
             _resultValue.internalDnsNameLabel = internalDnsNameLabel;
+            _resultValue.internalDomainNameSuffix = internalDomainNameSuffix;
             _resultValue.ipConfigurations = ipConfigurations;
             _resultValue.ipForwardingEnabled = ipForwardingEnabled;
             _resultValue.location = location;

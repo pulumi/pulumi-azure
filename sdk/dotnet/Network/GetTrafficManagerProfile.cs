@@ -214,6 +214,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The amount of endpoints to return for DNS queries to this Profile.
+        /// </summary>
+        public readonly int MaximumReturn;
+        /// <summary>
         /// This block specifies the Endpoint monitoring configuration for the Profile.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficManagerProfileMonitorConfigResult> MonitorConfigs;
@@ -247,6 +251,8 @@ namespace Pulumi.Azure.Network
 
             string id,
 
+            int maximumReturn,
+
             ImmutableArray<Outputs.GetTrafficManagerProfileMonitorConfigResult> monitorConfigs,
 
             string name,
@@ -264,6 +270,7 @@ namespace Pulumi.Azure.Network
             DnsConfigs = dnsConfigs;
             Fqdn = fqdn;
             Id = id;
+            MaximumReturn = maximumReturn;
             MonitorConfigs = monitorConfigs;
             Name = name;
             ProfileStatus = profileStatus;

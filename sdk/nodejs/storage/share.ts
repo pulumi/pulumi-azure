@@ -119,7 +119,7 @@ export class Share extends pulumi.CustomResource {
      */
     declare public readonly quota: pulumi.Output<number>;
     /**
-     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      */
     declare public /*out*/ readonly rbacScopeId: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export interface ShareState {
      */
     quota?: pulumi.Input<number | undefined>;
     /**
-     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * The ID that is supposed to be used as the `scope` of an `azure.authorization.Assignment` for this File Share.
      */
     rbacScopeId?: pulumi.Input<string | undefined>;
     /**

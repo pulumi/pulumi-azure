@@ -261,14 +261,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename, err := std.Basename(ctx, map[string]interface{}{
-//				"input": builtin.RoleDefinitionId,
+//			invokeBasename, err := std.Basename(ctx, &std.BasenameArgs{
+//				Input: builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename1, err := std.Basename(ctx, map[string]interface{}{
-//				"input": builtin.RoleDefinitionId,
+//			invokeBasename1, err := std.Basename(ctx, &std.BasenameArgs{
+//				Input: builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err

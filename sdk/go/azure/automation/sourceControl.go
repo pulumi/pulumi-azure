@@ -101,7 +101,7 @@ type SourceControl struct {
 	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
 	// A `security` block as defined below.
 	Security SourceControlSecurityOutput `pulumi:"security"`
-	// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+	// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 	SourceControlType pulumi.StringOutput `pulumi:"sourceControlType"`
 }
 
@@ -168,7 +168,7 @@ type sourceControlState struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// A `security` block as defined below.
 	Security *SourceControlSecurity `pulumi:"security"`
-	// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+	// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 	SourceControlType *string `pulumi:"sourceControlType"`
 }
 
@@ -191,7 +191,7 @@ type SourceControlState struct {
 	RepositoryUrl pulumi.StringPtrInput
 	// A `security` block as defined below.
 	Security SourceControlSecurityPtrInput
-	// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+	// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 	SourceControlType pulumi.StringPtrInput
 }
 
@@ -218,7 +218,7 @@ type sourceControlArgs struct {
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// A `security` block as defined below.
 	Security SourceControlSecurity `pulumi:"security"`
-	// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+	// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 	SourceControlType string `pulumi:"sourceControlType"`
 }
 
@@ -242,7 +242,7 @@ type SourceControlArgs struct {
 	RepositoryUrl pulumi.StringInput
 	// A `security` block as defined below.
 	Security SourceControlSecurityInput
-	// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+	// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 	SourceControlType pulumi.StringInput
 }
 
@@ -378,7 +378,7 @@ func (o SourceControlOutput) Security() SourceControlSecurityOutput {
 	return o.ApplyT(func(v *SourceControl) SourceControlSecurityOutput { return v.Security }).(SourceControlSecurityOutput)
 }
 
-// The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+// The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
 func (o SourceControlOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.SourceControlType }).(pulumi.StringOutput)
 }

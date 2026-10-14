@@ -3,11 +3,14 @@
 
 package com.pulumi.azure.webpubsub.outputs;
 
+import com.pulumi.azure.webpubsub.outputs.GetServiceIdentity;
+import com.pulumi.azure.webpubsub.outputs.GetServiceLiveTrace;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -26,6 +29,16 @@ public final class GetServiceResult {
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    private List<GetServiceIdentity> identities;
+    /**
+     * @return A `liveTrace` block as documented below.
+     * 
+     */
+    private List<GetServiceLiveTrace> liveTraces;
     private Boolean localAuthEnabled;
     /**
      * @return The Azure location where the Web Pubsub service exists.
@@ -93,6 +106,20 @@ public final class GetServiceResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    public List<GetServiceIdentity> identities() {
+        return this.identities;
+    }
+    /**
+     * @return A `liveTrace` block as documented below.
+     * 
+     */
+    public List<GetServiceLiveTrace> liveTraces() {
+        return this.liveTraces;
     }
     public Boolean localAuthEnabled() {
         return this.localAuthEnabled;
@@ -182,6 +209,8 @@ public final class GetServiceResult {
         private String externalIp;
         private String hostname;
         private String id;
+        private List<GetServiceIdentity> identities;
+        private List<GetServiceLiveTrace> liveTraces;
         private Boolean localAuthEnabled;
         private String location;
         private String name;
@@ -205,6 +234,8 @@ public final class GetServiceResult {
     	      this.externalIp = defaults.externalIp;
     	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
+    	      this.liveTraces = defaults.liveTraces;
     	      this.localAuthEnabled = defaults.localAuthEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -261,6 +292,28 @@ public final class GetServiceResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetServiceIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetServiceIdentity... identities) {
+            return identities(List.of(identities));
+        }
+        @CustomType.Setter
+        public Builder liveTraces(List<GetServiceLiveTrace> liveTraces) {
+            if (liveTraces == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "liveTraces");
+            }
+            this.liveTraces = liveTraces;
+            return this;
+        }
+        public Builder liveTraces(GetServiceLiveTrace... liveTraces) {
+            return liveTraces(List.of(liveTraces));
         }
         @CustomType.Setter
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
@@ -389,6 +442,8 @@ public final class GetServiceResult {
             _resultValue.externalIp = externalIp;
             _resultValue.hostname = hostname;
             _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.liveTraces = liveTraces;
             _resultValue.localAuthEnabled = localAuthEnabled;
             _resultValue.location = location;
             _resultValue.name = name;

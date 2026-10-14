@@ -19,11 +19,11 @@ namespace Pulumi.Azure.Graph
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Azuread = Pulumi.Azuread;
+    /// using AzureAD = Pulumi.AzureAD;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azuread.Application("example", new()
+    ///     var example = new AzureAD.Application("example", new()
     ///     {
     ///         DisplayName = "example-app",
     ///     });

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Resource Group Template Deployment.
  * 
- * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
+ * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behaviour can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
  * 
  * ## Example Usage
  * 
@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
  * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JsondecodeArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -98,7 +99,9 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         ctx.export("armExampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
+ *         ctx.export("armExampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
+ *             .input(example.outputContent())
+ *             .build()).applyValue(_invoke -> _invoke.result().get("exampleOutput").get("value")));
  *     }
  * }
  * }

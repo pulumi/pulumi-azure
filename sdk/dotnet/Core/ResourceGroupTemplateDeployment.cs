@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Group Template Deployment.
     /// 
-    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `Features` block by setting the `DeleteNestedItemsDuringDeletion` field to `False` within the `TemplateDeployment` block.
+    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behaviour can be disabled in the provider `Features` block by setting the `DeleteNestedItemsDuringDeletion` field to `False` within the `TemplateDeployment` block.
     /// 
     /// ## Example Usage
     /// 
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Core
     ///         ["armExampleOutput"] = Std.Jsondecode.Invoke(new()
     ///         {
     ///             Input = example.OutputContent,
-    ///         }).Result.ExampleOutput.Value,
+    ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
     ///     };
     /// });
     /// ```

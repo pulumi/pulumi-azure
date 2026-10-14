@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ServiceBus` - 2024-01-01
+// * `Microsoft.ServiceBus` - 2026-01-01
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
@@ -90,9 +90,11 @@ type LookupQueueResult struct {
 	// Integer value which controls when a message is automatically dead lettered.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
-	Name               string `pulumi:"name"`
-	NamespaceId        string `pulumi:"namespaceId"`
+	MaxSizeInMegabytes int `pulumi:"maxSizeInMegabytes"`
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+	MaximumMessageSizeInKb int    `pulumi:"maximumMessageSizeInKb"`
+	Name                   string `pulumi:"name"`
+	NamespaceId            string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
 	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection.
@@ -193,6 +195,11 @@ func (o LookupQueueResultOutput) MaxDeliveryCount() pulumi.IntOutput {
 // Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o LookupQueueResultOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
+}
+
+// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+func (o LookupQueueResultOutput) MaximumMessageSizeInKb() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupQueueResult) int { return v.MaximumMessageSizeInKb }).(pulumi.IntOutput)
 }
 
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {

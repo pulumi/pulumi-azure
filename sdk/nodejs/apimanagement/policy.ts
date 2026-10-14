@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     apiManagementId: exampleService.id,
  *     xmlContent: std.file({
  *         input: "example.xml",
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * API Management service Policys can be imported using the `resource id`, e.g.
+ * API Management service Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1

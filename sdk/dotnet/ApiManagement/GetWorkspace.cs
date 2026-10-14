@@ -215,6 +215,10 @@ namespace Pulumi.Azure.ApiManagement
     {
         public readonly string ApiManagementId;
         /// <summary>
+        /// The description of the API Management Workspace.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// The display name of the API Management Workspace.
         /// </summary>
         public readonly string DisplayName;
@@ -228,6 +232,8 @@ namespace Pulumi.Azure.ApiManagement
         private GetWorkspaceResult(
             string apiManagementId,
 
+            string description,
+
             string displayName,
 
             string id,
@@ -235,6 +241,7 @@ namespace Pulumi.Azure.ApiManagement
             string name)
         {
             ApiManagementId = apiManagementId;
+            Description = description;
             DisplayName = displayName;
             Id = id;
             Name = name;

@@ -136,14 +136,15 @@ type WorkspaceNetworkOutboundRulePrivateEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+	// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 	ServiceResourceId pulumi.StringOutput `pulumi:"serviceResourceId"`
 	// Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
 	SparkEnabled pulumi.BoolPtrOutput `pulumi:"sparkEnabled"`
-	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 	//
 	// | Service                    | Sub Resource Type                         |
 	// |----------------------------|-------------------------------------------|
+	// | Cognitive Services         | `account`                                 |
 	// | Machine Learning Workspace | `amlworkspace`                            |
 	// | Redis                      | `redisCache`                              |
 	// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -196,14 +197,15 @@ type workspaceNetworkOutboundRulePrivateEndpointState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+	// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 	ServiceResourceId *string `pulumi:"serviceResourceId"`
 	// Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
 	SparkEnabled *bool `pulumi:"sparkEnabled"`
-	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 	//
 	// | Service                    | Sub Resource Type                         |
 	// |----------------------------|-------------------------------------------|
+	// | Cognitive Services         | `account`                                 |
 	// | Machine Learning Workspace | `amlworkspace`                            |
 	// | Redis                      | `redisCache`                              |
 	// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -218,14 +220,15 @@ type WorkspaceNetworkOutboundRulePrivateEndpointState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+	// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 	ServiceResourceId pulumi.StringPtrInput
 	// Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
 	SparkEnabled pulumi.BoolPtrInput
-	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 	//
 	// | Service                    | Sub Resource Type                         |
 	// |----------------------------|-------------------------------------------|
+	// | Cognitive Services         | `account`                                 |
 	// | Machine Learning Workspace | `amlworkspace`                            |
 	// | Redis                      | `redisCache`                              |
 	// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -244,14 +247,15 @@ type workspaceNetworkOutboundRulePrivateEndpointArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+	// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 	ServiceResourceId string `pulumi:"serviceResourceId"`
 	// Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
 	SparkEnabled *bool `pulumi:"sparkEnabled"`
-	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 	//
 	// | Service                    | Sub Resource Type                         |
 	// |----------------------------|-------------------------------------------|
+	// | Cognitive Services         | `account`                                 |
 	// | Machine Learning Workspace | `amlworkspace`                            |
 	// | Redis                      | `redisCache`                              |
 	// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -267,14 +271,15 @@ type WorkspaceNetworkOutboundRulePrivateEndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+	// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 	ServiceResourceId pulumi.StringInput
 	// Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
 	SparkEnabled pulumi.BoolPtrInput
-	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+	// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 	//
 	// | Service                    | Sub Resource Type                         |
 	// |----------------------------|-------------------------------------------|
+	// | Cognitive Services         | `account`                                 |
 	// | Machine Learning Workspace | `amlworkspace`                            |
 	// | Redis                      | `redisCache`                              |
 	// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -378,7 +383,7 @@ func (o WorkspaceNetworkOutboundRulePrivateEndpointOutput) Name() pulumi.StringO
 
 // Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 //
-// > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+// > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
 func (o WorkspaceNetworkOutboundRulePrivateEndpointOutput) ServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceNetworkOutboundRulePrivateEndpoint) pulumi.StringOutput { return v.ServiceResourceId }).(pulumi.StringOutput)
 }
@@ -388,10 +393,11 @@ func (o WorkspaceNetworkOutboundRulePrivateEndpointOutput) SparkEnabled() pulumi
 	return o.ApplyT(func(v *WorkspaceNetworkOutboundRulePrivateEndpoint) pulumi.BoolPtrOutput { return v.SparkEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 //
 // | Service                    | Sub Resource Type                         |
 // |----------------------------|-------------------------------------------|
+// | Cognitive Services         | `account`                                 |
 // | Machine Learning Workspace | `amlworkspace`                            |
 // | Redis                      | `redisCache`                              |
 // | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |

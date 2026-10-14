@@ -209,7 +209,7 @@ def get_subscription(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: Specifies the name of the ServiceBus Subscription.
@@ -257,7 +257,7 @@ def get_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: Specifies the name of the ServiceBus Subscription.

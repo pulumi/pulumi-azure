@@ -13,7 +13,7 @@ namespace Pulumi.Azure.NetApp.Inputs
     public sealed class VolumeGroupSapHanaVolumeExportPolicyRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A comma-sperated list of allowed client IPv4 addresses.
+        /// A comma-separated list of allowed client IPv4 addresses.
         /// </summary>
         [Input("allowedClients", required: true)]
         public Input<string> AllowedClients { get; set; } = null!;

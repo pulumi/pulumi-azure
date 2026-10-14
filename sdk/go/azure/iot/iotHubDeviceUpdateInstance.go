@@ -108,7 +108,7 @@ type IotHubDeviceUpdateInstance struct {
 
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId pulumi.StringOutput `pulumi:"deviceUpdateAccountId"`
-	// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+	// Whether the diagnostic log collection is enabled. Defaults to `false`.
 	DiagnosticEnabled pulumi.BoolPtrOutput `pulumi:"diagnosticEnabled"`
 	// A `diagnosticStorageAccount` block as defined below.
 	DiagnosticStorageAccount IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput `pulumi:"diagnosticStorageAccount"`
@@ -158,7 +158,7 @@ func GetIotHubDeviceUpdateInstance(ctx *pulumi.Context,
 type iotHubDeviceUpdateInstanceState struct {
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId *string `pulumi:"deviceUpdateAccountId"`
-	// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+	// Whether the diagnostic log collection is enabled. Defaults to `false`.
 	DiagnosticEnabled *bool `pulumi:"diagnosticEnabled"`
 	// A `diagnosticStorageAccount` block as defined below.
 	DiagnosticStorageAccount *IotHubDeviceUpdateInstanceDiagnosticStorageAccount `pulumi:"diagnosticStorageAccount"`
@@ -173,7 +173,7 @@ type iotHubDeviceUpdateInstanceState struct {
 type IotHubDeviceUpdateInstanceState struct {
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId pulumi.StringPtrInput
-	// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+	// Whether the diagnostic log collection is enabled. Defaults to `false`.
 	DiagnosticEnabled pulumi.BoolPtrInput
 	// A `diagnosticStorageAccount` block as defined below.
 	DiagnosticStorageAccount IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput
@@ -192,7 +192,7 @@ func (IotHubDeviceUpdateInstanceState) ElementType() reflect.Type {
 type iotHubDeviceUpdateInstanceArgs struct {
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId string `pulumi:"deviceUpdateAccountId"`
-	// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+	// Whether the diagnostic log collection is enabled. Defaults to `false`.
 	DiagnosticEnabled *bool `pulumi:"diagnosticEnabled"`
 	// A `diagnosticStorageAccount` block as defined below.
 	DiagnosticStorageAccount *IotHubDeviceUpdateInstanceDiagnosticStorageAccount `pulumi:"diagnosticStorageAccount"`
@@ -208,7 +208,7 @@ type iotHubDeviceUpdateInstanceArgs struct {
 type IotHubDeviceUpdateInstanceArgs struct {
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId pulumi.StringInput
-	// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+	// Whether the diagnostic log collection is enabled. Defaults to `false`.
 	DiagnosticEnabled pulumi.BoolPtrInput
 	// A `diagnosticStorageAccount` block as defined below.
 	DiagnosticStorageAccount IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrInput
@@ -312,7 +312,7 @@ func (o IotHubDeviceUpdateInstanceOutput) DeviceUpdateAccountId() pulumi.StringO
 	return o.ApplyT(func(v *IotHubDeviceUpdateInstance) pulumi.StringOutput { return v.DeviceUpdateAccountId }).(pulumi.StringOutput)
 }
 
-// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+// Whether the diagnostic log collection is enabled. Defaults to `false`.
 func (o IotHubDeviceUpdateInstanceOutput) DiagnosticEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubDeviceUpdateInstance) pulumi.BoolPtrOutput { return v.DiagnosticEnabled }).(pulumi.BoolPtrOutput)
 }

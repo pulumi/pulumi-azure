@@ -151,6 +151,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkManagerDeployment;
  * import com.pulumi.azure.network.NetworkManagerDeploymentArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -235,10 +236,10 @@ import javax.annotation.Nullable;
  *             .location("eastus")
  *             .scopeAccess("SecurityAdmin")
  *             .configurationIds(exampleNetworkManagerSecurityAdminConfiguration.id())
- *             .triggers(Map.of("source_port_ranges", StdFunctions.join(Map.ofEntries(
- *                 Map.entry("separator", ","),
- *                 Map.entry("input", exampleNetworkManagerAdminRule.sourcePortRanges())
- *             )).result()))
+ *             .triggers(Map.of("source_port_ranges", StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
+ *                 .input(exampleNetworkManagerAdminRule.sourcePortRanges())
+ *                 .build()).applyValue(_invoke -> _invoke.result())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleNetworkManagerAdminRule)
  *                 .build());
@@ -253,7 +254,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 

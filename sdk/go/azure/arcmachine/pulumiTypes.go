@@ -1517,7 +1517,7 @@ func (o GetServiceStatusArrayOutput) Index(i pulumi.IntInput) GetServiceStatusOu
 }
 
 type GetServiceStatusExtensionService struct {
-	// The behavior of the service when the Arc-enabled machine starts up.
+	// The behaviour of the service when the Arc-enabled machine starts up.
 	StartupType string `pulumi:"startupType"`
 	// The current status of the service.
 	Status string `pulumi:"status"`
@@ -1535,7 +1535,7 @@ type GetServiceStatusExtensionServiceInput interface {
 }
 
 type GetServiceStatusExtensionServiceArgs struct {
-	// The behavior of the service when the Arc-enabled machine starts up.
+	// The behaviour of the service when the Arc-enabled machine starts up.
 	StartupType pulumi.StringInput `pulumi:"startupType"`
 	// The current status of the service.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1592,7 +1592,7 @@ func (o GetServiceStatusExtensionServiceOutput) ToGetServiceStatusExtensionServi
 	return o
 }
 
-// The behavior of the service when the Arc-enabled machine starts up.
+// The behaviour of the service when the Arc-enabled machine starts up.
 func (o GetServiceStatusExtensionServiceOutput) StartupType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceStatusExtensionService) string { return v.StartupType }).(pulumi.StringOutput)
 }
@@ -1623,7 +1623,7 @@ func (o GetServiceStatusExtensionServiceArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetServiceStatusGuestConfigurationService struct {
-	// The behavior of the service when the Arc-enabled machine starts up.
+	// The behaviour of the service when the Arc-enabled machine starts up.
 	StartupType string `pulumi:"startupType"`
 	// The current status of the service.
 	Status string `pulumi:"status"`
@@ -1641,7 +1641,7 @@ type GetServiceStatusGuestConfigurationServiceInput interface {
 }
 
 type GetServiceStatusGuestConfigurationServiceArgs struct {
-	// The behavior of the service when the Arc-enabled machine starts up.
+	// The behaviour of the service when the Arc-enabled machine starts up.
 	StartupType pulumi.StringInput `pulumi:"startupType"`
 	// The current status of the service.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1698,7 +1698,7 @@ func (o GetServiceStatusGuestConfigurationServiceOutput) ToGetServiceStatusGuest
 	return o
 }
 
-// The behavior of the service when the Arc-enabled machine starts up.
+// The behaviour of the service when the Arc-enabled machine starts up.
 func (o GetServiceStatusGuestConfigurationServiceOutput) StartupType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceStatusGuestConfigurationService) string { return v.StartupType }).(pulumi.StringOutput)
 }

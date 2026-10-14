@@ -64,14 +64,14 @@ public final class AutoscaleSettingProfileRecurrenceArgs extends com.pulumi.reso
     }
 
     /**
-     * The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+     * The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+     * @return The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -179,7 +179,7 @@ public final class AutoscaleSettingProfileRecurrenceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param timezone The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+         * @param timezone The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AutoscaleSettingProfileRecurrenceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param timezone The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+         * @param timezone The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          * 
          * @return builder
          * 

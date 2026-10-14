@@ -117,7 +117,7 @@ namespace Pulumi.Azure.CosmosDB
     ///                 "UserAssignedIdentity",
     ///                 example.Id,
     ///             },
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         OfferType = "Standard",
     ///         Kind = "MongoDB",
     ///         Capabilities = new[]

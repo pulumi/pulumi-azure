@@ -27,7 +27,7 @@ public final class VaultMonitoring {
      */
     private @Nullable Boolean alertsForAllReplicationIssuesEnabled;
     /**
-     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     private @Nullable Boolean alertsForCriticalOperationFailuresEnabled;
@@ -60,7 +60,7 @@ public final class VaultMonitoring {
         return Optional.ofNullable(this.alertsForAllReplicationIssuesEnabled);
     }
     /**
-     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     public Optional<Boolean> alertsForCriticalOperationFailuresEnabled() {

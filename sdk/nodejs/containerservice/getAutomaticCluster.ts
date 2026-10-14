@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-04-01
+ * * `Microsoft.ContainerService` - 2026-05-01
  */
 export function getAutomaticCluster(args: GetAutomaticClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomaticClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -163,7 +163,7 @@ export interface GetAutomaticClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2026-04-01
+ * * `Microsoft.ContainerService` - 2026-05-01
  */
 export function getAutomaticClusterOutput(args: GetAutomaticClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomaticClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

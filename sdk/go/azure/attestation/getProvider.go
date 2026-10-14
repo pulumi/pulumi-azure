@@ -72,11 +72,19 @@ type LookupProviderResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Attestation Provider exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	OpenEnclavePolicyBase64 string `pulumi:"openEnclavePolicyBase64"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	SevSnpPolicyBase64 string `pulumi:"sevSnpPolicyBase64"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	SgxEnclavePolicyBase64 string `pulumi:"sgxEnclavePolicyBase64"`
 	// A mapping of tags assigned to the Attestation Provider.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+	TpmPolicyBase64 string `pulumi:"tpmPolicyBase64"`
 	// Trust model used for the Attestation Service.
 	TrustModel string `pulumi:"trustModel"`
 }
@@ -132,13 +140,33 @@ func (o LookupProviderResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+func (o LookupProviderResultOutput) OpenEnclavePolicyBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProviderResult) string { return v.OpenEnclavePolicyBase64 }).(pulumi.StringOutput)
+}
+
 func (o LookupProviderResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+func (o LookupProviderResultOutput) SevSnpPolicyBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProviderResult) string { return v.SevSnpPolicyBase64 }).(pulumi.StringOutput)
+}
+
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+func (o LookupProviderResultOutput) SgxEnclavePolicyBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProviderResult) string { return v.SgxEnclavePolicyBase64 }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the Attestation Provider.
 func (o LookupProviderResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+func (o LookupProviderResultOutput) TpmPolicyBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProviderResult) string { return v.TpmPolicyBase64 }).(pulumi.StringOutput)
 }
 
 // Trust model used for the Attestation Service.

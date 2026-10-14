@@ -46,8 +46,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentCertificate;
  * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.containerapp.CustomDomain;
  * import com.pulumi.azure.containerapp.CustomDomainArgs;
+ * import com.pulumi.std.inputs.TrimprefixArgs;
+ * import com.pulumi.std.inputs.TrimsuffixArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -124,18 +127,20 @@ import javax.annotation.Nullable;
  *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
  *             .name("myfriendlyname")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .certificateBlob(StdFunctions.filebase64(Map.of("input", "path/to/certificate_file.pfx")).result())
+ *             .certificateBlob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("path/to/certificate_file.pfx")
+ *                 .build()).result())
  *             .certificatePassword("$3cretSqu1rreL")
  *             .build());
  * 
  *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimsuffix(Map.ofEntries(
- *                 Map.entry("input", StdFunctions.trimprefix(Map.ofEntries(
- *                     Map.entry("input", api.fqdn()),
- *                     Map.entry("prefix", "asuid.")
- *                 )).result()),
- *                 Map.entry("suffix", ".")
- *             )).result())
+ *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
+ *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
+ *                     .input(api.get("fqdn"))
+ *                     .prefix("asuid.")
+ *                     .build()).result())
+ *                 .suffix(".")
+ *                 .build()).result())
  *             .containerAppId(exampleApp.id())
  *             .containerAppEnvironmentCertificateId(exampleEnvironmentCertificate.id())
  *             .certificateBindingType("SniEnabled")
@@ -158,6 +163,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.CustomDomain;
  * import com.pulumi.azure.containerapp.CustomDomainArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.TrimprefixArgs;
+ * import com.pulumi.std.inputs.TrimsuffixArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -172,14 +179,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomDomain("example", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimsuffix(Map.ofEntries(
- *                 Map.entry("input", StdFunctions.trimprefix(Map.ofEntries(
- *                     Map.entry("input", api.fqdn()),
- *                     Map.entry("prefix", "asuid.")
- *                 )).result()),
- *                 Map.entry("suffix", ".")
- *             )).result())
- *             .containerAppId(exampleAzurermContainerApp.id())
+ *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
+ *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
+ *                     .input(api.get("fqdn"))
+ *                     .prefix("asuid.")
+ *                     .build()).result())
+ *                 .suffix(".")
+ *                 .build()).result())
+ *             .containerAppId(exampleAzurermContainerApp.get("id"))
  *             .build());
  * 
  *     }
@@ -272,7 +279,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -281,7 +288,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
      * 
      */
     public Output<String> name() {

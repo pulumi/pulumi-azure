@@ -124,15 +124,17 @@ import * as utilities from "../utilities";
  *     principalType: "ServicePrincipal",
  *     description: "Role Based Access Control Administrator role assignment with ABAC Condition.",
  *     conditionVersion: "2.0",
- *     condition: `(
+ *     condition: Promise.all([builtin.then(builtin => std.basename({
+ *         input: builtin.roleDefinitionId,
+ *     })), builtin.then(builtin => std.basename({
+ *         input: builtin.roleDefinitionId,
+ *     }))]).then(([invoke, invoke1]) => `(
  *  (
  *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
  *  )
  *  OR
  *  (
- *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
- *         input: builtin.then(builtin => builtin.roleDefinitionId),
- *     }).result}}
+ *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke.result}}
  *  )
  * )
  * AND
@@ -142,12 +144,10 @@ import * as utilities from "../utilities";
  *  )
  *  OR
  *  (
- *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
- *         input: builtin.then(builtin => builtin.roleDefinitionId),
- *     }).result}}
+ *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke1.result}}
  *  )
  * )
- * `,
+ * `),
  * });
  * ```
  *

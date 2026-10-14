@@ -76,13 +76,13 @@ export class WorkspaceTable extends pulumi.CustomResource {
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
-     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
     declare public readonly plan: pulumi.Output<string | undefined>;
     /**
      * The table's retention in days. Possible values are between `4` and `730`.
      *
-     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
@@ -143,13 +143,13 @@ export interface WorkspaceTableState {
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
-     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
     plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values are between `4` and `730`.
      *
-     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     retentionInDays?: pulumi.Input<number | undefined>;
     /**
@@ -177,13 +177,13 @@ export interface WorkspaceTableArgs {
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
-     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+     * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
     plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values are between `4` and `730`.
      *
-     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     retentionInDays?: pulumi.Input<number | undefined>;
     /**

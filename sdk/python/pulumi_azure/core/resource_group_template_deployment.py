@@ -338,7 +338,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         """
         Manages a Resource Group Template Deployment.
 
-        > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
+        > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behaviour can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
 
         ## Example Usage
 
@@ -393,7 +393,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             }
         }
         \"\"\")
-        pulumi.export("armExampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).result["exampleOutput"]["value"])
         ```
 
         ```python
@@ -443,7 +443,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         """
         Manages a Resource Group Template Deployment.
 
-        > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
+        > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behaviour can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
 
         ## Example Usage
 
@@ -498,7 +498,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             }
         }
         \"\"\")
-        pulumi.export("armExampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).result["exampleOutput"]["value"])
         ```
 
         ```python

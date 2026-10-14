@@ -20,7 +20,7 @@ type FlexibleServerAuthentication struct {
 	PasswordAuthEnabled *bool `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	//
-	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 	//
 	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId *string `pulumi:"tenantId"`
@@ -44,7 +44,7 @@ type FlexibleServerAuthenticationArgs struct {
 	PasswordAuthEnabled pulumi.BoolPtrInput `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	//
-	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+	// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 	//
 	// > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -139,7 +139,7 @@ func (o FlexibleServerAuthenticationOutput) PasswordAuthEnabled() pulumi.BoolPtr
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 //
-// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 //
 // > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerAuthenticationOutput) TenantId() pulumi.StringPtrOutput {
@@ -192,7 +192,7 @@ func (o FlexibleServerAuthenticationPtrOutput) PasswordAuthEnabled() pulumi.Bool
 
 // The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 //
-// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+// > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 //
 // > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
 func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput {
@@ -991,7 +991,7 @@ type FlexibleServerMaintenanceWindow struct {
 	StartHour *int `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	//
-	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute *int `pulumi:"startMinute"`
 }
 
@@ -1013,7 +1013,7 @@ type FlexibleServerMaintenanceWindowArgs struct {
 	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	//
-	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
 }
 
@@ -1106,7 +1106,7 @@ func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 
 // The start minute for maintenance window. Defaults to `0`.
 //
-// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -1157,7 +1157,7 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutpu
 
 // The start minute for maintenance window. Defaults to `0`.
 //
-// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {

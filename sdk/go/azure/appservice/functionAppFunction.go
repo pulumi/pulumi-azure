@@ -185,8 +185,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, map[string]string{
-//				"input": "exampledata/run.csx",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "exampledata/run.csx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -228,7 +228,7 @@ import (
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{
 //						Name:    pulumi.String("run.csx"),
-//						Content: invokeFile.Result,
+//						Content: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				TestData:   pulumi.String(json0),

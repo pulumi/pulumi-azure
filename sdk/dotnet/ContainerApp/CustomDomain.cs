@@ -110,21 +110,21 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CertificatePassword = "$3cretSqu1rreL",
     ///     });
     /// 
     ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimsuffix.Invoke(new()
+    ///         Name = Std.Trimprefix.Invoke(new()
     ///         {
-    ///             Input = Std.Trimprefix.Invoke(new()
-    ///             {
-    ///                 Input = api.Fqdn,
-    ///                 Prefix = "asuid.",
-    ///             }).Result,
+    ///             Input = api.Fqdn,
+    ///             Prefix = "asuid.",
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
+    ///         {
+    ///             Input = invoke.Result,
     ///             Suffix = ".",
-    ///         }).Result,
+    ///         })).Apply(invoke =&gt; invoke.Result),
     ///         ContainerAppId = exampleApp.Id,
     ///         ContainerAppEnvironmentCertificateId = exampleEnvironmentCertificate.Id,
     ///         CertificateBindingType = "SniEnabled",
@@ -146,15 +146,15 @@ namespace Pulumi.Azure.ContainerApp
     /// {
     ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimsuffix.Invoke(new()
+    ///         Name = Std.Trimprefix.Invoke(new()
     ///         {
-    ///             Input = Std.Trimprefix.Invoke(new()
-    ///             {
-    ///                 Input = api.Fqdn,
-    ///                 Prefix = "asuid.",
-    ///             }).Result,
+    ///             Input = api.Fqdn,
+    ///             Prefix = "asuid.",
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
+    ///         {
+    ///             Input = invoke.Result,
     ///             Suffix = ".",
-    ///         }).Result,
+    ///         })).Apply(invoke =&gt; invoke.Result),
     ///         ContainerAppId = exampleAzurermContainerApp.Id,
     ///     });
     /// 
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

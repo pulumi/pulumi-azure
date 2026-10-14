@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			_, err = sentinel.NewMetadata(ctx, "example", &sentinel.MetadataArgs{
-//				Name:        pulumi.String("exampl"),
+//				Name:        pulumi.String("example"),
 //				WorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //				ContentId:   exampleAlertRuleNrt.Name,
 //				Kind:        pulumi.String("AnalyticsRule"),

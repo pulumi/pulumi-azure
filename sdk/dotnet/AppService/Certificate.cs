@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService
     ///         PfxBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
-    ///         }).Result,
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Password = "password123!",
     ///     });
     /// 

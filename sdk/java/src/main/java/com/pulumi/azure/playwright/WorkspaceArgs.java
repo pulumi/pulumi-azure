@@ -33,14 +33,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Playwright Workspace.
+     * The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Playwright Workspace.
+     * @return The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,7 +126,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Playwright Workspace.
+         * @param name The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Playwright Workspace.
+         * @param name The name which should be used for this Playwright Workspace. Changing this forces a new Playwright Workspace to be created.
          * 
          * @return builder
          * 

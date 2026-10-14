@@ -105,6 +105,8 @@ type WindowsWebApp struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
@@ -145,7 +147,7 @@ type WindowsWebApp struct {
 	StickySettings WindowsWebAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -155,11 +157,11 @@ type WindowsWebApp struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -167,7 +169,7 @@ type WindowsWebApp struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -241,6 +243,8 @@ type windowsWebAppState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
@@ -281,7 +285,7 @@ type windowsWebAppState struct {
 	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
@@ -291,11 +295,11 @@ type windowsWebAppState struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -303,7 +307,7 @@ type windowsWebAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -334,6 +338,8 @@ type WindowsWebAppState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service.
@@ -374,7 +380,7 @@ type WindowsWebAppState struct {
 	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapInput
@@ -384,11 +390,11 @@ type WindowsWebAppState struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -396,7 +402,7 @@ type WindowsWebAppState struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -427,6 +433,8 @@ type windowsWebAppArgs struct {
 	ConnectionStrings []WindowsWebAppConnectionString `pulumi:"connectionStrings"`
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled *bool `pulumi:"endToEndTlsEncryptionEnabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Should the Windows Web App require HTTPS connections. Defaults to `false`.
@@ -453,7 +461,7 @@ type windowsWebAppArgs struct {
 	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
@@ -463,11 +471,11 @@ type windowsWebAppArgs struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -475,7 +483,7 @@ type windowsWebAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -503,6 +511,8 @@ type WindowsWebAppArgs struct {
 	ConnectionStrings WindowsWebAppConnectionStringArrayInput
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+	EndToEndTlsEncryptionEnabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// Should the Windows Web App require HTTPS connections. Defaults to `false`.
@@ -529,7 +539,7 @@ type WindowsWebAppArgs struct {
 	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	//
-	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapInput
@@ -539,11 +549,11 @@ type WindowsWebAppArgs struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 	//
-	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -551,7 +561,7 @@ type WindowsWebAppArgs struct {
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	//
-	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -704,6 +714,11 @@ func (o WindowsWebAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable end-to-end TLS encryption. Defaults to `false`.
+func (o WindowsWebAppOutput) EndToEndTlsEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.EndToEndTlsEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 func (o WindowsWebAppOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
@@ -801,7 +816,7 @@ func (o WindowsWebAppOutput) StickySettings() WindowsWebAppStickySettingsPtrOutp
 
 // One or more `storageAccount` blocks as defined below.
 //
-// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
 func (o WindowsWebAppOutput) StorageAccounts() WindowsWebAppStorageAccountArrayOutput {
 	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppStorageAccountArrayOutput { return v.StorageAccounts }).(WindowsWebAppStorageAccountArrayOutput)
 }
@@ -823,11 +838,11 @@ func (o WindowsWebAppOutput) VirtualNetworkImagePullEnabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 //
 // > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
 //
-// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
 func (o WindowsWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -841,7 +856,7 @@ func (o WindowsWebAppOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi
 
 // The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 //
-// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 func (o WindowsWebAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

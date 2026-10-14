@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Output("customBgpAddresses")]
         public Output<Outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses?> CustomBgpAddresses { get; private set; } = null!;
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
         public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesArgs>? CustomBgpAddresses { get; set; }
@@ -725,7 +725,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
         public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs>? CustomBgpAddresses { get; set; }

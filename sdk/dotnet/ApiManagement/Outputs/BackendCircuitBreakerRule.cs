@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class BackendCircuitBreakerRule
     {
         /// <summary>
-        /// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `False`.
+        /// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `False`.
         /// </summary>
         public readonly bool? AcceptRetryAfterEnabled;
         /// <summary>

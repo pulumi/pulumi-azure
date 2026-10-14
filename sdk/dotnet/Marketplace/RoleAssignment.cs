@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
-        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
         [Output("roleDefinitionName")]
         public Output<string?> RoleDefinitionName { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
-        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
         [Input("roleDefinitionName")]
         public Input<string>? RoleDefinitionName { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+        /// &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
-        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+        /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
         [Input("roleDefinitionName")]
         public Input<string>? RoleDefinitionName { get; set; }

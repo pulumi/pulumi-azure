@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func LookupPublicIpPrefix(ctx *pulumi.Context, args *LookupPublicIpPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIpPrefixResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicIpPrefixResult
@@ -69,10 +69,14 @@ type LookupPublicIpPrefixArgs struct {
 
 // A collection of values returned by getPublicIpPrefix.
 type LookupPublicIpPrefixResult struct {
+	// The Custom IP Prefix ID associated with the Public IP Prefix.
+	CustomIpPrefixId string `pulumi:"customIpPrefixId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Public IP address range, in CIDR notation.
 	IpPrefix string `pulumi:"ipPrefix"`
+	// The IP Version in use.
+	IpVersion string `pulumi:"ipVersion"`
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -121,6 +125,11 @@ func (o LookupPublicIpPrefixResultOutput) ToLookupPublicIpPrefixResultOutputWith
 	return o
 }
 
+// The Custom IP Prefix ID associated with the Public IP Prefix.
+func (o LookupPublicIpPrefixResultOutput) CustomIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.CustomIpPrefixId }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPublicIpPrefixResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.Id }).(pulumi.StringOutput)
@@ -129,6 +138,11 @@ func (o LookupPublicIpPrefixResultOutput) Id() pulumi.StringOutput {
 // The Public IP address range, in CIDR notation.
 func (o LookupPublicIpPrefixResultOutput) IpPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.IpPrefix }).(pulumi.StringOutput)
+}
+
+// The IP Version in use.
+func (o LookupPublicIpPrefixResultOutput) IpVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.IpVersion }).(pulumi.StringOutput)
 }
 
 // The supported Azure location where the resource exists.

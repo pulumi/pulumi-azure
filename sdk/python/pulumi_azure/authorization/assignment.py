@@ -557,7 +557,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
          )
         )
         AND
@@ -567,7 +567,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
          )
         )
         \"\"\")
@@ -743,7 +743,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
          )
         )
         AND
@@ -753,7 +753,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
          )
         )
         \"\"\")

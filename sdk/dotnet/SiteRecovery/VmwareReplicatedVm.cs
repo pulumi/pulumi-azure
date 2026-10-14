@@ -139,7 +139,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> ApplianceName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the storage account that should be used for logging during replication. 
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<ImmutableArray<Outputs.VmwareReplicatedVmNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         /// </summary>
         [Output("physicalServerCredentialName")]
         public Output<string> PhysicalServerCredentialName { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> ApplianceName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the storage account that should be used for logging during replication. 
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         /// </summary>
         [Input("physicalServerCredentialName", required: true)]
         public Input<string> PhysicalServerCredentialName { get; set; } = null!;
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? ApplianceName { get; set; }
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the storage account that should be used for logging during replication. 
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
@@ -597,7 +597,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+        /// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         /// </summary>
         [Input("physicalServerCredentialName")]
         public Input<string>? PhysicalServerCredentialName { get; set; }

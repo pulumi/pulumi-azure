@@ -321,8 +321,8 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="SecurityAdmin",
             configuration_ids=[example_network_manager_security_admin_configuration.id],
             triggers={
-                "source_port_ranges": std.join(separator=",",
-                    input=example_network_manager_admin_rule.source_port_ranges)["result"],
+                "source_port_ranges": std.join_output(separator=",",
+                    input=example_network_manager_admin_rule.source_port_ranges).result,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```
@@ -332,7 +332,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -475,8 +475,8 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="SecurityAdmin",
             configuration_ids=[example_network_manager_security_admin_configuration.id],
             triggers={
-                "source_port_ranges": std.join(separator=",",
-                    input=example_network_manager_admin_rule.source_port_ranges)["result"],
+                "source_port_ranges": std.join_output(separator=",",
+                    input=example_network_manager_admin_rule.source_port_ranges).result,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```
@@ -486,7 +486,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 

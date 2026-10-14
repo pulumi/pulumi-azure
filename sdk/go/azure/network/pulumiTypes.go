@@ -5020,17 +5020,23 @@ func (o ApplicationGatewaySslPolicyPtrOutput) PolicyType() pulumi.StringPtrOutpu
 }
 
 type ApplicationGatewaySslProfile struct {
+	// Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+	ClientAuthenticationMode *string `pulumi:"clientAuthenticationMode"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name string `pulumi:"name"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicy"`
-	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
+	//
+	// > **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
 	VerifyClientCertificateIssuerDn *bool `pulumi:"verifyClientCertificateIssuerDn"`
-	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+	// Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+	//
+	// > **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
 	VerifyClientCertificateRevocation *string `pulumi:"verifyClientCertificateRevocation"`
 }
 
@@ -5046,17 +5052,23 @@ type ApplicationGatewaySslProfileInput interface {
 }
 
 type ApplicationGatewaySslProfileArgs struct {
+	// Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+	ClientAuthenticationMode pulumi.StringPtrInput `pulumi:"clientAuthenticationMode"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslProfileSslPolicyPtrInput `pulumi:"sslPolicy"`
-	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
+	//
+	// > **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
 	VerifyClientCertificateIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertificateIssuerDn"`
-	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+	// Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+	//
+	// > **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
 	VerifyClientCertificateRevocation pulumi.StringPtrInput `pulumi:"verifyClientCertificateRevocation"`
 }
 
@@ -5111,6 +5123,11 @@ func (o ApplicationGatewaySslProfileOutput) ToApplicationGatewaySslProfileOutput
 	return o
 }
 
+// Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+func (o ApplicationGatewaySslProfileOutput) ClientAuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *string { return v.ClientAuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the Rewrite Rule Set
 func (o ApplicationGatewaySslProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -5121,22 +5138,26 @@ func (o ApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// a `sslPolicy` block as defined below.
+// An `sslPolicy` block as defined below.
 func (o ApplicationGatewaySslProfileOutput) SslPolicy() ApplicationGatewaySslProfileSslPolicyPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *ApplicationGatewaySslProfileSslPolicy { return v.SslPolicy }).(ApplicationGatewaySslProfileSslPolicyPtrOutput)
 }
 
-// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 func (o ApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
 }
 
 // Should client certificate issuer DN be verified? Defaults to `false`.
+//
+// > **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
 func (o ApplicationGatewaySslProfileOutput) VerifyClientCertificateIssuerDn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertificateIssuerDn }).(pulumi.BoolPtrOutput)
 }
 
-// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+// Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+//
+// > **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
 func (o ApplicationGatewaySslProfileOutput) VerifyClientCertificateRevocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *string { return v.VerifyClientCertificateRevocation }).(pulumi.StringPtrOutput)
 }
@@ -13867,7 +13888,7 @@ func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) Roun
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfiguration struct {
-	// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+	// The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 	DestinationPortBehavior *string `pulumi:"destinationPortBehavior"`
 	// The port for the TCP connection.
 	Port int `pulumi:"port"`
@@ -13887,7 +13908,7 @@ type NetworkConnectionMonitorTestConfigurationTcpConfigurationInput interface {
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs struct {
-	// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+	// The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 	DestinationPortBehavior pulumi.StringPtrInput `pulumi:"destinationPortBehavior"`
 	// The port for the TCP connection.
 	Port pulumi.IntInput `pulumi:"port"`
@@ -13972,7 +13993,7 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetwo
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
 }
 
-// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+// The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
 		return v.DestinationPortBehavior
@@ -14013,7 +14034,7 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Elem
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
 }
 
-// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+// The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
 		if v == nil {
@@ -14351,7 +14372,7 @@ func (o NetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 type NetworkManagerAdminRuleDestination struct {
 	// Specifies the address prefix.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 	AddressPrefixType string `pulumi:"addressPrefixType"`
 }
 
@@ -14369,7 +14390,7 @@ type NetworkManagerAdminRuleDestinationInput interface {
 type NetworkManagerAdminRuleDestinationArgs struct {
 	// Specifies the address prefix.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 	AddressPrefixType pulumi.StringInput `pulumi:"addressPrefixType"`
 }
 
@@ -14429,7 +14450,7 @@ func (o NetworkManagerAdminRuleDestinationOutput) AddressPrefix() pulumi.StringO
 	return o.ApplyT(func(v NetworkManagerAdminRuleDestination) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 func (o NetworkManagerAdminRuleDestinationOutput) AddressPrefixType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagerAdminRuleDestination) string { return v.AddressPrefixType }).(pulumi.StringOutput)
 }
@@ -14457,7 +14478,7 @@ func (o NetworkManagerAdminRuleDestinationArrayOutput) Index(i pulumi.IntInput) 
 type NetworkManagerAdminRuleSource struct {
 	// Specifies the address prefix.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 	AddressPrefixType string `pulumi:"addressPrefixType"`
 }
 
@@ -14475,7 +14496,7 @@ type NetworkManagerAdminRuleSourceInput interface {
 type NetworkManagerAdminRuleSourceArgs struct {
 	// Specifies the address prefix.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 	AddressPrefixType pulumi.StringInput `pulumi:"addressPrefixType"`
 }
 
@@ -14535,7 +14556,7 @@ func (o NetworkManagerAdminRuleSourceOutput) AddressPrefix() pulumi.StringOutput
 	return o.ApplyT(func(v NetworkManagerAdminRuleSource) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 func (o NetworkManagerAdminRuleSourceOutput) AddressPrefixType() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagerAdminRuleSource) string { return v.AddressPrefixType }).(pulumi.StringOutput)
 }
@@ -15276,7 +15297,7 @@ func (o NetworkManagerRoutingRuleNextHopPtrOutput) Type() pulumi.StringPtrOutput
 type NetworkManagerScope struct {
 	// A list of management group IDs.
 	//
-	// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+	// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds []string `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
@@ -15296,7 +15317,7 @@ type NetworkManagerScopeInput interface {
 type NetworkManagerScopeArgs struct {
 	// A list of management group IDs.
 	//
-	// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+	// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds pulumi.StringArrayInput `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
@@ -15381,7 +15402,7 @@ func (o NetworkManagerScopeOutput) ToNetworkManagerScopePtrOutputWithContext(ctx
 
 // A list of management group IDs.
 //
-// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopeOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkManagerScope) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -15417,7 +15438,7 @@ func (o NetworkManagerScopePtrOutput) Elem() NetworkManagerScopeOutput {
 
 // A list of management group IDs.
 //
-// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+// > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopePtrOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkManagerScope) []string {
 		if v == nil {
@@ -20682,7 +20703,7 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
 type VirtualNetworkEncryption struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 	//
-	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement string `pulumi:"enforcement"`
 }
 
@@ -20700,7 +20721,7 @@ type VirtualNetworkEncryptionInput interface {
 type VirtualNetworkEncryptionArgs struct {
 	// Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 	//
-	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+	// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 	Enforcement pulumi.StringInput `pulumi:"enforcement"`
 }
 
@@ -20783,7 +20804,7 @@ func (o VirtualNetworkEncryptionOutput) ToVirtualNetworkEncryptionPtrOutputWithC
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 //
-// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionOutput) Enforcement() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkEncryption) string { return v.Enforcement }).(pulumi.StringOutput)
 }
@@ -20814,7 +20835,7 @@ func (o VirtualNetworkEncryptionPtrOutput) Elem() VirtualNetworkEncryptionOutput
 
 // Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 //
-// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+// > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 func (o VirtualNetworkEncryptionPtrOutput) Enforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkEncryption) *string {
 		if v == nil {
@@ -22443,7 +22464,7 @@ func (o VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput) Index(i pulumi.
 
 type VirtualNetworkGatewayVpnClientConfiguration struct {
 	// The client id of the Azure VPN application.
-	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 	AadAudience *string `pulumi:"aadAudience"`
 	// The STS url for your tenant
 	AadIssuer *string `pulumi:"aadIssuer"`
@@ -22490,7 +22511,7 @@ type VirtualNetworkGatewayVpnClientConfigurationInput interface {
 
 type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// The client id of the Azure VPN application.
-	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 	AadAudience pulumi.StringPtrInput `pulumi:"aadAudience"`
 	// The STS url for your tenant
 	AadIssuer pulumi.StringPtrInput `pulumi:"aadIssuer"`
@@ -22602,7 +22623,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatew
 }
 
 // The client id of the Azure VPN application.
-// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadAudience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadAudience }).(pulumi.StringPtrOutput)
 }
@@ -22708,7 +22729,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) Elem() VirtualNetw
 }
 
 // The client id of the Azure VPN application.
-// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadAudience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -23700,11 +23721,11 @@ type VirtualNetworkSubnet struct {
 	//
 	// > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
-	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 	PrivateLinkServiceNetworkPoliciesEnabled *bool `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The ID of the Route Table that should be associated with this subnet.
 	//
@@ -23746,11 +23767,11 @@ type VirtualNetworkSubnetArgs struct {
 	//
 	// > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 	//
-	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies pulumi.StringPtrInput `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
-	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrInput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The ID of the Route Table that should be associated with this subnet.
 	//
@@ -23846,14 +23867,14 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringOutput {
 //
 // > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 //
-// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+// > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 func (o VirtualNetworkSubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
 }
 
 // Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 //
-// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+// > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 func (o VirtualNetworkSubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *bool { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -32442,13 +32463,15 @@ func (o GetApplicationGatewaySslPolicyArrayOutput) Index(i pulumi.IntInput) GetA
 }
 
 type GetApplicationGatewaySslProfile struct {
+	// The client authentication mode used by the SSL Profile.
+	ClientAuthenticationMode string `pulumi:"clientAuthenticationMode"`
 	// The ID of the Rewrite Rule Set
 	Id string `pulumi:"id"`
 	// The name of this Application Gateway.
 	Name string `pulumi:"name"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicies []GetApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicies"`
-	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
 	// Will the client certificate issuer DN be verified?
 	VerifyClientCertificateIssuerDn bool `pulumi:"verifyClientCertificateIssuerDn"`
@@ -32468,13 +32491,15 @@ type GetApplicationGatewaySslProfileInput interface {
 }
 
 type GetApplicationGatewaySslProfileArgs struct {
+	// The client authentication mode used by the SSL Profile.
+	ClientAuthenticationMode pulumi.StringInput `pulumi:"clientAuthenticationMode"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of this Application Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicies GetApplicationGatewaySslProfileSslPolicyArrayInput `pulumi:"sslPolicies"`
-	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
 	// Will the client certificate issuer DN be verified?
 	VerifyClientCertificateIssuerDn pulumi.BoolInput `pulumi:"verifyClientCertificateIssuerDn"`
@@ -32533,6 +32558,11 @@ func (o GetApplicationGatewaySslProfileOutput) ToGetApplicationGatewaySslProfile
 	return o
 }
 
+// The client authentication mode used by the SSL Profile.
+func (o GetApplicationGatewaySslProfileOutput) ClientAuthenticationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.ClientAuthenticationMode }).(pulumi.StringOutput)
+}
+
 // The ID of the Rewrite Rule Set
 func (o GetApplicationGatewaySslProfileOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.Id }).(pulumi.StringOutput)
@@ -32543,14 +32573,14 @@ func (o GetApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// a `sslPolicy` block as defined below.
+// An `sslPolicy` block as defined below.
 func (o GetApplicationGatewaySslProfileOutput) SslPolicies() GetApplicationGatewaySslProfileSslPolicyArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) []GetApplicationGatewaySslProfileSslPolicy {
 		return v.SslPolicies
 	}).(GetApplicationGatewaySslProfileSslPolicyArrayOutput)
 }
 
-// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
 func (o GetApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
 }
@@ -37657,7 +37687,7 @@ func (o GetVirtualNetworkGatewayIpConfigurationArrayOutput) Index(i pulumi.IntIn
 
 type GetVirtualNetworkGatewayVpnClientConfiguration struct {
 	// The client id of the Azure VPN application.
-	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 	// This setting is incompatible with the use of
 	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadAudience string `pulumi:"aadAudience"`
@@ -37710,7 +37740,7 @@ type GetVirtualNetworkGatewayVpnClientConfigurationInput interface {
 
 type GetVirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// The client id of the Azure VPN application.
-	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 	// This setting is incompatible with the use of
 	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadAudience pulumi.StringInput `pulumi:"aadAudience"`
@@ -37802,7 +37832,7 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) ToGetVirtualNetwor
 }
 
 // The client id of the Azure VPN application.
-// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
 // This setting is incompatible with the use of
 // `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AadAudience() pulumi.StringOutput {
