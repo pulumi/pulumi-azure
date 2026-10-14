@@ -4,7 +4,7 @@ meta_desc: How to upgrade from v6 to v7 of the Azure Classic provider
 layout: package
 ---
 
-Version 7 of the Azure Classic provider is based on version 5 of the Terraform AzureRM provider (v5.3.0). It removes properties that were deprecated throughout v6, renames many properties for consistency, and changes several defaults. The upstream release notes are in the [5.0 upgrade guide](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/5.0-upgrade-guide).
+Version 7 of the Azure Classic provider is based on version 5 of the Terraform AzureRM provider (v5.9.0). It removes properties that were deprecated throughout v6, renames many properties for consistency, and changes several defaults. The upstream release notes are in the [5.0 upgrade guide](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/5.0-upgrade-guide).
 
 This guide covers resources and data sources that still exist in v7. It does not yet cover the resources that were removed.
 
@@ -14,9 +14,9 @@ Each section shows a v6 program and the same program after migrating to v7. The 
 
 ### Upgrade to the latest v6 first
 
-Upgrade to `6.40.0`, run `pulumi preview`, and resolve every deprecation warning. Most of the properties removed in v7 were deprecated in v6, and their replacements already work in v6.
+Upgrade to `6.40.1`, run `pulumi preview`, and resolve every deprecation warning. Most of the properties removed in v7 were deprecated in v6, and their replacements already work in v6.
 
-Many sections below are marked **Can be applied on v6**. For those, the v7 form of the code also compiles against `6.40.0`. Apply those changes while still on v6 and run `pulumi preview`. It should report no changes. If it reports an update or a replacement, revert that change and make it as part of the v7 upgrade instead. Doing this shrinks the upgrade to a handful of v7-only changes.
+Many sections below are marked **Can be applied on v6**. For those, the v7 form of the code also compiles against `6.40.1`. Apply those changes while still on v6 and run `pulumi preview`. It should report no changes. If it reports an update or a replacement, revert that change and make it as part of the v7 upgrade instead. Doing this shrinks the upgrade to a handful of v7-only changes.
 
 ### Update the package
 
@@ -1880,4 +1880,5 @@ const env = new azure.containerapp.Environment("apps", {
 * `storage.TableEntity.storageTableId` must be the table's Resource Manager ID (`table.id`). The data-plane URL is no longer accepted.
 * `machinelearning.DatastoreFileshare.storageFileshareId` must be the share's `id`. The value from the removed `resourceManagerId` output is no longer accepted.
 * Changing `loganalytics.StorageInsights.storageAccountId` now replaces the resource. So does changing `description`, `displayName` or `validateFromUtc` on `sentinel.ThreatIntelligenceIndicator`.
+* Changing `managedBy` on `core.ResourceGroup` now replaces the resource group, because Azure can't update it in place. Leaving it unchanged causes no diff.
 * `network.LocalNetworkGateway.addressSpaces` is now unordered, so don't rely on the order of items read from it.
