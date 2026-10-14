@@ -1,3 +1,0 @@
-name: azure-table
-runtime: nodejs
-description: Work with Azure Functions and Storage Table

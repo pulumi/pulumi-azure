@@ -1,3 +1,0 @@
-name: azure-http-external
-runtime: nodejs
-description: An http Azure Function App implemented in PowerShell

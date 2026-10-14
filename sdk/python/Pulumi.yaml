@@ -1,3 +1,0 @@
-name: azure
-description: A Pulumi resource provider for azure.
-language: python
