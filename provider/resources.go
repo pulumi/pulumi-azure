@@ -1803,29 +1803,41 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Private Dns
-			"azurerm_private_dns_a_record":     {Tok: azureResource(azurePrivateDNS, "ARecord")},
-			"azurerm_private_dns_cname_record": {Tok: azureResource(azurePrivateDNS, "CnameRecord")},
-			"azurerm_private_dns_zone":         {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_a_record": {
+				Tok:                azureResource(azurePrivateDNS, "ARecord"),
+				TransformFromState: fillPrivateDNSZoneID,
+			},
+			"azurerm_private_dns_cname_record": {
+				Tok:                azureResource(azurePrivateDNS, "CnameRecord"),
+				TransformFromState: fillPrivateDNSZoneID,
+			},
+			"azurerm_private_dns_zone": {Tok: azureResource(azurePrivateDNS, "Zone")},
 			"azurerm_private_dns_zone_virtual_network_link": {
-				Tok: azureResource(azurePrivateDNS, "ZoneVirtualNetworkLink"),
+				Tok:                azureResource(azurePrivateDNS, "ZoneVirtualNetworkLink"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_dns_aaaa_record": {
-				Tok: azureResource(azurePrivateDNS, "AAAARecord"),
+				Tok:                azureResource(azurePrivateDNS, "AAAARecord"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_dns_ptr_record": {
-				Tok: azureResource(azurePrivateDNS, "PTRRecord"),
+				Tok:                azureResource(azurePrivateDNS, "PTRRecord"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_dns_srv_record": {
-				Tok: azureResource(azurePrivateDNS, "SRVRecord"),
+				Tok:                azureResource(azurePrivateDNS, "SRVRecord"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_link_service": {
 				Tok: azureResource(azurePrivateDNS, "LinkService"),
 			},
 			"azurerm_private_dns_mx_record": {
-				Tok: azureResource(azurePrivateDNS, "MxRecord"),
+				Tok:                azureResource(azurePrivateDNS, "MxRecord"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_dns_txt_record": {
-				Tok: azureResource(azurePrivateDNS, "TxtRecord"),
+				Tok:                azureResource(azurePrivateDNS, "TxtRecord"),
+				TransformFromState: fillPrivateDNSZoneID,
 			},
 			"azurerm_private_dns_resolver":                        {Tok: azureResource(azurePrivateDNS, "Resolver")},
 			"azurerm_private_dns_resolver_dns_forwarding_ruleset": {Tok: azureResource(azurePrivateDNS, "ResolverDnsForwardingRuleset")},
@@ -3745,6 +3757,27 @@ func fixMssqlServerID(_ context.Context, pm resource.PropertyMap) (resource.Prop
 // upstream v3 used managed_instance_name, but v4 uses managed_instance_id
 func fixMssqlManagedInstanceID(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 	return mssqlNameToID(pm, "managedInstanceName", "managedInstanceId", "managedInstances"), nil
+}
+
+// upstream v4 located private DNS records and virtual network links by zoneName (privateDnsZoneName
+// for links) and resourceGroupName, but v5 uses privateDnsZoneId, which forces a replacement when it
+// changes. Derive it from the resource's ID, so that state written by v6 doesn't need a refresh first.
+func fillPrivateDNSZoneID(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+	if pm.HasValue("privateDnsZoneId") || !pm.HasValue("id") || !pm["id"].IsString() {
+		return pm, nil
+	}
+	// /subscriptions/ID/resourceGroups/RG/providers/Microsoft.Network/privateDnsZones/ZONE/A/NAME
+	id := pm["id"].StringValue()
+	const zonesSegment = "/privatednszones/"
+	start := strings.Index(strings.ToLower(id), zonesSegment)
+	if start < 0 {
+		return pm, nil
+	}
+	nameStart := start + len(zonesSegment)
+	if nameLen := strings.Index(id[nameStart:], "/"); nameLen > 0 {
+		pm["privateDnsZoneId"] = resource.NewStringProperty(id[:nameStart+nameLen])
+	}
+	return pm, nil
 }
 
 func mssqlNameToID(pm resource.PropertyMap, nameField, idField, resourceKind string) resource.PropertyMap {
