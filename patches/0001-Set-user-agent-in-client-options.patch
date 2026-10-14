@@ -6,7 +6,7 @@ Subject: [PATCH] Set user agent in client options
 Use Pulumi-specific user agent which includes the current provider version number.
 
 diff --git a/internal/common/client_options.go b/internal/common/client_options.go
-index 7ca93360cb..52f1c51ffd 100644
+index 7ca93360cbc4..52f1c51ffd0f 100644
 --- a/internal/common/client_options.go
 +++ b/internal/common/client_options.go
 @@ -103,9 +103,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A

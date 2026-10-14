@@ -7,7 +7,7 @@ Subject: [PATCH] Make storage account resource_group_name optional in data
 Look up resource_group_name by using `storageClient.FindAccount` as storage account names should be unique, and resolve back to the resource group it belongs to.
 
 diff --git a/internal/services/storage/storage_account_data_source.go b/internal/services/storage/storage_account_data_source.go
-index 4420905afc..2afbb896d7 100644
+index 178549d07d12..0121749c829a 100644
 --- a/internal/services/storage/storage_account_data_source.go
 +++ b/internal/services/storage/storage_account_data_source.go
 @@ -38,7 +38,8 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
@@ -20,9 +20,9 @@ index 4420905afc..2afbb896d7 100644
  
  			"location": commonschema.LocationComputed(),
  
-@@ -544,10 +545,27 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
+@@ -549,10 +550,27 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
  
- func dataSourceStorageAccountRead(d *pluginsdk.ResourceData, meta interface{}) error {
+ func dataSourceStorageAccountRead(d *pluginsdk.ResourceData, meta any) error {
  	client := meta.(*clients.Client).Storage.ResourceManager.StorageAccounts
 +	storageClient := meta.(*clients.Client).Storage
  	subscriptionId := meta.(*clients.Client).Account.SubscriptionId

@@ -16180,6 +16180,15 @@
                     }
                 }
             },
+            "azurerm_oracle_autonomous_database_cross_region_disaster_recovery": {
+                "current": "azure:oracle/autonomousDatabaseCrossRegionDisasterRecovery:AutonomousDatabaseCrossRegionDisasterRecovery",
+                "majorVersion": 7,
+                "fields": {
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/cloudVmCluster:CloudVmCluster",
                 "majorVersion": 7,
@@ -20219,6 +20228,28 @@
                 "majorVersion": 7,
                 "fields": {
                     "ace": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_storage_discovery_workspace": {
+                "current": "azure:storage/discoveryWorkspace:DiscoveryWorkspace",
+                "majorVersion": 7,
+                "fields": {
+                    "scope": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "resource_types": {
+                                    "maxItemsOne": false
+                                },
+                                "tag_keys_only": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "workspace_roots": {
                         "maxItemsOne": false
                     }
                 }
@@ -24819,6 +24850,9 @@
                 "current": "azure:automation/getAccount:getAccount",
                 "majorVersion": 7,
                 "fields": {
+                    "encryption": {
+                        "maxItemsOne": false
+                    },
                     "identity": {
                         "maxItemsOne": false,
                         "elem": {
@@ -26710,7 +26744,42 @@
             },
             "azurerm_express_route_circuit_peering": {
                 "current": "azure:expressroute/getCircuitPeering:getCircuitPeering",
-                "majorVersion": 7
+                "majorVersion": 7,
+                "fields": {
+                    "ipv6": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "microsoft_peering": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "advertised_communities": {
+                                                "maxItemsOne": false
+                                            },
+                                            "advertised_public_prefixes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "microsoft_peering_config": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "advertised_communities": {
+                                    "maxItemsOne": false
+                                },
+                                "advertised_public_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_extended_location_custom_location": {
                 "current": "azure:extendedlocation/getCustomLocation:getCustomLocation",
@@ -27017,6 +27086,12 @@
                 "majorVersion": 7,
                 "fields": {
                     "cidrs": {
+                        "maxItemsOne": false
+                    },
+                    "firewall_ids": {
+                        "maxItemsOne": false
+                    },
+                    "firewall_policy_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -29805,6 +29880,24 @@
                     }
                 }
             },
+            "azurerm_oracle_autonomous_database_cross_region_disaster_recovery": {
+                "current": "azure:oracle/getAutonomousDatabaseCrossRegionDisasterRecovery:getAutonomousDatabaseCrossRegionDisasterRecovery",
+                "majorVersion": 7,
+                "fields": {
+                    "available_upgrade_versions": {
+                        "maxItemsOne": false
+                    },
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "peer_database_ids": {
+                        "maxItemsOne": false
+                    },
+                    "provisionable_cpus": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/getCloudVmCluster:getCloudVmCluster",
                 "majorVersion": 7,
@@ -30247,6 +30340,9 @@
                 "majorVersion": 7,
                 "fields": {
                     "auto_approval_subscription_ids": {
+                        "maxItemsOne": false
+                    },
+                    "fqdns": {
                         "maxItemsOne": false
                     },
                     "load_balancer_frontend_ip_configuration_ids": {
@@ -30788,7 +30884,51 @@
             },
             "azurerm_signalr_service": {
                 "current": "azure:signalr/getService:getService",
-                "majorVersion": 7
+                "majorVersion": 7,
+                "fields": {
+                    "cors": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "live_trace": {
+                        "maxItemsOne": false
+                    },
+                    "sku": {
+                        "maxItemsOne": false
+                    },
+                    "upstream_endpoint": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "category_pattern": {
+                                    "maxItemsOne": false
+                                },
+                                "event_pattern": {
+                                    "maxItemsOne": false
+                                },
+                                "hub_pattern": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_site_recovery_fabric": {
                 "current": "azure:siterecovery/getFabric:getFabric",
@@ -31675,7 +31815,22 @@
             },
             "azurerm_web_pubsub": {
                 "current": "azure:webpubsub/getService:getService",
-                "majorVersion": 7
+                "majorVersion": 7,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "live_trace": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_web_pubsub_private_link_resource": {
                 "current": "azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource",
@@ -32401,6 +32556,14 @@
                 "renames": [
                     "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection"
                 ]
+            }
+        },
+        "datasources": {
+            "azurerm_monitor_data_collection_rule": {
+                "maxItemsOneOverrides": {
+                    "destinations.$.event_hub": true,
+                    "destinations.$.event_hub_direct": true
+                }
             }
         }
     },

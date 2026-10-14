@@ -7,10 +7,10 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index 1010de98c6..4d8b4914f3 100644
+index 514200dfb987..321d37a7992f 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
-@@ -45,6 +45,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
+@@ -44,6 +44,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
  	}
  }
  
@@ -19,7 +19,7 @@ index 1010de98c6..4d8b4914f3 100644
  func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  	return map[string]*pluginsdk.Schema{
  		"name": {
-@@ -165,6 +167,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
+@@ -164,6 +166,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  			ForceNew: true,
  		},
  
@@ -36,7 +36,7 @@ index 1010de98c6..4d8b4914f3 100644
  		"status": {
  			Type:     pluginsdk.TypeString,
  			Optional: true,
-@@ -381,6 +393,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -380,6 +392,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta any) error {
  
  	d.Set("name", id.QueueName)
  	d.Set("namespace_id", namespaceId.ID())
@@ -46,10 +46,10 @@ index 1010de98c6..4d8b4914f3 100644
  	if model := resp.Model; model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index b66efdde9f..15d44beaf6 100644
+index 6fe5b97262c5..3664626ad447 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
-@@ -43,6 +43,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
+@@ -42,6 +42,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
  	}
  }
  
@@ -58,7 +58,7 @@ index b66efdde9f..15d44beaf6 100644
  func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  	return map[string]*pluginsdk.Schema{
  		"name": {
-@@ -133,6 +135,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
+@@ -132,6 +134,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  			Type:     pluginsdk.TypeBool,
  			Optional: true,
  		},
@@ -75,7 +75,7 @@ index b66efdde9f..15d44beaf6 100644
  	}
  }
  
-@@ -263,6 +275,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -262,6 +274,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta any) error {
  	d.Set("name", id.TopicName)
  	d.Set("namespace_id", topics.NewNamespaceID(id.SubscriptionId, id.ResourceGroupName, id.NamespaceName).ID())
  
