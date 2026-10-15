@@ -131,14 +131,14 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
         return this.rowKey;
     }
     /**
-     * The Storage Share ID in which this file will be placed into.
+     * The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageTableId", refs={String.class}, tree="[0]")
     private Output<String> storageTableId;
 
     /**
-     * @return The Storage Share ID in which this file will be placed into.
+     * @return The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageTableId() {

@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -130,6 +130,14 @@ export interface GetPublicIPResult {
      */
     readonly domainNameLabel: string;
     /**
+     * Scope for the domain name label.
+     */
+    readonly domainNameLabelScope: string;
+    /**
+     * The Edge Zone within the Azure Region where this Public IP exists.
+     */
+    readonly edgeZone: string;
+    /**
      * Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
      */
     readonly fqdn: string;
@@ -158,6 +166,10 @@ export interface GetPublicIPResult {
      */
     readonly location: string;
     readonly name: string;
+    /**
+     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     */
+    readonly publicIpPrefixId: string;
     readonly resourceGroupName: string;
     /**
      * The fully qualified domain name that resolves to this public IP address.
@@ -167,6 +179,10 @@ export interface GetPublicIPResult {
      * The SKU of the Public IP.
      */
     readonly sku: string;
+    /**
+     * The SKU Tier that is used for the Public IP.
+     */
+    readonly skuTier: string;
     /**
      * A mapping of tags to assigned to the resource.
      */
@@ -257,7 +273,7 @@ export interface GetPublicIPResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

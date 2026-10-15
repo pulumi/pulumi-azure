@@ -34,14 +34,14 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
     }
 
     /**
-     * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * Whether the diagnostic log collection is enabled. Defaults to `false`.
      * 
      */
     @Import(name="diagnosticEnabled")
     private @Nullable Output<Boolean> diagnosticEnabled;
 
     /**
-     * @return Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * @return Whether the diagnostic log collection is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> diagnosticEnabled() {
@@ -159,7 +159,7 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
         }
 
         /**
-         * @param diagnosticEnabled Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+         * @param diagnosticEnabled Whether the diagnostic log collection is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class IotHubDeviceUpdateInstanceState extends com.pulumi.resources.
         }
 
         /**
-         * @param diagnosticEnabled Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+         * @param diagnosticEnabled Whether the diagnostic log collection is enabled. Defaults to `false`.
          * 
          * @return builder
          * 

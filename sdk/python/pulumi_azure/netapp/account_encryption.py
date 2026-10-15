@@ -32,7 +32,7 @@ class AccountEncryptionArgs:
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
-        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
         pulumi.set(__self__, "encryption_key", encryption_key)
@@ -98,7 +98,7 @@ class AccountEncryptionArgs:
     @pulumi.getter(name="systemAssignedIdentityPrincipalId")
     def system_assigned_identity_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         """
         return pulumi.get(self, "system_assigned_identity_principal_id")
 
@@ -135,7 +135,7 @@ class _AccountEncryptionState:
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
-        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
         if cross_tenant_key_vault_resource_id is not None:
@@ -203,7 +203,7 @@ class _AccountEncryptionState:
     @pulumi.getter(name="systemAssignedIdentityPrincipalId")
     def system_assigned_identity_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         """
         return pulumi.get(self, "system_assigned_identity_principal_id")
 
@@ -240,7 +240,7 @@ class AccountEncryption(pulumi.CustomResource):
         """
         Manages a NetApp Account Encryption Resource.
 
-        For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+        For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/azure/azure-netapp-files/configure-customer-managed-keys)
 
         ## Example Usage
 
@@ -340,7 +340,7 @@ class AccountEncryption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2026-01-01
+        * `Microsoft.NetApp` - 2026-05-01
 
         ## Import
 
@@ -357,7 +357,7 @@ class AccountEncryption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
-        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
         ...
@@ -369,7 +369,7 @@ class AccountEncryption(pulumi.CustomResource):
         """
         Manages a NetApp Account Encryption Resource.
 
-        For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+        For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/azure/azure-netapp-files/configure-customer-managed-keys)
 
         ## Example Usage
 
@@ -469,7 +469,7 @@ class AccountEncryption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2026-01-01
+        * `Microsoft.NetApp` - 2026-05-01
 
         ## Import
 
@@ -547,7 +547,7 @@ class AccountEncryption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
-        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -598,7 +598,7 @@ class AccountEncryption(pulumi.CustomResource):
     @pulumi.getter(name="systemAssignedIdentityPrincipalId")
     def system_assigned_identity_principal_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        The ID of the System Assigned Managed Identity. Conflicts with `user_assigned_identity_id`.
         """
         return pulumi.get(self, "system_assigned_identity_principal_id")
 

@@ -17,6 +17,8 @@ import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabasePlainArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabasePlainArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterPlainArgs;
@@ -42,6 +44,7 @@ import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupsResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromBackupResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromDatabaseResult;
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterResult;
 import com.pulumi.azure.oracle.outputs.GetDatabaseSystemVersionsResult;
@@ -1744,6 +1747,246 @@ public final class OracleFunctions {
      */
     public static CompletableFuture<GetAutonomousDatabaseCloneFromDatabaseResult> getAutonomousDatabaseCloneFromDatabasePlain(GetAutonomousDatabaseCloneFromDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", TypeShape.of(GetAutonomousDatabaseCloneFromDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cross Region Disaster Recovery Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCrossRegionDisasterRecoveryResult> getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs args) {
+        return getAutonomousDatabaseCrossRegionDisasterRecovery(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Cross Region Disaster Recovery Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCrossRegionDisasterRecoveryResult> getAutonomousDatabaseCrossRegionDisasterRecoveryPlain(GetAutonomousDatabaseCrossRegionDisasterRecoveryPlainArgs args) {
+        return getAutonomousDatabaseCrossRegionDisasterRecoveryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Cross Region Disaster Recovery Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCrossRegionDisasterRecoveryResult> getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCrossRegionDisasterRecovery:getAutonomousDatabaseCrossRegionDisasterRecovery", TypeShape.of(GetAutonomousDatabaseCrossRegionDisasterRecoveryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cross Region Disaster Recovery Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseCrossRegionDisasterRecoveryResult> getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseCrossRegionDisasterRecovery:getAutonomousDatabaseCrossRegionDisasterRecovery", TypeShape.of(GetAutonomousDatabaseCrossRegionDisasterRecoveryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cross Region Disaster Recovery Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseCrossRegionDisasterRecovery(GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseCrossRegionDisasterRecoveryResult> getAutonomousDatabaseCrossRegionDisasterRecoveryPlain(GetAutonomousDatabaseCrossRegionDisasterRecoveryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseCrossRegionDisasterRecovery:getAutonomousDatabaseCrossRegionDisasterRecovery", TypeShape.of(GetAutonomousDatabaseCrossRegionDisasterRecoveryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Cloud VM Cluster.

@@ -121,7 +121,7 @@ namespace Pulumi.Azure.SiteRecovery
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+        /// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public string RecoveryVaultName { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+        /// The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;

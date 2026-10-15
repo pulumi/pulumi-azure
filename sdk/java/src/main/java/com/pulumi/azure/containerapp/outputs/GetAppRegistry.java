@@ -21,7 +21,7 @@ public final class GetAppRegistry {
      */
     private String passwordSecretName;
     /**
-     * @return The hostname for the Container Registry.
+     * @return The FQDN for the Container Registry.
      * 
      */
     private String server;
@@ -47,7 +47,7 @@ public final class GetAppRegistry {
         return this.passwordSecretName;
     }
     /**
-     * @return The hostname for the Container Registry.
+     * @return The FQDN for the Container Registry.
      * 
      */
     public String server() {

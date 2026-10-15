@@ -3,25 +3,25 @@
 
 package com.pulumi.azure.cdn.outputs;
 
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsClientPortCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsCookiesCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsHostNameCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsHttpVersionCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsIsDeviceCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsPostArgsCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsQueryStringCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRemoteAddressCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestBodyCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestHeaderCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestMethodCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestSchemeCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestUriCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsServerPortCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsSocketAddressCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsSslProtocolCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsUrlFileExtensionCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsUrlFilenameCondition;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsUrlPathCondition;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsClientPort;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsDeviceType;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsHostName;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsHttpVersion;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsPostArgument;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsQueryString;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRemoteAddress;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestBody;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestCooky;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestFileExtension;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestFilename;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestHeader;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestMethod;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestPath;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestScheme;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsRequestUrl;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsServerPort;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsSocketAddress;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleConditionsSslProtocol;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -30,234 +30,234 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleConditions {
     /**
-     * @return A `clientPortCondition` block as defined below.
+     * @return One or more `clientPort` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions;
+    private @Nullable List<FrontdoorRuleConditionsClientPort> clientPorts;
     /**
-     * @return A `cookiesCondition` block as defined below.
+     * @return One or more `deviceType` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions;
+    private @Nullable List<FrontdoorRuleConditionsDeviceType> deviceTypes;
     /**
-     * @return A `hostNameCondition` block as defined below.
+     * @return One or more `hostName` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions;
+    private @Nullable List<FrontdoorRuleConditionsHostName> hostNames;
     /**
-     * @return A `httpVersionCondition` block as defined below.
+     * @return One or more `httpVersion` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions;
+    private @Nullable List<FrontdoorRuleConditionsHttpVersion> httpVersions;
     /**
-     * @return A `isDeviceCondition` block as defined below.
+     * @return One or more `postArgument` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions;
+    private @Nullable List<FrontdoorRuleConditionsPostArgument> postArguments;
     /**
-     * @return A `postArgsCondition` block as defined below.
+     * @return One or more `queryString` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions;
+    private @Nullable List<FrontdoorRuleConditionsQueryString> queryStrings;
     /**
-     * @return A `queryStringCondition` block as defined below.
+     * @return One or more `remoteAddress` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions;
+    private @Nullable List<FrontdoorRuleConditionsRemoteAddress> remoteAddresses;
     /**
-     * @return A `remoteAddressCondition` block as defined below.
+     * @return One or more `requestBody` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestBody> requestBodies;
     /**
-     * @return A `requestBodyCondition` block as defined below.
+     * @return One or more `requestCookies` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestCooky> requestCookies;
     /**
-     * @return A `requestHeaderCondition` block as defined below.
+     * @return One or more `requestFileExtension` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestFileExtension> requestFileExtensions;
     /**
-     * @return A `requestMethodCondition` block as defined below.
+     * @return One or more `requestFilename` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestFilename> requestFilenames;
     /**
-     * @return A `requestSchemeCondition` block as defined below.
+     * @return One or more `requestHeader` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestHeader> requestHeaders;
     /**
-     * @return A `requestUriCondition` block as defined below.
+     * @return One or more `requestMethod` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestMethod> requestMethods;
     /**
-     * @return A `serverPortCondition` block as defined below.
+     * @return One or more `requestPath` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestPath> requestPaths;
     /**
-     * @return A `socketAddressCondition` block as defined below.
+     * @return One or more `requestScheme` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestScheme> requestSchemes;
     /**
-     * @return A `sslProtocolCondition` block as defined below.
+     * @return One or more `requestUrl` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions;
+    private @Nullable List<FrontdoorRuleConditionsRequestUrl> requestUrls;
     /**
-     * @return A `urlFileExtensionCondition` block as defined below.
+     * @return One or more `serverPort` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions;
+    private @Nullable List<FrontdoorRuleConditionsServerPort> serverPorts;
     /**
-     * @return A `urlFilenameCondition` block as defined below.
+     * @return One or more `socketAddress` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions;
+    private @Nullable List<FrontdoorRuleConditionsSocketAddress> socketAddresses;
     /**
-     * @return A `urlPathCondition` block as defined below.
+     * @return One or more `sslProtocol` blocks as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions;
+    private @Nullable List<FrontdoorRuleConditionsSslProtocol> sslProtocols;
 
     private FrontdoorRuleConditions() {}
     /**
-     * @return A `clientPortCondition` block as defined below.
+     * @return One or more `clientPort` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions() {
-        return this.clientPortConditions == null ? List.of() : this.clientPortConditions;
+    public List<FrontdoorRuleConditionsClientPort> clientPorts() {
+        return this.clientPorts == null ? List.of() : this.clientPorts;
     }
     /**
-     * @return A `cookiesCondition` block as defined below.
+     * @return One or more `deviceType` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions() {
-        return this.cookiesConditions == null ? List.of() : this.cookiesConditions;
+    public List<FrontdoorRuleConditionsDeviceType> deviceTypes() {
+        return this.deviceTypes == null ? List.of() : this.deviceTypes;
     }
     /**
-     * @return A `hostNameCondition` block as defined below.
+     * @return One or more `hostName` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions() {
-        return this.hostNameConditions == null ? List.of() : this.hostNameConditions;
+    public List<FrontdoorRuleConditionsHostName> hostNames() {
+        return this.hostNames == null ? List.of() : this.hostNames;
     }
     /**
-     * @return A `httpVersionCondition` block as defined below.
+     * @return One or more `httpVersion` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions() {
-        return this.httpVersionConditions == null ? List.of() : this.httpVersionConditions;
+    public List<FrontdoorRuleConditionsHttpVersion> httpVersions() {
+        return this.httpVersions == null ? List.of() : this.httpVersions;
     }
     /**
-     * @return A `isDeviceCondition` block as defined below.
+     * @return One or more `postArgument` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions() {
-        return this.isDeviceConditions == null ? List.of() : this.isDeviceConditions;
+    public List<FrontdoorRuleConditionsPostArgument> postArguments() {
+        return this.postArguments == null ? List.of() : this.postArguments;
     }
     /**
-     * @return A `postArgsCondition` block as defined below.
+     * @return One or more `queryString` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions() {
-        return this.postArgsConditions == null ? List.of() : this.postArgsConditions;
+    public List<FrontdoorRuleConditionsQueryString> queryStrings() {
+        return this.queryStrings == null ? List.of() : this.queryStrings;
     }
     /**
-     * @return A `queryStringCondition` block as defined below.
+     * @return One or more `remoteAddress` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions() {
-        return this.queryStringConditions == null ? List.of() : this.queryStringConditions;
+    public List<FrontdoorRuleConditionsRemoteAddress> remoteAddresses() {
+        return this.remoteAddresses == null ? List.of() : this.remoteAddresses;
     }
     /**
-     * @return A `remoteAddressCondition` block as defined below.
+     * @return One or more `requestBody` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions() {
-        return this.remoteAddressConditions == null ? List.of() : this.remoteAddressConditions;
+    public List<FrontdoorRuleConditionsRequestBody> requestBodies() {
+        return this.requestBodies == null ? List.of() : this.requestBodies;
     }
     /**
-     * @return A `requestBodyCondition` block as defined below.
+     * @return One or more `requestCookies` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions() {
-        return this.requestBodyConditions == null ? List.of() : this.requestBodyConditions;
+    public List<FrontdoorRuleConditionsRequestCooky> requestCookies() {
+        return this.requestCookies == null ? List.of() : this.requestCookies;
     }
     /**
-     * @return A `requestHeaderCondition` block as defined below.
+     * @return One or more `requestFileExtension` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions() {
-        return this.requestHeaderConditions == null ? List.of() : this.requestHeaderConditions;
+    public List<FrontdoorRuleConditionsRequestFileExtension> requestFileExtensions() {
+        return this.requestFileExtensions == null ? List.of() : this.requestFileExtensions;
     }
     /**
-     * @return A `requestMethodCondition` block as defined below.
+     * @return One or more `requestFilename` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions() {
-        return this.requestMethodConditions == null ? List.of() : this.requestMethodConditions;
+    public List<FrontdoorRuleConditionsRequestFilename> requestFilenames() {
+        return this.requestFilenames == null ? List.of() : this.requestFilenames;
     }
     /**
-     * @return A `requestSchemeCondition` block as defined below.
+     * @return One or more `requestHeader` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions() {
-        return this.requestSchemeConditions == null ? List.of() : this.requestSchemeConditions;
+    public List<FrontdoorRuleConditionsRequestHeader> requestHeaders() {
+        return this.requestHeaders == null ? List.of() : this.requestHeaders;
     }
     /**
-     * @return A `requestUriCondition` block as defined below.
+     * @return One or more `requestMethod` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions() {
-        return this.requestUriConditions == null ? List.of() : this.requestUriConditions;
+    public List<FrontdoorRuleConditionsRequestMethod> requestMethods() {
+        return this.requestMethods == null ? List.of() : this.requestMethods;
     }
     /**
-     * @return A `serverPortCondition` block as defined below.
+     * @return One or more `requestPath` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions() {
-        return this.serverPortConditions == null ? List.of() : this.serverPortConditions;
+    public List<FrontdoorRuleConditionsRequestPath> requestPaths() {
+        return this.requestPaths == null ? List.of() : this.requestPaths;
     }
     /**
-     * @return A `socketAddressCondition` block as defined below.
+     * @return One or more `requestScheme` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions() {
-        return this.socketAddressConditions == null ? List.of() : this.socketAddressConditions;
+    public List<FrontdoorRuleConditionsRequestScheme> requestSchemes() {
+        return this.requestSchemes == null ? List.of() : this.requestSchemes;
     }
     /**
-     * @return A `sslProtocolCondition` block as defined below.
+     * @return One or more `requestUrl` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions() {
-        return this.sslProtocolConditions == null ? List.of() : this.sslProtocolConditions;
+    public List<FrontdoorRuleConditionsRequestUrl> requestUrls() {
+        return this.requestUrls == null ? List.of() : this.requestUrls;
     }
     /**
-     * @return A `urlFileExtensionCondition` block as defined below.
+     * @return One or more `serverPort` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions() {
-        return this.urlFileExtensionConditions == null ? List.of() : this.urlFileExtensionConditions;
+    public List<FrontdoorRuleConditionsServerPort> serverPorts() {
+        return this.serverPorts == null ? List.of() : this.serverPorts;
     }
     /**
-     * @return A `urlFilenameCondition` block as defined below.
+     * @return One or more `socketAddress` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions() {
-        return this.urlFilenameConditions == null ? List.of() : this.urlFilenameConditions;
+    public List<FrontdoorRuleConditionsSocketAddress> socketAddresses() {
+        return this.socketAddresses == null ? List.of() : this.socketAddresses;
     }
     /**
-     * @return A `urlPathCondition` block as defined below.
+     * @return One or more `sslProtocol` blocks as defined below.
      * 
      */
-    public List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions() {
-        return this.urlPathConditions == null ? List.of() : this.urlPathConditions;
+    public List<FrontdoorRuleConditionsSslProtocol> sslProtocols() {
+        return this.sslProtocols == null ? List.of() : this.sslProtocols;
     }
 
     public static Builder builder() {
@@ -269,241 +269,241 @@ public final class FrontdoorRuleConditions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions;
-        private @Nullable List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions;
-        private @Nullable List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions;
-        private @Nullable List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions;
-        private @Nullable List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions;
-        private @Nullable List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions;
-        private @Nullable List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions;
-        private @Nullable List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions;
-        private @Nullable List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions;
-        private @Nullable List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions;
-        private @Nullable List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions;
-        private @Nullable List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions;
-        private @Nullable List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions;
-        private @Nullable List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions;
-        private @Nullable List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions;
-        private @Nullable List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions;
-        private @Nullable List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions;
-        private @Nullable List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions;
-        private @Nullable List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions;
+        private @Nullable List<FrontdoorRuleConditionsClientPort> clientPorts;
+        private @Nullable List<FrontdoorRuleConditionsDeviceType> deviceTypes;
+        private @Nullable List<FrontdoorRuleConditionsHostName> hostNames;
+        private @Nullable List<FrontdoorRuleConditionsHttpVersion> httpVersions;
+        private @Nullable List<FrontdoorRuleConditionsPostArgument> postArguments;
+        private @Nullable List<FrontdoorRuleConditionsQueryString> queryStrings;
+        private @Nullable List<FrontdoorRuleConditionsRemoteAddress> remoteAddresses;
+        private @Nullable List<FrontdoorRuleConditionsRequestBody> requestBodies;
+        private @Nullable List<FrontdoorRuleConditionsRequestCooky> requestCookies;
+        private @Nullable List<FrontdoorRuleConditionsRequestFileExtension> requestFileExtensions;
+        private @Nullable List<FrontdoorRuleConditionsRequestFilename> requestFilenames;
+        private @Nullable List<FrontdoorRuleConditionsRequestHeader> requestHeaders;
+        private @Nullable List<FrontdoorRuleConditionsRequestMethod> requestMethods;
+        private @Nullable List<FrontdoorRuleConditionsRequestPath> requestPaths;
+        private @Nullable List<FrontdoorRuleConditionsRequestScheme> requestSchemes;
+        private @Nullable List<FrontdoorRuleConditionsRequestUrl> requestUrls;
+        private @Nullable List<FrontdoorRuleConditionsServerPort> serverPorts;
+        private @Nullable List<FrontdoorRuleConditionsSocketAddress> socketAddresses;
+        private @Nullable List<FrontdoorRuleConditionsSslProtocol> sslProtocols;
         public Builder() {}
         public Builder(FrontdoorRuleConditions defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.clientPortConditions = defaults.clientPortConditions;
-    	      this.cookiesConditions = defaults.cookiesConditions;
-    	      this.hostNameConditions = defaults.hostNameConditions;
-    	      this.httpVersionConditions = defaults.httpVersionConditions;
-    	      this.isDeviceConditions = defaults.isDeviceConditions;
-    	      this.postArgsConditions = defaults.postArgsConditions;
-    	      this.queryStringConditions = defaults.queryStringConditions;
-    	      this.remoteAddressConditions = defaults.remoteAddressConditions;
-    	      this.requestBodyConditions = defaults.requestBodyConditions;
-    	      this.requestHeaderConditions = defaults.requestHeaderConditions;
-    	      this.requestMethodConditions = defaults.requestMethodConditions;
-    	      this.requestSchemeConditions = defaults.requestSchemeConditions;
-    	      this.requestUriConditions = defaults.requestUriConditions;
-    	      this.serverPortConditions = defaults.serverPortConditions;
-    	      this.socketAddressConditions = defaults.socketAddressConditions;
-    	      this.sslProtocolConditions = defaults.sslProtocolConditions;
-    	      this.urlFileExtensionConditions = defaults.urlFileExtensionConditions;
-    	      this.urlFilenameConditions = defaults.urlFilenameConditions;
-    	      this.urlPathConditions = defaults.urlPathConditions;
+    	      this.clientPorts = defaults.clientPorts;
+    	      this.deviceTypes = defaults.deviceTypes;
+    	      this.hostNames = defaults.hostNames;
+    	      this.httpVersions = defaults.httpVersions;
+    	      this.postArguments = defaults.postArguments;
+    	      this.queryStrings = defaults.queryStrings;
+    	      this.remoteAddresses = defaults.remoteAddresses;
+    	      this.requestBodies = defaults.requestBodies;
+    	      this.requestCookies = defaults.requestCookies;
+    	      this.requestFileExtensions = defaults.requestFileExtensions;
+    	      this.requestFilenames = defaults.requestFilenames;
+    	      this.requestHeaders = defaults.requestHeaders;
+    	      this.requestMethods = defaults.requestMethods;
+    	      this.requestPaths = defaults.requestPaths;
+    	      this.requestSchemes = defaults.requestSchemes;
+    	      this.requestUrls = defaults.requestUrls;
+    	      this.serverPorts = defaults.serverPorts;
+    	      this.socketAddresses = defaults.socketAddresses;
+    	      this.sslProtocols = defaults.sslProtocols;
         }
 
         @CustomType.Setter
-        public Builder clientPortConditions(@Nullable List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions) {
+        public Builder clientPorts(@Nullable List<FrontdoorRuleConditionsClientPort> clientPorts) {
 
-            this.clientPortConditions = clientPortConditions;
+            this.clientPorts = clientPorts;
             return this;
         }
-        public Builder clientPortConditions(FrontdoorRuleConditionsClientPortCondition... clientPortConditions) {
-            return clientPortConditions(List.of(clientPortConditions));
+        public Builder clientPorts(FrontdoorRuleConditionsClientPort... clientPorts) {
+            return clientPorts(List.of(clientPorts));
         }
         @CustomType.Setter
-        public Builder cookiesConditions(@Nullable List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions) {
+        public Builder deviceTypes(@Nullable List<FrontdoorRuleConditionsDeviceType> deviceTypes) {
 
-            this.cookiesConditions = cookiesConditions;
+            this.deviceTypes = deviceTypes;
             return this;
         }
-        public Builder cookiesConditions(FrontdoorRuleConditionsCookiesCondition... cookiesConditions) {
-            return cookiesConditions(List.of(cookiesConditions));
+        public Builder deviceTypes(FrontdoorRuleConditionsDeviceType... deviceTypes) {
+            return deviceTypes(List.of(deviceTypes));
         }
         @CustomType.Setter
-        public Builder hostNameConditions(@Nullable List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions) {
+        public Builder hostNames(@Nullable List<FrontdoorRuleConditionsHostName> hostNames) {
 
-            this.hostNameConditions = hostNameConditions;
+            this.hostNames = hostNames;
             return this;
         }
-        public Builder hostNameConditions(FrontdoorRuleConditionsHostNameCondition... hostNameConditions) {
-            return hostNameConditions(List.of(hostNameConditions));
+        public Builder hostNames(FrontdoorRuleConditionsHostName... hostNames) {
+            return hostNames(List.of(hostNames));
         }
         @CustomType.Setter
-        public Builder httpVersionConditions(@Nullable List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions) {
+        public Builder httpVersions(@Nullable List<FrontdoorRuleConditionsHttpVersion> httpVersions) {
 
-            this.httpVersionConditions = httpVersionConditions;
+            this.httpVersions = httpVersions;
             return this;
         }
-        public Builder httpVersionConditions(FrontdoorRuleConditionsHttpVersionCondition... httpVersionConditions) {
-            return httpVersionConditions(List.of(httpVersionConditions));
+        public Builder httpVersions(FrontdoorRuleConditionsHttpVersion... httpVersions) {
+            return httpVersions(List.of(httpVersions));
         }
         @CustomType.Setter
-        public Builder isDeviceConditions(@Nullable List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions) {
+        public Builder postArguments(@Nullable List<FrontdoorRuleConditionsPostArgument> postArguments) {
 
-            this.isDeviceConditions = isDeviceConditions;
+            this.postArguments = postArguments;
             return this;
         }
-        public Builder isDeviceConditions(FrontdoorRuleConditionsIsDeviceCondition... isDeviceConditions) {
-            return isDeviceConditions(List.of(isDeviceConditions));
+        public Builder postArguments(FrontdoorRuleConditionsPostArgument... postArguments) {
+            return postArguments(List.of(postArguments));
         }
         @CustomType.Setter
-        public Builder postArgsConditions(@Nullable List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions) {
+        public Builder queryStrings(@Nullable List<FrontdoorRuleConditionsQueryString> queryStrings) {
 
-            this.postArgsConditions = postArgsConditions;
+            this.queryStrings = queryStrings;
             return this;
         }
-        public Builder postArgsConditions(FrontdoorRuleConditionsPostArgsCondition... postArgsConditions) {
-            return postArgsConditions(List.of(postArgsConditions));
+        public Builder queryStrings(FrontdoorRuleConditionsQueryString... queryStrings) {
+            return queryStrings(List.of(queryStrings));
         }
         @CustomType.Setter
-        public Builder queryStringConditions(@Nullable List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions) {
+        public Builder remoteAddresses(@Nullable List<FrontdoorRuleConditionsRemoteAddress> remoteAddresses) {
 
-            this.queryStringConditions = queryStringConditions;
+            this.remoteAddresses = remoteAddresses;
             return this;
         }
-        public Builder queryStringConditions(FrontdoorRuleConditionsQueryStringCondition... queryStringConditions) {
-            return queryStringConditions(List.of(queryStringConditions));
+        public Builder remoteAddresses(FrontdoorRuleConditionsRemoteAddress... remoteAddresses) {
+            return remoteAddresses(List.of(remoteAddresses));
         }
         @CustomType.Setter
-        public Builder remoteAddressConditions(@Nullable List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions) {
+        public Builder requestBodies(@Nullable List<FrontdoorRuleConditionsRequestBody> requestBodies) {
 
-            this.remoteAddressConditions = remoteAddressConditions;
+            this.requestBodies = requestBodies;
             return this;
         }
-        public Builder remoteAddressConditions(FrontdoorRuleConditionsRemoteAddressCondition... remoteAddressConditions) {
-            return remoteAddressConditions(List.of(remoteAddressConditions));
+        public Builder requestBodies(FrontdoorRuleConditionsRequestBody... requestBodies) {
+            return requestBodies(List.of(requestBodies));
         }
         @CustomType.Setter
-        public Builder requestBodyConditions(@Nullable List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions) {
+        public Builder requestCookies(@Nullable List<FrontdoorRuleConditionsRequestCooky> requestCookies) {
 
-            this.requestBodyConditions = requestBodyConditions;
+            this.requestCookies = requestCookies;
             return this;
         }
-        public Builder requestBodyConditions(FrontdoorRuleConditionsRequestBodyCondition... requestBodyConditions) {
-            return requestBodyConditions(List.of(requestBodyConditions));
+        public Builder requestCookies(FrontdoorRuleConditionsRequestCooky... requestCookies) {
+            return requestCookies(List.of(requestCookies));
         }
         @CustomType.Setter
-        public Builder requestHeaderConditions(@Nullable List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions) {
+        public Builder requestFileExtensions(@Nullable List<FrontdoorRuleConditionsRequestFileExtension> requestFileExtensions) {
 
-            this.requestHeaderConditions = requestHeaderConditions;
+            this.requestFileExtensions = requestFileExtensions;
             return this;
         }
-        public Builder requestHeaderConditions(FrontdoorRuleConditionsRequestHeaderCondition... requestHeaderConditions) {
-            return requestHeaderConditions(List.of(requestHeaderConditions));
+        public Builder requestFileExtensions(FrontdoorRuleConditionsRequestFileExtension... requestFileExtensions) {
+            return requestFileExtensions(List.of(requestFileExtensions));
         }
         @CustomType.Setter
-        public Builder requestMethodConditions(@Nullable List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions) {
+        public Builder requestFilenames(@Nullable List<FrontdoorRuleConditionsRequestFilename> requestFilenames) {
 
-            this.requestMethodConditions = requestMethodConditions;
+            this.requestFilenames = requestFilenames;
             return this;
         }
-        public Builder requestMethodConditions(FrontdoorRuleConditionsRequestMethodCondition... requestMethodConditions) {
-            return requestMethodConditions(List.of(requestMethodConditions));
+        public Builder requestFilenames(FrontdoorRuleConditionsRequestFilename... requestFilenames) {
+            return requestFilenames(List.of(requestFilenames));
         }
         @CustomType.Setter
-        public Builder requestSchemeConditions(@Nullable List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions) {
+        public Builder requestHeaders(@Nullable List<FrontdoorRuleConditionsRequestHeader> requestHeaders) {
 
-            this.requestSchemeConditions = requestSchemeConditions;
+            this.requestHeaders = requestHeaders;
             return this;
         }
-        public Builder requestSchemeConditions(FrontdoorRuleConditionsRequestSchemeCondition... requestSchemeConditions) {
-            return requestSchemeConditions(List.of(requestSchemeConditions));
+        public Builder requestHeaders(FrontdoorRuleConditionsRequestHeader... requestHeaders) {
+            return requestHeaders(List.of(requestHeaders));
         }
         @CustomType.Setter
-        public Builder requestUriConditions(@Nullable List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions) {
+        public Builder requestMethods(@Nullable List<FrontdoorRuleConditionsRequestMethod> requestMethods) {
 
-            this.requestUriConditions = requestUriConditions;
+            this.requestMethods = requestMethods;
             return this;
         }
-        public Builder requestUriConditions(FrontdoorRuleConditionsRequestUriCondition... requestUriConditions) {
-            return requestUriConditions(List.of(requestUriConditions));
+        public Builder requestMethods(FrontdoorRuleConditionsRequestMethod... requestMethods) {
+            return requestMethods(List.of(requestMethods));
         }
         @CustomType.Setter
-        public Builder serverPortConditions(@Nullable List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions) {
+        public Builder requestPaths(@Nullable List<FrontdoorRuleConditionsRequestPath> requestPaths) {
 
-            this.serverPortConditions = serverPortConditions;
+            this.requestPaths = requestPaths;
             return this;
         }
-        public Builder serverPortConditions(FrontdoorRuleConditionsServerPortCondition... serverPortConditions) {
-            return serverPortConditions(List.of(serverPortConditions));
+        public Builder requestPaths(FrontdoorRuleConditionsRequestPath... requestPaths) {
+            return requestPaths(List.of(requestPaths));
         }
         @CustomType.Setter
-        public Builder socketAddressConditions(@Nullable List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions) {
+        public Builder requestSchemes(@Nullable List<FrontdoorRuleConditionsRequestScheme> requestSchemes) {
 
-            this.socketAddressConditions = socketAddressConditions;
+            this.requestSchemes = requestSchemes;
             return this;
         }
-        public Builder socketAddressConditions(FrontdoorRuleConditionsSocketAddressCondition... socketAddressConditions) {
-            return socketAddressConditions(List.of(socketAddressConditions));
+        public Builder requestSchemes(FrontdoorRuleConditionsRequestScheme... requestSchemes) {
+            return requestSchemes(List.of(requestSchemes));
         }
         @CustomType.Setter
-        public Builder sslProtocolConditions(@Nullable List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions) {
+        public Builder requestUrls(@Nullable List<FrontdoorRuleConditionsRequestUrl> requestUrls) {
 
-            this.sslProtocolConditions = sslProtocolConditions;
+            this.requestUrls = requestUrls;
             return this;
         }
-        public Builder sslProtocolConditions(FrontdoorRuleConditionsSslProtocolCondition... sslProtocolConditions) {
-            return sslProtocolConditions(List.of(sslProtocolConditions));
+        public Builder requestUrls(FrontdoorRuleConditionsRequestUrl... requestUrls) {
+            return requestUrls(List.of(requestUrls));
         }
         @CustomType.Setter
-        public Builder urlFileExtensionConditions(@Nullable List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions) {
+        public Builder serverPorts(@Nullable List<FrontdoorRuleConditionsServerPort> serverPorts) {
 
-            this.urlFileExtensionConditions = urlFileExtensionConditions;
+            this.serverPorts = serverPorts;
             return this;
         }
-        public Builder urlFileExtensionConditions(FrontdoorRuleConditionsUrlFileExtensionCondition... urlFileExtensionConditions) {
-            return urlFileExtensionConditions(List.of(urlFileExtensionConditions));
+        public Builder serverPorts(FrontdoorRuleConditionsServerPort... serverPorts) {
+            return serverPorts(List.of(serverPorts));
         }
         @CustomType.Setter
-        public Builder urlFilenameConditions(@Nullable List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions) {
+        public Builder socketAddresses(@Nullable List<FrontdoorRuleConditionsSocketAddress> socketAddresses) {
 
-            this.urlFilenameConditions = urlFilenameConditions;
+            this.socketAddresses = socketAddresses;
             return this;
         }
-        public Builder urlFilenameConditions(FrontdoorRuleConditionsUrlFilenameCondition... urlFilenameConditions) {
-            return urlFilenameConditions(List.of(urlFilenameConditions));
+        public Builder socketAddresses(FrontdoorRuleConditionsSocketAddress... socketAddresses) {
+            return socketAddresses(List.of(socketAddresses));
         }
         @CustomType.Setter
-        public Builder urlPathConditions(@Nullable List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions) {
+        public Builder sslProtocols(@Nullable List<FrontdoorRuleConditionsSslProtocol> sslProtocols) {
 
-            this.urlPathConditions = urlPathConditions;
+            this.sslProtocols = sslProtocols;
             return this;
         }
-        public Builder urlPathConditions(FrontdoorRuleConditionsUrlPathCondition... urlPathConditions) {
-            return urlPathConditions(List.of(urlPathConditions));
+        public Builder sslProtocols(FrontdoorRuleConditionsSslProtocol... sslProtocols) {
+            return sslProtocols(List.of(sslProtocols));
         }
         public FrontdoorRuleConditions build() {
             final var _resultValue = new FrontdoorRuleConditions();
-            _resultValue.clientPortConditions = clientPortConditions;
-            _resultValue.cookiesConditions = cookiesConditions;
-            _resultValue.hostNameConditions = hostNameConditions;
-            _resultValue.httpVersionConditions = httpVersionConditions;
-            _resultValue.isDeviceConditions = isDeviceConditions;
-            _resultValue.postArgsConditions = postArgsConditions;
-            _resultValue.queryStringConditions = queryStringConditions;
-            _resultValue.remoteAddressConditions = remoteAddressConditions;
-            _resultValue.requestBodyConditions = requestBodyConditions;
-            _resultValue.requestHeaderConditions = requestHeaderConditions;
-            _resultValue.requestMethodConditions = requestMethodConditions;
-            _resultValue.requestSchemeConditions = requestSchemeConditions;
-            _resultValue.requestUriConditions = requestUriConditions;
-            _resultValue.serverPortConditions = serverPortConditions;
-            _resultValue.socketAddressConditions = socketAddressConditions;
-            _resultValue.sslProtocolConditions = sslProtocolConditions;
-            _resultValue.urlFileExtensionConditions = urlFileExtensionConditions;
-            _resultValue.urlFilenameConditions = urlFilenameConditions;
-            _resultValue.urlPathConditions = urlPathConditions;
+            _resultValue.clientPorts = clientPorts;
+            _resultValue.deviceTypes = deviceTypes;
+            _resultValue.hostNames = hostNames;
+            _resultValue.httpVersions = httpVersions;
+            _resultValue.postArguments = postArguments;
+            _resultValue.queryStrings = queryStrings;
+            _resultValue.remoteAddresses = remoteAddresses;
+            _resultValue.requestBodies = requestBodies;
+            _resultValue.requestCookies = requestCookies;
+            _resultValue.requestFileExtensions = requestFileExtensions;
+            _resultValue.requestFilenames = requestFilenames;
+            _resultValue.requestHeaders = requestHeaders;
+            _resultValue.requestMethods = requestMethods;
+            _resultValue.requestPaths = requestPaths;
+            _resultValue.requestSchemes = requestSchemes;
+            _resultValue.requestUrls = requestUrls;
+            _resultValue.serverPorts = serverPorts;
+            _resultValue.socketAddresses = socketAddresses;
+            _resultValue.sslProtocols = sslProtocols;
             return _resultValue;
         }
     }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/oracle"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/oracle"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,9 +125,6 @@ func NewExadataInfrastructure(ctx *pulumi.Context,
 	}
 	if args.StorageCount == nil {
 		return nil, errors.New("invalid value for required argument 'StorageCount'")
-	}
-	if args.Zones == nil {
-		return nil, errors.New("invalid value for required argument 'Zones'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExadataInfrastructure

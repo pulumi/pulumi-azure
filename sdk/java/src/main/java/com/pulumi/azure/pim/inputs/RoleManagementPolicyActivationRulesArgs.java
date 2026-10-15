@@ -93,14 +93,14 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
     }
 
     /**
-     * Is ticket information requrired during activation of the role.
+     * Is ticket information required during activation of the role.
      * 
      */
     @Import(name="requireTicketInfo")
     private @Nullable Output<Boolean> requireTicketInfo;
 
     /**
-     * @return Is ticket information requrired during activation of the role.
+     * @return Is ticket information required during activation of the role.
      * 
      */
     public Optional<Output<Boolean>> requireTicketInfo() {
@@ -258,7 +258,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireTicketInfo Is ticket information requrired during activation of the role.
+         * @param requireTicketInfo Is ticket information required during activation of the role.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class RoleManagementPolicyActivationRulesArgs extends com.pulumi.re
         }
 
         /**
-         * @param requireTicketInfo Is ticket information requrired during activation of the role.
+         * @param requireTicketInfo Is ticket information required during activation of the role.
          * 
          * @return builder
          * 

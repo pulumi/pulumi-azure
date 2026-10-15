@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+        /// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
         /// 
         /// &gt; **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         /// </summary>
@@ -71,10 +71,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         /// </summary>
         public readonly string? PythonVersion;
-        /// <summary>
-        /// The version of Ruby to run. Possible values include `2.6` and `2.7`.
-        /// </summary>
-        public readonly string? RubyVersion;
 
         [OutputConstructor]
         private LinuxWebAppSlotSiteConfigApplicationStack(
@@ -100,9 +96,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? phpVersion,
 
-            string? pythonVersion,
-
-            string? rubyVersion)
+            string? pythonVersion)
         {
             DockerImageName = dockerImageName;
             DockerRegistryPassword = dockerRegistryPassword;
@@ -116,7 +110,6 @@ namespace Pulumi.Azure.AppService.Outputs
             NodeVersion = nodeVersion;
             PhpVersion = phpVersion;
             PythonVersion = pythonVersion;
-            RubyVersion = rubyVersion;
         }
     }
 }

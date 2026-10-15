@@ -130,17 +130,11 @@ namespace Pulumi.Azure.AppInsights
         [Output("dailyDataCapInGb")]
         public Output<double?> DailyDataCapInGb { get; private set; } = null!;
 
-        [Output("dailyDataCapNotificationsDisabled")]
-        public Output<bool> DailyDataCapNotificationsDisabled { get; private set; } = null!;
-
         /// <summary>
         /// Whether a notification email will be sent when the daily data volume cap is met. Defaults to `True`.
         /// </summary>
         [Output("dailyDataCapNotificationsEnabled")]
-        public Output<bool> DailyDataCapNotificationsEnabled { get; private set; } = null!;
-
-        [Output("disableIpMasking")]
-        public Output<bool> DisableIpMasking { get; private set; } = null!;
+        public Output<bool?> DailyDataCapNotificationsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
@@ -170,16 +164,13 @@ namespace Pulumi.Azure.AppInsights
         /// By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `False` to disable masking and log the real client IP. Defaults to `True`.
         /// </summary>
         [Output("ipMaskingEnabled")]
-        public Output<bool> IpMaskingEnabled { get; private set; } = null!;
-
-        [Output("localAuthenticationDisabled")]
-        public Output<bool> LocalAuthenticationDisabled { get; private set; } = null!;
+        public Output<bool?> IpMaskingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether Non-Azure AD based Auth is enabled. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
-        public Output<bool> LocalAuthenticationEnabled { get; private set; } = null!;
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -288,17 +279,11 @@ namespace Pulumi.Azure.AppInsights
         [Input("dailyDataCapInGb")]
         public Input<double>? DailyDataCapInGb { get; set; }
 
-        [Input("dailyDataCapNotificationsDisabled")]
-        public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
-
         /// <summary>
         /// Whether a notification email will be sent when the daily data volume cap is met. Defaults to `True`.
         /// </summary>
         [Input("dailyDataCapNotificationsEnabled")]
         public Input<bool>? DailyDataCapNotificationsEnabled { get; set; }
-
-        [Input("disableIpMasking")]
-        public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
         /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
@@ -323,9 +308,6 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("ipMaskingEnabled")]
         public Input<bool>? IpMaskingEnabled { get; set; }
-
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
         /// Whether Non-Azure AD based Auth is enabled. Defaults to `True`.
@@ -425,17 +407,11 @@ namespace Pulumi.Azure.AppInsights
         [Input("dailyDataCapInGb")]
         public Input<double>? DailyDataCapInGb { get; set; }
 
-        [Input("dailyDataCapNotificationsDisabled")]
-        public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
-
         /// <summary>
         /// Whether a notification email will be sent when the daily data volume cap is met. Defaults to `True`.
         /// </summary>
         [Input("dailyDataCapNotificationsEnabled")]
         public Input<bool>? DailyDataCapNotificationsEnabled { get; set; }
-
-        [Input("disableIpMasking")]
-        public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
         /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
@@ -476,9 +452,6 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("ipMaskingEnabled")]
         public Input<bool>? IpMaskingEnabled { get; set; }
-
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
         /// Whether Non-Azure AD based Auth is enabled. Defaults to `True`.

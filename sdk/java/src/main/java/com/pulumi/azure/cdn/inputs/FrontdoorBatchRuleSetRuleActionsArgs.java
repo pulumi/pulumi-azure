@@ -87,7 +87,7 @@ public final class FrontdoorBatchRuleSetRuleActionsArgs extends com.pulumi.resou
     /**
      * A `urlRewrite` block as defined below.
      * 
-     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
     @Import(name="urlRewrite")
@@ -96,7 +96,7 @@ public final class FrontdoorBatchRuleSetRuleActionsArgs extends com.pulumi.resou
     /**
      * @return A `urlRewrite` block as defined below.
      * 
-     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
     public Optional<Output<FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs>> urlRewrite() {
@@ -242,7 +242,7 @@ public final class FrontdoorBatchRuleSetRuleActionsArgs extends com.pulumi.resou
         /**
          * @param urlRewrite A `urlRewrite` block as defined below.
          * 
-         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class FrontdoorBatchRuleSetRuleActionsArgs extends com.pulumi.resou
         /**
          * @param urlRewrite A `urlRewrite` block as defined below.
          * 
-         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
          * 
          * @return builder
          * 

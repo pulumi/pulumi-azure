@@ -35,7 +35,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      * 
-     * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+     * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
      * 
      */
     @Import(name="plan")
@@ -44,7 +44,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      * 
-     * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+     * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
      * 
      */
     public Optional<Output<String>> plan() {
@@ -54,7 +54,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The table&#39;s retention in days. Possible values are between `4` and `730`.
      * 
-     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     @Import(name="retentionInDays")
@@ -63,7 +63,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The table&#39;s retention in days. Possible values are between `4` and `730`.
      * 
-     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     public Optional<Output<Integer>> retentionInDays() {
@@ -160,7 +160,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param plan Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
          * 
-         * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+         * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param plan Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
          * 
-         * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
+         * &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/basic-logs-azure-tables).
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param retentionInDays The table&#39;s retention in days. Possible values are between `4` and `730`.
          * 
-         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param retentionInDays The table&#39;s retention in days. Possible values are between `4` and `730`.
          * 
-         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
+         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
          * 
          * @return builder
          * 

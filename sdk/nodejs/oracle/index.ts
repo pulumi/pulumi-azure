@@ -25,6 +25,11 @@ export type AutonomousDatabaseCloneFromDatabase = import("./autonomousDatabaseCl
 export const AutonomousDatabaseCloneFromDatabase: typeof import("./autonomousDatabaseCloneFromDatabase").AutonomousDatabaseCloneFromDatabase = null as any;
 utilities.lazyLoad(exports, ["AutonomousDatabaseCloneFromDatabase"], () => require("./autonomousDatabaseCloneFromDatabase"));
 
+export { AutonomousDatabaseCrossRegionDisasterRecoveryArgs, AutonomousDatabaseCrossRegionDisasterRecoveryState } from "./autonomousDatabaseCrossRegionDisasterRecovery";
+export type AutonomousDatabaseCrossRegionDisasterRecovery = import("./autonomousDatabaseCrossRegionDisasterRecovery").AutonomousDatabaseCrossRegionDisasterRecovery;
+export const AutonomousDatabaseCrossRegionDisasterRecovery: typeof import("./autonomousDatabaseCrossRegionDisasterRecovery").AutonomousDatabaseCrossRegionDisasterRecovery = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabaseCrossRegionDisasterRecovery"], () => require("./autonomousDatabaseCrossRegionDisasterRecovery"));
+
 export { CloudVmClusterArgs, CloudVmClusterState } from "./cloudVmCluster";
 export type CloudVmCluster = import("./cloudVmCluster").CloudVmCluster;
 export const CloudVmCluster: typeof import("./cloudVmCluster").CloudVmCluster = null as any;
@@ -74,6 +79,11 @@ export { GetAutonomousDatabaseCloneFromDatabaseArgs, GetAutonomousDatabaseCloneF
 export const getAutonomousDatabaseCloneFromDatabase: typeof import("./getAutonomousDatabaseCloneFromDatabase").getAutonomousDatabaseCloneFromDatabase = null as any;
 export const getAutonomousDatabaseCloneFromDatabaseOutput: typeof import("./getAutonomousDatabaseCloneFromDatabase").getAutonomousDatabaseCloneFromDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getAutonomousDatabaseCloneFromDatabase","getAutonomousDatabaseCloneFromDatabaseOutput"], () => require("./getAutonomousDatabaseCloneFromDatabase"));
+
+export { GetAutonomousDatabaseCrossRegionDisasterRecoveryArgs, GetAutonomousDatabaseCrossRegionDisasterRecoveryResult, GetAutonomousDatabaseCrossRegionDisasterRecoveryOutputArgs } from "./getAutonomousDatabaseCrossRegionDisasterRecovery";
+export const getAutonomousDatabaseCrossRegionDisasterRecovery: typeof import("./getAutonomousDatabaseCrossRegionDisasterRecovery").getAutonomousDatabaseCrossRegionDisasterRecovery = null as any;
+export const getAutonomousDatabaseCrossRegionDisasterRecoveryOutput: typeof import("./getAutonomousDatabaseCrossRegionDisasterRecovery").getAutonomousDatabaseCrossRegionDisasterRecoveryOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabaseCrossRegionDisasterRecovery","getAutonomousDatabaseCrossRegionDisasterRecoveryOutput"], () => require("./getAutonomousDatabaseCrossRegionDisasterRecovery"));
 
 export { GetCloudVmClusterArgs, GetCloudVmClusterResult, GetCloudVmClusterOutputArgs } from "./getCloudVmCluster";
 export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmCluster = null as any;
@@ -138,6 +148,8 @@ const _module = {
                 return new AutonomousDatabaseCloneFromBackup(name, <any>undefined, { urn })
             case "azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase":
                 return new AutonomousDatabaseCloneFromDatabase(name, <any>undefined, { urn })
+            case "azure:oracle/autonomousDatabaseCrossRegionDisasterRecovery:AutonomousDatabaseCrossRegionDisasterRecovery":
+                return new AutonomousDatabaseCrossRegionDisasterRecovery(name, <any>undefined, { urn })
             case "azure:oracle/cloudVmCluster:CloudVmCluster":
                 return new CloudVmCluster(name, <any>undefined, { urn })
             case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -155,6 +167,7 @@ pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabase", _mod
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseBackup", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseCloneFromBackup", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseCloneFromDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseCrossRegionDisasterRecovery", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/cloudVmCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/exadataInfrastructure", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/exascaleDatabaseStorageVault", _module)

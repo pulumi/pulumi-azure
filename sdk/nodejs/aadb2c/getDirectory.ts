@@ -58,7 +58,7 @@ export interface GetDirectoryResult {
      */
     readonly billingType: string;
     /**
-     * Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+     * Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
      */
     readonly dataResidencyLocation: string;
     readonly domainName: string;

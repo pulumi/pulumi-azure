@@ -306,13 +306,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.publicNetworkAccess);
     }
 
-    @Import(name="publicNetworkAccessEnabled")
-    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
-
-    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
-    }
-
     /**
      * The maximum number of replicas that a primary MySQL Flexible Server can have.
      * 
@@ -488,7 +481,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         this.pointInTimeRestoreTimeInUtc = $.pointInTimeRestoreTimeInUtc;
         this.privateDnsZoneId = $.privateDnsZoneId;
         this.publicNetworkAccess = $.publicNetworkAccess;
-        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.replicaCapacity = $.replicaCapacity;
         this.replicationRole = $.replicationRole;
         this.resourceGroupName = $.resourceGroupName;
@@ -901,15 +893,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          */
         public Builder publicNetworkAccess(String publicNetworkAccess) {
             return publicNetworkAccess(Output.of(publicNetworkAccess));
-        }
-
-        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
-            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            return this;
-        }
-
-        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

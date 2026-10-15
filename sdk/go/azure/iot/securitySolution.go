@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,8 +100,8 @@ type SecuritySolution struct {
 	QueryForResources pulumi.StringOutput `pulumi:"queryForResources"`
 	// A list of subscription Ids on which the user defined resources query should be executed.
 	QuerySubscriptionIds pulumi.StringArrayOutput `pulumi:"querySubscriptionIds"`
-	// A `recommendationsEnabled` block of options to enable or disable as defined below.
-	RecommendationsEnabled SecuritySolutionRecommendationsEnabledOutput `pulumi:"recommendationsEnabled"`
+	// A `recommendations` block as defined below.
+	Recommendations SecuritySolutionRecommendationsOutput `pulumi:"recommendations"`
 	// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -171,8 +171,8 @@ type securitySolutionState struct {
 	QueryForResources *string `pulumi:"queryForResources"`
 	// A list of subscription Ids on which the user defined resources query should be executed.
 	QuerySubscriptionIds []string `pulumi:"querySubscriptionIds"`
-	// A `recommendationsEnabled` block of options to enable or disable as defined below.
-	RecommendationsEnabled *SecuritySolutionRecommendationsEnabled `pulumi:"recommendationsEnabled"`
+	// A `recommendations` block as defined below.
+	Recommendations *SecuritySolutionRecommendations `pulumi:"recommendations"`
 	// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -204,8 +204,8 @@ type SecuritySolutionState struct {
 	QueryForResources pulumi.StringPtrInput
 	// A list of subscription Ids on which the user defined resources query should be executed.
 	QuerySubscriptionIds pulumi.StringArrayInput
-	// A `recommendationsEnabled` block of options to enable or disable as defined below.
-	RecommendationsEnabled SecuritySolutionRecommendationsEnabledPtrInput
+	// A `recommendations` block as defined below.
+	Recommendations SecuritySolutionRecommendationsPtrInput
 	// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -241,8 +241,8 @@ type securitySolutionArgs struct {
 	QueryForResources *string `pulumi:"queryForResources"`
 	// A list of subscription Ids on which the user defined resources query should be executed.
 	QuerySubscriptionIds []string `pulumi:"querySubscriptionIds"`
-	// A `recommendationsEnabled` block of options to enable or disable as defined below.
-	RecommendationsEnabled *SecuritySolutionRecommendationsEnabled `pulumi:"recommendationsEnabled"`
+	// A `recommendations` block as defined below.
+	Recommendations *SecuritySolutionRecommendations `pulumi:"recommendations"`
 	// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -275,8 +275,8 @@ type SecuritySolutionArgs struct {
 	QueryForResources pulumi.StringPtrInput
 	// A list of subscription Ids on which the user defined resources query should be executed.
 	QuerySubscriptionIds pulumi.StringArrayInput
-	// A `recommendationsEnabled` block of options to enable or disable as defined below.
-	RecommendationsEnabled SecuritySolutionRecommendationsEnabledPtrInput
+	// A `recommendations` block as defined below.
+	Recommendations SecuritySolutionRecommendationsPtrInput
 	// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -432,11 +432,9 @@ func (o SecuritySolutionOutput) QuerySubscriptionIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *SecuritySolution) pulumi.StringArrayOutput { return v.QuerySubscriptionIds }).(pulumi.StringArrayOutput)
 }
 
-// A `recommendationsEnabled` block of options to enable or disable as defined below.
-func (o SecuritySolutionOutput) RecommendationsEnabled() SecuritySolutionRecommendationsEnabledOutput {
-	return o.ApplyT(func(v *SecuritySolution) SecuritySolutionRecommendationsEnabledOutput {
-		return v.RecommendationsEnabled
-	}).(SecuritySolutionRecommendationsEnabledOutput)
+// A `recommendations` block as defined below.
+func (o SecuritySolutionOutput) Recommendations() SecuritySolutionRecommendationsOutput {
+	return o.ApplyT(func(v *SecuritySolution) SecuritySolutionRecommendationsOutput { return v.Recommendations }).(SecuritySolutionRecommendationsOutput)
 }
 
 // Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.

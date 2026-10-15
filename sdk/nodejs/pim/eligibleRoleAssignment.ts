@@ -119,7 +119,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     declare public readonly condition: pulumi.Output<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
  */
 export interface EligibleRoleAssignmentState {
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     condition?: pulumi.Input<string | undefined>;
     /**
@@ -254,7 +254,7 @@ export interface EligibleRoleAssignmentState {
  */
 export interface EligibleRoleAssignmentArgs {
     /**
-     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
     condition?: pulumi.Input<string | undefined>;
     /**

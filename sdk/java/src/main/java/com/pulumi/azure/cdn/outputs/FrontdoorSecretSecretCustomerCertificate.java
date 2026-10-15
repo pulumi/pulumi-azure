@@ -8,10 +8,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class FrontdoorSecretSecretCustomerCertificate {
+    /**
+     * @return The key vault certificate expiration date.
+     * 
+     */
+    private @Nullable String expirationDate;
     /**
      * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
@@ -26,6 +32,13 @@ public final class FrontdoorSecretSecretCustomerCertificate {
     private @Nullable List<String> subjectAlternativeNames;
 
     private FrontdoorSecretSecretCustomerCertificate() {}
+    /**
+     * @return The key vault certificate expiration date.
+     * 
+     */
+    public Optional<String> expirationDate() {
+        return Optional.ofNullable(this.expirationDate);
+    }
     /**
      * @return The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
@@ -52,15 +65,23 @@ public final class FrontdoorSecretSecretCustomerCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String expirationDate;
         private String keyVaultCertificateId;
         private @Nullable List<String> subjectAlternativeNames;
         public Builder() {}
         public Builder(FrontdoorSecretSecretCustomerCertificate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.expirationDate = defaults.expirationDate;
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.subjectAlternativeNames = defaults.subjectAlternativeNames;
         }
 
+        @CustomType.Setter
+        public Builder expirationDate(@Nullable String expirationDate) {
+
+            this.expirationDate = expirationDate;
+            return this;
+        }
         @CustomType.Setter
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
             if (keyVaultCertificateId == null) {
@@ -80,6 +101,7 @@ public final class FrontdoorSecretSecretCustomerCertificate {
         }
         public FrontdoorSecretSecretCustomerCertificate build() {
             final var _resultValue = new FrontdoorSecretSecretCustomerCertificate();
+            _resultValue.expirationDate = expirationDate;
             _resultValue.keyVaultCertificateId = keyVaultCertificateId;
             _resultValue.subjectAlternativeNames = subjectAlternativeNames;
             return _resultValue;

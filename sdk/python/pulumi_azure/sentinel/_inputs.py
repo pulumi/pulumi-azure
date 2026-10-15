@@ -110,7 +110,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict(TypedDict):
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Name of the built-in Anomaly Alert Rule.
+    The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
     """
     supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -130,7 +130,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
                  values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
-        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
+        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_values: A list of supported values of the single select observation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of values of the single select observation.
         """
@@ -159,7 +159,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -203,7 +203,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict(TypedDict):
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Name of the built-in Anomaly Alert Rule.
+    The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
     """
     prioritize: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -220,7 +220,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] exclude: The excluded value per `description`.
-        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
+        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] prioritize: The prioritized value per `description`.
         """
         if description is not None:
@@ -260,7 +260,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -337,7 +337,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict(TypedDict):
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Name of the built-in Anomaly Alert Rule.
+    The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
     """
     supported_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -357,7 +357,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
-        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
+        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_values: A list of supported values of the single select observation.
         :param pulumi.Input[_builtins.str] value: The value of the threshold observation.
         """
@@ -386,7 +386,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -434,7 +434,7 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgsDict(TypedDict):
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Name of the built-in Anomaly Alert Rule.
+    The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -453,7 +453,7 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
         :param pulumi.Input[_builtins.str] max: The max value of the threshold observation.
         :param pulumi.Input[_builtins.str] min: The min value of the threshold observation.
-        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
+        :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] value: The value of the threshold observation.
         """
         if description is not None:
@@ -507,7 +507,7 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1197,7 +1197,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
     """
     value: pulumi.Input[_builtins.str]
     """
-    The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+    The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
     """
 
 @pulumi.input_type
@@ -1207,7 +1207,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1228,7 +1228,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         return pulumi.get(self, "value")
 
@@ -1699,7 +1699,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
     """
     value: pulumi.Input[_builtins.str]
     """
-    The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+    The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
     """
 
 @pulumi.input_type
@@ -1709,7 +1709,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] name: The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        :param pulumi.Input[_builtins.str] value: The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1730,7 +1730,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         """
         return pulumi.get(self, "value")
 

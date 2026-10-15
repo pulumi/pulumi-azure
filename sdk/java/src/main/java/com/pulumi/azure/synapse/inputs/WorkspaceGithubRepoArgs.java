@@ -47,7 +47,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+     * Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
      * 
      * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
      * 
@@ -56,7 +56,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
     private @Nullable Output<String> gitUrl;
 
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
      * 
      * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
      * 
@@ -182,7 +182,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
          * 
          * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
          * 
@@ -195,7 +195,7 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
          * 
          * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
          * 

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,8 +67,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RuntimeEnvironmentPackage{}
 	case "azure:automation/schedule:Schedule":
 		r = &Schedule{}
-	case "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration":
-		r = &SoftwareUpdateConfiguration{}
 	case "azure:automation/sourceControl:SourceControl":
 		r = &SourceControl{}
 	case "azure:automation/stringVariable:StringVariable":
@@ -205,11 +203,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/schedule",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"automation/softwareUpdateConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

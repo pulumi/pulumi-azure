@@ -164,3 +164,41 @@ func TestFixMssqlManagedInstanceId(t *testing.T) {
 		assertNoID(t, properties)
 	})
 }
+
+func TestFillPrivateDNSZoneID(t *testing.T) {
+	t.Parallel()
+
+	const zoneID = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/rg" +
+		"/providers/Microsoft.Network/privateDnsZones/internal.example.com"
+
+	fill := func(t *testing.T, properties map[string]any) map[string]any {
+		t.Helper()
+		actual, err := fillPrivateDNSZoneID(context.Background(), resource.NewPropertyMapFromMap(properties))
+		require.NoError(t, err)
+		return actual.Mappable()
+	}
+
+	for _, suffix := range []string{"/A/api", "/CNAME/www", "/virtualNetworkLinks/link1"} {
+		t.Run("From the ID of "+suffix, func(t *testing.T) {
+			t.Parallel()
+			actual := fill(t, map[string]any{"id": zoneID + suffix, "zoneName": "internal.example.com"})
+			assert.Equal(t, zoneID, actual["privateDnsZoneId"])
+		})
+	}
+
+	t.Run("Keeps an existing value", func(t *testing.T) {
+		t.Parallel()
+		actual := fill(t, map[string]any{"id": zoneID + "/A/api", "privateDnsZoneId": "existing"})
+		assert.Equal(t, "existing", actual["privateDnsZoneId"])
+	})
+
+	t.Run("Needs id", func(t *testing.T) {
+		t.Parallel()
+		assert.NotContains(t, fill(t, map[string]any{"zoneName": "internal.example.com"}), "privateDnsZoneId")
+	})
+
+	t.Run("Needs a record below the zone", func(t *testing.T) {
+		t.Parallel()
+		assert.NotContains(t, fill(t, map[string]any{"id": zoneID}), "privateDnsZoneId")
+	})
+}

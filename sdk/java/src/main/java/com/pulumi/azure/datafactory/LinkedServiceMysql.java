@@ -151,7 +151,7 @@ public class LinkedServiceMysql extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      * 
      * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
      * 
@@ -160,7 +160,7 @@ public class LinkedServiceMysql extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> driverVersion;
 
     /**
-     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      * 
      * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
      * 

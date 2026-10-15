@@ -74,7 +74,7 @@ export class KubernetesFleetManager extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview
      */
     declare public readonly hubProfile: pulumi.Output<outputs.containerservice.KubernetesFleetManagerHubProfile | undefined>;
     /**
@@ -133,7 +133,7 @@ export class KubernetesFleetManager extends pulumi.CustomResource {
  */
 export interface KubernetesFleetManagerState {
     /**
-     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview
      */
     hubProfile?: pulumi.Input<inputs.containerservice.KubernetesFleetManagerHubProfile | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface KubernetesFleetManagerState {
  */
 export interface KubernetesFleetManagerArgs {
     /**
-     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview
      */
     hubProfile?: pulumi.Input<inputs.containerservice.KubernetesFleetManagerHubProfile | undefined>;
     /**

@@ -48,14 +48,14 @@ public final class PrivateLinkScopeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      * 
      */
     @Import(name="queryAccessMode")
     private @Nullable Output<String> queryAccessMode;
 
     /**
-     * @return The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * @return The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      * 
      */
     public Optional<Output<String>> queryAccessMode() {
@@ -163,7 +163,7 @@ public final class PrivateLinkScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param queryAccessMode The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * @param queryAccessMode The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PrivateLinkScopeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param queryAccessMode The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+         * @param queryAccessMode The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
          * 
          * @return builder
          * 

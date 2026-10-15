@@ -21,8 +21,6 @@ __all__ = [
     'CachePatchScheduleArgsDict',
     'CacheRedisConfigurationArgs',
     'CacheRedisConfigurationArgsDict',
-    'EnterpriseDatabaseModuleArgs',
-    'EnterpriseDatabaseModuleArgsDict',
 ]
 
 class CacheIdentityArgsDict(TypedDict):
@@ -556,66 +554,5 @@ class CacheRedisConfigurationArgs:
     @storage_account_subscription_id.setter
     def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
-
-
-class EnterpriseDatabaseModuleArgsDict(TypedDict):
-    name: pulumi.Input[_builtins.str]
-    """
-    The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-    """
-    args: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-    """
-    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-
-@pulumi.input_type
-class EnterpriseDatabaseModuleArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 args: pulumi.Input[Optional[_builtins.str]] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[_builtins.str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-        """
-        pulumi.set(__self__, "name", name)
-        if args is not None:
-            pulumi.set(__self__, "args", args)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def args(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-        """
-        return pulumi.get(self, "args")
-
-    @args.setter
-    def args(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "args", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "version", value)
 
 

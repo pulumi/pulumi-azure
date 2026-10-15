@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,10 +25,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,10 +67,9 @@ import (
 //				return err
 //			}
 //			primaryZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "primary", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("primary-link"),
-//				ResourceGroupName:  primary.Name,
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Name:             pulumi.String("primary-link"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -167,10 +166,9 @@ import (
 //				return err
 //			}
 //			failoverZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "failover", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("failover-link"),
-//				ResourceGroupName:  exampleZone.ResourceGroupName,
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Name:             pulumi.String("failover-link"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -300,14 +298,14 @@ import (
 //
 // ```
 //
-// > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
+// > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 //
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql` - 2023-08-01-preview
+// * `Microsoft.Sql` - 2025-01-01
 //
 // ## Import
 //

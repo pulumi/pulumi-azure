@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStorageContainerResult {
@@ -50,15 +48,7 @@ public final class GetStorageContainerResult {
      */
     private Map<String,String> metadata;
     private String name;
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
-    private String resourceManagerId;
-    private @Nullable String storageAccountId;
-    private @Nullable String storageAccountName;
+    private String storageAccountId;
     /**
      * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
      * 
@@ -118,20 +108,8 @@ public final class GetStorageContainerResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
-    public String resourceManagerId() {
-        return this.resourceManagerId;
-    }
-    public Optional<String> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-    public Optional<String> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public String storageAccountId() {
+        return this.storageAccountId;
     }
     /**
      * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
@@ -158,9 +136,7 @@ public final class GetStorageContainerResult {
         private String id;
         private Map<String,String> metadata;
         private String name;
-        private String resourceManagerId;
-        private @Nullable String storageAccountId;
-        private @Nullable String storageAccountName;
+        private String storageAccountId;
         private String url;
         public Builder() {}
         public Builder(GetStorageContainerResult defaults) {
@@ -173,9 +149,7 @@ public final class GetStorageContainerResult {
     	      this.id = defaults.id;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
-    	      this.resourceManagerId = defaults.resourceManagerId;
     	      this.storageAccountId = defaults.storageAccountId;
-    	      this.storageAccountName = defaults.storageAccountName;
     	      this.url = defaults.url;
         }
 
@@ -244,23 +218,11 @@ public final class GetStorageContainerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceManagerId(String resourceManagerId) {
-            if (resourceManagerId == null) {
-              throw new MissingRequiredPropertyException("GetStorageContainerResult", "resourceManagerId");
+        public Builder storageAccountId(String storageAccountId) {
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "storageAccountId");
             }
-            this.resourceManagerId = resourceManagerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageAccountId(@Nullable String storageAccountId) {
-
             this.storageAccountId = storageAccountId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageAccountName(@Nullable String storageAccountName) {
-
-            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
@@ -281,9 +243,7 @@ public final class GetStorageContainerResult {
             _resultValue.id = id;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
-            _resultValue.resourceManagerId = resourceManagerId;
             _resultValue.storageAccountId = storageAccountId;
-            _resultValue.storageAccountName = storageAccountName;
             _resultValue.url = url;
             return _resultValue;
         }

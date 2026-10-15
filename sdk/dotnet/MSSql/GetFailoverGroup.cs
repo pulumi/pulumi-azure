@@ -42,7 +42,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure:mssql/getFailoverGroup:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure:mssql/getFailoverGroup:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure:mssql/getFailoverGroup:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());

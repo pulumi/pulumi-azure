@@ -99,7 +99,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -108,7 +108,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * @return The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -353,7 +353,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
      * 
      */
     @Import(name="zones")
@@ -362,7 +362,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -520,7 +520,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -533,7 +533,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -880,7 +880,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
          * 
          * @return builder
          * 
@@ -905,7 +905,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         /// </summary>
         [Output("customIpPrefixId")]
         public Output<string?> CustomIpPrefixId { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         /// </summary>
         [Input("customIpPrefixId")]
         public Input<string>? CustomIpPrefixId { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        /// &gt; **Note:** When `IpVersion` is set to `IPv6`, `CustomIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         /// </summary>
         [Input("customIpPrefixId")]
         public Input<string>? CustomIpPrefixId { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

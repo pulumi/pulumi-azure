@@ -3,23 +3,47 @@
 
 package com.pulumi.azure.automation.outputs;
 
+import com.pulumi.azure.automation.outputs.GetAccountEncryption;
 import com.pulumi.azure.automation.outputs.GetAccountIdentity;
 import com.pulumi.azure.automation.outputs.GetAccountPrivateEndpointConnection;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetAccountResult {
+    /**
+     * @return The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+     * 
+     */
+    private String dscPrimaryAccessKey;
+    /**
+     * @return The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+     * 
+     */
+    private String dscSecondaryAccessKey;
+    /**
+     * @return The DSC Server Endpoint associated with this Automation Account.
+     * 
+     */
+    private String dscServerEndpoint;
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    private List<GetAccountEncryption> encryptions;
     /**
      * @return The Endpoint for this Automation Account.
      * 
      */
     private String endpoint;
     /**
-     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * @return The URL of automation hybrid service which is used for
+     * hybrid worker on-boarding With this Automation Account.
      * 
      */
     private String hybridServiceUrl;
@@ -29,10 +53,20 @@ public final class GetAccountResult {
      */
     private String id;
     /**
-     * @return (Optional) An `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetAccountIdentity> identities;
+    /**
+     * @return Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+     * 
+     */
+    private Boolean localAuthenticationEnabled;
+    /**
+     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    private String location;
     private String name;
     /**
      * @return The Primary Access Key for the Automation Account.
@@ -40,14 +74,57 @@ public final class GetAccountResult {
      */
     private String primaryKey;
     private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
+    /**
+     * @return Whether public network access is allowed for the automation account. Defaults to `true`.
+     * 
+     */
+    private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
      * @return The Secondary Access Key for the Automation Account.
      * 
      */
     private String secondaryKey;
+    /**
+     * @return The SKU of the account. Possible values are `Basic` and `Free`.
+     * 
+     */
+    private String skuName;
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetAccountResult() {}
+    /**
+     * @return The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+     * 
+     */
+    public String dscPrimaryAccessKey() {
+        return this.dscPrimaryAccessKey;
+    }
+    /**
+     * @return The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+     * 
+     */
+    public String dscSecondaryAccessKey() {
+        return this.dscSecondaryAccessKey;
+    }
+    /**
+     * @return The DSC Server Endpoint associated with this Automation Account.
+     * 
+     */
+    public String dscServerEndpoint() {
+        return this.dscServerEndpoint;
+    }
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    public List<GetAccountEncryption> encryptions() {
+        return this.encryptions;
+    }
     /**
      * @return The Endpoint for this Automation Account.
      * 
@@ -56,7 +133,8 @@ public final class GetAccountResult {
         return this.endpoint;
     }
     /**
-     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * @return The URL of automation hybrid service which is used for
+     * hybrid worker on-boarding With this Automation Account.
      * 
      */
     public String hybridServiceUrl() {
@@ -70,11 +148,25 @@ public final class GetAccountResult {
         return this.id;
     }
     /**
-     * @return (Optional) An `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetAccountIdentity> identities() {
         return this.identities;
+    }
+    /**
+     * @return Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+     * 
+     */
+    public Boolean localAuthenticationEnabled() {
+        return this.localAuthenticationEnabled;
+    }
+    /**
+     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public String location() {
+        return this.location;
     }
     public String name() {
         return this.name;
@@ -89,6 +181,13 @@ public final class GetAccountResult {
     public List<GetAccountPrivateEndpointConnection> privateEndpointConnections() {
         return this.privateEndpointConnections;
     }
+    /**
+     * @return Whether public network access is allowed for the automation account. Defaults to `true`.
+     * 
+     */
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -98,6 +197,20 @@ public final class GetAccountResult {
      */
     public String secondaryKey() {
         return this.secondaryKey;
+    }
+    /**
+     * @return The SKU of the account. Possible values are `Basic` and `Free`.
+     * 
+     */
+    public String skuName() {
+        return this.skuName;
+    }
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -109,29 +222,82 @@ public final class GetAccountResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String dscPrimaryAccessKey;
+        private String dscSecondaryAccessKey;
+        private String dscServerEndpoint;
+        private List<GetAccountEncryption> encryptions;
         private String endpoint;
         private String hybridServiceUrl;
         private String id;
         private List<GetAccountIdentity> identities;
+        private Boolean localAuthenticationEnabled;
+        private String location;
         private String name;
         private String primaryKey;
         private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
+        private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
         private String secondaryKey;
+        private String skuName;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dscPrimaryAccessKey = defaults.dscPrimaryAccessKey;
+    	      this.dscSecondaryAccessKey = defaults.dscSecondaryAccessKey;
+    	      this.dscServerEndpoint = defaults.dscServerEndpoint;
+    	      this.encryptions = defaults.encryptions;
     	      this.endpoint = defaults.endpoint;
     	      this.hybridServiceUrl = defaults.hybridServiceUrl;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
+    	      this.localAuthenticationEnabled = defaults.localAuthenticationEnabled;
+    	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.primaryKey = defaults.primaryKey;
     	      this.privateEndpointConnections = defaults.privateEndpointConnections;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryKey = defaults.secondaryKey;
+    	      this.skuName = defaults.skuName;
+    	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder dscPrimaryAccessKey(String dscPrimaryAccessKey) {
+            if (dscPrimaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "dscPrimaryAccessKey");
+            }
+            this.dscPrimaryAccessKey = dscPrimaryAccessKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dscSecondaryAccessKey(String dscSecondaryAccessKey) {
+            if (dscSecondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "dscSecondaryAccessKey");
+            }
+            this.dscSecondaryAccessKey = dscSecondaryAccessKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dscServerEndpoint(String dscServerEndpoint) {
+            if (dscServerEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "dscServerEndpoint");
+            }
+            this.dscServerEndpoint = dscServerEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptions(List<GetAccountEncryption> encryptions) {
+            if (encryptions == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "encryptions");
+            }
+            this.encryptions = encryptions;
+            return this;
+        }
+        public Builder encryptions(GetAccountEncryption... encryptions) {
+            return encryptions(List.of(encryptions));
+        }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
             if (endpoint == null) {
@@ -168,6 +334,22 @@ public final class GetAccountResult {
             return identities(List.of(identities));
         }
         @CustomType.Setter
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            if (localAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "localAuthenticationEnabled");
+            }
+            this.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder location(String location) {
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "location");
+            }
+            this.location = location;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "name");
@@ -195,6 +377,14 @@ public final class GetAccountResult {
             return privateEndpointConnections(List.of(privateEndpointConnections));
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "resourceGroupName");
@@ -210,17 +400,42 @@ public final class GetAccountResult {
             this.secondaryKey = secondaryKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder skuName(String skuName) {
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "skuName");
+            }
+            this.skuName = skuName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetAccountResult build() {
             final var _resultValue = new GetAccountResult();
+            _resultValue.dscPrimaryAccessKey = dscPrimaryAccessKey;
+            _resultValue.dscSecondaryAccessKey = dscSecondaryAccessKey;
+            _resultValue.dscServerEndpoint = dscServerEndpoint;
+            _resultValue.encryptions = encryptions;
             _resultValue.endpoint = endpoint;
             _resultValue.hybridServiceUrl = hybridServiceUrl;
             _resultValue.id = id;
             _resultValue.identities = identities;
+            _resultValue.localAuthenticationEnabled = localAuthenticationEnabled;
+            _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.primaryKey = primaryKey;
             _resultValue.privateEndpointConnections = privateEndpointConnections;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryKey = secondaryKey;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

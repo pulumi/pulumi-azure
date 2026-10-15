@@ -19,12 +19,20 @@ __all__ = [
     'ClusterApiServerProfileArgsDict',
     'ClusterClusterProfileArgs',
     'ClusterClusterProfileArgsDict',
+    'ClusterIdentityArgs',
+    'ClusterIdentityArgsDict',
     'ClusterIngressProfileArgs',
     'ClusterIngressProfileArgsDict',
     'ClusterMainProfileArgs',
     'ClusterMainProfileArgsDict',
     'ClusterNetworkProfileArgs',
     'ClusterNetworkProfileArgsDict',
+    'ClusterNetworkProfileLoadBalancerProfileArgs',
+    'ClusterNetworkProfileLoadBalancerProfileArgsDict',
+    'ClusterPlatformWorkloadIdentityProfileArgs',
+    'ClusterPlatformWorkloadIdentityProfileArgsDict',
+    'ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs',
+    'ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgsDict',
     'ClusterServicePrincipalArgs',
     'ClusterServicePrincipalArgsDict',
     'ClusterWorkerProfileArgs',
@@ -34,7 +42,7 @@ __all__ = [
 class ClusterApiServerProfileArgsDict(TypedDict):
     visibility: pulumi.Input[_builtins.str]
     """
-    Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+    Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
     """
     ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -52,7 +60,7 @@ class ClusterApiServerProfileArgs:
                  ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] visibility: Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] visibility: Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address: The IP Address the Ingress Profile is associated with.
         :param pulumi.Input[_builtins.str] url: The URL the API Server Profile is associated with.
         """
@@ -66,7 +74,7 @@ class ClusterApiServerProfileArgs:
     @pulumi.getter
     def visibility(self) -> pulumi.Input[_builtins.str]:
         """
-        Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "visibility")
 
@@ -122,7 +130,7 @@ class ClusterClusterProfileArgsDict(TypedDict):
     """
     resource_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The resource group that the cluster profile is attached to.
+    The Resource Group that the cluster profile is attached to.
     """
 
 @pulumi.input_type
@@ -140,7 +148,7 @@ class ClusterClusterProfileArgs:
         :param pulumi.Input[_builtins.bool] fips_enabled: Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] pull_secret: The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] resource_group_id: The resource group that the cluster profile is attached to.
+        :param pulumi.Input[_builtins.str] resource_group_id: The Resource Group that the cluster profile is attached to.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "version", version)
@@ -217,7 +225,7 @@ class ClusterClusterProfileArgs:
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The resource group that the cluster profile is attached to.
+        The Resource Group that the cluster profile is attached to.
         """
         return pulumi.get(self, "resource_group_id")
 
@@ -226,10 +234,57 @@ class ClusterClusterProfileArgs:
         pulumi.set(self, "resource_group_id", value)
 
 
+class ClusterIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[_builtins.str]
+    """
+    A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+    """
+
+@pulumi.input_type
+class ClusterIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] identity_ids: A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+        :param pulumi.Input[_builtins.str] type: The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[_builtins.str]:
+        """
+        A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
 class ClusterIngressProfileArgsDict(TypedDict):
     visibility: pulumi.Input[_builtins.str]
     """
-    Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+    Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
     """
     ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -247,7 +302,7 @@ class ClusterIngressProfileArgs:
                  ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] visibility: Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] visibility: Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address: The IP Address the Ingress Profile is associated with.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         """
@@ -261,7 +316,7 @@ class ClusterIngressProfileArgs:
     @pulumi.getter
     def visibility(self) -> pulumi.Input[_builtins.str]:
         """
-        Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "visibility")
 
@@ -396,6 +451,10 @@ class ClusterNetworkProfileArgsDict(TypedDict):
     """
     The network range used by the OpenShift service. Changing this forces a new resource to be created.
     """
+    load_balancer_profile: NotRequired[pulumi.Input[Optional['ClusterNetworkProfileLoadBalancerProfileArgsDict']]]
+    """
+    A `load_balancer_profile` block as defined above. Only applicable when `outbound_type` is set to `Loadbalancer`.
+    """
     outbound_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
@@ -410,16 +469,20 @@ class ClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  pod_cidr: pulumi.Input[_builtins.str],
                  service_cidr: pulumi.Input[_builtins.str],
+                 load_balancer_profile: pulumi.Input[Optional['ClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  outbound_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preconfigured_network_security_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] pod_cidr: The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_cidr: The network range used by the OpenShift service. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block as defined above. Only applicable when `outbound_type` is set to `Loadbalancer`.
         :param pulumi.Input[_builtins.str] outbound_type: The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] preconfigured_network_security_group_enabled: Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "pod_cidr", pod_cidr)
         pulumi.set(__self__, "service_cidr", service_cidr)
+        if load_balancer_profile is not None:
+            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
         if preconfigured_network_security_group_enabled is not None:
@@ -450,6 +513,18 @@ class ClusterNetworkProfileArgs:
         pulumi.set(self, "service_cidr", value)
 
     @_builtins.property
+    @pulumi.getter(name="loadBalancerProfile")
+    def load_balancer_profile(self) -> pulumi.Input[Optional['ClusterNetworkProfileLoadBalancerProfileArgs']]:
+        """
+        A `load_balancer_profile` block as defined above. Only applicable when `outbound_type` is set to `Loadbalancer`.
+        """
+        return pulumi.get(self, "load_balancer_profile")
+
+    @load_balancer_profile.setter
+    def load_balancer_profile(self, value: pulumi.Input[Optional['ClusterNetworkProfileLoadBalancerProfileArgs']]):
+        pulumi.set(self, "load_balancer_profile", value)
+
+    @_builtins.property
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -472,6 +547,195 @@ class ClusterNetworkProfileArgs:
     @preconfigured_network_security_group_enabled.setter
     def preconfigured_network_security_group_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preconfigured_network_security_group_enabled", value)
+
+
+class ClusterNetworkProfileLoadBalancerProfileArgsDict(TypedDict):
+    managed_outbound_ip_count: pulumi.Input[_builtins.int]
+    """
+    The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+    """
+    effective_outbound_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of effective outbound IP resource IDs of the cluster's public load balancer.
+    """
+
+@pulumi.input_type
+class ClusterNetworkProfileLoadBalancerProfileArgs:
+    def __init__(__self__, *,
+                 managed_outbound_ip_count: pulumi.Input[_builtins.int],
+                 effective_outbound_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] managed_outbound_ip_count: The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_outbound_ips: The list of effective outbound IP resource IDs of the cluster's public load balancer.
+        """
+        pulumi.set(__self__, "managed_outbound_ip_count", managed_outbound_ip_count)
+        if effective_outbound_ips is not None:
+            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+
+    @_builtins.property
+    @pulumi.getter(name="managedOutboundIpCount")
+    def managed_outbound_ip_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+        """
+        return pulumi.get(self, "managed_outbound_ip_count")
+
+    @managed_outbound_ip_count.setter
+    def managed_outbound_ip_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "managed_outbound_ip_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveOutboundIps")
+    def effective_outbound_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of effective outbound IP resource IDs of the cluster's public load balancer.
+        """
+        return pulumi.get(self, "effective_outbound_ips")
+
+    @effective_outbound_ips.setter
+    def effective_outbound_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "effective_outbound_ips", value)
+
+
+class ClusterPlatformWorkloadIdentityProfileArgsDict(TypedDict):
+    platform_workload_identities: pulumi.Input[Sequence[pulumi.Input['ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgsDict']]]
+    """
+    One or more `platform_workload_identity` blocks as defined above.
+    """
+    upgradeable_to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+    """
+
+@pulumi.input_type
+class ClusterPlatformWorkloadIdentityProfileArgs:
+    def __init__(__self__, *,
+                 platform_workload_identities: pulumi.Input[Sequence[pulumi.Input['ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs']]],
+                 upgradeable_to: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs']]] platform_workload_identities: One or more `platform_workload_identity` blocks as defined above.
+        :param pulumi.Input[_builtins.str] upgradeable_to: The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+        """
+        pulumi.set(__self__, "platform_workload_identities", platform_workload_identities)
+        if upgradeable_to is not None:
+            pulumi.set(__self__, "upgradeable_to", upgradeable_to)
+
+    @_builtins.property
+    @pulumi.getter(name="platformWorkloadIdentities")
+    def platform_workload_identities(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs']]]:
+        """
+        One or more `platform_workload_identity` blocks as defined above.
+        """
+        return pulumi.get(self, "platform_workload_identities")
+
+    @platform_workload_identities.setter
+    def platform_workload_identities(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs']]]):
+        pulumi.set(self, "platform_workload_identities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeableTo")
+    def upgradeable_to(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+        """
+        return pulumi.get(self, "upgradeable_to")
+
+    @upgradeable_to.setter
+    def upgradeable_to(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "upgradeable_to", value)
+
+
+class ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgsDict(TypedDict):
+    identity_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the User Assigned Managed Identity to assign to the operator.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the platform workload identity operator.
+
+    > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+    """
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The client ID of the User Assigned Managed Identity assigned to the operator.
+    """
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+    """
+
+@pulumi.input_type
+class ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs:
+    def __init__(__self__, *,
+                 identity_id: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] identity_id: The resource ID of the User Assigned Managed Identity to assign to the operator.
+        :param pulumi.Input[_builtins.str] name: The name of the platform workload identity operator.
+               
+               > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+        :param pulumi.Input[_builtins.str] client_id: The client ID of the User Assigned Managed Identity assigned to the operator.
+        :param pulumi.Input[_builtins.str] object_id: The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+        """
+        pulumi.set(__self__, "identity_id", identity_id)
+        pulumi.set(__self__, "name", name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @_builtins.property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource ID of the User Assigned Managed Identity to assign to the operator.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the platform workload identity operator.
+
+        > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The client ID of the User Assigned Managed Identity assigned to the operator.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "object_id", value)
 
 
 class ClusterServicePrincipalArgsDict(TypedDict):

@@ -17,8 +17,6 @@ from .. import _utilities
 __all__ = [
     'AadDiagnosticSettingEnabledLogArgs',
     'AadDiagnosticSettingEnabledLogArgsDict',
-    'AadDiagnosticSettingEnabledLogRetentionPolicyArgs',
-    'AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'ActionGroupArmRoleReceiverArgs',
     'ActionGroupArmRoleReceiverArgsDict',
     'ActionGroupAutomationRunbookReceiverArgs',
@@ -207,14 +205,8 @@ __all__ = [
     'DataCollectionRuleStreamDeclarationColumnArgsDict',
     'DiagnosticSettingEnabledLogArgs',
     'DiagnosticSettingEnabledLogArgsDict',
-    'DiagnosticSettingEnabledLogRetentionPolicyArgs',
-    'DiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'DiagnosticSettingEnabledMetricArgs',
     'DiagnosticSettingEnabledMetricArgsDict',
-    'DiagnosticSettingMetricArgs',
-    'DiagnosticSettingMetricArgsDict',
-    'DiagnosticSettingMetricRetentionPolicyArgs',
-    'DiagnosticSettingMetricRetentionPolicyArgsDict',
     'MetricAlertActionArgs',
     'MetricAlertActionArgsDict',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
@@ -256,22 +248,15 @@ class AadDiagnosticSettingEnabledLogArgsDict(TypedDict):
     """
     The log category for the Azure Active Directory Diagnostic.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input[_builtins.str],
-                 retention_policy: pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
+                 category: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] category: The log category for the Azure Active Directory Diagnostic.
         """
         pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            warnings.warn("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -284,49 +269,6 @@ class AadDiagnosticSettingEnabledLogArgs:
     @category.setter
     def category(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
-    def retention_policy(self) -> pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-
-@pulumi.input_type
-class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 days: pulumi.Input[Optional[_builtins.int]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 class ActionGroupArmRoleReceiverArgsDict(TypedDict):
@@ -2822,7 +2764,7 @@ class AlertProcessingRuleActionGroupScheduleArgsDict(TypedDict):
     """
     time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
     """
 
 @pulumi.input_type
@@ -2836,7 +2778,7 @@ class AlertProcessingRuleActionGroupScheduleArgs:
         :param pulumi.Input[_builtins.str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param pulumi.Input[_builtins.str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
-        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -2887,7 +2829,7 @@ class AlertProcessingRuleActionGroupScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 
@@ -3909,7 +3851,7 @@ class AlertProcessingRuleSuppressionScheduleArgsDict(TypedDict):
     """
     time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
     """
 
 @pulumi.input_type
@@ -3923,7 +3865,7 @@ class AlertProcessingRuleSuppressionScheduleArgs:
         :param pulumi.Input[_builtins.str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param pulumi.Input[_builtins.str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
-        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -3974,7 +3916,7 @@ class AlertProcessingRuleSuppressionScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 
@@ -4950,7 +4892,7 @@ class AutoscaleSettingProfileFixedDateArgsDict(TypedDict):
     """
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+    The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
     """
 
 @pulumi.input_type
@@ -4962,7 +4904,7 @@ class AutoscaleSettingProfileFixedDateArgs:
         """
         :param pulumi.Input[_builtins.str] end: Specifies the end date for the profile, formatted as an RFC3339 date string.
         :param pulumi.Input[_builtins.str] start: Specifies the start date for the profile, formatted as an RFC3339 date string.
-        :param pulumi.Input[_builtins.str] timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+        :param pulumi.Input[_builtins.str] timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -4997,7 +4939,7 @@ class AutoscaleSettingProfileFixedDateArgs:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 
@@ -5021,7 +4963,7 @@ class AutoscaleSettingProfileRecurrenceArgsDict(TypedDict):
     """
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+    The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
     """
 
 @pulumi.input_type
@@ -5035,7 +4977,7 @@ class AutoscaleSettingProfileRecurrenceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days: A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         :param pulumi.Input[_builtins.int] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
         :param pulumi.Input[_builtins.int] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-        :param pulumi.Input[_builtins.str] timezone: The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        :param pulumi.Input[_builtins.str] timezone: The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "hours", hours)
@@ -5083,7 +5025,7 @@ class AutoscaleSettingProfileRecurrenceArgs:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 
@@ -6265,7 +6207,7 @@ class DataCollectionRuleDataSourcesLogFileSettingsTextArgs:
 class DataCollectionRuleDataSourcesPerformanceCounterArgsDict(TypedDict):
     counter_specifiers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+    Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -6288,7 +6230,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
                  sampling_frequency_in_seconds: pulumi.Input[_builtins.int],
                  streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[_builtins.int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
@@ -6302,7 +6244,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
     @pulumi.getter(name="counterSpecifiers")
     def counter_specifiers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         """
         return pulumi.get(self, "counter_specifiers")
 
@@ -6464,7 +6406,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderArgs:
 class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict(TypedDict):
     label: pulumi.Input[_builtins.str]
     """
-    The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+    The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
     """
     value: pulumi.Input[_builtins.str]
     """
@@ -6477,7 +6419,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs:
                  label: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        :param pulumi.Input[_builtins.str] label: The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         :param pulumi.Input[_builtins.str] value: The value of the filter.
         """
         pulumi.set(__self__, "label", label)
@@ -6487,7 +6429,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs:
     @pulumi.getter
     def label(self) -> pulumi.Input[_builtins.str]:
         """
-        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        The label of the filter. This label should be unique across all `label_include_filter` block. Possible value is `microsoft_metrics_include_label`.
         """
         return pulumi.get(self, "label")
 
@@ -6604,7 +6546,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgsDict(TypedDict):
     """
     x_path_queries: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+    Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
     """
 
 @pulumi.input_type
@@ -6616,7 +6558,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "streams", streams)
@@ -6650,7 +6592,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
     @pulumi.getter(name="xPathQueries")
     def x_path_queries(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         return pulumi.get(self, "x_path_queries")
 
@@ -7504,14 +7446,12 @@ class DiagnosticSettingEnabledLogArgsDict(TypedDict):
 
     > **NOTE:** Exactly one of `category` or `category_group` must be specified.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class DiagnosticSettingEnabledLogArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
-                 category_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] category: The name of a Diagnostic Log Category for this Resource.
                
@@ -7526,11 +7466,6 @@ class DiagnosticSettingEnabledLogArgs:
             pulumi.set(__self__, "category", category)
         if category_group is not None:
             pulumi.set(__self__, "category_group", category_group)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -7561,48 +7496,6 @@ class DiagnosticSettingEnabledLogArgs:
     @category_group.setter
     def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_group", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class DiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
-    enabled: pulumi.Input[_builtins.bool]
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-
-@pulumi.input_type
-class DiagnosticSettingEnabledLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 days: pulumi.Input[Optional[_builtins.int]] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
 
 
 class DiagnosticSettingEnabledMetricArgsDict(TypedDict):
@@ -7637,87 +7530,6 @@ class DiagnosticSettingEnabledMetricArgs:
     @category.setter
     def category(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "category", value)
-
-
-class DiagnosticSettingMetricArgsDict(TypedDict):
-    category: pulumi.Input[_builtins.str]
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgsDict']]]
-
-@pulumi.input_type
-class DiagnosticSettingMetricArgs:
-    def __init__(__self__, *,
-                 category: pulumi.Input[_builtins.str],
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 retention_policy: pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']] = None):
-        pulumi.set(__self__, "category", category)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class DiagnosticSettingMetricRetentionPolicyArgsDict(TypedDict):
-    enabled: pulumi.Input[_builtins.bool]
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-
-@pulumi.input_type
-class DiagnosticSettingMetricRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 days: pulumi.Input[Optional[_builtins.int]] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
 
 
 class MetricAlertActionArgsDict(TypedDict):
@@ -8909,7 +8721,7 @@ class ScheduledQueryRulesAlertV2IdentityArgsDict(TypedDict):
     """
     A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 
-    > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+    > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
     """
     principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -8931,7 +8743,7 @@ class ScheduledQueryRulesAlertV2IdentityArgs:
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+               > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         """
@@ -8961,7 +8773,7 @@ class ScheduledQueryRulesAlertV2IdentityArgs:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+        > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
         """
         return pulumi.get(self, "identity_ids")
 

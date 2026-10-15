@@ -204,7 +204,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 
@@ -224,9 +224,11 @@ class RegistryScopeMap(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                 },
                 {
                     "location": "West Europe",
+                    "global_endpoint_routing_enabled": True,
                 },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
@@ -270,7 +272,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  args: RegistryScopeMapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 
@@ -290,9 +292,11 @@ class RegistryScopeMap(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                 },
                 {
                     "location": "West Europe",
+                    "global_endpoint_routing_enabled": True,
                 },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",

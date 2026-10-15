@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointGlobalDeliveryRuleCacheExpirationAction
     {
         /// <summary>
-        /// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        /// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         /// </summary>
         public readonly string Behavior;
         /// <summary>

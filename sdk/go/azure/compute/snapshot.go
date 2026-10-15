@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,75 @@ import (
 //
 // ```
 //
+// ### Cross-Region Incremental Snapshot Copy)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			source, err := core.NewResourceGroup(ctx, "source", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("snapshot-source-rg"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sourceManagedDisk, err := compute.NewManagedDisk(ctx, "source", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String("source-managed-disk"),
+//				Location:           source.Location,
+//				ResourceGroupName:  source.Name,
+//				StorageAccountType: pulumi.String("Standard_LRS"),
+//				CreateOption:       pulumi.String("Empty"),
+//				DiskSizeGb:         pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sourceSnapshot, err := compute.NewSnapshot(ctx, "source", &compute.SnapshotArgs{
+//				Name:               pulumi.String("source-snapshot"),
+//				Location:           source.Location,
+//				ResourceGroupName:  source.Name,
+//				CreateOption:       pulumi.String("Copy"),
+//				SourceUri:          sourceManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				IncrementalEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			target, err := core.NewResourceGroup(ctx, "target", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("snapshot-target-rg"),
+//				Location: pulumi.String("North Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewSnapshot(ctx, "target", &compute.SnapshotArgs{
+//				Name:                       pulumi.String("target-snapshot"),
+//				Location:                   target.Location,
+//				ResourceGroupName:          target.Name,
+//				CreateOption:               pulumi.String("CopyStart"),
+//				SourceResourceId:           sourceSnapshot.ID().ToIDOutput().ToStringOutput(),
+//				IncrementalEnabled:         pulumi.Bool(true),
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->
@@ -80,9 +149,11 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+	//
+	// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
@@ -104,7 +175,7 @@ type Snapshot struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
@@ -152,9 +223,11 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+	//
+	// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 	CreateOption *string `pulumi:"createOption"`
 	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
 	DiskAccessId *string `pulumi:"diskAccessId"`
@@ -176,7 +249,7 @@ type snapshotState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
@@ -189,9 +262,11 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+	//
+	// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 	CreateOption pulumi.StringPtrInput
 	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrInput
@@ -213,7 +288,7 @@ type SnapshotState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
@@ -230,9 +305,11 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+	//
+	// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
 	DiskAccessId *string `pulumi:"diskAccessId"`
@@ -254,7 +331,7 @@ type snapshotArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
@@ -266,9 +343,11 @@ type snapshotArgs struct {
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+	// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 	//
 	// > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+	//
+	// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 	CreateOption pulumi.StringInput
 	// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrInput
@@ -290,7 +369,7 @@ type SnapshotArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
@@ -387,9 +466,11 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 //
 // > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+//
+// > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
 func (o SnapshotOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }
@@ -441,7 +522,7 @@ func (o SnapshotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+// Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
 func (o SnapshotOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }

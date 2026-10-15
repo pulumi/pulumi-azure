@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ActiveSlotArgs, ActiveSlotState } from "./activeSlot";
-export type ActiveSlot = import("./activeSlot").ActiveSlot;
-export const ActiveSlot: typeof import("./activeSlot").ActiveSlot = null as any;
-utilities.lazyLoad(exports, ["ActiveSlot"], () => require("./activeSlot"));
-
 export { AppConnectionArgs, AppConnectionState } from "./appConnection";
 export type AppConnection = import("./appConnection").AppConnection;
 export const AppConnection: typeof import("./appConnection").AppConnection = null as any;
@@ -19,11 +14,6 @@ export { AppFlexConsumptionArgs, AppFlexConsumptionState } from "./appFlexConsum
 export type AppFlexConsumption = import("./appFlexConsumption").AppFlexConsumption;
 export const AppFlexConsumption: typeof import("./appFlexConsumption").AppFlexConsumption = null as any;
 utilities.lazyLoad(exports, ["AppFlexConsumption"], () => require("./appFlexConsumption"));
-
-export { AppServiceArgs, AppServiceState } from "./appService";
-export type AppService = import("./appService").AppService;
-export const AppService: typeof import("./appService").AppService = null as any;
-utilities.lazyLoad(exports, ["AppService"], () => require("./appService"));
 
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
@@ -55,11 +45,6 @@ export type EnvironmentV3 = import("./environmentV3").EnvironmentV3;
 export const EnvironmentV3: typeof import("./environmentV3").EnvironmentV3 = null as any;
 utilities.lazyLoad(exports, ["EnvironmentV3"], () => require("./environmentV3"));
 
-export { FunctionAppArgs, FunctionAppState } from "./functionApp";
-export type FunctionApp = import("./functionApp").FunctionApp;
-export const FunctionApp: typeof import("./functionApp").FunctionApp = null as any;
-utilities.lazyLoad(exports, ["FunctionApp"], () => require("./functionApp"));
-
 export { FunctionAppActiveSlotArgs, FunctionAppActiveSlotState } from "./functionAppActiveSlot";
 export type FunctionAppActiveSlot = import("./functionAppActiveSlot").FunctionAppActiveSlot;
 export const FunctionAppActiveSlot: typeof import("./functionAppActiveSlot").FunctionAppActiveSlot = null as any;
@@ -75,21 +60,6 @@ export type FunctionAppHybridConnection = import("./functionAppHybridConnection"
 export const FunctionAppHybridConnection: typeof import("./functionAppHybridConnection").FunctionAppHybridConnection = null as any;
 utilities.lazyLoad(exports, ["FunctionAppHybridConnection"], () => require("./functionAppHybridConnection"));
 
-export { FunctionAppSlotArgs, FunctionAppSlotState } from "./functionAppSlot";
-export type FunctionAppSlot = import("./functionAppSlot").FunctionAppSlot;
-export const FunctionAppSlot: typeof import("./functionAppSlot").FunctionAppSlot = null as any;
-utilities.lazyLoad(exports, ["FunctionAppSlot"], () => require("./functionAppSlot"));
-
-export { GetAppServiceArgs, GetAppServiceResult, GetAppServiceOutputArgs } from "./getAppService";
-export const getAppService: typeof import("./getAppService").getAppService = null as any;
-export const getAppServiceOutput: typeof import("./getAppService").getAppServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getAppService","getAppServiceOutput"], () => require("./getAppService"));
-
-export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
-export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
-export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
-utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
-
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
@@ -104,11 +74,6 @@ export { GetEnvironmentV3Args, GetEnvironmentV3Result, GetEnvironmentV3OutputArg
 export const getEnvironmentV3: typeof import("./getEnvironmentV3").getEnvironmentV3 = null as any;
 export const getEnvironmentV3Output: typeof import("./getEnvironmentV3").getEnvironmentV3Output = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentV3","getEnvironmentV3Output"], () => require("./getEnvironmentV3"));
-
-export { GetFunctionAppArgs, GetFunctionAppResult, GetFunctionAppOutputArgs } from "./getFunctionApp";
-export const getFunctionApp: typeof import("./getFunctionApp").getFunctionApp = null as any;
-export const getFunctionAppOutput: typeof import("./getFunctionApp").getFunctionAppOutput = null as any;
-utilities.lazyLoad(exports, ["getFunctionApp","getFunctionAppOutput"], () => require("./getFunctionApp"));
 
 export { GetFunctionAppHostKeysArgs, GetFunctionAppHostKeysResult, GetFunctionAppHostKeysOutputArgs } from "./getFunctionAppHostKeys";
 export const getFunctionAppHostKeys: typeof import("./getFunctionAppHostKeys").getFunctionAppHostKeys = null as any;
@@ -150,11 +115,6 @@ export const getWindowsWebApp: typeof import("./getWindowsWebApp").getWindowsWeb
 export const getWindowsWebAppOutput: typeof import("./getWindowsWebApp").getWindowsWebAppOutput = null as any;
 utilities.lazyLoad(exports, ["getWindowsWebApp","getWindowsWebAppOutput"], () => require("./getWindowsWebApp"));
 
-export { HybridConnectionArgs, HybridConnectionState } from "./hybridConnection";
-export type HybridConnection = import("./hybridConnection").HybridConnection;
-export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;
-utilities.lazyLoad(exports, ["HybridConnection"], () => require("./hybridConnection"));
-
 export * from "./kind";
 export { LinuxFunctionAppArgs, LinuxFunctionAppState } from "./linuxFunctionApp";
 export type LinuxFunctionApp = import("./linuxFunctionApp").LinuxFunctionApp;
@@ -181,11 +141,6 @@ export type ManagedCertificate = import("./managedCertificate").ManagedCertifica
 export const ManagedCertificate: typeof import("./managedCertificate").ManagedCertificate = null as any;
 utilities.lazyLoad(exports, ["ManagedCertificate"], () => require("./managedCertificate"));
 
-export { PlanArgs, PlanState } from "./plan";
-export type Plan = import("./plan").Plan;
-export const Plan: typeof import("./plan").Plan = null as any;
-utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
-
 export { PublicCertificateArgs, PublicCertificateState } from "./publicCertificate";
 export type PublicCertificate = import("./publicCertificate").PublicCertificate;
 export const PublicCertificate: typeof import("./publicCertificate").PublicCertificate = null as any;
@@ -196,11 +151,6 @@ export type ServicePlan = import("./servicePlan").ServicePlan;
 export const ServicePlan: typeof import("./servicePlan").ServicePlan = null as any;
 utilities.lazyLoad(exports, ["ServicePlan"], () => require("./servicePlan"));
 
-export { SlotArgs, SlotState } from "./slot";
-export type Slot = import("./slot").Slot;
-export const Slot: typeof import("./slot").Slot = null as any;
-utilities.lazyLoad(exports, ["Slot"], () => require("./slot"));
-
 export { SlotCustomHostnameBindingArgs, SlotCustomHostnameBindingState } from "./slotCustomHostnameBinding";
 export type SlotCustomHostnameBinding = import("./slotCustomHostnameBinding").SlotCustomHostnameBinding;
 export const SlotCustomHostnameBinding: typeof import("./slotCustomHostnameBinding").SlotCustomHostnameBinding = null as any;
@@ -210,11 +160,6 @@ export { SlotVirtualNetworkSwiftConnectionArgs, SlotVirtualNetworkSwiftConnectio
 export type SlotVirtualNetworkSwiftConnection = import("./slotVirtualNetworkSwiftConnection").SlotVirtualNetworkSwiftConnection;
 export const SlotVirtualNetworkSwiftConnection: typeof import("./slotVirtualNetworkSwiftConnection").SlotVirtualNetworkSwiftConnection = null as any;
 utilities.lazyLoad(exports, ["SlotVirtualNetworkSwiftConnection"], () => require("./slotVirtualNetworkSwiftConnection"));
-
-export { SourceCodeTokenArgs, SourceCodeTokenState } from "./sourceCodeToken";
-export type SourceCodeToken = import("./sourceCodeToken").SourceCodeToken;
-export const SourceCodeToken: typeof import("./sourceCodeToken").SourceCodeToken = null as any;
-utilities.lazyLoad(exports, ["SourceCodeToken"], () => require("./sourceCodeToken"));
 
 export { SourceControlArgs, SourceControlState } from "./sourceControl";
 export type SourceControl = import("./sourceControl").SourceControl;
@@ -230,16 +175,6 @@ export { SourceControlTokenArgs, SourceControlTokenState } from "./sourceControl
 export type SourceControlToken = import("./sourceControlToken").SourceControlToken;
 export const SourceControlToken: typeof import("./sourceControlToken").SourceControlToken = null as any;
 utilities.lazyLoad(exports, ["SourceControlToken"], () => require("./sourceControlToken"));
-
-export { StaticSiteArgs, StaticSiteState } from "./staticSite";
-export type StaticSite = import("./staticSite").StaticSite;
-export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
-utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
-
-export { StaticSiteCustomDomainArgs, StaticSiteCustomDomainState } from "./staticSiteCustomDomain";
-export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
-export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
-utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
 
 export { StaticWebAppArgs, StaticWebAppState } from "./staticWebApp";
 export type StaticWebApp = import("./staticWebApp").StaticWebApp;
@@ -300,14 +235,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:appservice/activeSlot:ActiveSlot":
-                return new ActiveSlot(name, <any>undefined, { urn })
             case "azure:appservice/appConnection:AppConnection":
                 return new AppConnection(name, <any>undefined, { urn })
             case "azure:appservice/appFlexConsumption:AppFlexConsumption":
                 return new AppFlexConsumption(name, <any>undefined, { urn })
-            case "azure:appservice/appService:AppService":
-                return new AppService(name, <any>undefined, { urn })
             case "azure:appservice/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "azure:appservice/certificateBinding:CertificateBinding":
@@ -320,18 +251,12 @@ const _module = {
                 return new CustomHostnameBinding(name, <any>undefined, { urn })
             case "azure:appservice/environmentV3:EnvironmentV3":
                 return new EnvironmentV3(name, <any>undefined, { urn })
-            case "azure:appservice/functionApp:FunctionApp":
-                return new FunctionApp(name, <any>undefined, { urn })
             case "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot":
                 return new FunctionAppActiveSlot(name, <any>undefined, { urn })
             case "azure:appservice/functionAppFunction:FunctionAppFunction":
                 return new FunctionAppFunction(name, <any>undefined, { urn })
             case "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection":
                 return new FunctionAppHybridConnection(name, <any>undefined, { urn })
-            case "azure:appservice/functionAppSlot:FunctionAppSlot":
-                return new FunctionAppSlot(name, <any>undefined, { urn })
-            case "azure:appservice/hybridConnection:HybridConnection":
-                return new HybridConnection(name, <any>undefined, { urn })
             case "azure:appservice/linuxFunctionApp:LinuxFunctionApp":
                 return new LinuxFunctionApp(name, <any>undefined, { urn })
             case "azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot":
@@ -342,30 +267,20 @@ const _module = {
                 return new LinuxWebAppSlot(name, <any>undefined, { urn })
             case "azure:appservice/managedCertificate:ManagedCertificate":
                 return new ManagedCertificate(name, <any>undefined, { urn })
-            case "azure:appservice/plan:Plan":
-                return new Plan(name, <any>undefined, { urn })
             case "azure:appservice/publicCertificate:PublicCertificate":
                 return new PublicCertificate(name, <any>undefined, { urn })
             case "azure:appservice/servicePlan:ServicePlan":
                 return new ServicePlan(name, <any>undefined, { urn })
-            case "azure:appservice/slot:Slot":
-                return new Slot(name, <any>undefined, { urn })
             case "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding":
                 return new SlotCustomHostnameBinding(name, <any>undefined, { urn })
             case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
                 return new SlotVirtualNetworkSwiftConnection(name, <any>undefined, { urn })
-            case "azure:appservice/sourceCodeToken:SourceCodeToken":
-                return new SourceCodeToken(name, <any>undefined, { urn })
             case "azure:appservice/sourceControl:SourceControl":
                 return new SourceControl(name, <any>undefined, { urn })
             case "azure:appservice/sourceControlSlot:SourceControlSlot":
                 return new SourceControlSlot(name, <any>undefined, { urn })
             case "azure:appservice/sourceControlToken:SourceControlToken":
                 return new SourceControlToken(name, <any>undefined, { urn })
-            case "azure:appservice/staticSite:StaticSite":
-                return new StaticSite(name, <any>undefined, { urn })
-            case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
-                return new StaticSiteCustomDomain(name, <any>undefined, { urn })
             case "azure:appservice/staticWebApp:StaticWebApp":
                 return new StaticWebApp(name, <any>undefined, { urn })
             case "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain":
@@ -391,39 +306,29 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "appservice/activeSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/appConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/appFlexConsumption", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/appService", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateOrder", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/connection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environmentV3", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/functionApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppActiveSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppHybridConnection", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/functionAppSlot", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/hybridConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/linuxFunctionApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/linuxFunctionAppSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/linuxWebApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/linuxWebAppSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/managedCertificate", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/plan", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/publicCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/servicePlan", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/slot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotCustomHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotVirtualNetworkSwiftConnection", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/sourceCodeToken", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceControl", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlToken", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/staticSiteCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticWebApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticWebAppCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticWebAppFunctionAppRegistration", _module)

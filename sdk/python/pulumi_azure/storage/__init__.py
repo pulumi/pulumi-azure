@@ -18,6 +18,7 @@ from .container_immutability_policy import *
 from .customer_managed_key import *
 from .data_lake_gen2_filesystem import *
 from .data_lake_gen2_path import *
+from .discovery_workspace import *
 from .encryption_scope import *
 from .get_account import *
 from .get_account_blob_container_sas import *

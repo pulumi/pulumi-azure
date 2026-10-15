@@ -46,8 +46,6 @@ class CassandraDatacenterArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -209,8 +207,6 @@ class CassandraDatacenterArgs:
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -251,8 +247,6 @@ class _CassandraDatacenterState:
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         if availability_zones_enabled is not None:
             pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
@@ -430,8 +424,6 @@ class _CassandraDatacenterState:
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -487,8 +479,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         ...
     @overload
@@ -606,8 +596,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -729,8 +717,6 @@ class CassandraDatacenter(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 

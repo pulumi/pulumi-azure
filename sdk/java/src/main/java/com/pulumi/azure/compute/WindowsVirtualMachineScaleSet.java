@@ -248,6 +248,20 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.automaticOsUpgradePolicy);
     }
     /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    @Export(name="automaticUpdatesEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> automaticUpdatesEnabled;
+
+    /**
+     * @return (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> automaticUpdatesEnabled() {
+        return Codegen.optional(this.automaticUpdatesEnabled);
+    }
+    /**
      * A `bootDiagnostics` block as defined below.
      * 
      */
@@ -356,20 +370,6 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
-    }
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAutomaticUpdates;
-
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    public Output<Optional<Boolean>> enableAutomaticUpdates() {
-        return Codegen.optional(this.enableAutomaticUpdates);
     }
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -524,14 +524,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.instances;
     }
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
-     * @return Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * @return Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     public Output<Optional<String>> licenseType() {
@@ -754,14 +754,18 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     @Export(name="rollingUpgradePolicy", refs={WindowsVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {

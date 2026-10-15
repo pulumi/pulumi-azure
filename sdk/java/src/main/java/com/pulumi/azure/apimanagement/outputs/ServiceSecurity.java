@@ -33,48 +33,6 @@ public final class ServiceSecurity {
      */
     private @Nullable Boolean backendTls11Enabled;
     /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableBackendSsl30;
-    /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableBackendTls10;
-    /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableBackendTls11;
-    /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableFrontendSsl30;
-    /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableFrontendTls10;
-    /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableFrontendTls11;
-    /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
      * &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
@@ -200,60 +158,6 @@ public final class ServiceSecurity {
      */
     public Optional<Boolean> backendTls11Enabled() {
         return Optional.ofNullable(this.backendTls11Enabled);
-    }
-    /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableBackendSsl30() {
-        return Optional.ofNullable(this.enableBackendSsl30);
-    }
-    /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableBackendTls10() {
-        return Optional.ofNullable(this.enableBackendTls10);
-    }
-    /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableBackendTls11() {
-        return Optional.ofNullable(this.enableBackendTls11);
-    }
-    /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableFrontendSsl30() {
-        return Optional.ofNullable(this.enableFrontendSsl30);
-    }
-    /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableFrontendTls10() {
-        return Optional.ofNullable(this.enableFrontendTls10);
-    }
-    /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableFrontendTls11() {
-        return Optional.ofNullable(this.enableFrontendTls11);
     }
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
@@ -394,12 +298,6 @@ public final class ServiceSecurity {
         private @Nullable Boolean backendSsl30Enabled;
         private @Nullable Boolean backendTls10Enabled;
         private @Nullable Boolean backendTls11Enabled;
-        private @Nullable Boolean enableBackendSsl30;
-        private @Nullable Boolean enableBackendTls10;
-        private @Nullable Boolean enableBackendTls11;
-        private @Nullable Boolean enableFrontendSsl30;
-        private @Nullable Boolean enableFrontendTls10;
-        private @Nullable Boolean enableFrontendTls11;
         private @Nullable Boolean frontendSsl30Enabled;
         private @Nullable Boolean frontendTls10Enabled;
         private @Nullable Boolean frontendTls11Enabled;
@@ -420,12 +318,6 @@ public final class ServiceSecurity {
     	      this.backendSsl30Enabled = defaults.backendSsl30Enabled;
     	      this.backendTls10Enabled = defaults.backendTls10Enabled;
     	      this.backendTls11Enabled = defaults.backendTls11Enabled;
-    	      this.enableBackendSsl30 = defaults.enableBackendSsl30;
-    	      this.enableBackendTls10 = defaults.enableBackendTls10;
-    	      this.enableBackendTls11 = defaults.enableBackendTls11;
-    	      this.enableFrontendSsl30 = defaults.enableFrontendSsl30;
-    	      this.enableFrontendTls10 = defaults.enableFrontendTls10;
-    	      this.enableFrontendTls11 = defaults.enableFrontendTls11;
     	      this.frontendSsl30Enabled = defaults.frontendSsl30Enabled;
     	      this.frontendTls10Enabled = defaults.frontendTls10Enabled;
     	      this.frontendTls11Enabled = defaults.frontendTls11Enabled;
@@ -458,42 +350,6 @@ public final class ServiceSecurity {
         public Builder backendTls11Enabled(@Nullable Boolean backendTls11Enabled) {
 
             this.backendTls11Enabled = backendTls11Enabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBackendSsl30(@Nullable Boolean enableBackendSsl30) {
-
-            this.enableBackendSsl30 = enableBackendSsl30;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBackendTls10(@Nullable Boolean enableBackendTls10) {
-
-            this.enableBackendTls10 = enableBackendTls10;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBackendTls11(@Nullable Boolean enableBackendTls11) {
-
-            this.enableBackendTls11 = enableBackendTls11;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableFrontendSsl30(@Nullable Boolean enableFrontendSsl30) {
-
-            this.enableFrontendSsl30 = enableFrontendSsl30;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableFrontendTls10(@Nullable Boolean enableFrontendTls10) {
-
-            this.enableFrontendTls10 = enableFrontendTls10;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableFrontendTls11(@Nullable Boolean enableFrontendTls11) {
-
-            this.enableFrontendTls11 = enableFrontendTls11;
             return this;
         }
         @CustomType.Setter
@@ -585,12 +441,6 @@ public final class ServiceSecurity {
             _resultValue.backendSsl30Enabled = backendSsl30Enabled;
             _resultValue.backendTls10Enabled = backendTls10Enabled;
             _resultValue.backendTls11Enabled = backendTls11Enabled;
-            _resultValue.enableBackendSsl30 = enableBackendSsl30;
-            _resultValue.enableBackendTls10 = enableBackendTls10;
-            _resultValue.enableBackendTls11 = enableBackendTls11;
-            _resultValue.enableFrontendSsl30 = enableFrontendSsl30;
-            _resultValue.enableFrontendTls10 = enableFrontendTls10;
-            _resultValue.enableFrontendTls11 = enableFrontendTls11;
             _resultValue.frontendSsl30Enabled = frontendSsl30Enabled;
             _resultValue.frontendTls10Enabled = frontendTls10Enabled;
             _resultValue.frontendTls11Enabled = frontendTls11Enabled;

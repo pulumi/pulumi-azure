@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNodePoolUpgradeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        /// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         /// </summary>
         [Input("drainTimeoutInMinutes")]
         public Input<int>? DrainTimeoutInMinutes { get; set; }

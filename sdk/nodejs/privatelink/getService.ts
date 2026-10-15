@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,11 +64,13 @@ export interface GetServiceResult {
      */
     readonly autoApprovalSubscriptionIds: string[];
     /**
-     * Does the Private Link Service support the Proxy Protocol?
-     *
-     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * The destination IP address of the Private Link Service.
      */
-    readonly enableProxyProtocol: boolean;
+    readonly destinationIpAddress: string;
+    /**
+     * List of FQDNs allowed for the Private Link Service.
+     */
+    readonly fqdns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -121,7 +123,7 @@ export interface GetServiceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

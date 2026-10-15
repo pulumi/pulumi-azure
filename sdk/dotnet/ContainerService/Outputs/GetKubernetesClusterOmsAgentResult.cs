@@ -25,6 +25,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// An `OmsAgentIdentity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> OmsAgentIdentities;
+        /// <summary>
+        /// Is Retina Flow Logs collection enabled? Defaults to `False`.
+        /// </summary>
+        public readonly bool RetinaFlowLogsEnabled;
 
         [OutputConstructor]
         private GetKubernetesClusterOmsAgentResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool msiAuthForMonitoringEnabled,
 
-            ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> omsAgentIdentities)
+            ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> omsAgentIdentities,
+
+            bool retinaFlowLogsEnabled)
         {
             LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             MsiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             OmsAgentIdentities = omsAgentIdentities;
+            RetinaFlowLogsEnabled = retinaFlowLogsEnabled;
         }
     }
 }

@@ -1,0 +1,25 @@
+name: apimanagement
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleService:
+    type: azure:apimanagement:Service
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      publisherName: Pulumi
+      publisherEmail: upgrade-tests@example.com
+      skuName: Consumption_0
+      protocols:
+        http2Enabled: true
+      security:
+        backendTls10Enabled: false
+        backendTls11Enabled: false
+        frontendTls10Enabled: false
+        frontendTls11Enabled: false

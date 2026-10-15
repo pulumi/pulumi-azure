@@ -95,13 +95,9 @@ export class EventHub extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     declare public readonly namespaceId: pulumi.Output<string>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -115,15 +111,13 @@ export class EventHub extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly partitionIds: pulumi.Output<string[]>;
     /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
-    /**
      * A `retentionDescription` block as defined below.
      */
     declare public readonly retentionDescription: pulumi.Output<outputs.eventhub.EventHubRetentionDescription>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     *
+     * > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
      */
     declare public readonly status: pulumi.Output<string | undefined>;
 
@@ -144,14 +138,15 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["messageRetention"] = state?.messageRetention;
             resourceInputs["name"] = state?.name;
             resourceInputs["namespaceId"] = state?.namespaceId;
-            resourceInputs["namespaceName"] = state?.namespaceName;
             resourceInputs["partitionCount"] = state?.partitionCount;
             resourceInputs["partitionIds"] = state?.partitionIds;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["retentionDescription"] = state?.retentionDescription;
             resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
+            if (args?.namespaceId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             if (args?.partitionCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionCount'");
             }
@@ -159,9 +154,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["messageRetention"] = args?.messageRetention;
             resourceInputs["name"] = args?.name;
             resourceInputs["namespaceId"] = args?.namespaceId;
-            resourceInputs["namespaceName"] = args?.namespaceName;
             resourceInputs["partitionCount"] = args?.partitionCount;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionDescription"] = args?.retentionDescription;
             resourceInputs["status"] = args?.status;
             resourceInputs["partitionIds"] = undefined /*out*/;
@@ -190,13 +183,9 @@ export interface EventHubState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -210,15 +199,13 @@ export interface EventHubState {
      */
     partitionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
-    /**
      * A `retentionDescription` block as defined below.
      */
     retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription | undefined>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     *
+     * > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
      */
     status?: pulumi.Input<string | undefined>;
 }
@@ -242,13 +229,9 @@ export interface EventHubArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -258,15 +241,13 @@ export interface EventHubArgs {
      */
     partitionCount: pulumi.Input<number>;
     /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
-    /**
      * A `retentionDescription` block as defined below.
      */
     retentionDescription?: pulumi.Input<inputs.eventhub.EventHubRetentionDescription | undefined>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     *
+     * > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
      */
     status?: pulumi.Input<string | undefined>;
 }

@@ -33,19 +33,19 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// <summary>
         /// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Creating replicated vm with `TargetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `Timeout` for `Create`.
+        /// &gt; **Note:** Creating replicated vm with `TargetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `Timeout` for `Create`.
         /// </summary>
         [Input("targetDiskEncryptionSetId")]
         public Input<string>? TargetDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
         /// </summary>
         [Input("targetDiskType", required: true)]
         public Input<string> TargetDiskType { get; set; } = null!;
 
         /// <summary>
-        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
         /// </summary>
         [Input("targetReplicaDiskType", required: true)]
         public Input<string> TargetReplicaDiskType { get; set; } = null!;

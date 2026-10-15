@@ -31,17 +31,17 @@ public final class ReplicatedVMManagedDisk {
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     private @Nullable String targetDiskEncryptionSetId;
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     private String targetDiskType;
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     private String targetReplicaDiskType;
@@ -76,21 +76,21 @@ public final class ReplicatedVMManagedDisk {
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     public Optional<String> targetDiskEncryptionSetId() {
         return Optional.ofNullable(this.targetDiskEncryptionSetId);
     }
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     public String targetDiskType() {
         return this.targetDiskType;
     }
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     public String targetReplicaDiskType() {

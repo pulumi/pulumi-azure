@@ -27,7 +27,7 @@ class ResourceGroupArgs:
         The set of arguments for constructing a ResourceGroup resource.
 
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
+        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -56,7 +56,7 @@ class ResourceGroupArgs:
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the resource or application that manages this Resource Group.
+        The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "managed_by")
 
@@ -100,7 +100,7 @@ class _ResourceGroupState:
         Input properties used for looking up and filtering ResourceGroup resources.
 
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
+        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -129,7 +129,7 @@ class _ResourceGroupState:
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the resource or application that manages this Resource Group.
+        The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "managed_by")
 
@@ -203,7 +203,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
+        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -294,7 +294,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
+        :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         """
@@ -320,7 +320,7 @@ class ResourceGroup(pulumi.CustomResource):
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the resource or application that manages this Resource Group.
+        The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "managed_by")
 

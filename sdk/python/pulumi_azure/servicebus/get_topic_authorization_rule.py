@@ -230,7 +230,7 @@ def get_topic_authorization_rule(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of the ServiceBus Topic Authorization Rule resource.
@@ -293,7 +293,7 @@ def get_topic_authorization_rule_output(name: pulumi.Input[Optional[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ServiceBus` - 2024-01-01
+    * `Microsoft.ServiceBus` - 2026-01-01
 
 
     :param _builtins.str name: The name of the ServiceBus Topic Authorization Rule resource.

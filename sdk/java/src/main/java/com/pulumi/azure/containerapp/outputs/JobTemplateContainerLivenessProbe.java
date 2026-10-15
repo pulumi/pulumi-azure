@@ -51,11 +51,6 @@ public final class JobTemplateContainerLivenessProbe {
      */
     private Integer port;
     /**
-     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    private @Nullable Integer terminationGracePeriodSeconds;
-    /**
      * @return Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
      * 
      */
@@ -117,13 +112,6 @@ public final class JobTemplateContainerLivenessProbe {
         return this.port;
     }
     /**
-     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    public Optional<Integer> terminationGracePeriodSeconds() {
-        return Optional.ofNullable(this.terminationGracePeriodSeconds);
-    }
-    /**
      * @return Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
      * 
      */
@@ -154,7 +142,6 @@ public final class JobTemplateContainerLivenessProbe {
         private @Nullable Integer intervalSeconds;
         private @Nullable String path;
         private Integer port;
-        private @Nullable Integer terminationGracePeriodSeconds;
         private @Nullable Integer timeout;
         private String transport;
         public Builder() {}
@@ -167,7 +154,6 @@ public final class JobTemplateContainerLivenessProbe {
     	      this.intervalSeconds = defaults.intervalSeconds;
     	      this.path = defaults.path;
     	      this.port = defaults.port;
-    	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
     	      this.timeout = defaults.timeout;
     	      this.transport = defaults.transport;
         }
@@ -220,12 +206,6 @@ public final class JobTemplateContainerLivenessProbe {
             return this;
         }
         @CustomType.Setter
-        public Builder terminationGracePeriodSeconds(@Nullable Integer terminationGracePeriodSeconds) {
-
-            this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
-            return this;
-        }
-        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
 
             this.timeout = timeout;
@@ -248,7 +228,6 @@ public final class JobTemplateContainerLivenessProbe {
             _resultValue.intervalSeconds = intervalSeconds;
             _resultValue.path = path;
             _resultValue.port = port;
-            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             _resultValue.timeout = timeout;
             _resultValue.transport = transport;
             return _resultValue;

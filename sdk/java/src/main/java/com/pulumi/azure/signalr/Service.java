@@ -222,10 +222,10 @@ public class Service extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
+     * `liveTraceEnabled` has been deprecated in favour of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
+    @Deprecated /* `liveTraceEnabled` has been deprecated in favour of `liveTrace` and will be removed in 4.0. */
     @Export(name="liveTraceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> liveTraceEnabled;
 

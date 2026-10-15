@@ -15,8 +15,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCollectionRuleDestination {
@@ -29,12 +27,12 @@ public final class GetDataCollectionRuleDestination {
      * @return One or more `eventHub` blocks as defined below.
      * 
      */
-    private @Nullable GetDataCollectionRuleDestinationEventHub eventHub;
+    private GetDataCollectionRuleDestinationEventHub eventHub;
     /**
      * @return One or more `eventHubDirect` blocks as defined below.
      * 
      */
-    private @Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
+    private GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
     /**
      * @return One or more `logAnalytics` blocks as defined below.
      * 
@@ -73,15 +71,15 @@ public final class GetDataCollectionRuleDestination {
      * @return One or more `eventHub` blocks as defined below.
      * 
      */
-    public Optional<GetDataCollectionRuleDestinationEventHub> eventHub() {
-        return Optional.ofNullable(this.eventHub);
+    public GetDataCollectionRuleDestinationEventHub eventHub() {
+        return this.eventHub;
     }
     /**
      * @return One or more `eventHubDirect` blocks as defined below.
      * 
      */
-    public Optional<GetDataCollectionRuleDestinationEventHubDirect> eventHubDirect() {
-        return Optional.ofNullable(this.eventHubDirect);
+    public GetDataCollectionRuleDestinationEventHubDirect eventHubDirect() {
+        return this.eventHubDirect;
     }
     /**
      * @return One or more `logAnalytics` blocks as defined below.
@@ -129,8 +127,8 @@ public final class GetDataCollectionRuleDestination {
     @CustomType.Builder
     public static final class Builder {
         private List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics;
-        private @Nullable GetDataCollectionRuleDestinationEventHub eventHub;
-        private @Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
+        private GetDataCollectionRuleDestinationEventHub eventHub;
+        private GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
         private List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics;
         private List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts;
         private List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects;
@@ -161,14 +159,18 @@ public final class GetDataCollectionRuleDestination {
             return azureMonitorMetrics(List.of(azureMonitorMetrics));
         }
         @CustomType.Setter
-        public Builder eventHub(@Nullable GetDataCollectionRuleDestinationEventHub eventHub) {
-
+        public Builder eventHub(GetDataCollectionRuleDestinationEventHub eventHub) {
+            if (eventHub == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "eventHub");
+            }
             this.eventHub = eventHub;
             return this;
         }
         @CustomType.Setter
-        public Builder eventHubDirect(@Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect) {
-
+        public Builder eventHubDirect(GetDataCollectionRuleDestinationEventHubDirect eventHubDirect) {
+            if (eventHubDirect == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "eventHubDirect");
+            }
             this.eventHubDirect = eventHubDirect;
             return this;
         }

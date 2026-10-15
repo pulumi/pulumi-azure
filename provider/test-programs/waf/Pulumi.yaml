@@ -1,0 +1,21 @@
+name: waf
+runtime: yaml
+
+# No source changes: `policySettings.fileUploadEnforcement` was computed in v6 and defaults to
+# `true` in v7.
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  examplePolicy:
+    type: azure:waf:Policy
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      managedRules:
+        managedRuleSets:
+          - type: OWASP
+            version: "3.2"

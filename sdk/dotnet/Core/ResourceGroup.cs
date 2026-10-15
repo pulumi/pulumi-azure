@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the resource or application that manages this Resource Group.
+        /// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Output("managedBy")]
         public Output<string?> ManagedBy { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the resource or application that manages this Resource Group.
+        /// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the resource or application that manages this Resource Group.
+        /// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }

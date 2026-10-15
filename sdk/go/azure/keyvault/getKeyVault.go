@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,10 +69,6 @@ type LookupKeyVaultArgs struct {
 type LookupKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
 	AccessPolicies []GetKeyVaultAccessPolicy `pulumi:"accessPolicies"`
-	// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-	//
-	// Deprecated: the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
-	EnableRbacAuthorization bool `pulumi:"enableRbacAuthorization"`
 	// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
 	EnabledForDeployment bool `pulumi:"enabledForDeployment"`
 	// Can Azure Disk Encryption retrieve secrets from the Key Vault?
@@ -88,7 +84,8 @@ type LookupKeyVaultResult struct {
 	// Is public network access enabled on this Key Vault?
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is purge protection enabled on this Key Vault?
-	PurgeProtectionEnabled   bool   `pulumi:"purgeProtectionEnabled"`
+	PurgeProtectionEnabled bool `pulumi:"purgeProtectionEnabled"`
+	// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
 	RbacAuthorizationEnabled bool   `pulumi:"rbacAuthorizationEnabled"`
 	ResourceGroupName        string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault.
@@ -138,13 +135,6 @@ func (o LookupKeyVaultResultOutput) AccessPolicies() GetKeyVaultAccessPolicyArra
 	return o.ApplyT(func(v LookupKeyVaultResult) []GetKeyVaultAccessPolicy { return v.AccessPolicies }).(GetKeyVaultAccessPolicyArrayOutput)
 }
 
-// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-//
-// Deprecated: the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
-func (o LookupKeyVaultResultOutput) EnableRbacAuthorization() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnableRbacAuthorization }).(pulumi.BoolOutput)
-}
-
 // Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
 func (o LookupKeyVaultResultOutput) EnabledForDeployment() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnabledForDeployment }).(pulumi.BoolOutput)
@@ -188,6 +178,7 @@ func (o LookupKeyVaultResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
 }
 
+// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
 func (o LookupKeyVaultResultOutput) RbacAuthorizationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.RbacAuthorizationEnabled }).(pulumi.BoolOutput)
 }

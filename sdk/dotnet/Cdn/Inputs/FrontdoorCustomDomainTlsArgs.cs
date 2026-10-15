@@ -36,9 +36,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         [Input("cipherSuite")]
         public Input<Inputs.FrontdoorCustomDomainTlsCipherSuiteArgs>? CipherSuite { get; set; }
 
-        [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
-
         /// <summary>
         /// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
         /// </summary>

@@ -3,11 +3,12 @@
 
 package com.pulumi.azure.logicapps.outputs;
 
-import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestrictionHeaders;
+import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestrictionHeader;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -21,7 +22,7 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
-    private GetStandardSiteConfigIpRestrictionHeaders headers;
+    private List<GetStandardSiteConfigIpRestrictionHeader> headers;
     /**
      * @return The IP Address used for this IP Restriction in CIDR notation.
      * 
@@ -60,7 +61,7 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
-    public GetStandardSiteConfigIpRestrictionHeaders headers() {
+    public List<GetStandardSiteConfigIpRestrictionHeader> headers() {
         return this.headers;
     }
     /**
@@ -109,7 +110,7 @@ public final class GetStandardSiteConfigIpRestriction {
     @CustomType.Builder
     public static final class Builder {
         private String action;
-        private GetStandardSiteConfigIpRestrictionHeaders headers;
+        private List<GetStandardSiteConfigIpRestrictionHeader> headers;
         private String ipAddress;
         private String name;
         private Integer priority;
@@ -136,12 +137,15 @@ public final class GetStandardSiteConfigIpRestriction {
             return this;
         }
         @CustomType.Setter
-        public Builder headers(GetStandardSiteConfigIpRestrictionHeaders headers) {
+        public Builder headers(List<GetStandardSiteConfigIpRestrictionHeader> headers) {
             if (headers == null) {
               throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "headers");
             }
             this.headers = headers;
             return this;
+        }
+        public Builder headers(GetStandardSiteConfigIpRestrictionHeader... headers) {
+            return headers(List.of(headers));
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {

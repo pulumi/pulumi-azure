@@ -28,9 +28,8 @@ class AnalyticsWorkspaceArgs:
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_query_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -48,12 +47,14 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
-        :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] internet_ingestion_access_type: Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] internet_query_access_type: Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+               
+               > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
@@ -61,7 +62,7 @@ class AnalyticsWorkspaceArgs:
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
                
                > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -79,15 +80,10 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "identity", identity)
         if immediate_data_purge_on30_days_enabled is not None:
             pulumi.set(__self__, "immediate_data_purge_on30_days_enabled", immediate_data_purge_on30_days_enabled)
-        if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
-        if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if internet_ingestion_access_type is not None:
+            pulumi.set(__self__, "internet_ingestion_access_type", internet_ingestion_access_type)
+        if internet_query_access_type is not None:
+            pulumi.set(__self__, "internet_query_access_type", internet_query_access_type)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
@@ -188,38 +184,30 @@ class AnalyticsWorkspaceArgs:
         pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetIngestionAccessType")
+    def internet_ingestion_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         """
-        return pulumi.get(self, "internet_ingestion_enabled")
+        return pulumi.get(self, "internet_ingestion_access_type")
 
-    @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "internet_ingestion_enabled", value)
+    @internet_ingestion_access_type.setter
+    def internet_ingestion_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "internet_ingestion_access_type", value)
 
     @_builtins.property
-    @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetQueryAccessType")
+    def internet_query_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+
+        > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         """
-        return pulumi.get(self, "internet_query_enabled")
+        return pulumi.get(self, "internet_query_access_type")
 
-    @internet_query_enabled.setter
-    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "internet_query_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
+    @internet_query_access_type.setter
+    def internet_query_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "internet_query_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
@@ -261,7 +249,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
@@ -291,7 +279,7 @@ class AnalyticsWorkspaceArgs:
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 
         > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """
@@ -323,9 +311,8 @@ class _AnalyticsWorkspaceState:
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['AnalyticsWorkspaceIdentityArgs']] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_query_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -346,13 +333,15 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
-        :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] internet_ingestion_access_type: Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] internet_query_access_type: Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+               
+               > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -362,7 +351,7 @@ class _AnalyticsWorkspaceState:
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
                
                > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -380,15 +369,10 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "identity", identity)
         if immediate_data_purge_on30_days_enabled is not None:
             pulumi.set(__self__, "immediate_data_purge_on30_days_enabled", immediate_data_purge_on30_days_enabled)
-        if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
-        if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if internet_ingestion_access_type is not None:
+            pulumi.set(__self__, "internet_ingestion_access_type", internet_ingestion_access_type)
+        if internet_query_access_type is not None:
+            pulumi.set(__self__, "internet_query_access_type", internet_query_access_type)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
@@ -485,38 +469,30 @@ class _AnalyticsWorkspaceState:
         pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetIngestionAccessType")
+    def internet_ingestion_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         """
-        return pulumi.get(self, "internet_ingestion_enabled")
+        return pulumi.get(self, "internet_ingestion_access_type")
 
-    @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "internet_ingestion_enabled", value)
+    @internet_ingestion_access_type.setter
+    def internet_ingestion_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "internet_ingestion_access_type", value)
 
     @_builtins.property
-    @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetQueryAccessType")
+    def internet_query_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+
+        > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         """
-        return pulumi.get(self, "internet_query_enabled")
+        return pulumi.get(self, "internet_query_access_type")
 
-    @internet_query_enabled.setter
-    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "internet_query_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
+    @internet_query_access_type.setter
+    def internet_query_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "internet_query_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
@@ -570,7 +546,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
@@ -624,7 +600,7 @@ class _AnalyticsWorkspaceState:
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 
         > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """
@@ -671,9 +647,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_query_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -708,7 +683,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2025-07-01, 2020-08-01
 
         ## Import
 
@@ -727,12 +702,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
-        :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] internet_ingestion_access_type: Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] internet_query_access_type: Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+               
+               > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -741,7 +718,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
                
                > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -777,7 +754,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2025-07-01, 2020-08-01
 
         ## Import
 
@@ -809,9 +786,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_query_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -835,9 +811,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immediate_data_purge_on30_days_enabled"] = immediate_data_purge_on30_days_enabled
-            __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
-            __props__.__dict__["internet_query_enabled"] = internet_query_enabled
-            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+            __props__.__dict__["internet_ingestion_access_type"] = internet_ingestion_access_type
+            __props__.__dict__["internet_query_access_type"] = internet_query_access_type
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -869,9 +844,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
             identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
             immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_ingestion_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_query_access_type: pulumi.Input[Optional[_builtins.str]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -896,13 +870,15 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
-        :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] internet_ingestion_access_type: Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        :param pulumi.Input[_builtins.str] internet_query_access_type: Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+               
+               > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -912,7 +888,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
                
                > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -928,9 +904,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
         __props__.__dict__["identity"] = identity
         __props__.__dict__["immediate_data_purge_on30_days_enabled"] = immediate_data_purge_on30_days_enabled
-        __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
-        __props__.__dict__["internet_query_enabled"] = internet_query_enabled
-        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+        __props__.__dict__["internet_ingestion_access_type"] = internet_ingestion_access_type
+        __props__.__dict__["internet_query_access_type"] = internet_query_access_type
         __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -993,30 +968,26 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetIngestionAccessType")
+    def internet_ingestion_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         """
-        return pulumi.get(self, "internet_ingestion_enabled")
+        return pulumi.get(self, "internet_ingestion_access_type")
 
     @_builtins.property
-    @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @pulumi.getter(name="internetQueryAccessType")
+    def internet_query_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
-        """
-        return pulumi.get(self, "internet_query_enabled")
+        Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
 
-    @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "local_authentication_disabled")
+        > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `network.NetworkSecurityPerimeterAssociation` resource with `access_mode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
+        """
+        return pulumi.get(self, "internet_query_access_type")
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         """
@@ -1050,7 +1021,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
+        The capacity reservation level in GB for this workspace. Possible values are `50`, `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
@@ -1088,7 +1059,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
 
         > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """

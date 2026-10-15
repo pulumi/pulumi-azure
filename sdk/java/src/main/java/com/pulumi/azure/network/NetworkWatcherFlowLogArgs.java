@@ -67,25 +67,6 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-    @Import(name="networkSecurityGroupId")
-    private @Nullable Output<String> networkSecurityGroupId;
-
-    /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> networkSecurityGroupId() {
-        return Optional.ofNullable(this.networkSecurityGroupId);
-    }
-
-    /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */
@@ -166,8 +147,8 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
      * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
-    @Import(name="targetResourceId")
-    private @Nullable Output<String> targetResourceId;
+    @Import(name="targetResourceId", required=true)
+    private Output<String> targetResourceId;
 
     /**
      * @return The ID of the Resource for which to enable flow logs for.
@@ -175,8 +156,8 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
      * &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      * 
      */
-    public Optional<Output<String>> targetResourceId() {
-        return Optional.ofNullable(this.targetResourceId);
+    public Output<String> targetResourceId() {
+        return this.targetResourceId;
     }
 
     /**
@@ -195,14 +176,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * @return The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -215,7 +196,6 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         this.enabled = $.enabled;
         this.location = $.location;
         this.name = $.name;
-        this.networkSecurityGroupId = $.networkSecurityGroupId;
         this.networkWatcherName = $.networkWatcherName;
         this.resourceGroupName = $.resourceGroupName;
         this.retentionPolicy = $.retentionPolicy;
@@ -305,31 +285,6 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
-            $.networkSecurityGroupId = networkSecurityGroupId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }
 
         /**
@@ -445,7 +400,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder targetResourceId(@Nullable Output<String> targetResourceId) {
+        public Builder targetResourceId(Output<String> targetResourceId) {
             $.targetResourceId = targetResourceId;
             return this;
         }
@@ -484,7 +439,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -495,7 +450,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -519,6 +474,9 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
             }
             if ($.storageAccountId == null) {
                 throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "storageAccountId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "targetResourceId");
             }
             return $;
         }

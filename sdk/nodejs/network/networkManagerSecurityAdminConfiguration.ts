@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -87,7 +87,7 @@ export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResou
     }
 
     /**
-     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      */
     declare public readonly applyOnNetworkIntentPolicyBasedServices: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResou
  */
 export interface NetworkManagerSecurityAdminConfigurationState {
     /**
-     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      */
     applyOnNetworkIntentPolicyBasedServices?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface NetworkManagerSecurityAdminConfigurationState {
  */
 export interface NetworkManagerSecurityAdminConfigurationArgs {
     /**
-     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+     * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      */
     applyOnNetworkIntentPolicyBasedServices?: pulumi.Input<string | undefined>;
     /**

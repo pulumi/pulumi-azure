@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.datafactory.inputs;
 
-import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs;
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs;
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs;
 import com.pulumi.core.Output;
@@ -73,7 +72,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     /**
      * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     @Import(name="connectionStringInsecure")
@@ -82,7 +81,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     /**
      * @return The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     public Optional<Output<String>> connectionStringInsecure() {
@@ -132,25 +131,6 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
      */
     public Optional<Output<String>> integrationRuntimeName() {
         return Optional.ofNullable(this.integrationRuntimeName);
-    }
-
-    /**
-     * @deprecated
-     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="keyVaultSasToken")
-    private @Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken;
-
-    /**
-     * @deprecated
-     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>> keyVaultSasToken() {
-        return Optional.ofNullable(this.keyVaultSasToken);
     }
 
     /**
@@ -272,7 +252,6 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
         this.integrationRuntimeName = $.integrationRuntimeName;
-        this.keyVaultSasToken = $.keyVaultSasToken;
         this.name = $.name;
         this.parameters = $.parameters;
         this.sasTokenLinkedKeyVaultKey = $.sasTokenLinkedKeyVaultKey;
@@ -384,7 +363,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         /**
          * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
          * 
-         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
          * 
          * @return builder
          * 
@@ -397,7 +376,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         /**
          * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
          * 
-         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
+         * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
          * 
          * @return builder
          * 
@@ -467,31 +446,6 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
          */
         public Builder integrationRuntimeName(String integrationRuntimeName) {
             return integrationRuntimeName(Output.of(integrationRuntimeName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder keyVaultSasToken(@Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken) {
-            $.keyVaultSasToken = keyVaultSasToken;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder keyVaultSasToken(LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs keyVaultSasToken) {
-            return keyVaultSasToken(Output.of(keyVaultSasToken));
         }
 
         /**

@@ -23,7 +23,7 @@ const storageAccount = new azure.storage.Account("storage", {
 });
 
 const queue = new azure.storage.Queue("queue", {
-    storageAccountName: storageAccount.name,
+    storageAccountId: storageAccount.id,
 });
 
 const storageQueueFunc = queue.getEventFunction("storage-queue",
@@ -33,7 +33,7 @@ const storageQueueFunc = queue.getEventFunction("storage-queue",
 
 // Storage Blobs
 const container = new azure.storage.Container("container", {
-    storageAccountName: storageAccount.name,
+    storageAccountId: storageAccount.id,
     name: "blobs",
 });
 
@@ -49,8 +49,7 @@ const namespace = new azure.eventhub.Namespace("servicebus", {
 });
 
 const serviceBusQueue = new azure.eventhub.Queue("queue", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: namespace.name,
+    namespaceId: namespace.id,
 });
 
 const serviceBusQueueFunc = serviceBusQueue.getEventFunction("servicebus-queue",
@@ -60,14 +59,11 @@ const serviceBusQueueFunc = serviceBusQueue.getEventFunction("servicebus-queue",
 
 // Service Bus Topic
 const topic = new azure.eventhub.Topic("topic", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: namespace.name,
+    namespaceId: namespace.id,
 });
 
 const subscription = new azure.eventhub.Subscription("subscription", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: namespace.name,
-    topicName: topic.name,
+    topicId: topic.id,
     maxDeliveryCount: 10,
 });
 
@@ -85,8 +81,7 @@ const ehNamespace = new azure.eventhub.EventHubNamespace("namespace", {
 });
 
 const eventHub = new azure.eventhub.EventHub("eventhub", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: ehNamespace.name,
+    namespaceId: ehNamespace.id,
     partitionCount: 2,
     messageRetention: 7,
 });

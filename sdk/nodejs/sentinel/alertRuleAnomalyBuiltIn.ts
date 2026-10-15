@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * ## Disclaimers
  *
- * > **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+ * > **Note:** A Built-in Anomaly Alert Rule cannot be deleted. Deleting a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
  *
  * Manages a Built-in Anomaly Alert Rule.
  *
@@ -44,6 +44,15 @@ import * as utilities from "../utilities";
  *     enabled: false,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  *
  * ## Import
  *
@@ -94,7 +103,7 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule.
+     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -120,7 +129,7 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly multiSelectObservations: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation[]>;
     /**
-     * The Name of the built-in Anomaly Alert Rule.
+     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -233,7 +242,7 @@ export interface AlertRuleAnomalyBuiltInState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule.
+     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -259,7 +268,7 @@ export interface AlertRuleAnomalyBuiltInState {
      */
     multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation>[] | undefined>;
     /**
-     * The Name of the built-in Anomaly Alert Rule.
+     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -297,7 +306,7 @@ export interface AlertRuleAnomalyBuiltInState {
  */
 export interface AlertRuleAnomalyBuiltInArgs {
     /**
-     * The Display Name of the built-in Anomaly Alert Rule.
+     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -315,7 +324,7 @@ export interface AlertRuleAnomalyBuiltInArgs {
      */
     mode: pulumi.Input<string>;
     /**
-     * The Name of the built-in Anomaly Alert Rule.
+     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
 }

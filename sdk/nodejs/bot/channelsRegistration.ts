@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bot Channels Registration.
  *
- * > **Note:** Bot Channels Registration has been [deprecated by Azure](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-resources-faq-azure?view=azure-bot-service-4.0#why-are-web-app-bot-and-bot-channel-registration-being-deprecated). New implementations should use the `azure.bot.ServiceAzureBot` resource.
+ * > **Note:** Bot Channels Registration has been [deprecated by Azure](https://learn.microsoft.com/azure/bot-service/bot-service-resources-faq-azure?view=azure-bot-service-4.0#why-are-web-app-bot-and-bot-channel-registration-being-deprecated). New implementations should use the `azure.bot.ServiceAzureBot` resource.
  *
  * ## Example Usage
  *
@@ -187,6 +187,9 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             if (args?.microsoftAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftAppId'");
             }
+            if (args?.microsoftAppType === undefined && !opts.urn) {
+                throw new Error("Missing required property 'microsoftAppType'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -365,7 +368,7 @@ export interface ChannelsRegistrationArgs {
      *
      * > **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string | undefined>;
+    microsoftAppType: pulumi.Input<string>;
     /**
      * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
      */

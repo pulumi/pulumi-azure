@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualMachineScaleSetNetworkInterface {
     /**
+     * @return Whether accelerated networking is enabled.
+     * 
+     */
+    private Boolean acceleratedNetworkingEnabled;
+    /**
      * @return The auxiliary mode for the network interface.
      * 
      */
@@ -29,20 +34,15 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
      */
     private List<String> dnsServers;
     /**
-     * @return Whether accelerated networking is enabled.
-     * 
-     */
-    private Boolean enableAcceleratedNetworking;
-    /**
-     * @return Whether IP forwarding is enabled on this NIC.
-     * 
-     */
-    private Boolean enableIpForwarding;
-    /**
      * @return An `ipConfiguration` block as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    /**
+     * @return Whether IP forwarding is enabled on this NIC.
+     * 
+     */
+    private Boolean ipForwardingEnabled;
     /**
      * @return The name of this Virtual Machine Scale Set.
      * 
@@ -60,6 +60,13 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     private Boolean primary;
 
     private GetVirtualMachineScaleSetNetworkInterface() {}
+    /**
+     * @return Whether accelerated networking is enabled.
+     * 
+     */
+    public Boolean acceleratedNetworkingEnabled() {
+        return this.acceleratedNetworkingEnabled;
+    }
     /**
      * @return The auxiliary mode for the network interface.
      * 
@@ -82,25 +89,18 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers;
     }
     /**
-     * @return Whether accelerated networking is enabled.
-     * 
-     */
-    public Boolean enableAcceleratedNetworking() {
-        return this.enableAcceleratedNetworking;
-    }
-    /**
-     * @return Whether IP forwarding is enabled on this NIC.
-     * 
-     */
-    public Boolean enableIpForwarding() {
-        return this.enableIpForwarding;
-    }
-    /**
      * @return An `ipConfiguration` block as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
         return this.ipConfigurations;
+    }
+    /**
+     * @return Whether IP forwarding is enabled on this NIC.
+     * 
+     */
+    public Boolean ipForwardingEnabled() {
+        return this.ipForwardingEnabled;
     }
     /**
      * @return The name of this Virtual Machine Scale Set.
@@ -133,29 +133,37 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean acceleratedNetworkingEnabled;
         private String auxiliaryMode;
         private String auxiliarySku;
         private List<String> dnsServers;
-        private Boolean enableAcceleratedNetworking;
-        private Boolean enableIpForwarding;
         private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+        private Boolean ipForwardingEnabled;
         private String name;
         private String networkSecurityGroupId;
         private Boolean primary;
         public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.auxiliaryMode = defaults.auxiliaryMode;
     	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
-    	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
-    	      this.enableIpForwarding = defaults.enableIpForwarding;
     	      this.ipConfigurations = defaults.ipConfigurations;
+    	      this.ipForwardingEnabled = defaults.ipForwardingEnabled;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            if (acceleratedNetworkingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "acceleratedNetworkingEnabled");
+            }
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder auxiliaryMode(String auxiliaryMode) {
             if (auxiliaryMode == null) {
@@ -184,22 +192,6 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
             return dnsServers(List.of(dnsServers));
         }
         @CustomType.Setter
-        public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            if (enableAcceleratedNetworking == null) {
-              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "enableAcceleratedNetworking");
-            }
-            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            if (enableIpForwarding == null) {
-              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "enableIpForwarding");
-            }
-            this.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ipConfigurations(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             if (ipConfigurations == null) {
               throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
@@ -209,6 +201,14 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         }
         public Builder ipConfigurations(GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+        @CustomType.Setter
+        public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
+            if (ipForwardingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "ipForwardingEnabled");
+            }
+            this.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -236,12 +236,12 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         }
         public GetVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new GetVirtualMachineScaleSetNetworkInterface();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.auxiliaryMode = auxiliaryMode;
             _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
-            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            _resultValue.enableIpForwarding = enableIpForwarding;
             _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwardingEnabled = ipForwardingEnabled;
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
             _resultValue.primary = primary;

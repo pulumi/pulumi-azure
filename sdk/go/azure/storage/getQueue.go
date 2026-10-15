@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,16 +20,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.LookupQueue(ctx, &storage.LookupQueueArgs{
-//				Name:               "example-queue-name",
-//				StorageAccountName: pulumi.StringRef("example-storage-account-name"),
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "exampleaccount",
+//				ResourceGroupName: pulumi.StringRef("examples"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.LookupQueue(ctx, &storage.LookupQueueArgs{
+//				Name:             "example-queue-name",
+//				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -62,14 +69,8 @@ type LookupQueueArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Queue.
 	Name string `pulumi:"name"`
-	// The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storageAccountId`.
-	//
-	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The ID of the Storage Account where the Queue exists.
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // A collection of values returned by getQueue.
@@ -77,15 +78,9 @@ type LookupQueueResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Queue.
-	Metadata map[string]string `pulumi:"metadata"`
-	Name     string            `pulumi:"name"`
-	// The Resource Manager ID of this Storage Queue.
-	//
-	// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-	ResourceManagerId string  `pulumi:"resourceManagerId"`
-	StorageAccountId  *string `pulumi:"storageAccountId"`
-	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	Metadata         map[string]string `pulumi:"metadata"`
+	Name             string            `pulumi:"name"`
+	StorageAccountId string            `pulumi:"storageAccountId"`
 	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
 	Url string `pulumi:"url"`
 }
@@ -101,14 +96,8 @@ type LookupQueueOutputArgs struct {
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Queue.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storageAccountId`.
-	//
-	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	// The ID of the Storage Account where the Queue exists.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 func (LookupQueueOutputArgs) ElementType() reflect.Type {
@@ -144,20 +133,8 @@ func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Resource Manager ID of this Storage Queue.
-//
-// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-func (o LookupQueueResultOutput) ResourceManagerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
-}
-
-func (o LookupQueueResultOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupQueueResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-func (o LookupQueueResultOutput) StorageAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupQueueResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+func (o LookupQueueResultOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.

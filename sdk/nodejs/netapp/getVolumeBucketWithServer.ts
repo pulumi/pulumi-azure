@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  */
 export function getVolumeBucketWithServer(args: GetVolumeBucketWithServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeBucketWithServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -125,7 +125,7 @@ export interface GetVolumeBucketWithServerResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  */
 export function getVolumeBucketWithServerOutput(args: GetVolumeBucketWithServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeBucketWithServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

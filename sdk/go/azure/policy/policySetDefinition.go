@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/policy"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,8 +71,6 @@ import (
 //
 // * `Microsoft.Authorization` - 2025-01-01
 //
-// * `Microsoft.Management` - 2025-01-01
-//
 // ## Import
 //
 // Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -87,8 +85,6 @@ type PolicySetDefinition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
 	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
@@ -146,8 +142,6 @@ type policySetDefinitionState struct {
 	Description *string `pulumi:"description"`
 	// The display name of this Policy Set Definition.
 	DisplayName *string `pulumi:"displayName"`
-	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the Policy Set Definition in JSON format.
 	Metadata *string `pulumi:"metadata"`
 	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
@@ -167,8 +161,6 @@ type PolicySetDefinitionState struct {
 	Description pulumi.StringPtrInput
 	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringPtrInput
-	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringPtrInput
 	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
@@ -192,8 +184,6 @@ type policySetDefinitionArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of this Policy Set Definition.
 	DisplayName string `pulumi:"displayName"`
-	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the Policy Set Definition in JSON format.
 	Metadata *string `pulumi:"metadata"`
 	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
@@ -214,8 +204,6 @@ type PolicySetDefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of this Policy Set Definition.
 	DisplayName pulumi.StringInput
-	// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the Policy Set Definition in JSON format.
 	Metadata pulumi.StringPtrInput
 	// The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
@@ -325,11 +313,6 @@ func (o PolicySetDefinitionOutput) Description() pulumi.StringPtrOutput {
 // The display name of this Policy Set Definition.
 func (o PolicySetDefinitionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-// Deprecated: `managementGroupId` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-func (o PolicySetDefinitionOutput) ManagementGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.ManagementGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The metadata for the Policy Set Definition in JSON format.

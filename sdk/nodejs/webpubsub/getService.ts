@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,6 +65,14 @@ export interface GetServiceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as documented below.
+     */
+    readonly identities: outputs.webpubsub.GetServiceIdentity[];
+    /**
+     * A `liveTrace` block as documented below.
+     */
+    readonly liveTraces: outputs.webpubsub.GetServiceLiveTrace[];
     readonly localAuthEnabled: boolean;
     /**
      * The Azure location where the Web Pubsub service exists.

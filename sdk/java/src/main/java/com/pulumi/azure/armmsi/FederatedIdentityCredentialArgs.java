@@ -62,44 +62,6 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="parentId")
-    private @Nullable Output<String> parentId;
-
-    /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> parentId() {
-        return Optional.ofNullable(this.parentId);
-    }
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * Specifies the subject for this Federated Identity Credential.
      * 
      */
@@ -118,15 +80,15 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
      * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Import(name="userAssignedIdentityId")
-    private @Nullable Output<String> userAssignedIdentityId;
+    @Import(name="userAssignedIdentityId", required=true)
+    private Output<String> userAssignedIdentityId;
 
     /**
      * @return Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    public Optional<Output<String>> userAssignedIdentityId() {
-        return Optional.ofNullable(this.userAssignedIdentityId);
+    public Output<String> userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
 
     private FederatedIdentityCredentialArgs() {}
@@ -135,8 +97,6 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         this.audience = $.audience;
         this.issuer = $.issuer;
         this.name = $.name;
-        this.parentId = $.parentId;
-        this.resourceGroupName = $.resourceGroupName;
         this.subject = $.subject;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
@@ -223,56 +183,6 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder parentId(@Nullable Output<String> parentId) {
-            $.parentId = parentId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder parentId(String parentId) {
-            return parentId(Output.of(parentId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
          * @param subject Specifies the subject for this Federated Identity Credential.
          * 
          * @return builder
@@ -299,7 +209,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+        public Builder userAssignedIdentityId(Output<String> userAssignedIdentityId) {
             $.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
@@ -323,6 +233,9 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
             }
             if ($.subject == null) {
                 throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "subject");
+            }
+            if ($.userAssignedIdentityId == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "userAssignedIdentityId");
             }
             return $;
         }

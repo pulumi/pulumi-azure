@@ -169,7 +169,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationGatewayResult> getApplicationGateway(GetApplicationGatewayArgs args) {
@@ -218,7 +218,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetApplicationGatewayResult> getApplicationGatewayPlain(GetApplicationGatewayPlainArgs args) {
@@ -267,7 +267,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationGatewayResult> getApplicationGateway(GetApplicationGatewayArgs args, InvokeOptions options) {
@@ -316,7 +316,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationGatewayResult> getApplicationGateway(GetApplicationGatewayArgs args, InvokeOutputOptions options) {
@@ -365,7 +365,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetApplicationGatewayResult> getApplicationGatewayPlain(GetApplicationGatewayPlainArgs args, InvokeOptions options) {
@@ -414,7 +414,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationSecurityGroupResult> getApplicationSecurityGroup(GetApplicationSecurityGroupArgs args) {
@@ -463,7 +463,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetApplicationSecurityGroupResult> getApplicationSecurityGroupPlain(GetApplicationSecurityGroupPlainArgs args) {
@@ -512,7 +512,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationSecurityGroupResult> getApplicationSecurityGroup(GetApplicationSecurityGroupArgs args, InvokeOptions options) {
@@ -561,7 +561,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetApplicationSecurityGroupResult> getApplicationSecurityGroup(GetApplicationSecurityGroupArgs args, InvokeOutputOptions options) {
@@ -610,7 +610,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetApplicationSecurityGroupResult> getApplicationSecurityGroupPlain(GetApplicationSecurityGroupPlainArgs args, InvokeOptions options) {
@@ -660,7 +660,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetExpressRouteCircuitResult> getExpressRouteCircuit(GetExpressRouteCircuitArgs args) {
@@ -710,7 +710,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetExpressRouteCircuitResult> getExpressRouteCircuitPlain(GetExpressRouteCircuitPlainArgs args) {
@@ -760,7 +760,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetExpressRouteCircuitResult> getExpressRouteCircuit(GetExpressRouteCircuitArgs args, InvokeOptions options) {
@@ -810,7 +810,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetExpressRouteCircuitResult> getExpressRouteCircuit(GetExpressRouteCircuitArgs args, InvokeOutputOptions options) {
@@ -860,7 +860,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetExpressRouteCircuitResult> getExpressRouteCircuitPlain(GetExpressRouteCircuitPlainArgs args, InvokeOptions options) {
@@ -909,7 +909,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args) {
@@ -958,7 +958,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args) {
@@ -1007,7 +1007,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOptions options) {
@@ -1056,7 +1056,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOutputOptions options) {
@@ -1105,7 +1105,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
@@ -1154,7 +1154,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args) {
@@ -1203,7 +1203,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args) {
@@ -1252,7 +1252,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOptions options) {
@@ -1301,7 +1301,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOutputOptions options) {
@@ -1350,7 +1350,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args, InvokeOptions options) {
@@ -1399,7 +1399,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetGatewayConnectionResult> getGatewayConnection(GetGatewayConnectionArgs args) {
@@ -1448,7 +1448,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetGatewayConnectionResult> getGatewayConnectionPlain(GetGatewayConnectionPlainArgs args) {
@@ -1497,7 +1497,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetGatewayConnectionResult> getGatewayConnection(GetGatewayConnectionArgs args, InvokeOptions options) {
@@ -1546,7 +1546,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetGatewayConnectionResult> getGatewayConnection(GetGatewayConnectionArgs args, InvokeOutputOptions options) {
@@ -1595,7 +1595,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetGatewayConnectionResult> getGatewayConnectionPlain(GetGatewayConnectionPlainArgs args, InvokeOptions options) {
@@ -1644,7 +1644,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupResult> getIpGroup(GetIpGroupArgs args) {
@@ -1693,7 +1693,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetIpGroupResult> getIpGroupPlain(GetIpGroupPlainArgs args) {
@@ -1742,7 +1742,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupResult> getIpGroup(GetIpGroupArgs args, InvokeOptions options) {
@@ -1791,7 +1791,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupResult> getIpGroup(GetIpGroupArgs args, InvokeOutputOptions options) {
@@ -1840,7 +1840,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetIpGroupResult> getIpGroupPlain(GetIpGroupPlainArgs args, InvokeOptions options) {
@@ -1889,7 +1889,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args) {
@@ -1938,7 +1938,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args) {
@@ -1987,7 +1987,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOptions options) {
@@ -2036,7 +2036,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOutputOptions options) {
@@ -2085,7 +2085,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args, InvokeOptions options) {
@@ -2134,7 +2134,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetLocalNetworkGatewayResult> getLocalNetworkGateway(GetLocalNetworkGatewayArgs args) {
@@ -2183,7 +2183,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetLocalNetworkGatewayResult> getLocalNetworkGatewayPlain(GetLocalNetworkGatewayPlainArgs args) {
@@ -2232,7 +2232,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetLocalNetworkGatewayResult> getLocalNetworkGateway(GetLocalNetworkGatewayArgs args, InvokeOptions options) {
@@ -2281,7 +2281,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetLocalNetworkGatewayResult> getLocalNetworkGateway(GetLocalNetworkGatewayArgs args, InvokeOutputOptions options) {
@@ -2330,7 +2330,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetLocalNetworkGatewayResult> getLocalNetworkGatewayPlain(GetLocalNetworkGatewayPlainArgs args, InvokeOptions options) {
@@ -2344,7 +2344,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNatGatewayResult> getNatGateway(GetNatGatewayArgs args) {
@@ -2358,7 +2358,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNatGatewayResult> getNatGatewayPlain(GetNatGatewayPlainArgs args) {
@@ -2372,7 +2372,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNatGatewayResult> getNatGateway(GetNatGatewayArgs args, InvokeOptions options) {
@@ -2386,7 +2386,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNatGatewayResult> getNatGateway(GetNatGatewayArgs args, InvokeOutputOptions options) {
@@ -2400,7 +2400,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNatGatewayResult> getNatGatewayPlain(GetNatGatewayPlainArgs args, InvokeOptions options) {
@@ -2449,7 +2449,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args) {
@@ -2498,7 +2498,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlanPlain(GetNetworkDdosProtectionPlanPlainArgs args) {
@@ -2547,7 +2547,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOptions options) {
@@ -2596,7 +2596,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOutputOptions options) {
@@ -2645,7 +2645,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlanPlain(GetNetworkDdosProtectionPlanPlainArgs args, InvokeOptions options) {
@@ -2694,7 +2694,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args) {
@@ -2743,7 +2743,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args) {
@@ -2792,7 +2792,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args, InvokeOptions options) {
@@ -2841,7 +2841,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args, InvokeOutputOptions options) {
@@ -2890,7 +2890,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args, InvokeOptions options) {
@@ -2966,7 +2966,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args) {
@@ -3042,7 +3042,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args) {
@@ -3118,7 +3118,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args, InvokeOptions options) {
@@ -3194,7 +3194,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args, InvokeOutputOptions options) {
@@ -3270,7 +3270,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args, InvokeOptions options) {
@@ -3319,7 +3319,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs args) {
@@ -3368,7 +3368,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfigurationPlain(GetNetworkManagerConnectivityConfigurationPlainArgs args) {
@@ -3417,7 +3417,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs args, InvokeOptions options) {
@@ -3466,7 +3466,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfiguration(GetNetworkManagerConnectivityConfigurationArgs args, InvokeOutputOptions options) {
@@ -3515,7 +3515,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerConnectivityConfigurationResult> getNetworkManagerConnectivityConfigurationPlain(GetNetworkManagerConnectivityConfigurationPlainArgs args, InvokeOptions options) {
@@ -3598,7 +3598,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerIpamPoolResult> getNetworkManagerIpamPool(GetNetworkManagerIpamPoolArgs args) {
@@ -3681,7 +3681,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerIpamPoolResult> getNetworkManagerIpamPoolPlain(GetNetworkManagerIpamPoolPlainArgs args) {
@@ -3764,7 +3764,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerIpamPoolResult> getNetworkManagerIpamPool(GetNetworkManagerIpamPoolArgs args, InvokeOptions options) {
@@ -3847,7 +3847,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerIpamPoolResult> getNetworkManagerIpamPool(GetNetworkManagerIpamPoolArgs args, InvokeOutputOptions options) {
@@ -3930,7 +3930,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerIpamPoolResult> getNetworkManagerIpamPoolPlain(GetNetworkManagerIpamPoolPlainArgs args, InvokeOptions options) {
@@ -4013,7 +4013,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args) {
@@ -4096,7 +4096,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args) {
@@ -4179,7 +4179,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args, InvokeOptions options) {
@@ -4262,7 +4262,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args, InvokeOutputOptions options) {
@@ -4345,7 +4345,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args, InvokeOptions options) {
@@ -4394,7 +4394,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityGroupResult> getNetworkSecurityGroup(GetNetworkSecurityGroupArgs args) {
@@ -4443,7 +4443,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityGroupResult> getNetworkSecurityGroupPlain(GetNetworkSecurityGroupPlainArgs args) {
@@ -4492,7 +4492,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityGroupResult> getNetworkSecurityGroup(GetNetworkSecurityGroupArgs args, InvokeOptions options) {
@@ -4541,7 +4541,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityGroupResult> getNetworkSecurityGroup(GetNetworkSecurityGroupArgs args, InvokeOutputOptions options) {
@@ -4590,7 +4590,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityGroupResult> getNetworkSecurityGroupPlain(GetNetworkSecurityGroupPlainArgs args, InvokeOptions options) {
@@ -4639,7 +4639,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args) {
@@ -4688,7 +4688,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeterPlain(GetNetworkSecurityPerimeterPlainArgs args) {
@@ -4737,7 +4737,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args, InvokeOptions options) {
@@ -4786,7 +4786,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeter(GetNetworkSecurityPerimeterArgs args, InvokeOutputOptions options) {
@@ -4835,7 +4835,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityPerimeterResult> getNetworkSecurityPerimeterPlain(GetNetworkSecurityPerimeterPlainArgs args, InvokeOptions options) {
@@ -4890,7 +4890,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args) {
@@ -4945,7 +4945,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfilePlain(GetNetworkSecurityPerimeterProfilePlainArgs args) {
@@ -5000,7 +5000,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args, InvokeOptions options) {
@@ -5055,7 +5055,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfile(GetNetworkSecurityPerimeterProfileArgs args, InvokeOutputOptions options) {
@@ -5110,7 +5110,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkSecurityPerimeterProfileResult> getNetworkSecurityPerimeterProfilePlain(GetNetworkSecurityPerimeterProfilePlainArgs args, InvokeOptions options) {
@@ -5159,7 +5159,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkWatcherResult> getNetworkWatcher(GetNetworkWatcherArgs args) {
@@ -5208,7 +5208,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkWatcherResult> getNetworkWatcherPlain(GetNetworkWatcherPlainArgs args) {
@@ -5257,7 +5257,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkWatcherResult> getNetworkWatcher(GetNetworkWatcherArgs args, InvokeOptions options) {
@@ -5306,7 +5306,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetNetworkWatcherResult> getNetworkWatcher(GetNetworkWatcherArgs args, InvokeOutputOptions options) {
@@ -5355,7 +5355,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetNetworkWatcherResult> getNetworkWatcherPlain(GetNetworkWatcherPlainArgs args, InvokeOptions options) {
@@ -5503,7 +5503,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPResult> getPublicIP(GetPublicIPArgs args) {
@@ -5651,7 +5651,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIPResult> getPublicIPPlain(GetPublicIPPlainArgs args) {
@@ -5799,7 +5799,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPResult> getPublicIP(GetPublicIPArgs args, InvokeOptions options) {
@@ -5947,7 +5947,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPResult> getPublicIP(GetPublicIPArgs args, InvokeOutputOptions options) {
@@ -6095,7 +6095,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIPResult> getPublicIPPlain(GetPublicIPPlainArgs args, InvokeOptions options) {
@@ -6143,7 +6143,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPsResult> getPublicIPs(GetPublicIPsArgs args) {
@@ -6191,7 +6191,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIPsResult> getPublicIPsPlain(GetPublicIPsPlainArgs args) {
@@ -6239,7 +6239,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPsResult> getPublicIPs(GetPublicIPsArgs args, InvokeOptions options) {
@@ -6287,7 +6287,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIPsResult> getPublicIPs(GetPublicIPsArgs args, InvokeOutputOptions options) {
@@ -6335,7 +6335,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIPsResult> getPublicIPsPlain(GetPublicIPsPlainArgs args, InvokeOptions options) {
@@ -6386,7 +6386,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIpPrefixResult> getPublicIpPrefix(GetPublicIpPrefixArgs args) {
@@ -6437,7 +6437,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIpPrefixResult> getPublicIpPrefixPlain(GetPublicIpPrefixPlainArgs args) {
@@ -6488,7 +6488,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIpPrefixResult> getPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOptions options) {
@@ -6539,7 +6539,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetPublicIpPrefixResult> getPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOutputOptions options) {
@@ -6590,7 +6590,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetPublicIpPrefixResult> getPublicIpPrefixPlain(GetPublicIpPrefixPlainArgs args, InvokeOptions options) {
@@ -6639,7 +6639,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteFilterResult> getRouteFilter(GetRouteFilterArgs args) {
@@ -6688,7 +6688,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetRouteFilterResult> getRouteFilterPlain(GetRouteFilterPlainArgs args) {
@@ -6737,7 +6737,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteFilterResult> getRouteFilter(GetRouteFilterArgs args, InvokeOptions options) {
@@ -6786,7 +6786,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteFilterResult> getRouteFilter(GetRouteFilterArgs args, InvokeOutputOptions options) {
@@ -6835,7 +6835,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetRouteFilterResult> getRouteFilterPlain(GetRouteFilterPlainArgs args, InvokeOptions options) {
@@ -6883,7 +6883,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args) {
@@ -6931,7 +6931,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args) {
@@ -6979,7 +6979,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOptions options) {
@@ -7027,7 +7027,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOutputOptions options) {
@@ -7075,7 +7075,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args, InvokeOptions options) {
@@ -7126,7 +7126,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetServiceTagsResult> getServiceTags(GetServiceTagsArgs args) {
@@ -7177,7 +7177,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetServiceTagsResult> getServiceTagsPlain(GetServiceTagsPlainArgs args) {
@@ -7228,7 +7228,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetServiceTagsResult> getServiceTags(GetServiceTagsArgs args, InvokeOptions options) {
@@ -7279,7 +7279,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetServiceTagsResult> getServiceTags(GetServiceTagsArgs args, InvokeOutputOptions options) {
@@ -7330,7 +7330,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetServiceTagsResult> getServiceTagsPlain(GetServiceTagsPlainArgs args, InvokeOptions options) {
@@ -7380,7 +7380,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args) {
@@ -7430,7 +7430,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args) {
@@ -7480,7 +7480,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOptions options) {
@@ -7530,7 +7530,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOutputOptions options) {
@@ -7580,7 +7580,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args, InvokeOptions options) {
@@ -8124,7 +8124,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubResult> getVirtualHub(GetVirtualHubArgs args) {
@@ -8173,7 +8173,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args) {
@@ -8222,7 +8222,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubResult> getVirtualHub(GetVirtualHubArgs args, InvokeOptions options) {
@@ -8271,7 +8271,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubResult> getVirtualHub(GetVirtualHubArgs args, InvokeOutputOptions options) {
@@ -8320,7 +8320,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args, InvokeOptions options) {
@@ -8370,7 +8370,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args) {
@@ -8420,7 +8420,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args) {
@@ -8470,7 +8470,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args, InvokeOptions options) {
@@ -8520,7 +8520,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args, InvokeOutputOptions options) {
@@ -8570,7 +8570,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args, InvokeOptions options) {
@@ -8620,7 +8620,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args) {
@@ -8670,7 +8670,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args) {
@@ -8720,7 +8720,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args, InvokeOptions options) {
@@ -8770,7 +8770,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args, InvokeOutputOptions options) {
@@ -8820,7 +8820,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args, InvokeOptions options) {
@@ -8869,7 +8869,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
@@ -8918,7 +8918,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -8967,7 +8967,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
@@ -9016,7 +9016,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOutputOptions options) {
@@ -9065,7 +9065,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {
@@ -9114,7 +9114,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkGatewayResult> getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args) {
@@ -9163,7 +9163,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkGatewayResult> getVirtualNetworkGatewayPlain(GetVirtualNetworkGatewayPlainArgs args) {
@@ -9212,7 +9212,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkGatewayResult> getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args, InvokeOptions options) {
@@ -9261,7 +9261,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkGatewayResult> getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args, InvokeOutputOptions options) {
@@ -9310,7 +9310,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkGatewayResult> getVirtualNetworkGatewayPlain(GetVirtualNetworkGatewayPlainArgs args, InvokeOptions options) {
@@ -9365,7 +9365,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkPeeringResult> getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs args) {
@@ -9420,7 +9420,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkPeeringResult> getVirtualNetworkPeeringPlain(GetVirtualNetworkPeeringPlainArgs args) {
@@ -9475,7 +9475,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkPeeringResult> getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs args, InvokeOptions options) {
@@ -9530,7 +9530,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualNetworkPeeringResult> getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs args, InvokeOutputOptions options) {
@@ -9585,7 +9585,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualNetworkPeeringResult> getVirtualNetworkPeeringPlain(GetVirtualNetworkPeeringPlainArgs args, InvokeOptions options) {
@@ -9642,7 +9642,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args) {
@@ -9699,7 +9699,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualWanResult> getVirtualWanPlain(GetVirtualWanPlainArgs args) {
@@ -9756,7 +9756,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args, InvokeOptions options) {
@@ -9813,7 +9813,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVirtualWanResult> getVirtualWan(GetVirtualWanArgs args, InvokeOutputOptions options) {
@@ -9870,7 +9870,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVirtualWanResult> getVirtualWanPlain(GetVirtualWanPlainArgs args, InvokeOptions options) {
@@ -9919,7 +9919,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args) {
@@ -9968,7 +9968,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args) {
@@ -10017,7 +10017,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args, InvokeOptions options) {
@@ -10066,7 +10066,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args, InvokeOutputOptions options) {
@@ -10115,7 +10115,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args, InvokeOptions options) {
@@ -10164,7 +10164,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnServerConfigurationResult> getVpnServerConfiguration(GetVpnServerConfigurationArgs args) {
@@ -10213,7 +10213,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVpnServerConfigurationResult> getVpnServerConfigurationPlain(GetVpnServerConfigurationPlainArgs args) {
@@ -10262,7 +10262,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnServerConfigurationResult> getVpnServerConfiguration(GetVpnServerConfigurationArgs args, InvokeOptions options) {
@@ -10311,7 +10311,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static Output<GetVpnServerConfigurationResult> getVpnServerConfiguration(GetVpnServerConfigurationArgs args, InvokeOutputOptions options) {
@@ -10360,7 +10360,7 @@ public final class NetworkFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2025-01-01
+     * * `Microsoft.Network` - 2025-07-01
      * 
      */
     public static CompletableFuture<GetVpnServerConfigurationResult> getVpnServerConfigurationPlain(GetVpnServerConfigurationPlainArgs args, InvokeOptions options) {

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         public Input<bool>? AlertsForAllReplicationIssuesEnabled { get; set; }
 
         /// <summary>
-        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
         /// </summary>
         [Input("alertsForCriticalOperationFailuresEnabled")]
         public Input<bool>? AlertsForCriticalOperationFailuresEnabled { get; set; }

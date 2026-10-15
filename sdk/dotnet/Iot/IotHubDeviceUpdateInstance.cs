@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> DeviceUpdateAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
+        /// Whether the diagnostic log collection is enabled. Defaults to `False`.
         /// </summary>
         [Output("diagnosticEnabled")]
         public Output<bool?> DiagnosticEnabled { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> DeviceUpdateAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
+        /// Whether the diagnostic log collection is enabled. Defaults to `False`.
         /// </summary>
         [Input("diagnosticEnabled")]
         public Input<bool>? DiagnosticEnabled { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? DeviceUpdateAccountId { get; set; }
 
         /// <summary>
-        /// Whether the diagnostic log collection is enabled. Possible values are `True` and `False`. Defaults to `False`.
+        /// Whether the diagnostic log collection is enabled. Defaults to `False`.
         /// </summary>
         [Input("diagnosticEnabled")]
         public Input<bool>? DiagnosticEnabled { get; set; }

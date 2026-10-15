@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterKeyManagementService {
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     private String keyVaultKeyId;
@@ -23,7 +23,7 @@ public final class GetKubernetesClusterKeyManagementService {
 
     private GetKubernetesClusterKeyManagementService() {}
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     public String keyVaultKeyId() {

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Manages a Private Link Service.
     /// 
-    /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+    /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/azure/private-link/).
     /// 
     /// ## Example Usage
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.PrivateDns
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -154,9 +154,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Output("destinationIpAddress")]
         public Output<string?> DestinationIpAddress { get; private set; } = null!;
-
-        [Output("enableProxyProtocol")]
-        public Output<bool> EnableProxyProtocol { get; private set; } = null!;
 
         /// <summary>
         /// List of FQDNs allowed for the Private Link Service.
@@ -192,7 +189,7 @@ namespace Pulumi.Azure.PrivateDns
         /// Should the Private Link Service support the Proxy Protocol? Defaults to `False`.
         /// </summary>
         [Output("proxyProtocolEnabled")]
-        public Output<bool> ProxyProtocolEnabled { get; private set; } = null!;
+        public Output<bool?> ProxyProtocolEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
@@ -277,9 +274,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("destinationIpAddress")]
         public Input<string>? DestinationIpAddress { get; set; }
-
-        [Input("enableProxyProtocol")]
-        public Input<bool>? EnableProxyProtocol { get; set; }
 
         [Input("fqdns")]
         private InputList<string>? _fqdns;
@@ -398,9 +392,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("destinationIpAddress")]
         public Input<string>? DestinationIpAddress { get; set; }
-
-        [Input("enableProxyProtocol")]
-        public Input<bool>? EnableProxyProtocol { get; set; }
 
         [Input("fqdns")]
         private InputList<string>? _fqdns;

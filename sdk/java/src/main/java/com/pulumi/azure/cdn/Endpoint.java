@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     @Export(name="contentTypesToCompresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> contentTypesToCompresses;
 
     /**
-     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     public Output<Optional<List<String>>> contentTypesToCompresses() {
@@ -329,14 +329,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.profileName;
     }
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     @Export(name="querystringCachingBehaviour", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> querystringCachingBehaviour;
 
     /**
-     * @return Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * @return Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     public Output<Optional<String>> querystringCachingBehaviour() {

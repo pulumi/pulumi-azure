@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -132,14 +132,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
         /// </summary>
-        [Input("namespaceId")]
-        public string? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public string? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public string NamespaceId { get; set; } = null!;
 
         public GetTopicArgs()
         {
@@ -158,14 +152,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         public GetTopicInvokeArgs()
         {
@@ -193,9 +181,6 @@ namespace Pulumi.Azure.ServiceBus
         /// The ISO 8601 timespan duration during which duplicates can be detected.
         /// </summary>
         public readonly string DuplicateDetectionHistoryTimeWindow;
-        public readonly bool EnableBatchedOperations;
-        public readonly bool EnableExpress;
-        public readonly bool EnablePartitioning;
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
@@ -208,9 +193,12 @@ namespace Pulumi.Azure.ServiceBus
         /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         public readonly int MaxSizeInMegabytes;
+        /// <summary>
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
+        /// </summary>
+        public readonly int MaximumMessageSizeInKb;
         public readonly string Name;
-        public readonly string? NamespaceId;
-        public readonly string? NamespaceName;
+        public readonly string NamespaceId;
         /// <summary>
         /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
         /// </summary>
@@ -219,7 +207,6 @@ namespace Pulumi.Azure.ServiceBus
         /// Boolean flag which controls whether the Topic requires duplicate detection.
         /// </summary>
         public readonly bool RequiresDuplicateDetection;
-        public readonly string? ResourceGroupName;
         /// <summary>
         /// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
         /// </summary>
@@ -239,29 +226,21 @@ namespace Pulumi.Azure.ServiceBus
 
             string duplicateDetectionHistoryTimeWindow,
 
-            bool enableBatchedOperations,
-
-            bool enableExpress,
-
-            bool enablePartitioning,
-
             bool expressEnabled,
 
             string id,
 
             int maxSizeInMegabytes,
 
+            int maximumMessageSizeInKb,
+
             string name,
 
-            string? namespaceId,
-
-            string? namespaceName,
+            string namespaceId,
 
             bool partitioningEnabled,
 
             bool requiresDuplicateDetection,
-
-            string? resourceGroupName,
 
             string status,
 
@@ -271,18 +250,14 @@ namespace Pulumi.Azure.ServiceBus
             BatchedOperationsEnabled = batchedOperationsEnabled;
             DefaultMessageTtl = defaultMessageTtl;
             DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            EnableBatchedOperations = enableBatchedOperations;
-            EnableExpress = enableExpress;
-            EnablePartitioning = enablePartitioning;
             ExpressEnabled = expressEnabled;
             Id = id;
             MaxSizeInMegabytes = maxSizeInMegabytes;
+            MaximumMessageSizeInKb = maximumMessageSizeInKb;
             Name = name;
             NamespaceId = namespaceId;
-            NamespaceName = namespaceName;
             PartitioningEnabled = partitioningEnabled;
             RequiresDuplicateDetection = requiresDuplicateDetection;
-            ResourceGroupName = resourceGroupName;
             Status = status;
             SupportOrdering = supportOrdering;
         }

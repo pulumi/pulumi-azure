@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleCacheKeyQueryStringAction
     {
         /// <summary>
-        /// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        /// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         /// </summary>
         public readonly string Behavior;
         /// <summary>

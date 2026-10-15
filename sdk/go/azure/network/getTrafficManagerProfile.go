@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type LookupTrafficManagerProfileResult struct {
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The amount of endpoints to return for DNS queries to this Profile.
+	MaximumReturn int `pulumi:"maximumReturn"`
 	// This block specifies the Endpoint monitoring configuration for the Profile.
 	MonitorConfigs []GetTrafficManagerProfileMonitorConfig `pulumi:"monitorConfigs"`
 	// The name of the custom header.
@@ -141,6 +143,11 @@ func (o LookupTrafficManagerProfileResultOutput) Fqdn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupTrafficManagerProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrafficManagerProfileResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The amount of endpoints to return for DNS queries to this Profile.
+func (o LookupTrafficManagerProfileResultOutput) MaximumReturn() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTrafficManagerProfileResult) int { return v.MaximumReturn }).(pulumi.IntOutput)
 }
 
 // This block specifies the Endpoint monitoring configuration for the Profile.

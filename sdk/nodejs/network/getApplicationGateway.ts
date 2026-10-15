@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,10 +55,6 @@ export interface GetApplicationGatewayArgs {
  * A collection of values returned by getApplicationGateway.
  */
 export interface GetApplicationGatewayResult {
-    /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     */
-    readonly authenticationCertificates: outputs.network.GetApplicationGatewayAuthenticationCertificate[];
     /**
      * An `autoscaleConfiguration` block as defined below.
      */
@@ -170,7 +166,7 @@ export interface GetApplicationGatewayResult {
      */
     readonly sslCertificates: outputs.network.GetApplicationGatewaySslCertificate[];
     /**
-     * a `sslPolicy` block as defined below.
+     * An `sslPolicy` block as defined below.
      */
     readonly sslPolicies: outputs.network.GetApplicationGatewaySslPolicy[];
     /**
@@ -223,7 +219,7 @@ export interface GetApplicationGatewayResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

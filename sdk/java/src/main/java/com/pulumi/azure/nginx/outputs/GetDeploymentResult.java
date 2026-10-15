@@ -7,12 +7,10 @@ import com.pulumi.azure.nginx.outputs.GetDeploymentAutoScaleProfile;
 import com.pulumi.azure.nginx.outputs.GetDeploymentFrontendPrivate;
 import com.pulumi.azure.nginx.outputs.GetDeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.GetDeploymentIdentity;
-import com.pulumi.azure.nginx.outputs.GetDeploymentLoggingStorageAccount;
 import com.pulumi.azure.nginx.outputs.GetDeploymentNetworkInterface;
 import com.pulumi.azure.nginx.outputs.GetDeploymentWebApplicationFirewall;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -41,13 +39,6 @@ public final class GetDeploymentResult {
      * 
      */
     private String dataplaneApiEndpoint;
-    /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-    private Boolean diagnoseSupportEnabled;
     /**
      * @return Preferred email associated with the NGINX Deployment.
      * 
@@ -83,20 +74,6 @@ public final class GetDeploymentResult {
      * 
      */
     private String location;
-    /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
-    /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    private String managedResourceGroup;
     /**
      * @return Name of the autoscaling profile.
      * 
@@ -159,15 +136,6 @@ public final class GetDeploymentResult {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-    public Boolean diagnoseSupportEnabled() {
-        return this.diagnoseSupportEnabled;
-    }
-    /**
      * @return Preferred email associated with the NGINX Deployment.
      * 
      */
@@ -215,24 +183,6 @@ public final class GetDeploymentResult {
      */
     public String location() {
         return this.location;
-    }
-    /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    public List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts() {
-        return this.loggingStorageAccounts;
-    }
-    /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    public String managedResourceGroup() {
-        return this.managedResourceGroup;
     }
     /**
      * @return Name of the autoscaling profile.
@@ -293,7 +243,6 @@ public final class GetDeploymentResult {
         private String automaticUpgradeChannel;
         private Integer capacity;
         private String dataplaneApiEndpoint;
-        private Boolean diagnoseSupportEnabled;
         private String email;
         private List<GetDeploymentFrontendPrivate> frontendPrivates;
         private List<GetDeploymentFrontendPublic> frontendPublics;
@@ -301,8 +250,6 @@ public final class GetDeploymentResult {
         private List<GetDeploymentIdentity> identities;
         private String ipAddress;
         private String location;
-        private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
-        private String managedResourceGroup;
         private String name;
         private List<GetDeploymentNetworkInterface> networkInterfaces;
         private String nginxVersion;
@@ -317,7 +264,6 @@ public final class GetDeploymentResult {
     	      this.automaticUpgradeChannel = defaults.automaticUpgradeChannel;
     	      this.capacity = defaults.capacity;
     	      this.dataplaneApiEndpoint = defaults.dataplaneApiEndpoint;
-    	      this.diagnoseSupportEnabled = defaults.diagnoseSupportEnabled;
     	      this.email = defaults.email;
     	      this.frontendPrivates = defaults.frontendPrivates;
     	      this.frontendPublics = defaults.frontendPublics;
@@ -325,8 +271,6 @@ public final class GetDeploymentResult {
     	      this.identities = defaults.identities;
     	      this.ipAddress = defaults.ipAddress;
     	      this.location = defaults.location;
-    	      this.loggingStorageAccounts = defaults.loggingStorageAccounts;
-    	      this.managedResourceGroup = defaults.managedResourceGroup;
     	      this.name = defaults.name;
     	      this.networkInterfaces = defaults.networkInterfaces;
     	      this.nginxVersion = defaults.nginxVersion;
@@ -369,14 +313,6 @@ public final class GetDeploymentResult {
               throw new MissingRequiredPropertyException("GetDeploymentResult", "dataplaneApiEndpoint");
             }
             this.dataplaneApiEndpoint = dataplaneApiEndpoint;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder diagnoseSupportEnabled(Boolean diagnoseSupportEnabled) {
-            if (diagnoseSupportEnabled == null) {
-              throw new MissingRequiredPropertyException("GetDeploymentResult", "diagnoseSupportEnabled");
-            }
-            this.diagnoseSupportEnabled = diagnoseSupportEnabled;
             return this;
         }
         @CustomType.Setter
@@ -442,25 +378,6 @@ public final class GetDeploymentResult {
               throw new MissingRequiredPropertyException("GetDeploymentResult", "location");
             }
             this.location = location;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder loggingStorageAccounts(List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts) {
-            if (loggingStorageAccounts == null) {
-              throw new MissingRequiredPropertyException("GetDeploymentResult", "loggingStorageAccounts");
-            }
-            this.loggingStorageAccounts = loggingStorageAccounts;
-            return this;
-        }
-        public Builder loggingStorageAccounts(GetDeploymentLoggingStorageAccount... loggingStorageAccounts) {
-            return loggingStorageAccounts(List.of(loggingStorageAccounts));
-        }
-        @CustomType.Setter
-        public Builder managedResourceGroup(String managedResourceGroup) {
-            if (managedResourceGroup == null) {
-              throw new MissingRequiredPropertyException("GetDeploymentResult", "managedResourceGroup");
-            }
-            this.managedResourceGroup = managedResourceGroup;
             return this;
         }
         @CustomType.Setter
@@ -531,7 +448,6 @@ public final class GetDeploymentResult {
             _resultValue.automaticUpgradeChannel = automaticUpgradeChannel;
             _resultValue.capacity = capacity;
             _resultValue.dataplaneApiEndpoint = dataplaneApiEndpoint;
-            _resultValue.diagnoseSupportEnabled = diagnoseSupportEnabled;
             _resultValue.email = email;
             _resultValue.frontendPrivates = frontendPrivates;
             _resultValue.frontendPublics = frontendPublics;
@@ -539,8 +455,6 @@ public final class GetDeploymentResult {
             _resultValue.identities = identities;
             _resultValue.ipAddress = ipAddress;
             _resultValue.location = location;
-            _resultValue.loggingStorageAccounts = loggingStorageAccounts;
-            _resultValue.managedResourceGroup = managedResourceGroup;
             _resultValue.name = name;
             _resultValue.networkInterfaces = networkInterfaces;
             _resultValue.nginxVersion = nginxVersion;

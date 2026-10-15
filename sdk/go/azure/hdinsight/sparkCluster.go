@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/hdinsight"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,10 +59,11 @@ import (
 //				Name:              pulumi.String("example-hdicluster"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("3.6"),
+//				ClusterVersion:    pulumi.String("5.1"),
 //				Tier:              pulumi.String("Standard"),
+//				TlsMinVersion:     pulumi.String("1.2"),
 //				ComponentVersion: &hdinsight.SparkClusterComponentVersionArgs{
-//					Spark: pulumi.String("2.3"),
+//					Spark: pulumi.String("3.3"),
 //				},
 //				Gateway: &hdinsight.SparkClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
@@ -70,25 +71,25 @@ import (
 //				},
 //				StorageAccounts: hdinsight.SparkClusterStorageAccountArray{
 //					&hdinsight.SparkClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
+//						StorageContainerUrl: exampleContainer.Url,
+//						StorageAccountKey:   exampleAccount.PrimaryAccessKey,
+//						IsDefault:           pulumi.Bool(true),
 //					},
 //				},
 //				Roles: &hdinsight.SparkClusterRolesArgs{
 //					HeadNode: &hdinsight.SparkClusterRolesHeadNodeArgs{
-//						VmSize:   pulumi.String("Standard_A3"),
+//						VmSize:   pulumi.String("Standard_A4_V2"),
 //						Username: pulumi.String("acctestusrvm"),
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
 //					WorkerNode: &hdinsight.SparkClusterRolesWorkerNodeArgs{
-//						VmSize:              pulumi.String("Standard_A3"),
+//						VmSize:              pulumi.String("Standard_A4_V2"),
 //						Username:            pulumi.String("acctestusrvm"),
 //						Password:            pulumi.String("AccTestvdSC4daf986!"),
 //						TargetInstanceCount: pulumi.Int(3),
 //					},
 //					ZookeeperNode: &hdinsight.SparkClusterRolesZookeeperNodeArgs{
-//						VmSize:   pulumi.String("Medium"),
+//						VmSize:   pulumi.String("Standard_A4_V2"),
 //						Username: pulumi.String("acctestusrvm"),
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
@@ -165,9 +166,7 @@ type SparkCluster struct {
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
+	TlsMinVersion pulumi.StringOutput `pulumi:"tlsMinVersion"`
 	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -196,6 +195,9 @@ func NewSparkCluster(ctx *pulumi.Context,
 	}
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
+	}
+	if args.TlsMinVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TlsMinVersion'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SparkCluster
@@ -265,8 +267,6 @@ type sparkClusterState struct {
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier *string `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
@@ -318,8 +318,6 @@ type SparkClusterState struct {
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringPtrInput
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion pulumi.StringPtrInput
 	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
@@ -371,9 +369,7 @@ type sparkClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier string `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion *string `pulumi:"tlsMinVersion"`
+	TlsMinVersion string `pulumi:"tlsMinVersion"`
 	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -421,9 +417,7 @@ type SparkClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringInput
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion pulumi.StringPtrInput
+	TlsMinVersion pulumi.StringInput
 	// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -626,10 +620,8 @@ func (o SparkClusterOutput) Tier() pulumi.StringOutput {
 }
 
 // The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-//
-// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-func (o SparkClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
+func (o SparkClusterOutput) TlsMinVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SparkCluster) pulumi.StringOutput { return v.TlsMinVersion }).(pulumi.StringOutput)
 }
 
 // A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.

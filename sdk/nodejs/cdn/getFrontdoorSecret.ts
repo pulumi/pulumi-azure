@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorSecret(args: GetFrontdoorSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +91,13 @@ export interface GetFrontdoorSecretResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

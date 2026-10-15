@@ -12,6 +12,7 @@ import com.pulumi.azure.netapp.outputs.VolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionSnapshotPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeExportPolicyRule;
+import com.pulumi.azure.netapp.outputs.VolumeMountTarget;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -44,7 +45,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `createFromSnapshotResourceId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+     * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
      * 
      */
     @Export(name="acceptGrowCapacityPoolForShortTermCloneSplit", refs={String.class}, tree="[0]")
@@ -53,7 +54,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `createFromSnapshotResourceId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
+     * &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/create-short-term-clone)
      * 
      */
     public Output<Optional<String>> acceptGrowCapacityPoolForShortTermCloneSplit() {
@@ -86,6 +87,28 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> azureVmwareDataStoreEnabled() {
         return Codegen.optional(this.azureVmwareDataStoreEnabled);
+    }
+    /**
+     * A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `breakthroughModeEnabled` can only be set to `true` when `largeVolumeEnabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+     * 
+     * &gt; **Note:** `coolAccess` cannot be configured at the same time the volume is created with `breakthroughModeEnabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
+     * 
+     */
+    @Export(name="breakthroughModeEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> breakthroughModeEnabled;
+
+    /**
+     * @return A boolean specifying if the large volume runs in Breakthrough Mode, which places the volume on dedicated capacity providing higher throughput and greater capacity. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `breakthroughModeEnabled` can only be set to `true` when `largeVolumeEnabled` is also `true`, and requires the `ANFBreakthroughMode` and `ANFLargeVolumes` features to be registered on the subscription. Volumes using Breakthrough Mode must be sized between 2,400 GB (2,400 GiB) and 2,457,600 GB (2,400 TiB).
+     * 
+     * &gt; **Note:** `coolAccess` cannot be configured at the same time the volume is created with `breakthroughModeEnabled` set to `true`. Cool access can be enabled on a subsequent update of the volume.
+     * 
+     */
+    public Output<Optional<Boolean>> breakthroughModeEnabled() {
+        return Codegen.optional(this.breakthroughModeEnabled);
     }
     /**
      * A `coolAccess` block as defined below.
@@ -234,7 +257,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * A boolean specifying if the volume is a large volume. Defaults to `false`.
      * 
-     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
      * 
      */
     @Export(name="largeVolumeEnabled", refs={Boolean.class}, tree="[0]")
@@ -243,7 +266,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return A boolean specifying if the volume is a large volume. Defaults to `false`.
      * 
-     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
+     * &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/azure/azure-netapp-files/large-volumes-requirements-considerations)
      * 
      */
     public Output<Optional<Boolean>> largeVolumeEnabled() {
@@ -264,18 +287,18 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      * 
      */
-    @Export(name="mountIpAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> mountIpAddresses;
+    @Export(name="mountTargets", refs={List.class,VolumeMountTarget.class}, tree="[0,1]")
+    private Output<List<VolumeMountTarget>> mountTargets;
 
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    public Output<List<String>> mountIpAddresses() {
-        return this.mountIpAddresses;
+    public Output<List<VolumeMountTarget>> mountTargets() {
+        return this.mountTargets;
     }
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -292,14 +315,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
      * 
      */
     @Export(name="networkFeatures", refs={String.class}, tree="[0]")
     private Output<String> networkFeatures;
 
     /**
-     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features).
      * 
      */
     public Output<String> networkFeatures() {
@@ -402,14 +425,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smb3ProtocolEncryptionEnabled);
     }
     /**
-     * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+     * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      * 
      */
     @Export(name="smbAccessBasedEnumerationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> smbAccessBasedEnumerationEnabled;
 
     /**
-     * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+     * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      * 
      */
     public Output<Optional<Boolean>> smbAccessBasedEnumerationEnabled() {
@@ -430,14 +453,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.smbContinuousAvailabilityEnabled);
     }
     /**
-     * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+     * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      * 
      */
     @Export(name="smbNonBrowsableEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> smbNonBrowsableEnabled;
 
     /**
-     * @return Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+     * @return Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      * 
      */
     public Output<Optional<Boolean>> smbNonBrowsableEnabled() {
@@ -458,14 +481,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotDirectoryVisible);
     }
     /**
-     * The maximum Storage Quota allowed for a file system in Gigabytes.
+     * The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthroughModeEnabled` set to `true`.
      * 
      */
     @Export(name="storageQuotaInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageQuotaInGb;
 
     /**
-     * @return The maximum Storage Quota allowed for a file system in Gigabytes.
+     * @return The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400` for regular volumes, between `51200` and `1048576` for large volumes, and between `2400` and `2457600` for large volumes with `breakthroughModeEnabled` set to `true`.
      * 
      */
     public Output<Integer> storageQuotaInGb() {
@@ -532,14 +555,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.volumePath;
     }
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      * 
      */
     public Output<Optional<String>> zone() {

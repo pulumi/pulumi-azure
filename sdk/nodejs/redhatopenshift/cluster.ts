@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+ * An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+ * $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -56,9 +56,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly clusterProfile: pulumi.Output<outputs.redhatopenshift.ClusterClusterProfile>;
     /**
-     * The Red Hat OpenShift cluster console URL.
+     * The console URL of the Azure Red Hat OpenShift Cluster.
      */
     declare public /*out*/ readonly consoleUrl: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     */
+    declare public readonly identity: pulumi.Output<outputs.redhatopenshift.ClusterIdentity | undefined>;
     /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
@@ -76,17 +80,21 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below.
      */
     declare public readonly networkProfile: pulumi.Output<outputs.redhatopenshift.ClusterNetworkProfile>;
+    /**
+     * A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     */
+    declare public readonly platformWorkloadIdentityProfile: pulumi.Output<outputs.redhatopenshift.ClusterPlatformWorkloadIdentityProfile | undefined>;
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A `servicePrincipal` block as defined below.
+     * A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      */
-    declare public readonly servicePrincipal: pulumi.Output<outputs.redhatopenshift.ClusterServicePrincipal>;
+    declare public readonly servicePrincipal: pulumi.Output<outputs.redhatopenshift.ClusterServicePrincipal | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -112,11 +120,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["apiServerProfile"] = state?.apiServerProfile;
             resourceInputs["clusterProfile"] = state?.clusterProfile;
             resourceInputs["consoleUrl"] = state?.consoleUrl;
+            resourceInputs["identity"] = state?.identity;
             resourceInputs["ingressProfile"] = state?.ingressProfile;
             resourceInputs["location"] = state?.location;
             resourceInputs["mainProfile"] = state?.mainProfile;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["platformWorkloadIdentityProfile"] = state?.platformWorkloadIdentityProfile;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["servicePrincipal"] = state?.servicePrincipal;
             resourceInputs["tags"] = state?.tags;
@@ -141,19 +151,18 @@ export class Cluster extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.servicePrincipal === undefined && !opts.urn) {
-                throw new Error("Missing required property 'servicePrincipal'");
-            }
             if (args?.workerProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workerProfile'");
             }
             resourceInputs["apiServerProfile"] = args?.apiServerProfile;
             resourceInputs["clusterProfile"] = args?.clusterProfile;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["ingressProfile"] = args?.ingressProfile;
             resourceInputs["location"] = args?.location;
             resourceInputs["mainProfile"] = args?.mainProfile;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["platformWorkloadIdentityProfile"] = args?.platformWorkloadIdentityProfile;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["servicePrincipal"] = args?.servicePrincipal;
             resourceInputs["tags"] = args?.tags;
@@ -178,9 +187,13 @@ export interface ClusterState {
      */
     clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile | undefined>;
     /**
-     * The Red Hat OpenShift cluster console URL.
+     * The console URL of the Azure Red Hat OpenShift Cluster.
      */
     consoleUrl?: pulumi.Input<string | undefined>;
+    /**
+     * An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     */
+    identity?: pulumi.Input<inputs.redhatopenshift.ClusterIdentity | undefined>;
     /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
@@ -198,15 +211,19 @@ export interface ClusterState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below.
      */
     networkProfile?: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile | undefined>;
+    /**
+     * A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     */
+    platformWorkloadIdentityProfile?: pulumi.Input<inputs.redhatopenshift.ClusterPlatformWorkloadIdentityProfile | undefined>;
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A `servicePrincipal` block as defined below.
+     * A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      */
     servicePrincipal?: pulumi.Input<inputs.redhatopenshift.ClusterServicePrincipal | undefined>;
     /**
@@ -232,6 +249,10 @@ export interface ClusterArgs {
      */
     clusterProfile: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile>;
     /**
+     * An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     */
+    identity?: pulumi.Input<inputs.redhatopenshift.ClusterIdentity | undefined>;
+    /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
     ingressProfile: pulumi.Input<inputs.redhatopenshift.ClusterIngressProfile>;
@@ -248,17 +269,21 @@ export interface ClusterArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below.
      */
     networkProfile: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile>;
+    /**
+     * A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     */
+    platformWorkloadIdentityProfile?: pulumi.Input<inputs.redhatopenshift.ClusterPlatformWorkloadIdentityProfile | undefined>;
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `servicePrincipal` block as defined below.
+     * A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      */
-    servicePrincipal: pulumi.Input<inputs.redhatopenshift.ClusterServicePrincipal>;
+    servicePrincipal?: pulumi.Input<inputs.redhatopenshift.ClusterServicePrincipal | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */

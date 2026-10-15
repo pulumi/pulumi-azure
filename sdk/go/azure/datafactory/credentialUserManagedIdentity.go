@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,7 +103,7 @@ type CredentialUserManagedIdentity struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Credential.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+	// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 	IdentityId pulumi.StringOutput `pulumi:"identityId"`
@@ -155,7 +155,7 @@ type credentialUserManagedIdentityState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Credential.
 	Description *string `pulumi:"description"`
-	// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+	// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 	IdentityId *string `pulumi:"identityId"`
@@ -172,7 +172,7 @@ type CredentialUserManagedIdentityState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Credential.
 	Description pulumi.StringPtrInput
-	// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+	// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 	IdentityId pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type credentialUserManagedIdentityArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Credential.
 	Description *string `pulumi:"description"`
-	// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+	// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 	IdentityId string `pulumi:"identityId"`
@@ -211,7 +211,7 @@ type CredentialUserManagedIdentityArgs struct {
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Credential.
 	Description pulumi.StringPtrInput
-	// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+	// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 	IdentityId pulumi.StringInput
@@ -323,7 +323,7 @@ func (o CredentialUserManagedIdentityOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *CredentialUserManagedIdentity) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+// The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
 //
 // > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
 func (o CredentialUserManagedIdentityOutput) IdentityId() pulumi.StringOutput {

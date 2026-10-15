@@ -1058,7 +1058,7 @@ class Environment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="logsDestination")
-    def logs_destination(self) -> pulumi.Output[_builtins.str]:
+    def logs_destination(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         """

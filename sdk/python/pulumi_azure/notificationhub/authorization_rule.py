@@ -163,10 +163,10 @@ class _AuthorizationRuleState:
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Access Key associated with this Authorization Rule.
-        :param pulumi.Input[_builtins.str] primary_connection_string: The Primary Connetion String associated with this Authorization Rule.
+        :param pulumi.Input[_builtins.str] primary_connection_string: The Primary Connection String associated with this Authorization Rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secondary_access_key: The Secondary Access Key associated with this Authorization Rule.
-        :param pulumi.Input[_builtins.str] secondary_connection_string: The Secondary Connetion String associated with this Authorization Rule.
+        :param pulumi.Input[_builtins.str] secondary_connection_string: The Secondary Connection String associated with this Authorization Rule.
         :param pulumi.Input[_builtins.bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """
         if listen is not None:
@@ -270,7 +270,7 @@ class _AuthorizationRuleState:
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Primary Connetion String associated with this Authorization Rule.
+        The Primary Connection String associated with this Authorization Rule.
         """
         return pulumi.get(self, "primary_connection_string")
 
@@ -306,7 +306,7 @@ class _AuthorizationRuleState:
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Secondary Connetion String associated with this Authorization Rule.
+        The Secondary Connection String associated with this Authorization Rule.
         """
         return pulumi.get(self, "secondary_connection_string")
 
@@ -543,10 +543,10 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_access_key: The Primary Access Key associated with this Authorization Rule.
-        :param pulumi.Input[_builtins.str] primary_connection_string: The Primary Connetion String associated with this Authorization Rule.
+        :param pulumi.Input[_builtins.str] primary_connection_string: The Primary Connection String associated with this Authorization Rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secondary_access_key: The Secondary Access Key associated with this Authorization Rule.
-        :param pulumi.Input[_builtins.str] secondary_connection_string: The Secondary Connetion String associated with this Authorization Rule.
+        :param pulumi.Input[_builtins.str] secondary_connection_string: The Secondary Connection String associated with this Authorization Rule.
         :param pulumi.Input[_builtins.bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -620,7 +620,7 @@ class AuthorizationRule(pulumi.CustomResource):
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> pulumi.Output[_builtins.str]:
         """
-        The Primary Connetion String associated with this Authorization Rule.
+        The Primary Connection String associated with this Authorization Rule.
         """
         return pulumi.get(self, "primary_connection_string")
 
@@ -644,7 +644,7 @@ class AuthorizationRule(pulumi.CustomResource):
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> pulumi.Output[_builtins.str]:
         """
-        The Secondary Connetion String associated with this Authorization Rule.
+        The Secondary Connection String associated with this Authorization Rule.
         """
         return pulumi.get(self, "secondary_connection_string")
 

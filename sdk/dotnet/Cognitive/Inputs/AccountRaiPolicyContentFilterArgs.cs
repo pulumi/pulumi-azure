@@ -32,9 +32,11 @@ namespace Pulumi.Azure.Cognitive.Inputs
 
         /// <summary>
         /// The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        /// 
+        /// &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
         /// </summary>
-        [Input("severityThreshold", required: true)]
-        public Input<string> SeverityThreshold { get; set; } = null!;
+        [Input("severityThreshold")]
+        public Input<string>? SeverityThreshold { get; set; }
 
         /// <summary>
         /// Content source to apply the content filter. Possible values are `Prompt` or `Completion`.

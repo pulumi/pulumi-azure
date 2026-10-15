@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// 
         /// &gt; **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `PrivateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
         /// 
-        /// &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        /// &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
         public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet. Defaults to `True`.
         /// 
-        /// &gt; **Note:** When configuring Azure Private Link service, the explicit setting `PrivateLinkServiceNetworkPoliciesEnabled` must be set to `False` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        /// &gt; **Note:** When configuring Azure Private Link service, the explicit setting `PrivateLinkServiceNetworkPoliciesEnabled` must be set to `False` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         /// </summary>
         [Input("privateLinkServiceNetworkPoliciesEnabled")]
         public Input<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
@@ -95,14 +95,14 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         [Input("serviceEndpoints")]
-        private InputList<string>? _serviceEndpoints;
+        private InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs>? _serviceEndpoints;
 
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public InputList<string> ServiceEndpoints
+        public InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs> ServiceEndpoints
         {
-            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs>());
             set => _serviceEndpoints = value;
         }
 

@@ -15,40 +15,40 @@ public final class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs ext
     public static final WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs Empty = new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs();
 
     /**
-     * Should automatic rollbacks be disabled?
-     * 
-     */
-    @Import(name="disableAutomaticRollback", required=true)
-    private Output<Boolean> disableAutomaticRollback;
-
-    /**
-     * @return Should automatic rollbacks be disabled?
-     * 
-     */
-    public Output<Boolean> disableAutomaticRollback() {
-        return this.disableAutomaticRollback;
-    }
-
-    /**
      * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
      * 
      */
-    @Import(name="enableAutomaticOsUpgrade", required=true)
-    private Output<Boolean> enableAutomaticOsUpgrade;
+    @Import(name="automaticOsUpgradeEnabled", required=true)
+    private Output<Boolean> automaticOsUpgradeEnabled;
 
     /**
      * @return Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
      * 
      */
-    public Output<Boolean> enableAutomaticOsUpgrade() {
-        return this.enableAutomaticOsUpgrade;
+    public Output<Boolean> automaticOsUpgradeEnabled() {
+        return this.automaticOsUpgradeEnabled;
+    }
+
+    /**
+     * Should automatic rollbacks be enabled?
+     * 
+     */
+    @Import(name="automaticRollbackEnabled", required=true)
+    private Output<Boolean> automaticRollbackEnabled;
+
+    /**
+     * @return Should automatic rollbacks be enabled?
+     * 
+     */
+    public Output<Boolean> automaticRollbackEnabled() {
+        return this.automaticRollbackEnabled;
     }
 
     private WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs() {}
 
     private WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs $) {
-        this.disableAutomaticRollback = $.disableAutomaticRollback;
-        this.enableAutomaticOsUpgrade = $.enableAutomaticOsUpgrade;
+        this.automaticOsUpgradeEnabled = $.automaticOsUpgradeEnabled;
+        this.automaticRollbackEnabled = $.automaticRollbackEnabled;
     }
 
     public static Builder builder() {
@@ -70,53 +70,53 @@ public final class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs ext
         }
 
         /**
-         * @param disableAutomaticRollback Should automatic rollbacks be disabled?
+         * @param automaticOsUpgradeEnabled Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
          * 
          * @return builder
          * 
          */
-        public Builder disableAutomaticRollback(Output<Boolean> disableAutomaticRollback) {
-            $.disableAutomaticRollback = disableAutomaticRollback;
+        public Builder automaticOsUpgradeEnabled(Output<Boolean> automaticOsUpgradeEnabled) {
+            $.automaticOsUpgradeEnabled = automaticOsUpgradeEnabled;
             return this;
         }
 
         /**
-         * @param disableAutomaticRollback Should automatic rollbacks be disabled?
+         * @param automaticOsUpgradeEnabled Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
          * 
          * @return builder
          * 
          */
-        public Builder disableAutomaticRollback(Boolean disableAutomaticRollback) {
-            return disableAutomaticRollback(Output.of(disableAutomaticRollback));
+        public Builder automaticOsUpgradeEnabled(Boolean automaticOsUpgradeEnabled) {
+            return automaticOsUpgradeEnabled(Output.of(automaticOsUpgradeEnabled));
         }
 
         /**
-         * @param enableAutomaticOsUpgrade Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+         * @param automaticRollbackEnabled Should automatic rollbacks be enabled?
          * 
          * @return builder
          * 
          */
-        public Builder enableAutomaticOsUpgrade(Output<Boolean> enableAutomaticOsUpgrade) {
-            $.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+        public Builder automaticRollbackEnabled(Output<Boolean> automaticRollbackEnabled) {
+            $.automaticRollbackEnabled = automaticRollbackEnabled;
             return this;
         }
 
         /**
-         * @param enableAutomaticOsUpgrade Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+         * @param automaticRollbackEnabled Should automatic rollbacks be enabled?
          * 
          * @return builder
          * 
          */
-        public Builder enableAutomaticOsUpgrade(Boolean enableAutomaticOsUpgrade) {
-            return enableAutomaticOsUpgrade(Output.of(enableAutomaticOsUpgrade));
+        public Builder automaticRollbackEnabled(Boolean automaticRollbackEnabled) {
+            return automaticRollbackEnabled(Output.of(automaticRollbackEnabled));
         }
 
         public WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs build() {
-            if ($.disableAutomaticRollback == null) {
-                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "disableAutomaticRollback");
+            if ($.automaticOsUpgradeEnabled == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "automaticOsUpgradeEnabled");
             }
-            if ($.enableAutomaticOsUpgrade == null) {
-                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "enableAutomaticOsUpgrade");
+            if ($.automaticRollbackEnabled == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "automaticRollbackEnabled");
             }
             return $;
         }

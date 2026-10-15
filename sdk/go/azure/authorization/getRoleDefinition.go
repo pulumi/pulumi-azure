@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,7 +104,9 @@ type LookupRoleDefinitionResult struct {
 	// A `permissions` block as documented below.
 	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`
 	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
-	Scope            *string                       `pulumi:"scope"`
+	// The Azure Resource Manager ID for the resource.
+	RoleDefinitionResourceId string  `pulumi:"roleDefinitionResourceId"`
+	Scope                    *string `pulumi:"scope"`
 	// The Type of the Role.
 	Type string `pulumi:"type"`
 }
@@ -173,6 +175,11 @@ func (o LookupRoleDefinitionResultOutput) Permissions() GetRoleDefinitionPermiss
 
 func (o LookupRoleDefinitionResultOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// The Azure Resource Manager ID for the resource.
+func (o LookupRoleDefinitionResultOutput) RoleDefinitionResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleDefinitionResult) string { return v.RoleDefinitionResourceId }).(pulumi.StringOutput)
 }
 
 func (o LookupRoleDefinitionResultOutput) Scope() pulumi.StringPtrOutput {

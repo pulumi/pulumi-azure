@@ -48,14 +48,14 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+     * Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
      * 
      */
     @Import(name="gitUrl")
     private @Nullable Output<String> gitUrl;
 
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
      * 
      */
     public Optional<Output<String>> gitUrl() {
@@ -183,7 +183,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param gitUrl Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+         * @param gitUrl Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
          * 
          * @return builder
          * 

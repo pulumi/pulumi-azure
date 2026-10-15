@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Cdn
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         [Output("contentTypesToCompresses")]
         public Output<ImmutableArray<string>> ContentTypesToCompresses { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Output("querystringCachingBehaviour")]
         public Output<string?> QuerystringCachingBehaviour { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _contentTypesToCompresses;
 
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         public InputList<string> ContentTypesToCompresses
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Input("querystringCachingBehaviour")]
         public Input<string>? QuerystringCachingBehaviour { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _contentTypesToCompresses;
 
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         public InputList<string> ContentTypesToCompresses
         {
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ProfileName { get; set; }
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Input("querystringCachingBehaviour")]
         public Input<string>? QuerystringCachingBehaviour { get; set; }

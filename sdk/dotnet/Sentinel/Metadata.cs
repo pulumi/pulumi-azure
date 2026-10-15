@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleMetadata = new Azure.Sentinel.Metadata("example", new()
     ///     {
-    ///         Name = "exampl",
+    ///         Name = "example",
     ///         WorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///         ContentId = exampleAlertRuleNrt.Name,
     ///         Kind = "AnalyticsRule",

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/fluidrelay"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/fluidrelay"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	OrdererEndpoints pulumi.StringArrayOutput `pulumi:"ordererEndpoints"`
 	// The primary key for this server.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
@@ -87,7 +87,7 @@ type Server struct {
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// An array of service endpoints for this Fluid Relay Server.
 	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
-	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	StorageEndpoints pulumi.StringArrayOutput `pulumi:"storageEndpoints"`
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
 	StorageSku pulumi.StringOutput `pulumi:"storageSku"`
@@ -143,7 +143,7 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
 	Name *string `pulumi:"name"`
-	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	OrdererEndpoints []string `pulumi:"ordererEndpoints"`
 	// The primary key for this server.
 	PrimaryKey *string `pulumi:"primaryKey"`
@@ -153,7 +153,7 @@ type serverState struct {
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// An array of service endpoints for this Fluid Relay Server.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
-	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	StorageEndpoints []string `pulumi:"storageEndpoints"`
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
 	StorageSku *string `pulumi:"storageSku"`
@@ -172,7 +172,7 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
 	Name pulumi.StringPtrInput
-	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	OrdererEndpoints pulumi.StringArrayInput
 	// The primary key for this server.
 	PrimaryKey pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type ServerState struct {
 	SecondaryKey pulumi.StringPtrInput
 	// An array of service endpoints for this Fluid Relay Server.
 	ServiceEndpoints pulumi.StringArrayInput
-	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+	// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 	StorageEndpoints pulumi.StringArrayInput
 	// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
 	StorageSku pulumi.StringPtrInput
@@ -341,7 +341,7 @@ func (o ServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+// An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 func (o ServerOutput) OrdererEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.OrdererEndpoints }).(pulumi.StringArrayOutput)
 }
@@ -366,7 +366,7 @@ func (o ServerOutput) ServiceEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+// An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
 func (o ServerOutput) StorageEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.StorageEndpoints }).(pulumi.StringArrayOutput)
 }

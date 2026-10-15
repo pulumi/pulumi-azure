@@ -44,7 +44,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -213,11 +213,15 @@ namespace Pulumi.Azure.NetApp
         public readonly string AcceptGrowCapacityPoolForShortTermCloneSplit;
         public readonly string AccountName;
         /// <summary>
+        /// Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+        /// </summary>
+        public readonly bool BreakthroughModeEnabled;
+        /// <summary>
         /// An Advanced Ransomware Protection (ARP) data protection block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionAdvancedRansomwareResult> DataProtectionAdvancedRansomwares;
         /// <summary>
-        /// A data protecion backup policy block
+        /// A data protection backup policy block
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionBackupPolicyResult> DataProtectionBackupPolicies;
         /// <summary>
@@ -239,9 +243,9 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A list of IPv4 Addresses which should be used to mount the volume.
+        /// One or more `MountTarget` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<string> MountIpAddresses;
+        public readonly ImmutableArray<Outputs.GetVolumeMountTargetResult> MountTargets;
         public readonly string Name;
         /// <summary>
         /// Network features in use `Basic` or `Standard`.
@@ -292,6 +296,8 @@ namespace Pulumi.Azure.NetApp
 
             string accountName,
 
+            bool breakthroughModeEnabled,
+
             ImmutableArray<Outputs.GetVolumeDataProtectionAdvancedRansomwareResult> dataProtectionAdvancedRansomwares,
 
             ImmutableArray<Outputs.GetVolumeDataProtectionBackupPolicyResult> dataProtectionBackupPolicies,
@@ -308,7 +314,7 @@ namespace Pulumi.Azure.NetApp
 
             string location,
 
-            ImmutableArray<string> mountIpAddresses,
+            ImmutableArray<Outputs.GetVolumeMountTargetResult> mountTargets,
 
             string name,
 
@@ -338,6 +344,7 @@ namespace Pulumi.Azure.NetApp
         {
             AcceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             AccountName = accountName;
+            BreakthroughModeEnabled = breakthroughModeEnabled;
             DataProtectionAdvancedRansomwares = dataProtectionAdvancedRansomwares;
             DataProtectionBackupPolicies = dataProtectionBackupPolicies;
             DataProtectionReplications = dataProtectionReplications;
@@ -346,7 +353,7 @@ namespace Pulumi.Azure.NetApp
             KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             LargeVolumeEnabled = largeVolumeEnabled;
             Location = location;
-            MountIpAddresses = mountIpAddresses;
+            MountTargets = mountTargets;
             Name = name;
             NetworkFeatures = networkFeatures;
             PoolName = poolName;

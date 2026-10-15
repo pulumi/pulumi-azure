@@ -391,6 +391,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string PrimaryWebMicrosoftHost;
         /// <summary>
+        /// The public network access setting of the Storage Account.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
+        /// <summary>
         /// The encryption key type of the queue.
         /// </summary>
         public readonly string QueueEncryptionKeyType;
@@ -656,6 +660,8 @@ namespace Pulumi.Azure.Storage
 
             string primaryWebMicrosoftHost,
 
+            string publicNetworkAccess,
+
             string queueEncryptionKeyType,
 
             string? resourceGroupName,
@@ -789,6 +795,7 @@ namespace Pulumi.Azure.Storage
             PrimaryWebInternetHost = primaryWebInternetHost;
             PrimaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
             PrimaryWebMicrosoftHost = primaryWebMicrosoftHost;
+            PublicNetworkAccess = publicNetworkAccess;
             QueueEncryptionKeyType = queueEncryptionKeyType;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;

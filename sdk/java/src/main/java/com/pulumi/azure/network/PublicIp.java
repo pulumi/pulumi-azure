@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -333,7 +333,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
      * 
-     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
@@ -344,7 +344,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
      * 
-     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
      * 
      */
     public Output<Optional<String>> sku() {

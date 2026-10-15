@@ -250,14 +250,14 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notScopes);
     }
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Export(name="overrides", refs={List.class,GroupPolicyAssignmentOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupPolicyAssignmentOverride>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Output<Optional<List<GroupPolicyAssignmentOverride>>> overrides() {

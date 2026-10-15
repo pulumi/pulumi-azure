@@ -25,13 +25,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
      */
     private @Nullable Integer containerLogMaxFiles;
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Integer containerLogMaxLine;
-    /**
      * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
@@ -86,15 +79,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
      */
     public Optional<Integer> containerLogMaxFiles() {
         return Optional.ofNullable(this.containerLogMaxFiles);
-    }
-    /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Integer> containerLogMaxLine() {
-        return Optional.ofNullable(this.containerLogMaxLine);
     }
     /**
      * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -164,7 +148,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
     public static final class Builder {
         private @Nullable List<String> allowedUnsafeSysctls;
         private @Nullable Integer containerLogMaxFiles;
-        private @Nullable Integer containerLogMaxLine;
         private @Nullable Integer containerLogMaxSizeMb;
         private @Nullable Boolean cpuCfsQuotaEnabled;
         private @Nullable String cpuCfsQuotaPeriod;
@@ -178,7 +161,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
     	      Objects.requireNonNull(defaults);
     	      this.allowedUnsafeSysctls = defaults.allowedUnsafeSysctls;
     	      this.containerLogMaxFiles = defaults.containerLogMaxFiles;
-    	      this.containerLogMaxLine = defaults.containerLogMaxLine;
     	      this.containerLogMaxSizeMb = defaults.containerLogMaxSizeMb;
     	      this.cpuCfsQuotaEnabled = defaults.cpuCfsQuotaEnabled;
     	      this.cpuCfsQuotaPeriod = defaults.cpuCfsQuotaPeriod;
@@ -202,12 +184,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         public Builder containerLogMaxFiles(@Nullable Integer containerLogMaxFiles) {
 
             this.containerLogMaxFiles = containerLogMaxFiles;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder containerLogMaxLine(@Nullable Integer containerLogMaxLine) {
-
-            this.containerLogMaxLine = containerLogMaxLine;
             return this;
         }
         @CustomType.Setter
@@ -262,7 +238,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
             final var _resultValue = new KubernetesClusterDefaultNodePoolKubeletConfig();
             _resultValue.allowedUnsafeSysctls = allowedUnsafeSysctls;
             _resultValue.containerLogMaxFiles = containerLogMaxFiles;
-            _resultValue.containerLogMaxLine = containerLogMaxLine;
             _resultValue.containerLogMaxSizeMb = containerLogMaxSizeMb;
             _resultValue.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
             _resultValue.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;

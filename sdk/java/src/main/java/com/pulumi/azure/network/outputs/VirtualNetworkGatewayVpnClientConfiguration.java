@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public final class VirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The client id of the Azure VPN application.
-     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * 
      */
     private @Nullable String aadAudience;
@@ -94,7 +94,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
     private VirtualNetworkGatewayVpnClientConfiguration() {}
     /**
      * @return The client id of the Azure VPN application.
-     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+     * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * 
      */
     public Optional<String> aadAudience() {

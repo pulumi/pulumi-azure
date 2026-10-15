@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1014,7 +1014,7 @@ type RoleManagementPolicyActivationRules struct {
 	RequireJustification *bool `pulumi:"requireJustification"`
 	// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
 	RequireMultifactorAuthentication *bool `pulumi:"requireMultifactorAuthentication"`
-	// Is ticket information requrired during activation of the role.
+	// Is ticket information required during activation of the role.
 	RequireTicketInfo *bool `pulumi:"requireTicketInfo"`
 	// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
 	RequiredConditionalAccessAuthenticationContext *string `pulumi:"requiredConditionalAccessAuthenticationContext"`
@@ -1042,7 +1042,7 @@ type RoleManagementPolicyActivationRulesArgs struct {
 	RequireJustification pulumi.BoolPtrInput `pulumi:"requireJustification"`
 	// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
 	RequireMultifactorAuthentication pulumi.BoolPtrInput `pulumi:"requireMultifactorAuthentication"`
-	// Is ticket information requrired during activation of the role.
+	// Is ticket information required during activation of the role.
 	RequireTicketInfo pulumi.BoolPtrInput `pulumi:"requireTicketInfo"`
 	// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
 	RequiredConditionalAccessAuthenticationContext pulumi.StringPtrInput `pulumi:"requiredConditionalAccessAuthenticationContext"`
@@ -1152,7 +1152,7 @@ func (o RoleManagementPolicyActivationRulesOutput) RequireMultifactorAuthenticat
 	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireMultifactorAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// Is ticket information requrired during activation of the role.
+// Is ticket information required during activation of the role.
 func (o RoleManagementPolicyActivationRulesOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireTicketInfo }).(pulumi.BoolPtrOutput)
 }
@@ -1238,7 +1238,7 @@ func (o RoleManagementPolicyActivationRulesPtrOutput) RequireMultifactorAuthenti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Is ticket information requrired during activation of the role.
+// Is ticket information required during activation of the role.
 func (o RoleManagementPolicyActivationRulesPtrOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *bool {
 		if v == nil {
@@ -1889,7 +1889,7 @@ func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ExpireAfter() pulu
 }
 
 type RoleManagementPolicyNotificationRules struct {
-	// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+	// A `notificationTarget` block as defined below to configure notifications on active role assignments.
 	ActiveAssignments *RoleManagementPolicyNotificationRulesActiveAssignments `pulumi:"activeAssignments"`
 	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
 	EligibleActivations *RoleManagementPolicyNotificationRulesEligibleActivations `pulumi:"eligibleActivations"`
@@ -1909,7 +1909,7 @@ type RoleManagementPolicyNotificationRulesInput interface {
 }
 
 type RoleManagementPolicyNotificationRulesArgs struct {
-	// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+	// A `notificationTarget` block as defined below to configure notifications on active role assignments.
 	ActiveAssignments RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput `pulumi:"activeAssignments"`
 	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
 	EligibleActivations RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput `pulumi:"eligibleActivations"`
@@ -1994,7 +1994,7 @@ func (o RoleManagementPolicyNotificationRulesOutput) ToRoleManagementPolicyNotif
 	}).(RoleManagementPolicyNotificationRulesPtrOutput)
 }
 
-// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+// A `notificationTarget` block as defined below to configure notifications on active role assignments.
 func (o RoleManagementPolicyNotificationRulesOutput) ActiveAssignments() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
 	return o.ApplyT(func(v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesActiveAssignments {
 		return v.ActiveAssignments
@@ -2039,7 +2039,7 @@ func (o RoleManagementPolicyNotificationRulesPtrOutput) Elem() RoleManagementPol
 	}).(RoleManagementPolicyNotificationRulesOutput)
 }
 
-// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+// A `notificationTarget` block as defined below to configure notifications on active role assignments.
 func (o RoleManagementPolicyNotificationRulesPtrOutput) ActiveAssignments() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
 	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesActiveAssignments {
 		if v == nil {
@@ -5019,7 +5019,7 @@ func (o GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput) Index(i pulumi
 }
 
 type GetRoleManagementPolicyNotificationRule struct {
-	// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+	// A `notificationTarget` block as defined below with the details of notifications on active role assignments.
 	ActiveAssignments []GetRoleManagementPolicyNotificationRuleActiveAssignment `pulumi:"activeAssignments"`
 	// A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
 	EligibleActivations []GetRoleManagementPolicyNotificationRuleEligibleActivation `pulumi:"eligibleActivations"`
@@ -5039,7 +5039,7 @@ type GetRoleManagementPolicyNotificationRuleInput interface {
 }
 
 type GetRoleManagementPolicyNotificationRuleArgs struct {
-	// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+	// A `notificationTarget` block as defined below with the details of notifications on active role assignments.
 	ActiveAssignments GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput `pulumi:"activeAssignments"`
 	// A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
 	EligibleActivations GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput `pulumi:"eligibleActivations"`
@@ -5098,7 +5098,7 @@ func (o GetRoleManagementPolicyNotificationRuleOutput) ToGetRoleManagementPolicy
 	return o
 }
 
-// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+// A `notificationTarget` block as defined below with the details of notifications on active role assignments.
 func (o GetRoleManagementPolicyNotificationRuleOutput) ActiveAssignments() GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
 	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRule) []GetRoleManagementPolicyNotificationRuleActiveAssignment {
 		return v.ActiveAssignments

@@ -78,6 +78,10 @@ export interface GetTrafficManagerProfileResult {
      */
     readonly id: string;
     /**
+     * The amount of endpoints to return for DNS queries to this Profile.
+     */
+    readonly maximumReturn: number;
+    /**
      * This block specifies the Endpoint monitoring configuration for the Profile.
      */
     readonly monitorConfigs: outputs.network.GetTrafficManagerProfileMonitorConfig[];

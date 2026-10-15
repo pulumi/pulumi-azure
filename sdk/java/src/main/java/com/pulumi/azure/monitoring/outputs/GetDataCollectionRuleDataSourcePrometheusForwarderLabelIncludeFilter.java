@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter {
     /**
-     * @return The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+     * @return The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
      * 
      */
     private String label;
@@ -23,7 +23,7 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarderLabelInclud
 
     private GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter() {}
     /**
-     * @return The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+     * @return The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
      * 
      */
     public String label() {

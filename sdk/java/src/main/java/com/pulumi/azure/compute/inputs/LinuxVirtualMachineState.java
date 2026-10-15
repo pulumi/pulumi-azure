@@ -251,7 +251,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      * 
      * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * 
@@ -262,7 +262,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      * 
      * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * 
@@ -896,22 +896,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Import(name="vmAgentPlatformUpdatesEnabled")
     private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
      * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
         return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
     }
@@ -1334,7 +1326,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
          * 
          * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
          * 
@@ -1349,7 +1341,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
          * 
          * &gt; **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
          * 
@@ -2267,11 +2259,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
          */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
             $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
             return this;
@@ -2282,11 +2270,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
          */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
             return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }

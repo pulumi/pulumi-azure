@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
- *     name: "examplees-es",
+ *     name: "examples-es",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     baseSizeInTib: 1,
@@ -45,7 +45,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage.Global"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage.Global",
+ *     }],
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "examplekv",

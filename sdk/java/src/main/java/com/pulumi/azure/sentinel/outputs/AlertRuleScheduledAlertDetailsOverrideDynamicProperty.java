@@ -16,7 +16,7 @@ public final class AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
      */
     private String name;
     /**
-     * @return The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+     * @return The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
      * 
      */
     private String value;
@@ -30,7 +30,7 @@ public final class AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
         return this.name;
     }
     /**
-     * @return The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+     * @return The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
      * 
      */
     public String value() {

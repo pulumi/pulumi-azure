@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Network
         /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
         /// </summary>
         [Output("bgpEnabled")]
-        public Output<bool> BgpEnabled { get; private set; } = null!;
+        public Output<bool?> BgpEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Output("customBgpAddresses")]
         public Output<Outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses?> CustomBgpAddresses { get; private set; } = null!;
@@ -320,9 +320,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("egressNatRuleIds")]
         public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
-
-        [Output("enableBgp")]
-        public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -525,7 +522,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
         public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesArgs>? CustomBgpAddresses { get; set; }
@@ -547,9 +544,6 @@ namespace Pulumi.Azure.Network
             get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
             set => _egressNatRuleIds = value;
         }
-
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -731,7 +725,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `CustomBgpAddresses` block which is documented below.
         /// The block can only be used on `IPSec` / `Activeactive` connections,
-        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
         [Input("customBgpAddresses")]
         public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs>? CustomBgpAddresses { get; set; }
@@ -753,9 +747,6 @@ namespace Pulumi.Azure.Network
             get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
             set => _egressNatRuleIds = value;
         }
-
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.

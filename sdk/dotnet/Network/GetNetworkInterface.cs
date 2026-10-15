@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -174,9 +174,21 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> AppliedDnsServers;
         /// <summary>
+        /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+        /// </summary>
+        public readonly string AuxiliaryMode;
+        /// <summary>
+        /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+        /// </summary>
+        public readonly string AuxiliarySku;
+        /// <summary>
         /// The list of DNS servers used by the specified Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+        /// </summary>
+        public readonly string EdgeZone;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -185,6 +197,10 @@ namespace Pulumi.Azure.Network
         /// The internal DNS name label of the specified Network Interface.
         /// </summary>
         public readonly string InternalDnsNameLabel;
+        /// <summary>
+        /// Even if `InternalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+        /// </summary>
+        public readonly string InternalDomainNameSuffix;
         /// <summary>
         /// One or more `IpConfiguration` blocks as defined below.
         /// </summary>
@@ -233,11 +249,19 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> appliedDnsServers,
 
+            string auxiliaryMode,
+
+            string auxiliarySku,
+
             ImmutableArray<string> dnsServers,
+
+            string edgeZone,
 
             string id,
 
             string internalDnsNameLabel,
+
+            string internalDomainNameSuffix,
 
             ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> ipConfigurations,
 
@@ -263,9 +287,13 @@ namespace Pulumi.Azure.Network
         {
             AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             AppliedDnsServers = appliedDnsServers;
+            AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
             DnsServers = dnsServers;
+            EdgeZone = edgeZone;
             Id = id;
             InternalDnsNameLabel = internalDnsNameLabel;
+            InternalDomainNameSuffix = internalDomainNameSuffix;
             IpConfigurations = ipConfigurations;
             IpForwardingEnabled = ipForwardingEnabled;
             Location = location;

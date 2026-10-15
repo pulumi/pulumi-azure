@@ -19,7 +19,9 @@ public final class ManagedDevOpsPoolAzureDevopsOrganizationPermission {
      */
     private @Nullable ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount administratorAccount;
     /**
-     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
      * 
      */
     private String kind;
@@ -33,7 +35,9 @@ public final class ManagedDevOpsPoolAzureDevopsOrganizationPermission {
         return Optional.ofNullable(this.administratorAccount);
     }
     /**
-     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
      * 
      */
     public String kind() {

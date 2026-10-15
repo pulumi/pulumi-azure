@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -218,8 +217,8 @@ public class Job extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
-    @Export(name="jobStorageAccounts", refs={List.class,JobJobStorageAccount.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<JobJobStorageAccount>> jobStorageAccounts;
+    @Export(name="jobStorageAccount", refs={JobJobStorageAccount.class}, tree="[0]")
+    private Output</* @Nullable */ JobJobStorageAccount> jobStorageAccount;
 
     /**
      * @return The details of the job storage account. A `jobStorageAccount` block as defined below.
@@ -227,8 +226,8 @@ public class Job extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
-    public Output<Optional<List<JobJobStorageAccount>>> jobStorageAccounts() {
-        return Codegen.optional(this.jobStorageAccounts);
+    public Output<Optional<JobJobStorageAccount>> jobStorageAccount() {
+        return Codegen.optional(this.jobStorageAccount);
     }
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

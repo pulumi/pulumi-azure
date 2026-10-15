@@ -110,14 +110,14 @@ public class Embedded extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
-     * @return Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * @return Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> mode() {

@@ -16,10 +16,10 @@ namespace Pulumi.Azure.RedHatOpenShift
     /// 
     /// ## Import
     /// 
-    /// Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+    /// An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+    /// $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:redhatopenshift/cluster:Cluster")]
@@ -38,10 +38,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<Outputs.ClusterClusterProfile> ClusterProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The Red Hat OpenShift cluster console URL.
+        /// The console URL of the Azure Red Hat OpenShift Cluster.
         /// </summary>
         [Output("consoleUrl")]
         public Output<string> ConsoleUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -68,10 +74,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.ClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Output("platformWorkloadIdentityProfile")]
+        public Output<Outputs.ClusterPlatformWorkloadIdentityProfile?> PlatformWorkloadIdentityProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -80,10 +92,10 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
         [Output("servicePrincipal")]
-        public Output<Outputs.ClusterServicePrincipal> ServicePrincipal { get; private set; } = null!;
+        public Output<Outputs.ClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -156,6 +168,12 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<Inputs.ClusterClusterProfileArgs> ClusterProfile { get; set; } = null!;
 
         /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ingressProfile", required: true)]
@@ -180,10 +198,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.ClusterNetworkProfileArgs> NetworkProfile { get; set; } = null!;
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Input("platformWorkloadIdentityProfile")]
+        public Input<Inputs.ClusterPlatformWorkloadIdentityProfileArgs>? PlatformWorkloadIdentityProfile { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -192,10 +216,10 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
-        [Input("servicePrincipal", required: true)]
-        public Input<Inputs.ClusterServicePrincipalArgs> ServicePrincipal { get; set; } = null!;
+        [Input("servicePrincipal")]
+        public Input<Inputs.ClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -236,10 +260,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<Inputs.ClusterClusterProfileGetArgs>? ClusterProfile { get; set; }
 
         /// <summary>
-        /// The Red Hat OpenShift cluster console URL.
+        /// The console URL of the Azure Red Hat OpenShift Cluster.
         /// </summary>
         [Input("consoleUrl")]
         public Input<string>? ConsoleUrl { get; set; }
+
+        /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -266,10 +296,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.ClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Input("platformWorkloadIdentityProfile")]
+        public Input<Inputs.ClusterPlatformWorkloadIdentityProfileGetArgs>? PlatformWorkloadIdentityProfile { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -278,7 +314,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.ClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }

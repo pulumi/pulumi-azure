@@ -36,24 +36,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("backendTls11Enabled")]
         public Input<bool>? BackendTls11Enabled { get; set; }
 
-        [Input("enableBackendSsl30")]
-        public Input<bool>? EnableBackendSsl30 { get; set; }
-
-        [Input("enableBackendTls10")]
-        public Input<bool>? EnableBackendTls10 { get; set; }
-
-        [Input("enableBackendTls11")]
-        public Input<bool>? EnableBackendTls11 { get; set; }
-
-        [Input("enableFrontendSsl30")]
-        public Input<bool>? EnableFrontendSsl30 { get; set; }
-
-        [Input("enableFrontendTls10")]
-        public Input<bool>? EnableFrontendTls10 { get; set; }
-
-        [Input("enableFrontendTls11")]
-        public Input<bool>? EnableFrontendTls11 { get; set; }
-
         /// <summary>
         /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `False`.
         /// 

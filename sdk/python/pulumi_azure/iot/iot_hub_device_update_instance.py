@@ -32,7 +32,7 @@ class IotHubDeviceUpdateInstanceArgs:
 
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Defaults to `false`.
         :param pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs'] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
@@ -76,7 +76,7 @@ class IotHubDeviceUpdateInstanceArgs:
     @pulumi.getter(name="diagnosticEnabled")
     def diagnostic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        Whether the diagnostic log collection is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "diagnostic_enabled")
 
@@ -134,7 +134,7 @@ class _IotHubDeviceUpdateInstanceState:
         Input properties used for looking up and filtering IotHubDeviceUpdateInstance resources.
 
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Defaults to `false`.
         :param pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs'] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
@@ -169,7 +169,7 @@ class _IotHubDeviceUpdateInstanceState:
     @pulumi.getter(name="diagnosticEnabled")
     def diagnostic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        Whether the diagnostic log collection is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "diagnostic_enabled")
 
@@ -302,7 +302,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Defaults to `false`.
         :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
@@ -438,7 +438,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Defaults to `false`.
         :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
@@ -468,7 +468,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
     @pulumi.getter(name="diagnosticEnabled")
     def diagnostic_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+        Whether the diagnostic log collection is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "diagnostic_enabled")
 

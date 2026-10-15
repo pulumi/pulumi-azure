@@ -38,17 +38,11 @@ namespace Pulumi.Azure.Stack.Inputs
             set => _ipPools = value;
         }
 
-        [Input("routes")]
-        private InputList<Inputs.HciLogicalNetworkSubnetRouteGetArgs>? _routes;
-
         /// <summary>
         /// A `Route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.HciLogicalNetworkSubnetRouteGetArgs> Routes
-        {
-            get => _routes ?? (_routes = new InputList<Inputs.HciLogicalNetworkSubnetRouteGetArgs>());
-            set => _routes = value;
-        }
+        [Input("route")]
+        public Input<Inputs.HciLogicalNetworkSubnetRouteGetArgs>? Route { get; set; }
 
         /// <summary>
         /// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.

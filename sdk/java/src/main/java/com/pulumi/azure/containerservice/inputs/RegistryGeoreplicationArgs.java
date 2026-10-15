@@ -19,6 +19,21 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     public static final RegistryGeoreplicationArgs Empty = new RegistryGeoreplicationArgs();
 
     /**
+     * Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+     * 
+     */
+    @Import(name="globalEndpointRoutingEnabled", required=true)
+    private Output<Boolean> globalEndpointRoutingEnabled;
+
+    /**
+     * @return Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+     * 
+     */
+    public Output<Boolean> globalEndpointRoutingEnabled() {
+        return this.globalEndpointRoutingEnabled;
+    }
+
+    /**
      * A location where the container registry should be geo-replicated.
      * 
      */
@@ -31,21 +46,6 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
      */
     public Output<String> location() {
         return this.location;
-    }
-
-    /**
-     * Whether regional endpoint is enabled for this Container Registry?
-     * 
-     */
-    @Import(name="regionalEndpointEnabled")
-    private @Nullable Output<Boolean> regionalEndpointEnabled;
-
-    /**
-     * @return Whether regional endpoint is enabled for this Container Registry?
-     * 
-     */
-    public Optional<Output<Boolean>> regionalEndpointEnabled() {
-        return Optional.ofNullable(this.regionalEndpointEnabled);
     }
 
     /**
@@ -85,8 +85,8 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     private RegistryGeoreplicationArgs() {}
 
     private RegistryGeoreplicationArgs(RegistryGeoreplicationArgs $) {
+        this.globalEndpointRoutingEnabled = $.globalEndpointRoutingEnabled;
         this.location = $.location;
-        this.regionalEndpointEnabled = $.regionalEndpointEnabled;
         this.tags = $.tags;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
@@ -110,6 +110,27 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param globalEndpointRoutingEnabled Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalEndpointRoutingEnabled(Output<Boolean> globalEndpointRoutingEnabled) {
+            $.globalEndpointRoutingEnabled = globalEndpointRoutingEnabled;
+            return this;
+        }
+
+        /**
+         * @param globalEndpointRoutingEnabled Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalEndpointRoutingEnabled(Boolean globalEndpointRoutingEnabled) {
+            return globalEndpointRoutingEnabled(Output.of(globalEndpointRoutingEnabled));
+        }
+
+        /**
          * @param location A location where the container registry should be geo-replicated.
          * 
          * @return builder
@@ -128,27 +149,6 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
          */
         public Builder location(String location) {
             return location(Output.of(location));
-        }
-
-        /**
-         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry?
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionalEndpointEnabled(@Nullable Output<Boolean> regionalEndpointEnabled) {
-            $.regionalEndpointEnabled = regionalEndpointEnabled;
-            return this;
-        }
-
-        /**
-         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry?
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionalEndpointEnabled(Boolean regionalEndpointEnabled) {
-            return regionalEndpointEnabled(Output.of(regionalEndpointEnabled));
         }
 
         /**
@@ -198,6 +198,9 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         public RegistryGeoreplicationArgs build() {
+            if ($.globalEndpointRoutingEnabled == null) {
+                throw new MissingRequiredPropertyException("RegistryGeoreplicationArgs", "globalEndpointRoutingEnabled");
+            }
             if ($.location == null) {
                 throw new MissingRequiredPropertyException("RegistryGeoreplicationArgs", "location");
             }

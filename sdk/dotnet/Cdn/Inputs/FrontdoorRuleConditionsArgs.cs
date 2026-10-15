@@ -12,232 +12,232 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class FrontdoorRuleConditionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("clientPortConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsClientPortConditionArgs>? _clientPortConditions;
+        [Input("clientPorts")]
+        private InputList<Inputs.FrontdoorRuleConditionsClientPortArgs>? _clientPorts;
 
         /// <summary>
-        /// A `ClientPortCondition` block as defined below.
+        /// One or more `ClientPort` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsClientPortConditionArgs> ClientPortConditions
+        public InputList<Inputs.FrontdoorRuleConditionsClientPortArgs> ClientPorts
         {
-            get => _clientPortConditions ?? (_clientPortConditions = new InputList<Inputs.FrontdoorRuleConditionsClientPortConditionArgs>());
-            set => _clientPortConditions = value;
+            get => _clientPorts ?? (_clientPorts = new InputList<Inputs.FrontdoorRuleConditionsClientPortArgs>());
+            set => _clientPorts = value;
         }
 
-        [Input("cookiesConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsCookiesConditionArgs>? _cookiesConditions;
+        [Input("deviceTypes")]
+        private InputList<Inputs.FrontdoorRuleConditionsDeviceTypeArgs>? _deviceTypes;
 
         /// <summary>
-        /// A `CookiesCondition` block as defined below.
+        /// One or more `DeviceType` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsCookiesConditionArgs> CookiesConditions
+        public InputList<Inputs.FrontdoorRuleConditionsDeviceTypeArgs> DeviceTypes
         {
-            get => _cookiesConditions ?? (_cookiesConditions = new InputList<Inputs.FrontdoorRuleConditionsCookiesConditionArgs>());
-            set => _cookiesConditions = value;
+            get => _deviceTypes ?? (_deviceTypes = new InputList<Inputs.FrontdoorRuleConditionsDeviceTypeArgs>());
+            set => _deviceTypes = value;
         }
 
-        [Input("hostNameConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsHostNameConditionArgs>? _hostNameConditions;
+        [Input("hostNames")]
+        private InputList<Inputs.FrontdoorRuleConditionsHostNameArgs>? _hostNames;
 
         /// <summary>
-        /// A `HostNameCondition` block as defined below.
+        /// One or more `HostName` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsHostNameConditionArgs> HostNameConditions
+        public InputList<Inputs.FrontdoorRuleConditionsHostNameArgs> HostNames
         {
-            get => _hostNameConditions ?? (_hostNameConditions = new InputList<Inputs.FrontdoorRuleConditionsHostNameConditionArgs>());
-            set => _hostNameConditions = value;
+            get => _hostNames ?? (_hostNames = new InputList<Inputs.FrontdoorRuleConditionsHostNameArgs>());
+            set => _hostNames = value;
         }
 
-        [Input("httpVersionConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsHttpVersionConditionArgs>? _httpVersionConditions;
+        [Input("httpVersions")]
+        private InputList<Inputs.FrontdoorRuleConditionsHttpVersionArgs>? _httpVersions;
 
         /// <summary>
-        /// A `HttpVersionCondition` block as defined below.
+        /// One or more `HttpVersion` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsHttpVersionConditionArgs> HttpVersionConditions
+        public InputList<Inputs.FrontdoorRuleConditionsHttpVersionArgs> HttpVersions
         {
-            get => _httpVersionConditions ?? (_httpVersionConditions = new InputList<Inputs.FrontdoorRuleConditionsHttpVersionConditionArgs>());
-            set => _httpVersionConditions = value;
+            get => _httpVersions ?? (_httpVersions = new InputList<Inputs.FrontdoorRuleConditionsHttpVersionArgs>());
+            set => _httpVersions = value;
         }
 
-        [Input("isDeviceConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsIsDeviceConditionArgs>? _isDeviceConditions;
+        [Input("postArguments")]
+        private InputList<Inputs.FrontdoorRuleConditionsPostArgumentArgs>? _postArguments;
 
         /// <summary>
-        /// A `IsDeviceCondition` block as defined below.
+        /// One or more `PostArgument` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsIsDeviceConditionArgs> IsDeviceConditions
+        public InputList<Inputs.FrontdoorRuleConditionsPostArgumentArgs> PostArguments
         {
-            get => _isDeviceConditions ?? (_isDeviceConditions = new InputList<Inputs.FrontdoorRuleConditionsIsDeviceConditionArgs>());
-            set => _isDeviceConditions = value;
+            get => _postArguments ?? (_postArguments = new InputList<Inputs.FrontdoorRuleConditionsPostArgumentArgs>());
+            set => _postArguments = value;
         }
 
-        [Input("postArgsConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsPostArgsConditionArgs>? _postArgsConditions;
+        [Input("queryStrings")]
+        private InputList<Inputs.FrontdoorRuleConditionsQueryStringArgs>? _queryStrings;
 
         /// <summary>
-        /// A `PostArgsCondition` block as defined below.
+        /// One or more `QueryString` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsPostArgsConditionArgs> PostArgsConditions
+        public InputList<Inputs.FrontdoorRuleConditionsQueryStringArgs> QueryStrings
         {
-            get => _postArgsConditions ?? (_postArgsConditions = new InputList<Inputs.FrontdoorRuleConditionsPostArgsConditionArgs>());
-            set => _postArgsConditions = value;
+            get => _queryStrings ?? (_queryStrings = new InputList<Inputs.FrontdoorRuleConditionsQueryStringArgs>());
+            set => _queryStrings = value;
         }
 
-        [Input("queryStringConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsQueryStringConditionArgs>? _queryStringConditions;
+        [Input("remoteAddresses")]
+        private InputList<Inputs.FrontdoorRuleConditionsRemoteAddressArgs>? _remoteAddresses;
 
         /// <summary>
-        /// A `QueryStringCondition` block as defined below.
+        /// One or more `RemoteAddress` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsQueryStringConditionArgs> QueryStringConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRemoteAddressArgs> RemoteAddresses
         {
-            get => _queryStringConditions ?? (_queryStringConditions = new InputList<Inputs.FrontdoorRuleConditionsQueryStringConditionArgs>());
-            set => _queryStringConditions = value;
+            get => _remoteAddresses ?? (_remoteAddresses = new InputList<Inputs.FrontdoorRuleConditionsRemoteAddressArgs>());
+            set => _remoteAddresses = value;
         }
 
-        [Input("remoteAddressConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRemoteAddressConditionArgs>? _remoteAddressConditions;
+        [Input("requestBodies")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestBodyArgs>? _requestBodies;
 
         /// <summary>
-        /// A `RemoteAddressCondition` block as defined below.
+        /// One or more `RequestBody` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRemoteAddressConditionArgs> RemoteAddressConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestBodyArgs> RequestBodies
         {
-            get => _remoteAddressConditions ?? (_remoteAddressConditions = new InputList<Inputs.FrontdoorRuleConditionsRemoteAddressConditionArgs>());
-            set => _remoteAddressConditions = value;
+            get => _requestBodies ?? (_requestBodies = new InputList<Inputs.FrontdoorRuleConditionsRequestBodyArgs>());
+            set => _requestBodies = value;
         }
 
-        [Input("requestBodyConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRequestBodyConditionArgs>? _requestBodyConditions;
+        [Input("requestCookies")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestCookyArgs>? _requestCookies;
 
         /// <summary>
-        /// A `RequestBodyCondition` block as defined below.
+        /// One or more `RequestCookies` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRequestBodyConditionArgs> RequestBodyConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestCookyArgs> RequestCookies
         {
-            get => _requestBodyConditions ?? (_requestBodyConditions = new InputList<Inputs.FrontdoorRuleConditionsRequestBodyConditionArgs>());
-            set => _requestBodyConditions = value;
+            get => _requestCookies ?? (_requestCookies = new InputList<Inputs.FrontdoorRuleConditionsRequestCookyArgs>());
+            set => _requestCookies = value;
         }
 
-        [Input("requestHeaderConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRequestHeaderConditionArgs>? _requestHeaderConditions;
+        [Input("requestFileExtensions")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestFileExtensionArgs>? _requestFileExtensions;
 
         /// <summary>
-        /// A `RequestHeaderCondition` block as defined below.
+        /// One or more `RequestFileExtension` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRequestHeaderConditionArgs> RequestHeaderConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestFileExtensionArgs> RequestFileExtensions
         {
-            get => _requestHeaderConditions ?? (_requestHeaderConditions = new InputList<Inputs.FrontdoorRuleConditionsRequestHeaderConditionArgs>());
-            set => _requestHeaderConditions = value;
+            get => _requestFileExtensions ?? (_requestFileExtensions = new InputList<Inputs.FrontdoorRuleConditionsRequestFileExtensionArgs>());
+            set => _requestFileExtensions = value;
         }
 
-        [Input("requestMethodConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRequestMethodConditionArgs>? _requestMethodConditions;
+        [Input("requestFilenames")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestFilenameArgs>? _requestFilenames;
 
         /// <summary>
-        /// A `RequestMethodCondition` block as defined below.
+        /// One or more `RequestFilename` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRequestMethodConditionArgs> RequestMethodConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestFilenameArgs> RequestFilenames
         {
-            get => _requestMethodConditions ?? (_requestMethodConditions = new InputList<Inputs.FrontdoorRuleConditionsRequestMethodConditionArgs>());
-            set => _requestMethodConditions = value;
+            get => _requestFilenames ?? (_requestFilenames = new InputList<Inputs.FrontdoorRuleConditionsRequestFilenameArgs>());
+            set => _requestFilenames = value;
         }
 
-        [Input("requestSchemeConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRequestSchemeConditionArgs>? _requestSchemeConditions;
+        [Input("requestHeaders")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestHeaderArgs>? _requestHeaders;
 
         /// <summary>
-        /// A `RequestSchemeCondition` block as defined below.
+        /// One or more `RequestHeader` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRequestSchemeConditionArgs> RequestSchemeConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestHeaderArgs> RequestHeaders
         {
-            get => _requestSchemeConditions ?? (_requestSchemeConditions = new InputList<Inputs.FrontdoorRuleConditionsRequestSchemeConditionArgs>());
-            set => _requestSchemeConditions = value;
+            get => _requestHeaders ?? (_requestHeaders = new InputList<Inputs.FrontdoorRuleConditionsRequestHeaderArgs>());
+            set => _requestHeaders = value;
         }
 
-        [Input("requestUriConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsRequestUriConditionArgs>? _requestUriConditions;
+        [Input("requestMethods")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestMethodArgs>? _requestMethods;
 
         /// <summary>
-        /// A `RequestUriCondition` block as defined below.
+        /// One or more `RequestMethod` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsRequestUriConditionArgs> RequestUriConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestMethodArgs> RequestMethods
         {
-            get => _requestUriConditions ?? (_requestUriConditions = new InputList<Inputs.FrontdoorRuleConditionsRequestUriConditionArgs>());
-            set => _requestUriConditions = value;
+            get => _requestMethods ?? (_requestMethods = new InputList<Inputs.FrontdoorRuleConditionsRequestMethodArgs>());
+            set => _requestMethods = value;
         }
 
-        [Input("serverPortConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsServerPortConditionArgs>? _serverPortConditions;
+        [Input("requestPaths")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestPathArgs>? _requestPaths;
 
         /// <summary>
-        /// A `ServerPortCondition` block as defined below.
+        /// One or more `RequestPath` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsServerPortConditionArgs> ServerPortConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestPathArgs> RequestPaths
         {
-            get => _serverPortConditions ?? (_serverPortConditions = new InputList<Inputs.FrontdoorRuleConditionsServerPortConditionArgs>());
-            set => _serverPortConditions = value;
+            get => _requestPaths ?? (_requestPaths = new InputList<Inputs.FrontdoorRuleConditionsRequestPathArgs>());
+            set => _requestPaths = value;
         }
 
-        [Input("socketAddressConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsSocketAddressConditionArgs>? _socketAddressConditions;
+        [Input("requestSchemes")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestSchemeArgs>? _requestSchemes;
 
         /// <summary>
-        /// A `SocketAddressCondition` block as defined below.
+        /// One or more `RequestScheme` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsSocketAddressConditionArgs> SocketAddressConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestSchemeArgs> RequestSchemes
         {
-            get => _socketAddressConditions ?? (_socketAddressConditions = new InputList<Inputs.FrontdoorRuleConditionsSocketAddressConditionArgs>());
-            set => _socketAddressConditions = value;
+            get => _requestSchemes ?? (_requestSchemes = new InputList<Inputs.FrontdoorRuleConditionsRequestSchemeArgs>());
+            set => _requestSchemes = value;
         }
 
-        [Input("sslProtocolConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsSslProtocolConditionArgs>? _sslProtocolConditions;
+        [Input("requestUrls")]
+        private InputList<Inputs.FrontdoorRuleConditionsRequestUrlArgs>? _requestUrls;
 
         /// <summary>
-        /// A `SslProtocolCondition` block as defined below.
+        /// One or more `RequestUrl` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsSslProtocolConditionArgs> SslProtocolConditions
+        public InputList<Inputs.FrontdoorRuleConditionsRequestUrlArgs> RequestUrls
         {
-            get => _sslProtocolConditions ?? (_sslProtocolConditions = new InputList<Inputs.FrontdoorRuleConditionsSslProtocolConditionArgs>());
-            set => _sslProtocolConditions = value;
+            get => _requestUrls ?? (_requestUrls = new InputList<Inputs.FrontdoorRuleConditionsRequestUrlArgs>());
+            set => _requestUrls = value;
         }
 
-        [Input("urlFileExtensionConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsUrlFileExtensionConditionArgs>? _urlFileExtensionConditions;
+        [Input("serverPorts")]
+        private InputList<Inputs.FrontdoorRuleConditionsServerPortArgs>? _serverPorts;
 
         /// <summary>
-        /// A `UrlFileExtensionCondition` block as defined below.
+        /// One or more `ServerPort` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsUrlFileExtensionConditionArgs> UrlFileExtensionConditions
+        public InputList<Inputs.FrontdoorRuleConditionsServerPortArgs> ServerPorts
         {
-            get => _urlFileExtensionConditions ?? (_urlFileExtensionConditions = new InputList<Inputs.FrontdoorRuleConditionsUrlFileExtensionConditionArgs>());
-            set => _urlFileExtensionConditions = value;
+            get => _serverPorts ?? (_serverPorts = new InputList<Inputs.FrontdoorRuleConditionsServerPortArgs>());
+            set => _serverPorts = value;
         }
 
-        [Input("urlFilenameConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs>? _urlFilenameConditions;
+        [Input("socketAddresses")]
+        private InputList<Inputs.FrontdoorRuleConditionsSocketAddressArgs>? _socketAddresses;
 
         /// <summary>
-        /// A `UrlFilenameCondition` block as defined below.
+        /// One or more `SocketAddress` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs> UrlFilenameConditions
+        public InputList<Inputs.FrontdoorRuleConditionsSocketAddressArgs> SocketAddresses
         {
-            get => _urlFilenameConditions ?? (_urlFilenameConditions = new InputList<Inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs>());
-            set => _urlFilenameConditions = value;
+            get => _socketAddresses ?? (_socketAddresses = new InputList<Inputs.FrontdoorRuleConditionsSocketAddressArgs>());
+            set => _socketAddresses = value;
         }
 
-        [Input("urlPathConditions")]
-        private InputList<Inputs.FrontdoorRuleConditionsUrlPathConditionArgs>? _urlPathConditions;
+        [Input("sslProtocols")]
+        private InputList<Inputs.FrontdoorRuleConditionsSslProtocolArgs>? _sslProtocols;
 
         /// <summary>
-        /// A `UrlPathCondition` block as defined below.
+        /// One or more `SslProtocol` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleConditionsUrlPathConditionArgs> UrlPathConditions
+        public InputList<Inputs.FrontdoorRuleConditionsSslProtocolArgs> SslProtocols
         {
-            get => _urlPathConditions ?? (_urlPathConditions = new InputList<Inputs.FrontdoorRuleConditionsUrlPathConditionArgs>());
-            set => _urlPathConditions = value;
+            get => _sslProtocols ?? (_sslProtocols = new InputList<Inputs.FrontdoorRuleConditionsSslProtocolArgs>());
+            set => _sslProtocols = value;
         }
 
         public FrontdoorRuleConditionsArgs()

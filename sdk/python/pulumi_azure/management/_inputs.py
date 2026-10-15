@@ -178,7 +178,7 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
 class GroupPolicyAssignmentOverrideArgsDict(TypedDict):
     value: pulumi.Input[_builtins.str]
     """
-    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
     """
     selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
@@ -191,7 +191,7 @@ class GroupPolicyAssignmentOverrideArgs:
                  value: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input[Optional[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -202,7 +202,7 @@ class GroupPolicyAssignmentOverrideArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 

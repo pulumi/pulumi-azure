@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        /// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

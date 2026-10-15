@@ -50,6 +50,62 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
+    /// ### Cross-Region Incremental Snapshot Copy)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var source = new Azure.Core.ResourceGroup("source", new()
+    ///     {
+    ///         Name = "snapshot-source-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var sourceManagedDisk = new Azure.Compute.ManagedDisk("source", new()
+    ///     {
+    ///         Name = "source-managed-disk",
+    ///         Location = source.Location,
+    ///         ResourceGroupName = source.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 10,
+    ///     });
+    /// 
+    ///     var sourceSnapshot = new Azure.Compute.Snapshot("source", new()
+    ///     {
+    ///         Name = "source-snapshot",
+    ///         Location = source.Location,
+    ///         ResourceGroupName = source.Name,
+    ///         CreateOption = "Copy",
+    ///         SourceUri = sourceManagedDisk.Id,
+    ///         IncrementalEnabled = true,
+    ///     });
+    /// 
+    ///     var target = new Azure.Core.ResourceGroup("target", new()
+    ///     {
+    ///         Name = "snapshot-target-rg",
+    ///         Location = "North Europe",
+    ///     });
+    /// 
+    ///     var targetSnapshot = new Azure.Compute.Snapshot("target", new()
+    ///     {
+    ///         Name = "target-snapshot",
+    ///         Location = target.Location,
+    ///         ResourceGroupName = target.Name,
+    ///         CreateOption = "CopyStart",
+    ///         SourceResourceId = sourceSnapshot.Id,
+    ///         IncrementalEnabled = true,
+    ///         PublicNetworkAccessEnabled = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -69,9 +125,11 @@ namespace Pulumi.Azure.Compute
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
+        /// 
+        /// &gt; **Note:** When `CreateOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -133,7 +191,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
@@ -209,9 +267,11 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
+        /// 
+        /// &gt; **Note:** When `CreateOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -273,7 +333,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -311,9 +371,11 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
+        /// 
+        /// &gt; **Note:** When `CreateOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -375,7 +437,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }

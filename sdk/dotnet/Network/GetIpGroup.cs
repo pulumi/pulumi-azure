@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
@@ -170,6 +170,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> Cidrs;
         /// <summary>
+        /// A list of ID of Firewall.
+        /// </summary>
+        public readonly ImmutableArray<string> FirewallIds;
+        /// <summary>
+        /// A list of ID of Firewall Policy`.
+        /// </summary>
+        public readonly ImmutableArray<string> FirewallPolicyIds;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -188,6 +196,10 @@ namespace Pulumi.Azure.Network
         private GetIpGroupResult(
             ImmutableArray<string> cidrs,
 
+            ImmutableArray<string> firewallIds,
+
+            ImmutableArray<string> firewallPolicyIds,
+
             string id,
 
             string location,
@@ -199,6 +211,8 @@ namespace Pulumi.Azure.Network
             ImmutableDictionary<string, string> tags)
         {
             Cidrs = cidrs;
+            FirewallIds = firewallIds;
+            FirewallPolicyIds = firewallPolicyIds;
             Id = id;
             Location = location;
             Name = name;

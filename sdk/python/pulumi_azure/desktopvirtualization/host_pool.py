@@ -41,9 +41,9 @@ class HostPoolArgs:
         """
         The set of arguments for constructing a HostPool resource.
 
-        :param pulumi.Input[_builtins.str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-               `Persistent` should be used if the host pool type is `Personal`
+        :param pulumi.Input[_builtins.str] load_balancer_type: The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+               
+               > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -100,9 +100,9 @@ class HostPoolArgs:
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Input[_builtins.str]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        `Persistent` should be used if the host pool type is `Personal`
+        The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+
+        > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         """
         return pulumi.get(self, "load_balancer_type")
 
@@ -332,9 +332,9 @@ class _HostPoolState:
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[_builtins.str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-               `Persistent` should be used if the host pool type is `Personal`
+        :param pulumi.Input[_builtins.str] load_balancer_type: The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+               
+               > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
                Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
@@ -427,9 +427,9 @@ class _HostPoolState:
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        `Persistent` should be used if the host pool type is `Personal`
+        The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+
+        > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         """
         return pulumi.get(self, "load_balancer_type")
 
@@ -671,9 +671,9 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[_builtins.str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-               `Persistent` should be used if the host pool type is `Personal`
+        :param pulumi.Input[_builtins.str] load_balancer_type: The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+               
+               > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
                Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
@@ -843,9 +843,9 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[_builtins.str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-               `Persistent` should be used if the host pool type is `Personal`
+        :param pulumi.Input[_builtins.str] load_balancer_type: The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+               
+               > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
                Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
@@ -914,9 +914,9 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[_builtins.str]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        `Persistent` should be used if the host pool type is `Personal`
+        The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+
+        > **Note:** `load_balancer_type` must be set to `Persistent` or `MultiplePersistent` if the `type` of your Virtual Desktop Host Pool is `Personal`.
         """
         return pulumi.get(self, "load_balancer_type")
 

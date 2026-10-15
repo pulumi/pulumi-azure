@@ -103,7 +103,7 @@ export class IotHubDeviceUpdateInstance extends pulumi.CustomResource {
      */
     declare public readonly deviceUpdateAccountId: pulumi.Output<string>;
     /**
-     * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * Whether the diagnostic log collection is enabled. Defaults to `false`.
      */
     declare public readonly diagnosticEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface IotHubDeviceUpdateInstanceState {
      */
     deviceUpdateAccountId?: pulumi.Input<string | undefined>;
     /**
-     * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * Whether the diagnostic log collection is enabled. Defaults to `false`.
      */
     diagnosticEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface IotHubDeviceUpdateInstanceArgs {
      */
     deviceUpdateAccountId: pulumi.Input<string>;
     /**
-     * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * Whether the diagnostic log collection is enabled. Defaults to `false`.
      */
     diagnosticEnabled?: pulumi.Input<boolean | undefined>;
     /**

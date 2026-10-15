@@ -26,7 +26,7 @@ class GetServicePlanResult:
     """
     A collection of values returned by getServicePlan.
     """
-    def __init__(__self__, app_service_environment_id=None, id=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, os_type=None, per_site_scaling_enabled=None, reserved=None, resource_group_name=None, sku_name=None, tags=None, worker_count=None, zone_balancing_enabled=None):
+    def __init__(__self__, app_service_environment_id=None, id=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, os_type=None, per_site_scaling_enabled=None, premium_plan_auto_scale_enabled=None, reserved=None, resource_group_name=None, sku_name=None, tags=None, worker_count=None, zone_balancing_enabled=None):
         if app_service_environment_id and not isinstance(app_service_environment_id, str):
             raise TypeError("Expected argument 'app_service_environment_id' to be a str")
         pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -51,6 +51,9 @@ class GetServicePlanResult:
         if per_site_scaling_enabled and not isinstance(per_site_scaling_enabled, bool):
             raise TypeError("Expected argument 'per_site_scaling_enabled' to be a bool")
         pulumi.set(__self__, "per_site_scaling_enabled", per_site_scaling_enabled)
+        if premium_plan_auto_scale_enabled and not isinstance(premium_plan_auto_scale_enabled, bool):
+            raise TypeError("Expected argument 'premium_plan_auto_scale_enabled' to be a bool")
+        pulumi.set(__self__, "premium_plan_auto_scale_enabled", premium_plan_auto_scale_enabled)
         if reserved and not isinstance(reserved, bool):
             raise TypeError("Expected argument 'reserved' to be a bool")
         pulumi.set(__self__, "reserved", reserved)
@@ -132,6 +135,14 @@ class GetServicePlanResult:
         return pulumi.get(self, "per_site_scaling_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="premiumPlanAutoScaleEnabled")
+    def premium_plan_auto_scale_enabled(self) -> _builtins.bool:
+        """
+        Is premium plan autoscale enabled.
+        """
+        return pulumi.get(self, "premium_plan_auto_scale_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def reserved(self) -> _builtins.bool:
         """
@@ -191,6 +202,7 @@ class AwaitableGetServicePlanResult(GetServicePlanResult):
             name=self.name,
             os_type=self.os_type,
             per_site_scaling_enabled=self.per_site_scaling_enabled,
+            premium_plan_auto_scale_enabled=self.premium_plan_auto_scale_enabled,
             reserved=self.reserved,
             resource_group_name=self.resource_group_name,
             sku_name=self.sku_name,
@@ -242,6 +254,7 @@ def get_service_plan(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         os_type=pulumi.get(__ret__, 'os_type'),
         per_site_scaling_enabled=pulumi.get(__ret__, 'per_site_scaling_enabled'),
+        premium_plan_auto_scale_enabled=pulumi.get(__ret__, 'premium_plan_auto_scale_enabled'),
         reserved=pulumi.get(__ret__, 'reserved'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
@@ -290,6 +303,7 @@ def get_service_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         os_type=pulumi.get(__response__, 'os_type'),
         per_site_scaling_enabled=pulumi.get(__response__, 'per_site_scaling_enabled'),
+        premium_plan_auto_scale_enabled=pulumi.get(__response__, 'premium_plan_auto_scale_enabled'),
         reserved=pulumi.get(__response__, 'reserved'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         sku_name=pulumi.get(__response__, 'sku_name'),

@@ -48,14 +48,14 @@ public final class EmbeddedState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * @return Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -205,7 +205,7 @@ public final class EmbeddedState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+         * @param mode Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class EmbeddedState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+         * @param mode Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

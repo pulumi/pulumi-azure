@@ -26,6 +26,14 @@ namespace Pulumi.Azure.Storage.Inputs
             set => _blobTypes = value;
         }
 
+        /// <summary>
+        /// The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+        /// 
+        /// &gt; **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `CreatedWithinDays` filter.
+        /// </summary>
+        [Input("createdWithinDays")]
+        public Input<int>? CreatedWithinDays { get; set; }
+
         [Input("excludePrefixes")]
         private InputList<string>? _excludePrefixes;
 

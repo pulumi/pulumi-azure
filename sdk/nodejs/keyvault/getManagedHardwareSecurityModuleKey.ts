@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         name: exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name,
  *     });
  *     return {
- *         "hsm-key-vesrion": example.version,
+ *         "hsm-key-version": example.version,
  *     };
  * }
  * ```
@@ -110,7 +110,7 @@ export interface GetManagedHardwareSecurityModuleKeyResult {
  *         name: exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name,
  *     });
  *     return {
- *         "hsm-key-vesrion": example.version,
+ *         "hsm-key-version": example.version,
  *     };
  * }
  * ```

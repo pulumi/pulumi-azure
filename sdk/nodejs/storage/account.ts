@@ -53,8 +53,12 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: [
- *         "Microsoft.Sql",
- *         "Microsoft.Storage",
+ *         {
+ *             service: "Microsoft.Sql",
+ *         },
+ *         {
+ *             service: "Microsoft.Storage",
+ *         },
  *     ],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
@@ -128,9 +132,21 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly accountKind: pulumi.Output<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     declare public readonly accountReplicationType: pulumi.Output<string>;
+    /**
+     * The `accountReplicationType` that the Storage Account is migrating to.
+     */
+    declare public /*out*/ readonly accountReplicationTypeMigratingTo: pulumi.Output<string>;
+    /**
+     * Whether a replication type migration is in progress.
+     */
+    declare public /*out*/ readonly accountReplicationTypeMigrationInProgress: pulumi.Output<boolean>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
@@ -138,7 +154,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly accountTier: pulumi.Output<string>;
     /**
-     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
@@ -222,7 +238,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      *
@@ -392,21 +408,17 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly provisionedBillingModelVersion: pulumi.Output<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      */
-    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+     */
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
     declare public readonly queueEncryptionKeyType: pulumi.Output<string | undefined>;
-    /**
-     * A `queueProperties` block as defined below.
-     *
-     * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly queueProperties: pulumi.Output<outputs.storage.AccountQueueProperties>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
@@ -582,16 +594,6 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly sharedAccessKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A `staticWebsite` block as defined below.
-     *
-     * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     *
-     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly staticWebsite: pulumi.Output<outputs.storage.AccountStaticWebsite>;
-    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -618,6 +620,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accessTier"] = state?.accessTier;
             resourceInputs["accountKind"] = state?.accountKind;
             resourceInputs["accountReplicationType"] = state?.accountReplicationType;
+            resourceInputs["accountReplicationTypeMigratingTo"] = state?.accountReplicationTypeMigratingTo;
+            resourceInputs["accountReplicationTypeMigrationInProgress"] = state?.accountReplicationTypeMigrationInProgress;
             resourceInputs["accountTier"] = state?.accountTier;
             resourceInputs["allowNestedItemsToBePublic"] = state?.allowNestedItemsToBePublic;
             resourceInputs["allowedCopyScope"] = state?.allowedCopyScope;
@@ -678,9 +682,9 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryWebMicrosoftEndpoint"] = state?.primaryWebMicrosoftEndpoint;
             resourceInputs["primaryWebMicrosoftHost"] = state?.primaryWebMicrosoftHost;
             resourceInputs["provisionedBillingModelVersion"] = state?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["queueEncryptionKeyType"] = state?.queueEncryptionKeyType;
-            resourceInputs["queueProperties"] = state?.queueProperties;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["routing"] = state?.routing;
             resourceInputs["sasPolicy"] = state?.sasPolicy;
@@ -723,7 +727,6 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["sftpEnabled"] = state?.sftpEnabled;
             resourceInputs["shareProperties"] = state?.shareProperties;
             resourceInputs["sharedAccessKeyEnabled"] = state?.sharedAccessKeyEnabled;
-            resourceInputs["staticWebsite"] = state?.staticWebsite;
             resourceInputs["tableEncryptionKeyType"] = state?.tableEncryptionKeyType;
             resourceInputs["tags"] = state?.tags;
         } else {
@@ -764,18 +767,19 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["networkRules"] = args?.networkRules;
             resourceInputs["nfsv3Enabled"] = args?.nfsv3Enabled;
             resourceInputs["provisionedBillingModelVersion"] = args?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["queueEncryptionKeyType"] = args?.queueEncryptionKeyType;
-            resourceInputs["queueProperties"] = args?.queueProperties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["routing"] = args?.routing;
             resourceInputs["sasPolicy"] = args?.sasPolicy;
             resourceInputs["sftpEnabled"] = args?.sftpEnabled;
             resourceInputs["shareProperties"] = args?.shareProperties;
             resourceInputs["sharedAccessKeyEnabled"] = args?.sharedAccessKeyEnabled;
-            resourceInputs["staticWebsite"] = args?.staticWebsite;
             resourceInputs["tableEncryptionKeyType"] = args?.tableEncryptionKeyType;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["accountReplicationTypeMigratingTo"] = undefined /*out*/;
+            resourceInputs["accountReplicationTypeMigrationInProgress"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["primaryBlobConnectionString"] = undefined /*out*/;
             resourceInputs["primaryBlobEndpoint"] = undefined /*out*/;
@@ -871,9 +875,21 @@ export interface AccountState {
      */
     accountKind?: pulumi.Input<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     accountReplicationType?: pulumi.Input<string | undefined>;
+    /**
+     * The `accountReplicationType` that the Storage Account is migrating to.
+     */
+    accountReplicationTypeMigratingTo?: pulumi.Input<string | undefined>;
+    /**
+     * Whether a replication type migration is in progress.
+     */
+    accountReplicationTypeMigrationInProgress?: pulumi.Input<boolean | undefined>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
@@ -881,7 +897,7 @@ export interface AccountState {
      */
     accountTier?: pulumi.Input<string | undefined>;
     /**
-     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
@@ -965,7 +981,7 @@ export interface AccountState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      *
@@ -1135,21 +1151,17 @@ export interface AccountState {
      */
     provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
     queueEncryptionKeyType?: pulumi.Input<string | undefined>;
-    /**
-     * A `queueProperties` block as defined below.
-     *
-     * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties | undefined>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
@@ -1325,16 +1337,6 @@ export interface AccountState {
      */
     sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A `staticWebsite` block as defined below.
-     *
-     * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     *
-     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite | undefined>;
-    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1361,7 +1363,11 @@ export interface AccountArgs {
      */
     accountKind?: pulumi.Input<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     *
+     * > **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     *
+     * > **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      */
     accountReplicationType: pulumi.Input<string>;
     /**
@@ -1371,7 +1377,7 @@ export interface AccountArgs {
      */
     accountTier: pulumi.Input<string>;
     /**
-     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
@@ -1455,7 +1461,7 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      *
@@ -1481,21 +1487,17 @@ export interface AccountArgs {
      */
     provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
     queueEncryptionKeyType?: pulumi.Input<string | undefined>;
-    /**
-     * A `queueProperties` block as defined below.
-     *
-     * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties | undefined>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
@@ -1526,16 +1528,6 @@ export interface AccountArgs {
      * > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
      */
     sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * A `staticWebsite` block as defined below.
-     *
-     * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     *
-     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     *
-     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     */
-    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite | undefined>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *

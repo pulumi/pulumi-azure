@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dataprotection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,9 +73,7 @@ type BackupVault struct {
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
 	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DatastoreType pulumi.StringOutput `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrOutput `pulumi:"identity"`
@@ -144,9 +142,7 @@ type backupVaultState struct {
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DatastoreType *string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
@@ -177,9 +173,7 @@ type BackupVaultState struct {
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DatastoreType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
@@ -214,9 +208,7 @@ type backupVaultArgs struct {
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DatastoreType string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
@@ -248,9 +240,7 @@ type BackupVaultArgs struct {
 	//
 	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 	DatastoreType pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
@@ -370,9 +360,7 @@ func (o BackupVaultOutput) CrossRegionRestoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.BoolPtrOutput { return v.CrossRegionRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-//
-// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
 func (o BackupVaultOutput) DatastoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.DatastoreType }).(pulumi.StringOutput)
 }

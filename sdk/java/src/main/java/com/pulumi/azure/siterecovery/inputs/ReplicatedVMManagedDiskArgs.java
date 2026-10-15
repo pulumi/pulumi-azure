@@ -65,7 +65,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     /**
      * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     @Import(name="targetDiskEncryptionSetId")
@@ -74,7 +74,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     public Optional<Output<String>> targetDiskEncryptionSetId() {
@@ -82,14 +82,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     @Import(name="targetDiskType", required=true)
     private Output<String> targetDiskType;
 
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     public Output<String> targetDiskType() {
@@ -97,14 +97,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     @Import(name="targetReplicaDiskType", required=true)
     private Output<String> targetReplicaDiskType;
 
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
      * 
      */
     public Output<String> targetReplicaDiskType() {
@@ -222,7 +222,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         /**
          * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+         * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         /**
          * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+         * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          * 
          * @return builder
          * 

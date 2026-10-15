@@ -10,6 +10,7 @@ from .autonomous_database import *
 from .autonomous_database_backup import *
 from .autonomous_database_clone_from_backup import *
 from .autonomous_database_clone_from_database import *
+from .autonomous_database_cross_region_disaster_recovery import *
 from .cloud_vm_cluster import *
 from .exadata_infrastructure import *
 from .exascale_database_storage_vault import *
@@ -20,6 +21,7 @@ from .get_autonomous_database_backup import *
 from .get_autonomous_database_backups import *
 from .get_autonomous_database_clone_from_backup import *
 from .get_autonomous_database_clone_from_database import *
+from .get_autonomous_database_cross_region_disaster_recovery import *
 from .get_cloud_vm_cluster import *
 from .get_database_system_versions import *
 from .get_db_nodes import *

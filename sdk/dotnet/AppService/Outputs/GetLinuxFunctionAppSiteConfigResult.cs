@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Default action for traffic that does not match any `ScmIpRestriction` rule.
         /// </summary>
-        public readonly string? ScmIpRestrictionDefaultAction;
+        public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
         /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool runtimeScaleMonitoringEnabled,
 
-            string? scmIpRestrictionDefaultAction,
+            string scmIpRestrictionDefaultAction,
 
             ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionResult> scmIpRestrictions,
 

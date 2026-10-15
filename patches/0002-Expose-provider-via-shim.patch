@@ -7,7 +7,7 @@ Add shim module containing a public method which constructs a new instance of th
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000000..e5291c4749
+index 000000000000..e5291c47494f
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,14 @@

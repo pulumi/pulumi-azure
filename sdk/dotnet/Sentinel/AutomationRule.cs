@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<Outputs.AutomationRuleActionPlaybook>> ActionPlaybooks { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         /// </summary>
         [Output("conditionJson")]
         public Output<string?> ConditionJson { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         /// </summary>
         [Input("conditionJson")]
         public Input<string>? ConditionJson { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         /// </summary>
         [Input("conditionJson")]
         public Input<string>? ConditionJson { get; set; }

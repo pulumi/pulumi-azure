@@ -44,11 +44,11 @@ namespace Pulumi.Azure.Stack
     ///         {
     ///             IpAllocationMethod = "Static",
     ///             AddressPrefix = "10.0.0.0/24",
-    ///             Route = 
+    ///             Route = new Azure.Stack.Inputs.HciLogicalNetworkSubnetRouteArgs
     ///             {
-    ///                 { "name", "example-route" },
-    ///                 { "addressPrefix", "0.0.0.0/0" },
-    ///                 { "nextHopIpAddress", "10.0.20.1" },
+    ///                 Name = "example-route",
+    ///                 AddressPrefix = "0.0.0.0/0",
+    ///                 NextHopIpAddress = "10.0.20.1",
     ///             },
     ///             VlanId = 123,
     ///         },

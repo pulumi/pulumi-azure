@@ -656,6 +656,13 @@ class SparkPool(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Synapse` - 2021-06-01
+
         ## Import
 
         Synapse Spark Pool can be imported using the `resource id`, e.g.
@@ -745,6 +752,13 @@ class SparkPool(pulumi.CustomResource):
                 "ENV": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Synapse` - 2021-06-01
 
         ## Import
 

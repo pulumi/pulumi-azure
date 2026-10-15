@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/batch"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,8 +73,6 @@ type LookupPoolResult struct {
 	AccountName string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScales []GetPoolAutoScale `pulumi:"autoScales"`
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfigurations []GetPoolContainerConfiguration `pulumi:"containerConfigurations"`
 	// A `dataDisks` block describes the data disk settings.
@@ -163,11 +161,6 @@ func (o LookupPoolResultOutput) AccountName() pulumi.StringOutput {
 // A `autoScale` block that describes the scale settings when using auto scale.
 func (o LookupPoolResultOutput) AutoScales() GetPoolAutoScaleArrayOutput {
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolAutoScale { return v.AutoScales }).(GetPoolAutoScaleArrayOutput)
-}
-
-// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-func (o LookupPoolResultOutput) Certificates() GetPoolCertificateArrayOutput {
-	return o.ApplyT(func(v LookupPoolResult) []GetPoolCertificate { return v.Certificates }).(GetPoolCertificateArrayOutput)
 }
 
 // The container configuration used in the pool's VMs.

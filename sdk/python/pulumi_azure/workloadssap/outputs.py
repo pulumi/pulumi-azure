@@ -303,7 +303,7 @@ class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration(
         :param _builtins.int number_of_disks: The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
         :param _builtins.int size_in_gb: The size of the Disk in GB. Changing this forces a new resource to be created.
         :param _builtins.str sku_name: The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
-        :param _builtins.str volume_name: Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+        :param _builtins.str volume_name: Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -338,7 +338,7 @@ class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration(
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> _builtins.str:
         """
-        Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+        Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_name")
 
@@ -1427,7 +1427,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationD
         :param _builtins.int number_of_disks: The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
         :param _builtins.int size_in_gb: The size of the Disk in GB. Changing this forces a new resource to be created.
         :param _builtins.str sku_name: The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
-        :param _builtins.str volume_name: Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+        :param _builtins.str volume_name: Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "number_of_disks", number_of_disks)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -1462,7 +1462,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationD
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> _builtins.str:
         """
-        Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+        Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_name")
 

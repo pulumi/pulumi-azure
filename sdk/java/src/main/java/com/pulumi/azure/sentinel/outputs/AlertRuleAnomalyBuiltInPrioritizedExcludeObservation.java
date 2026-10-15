@@ -22,7 +22,7 @@ public final class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
      */
     private @Nullable String exclude;
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String name;
@@ -48,7 +48,7 @@ public final class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
         return Optional.ofNullable(this.exclude);
     }
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> name() {

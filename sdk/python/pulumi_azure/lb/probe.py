@@ -23,6 +23,7 @@ class ProbeArgs:
                  port: pulumi.Input[_builtins.int],
                  interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_healthy_backends_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
                  probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,6 +35,7 @@ class ProbeArgs:
         :param pulumi.Input[_builtins.int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] no_healthy_backends_behavior: Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
         :param pulumi.Input[_builtins.int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[_builtins.int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         :param pulumi.Input[_builtins.str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
@@ -45,6 +47,8 @@ class ProbeArgs:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if no_healthy_backends_behavior is not None:
+            pulumi.set(__self__, "no_healthy_backends_behavior", no_healthy_backends_behavior)
         if number_of_probes is not None:
             pulumi.set(__self__, "number_of_probes", number_of_probes)
         if probe_threshold is not None:
@@ -103,6 +107,18 @@ class ProbeArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="noHealthyBackendsBehavior")
+    def no_healthy_backends_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        """
+        return pulumi.get(self, "no_healthy_backends_behavior")
+
+    @no_healthy_backends_behavior.setter
+    def no_healthy_backends_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "no_healthy_backends_behavior", value)
+
+    @_builtins.property
     @pulumi.getter(name="numberOfProbes")
     def number_of_probes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -158,6 +174,7 @@ class _ProbeState:
                  load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_healthy_backends_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
@@ -169,6 +186,7 @@ class _ProbeState:
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] no_healthy_backends_behavior: Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
         :param pulumi.Input[_builtins.int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[_builtins.int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[_builtins.int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
@@ -183,6 +201,8 @@ class _ProbeState:
             pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if no_healthy_backends_behavior is not None:
+            pulumi.set(__self__, "no_healthy_backends_behavior", no_healthy_backends_behavior)
         if number_of_probes is not None:
             pulumi.set(__self__, "number_of_probes", number_of_probes)
         if port is not None:
@@ -238,6 +258,18 @@ class _ProbeState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noHealthyBackendsBehavior")
+    def no_healthy_backends_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        """
+        return pulumi.get(self, "no_healthy_backends_behavior")
+
+    @no_healthy_backends_behavior.setter
+    def no_healthy_backends_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "no_healthy_backends_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfProbes")
@@ -309,6 +341,7 @@ class Probe(pulumi.CustomResource):
                  interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_healthy_backends_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
@@ -353,7 +386,7 @@ class Probe(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2023-09-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -369,6 +402,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] no_healthy_backends_behavior: Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
         :param pulumi.Input[_builtins.int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[_builtins.int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[_builtins.int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
@@ -419,7 +453,7 @@ class Probe(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2023-09-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -448,6 +482,7 @@ class Probe(pulumi.CustomResource):
                  interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_healthy_backends_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
@@ -467,6 +502,7 @@ class Probe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__.__dict__["loadbalancer_id"] = loadbalancer_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["no_healthy_backends_behavior"] = no_healthy_backends_behavior
             __props__.__dict__["number_of_probes"] = number_of_probes
             if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
@@ -489,6 +525,7 @@ class Probe(pulumi.CustomResource):
             load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            no_healthy_backends_behavior: pulumi.Input[Optional[_builtins.str]] = None,
             number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
             probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
@@ -504,6 +541,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] no_healthy_backends_behavior: Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
         :param pulumi.Input[_builtins.int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[_builtins.int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[_builtins.int] probe_threshold: The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
@@ -518,6 +556,7 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["load_balancer_rules"] = load_balancer_rules
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["no_healthy_backends_behavior"] = no_healthy_backends_behavior
         __props__.__dict__["number_of_probes"] = number_of_probes
         __props__.__dict__["port"] = port
         __props__.__dict__["probe_threshold"] = probe_threshold
@@ -553,6 +592,14 @@ class Probe(pulumi.CustomResource):
         Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="noHealthyBackendsBehavior")
+    def no_healthy_backends_behavior(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+        """
+        return pulumi.get(self, "no_healthy_backends_behavior")
 
     @_builtins.property
     @pulumi.getter(name="numberOfProbes")

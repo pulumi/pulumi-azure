@@ -75,7 +75,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Output("dnsSubscription")]
         public Output<string?> DnsSubscription { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Input("dnsSubscription")]
         public Input<string>? DnsSubscription { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Input("dnsSubscription")]
         public Input<string>? DnsSubscription { get; set; }

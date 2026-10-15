@@ -152,14 +152,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
     @Export(name="ordererEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> ordererEndpoints;
 
     /**
-     * @return An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * @return An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
     public Output<List<String>> ordererEndpoints() {
@@ -222,14 +222,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.serviceEndpoints;
     }
     /**
-     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
     @Export(name="storageEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> storageEndpoints;
 
     /**
-     * @return An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
+     * @return An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
     public Output<List<String>> storageEndpoints() {

@@ -6,10 +6,7 @@ package com.pulumi.azure.redis;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.redis.inputs.GetCacheArgs;
 import com.pulumi.azure.redis.inputs.GetCachePlainArgs;
-import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
-import com.pulumi.azure.redis.inputs.GetEnterpriseDatabasePlainArgs;
 import com.pulumi.azure.redis.outputs.GetCacheResult;
-import com.pulumi.azure.redis.outputs.GetEnterpriseDatabaseResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -267,95 +264,5 @@ public final class RedisFunctions {
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:redis/getCache:getCache", TypeShape.of(GetCacheResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
-     * 
-     * ## Example Usage
-     * 
-     * ## API Providers
-     * 
-     * &lt;!-- This section is generated, changes will be overwritten --&gt;
-     * This data source uses the following Azure API Providers:
-     * 
-     * * `Microsoft.Cache` - 2024-10-01
-     * 
-     */
-    public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args) {
-        return getEnterpriseDatabase(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
-     * 
-     * ## Example Usage
-     * 
-     * ## API Providers
-     * 
-     * &lt;!-- This section is generated, changes will be overwritten --&gt;
-     * This data source uses the following Azure API Providers:
-     * 
-     * * `Microsoft.Cache` - 2024-10-01
-     * 
-     */
-    public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args) {
-        return getEnterpriseDatabasePlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
-     * 
-     * ## Example Usage
-     * 
-     * ## API Providers
-     * 
-     * &lt;!-- This section is generated, changes will be overwritten --&gt;
-     * This data source uses the following Azure API Providers:
-     * 
-     * * `Microsoft.Cache` - 2024-10-01
-     * 
-     */
-    public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", TypeShape.of(GetEnterpriseDatabaseResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
-     * 
-     * ## Example Usage
-     * 
-     * ## API Providers
-     * 
-     * &lt;!-- This section is generated, changes will be overwritten --&gt;
-     * This data source uses the following Azure API Providers:
-     * 
-     * * `Microsoft.Cache` - 2024-10-01
-     * 
-     */
-    public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", TypeShape.of(GetEnterpriseDatabaseResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
-     * 
-     * ## Example Usage
-     * 
-     * ## API Providers
-     * 
-     * &lt;!-- This section is generated, changes will be overwritten --&gt;
-     * This data source uses the following Azure API Providers:
-     * 
-     * * `Microsoft.Cache` - 2024-10-01
-     * 
-     */
-    public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", TypeShape.of(GetEnterpriseDatabaseResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BackendCircuitBreakerRule {
     /**
-     * @return Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+     * @return Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
      * 
      */
     private @Nullable Boolean acceptRetryAfterEnabled;
@@ -37,7 +37,7 @@ public final class BackendCircuitBreakerRule {
 
     private BackendCircuitBreakerRule() {}
     /**
-     * @return Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+     * @return Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
      * 
      */
     public Optional<Boolean> acceptRetryAfterEnabled() {

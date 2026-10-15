@@ -79,7 +79,7 @@ resources:
     properties:
       location: ${rg.location}
       resourceGroupName: ${rg.name}
-      disableBgpRoutePropagation: false
+      bgpRoutePropagationEnabled: true
   routeTableAssoc1:
     type: azure:network:SubnetRouteTableAssociation
     properties:
@@ -91,7 +91,7 @@ resources:
     properties:
       location: West US 2
       resourceGroupName: ${rg.name}
-      disableBgpRoutePropagation: false
+      bgpRoutePropagationEnabled: true
   routeTableAssoc2:
     type: azure:network:SubnetRouteTableAssociation
     properties:
@@ -99,7 +99,7 @@ resources:
       routeTableId: ${routeTable2.id}
 
   primary:
-    type: azure:sql:ManagedInstance
+    type: azure:mssql:ManagedInstance
     properties:
       resourceGroupName: ${rg.name}
       location: ${rg.location}
@@ -112,7 +112,7 @@ resources:
       storageSizeInGb: 32
 
   secondary:
-    type: azure:sql:ManagedInstance
+    type: azure:mssql:ManagedInstance
     properties:
       name: example-secondary
       resourceGroupName: ${rg.name}
@@ -126,7 +126,7 @@ resources:
       storageSizeInGb: 32
 
   failoverGroup:
-    type: azure:sql:ManagedInstanceFailoverGroup
+    type: azure:mssql:ManagedInstanceFailoverGroup
     name: failovergroup # must be lower-case
     properties:
       resourceGroupName: ${rg.name}
@@ -138,7 +138,7 @@ resources:
         graceMinutes: 60
 
   db:
-    type: azure:sql:ManagedDatabase
+    type: azure:mssql:ManagedDatabase
     properties:
-      sqlManagedInstanceId: ${primary.id}
+      managedInstanceId: ${primary.id}
       location: ${rg.location}

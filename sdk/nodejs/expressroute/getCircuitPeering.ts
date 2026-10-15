@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getCircuitPeering(args: GetCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +74,14 @@ export interface GetCircuitPeeringResult {
      * Indicates if IPv4 is enabled.
      */
     readonly ipv4Enabled: boolean;
+    /**
+     * A block describing the IPv6 configuration, if enabled.
+     */
+    readonly ipv6s: outputs.expressroute.GetCircuitPeeringIpv6[];
+    /**
+     * A block describing the Microsoft Peering configuration, if applicable.
+     */
+    readonly microsoftPeeringConfigs: outputs.expressroute.GetCircuitPeeringMicrosoftPeeringConfig[];
     readonly peerAsn: number;
     /**
      * The type of the ExpressRoute Circuit Peering.
@@ -82,17 +92,20 @@ export interface GetCircuitPeeringResult {
      */
     readonly primaryAzurePort: string;
     /**
-     * The primary peer address prefix.
+     * A subnet for the primary link.
      */
     readonly primaryPeerAddressPrefix: string;
     readonly resourceGroupName: string;
+    /**
+     * The ID of the Route Filter.
+     */
     readonly routeFilterId: string;
     /**
      * The secondary port used by Azure for this peering.
      */
     readonly secondaryAzurePort: string;
     /**
-     * The secondary peer address prefix.
+     * A subnet for the secondary link.
      */
     readonly secondaryPeerAddressPrefix: string;
     readonly sharedKey: string;
@@ -122,7 +135,7 @@ export interface GetCircuitPeeringResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

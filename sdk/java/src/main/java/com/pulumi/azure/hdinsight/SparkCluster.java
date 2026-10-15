@@ -93,34 +93,35 @@ import javax.annotation.Nullable;
  *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion("3.6")
+ *             .clusterVersion("5.1")
  *             .tier("Standard")
+ *             .tlsMinVersion("1.2")
  *             .componentVersion(SparkClusterComponentVersionArgs.builder()
- *                 .spark("2.3")
+ *                 .spark("3.3")
  *                 .build())
  *             .gateway(SparkClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
  *                 .build())
  *             .storageAccounts(SparkClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
+ *                 .storageContainerUrl(exampleContainer.url())
  *                 .storageAccountKey(exampleAccount.primaryAccessKey())
  *                 .isDefault(true)
  *                 .build())
  *             .roles(SparkClusterRolesArgs.builder()
  *                 .headNode(SparkClusterRolesHeadNodeArgs.builder()
- *                     .vmSize("Standard_A3")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(SparkClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize("Standard_A3")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(SparkClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize("Medium")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
@@ -461,20 +462,16 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
     @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tlsMinVersion;
+    private Output<String> tlsMinVersion;
 
     /**
      * @return The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
-    public Output<Optional<String>> tlsMinVersion() {
-        return Codegen.optional(this.tlsMinVersion);
+    public Output<String> tlsMinVersion() {
+        return this.tlsMinVersion;
     }
     /**
      * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.

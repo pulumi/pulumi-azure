@@ -43,17 +43,9 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         return Optional.ofNullable(this.advancedFilter);
     }
 
-    /**
-     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * 
-     */
     @Import(name="advancedFilteringOnArraysEnabled")
     private @Nullable Output<Boolean> advancedFilteringOnArraysEnabled;
 
-    /**
-     * @return Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> advancedFilteringOnArraysEnabled() {
         return Optional.ofNullable(this.advancedFilteringOnArraysEnabled);
     }
@@ -73,21 +65,9 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         return Optional.ofNullable(this.azureFunctionEndpoint);
     }
 
-    /**
-     * A `deadLetterIdentity` block as defined below.
-     * 
-     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     * 
-     */
     @Import(name="deadLetterIdentity")
     private @Nullable Output<SystemTopicEventSubscriptionDeadLetterIdentityArgs> deadLetterIdentity;
 
-    /**
-     * @return A `deadLetterIdentity` block as defined below.
-     * 
-     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     * 
-     */
     public Optional<Output<SystemTopicEventSubscriptionDeadLetterIdentityArgs>> deadLetterIdentity() {
         return Optional.ofNullable(this.deadLetterIdentity);
     }
@@ -107,17 +87,9 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         return Optional.ofNullable(this.deliveryIdentity);
     }
 
-    /**
-     * One or more `deliveryProperty` blocks as defined below.
-     * 
-     */
     @Import(name="deliveryProperties")
     private @Nullable Output<List<SystemTopicEventSubscriptionDeliveryPropertyArgs>> deliveryProperties;
 
-    /**
-     * @return One or more `deliveryProperty` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<SystemTopicEventSubscriptionDeliveryPropertyArgs>>> deliveryProperties() {
         return Optional.ofNullable(this.deliveryProperties);
     }
@@ -141,15 +113,15 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Import(name="eventhubEndpointId")
-    private @Nullable Output<String> eventhubEndpointId;
+    @Import(name="eventhubId")
+    private @Nullable Output<String> eventhubId;
 
     /**
      * @return Specifies the id where the Event Hub is located.
      * 
      */
-    public Optional<Output<String>> eventhubEndpointId() {
-        return Optional.ofNullable(this.eventhubEndpointId);
+    public Optional<Output<String>> eventhubId() {
+        return Optional.ofNullable(this.eventhubId);
     }
 
     /**
@@ -171,19 +143,21 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Import(name="hybridConnectionEndpointId")
-    private @Nullable Output<String> hybridConnectionEndpointId;
+    @Import(name="hybridConnectionId")
+    private @Nullable Output<String> hybridConnectionId;
 
     /**
      * @return Specifies the id where the Hybrid Connection is located.
      * 
      */
-    public Optional<Output<String>> hybridConnectionEndpointId() {
-        return Optional.ofNullable(this.hybridConnectionEndpointId);
+    public Optional<Output<String>> hybridConnectionId() {
+        return Optional.ofNullable(this.hybridConnectionId);
     }
 
     /**
      * A list of applicable event types that need to be part of the event subscription.
+     * 
+     * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
      * 
      */
     @Import(name="includedEventTypes")
@@ -192,22 +166,16 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
     /**
      * @return A list of applicable event types that need to be part of the event subscription.
      * 
+     * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
+     * 
      */
     public Optional<Output<List<String>>> includedEventTypes() {
         return Optional.ofNullable(this.includedEventTypes);
     }
 
-    /**
-     * A list of labels to assign to the event subscription.
-     * 
-     */
     @Import(name="labels")
     private @Nullable Output<List<String>> labels;
 
-    /**
-     * @return A list of labels to assign to the event subscription.
-     * 
-     */
     public Optional<Output<List<String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
@@ -242,17 +210,9 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         return this.resourceGroupName;
     }
 
-    /**
-     * A `retryPolicy` block as defined below.
-     * 
-     */
     @Import(name="retryPolicy")
     private @Nullable Output<SystemTopicEventSubscriptionRetryPolicyArgs> retryPolicy;
 
-    /**
-     * @return A `retryPolicy` block as defined below.
-     * 
-     */
     public Optional<Output<SystemTopicEventSubscriptionRetryPolicyArgs>> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
@@ -261,43 +221,35 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Import(name="serviceBusQueueEndpointId")
-    private @Nullable Output<String> serviceBusQueueEndpointId;
+    @Import(name="serviceBusQueueId")
+    private @Nullable Output<String> serviceBusQueueId;
 
     /**
      * @return Specifies the id where the Service Bus Queue is located.
      * 
      */
-    public Optional<Output<String>> serviceBusQueueEndpointId() {
-        return Optional.ofNullable(this.serviceBusQueueEndpointId);
+    public Optional<Output<String>> serviceBusQueueId() {
+        return Optional.ofNullable(this.serviceBusQueueId);
     }
 
     /**
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Import(name="serviceBusTopicEndpointId")
-    private @Nullable Output<String> serviceBusTopicEndpointId;
+    @Import(name="serviceBusTopicId")
+    private @Nullable Output<String> serviceBusTopicId;
 
     /**
      * @return Specifies the id where the Service Bus Topic is located.
      * 
      */
-    public Optional<Output<String>> serviceBusTopicEndpointId() {
-        return Optional.ofNullable(this.serviceBusTopicEndpointId);
+    public Optional<Output<String>> serviceBusTopicId() {
+        return Optional.ofNullable(this.serviceBusTopicId);
     }
 
-    /**
-     * A `storageBlobDeadLetterDestination` block as defined below.
-     * 
-     */
     @Import(name="storageBlobDeadLetterDestination")
     private @Nullable Output<SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs> storageBlobDeadLetterDestination;
 
-    /**
-     * @return A `storageBlobDeadLetterDestination` block as defined below.
-     * 
-     */
     public Optional<Output<SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs>> storageBlobDeadLetterDestination() {
         return Optional.ofNullable(this.storageBlobDeadLetterDestination);
     }
@@ -350,7 +302,7 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
     /**
      * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     @Import(name="webhookEndpoint")
@@ -359,7 +311,7 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
     /**
      * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionWebhookEndpointArgs>> webhookEndpoint() {
@@ -376,16 +328,16 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         this.deliveryIdentity = $.deliveryIdentity;
         this.deliveryProperties = $.deliveryProperties;
         this.eventDeliverySchema = $.eventDeliverySchema;
-        this.eventhubEndpointId = $.eventhubEndpointId;
+        this.eventhubId = $.eventhubId;
         this.expirationTimeUtc = $.expirationTimeUtc;
-        this.hybridConnectionEndpointId = $.hybridConnectionEndpointId;
+        this.hybridConnectionId = $.hybridConnectionId;
         this.includedEventTypes = $.includedEventTypes;
         this.labels = $.labels;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.retryPolicy = $.retryPolicy;
-        this.serviceBusQueueEndpointId = $.serviceBusQueueEndpointId;
-        this.serviceBusTopicEndpointId = $.serviceBusTopicEndpointId;
+        this.serviceBusQueueId = $.serviceBusQueueId;
+        this.serviceBusTopicId = $.serviceBusTopicId;
         this.storageBlobDeadLetterDestination = $.storageBlobDeadLetterDestination;
         this.storageQueueEndpoint = $.storageQueueEndpoint;
         this.subjectFilter = $.subjectFilter;
@@ -432,23 +384,11 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
             return advancedFilter(Output.of(advancedFilter));
         }
 
-        /**
-         * @param advancedFilteringOnArraysEnabled Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedFilteringOnArraysEnabled(@Nullable Output<Boolean> advancedFilteringOnArraysEnabled) {
             $.advancedFilteringOnArraysEnabled = advancedFilteringOnArraysEnabled;
             return this;
         }
 
-        /**
-         * @param advancedFilteringOnArraysEnabled Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedFilteringOnArraysEnabled(Boolean advancedFilteringOnArraysEnabled) {
             return advancedFilteringOnArraysEnabled(Output.of(advancedFilteringOnArraysEnabled));
         }
@@ -474,27 +414,11 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
             return azureFunctionEndpoint(Output.of(azureFunctionEndpoint));
         }
 
-        /**
-         * @param deadLetterIdentity A `deadLetterIdentity` block as defined below.
-         * 
-         * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-         * 
-         * @return builder
-         * 
-         */
         public Builder deadLetterIdentity(@Nullable Output<SystemTopicEventSubscriptionDeadLetterIdentityArgs> deadLetterIdentity) {
             $.deadLetterIdentity = deadLetterIdentity;
             return this;
         }
 
-        /**
-         * @param deadLetterIdentity A `deadLetterIdentity` block as defined below.
-         * 
-         * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-         * 
-         * @return builder
-         * 
-         */
         public Builder deadLetterIdentity(SystemTopicEventSubscriptionDeadLetterIdentityArgs deadLetterIdentity) {
             return deadLetterIdentity(Output.of(deadLetterIdentity));
         }
@@ -520,33 +444,15 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
             return deliveryIdentity(Output.of(deliveryIdentity));
         }
 
-        /**
-         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryProperties(@Nullable Output<List<SystemTopicEventSubscriptionDeliveryPropertyArgs>> deliveryProperties) {
             $.deliveryProperties = deliveryProperties;
             return this;
         }
 
-        /**
-         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryProperties(List<SystemTopicEventSubscriptionDeliveryPropertyArgs> deliveryProperties) {
             return deliveryProperties(Output.of(deliveryProperties));
         }
 
-        /**
-         * @param deliveryProperties One or more `deliveryProperty` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryProperties(SystemTopicEventSubscriptionDeliveryPropertyArgs... deliveryProperties) {
             return deliveryProperties(List.of(deliveryProperties));
         }
@@ -573,24 +479,24 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param eventhubEndpointId Specifies the id where the Event Hub is located.
+         * @param eventhubId Specifies the id where the Event Hub is located.
          * 
          * @return builder
          * 
          */
-        public Builder eventhubEndpointId(@Nullable Output<String> eventhubEndpointId) {
-            $.eventhubEndpointId = eventhubEndpointId;
+        public Builder eventhubId(@Nullable Output<String> eventhubId) {
+            $.eventhubId = eventhubId;
             return this;
         }
 
         /**
-         * @param eventhubEndpointId Specifies the id where the Event Hub is located.
+         * @param eventhubId Specifies the id where the Event Hub is located.
          * 
          * @return builder
          * 
          */
-        public Builder eventhubEndpointId(String eventhubEndpointId) {
-            return eventhubEndpointId(Output.of(eventhubEndpointId));
+        public Builder eventhubId(String eventhubId) {
+            return eventhubId(Output.of(eventhubId));
         }
 
         /**
@@ -615,28 +521,30 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param hybridConnectionEndpointId Specifies the id where the Hybrid Connection is located.
+         * @param hybridConnectionId Specifies the id where the Hybrid Connection is located.
          * 
          * @return builder
          * 
          */
-        public Builder hybridConnectionEndpointId(@Nullable Output<String> hybridConnectionEndpointId) {
-            $.hybridConnectionEndpointId = hybridConnectionEndpointId;
+        public Builder hybridConnectionId(@Nullable Output<String> hybridConnectionId) {
+            $.hybridConnectionId = hybridConnectionId;
             return this;
         }
 
         /**
-         * @param hybridConnectionEndpointId Specifies the id where the Hybrid Connection is located.
+         * @param hybridConnectionId Specifies the id where the Hybrid Connection is located.
          * 
          * @return builder
          * 
          */
-        public Builder hybridConnectionEndpointId(String hybridConnectionEndpointId) {
-            return hybridConnectionEndpointId(Output.of(hybridConnectionEndpointId));
+        public Builder hybridConnectionId(String hybridConnectionId) {
+            return hybridConnectionId(Output.of(hybridConnectionId));
         }
 
         /**
          * @param includedEventTypes A list of applicable event types that need to be part of the event subscription.
+         * 
+         * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
          * 
          * @return builder
          * 
@@ -649,6 +557,8 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         /**
          * @param includedEventTypes A list of applicable event types that need to be part of the event subscription.
          * 
+         * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
+         * 
          * @return builder
          * 
          */
@@ -659,6 +569,8 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         /**
          * @param includedEventTypes A list of applicable event types that need to be part of the event subscription.
          * 
+         * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
+         * 
          * @return builder
          * 
          */
@@ -666,33 +578,15 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
             return includedEventTypes(List.of(includedEventTypes));
         }
 
-        /**
-         * @param labels A list of labels to assign to the event subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labels(@Nullable Output<List<String>> labels) {
             $.labels = labels;
             return this;
         }
 
-        /**
-         * @param labels A list of labels to assign to the event subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labels(List<String> labels) {
             return labels(Output.of(labels));
         }
 
-        /**
-         * @param labels A list of labels to assign to the event subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
@@ -739,86 +633,62 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param retryPolicy A `retryPolicy` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryPolicy(@Nullable Output<SystemTopicEventSubscriptionRetryPolicyArgs> retryPolicy) {
             $.retryPolicy = retryPolicy;
             return this;
         }
 
-        /**
-         * @param retryPolicy A `retryPolicy` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryPolicy(SystemTopicEventSubscriptionRetryPolicyArgs retryPolicy) {
             return retryPolicy(Output.of(retryPolicy));
         }
 
         /**
-         * @param serviceBusQueueEndpointId Specifies the id where the Service Bus Queue is located.
+         * @param serviceBusQueueId Specifies the id where the Service Bus Queue is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusQueueEndpointId(@Nullable Output<String> serviceBusQueueEndpointId) {
-            $.serviceBusQueueEndpointId = serviceBusQueueEndpointId;
+        public Builder serviceBusQueueId(@Nullable Output<String> serviceBusQueueId) {
+            $.serviceBusQueueId = serviceBusQueueId;
             return this;
         }
 
         /**
-         * @param serviceBusQueueEndpointId Specifies the id where the Service Bus Queue is located.
+         * @param serviceBusQueueId Specifies the id where the Service Bus Queue is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusQueueEndpointId(String serviceBusQueueEndpointId) {
-            return serviceBusQueueEndpointId(Output.of(serviceBusQueueEndpointId));
+        public Builder serviceBusQueueId(String serviceBusQueueId) {
+            return serviceBusQueueId(Output.of(serviceBusQueueId));
         }
 
         /**
-         * @param serviceBusTopicEndpointId Specifies the id where the Service Bus Topic is located.
+         * @param serviceBusTopicId Specifies the id where the Service Bus Topic is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusTopicEndpointId(@Nullable Output<String> serviceBusTopicEndpointId) {
-            $.serviceBusTopicEndpointId = serviceBusTopicEndpointId;
+        public Builder serviceBusTopicId(@Nullable Output<String> serviceBusTopicId) {
+            $.serviceBusTopicId = serviceBusTopicId;
             return this;
         }
 
         /**
-         * @param serviceBusTopicEndpointId Specifies the id where the Service Bus Topic is located.
+         * @param serviceBusTopicId Specifies the id where the Service Bus Topic is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusTopicEndpointId(String serviceBusTopicEndpointId) {
-            return serviceBusTopicEndpointId(Output.of(serviceBusTopicEndpointId));
+        public Builder serviceBusTopicId(String serviceBusTopicId) {
+            return serviceBusTopicId(Output.of(serviceBusTopicId));
         }
 
-        /**
-         * @param storageBlobDeadLetterDestination A `storageBlobDeadLetterDestination` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageBlobDeadLetterDestination(@Nullable Output<SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs> storageBlobDeadLetterDestination) {
             $.storageBlobDeadLetterDestination = storageBlobDeadLetterDestination;
             return this;
         }
 
-        /**
-         * @param storageBlobDeadLetterDestination A `storageBlobDeadLetterDestination` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageBlobDeadLetterDestination(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs storageBlobDeadLetterDestination) {
             return storageBlobDeadLetterDestination(Output.of(storageBlobDeadLetterDestination));
         }
@@ -889,7 +759,7 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         /**
          * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 
@@ -902,7 +772,7 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         /**
          * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 

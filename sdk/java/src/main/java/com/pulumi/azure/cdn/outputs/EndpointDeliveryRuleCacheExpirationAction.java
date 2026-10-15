@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointDeliveryRuleCacheExpirationAction {
     /**
-     * @return The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+     * @return The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
      */
     private String behavior;
@@ -25,7 +25,7 @@ public final class EndpointDeliveryRuleCacheExpirationAction {
 
     private EndpointDeliveryRuleCacheExpirationAction() {}
     /**
-     * @return The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+     * @return The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
      */
     public String behavior() {

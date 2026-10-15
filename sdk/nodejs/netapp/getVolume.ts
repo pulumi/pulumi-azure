@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,11 +78,15 @@ export interface GetVolumeResult {
     readonly acceptGrowCapacityPoolForShortTermCloneSplit: string;
     readonly accountName: string;
     /**
+     * Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+     */
+    readonly breakthroughModeEnabled: boolean;
+    /**
      * An Advanced Ransomware Protection (ARP) data protection block.
      */
     readonly dataProtectionAdvancedRansomwares: outputs.netapp.GetVolumeDataProtectionAdvancedRansomware[];
     /**
-     * A data protecion backup policy block
+     * A data protection backup policy block
      */
     readonly dataProtectionBackupPolicies: outputs.netapp.GetVolumeDataProtectionBackupPolicy[];
     /**
@@ -104,9 +108,9 @@ export interface GetVolumeResult {
      */
     readonly location: string;
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      */
-    readonly mountIpAddresses: string[];
+    readonly mountTargets: outputs.netapp.GetVolumeMountTarget[];
     readonly name: string;
     /**
      * Network features in use `Basic` or `Standard`.
@@ -174,7 +178,7 @@ export interface GetVolumeResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

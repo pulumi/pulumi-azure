@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/stack"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/stack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,10 +49,10 @@ import (
 //				Subnet: &stack.HciLogicalNetworkSubnetArgs{
 //					IpAllocationMethod: pulumi.String("Static"),
 //					AddressPrefix:      pulumi.String("10.0.0.0/24"),
-//					Route: map[string]string{
-//						"name":             "example-route",
-//						"addressPrefix":    "0.0.0.0/0",
-//						"nextHopIpAddress": "10.0.20.1",
+//					Route: &stack.HciLogicalNetworkSubnetRouteArgs{
+//						Name:             pulumi.String("example-route"),
+//						AddressPrefix:    pulumi.String("0.0.0.0/0"),
+//						NextHopIpAddress: pulumi.String("10.0.20.1"),
 //					},
 //					VlanId: pulumi.Int(123),
 //				},

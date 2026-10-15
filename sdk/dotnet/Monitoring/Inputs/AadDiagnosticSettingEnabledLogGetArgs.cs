@@ -18,9 +18,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
-        [Input("retentionPolicy")]
-        public Input<Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
-
         public AadDiagnosticSettingEnabledLogGetArgs()
         {
         }

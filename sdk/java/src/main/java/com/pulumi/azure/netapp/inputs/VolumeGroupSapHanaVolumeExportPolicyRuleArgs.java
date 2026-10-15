@@ -19,14 +19,14 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRuleArgs extends com.pulu
     public static final VolumeGroupSapHanaVolumeExportPolicyRuleArgs Empty = new VolumeGroupSapHanaVolumeExportPolicyRuleArgs();
 
     /**
-     * A comma-sperated list of allowed client IPv4 addresses.
+     * A comma-separated list of allowed client IPv4 addresses.
      * 
      */
     @Import(name="allowedClients", required=true)
     private Output<String> allowedClients;
 
     /**
-     * @return A comma-sperated list of allowed client IPv4 addresses.
+     * @return A comma-separated list of allowed client IPv4 addresses.
      * 
      */
     public Output<String> allowedClients() {
@@ -154,7 +154,7 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRuleArgs extends com.pulu
         }
 
         /**
-         * @param allowedClients A comma-sperated list of allowed client IPv4 addresses.
+         * @param allowedClients A comma-separated list of allowed client IPv4 addresses.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRuleArgs extends com.pulu
         }
 
         /**
-         * @param allowedClients A comma-sperated list of allowed client IPv4 addresses.
+         * @param allowedClients A comma-separated list of allowed client IPv4 addresses.
          * 
          * @return builder
          * 

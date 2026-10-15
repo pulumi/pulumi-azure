@@ -30,7 +30,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly Outputs.StandardSiteConfigCors? Cors;
         /// <summary>
-        /// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        /// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0`, `v8.0` and `v10.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         /// </summary>
         public readonly string? DotnetFrameworkVersion;
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>
-        /// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+        /// The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -77,7 +77,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
-        public readonly bool? PublicNetworkAccessEnabled;
         /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `False`.
         /// </summary>
@@ -93,7 +92,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
-        /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+        /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -151,8 +150,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             int? preWarmedInstanceCount,
 
-            bool? publicNetworkAccessEnabled,
-
             bool? runtimeScaleMonitoringEnabled,
 
             string? scmIpRestrictionDefaultAction,
@@ -185,7 +182,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
-            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;

@@ -136,17 +136,9 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     public Output<Optional<SystemTopicEventSubscriptionAdvancedFilter>> advancedFilter() {
         return Codegen.optional(this.advancedFilter);
     }
-    /**
-     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * 
-     */
     @Export(name="advancedFilteringOnArraysEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> advancedFilteringOnArraysEnabled;
 
-    /**
-     * @return Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> advancedFilteringOnArraysEnabled() {
         return Codegen.optional(this.advancedFilteringOnArraysEnabled);
     }
@@ -164,21 +156,9 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     public Output<Optional<SystemTopicEventSubscriptionAzureFunctionEndpoint>> azureFunctionEndpoint() {
         return Codegen.optional(this.azureFunctionEndpoint);
     }
-    /**
-     * A `deadLetterIdentity` block as defined below.
-     * 
-     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     * 
-     */
     @Export(name="deadLetterIdentity", refs={SystemTopicEventSubscriptionDeadLetterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SystemTopicEventSubscriptionDeadLetterIdentity> deadLetterIdentity;
 
-    /**
-     * @return A `deadLetterIdentity` block as defined below.
-     * 
-     * &gt; **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     * 
-     */
     public Output<Optional<SystemTopicEventSubscriptionDeadLetterIdentity>> deadLetterIdentity() {
         return Codegen.optional(this.deadLetterIdentity);
     }
@@ -196,17 +176,9 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     public Output<Optional<SystemTopicEventSubscriptionDeliveryIdentity>> deliveryIdentity() {
         return Codegen.optional(this.deliveryIdentity);
     }
-    /**
-     * One or more `deliveryProperty` blocks as defined below.
-     * 
-     */
     @Export(name="deliveryProperties", refs={List.class,SystemTopicEventSubscriptionDeliveryProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SystemTopicEventSubscriptionDeliveryProperty>> deliveryProperties;
 
-    /**
-     * @return One or more `deliveryProperty` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<SystemTopicEventSubscriptionDeliveryProperty>>> deliveryProperties() {
         return Codegen.optional(this.deliveryProperties);
     }
@@ -228,15 +200,15 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Export(name="eventhubEndpointId", refs={String.class}, tree="[0]")
-    private Output<String> eventhubEndpointId;
+    @Export(name="eventhubId", refs={String.class}, tree="[0]")
+    private Output<String> eventhubId;
 
     /**
      * @return Specifies the id where the Event Hub is located.
      * 
      */
-    public Output<String> eventhubEndpointId() {
-        return this.eventhubEndpointId;
+    public Output<String> eventhubId() {
+        return this.eventhubId;
     }
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -256,18 +228,20 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Export(name="hybridConnectionEndpointId", refs={String.class}, tree="[0]")
-    private Output<String> hybridConnectionEndpointId;
+    @Export(name="hybridConnectionId", refs={String.class}, tree="[0]")
+    private Output<String> hybridConnectionId;
 
     /**
      * @return Specifies the id where the Hybrid Connection is located.
      * 
      */
-    public Output<String> hybridConnectionEndpointId() {
-        return this.hybridConnectionEndpointId;
+    public Output<String> hybridConnectionId() {
+        return this.hybridConnectionId;
     }
     /**
      * A list of applicable event types that need to be part of the event subscription.
+     * 
+     * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
      * 
      */
     @Export(name="includedEventTypes", refs={List.class,String.class}, tree="[0,1]")
@@ -276,21 +250,15 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     /**
      * @return A list of applicable event types that need to be part of the event subscription.
      * 
+     * &gt; **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
+     * 
      */
     public Output<List<String>> includedEventTypes() {
         return this.includedEventTypes;
     }
-    /**
-     * A list of labels to assign to the event subscription.
-     * 
-     */
     @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> labels;
 
-    /**
-     * @return A list of labels to assign to the event subscription.
-     * 
-     */
     public Output<Optional<List<String>>> labels() {
         return Codegen.optional(this.labels);
     }
@@ -322,17 +290,9 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * A `retryPolicy` block as defined below.
-     * 
-     */
     @Export(name="retryPolicy", refs={SystemTopicEventSubscriptionRetryPolicy.class}, tree="[0]")
     private Output<SystemTopicEventSubscriptionRetryPolicy> retryPolicy;
 
-    /**
-     * @return A `retryPolicy` block as defined below.
-     * 
-     */
     public Output<SystemTopicEventSubscriptionRetryPolicy> retryPolicy() {
         return this.retryPolicy;
     }
@@ -340,41 +300,33 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Export(name="serviceBusQueueEndpointId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> serviceBusQueueEndpointId;
+    @Export(name="serviceBusQueueId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceBusQueueId;
 
     /**
      * @return Specifies the id where the Service Bus Queue is located.
      * 
      */
-    public Output<Optional<String>> serviceBusQueueEndpointId() {
-        return Codegen.optional(this.serviceBusQueueEndpointId);
+    public Output<Optional<String>> serviceBusQueueId() {
+        return Codegen.optional(this.serviceBusQueueId);
     }
     /**
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Export(name="serviceBusTopicEndpointId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> serviceBusTopicEndpointId;
+    @Export(name="serviceBusTopicId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceBusTopicId;
 
     /**
      * @return Specifies the id where the Service Bus Topic is located.
      * 
      */
-    public Output<Optional<String>> serviceBusTopicEndpointId() {
-        return Codegen.optional(this.serviceBusTopicEndpointId);
+    public Output<Optional<String>> serviceBusTopicId() {
+        return Codegen.optional(this.serviceBusTopicId);
     }
-    /**
-     * A `storageBlobDeadLetterDestination` block as defined below.
-     * 
-     */
     @Export(name="storageBlobDeadLetterDestination", refs={SystemTopicEventSubscriptionStorageBlobDeadLetterDestination.class}, tree="[0]")
     private Output</* @Nullable */ SystemTopicEventSubscriptionStorageBlobDeadLetterDestination> storageBlobDeadLetterDestination;
 
-    /**
-     * @return A `storageBlobDeadLetterDestination` block as defined below.
-     * 
-     */
     public Output<Optional<SystemTopicEventSubscriptionStorageBlobDeadLetterDestination>> storageBlobDeadLetterDestination() {
         return Codegen.optional(this.storageBlobDeadLetterDestination);
     }
@@ -423,7 +375,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     /**
      * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     @Export(name="webhookEndpoint", refs={SystemTopicEventSubscriptionWebhookEndpoint.class}, tree="[0]")
@@ -432,7 +384,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
     /**
      * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     public Output<Optional<SystemTopicEventSubscriptionWebhookEndpoint>> webhookEndpoint() {

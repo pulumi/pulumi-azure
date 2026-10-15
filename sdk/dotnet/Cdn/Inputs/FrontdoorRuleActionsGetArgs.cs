@@ -12,47 +12,51 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class FrontdoorRuleActionsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("requestHeaderActions")]
-        private InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionGetArgs>? _requestHeaderActions;
+        [Input("modifyRequestHeaders")]
+        private InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderGetArgs>? _modifyRequestHeaders;
 
         /// <summary>
-        /// A `RequestHeaderAction` block as defined below.
+        /// One or more `ModifyRequestHeader` block as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionGetArgs> RequestHeaderActions
+        public InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderGetArgs> ModifyRequestHeaders
         {
-            get => _requestHeaderActions ?? (_requestHeaderActions = new InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionGetArgs>());
-            set => _requestHeaderActions = value;
+            get => _modifyRequestHeaders ?? (_modifyRequestHeaders = new InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderGetArgs>());
+            set => _modifyRequestHeaders = value;
         }
 
-        [Input("responseHeaderActions")]
-        private InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionGetArgs>? _responseHeaderActions;
+        [Input("modifyResponseHeaders")]
+        private InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderGetArgs>? _modifyResponseHeaders;
 
         /// <summary>
-        /// A `ResponseHeaderAction` block as defined below.
+        /// One or more `ModifyResponseHeader` block as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionGetArgs> ResponseHeaderActions
+        public InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderGetArgs> ModifyResponseHeaders
         {
-            get => _responseHeaderActions ?? (_responseHeaderActions = new InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionGetArgs>());
-            set => _responseHeaderActions = value;
+            get => _modifyResponseHeaders ?? (_modifyResponseHeaders = new InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderGetArgs>());
+            set => _modifyResponseHeaders = value;
         }
 
         /// <summary>
-        /// A `RouteConfigurationOverrideAction` block as defined below.
+        /// A `RouteConfigurationOverride` block as defined below.
+        /// 
+        /// &gt; **Note:** `RouteConfigurationOverride` conflicts with `UrlRedirect`.
         /// </summary>
-        [Input("routeConfigurationOverrideAction")]
-        public Input<Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionGetArgs>? RouteConfigurationOverrideAction { get; set; }
+        [Input("routeConfigurationOverride")]
+        public Input<Inputs.FrontdoorRuleActionsRouteConfigurationOverrideGetArgs>? RouteConfigurationOverride { get; set; }
 
         /// <summary>
-        /// A `UrlRedirectAction` block as defined below. You may **not** have a `UrlRedirectAction` **and** a `UrlRewriteAction` defined in the same `Actions` block.
+        /// A `UrlRedirect` block as defined below.
+        /// 
+        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect`
         /// </summary>
-        [Input("urlRedirectAction")]
-        public Input<Inputs.FrontdoorRuleActionsUrlRedirectActionGetArgs>? UrlRedirectAction { get; set; }
+        [Input("urlRedirect")]
+        public Input<Inputs.FrontdoorRuleActionsUrlRedirectGetArgs>? UrlRedirect { get; set; }
 
         /// <summary>
-        /// A `UrlRewriteAction` block as defined below. You may **not** have a `UrlRewriteAction` **and** a `UrlRedirectAction` defined in the same `Actions` block.
+        /// A `UrlRewrite` block as defined below.
         /// </summary>
-        [Input("urlRewriteAction")]
-        public Input<Inputs.FrontdoorRuleActionsUrlRewriteActionGetArgs>? UrlRewriteAction { get; set; }
+        [Input("urlRewrite")]
+        public Input<Inputs.FrontdoorRuleActionsUrlRewriteGetArgs>? UrlRewrite { get; set; }
 
         public FrontdoorRuleActionsGetArgs()
         {

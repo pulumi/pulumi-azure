@@ -113,7 +113,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         /// </summary>
         public InputList<string> Scopes
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         /// </summary>
         public InputList<string> Scopes
         {

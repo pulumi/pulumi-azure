@@ -20,7 +20,6 @@ __all__ = [
     'ClusterLanguageExtension',
     'ClusterOptimizedAutoScale',
     'ClusterSku',
-    'ClusterVirtualNetworkConfiguration',
     'GetClusterIdentityResult',
 ]
 
@@ -244,7 +243,7 @@ class ClusterLanguageExtension(dict):
                  name: _builtins.str):
         """
         :param _builtins.str image: The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
-        :param _builtins.str name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        :param _builtins.str name: The name of the language extension. Possible values are `PYTHON` and `R`.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -261,7 +260,7 @@ class ClusterLanguageExtension(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        The name of the language extension. Possible values are `PYTHON` and `R`.
         """
         return pulumi.get(self, "name")
 
@@ -350,53 +349,6 @@ class ClusterSku(dict):
         > **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
         return pulumi.get(self, "capacity")
-
-
-@pulumi.output_type
-class ClusterVirtualNetworkConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataManagementPublicIpId":
-            suggest = "data_management_public_ip_id"
-        elif key == "enginePublicIpId":
-            suggest = "engine_public_ip_id"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterVirtualNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterVirtualNetworkConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterVirtualNetworkConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_management_public_ip_id: _builtins.str,
-                 engine_public_ip_id: _builtins.str,
-                 subnet_id: _builtins.str):
-        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
-        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @_builtins.property
-    @pulumi.getter(name="dataManagementPublicIpId")
-    def data_management_public_ip_id(self) -> _builtins.str:
-        return pulumi.get(self, "data_management_public_ip_id")
-
-    @_builtins.property
-    @pulumi.getter(name="enginePublicIpId")
-    def engine_public_ip_id(self) -> _builtins.str:
-        return pulumi.get(self, "engine_public_ip_id")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> _builtins.str:
-        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

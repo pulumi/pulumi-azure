@@ -283,7 +283,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
      * 
-     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
      * 
      */
     @Import(name="sku")
@@ -294,7 +294,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
      * 
-     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+     * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -758,7 +758,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
          * 
-         * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+         * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
          * 
-         * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+         * &gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance) for more information.
          * 
          * @return builder
          * 

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.EventHub
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ServiceBus` - 2024-01-01
+    /// * `Microsoft.ServiceBus` - 2026-01-01
     /// 
     /// ## Import
     /// 

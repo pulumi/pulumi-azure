@@ -178,11 +178,27 @@ namespace Pulumi.Azure.Attestation
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        /// </summary>
+        public readonly string OpenEnclavePolicyBase64;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        /// </summary>
+        public readonly string SevSnpPolicyBase64;
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        /// </summary>
+        public readonly string SgxEnclavePolicyBase64;
         /// <summary>
         /// A mapping of tags assigned to the Attestation Provider.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        /// </summary>
+        public readonly string TpmPolicyBase64;
         /// <summary>
         /// Trust model used for the Attestation Service.
         /// </summary>
@@ -198,9 +214,17 @@ namespace Pulumi.Azure.Attestation
 
             string name,
 
+            string openEnclavePolicyBase64,
+
             string resourceGroupName,
 
+            string sevSnpPolicyBase64,
+
+            string sgxEnclavePolicyBase64,
+
             ImmutableDictionary<string, string> tags,
+
+            string tpmPolicyBase64,
 
             string trustModel)
         {
@@ -208,8 +232,12 @@ namespace Pulumi.Azure.Attestation
             Id = id;
             Location = location;
             Name = name;
+            OpenEnclavePolicyBase64 = openEnclavePolicyBase64;
             ResourceGroupName = resourceGroupName;
+            SevSnpPolicyBase64 = sevSnpPolicyBase64;
+            SgxEnclavePolicyBase64 = sgxEnclavePolicyBase64;
             Tags = tags;
+            TpmPolicyBase64 = tpmPolicyBase64;
             TrustModel = trustModel;
         }
     }

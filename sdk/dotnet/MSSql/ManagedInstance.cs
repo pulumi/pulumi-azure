@@ -265,7 +265,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> MaintenanceConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -383,10 +383,10 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Output("proxyOverride")]
-        public Output<string> ProxyOverride { get; private set; } = null!;
+        public Output<string?> ProxyOverride { get; private set; } = null!;
 
         /// <summary>
         /// Is the public data endpoint enabled? Defaults to `False`.
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `GeneralPurposeV2Enabled` is `True`.
         /// 
-        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Output("storageIops")]
         public Output<int> StorageIops { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         /// 
-        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Output("storageSizeInGb")]
         public Output<int> StorageSizeInGb { get; private set; } = null!;
@@ -461,7 +461,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
         /// </summary>
         [Output("zoneRedundantEnabled")]
         public Output<bool?> ZoneRedundantEnabled { get; private set; } = null!;
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -623,7 +623,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Input("proxyOverride")]
         public Input<string>? ProxyOverride { get; set; }
@@ -661,7 +661,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `GeneralPurposeV2Enabled` is `True`.
         /// 
-        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageIops")]
         public Input<int>? StorageIops { get; set; }
@@ -669,7 +669,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         /// 
-        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageSizeInGb", required: true)]
         public Input<int> StorageSizeInGb { get; set; } = null!;
@@ -707,7 +707,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
         /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }
@@ -821,7 +821,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -835,7 +835,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Input("proxyOverride")]
         public Input<string>? ProxyOverride { get; set; }
@@ -873,7 +873,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `GeneralPurposeV2Enabled` is `True`.
         /// 
-        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The effective maximum value for `StorageIops` depends on the selected `SkuName` and `Vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageIops")]
         public Input<int>? StorageIops { get; set; }
@@ -881,7 +881,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         /// 
-        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        /// &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         /// </summary>
         [Input("storageSizeInGb")]
         public Input<int>? StorageSizeInGb { get; set; }
@@ -919,7 +919,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+        /// &gt; **Note:** `ZoneRedundantEnabled` cannot be specified when `GeneralPurposeV2Enabled` is `True` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
         /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }

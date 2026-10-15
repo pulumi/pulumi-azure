@@ -26,13 +26,19 @@ class GetAnalyticsWorkspaceResult:
     """
     A collection of values returned by getAnalyticsWorkspace.
     """
-    def __init__(__self__, daily_quota_gb=None, id=None, location=None, name=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
+    def __init__(__self__, daily_quota_gb=None, id=None, internet_ingestion_access_type=None, internet_query_access_type=None, location=None, name=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
         if daily_quota_gb and not isinstance(daily_quota_gb, float):
             raise TypeError("Expected argument 'daily_quota_gb' to be a float")
         pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if internet_ingestion_access_type and not isinstance(internet_ingestion_access_type, str):
+            raise TypeError("Expected argument 'internet_ingestion_access_type' to be a str")
+        pulumi.set(__self__, "internet_ingestion_access_type", internet_ingestion_access_type)
+        if internet_query_access_type and not isinstance(internet_query_access_type, str):
+            raise TypeError("Expected argument 'internet_query_access_type' to be a str")
+        pulumi.set(__self__, "internet_query_access_type", internet_query_access_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -76,6 +82,22 @@ class GetAnalyticsWorkspaceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="internetIngestionAccessType")
+    def internet_ingestion_access_type(self) -> _builtins.str:
+        """
+        The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+        """
+        return pulumi.get(self, "internet_ingestion_access_type")
+
+    @_builtins.property
+    @pulumi.getter(name="internetQueryAccessType")
+    def internet_query_access_type(self) -> _builtins.str:
+        """
+        The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+        """
+        return pulumi.get(self, "internet_query_access_type")
 
     @_builtins.property
     @pulumi.getter
@@ -149,6 +171,8 @@ class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
         return GetAnalyticsWorkspaceResult(
             daily_quota_gb=self.daily_quota_gb,
             id=self.id,
+            internet_ingestion_access_type=self.internet_ingestion_access_type,
+            internet_query_access_type=self.internet_query_access_type,
             location=self.location,
             name=self.name,
             primary_shared_key=self.primary_shared_key,
@@ -197,6 +221,8 @@ def get_analytics_workspace(name: Optional[_builtins.str] = None,
     return AwaitableGetAnalyticsWorkspaceResult(
         daily_quota_gb=pulumi.get(__ret__, 'daily_quota_gb'),
         id=pulumi.get(__ret__, 'id'),
+        internet_ingestion_access_type=pulumi.get(__ret__, 'internet_ingestion_access_type'),
+        internet_query_access_type=pulumi.get(__ret__, 'internet_query_access_type'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
@@ -242,6 +268,8 @@ def get_analytics_workspace_output(name: pulumi.Input[Optional[_builtins.str]] =
     return __ret__.apply(lambda __response__: GetAnalyticsWorkspaceResult(
         daily_quota_gb=pulumi.get(__response__, 'daily_quota_gb'),
         id=pulumi.get(__response__, 'id'),
+        internet_ingestion_access_type=pulumi.get(__response__, 'internet_ingestion_access_type'),
+        internet_query_access_type=pulumi.get(__response__, 'internet_query_access_type'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         primary_shared_key=pulumi.get(__response__, 'primary_shared_key'),

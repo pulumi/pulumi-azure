@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -176,6 +176,8 @@ type LookupAccountResult struct {
 	PrimaryWebMicrosoftEndpoint string `pulumi:"primaryWebMicrosoftEndpoint"`
 	// The microsoft routing hostname with port if applicable for web storage in the primary location.
 	PrimaryWebMicrosoftHost string `pulumi:"primaryWebMicrosoftHost"`
+	// The public network access setting of the Storage Account.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The encryption key type of the queue.
 	QueueEncryptionKeyType string  `pulumi:"queueEncryptionKeyType"`
 	ResourceGroupName      *string `pulumi:"resourceGroupName"`
@@ -555,6 +557,11 @@ func (o LookupAccountResultOutput) PrimaryWebMicrosoftEndpoint() pulumi.StringOu
 // The microsoft routing hostname with port if applicable for web storage in the primary location.
 func (o LookupAccountResultOutput) PrimaryWebMicrosoftHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryWebMicrosoftHost }).(pulumi.StringOutput)
+}
+
+// The public network access setting of the Storage Account.
+func (o LookupAccountResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 // The encryption key type of the queue.

@@ -27,7 +27,6 @@ class PoolArgs:
                  storage_image_reference: pulumi.Input['PoolStorageImageReferenceArgs'],
                  vm_size: pulumi.Input[_builtins.str],
                  auto_scale: pulumi.Input[Optional['PoolAutoScaleArgs']] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
                  container_configuration: pulumi.Input[Optional['PoolContainerConfigurationArgs']] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
@@ -77,7 +76,7 @@ class PoolArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
-        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input['PoolSecurityProfileArgs'] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[_builtins.bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
@@ -93,11 +92,6 @@ class PoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
-        if certificates is not None:
-            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
         if data_disks is not None:
@@ -218,16 +212,6 @@ class PoolArgs:
     @auto_scale.setter
     def auto_scale(self, value: pulumi.Input[Optional['PoolAutoScaleArgs']]):
         pulumi.set(self, "auto_scale", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        return pulumi.get(self, "certificates")
-
-    @certificates.setter
-    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]):
-        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -413,7 +397,7 @@ class PoolArgs:
     @pulumi.getter(name="osDiskPlacement")
     def os_disk_placement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         """
         return pulumi.get(self, "os_disk_placement")
 
@@ -511,7 +495,6 @@ class _PoolState:
     def __init__(__self__, *,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional['PoolAutoScaleArgs']] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
                  container_configuration: pulumi.Input[Optional['PoolContainerConfigurationArgs']] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
@@ -562,7 +545,7 @@ class _PoolState:
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
-        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolSecurityProfileArgs'] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
@@ -578,11 +561,6 @@ class _PoolState:
             pulumi.set(__self__, "account_name", account_name)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
-        if certificates is not None:
-            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
         if data_disks is not None:
@@ -663,16 +641,6 @@ class _PoolState:
     @auto_scale.setter
     def auto_scale(self, value: pulumi.Input[Optional['PoolAutoScaleArgs']]):
         pulumi.set(self, "auto_scale", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        return pulumi.get(self, "certificates")
-
-    @certificates.setter
-    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]):
-        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -870,7 +838,7 @@ class _PoolState:
     @pulumi.getter(name="osDiskPlacement")
     def os_disk_placement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         """
         return pulumi.get(self, "os_disk_placement")
 
@@ -1007,7 +975,6 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
                  container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
@@ -1148,7 +1115,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
-        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
@@ -1273,7 +1240,6 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
                  container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
@@ -1314,7 +1280,6 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["auto_scale"] = auto_scale
-            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["container_configuration"] = container_configuration
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["disk_encryptions"] = disk_encryptions
@@ -1362,7 +1327,6 @@ class Pool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
-            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
             container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
             data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
             disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
@@ -1417,7 +1381,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
-        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
@@ -1435,7 +1399,6 @@ class Pool(pulumi.CustomResource):
 
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["auto_scale"] = auto_scale
-        __props__.__dict__["certificates"] = certificates
         __props__.__dict__["container_configuration"] = container_configuration
         __props__.__dict__["data_disks"] = data_disks
         __props__.__dict__["disk_encryptions"] = disk_encryptions
@@ -1482,12 +1445,6 @@ class Pool(pulumi.CustomResource):
         > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "auto_scale")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.PoolCertificate']]]:
-        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -1621,7 +1578,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="osDiskPlacement")
     def os_disk_placement(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         """
         return pulumi.get(self, "os_disk_placement")
 

@@ -16,14 +16,14 @@ public final class ResourceDeploymentScriptAzureCliContainerArgs extends com.pul
     public static final ResourceDeploymentScriptAzureCliContainerArgs Empty = new ResourceDeploymentScriptAzureCliContainerArgs();
 
     /**
-     * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+     * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
      * 
      */
     @Import(name="containerGroupName")
     private @Nullable Output<String> containerGroupName;
 
     /**
-     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
      * 
      */
     public Optional<Output<String>> containerGroupName() {
@@ -55,7 +55,7 @@ public final class ResourceDeploymentScriptAzureCliContainerArgs extends com.pul
         }
 
         /**
-         * @param containerGroupName Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * @param containerGroupName Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ResourceDeploymentScriptAzureCliContainerArgs extends com.pul
         }
 
         /**
-         * @param containerGroupName Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * @param containerGroupName Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          * 
          * @return builder
          * 

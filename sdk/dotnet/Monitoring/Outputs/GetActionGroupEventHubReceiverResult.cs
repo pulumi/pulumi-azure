@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool? UseCommonAlertSchema;
+        public readonly bool UseCommonAlertSchema;
 
         [OutputConstructor]
         private GetActionGroupEventHubReceiverResult(
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string tenantId,
 
-            bool? useCommonAlertSchema)
+            bool useCommonAlertSchema)
         {
             EventHubName = eventHubName;
             EventHubNamespace = eventHubNamespace;

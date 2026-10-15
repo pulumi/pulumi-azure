@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewaySslProfile
     {
         /// <summary>
+        /// Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+        /// </summary>
+        public readonly string? ClientAuthenticationMode;
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string? Id;
@@ -22,25 +26,30 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// a `SslPolicy` block as defined below.
+        /// An `SslPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.ApplicationGatewaySslProfileSslPolicy? SslPolicy;
         /// <summary>
-        /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+        /// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
-        public readonly bool? VerifyClientCertIssuerDn;
         /// <summary>
         /// Should client certificate issuer DN be verified? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `VerifyClientCertificateIssuerDn` cannot be set to `True` when `ClientAuthenticationMode` is set to `Passthrough`.
         /// </summary>
         public readonly bool? VerifyClientCertificateIssuerDn;
         /// <summary>
-        /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+        /// Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+        /// 
+        /// &gt; **Note:** `VerifyClientCertificateRevocation` cannot be set to `OCSP` when `ClientAuthenticationMode` is set to `Passthrough`.
         /// </summary>
         public readonly string? VerifyClientCertificateRevocation;
 
         [OutputConstructor]
         private ApplicationGatewaySslProfile(
+            string? clientAuthenticationMode,
+
             string? id,
 
             string name,
@@ -49,17 +58,15 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> trustedClientCertificateNames,
 
-            bool? verifyClientCertIssuerDn,
-
             bool? verifyClientCertificateIssuerDn,
 
             string? verifyClientCertificateRevocation)
         {
+            ClientAuthenticationMode = clientAuthenticationMode;
             Id = id;
             Name = name;
             SslPolicy = sslPolicy;
             TrustedClientCertificateNames = trustedClientCertificateNames;
-            VerifyClientCertIssuerDn = verifyClientCertIssuerDn;
             VerifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
             VerifyClientCertificateRevocation = verifyClientCertificateRevocation;
         }

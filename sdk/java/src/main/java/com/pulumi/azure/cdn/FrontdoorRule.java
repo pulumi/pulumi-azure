@@ -50,14 +50,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorRule;
  * import com.pulumi.azure.cdn.FrontdoorRuleArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRedirectActionArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideCachingArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHostNameConditionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsIsDeviceConditionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsPostArgsConditionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestMethodConditionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHostNameArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsDeviceTypeArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsPostArgumentArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestMethodArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestFilenameArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -129,33 +130,28 @@ import javax.annotation.Nullable;
  *             .name("examplerule")
  *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
  *             .order(1)
- *             .behaviorOnMatch("Continue")
+ *             .behaviourOnMatch("Continue")
  *             .actions(FrontdoorRuleActionsArgs.builder()
- *                 .routeConfigurationOverrideAction(FrontdoorRuleActionsRouteConfigurationOverrideActionArgs.builder()
- *                     .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
- *                     .forwardingProtocol("HttpsOnly")
- *                     .queryStringCachingBehavior("IncludeSpecifiedQueryStrings")
- *                     .queryStringParameters(                    
- *                         "foo",
- *                         "clientIp={client_ip}")
- *                     .compressionEnabled(true)
- *                     .cacheBehavior("OverrideIfOriginMissing")
- *                     .cacheDuration("365.23:59:59")
- *                     .build())
- *                 .urlRedirectAction(FrontdoorRuleActionsUrlRedirectActionArgs.builder()
- *                     .redirectType("PermanentRedirect")
- *                     .redirectProtocol("MatchRequest")
- *                     .queryString("clientIp={client_ip}")
- *                     .destinationPath("/exampleredirection")
- *                     .destinationHostname("contoso.com")
- *                     .destinationFragment("UrlRedirect")
+ *                 .routeConfigurationOverride(FrontdoorRuleActionsRouteConfigurationOverrideArgs.builder()
+ *                     .originGroup(FrontdoorRuleActionsRouteConfigurationOverrideOriginGroupArgs.builder()
+ *                         .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *                         .forwardingProtocol("HttpsOnly")
+ *                         .build())
+ *                     .caching(FrontdoorRuleActionsRouteConfigurationOverrideCachingArgs.builder()
+ *                         .behaviour("OverrideIfOriginMissing")
+ *                         .duration("365.23:59:59")
+ *                         .compressionEnabled(true)
+ *                         .queryStringBehaviour("IncludeSpecifiedQueryStrings")
+ *                         .queryStringParameters(                        
+ *                             "foo",
+ *                             "clientIp={client_ip}")
+ *                         .build())
  *                     .build())
  *                 .build())
  *             .conditions(FrontdoorRuleConditionsArgs.builder()
- *                 .hostNameConditions(FrontdoorRuleConditionsHostNameConditionArgs.builder()
+ *                 .hostNames(FrontdoorRuleConditionsHostNameArgs.builder()
  *                     .operator("Equal")
- *                     .negateCondition(false)
- *                     .matchValues(                    
+ *                     .values(                    
  *                         "www.contoso.com",
  *                         "images.contoso.com",
  *                         "video.contoso.com")
@@ -163,28 +159,25 @@ import javax.annotation.Nullable;
  *                         "Lowercase",
  *                         "Trim")
  *                     .build())
- *                 .isDeviceConditions(FrontdoorRuleConditionsIsDeviceConditionArgs.builder()
+ *                 .deviceTypes(FrontdoorRuleConditionsDeviceTypeArgs.builder()
  *                     .operator("Equal")
- *                     .negateCondition(false)
- *                     .matchValues("Mobile")
+ *                     .values("Mobile")
  *                     .build())
- *                 .postArgsConditions(FrontdoorRuleConditionsPostArgsConditionArgs.builder()
- *                     .postArgsName("customerName")
+ *                 .postArguments(FrontdoorRuleConditionsPostArgumentArgs.builder()
+ *                     .name("customerName")
  *                     .operator("BeginsWith")
- *                     .matchValues(                    
+ *                     .values(                    
  *                         "J",
  *                         "K")
  *                     .transforms("Uppercase")
  *                     .build())
- *                 .requestMethodConditions(FrontdoorRuleConditionsRequestMethodConditionArgs.builder()
+ *                 .requestMethods(FrontdoorRuleConditionsRequestMethodArgs.builder()
  *                     .operator("Equal")
- *                     .negateCondition(false)
- *                     .matchValues("DELETE")
+ *                     .values("DELETE")
  *                     .build())
- *                 .urlFilenameConditions(FrontdoorRuleConditionsUrlFilenameConditionArgs.builder()
+ *                 .requestFilenames(FrontdoorRuleConditionsRequestFilenameArgs.builder()
  *                     .operator("Equal")
- *                     .negateCondition(false)
- *                     .matchValues("media.mp4")
+ *                     .values("media.mp4")
  *                     .transforms(                    
  *                         "Lowercase",
  *                         "RemoveNulls",
@@ -201,133 +194,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * ## Specifying IP Address Ranges
- * 
- * When specifying IP address ranges in the `socketAddressCondition` and the `remoteAddressCondition` `matchValues` use the following format:
- * 
- * Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
- * 
- * * `IPv4` example: `5.5.5.64/26` matches any requests that arrive from addresses `5.5.5.64` through `5.5.5.127`.
- * * `IPv6` example: `1:2:3:/48` matches any requests that arrive from addresses `1:2:3:0:0:0:0:0` through `1:2:3:ffff:ffff:ffff:ffff:ffff`.
- * 
- * When you specify multiple IP addresses and IP address blocks, `OR` logic is applied.
- * 
- * * `IPv4` example: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address `1.2.3.4` or `10.20.30.40`.
- * * `IPv6` example: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address `1:2:3:4:5:6:7:8` or `10:20:30:40:50:60:70:80`.
- * 
- * ***
- * 
- * ## Action Server Variables
- * 
- * Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
- * 
- * ### Supported Action Server Variables
- * 
- * | Variable name | Description |
- * |---------------|-------------|
- * | `socketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer. |
- * | `clientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
- * | `clientPort`    | The IP port of the client that made the request. |
- * | `hostname`       | The host name in the request from the client. |
- * | `geoCountry`    | Indicates the requester&#39;s country/region of origin through its country/region code. |
- * | `httpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
- * | `httpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
- * | `queryString`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `queryString` value will be `id=123&amp;title=fabrikam`. |
- * | `requestScheme` | The request scheme: `http` or `https`. |
- * | `requestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
- * | `sslProtocol`   | The protocol of an established TLS connection. |
- * | `serverPort`    | The port of the server that accepted a request. |
- * | `urlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uriPath` value will be `/article.aspx`. |
- * 
- * ### Action Server Variable Format
- * 
- * Server variables can be specified using the following formats:
- * 
- * * `{variable}` - Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
- * 
- * * `{variable:offset}` - Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
- * 
- * * `{variable:offset:length}` - Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
- * 
- * ### Action Server Variables Support
- * 
- * Action Server variables are supported on the following actions:
- * 
- * * `routeConfigurationOverrideAction`
- * * `requestHeaderAction`
- * * `responseHeaderAction`
- * * `urlRedirectAction`
- * * `urlRewriteAction`
- * 
- * ***
- * 
- * ## Condition Operator list
- * 
- * For rules that accept values from the standard operator list, the following operators are valid:
- * 
- * | Operator                   | Description | Condition Value |
- * |----------------------------|-------------|-----------------|
- * | Any                        |Matches when there is any value, regardless of what it is. | Any |
- * | Equal                      | Matches when the value exactly matches the specified string. | Equal |
- * | Contains                   | Matches when the value contains the specified string. | Contains |
- * | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
- * | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
- * | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
- * | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
- * | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
- * | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
- * | RegEx                      | Matches when the value matches the specified regular expression. See `Condition Regular Expressions` below for more details. | RegEx |
- * | Wildcard                   | Matches when the request path matches a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard |
- * | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
- * | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
- * | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
- * | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
- * | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
- * | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
- * | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
- * | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
- * | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
- * | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for more details. | RegEx and negateCondition = true |
- * | Not Wildcard               | Matches when the request path does not match a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard and negateCondition = true |
- * 
- * ***
- * 
- * ## Condition Regular Expressions
- * 
- * Regular expressions **don&#39;t** support the following operations:
- * 
- * * Backreferences and capturing subexpressions.
- * * Arbitrary zero-width assertions.
- * * Subroutine references and recursive patterns.
- * * Conditional patterns.
- * * Backtracking control verbs.
- * * The `\C` single-byte directive.
- * * The `\R` newline match directive.
- * * The `\K` start of match reset directive.
- * * Callouts and embedded code.
- * * Atomic grouping and possessive quantifiers.
- * 
- * ## Condition Wildcard Expression
- * 
- * A wildcard expression can include the * character to match zero or more characters within the path. For example, the wildcard expression `files/customer*&#47;file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn&#39;t match `files/customer2/anotherfile.pdf`.
- * 
- * ***
- * 
- * ## Condition Transform List
- * 
- * For rules that can transform strings, the following transforms are valid:
- * 
- * | Transform   | Description |
- * |-------------|-------------|
- * | Lowercase   | Converts the string to the lowercase representation. |
- * | Uppercase   | Converts the string to the uppercase representation. |
- * | Trim        | Trims leading and trailing whitespace from the string. |
- * | RemoveNulls | Removes null values from the string. |
- * | URLEncode   | URL-encodes the string. |
- * | URLDecode   | URL-decodes the string. |
- * 
- * ***
  * 
  * ## API Providers
  * 
@@ -362,21 +228,21 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
         return this.actions;
     }
     /**
-     * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+     * The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      * 
      */
-    @Export(name="behaviorOnMatch", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> behaviorOnMatch;
+    @Export(name="behaviourOnMatch", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> behaviourOnMatch;
 
     /**
-     * @return If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+     * @return The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      * 
      */
-    public Output<Optional<String>> behaviorOnMatch() {
-        return Codegen.optional(this.behaviorOnMatch);
+    public Output<Optional<String>> behaviourOnMatch() {
+        return Codegen.optional(this.behaviourOnMatch);
     }
     /**
-     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
@@ -385,7 +251,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
-     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
@@ -422,14 +288,14 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.conditions);
     }
     /**
-     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     name: "example-dg",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
- *     grafanaMajorVersion: "12",
+ *     grafanaMajorVersion: "13",
  *     apiKeyEnabled: true,
  *     deterministicOutboundIpEnabled: true,
  *     publicNetworkAccessEnabled: false,
@@ -102,7 +102,7 @@ export class Grafana extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Which major version of Grafana to deploy. Possible values are `11`, `12`.
+     * Which major version of Grafana to deploy. Possible values are `12`, `13`.
      */
     declare public readonly grafanaMajorVersion: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface GrafanaState {
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Which major version of Grafana to deploy. Possible values are `11`, `12`.
+     * Which major version of Grafana to deploy. Possible values are `12`, `13`.
      */
     grafanaMajorVersion?: pulumi.Input<string | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface GrafanaArgs {
      */
     deterministicOutboundIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Which major version of Grafana to deploy. Possible values are `11`, `12`.
+     * Which major version of Grafana to deploy. Possible values are `12`, `13`.
      */
     grafanaMajorVersion: pulumi.Input<string>;
     /**

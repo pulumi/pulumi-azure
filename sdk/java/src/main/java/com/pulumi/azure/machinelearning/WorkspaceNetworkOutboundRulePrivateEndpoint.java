@@ -156,7 +156,7 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     @Export(name="serviceResourceId", refs={String.class}, tree="[0]")
@@ -165,7 +165,7 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
     /**
      * @return Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     public Output<String> serviceResourceId() {
@@ -186,10 +186,11 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
         return Codegen.optional(this.sparkEnabled);
     }
     /**
-     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      * 
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -200,10 +201,11 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
     private Output<String> subResourceTarget;
 
     /**
-     * @return Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * @return Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      * 
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |

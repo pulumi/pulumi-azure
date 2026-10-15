@@ -111,14 +111,14 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Primary Connetion String associated with this Authorization Rule.
+     * The Primary Connection String associated with this Authorization Rule.
      * 
      */
     @Import(name="primaryConnectionString")
     private @Nullable Output<String> primaryConnectionString;
 
     /**
-     * @return The Primary Connetion String associated with this Authorization Rule.
+     * @return The Primary Connection String associated with this Authorization Rule.
      * 
      */
     public Optional<Output<String>> primaryConnectionString() {
@@ -156,14 +156,14 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Secondary Connetion String associated with this Authorization Rule.
+     * The Secondary Connection String associated with this Authorization Rule.
      * 
      */
     @Import(name="secondaryConnectionString")
     private @Nullable Output<String> secondaryConnectionString;
 
     /**
-     * @return The Secondary Connetion String associated with this Authorization Rule.
+     * @return The Secondary Connection String associated with this Authorization Rule.
      * 
      */
     public Optional<Output<String>> secondaryConnectionString() {
@@ -350,7 +350,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryConnectionString The Primary Connetion String associated with this Authorization Rule.
+         * @param primaryConnectionString The Primary Connection String associated with this Authorization Rule.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryConnectionString The Primary Connetion String associated with this Authorization Rule.
+         * @param primaryConnectionString The Primary Connection String associated with this Authorization Rule.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryConnectionString The Secondary Connetion String associated with this Authorization Rule.
+         * @param secondaryConnectionString The Secondary Connection String associated with this Authorization Rule.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class AuthorizationRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryConnectionString The Secondary Connetion String associated with this Authorization Rule.
+         * @param secondaryConnectionString The Secondary Connection String associated with this Authorization Rule.
          * 
          * @return builder
          * 

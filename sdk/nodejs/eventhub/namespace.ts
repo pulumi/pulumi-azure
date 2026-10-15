@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  *
  * ## Import
  *
@@ -117,7 +117,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
@@ -133,7 +133,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
-     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
     declare public readonly premiumMessagingPartitions: pulumi.Output<number | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface NamespaceState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
@@ -283,7 +283,7 @@ export interface NamespaceState {
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
-     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
     premiumMessagingPartitions?: pulumi.Input<number | undefined>;
     /**
@@ -330,7 +330,7 @@ export interface NamespaceArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
@@ -346,7 +346,7 @@ export interface NamespaceArgs {
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
-     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
     premiumMessagingPartitions?: pulumi.Input<number | undefined>;
     /**

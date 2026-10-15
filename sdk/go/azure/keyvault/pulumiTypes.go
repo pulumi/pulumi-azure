@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -4196,115 +4196,6 @@ func (o KeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) KeyVaultAccess
 	}).(KeyVaultAccessPolicyOutput)
 }
 
-type KeyVaultContact struct {
-	Email string `pulumi:"email"`
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-	Name  *string `pulumi:"name"`
-	Phone *string `pulumi:"phone"`
-}
-
-// KeyVaultContactInput is an input type that accepts KeyVaultContactArgs and KeyVaultContactOutput values.
-// You can construct a concrete instance of `KeyVaultContactInput` via:
-//
-//	KeyVaultContactArgs{...}
-type KeyVaultContactInput interface {
-	pulumi.Input
-
-	ToKeyVaultContactOutput() KeyVaultContactOutput
-	ToKeyVaultContactOutputWithContext(context.Context) KeyVaultContactOutput
-}
-
-type KeyVaultContactArgs struct {
-	Email pulumi.StringInput `pulumi:"email"`
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Phone pulumi.StringPtrInput `pulumi:"phone"`
-}
-
-func (KeyVaultContactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContact)(nil)).Elem()
-}
-
-func (i KeyVaultContactArgs) ToKeyVaultContactOutput() KeyVaultContactOutput {
-	return i.ToKeyVaultContactOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContactArgs) ToKeyVaultContactOutputWithContext(ctx context.Context) KeyVaultContactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactOutput)
-}
-
-// KeyVaultContactArrayInput is an input type that accepts KeyVaultContactArray and KeyVaultContactArrayOutput values.
-// You can construct a concrete instance of `KeyVaultContactArrayInput` via:
-//
-//	KeyVaultContactArray{ KeyVaultContactArgs{...} }
-type KeyVaultContactArrayInput interface {
-	pulumi.Input
-
-	ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput
-	ToKeyVaultContactArrayOutputWithContext(context.Context) KeyVaultContactArrayOutput
-}
-
-type KeyVaultContactArray []KeyVaultContactInput
-
-func (KeyVaultContactArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultContact)(nil)).Elem()
-}
-
-func (i KeyVaultContactArray) ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput {
-	return i.ToKeyVaultContactArrayOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContactArray) ToKeyVaultContactArrayOutputWithContext(ctx context.Context) KeyVaultContactArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactArrayOutput)
-}
-
-type KeyVaultContactOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContact)(nil)).Elem()
-}
-
-func (o KeyVaultContactOutput) ToKeyVaultContactOutput() KeyVaultContactOutput {
-	return o
-}
-
-func (o KeyVaultContactOutput) ToKeyVaultContactOutputWithContext(ctx context.Context) KeyVaultContactOutput {
-	return o
-}
-
-func (o KeyVaultContactOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultContact) string { return v.Email }).(pulumi.StringOutput)
-}
-
-// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-func (o KeyVaultContactOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContact) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o KeyVaultContactOutput) Phone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContact) *string { return v.Phone }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultContactArrayOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultContact)(nil)).Elem()
-}
-
-func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput {
-	return o
-}
-
-func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutputWithContext(ctx context.Context) KeyVaultContactArrayOutput {
-	return o
-}
-
-func (o KeyVaultContactArrayOutput) Index(i pulumi.IntInput) KeyVaultContactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultContact {
-		return vs[0].([]KeyVaultContact)[vs[1].(int)]
-	}).(KeyVaultContactOutput)
-}
-
 type KeyVaultNetworkAcls struct {
 	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
 	Bypass string `pulumi:"bypass"`
@@ -6627,8 +6518,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyAutomaticPtrInput)(nil)).Elem(), KeyRotationPolicyAutomaticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultAccessPolicyInput)(nil)).Elem(), KeyVaultAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultAccessPolicyArrayInput)(nil)).Elem(), KeyVaultAccessPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultContactInput)(nil)).Elem(), KeyVaultContactArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultContactArrayInput)(nil)).Elem(), KeyVaultContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultNetworkAclsInput)(nil)).Elem(), KeyVaultNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultNetworkAclsPtrInput)(nil)).Elem(), KeyVaultNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAclsInput)(nil)).Elem(), ManagedHardwareSecurityModuleNetworkAclsArgs{})
@@ -6717,8 +6606,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyRotationPolicyAutomaticPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
-	pulumi.RegisterOutputType(KeyVaultContactOutput{})
-	pulumi.RegisterOutputType(KeyVaultContactArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleNetworkAclsOutput{})

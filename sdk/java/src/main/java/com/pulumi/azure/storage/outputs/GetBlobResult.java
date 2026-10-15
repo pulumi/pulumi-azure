@@ -17,6 +17,11 @@ public final class GetBlobResult {
      */
     private String accessTier;
     /**
+     * @return The cache control directive that is set on the blob.
+     * 
+     */
+    private String cacheControl;
+    /**
      * @return The MD5 sum of the blob contents.
      * 
      */
@@ -43,20 +48,11 @@ public final class GetBlobResult {
     private Map<String,String> metadata;
     private String name;
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @return The source URI used to copy the blob, if it was created from another blob.
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    private String storageAccountName;
+    private String sourceUri;
     private String storageContainerId;
-    /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    private String storageContainerName;
     /**
      * @return The type of the storage blob
      * 
@@ -75,6 +71,13 @@ public final class GetBlobResult {
      */
     public String accessTier() {
         return this.accessTier;
+    }
+    /**
+     * @return The cache control directive that is set on the blob.
+     * 
+     */
+    public String cacheControl() {
+        return this.cacheControl;
     }
     /**
      * @return The MD5 sum of the blob contents.
@@ -115,25 +118,14 @@ public final class GetBlobResult {
         return this.name;
     }
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @return The source URI used to copy the blob, if it was created from another blob.
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public String sourceUri() {
+        return this.sourceUri;
     }
     public String storageContainerId() {
         return this.storageContainerId;
-    }
-    /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public String storageContainerName() {
-        return this.storageContainerName;
     }
     /**
      * @return The type of the storage blob
@@ -160,30 +152,30 @@ public final class GetBlobResult {
     @CustomType.Builder
     public static final class Builder {
         private String accessTier;
+        private String cacheControl;
         private String contentMd5;
         private String contentType;
         private String encryptionScope;
         private String id;
         private Map<String,String> metadata;
         private String name;
-        private String storageAccountName;
+        private String sourceUri;
         private String storageContainerId;
-        private String storageContainerName;
         private String type;
         private String url;
         public Builder() {}
         public Builder(GetBlobResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessTier = defaults.accessTier;
+    	      this.cacheControl = defaults.cacheControl;
     	      this.contentMd5 = defaults.contentMd5;
     	      this.contentType = defaults.contentType;
     	      this.encryptionScope = defaults.encryptionScope;
     	      this.id = defaults.id;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
-    	      this.storageAccountName = defaults.storageAccountName;
+    	      this.sourceUri = defaults.sourceUri;
     	      this.storageContainerId = defaults.storageContainerId;
-    	      this.storageContainerName = defaults.storageContainerName;
     	      this.type = defaults.type;
     	      this.url = defaults.url;
         }
@@ -194,6 +186,14 @@ public final class GetBlobResult {
               throw new MissingRequiredPropertyException("GetBlobResult", "accessTier");
             }
             this.accessTier = accessTier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cacheControl(String cacheControl) {
+            if (cacheControl == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "cacheControl");
+            }
+            this.cacheControl = cacheControl;
             return this;
         }
         @CustomType.Setter
@@ -245,11 +245,11 @@ public final class GetBlobResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetBlobResult", "storageAccountName");
+        public Builder sourceUri(String sourceUri) {
+            if (sourceUri == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "sourceUri");
             }
-            this.storageAccountName = storageAccountName;
+            this.sourceUri = sourceUri;
             return this;
         }
         @CustomType.Setter
@@ -258,14 +258,6 @@ public final class GetBlobResult {
               throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerId");
             }
             this.storageContainerId = storageContainerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageContainerName(String storageContainerName) {
-            if (storageContainerName == null) {
-              throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerName");
-            }
-            this.storageContainerName = storageContainerName;
             return this;
         }
         @CustomType.Setter
@@ -287,15 +279,15 @@ public final class GetBlobResult {
         public GetBlobResult build() {
             final var _resultValue = new GetBlobResult();
             _resultValue.accessTier = accessTier;
+            _resultValue.cacheControl = cacheControl;
             _resultValue.contentMd5 = contentMd5;
             _resultValue.contentType = contentType;
             _resultValue.encryptionScope = encryptionScope;
             _resultValue.id = id;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
-            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.sourceUri = sourceUri;
             _resultValue.storageContainerId = storageContainerId;
-            _resultValue.storageContainerName = storageContainerName;
             _resultValue.type = type;
             _resultValue.url = url;
             return _resultValue;

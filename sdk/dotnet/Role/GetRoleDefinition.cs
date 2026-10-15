@@ -267,6 +267,10 @@ namespace Pulumi.Azure.Role
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;
+        /// <summary>
+        /// The Azure Resource Manager ID for the resource.
+        /// </summary>
+        public readonly string RoleDefinitionResourceId;
         public readonly string? Scope;
         /// <summary>
         /// The Type of the Role.
@@ -287,6 +291,8 @@ namespace Pulumi.Azure.Role
 
             string roleDefinitionId,
 
+            string roleDefinitionResourceId,
+
             string? scope,
 
             string type)
@@ -297,6 +303,7 @@ namespace Pulumi.Azure.Role
             Name = name;
             Permissions = permissions;
             RoleDefinitionId = roleDefinitionId;
+            RoleDefinitionResourceId = roleDefinitionResourceId;
             Scope = scope;
             Type = type;
         }

@@ -434,7 +434,7 @@ class RoleManagementPolicyActivationRulesArgsDict(TypedDict):
     """
     require_ticket_info: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Is ticket information requrired during activation of the role.
+    Is ticket information required during activation of the role.
     """
     required_conditional_access_authentication_context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -457,7 +457,7 @@ class RoleManagementPolicyActivationRulesArgs:
         :param pulumi.Input[_builtins.bool] require_approval: Is approval required for activation. If `true` an `approval_stage` block must be provided.
         :param pulumi.Input[_builtins.bool] require_justification: Is a justification required during activation of the role.
         :param pulumi.Input[_builtins.bool] require_multifactor_authentication: Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
-        :param pulumi.Input[_builtins.bool] require_ticket_info: Is ticket information requrired during activation of the role.
+        :param pulumi.Input[_builtins.bool] require_ticket_info: Is ticket information required during activation of the role.
         :param pulumi.Input[_builtins.str] required_conditional_access_authentication_context: The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
         """
         if approval_stage is not None:
@@ -539,7 +539,7 @@ class RoleManagementPolicyActivationRulesArgs:
     @pulumi.getter(name="requireTicketInfo")
     def require_ticket_info(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is ticket information requrired during activation of the role.
+        Is ticket information required during activation of the role.
         """
         return pulumi.get(self, "require_ticket_info")
 
@@ -808,7 +808,7 @@ class RoleManagementPolicyEligibleAssignmentRulesArgs:
 class RoleManagementPolicyNotificationRulesArgsDict(TypedDict):
     active_assignments: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict']]]
     """
-    A `notification_target` block as defined below to configure notfications on active role assignments.
+    A `notification_target` block as defined below to configure notifications on active role assignments.
     """
     eligible_activations: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict']]]
     """
@@ -826,7 +826,7 @@ class RoleManagementPolicyNotificationRulesArgs:
                  eligible_activations: pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsArgs']] = None,
                  eligible_assignments: pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']] = None):
         """
-        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs'] active_assignments: A `notification_target` block as defined below to configure notfications on active role assignments.
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs'] active_assignments: A `notification_target` block as defined below to configure notifications on active role assignments.
         :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs'] eligible_activations: A `notification_target` block as defined below for configuring notifications on activation of eligible role.
         :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs'] eligible_assignments: A `notification_target` block as defined below to configure notification on eligible role assignments.
         """
@@ -841,7 +841,7 @@ class RoleManagementPolicyNotificationRulesArgs:
     @pulumi.getter(name="activeAssignments")
     def active_assignments(self) -> pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs']]:
         """
-        A `notification_target` block as defined below to configure notfications on active role assignments.
+        A `notification_target` block as defined below to configure notifications on active role assignments.
         """
         return pulumi.get(self, "active_assignments")
 

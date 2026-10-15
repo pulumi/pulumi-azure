@@ -26,14 +26,14 @@ class ExadataInfrastructureArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  shape: pulumi.Input[_builtins.str],
                  storage_count: pulumi.Input[_builtins.int],
-                 zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_server_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExadataInfrastructure resource.
 
@@ -42,7 +42,6 @@ class ExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -50,13 +49,13 @@ class ExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         pulumi.set(__self__, "compute_count", compute_count)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "shape", shape)
         pulumi.set(__self__, "storage_count", storage_count)
-        pulumi.set(__self__, "zones", zones)
         if customer_contacts is not None:
             pulumi.set(__self__, "customer_contacts", customer_contacts)
         if database_server_type is not None:
@@ -71,6 +70,8 @@ class ExadataInfrastructureArgs:
             pulumi.set(__self__, "storage_server_type", storage_server_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
     @pulumi.getter(name="computeCount")
@@ -131,18 +132,6 @@ class ExadataInfrastructureArgs:
     @storage_count.setter
     def storage_count(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "storage_count", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def zones(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        """
-        return pulumi.get(self, "zones")
-
-    @zones.setter
-    def zones(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "zones", value)
 
     @_builtins.property
     @pulumi.getter(name="customerContacts")
@@ -227,6 +216,18 @@ class ExadataInfrastructureArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
@@ -629,8 +630,6 @@ class ExadataInfrastructure(pulumi.CustomResource):
             __props__.__dict__["storage_count"] = storage_count
             __props__.__dict__["storage_server_type"] = storage_server_type
             __props__.__dict__["tags"] = tags
-            if zones is None and not opts.urn:
-                raise TypeError("Missing required property 'zones'")
             __props__.__dict__["zones"] = zones
         super(ExadataInfrastructure, __self__).__init__(
             'azure:oracle/exadataInfrastructure:ExadataInfrastructure',
@@ -793,7 +792,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """

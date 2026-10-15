@@ -163,6 +163,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy?> AutomaticOsUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Output("automaticUpdatesEnabled")]
+        public Output<bool?> AutomaticUpdatesEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
@@ -209,12 +215,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Output("enableAutomaticUpdates")]
-        public Output<bool?> EnableAutomaticUpdates { get; private set; } = null!;
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Compute
         public Output<int> Instances { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -383,7 +383,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
@@ -612,6 +614,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
@@ -674,12 +682,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -760,7 +762,7 @@ namespace Pulumi.Azure.Compute
         public Input<int> Instances { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -866,7 +868,9 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
@@ -1070,6 +1074,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyGetArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
@@ -1132,12 +1142,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -1218,7 +1222,7 @@ namespace Pulumi.Azure.Compute
         public Input<int>? Instances { get; set; }
 
         /// <summary>
-        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -1324,7 +1328,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }

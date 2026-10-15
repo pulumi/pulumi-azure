@@ -1,0 +1,54 @@
+name: eventgrid
+runtime: yaml
+
+# v7 renames `sourceArmResourceId` to `sourceResourceId` and `serviceBusQueueEndpointId` to
+# `serviceBusQueueId`.
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US 2
+
+  exampleAccount:
+    type: azure:storage:Account
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      accountTier: Standard
+      accountReplicationType: LRS
+
+  exampleNamespace:
+    type: azure:servicebus:Namespace
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: Standard
+
+  exampleQueue:
+    type: azure:servicebus:Queue
+    properties:
+      namespaceId: ${exampleNamespace.id}
+
+  systemTopic:
+    type: azure:eventgrid:SystemTopic
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sourceArmResourceId: ${exampleAccount.id}
+      topicType: Microsoft.Storage.StorageAccounts
+
+  topicSubscription:
+    type: azure:eventgrid:SystemTopicEventSubscription
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      systemTopic: ${systemTopic.name}
+      serviceBusQueueEndpointId: ${exampleQueue.id}
+      includedEventTypes:
+        - Microsoft.Storage.BlobCreated
+
+  rgSubscription:
+    type: azure:eventgrid:EventSubscription
+    properties:
+      scope: ${exampleResourceGroup.id}
+      serviceBusQueueEndpointId: ${exampleQueue.id}

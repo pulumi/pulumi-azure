@@ -22,7 +22,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
      * 
-     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
      * 
      */
     @Import(name="cmkKeyVaultKeyUrl")
@@ -31,7 +31,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
      * 
-     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
      * 
      */
     public Optional<Output<String>> cmkKeyVaultKeyUrl() {
@@ -239,8 +239,8 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
      * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    @Import(name="microsoftAppType")
-    private @Nullable Output<String> microsoftAppType;
+    @Import(name="microsoftAppType", required=true)
+    private Output<String> microsoftAppType;
 
     /**
      * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
@@ -248,8 +248,8 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
      * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    public Optional<Output<String>> microsoftAppType() {
-        return Optional.ofNullable(this.microsoftAppType);
+    public Output<String> microsoftAppType() {
+        return this.microsoftAppType;
     }
 
     /**
@@ -389,7 +389,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param cmkKeyVaultKeyUrl The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
          * 
-         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param cmkKeyVaultKeyUrl The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
          * 
-         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder microsoftAppType(@Nullable Output<String> microsoftAppType) {
+        public Builder microsoftAppType(Output<String> microsoftAppType) {
             $.microsoftAppType = microsoftAppType;
             return this;
         }
@@ -848,6 +848,9 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         public ServiceAzureBotArgs build() {
             if ($.microsoftAppId == null) {
                 throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "microsoftAppId");
+            }
+            if ($.microsoftAppType == null) {
+                throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "microsoftAppType");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "resourceGroupName");

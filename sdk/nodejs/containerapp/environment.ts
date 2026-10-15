@@ -131,7 +131,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
      */
-    declare public readonly logsDestination: pulumi.Output<string>;
+    declare public readonly logsDestination: pulumi.Output<string | undefined>;
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
      *

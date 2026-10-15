@@ -4,6 +4,8 @@
 package com.pulumi.azure.containerservice;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
 import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
@@ -24,6 +26,7 @@ import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryTokenPlainArgs;
+import com.pulumi.azure.containerservice.outputs.GetAutomaticClusterResult;
 import com.pulumi.azure.containerservice.outputs.GetClusterNodePoolResult;
 import com.pulumi.azure.containerservice.outputs.GetFleetManagerResult;
 import com.pulumi.azure.containerservice.outputs.GetGroupResult;
@@ -42,6 +45,261 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ContainerserviceFunctions {
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Automatic Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getAutomaticCluster(GetAutomaticClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService` - 2026-05-01
+     * 
+     */
+    public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args) {
+        return getAutomaticCluster(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Automatic Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getAutomaticCluster(GetAutomaticClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService` - 2026-05-01
+     * 
+     */
+    public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args) {
+        return getAutomaticClusterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Automatic Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getAutomaticCluster(GetAutomaticClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService` - 2026-05-01
+     * 
+     */
+    public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getAutomaticCluster:getAutomaticCluster", TypeShape.of(GetAutomaticClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Automatic Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getAutomaticCluster(GetAutomaticClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService` - 2026-05-01
+     * 
+     */
+    public static Output<GetAutomaticClusterResult> getAutomaticCluster(GetAutomaticClusterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getAutomaticCluster:getAutomaticCluster", TypeShape.of(GetAutomaticClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Automatic Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetAutomaticClusterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getAutomaticCluster(GetAutomaticClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService` - 2026-05-01
+     * 
+     */
+    public static CompletableFuture<GetAutomaticClusterResult> getAutomaticClusterPlain(GetAutomaticClusterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerservice/getAutomaticCluster:getAutomaticCluster", TypeShape.of(GetAutomaticClusterResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
@@ -86,7 +344,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
@@ -136,7 +394,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -186,7 +444,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
@@ -236,7 +494,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOutputOptions options) {
@@ -286,7 +544,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
@@ -834,7 +1092,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
@@ -882,7 +1140,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -930,7 +1188,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
@@ -978,7 +1236,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOutputOptions options) {
@@ -1026,7 +1284,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -1074,7 +1332,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
@@ -1122,7 +1380,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -1170,7 +1428,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
@@ -1218,7 +1476,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOutputOptions options) {
@@ -1266,7 +1524,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerService` - 2025-10-01
+     * * `Microsoft.ContainerService` - 2026-05-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {

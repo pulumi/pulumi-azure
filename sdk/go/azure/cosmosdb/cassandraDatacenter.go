@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,8 +51,6 @@ type CassandraDatacenter struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 }
 
@@ -117,8 +115,6 @@ type cassandraDatacenterState struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses []string `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -148,8 +144,6 @@ type CassandraDatacenterState struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses pulumi.StringArrayInput
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -181,8 +175,6 @@ type cassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -211,8 +203,6 @@ type CassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -364,8 +354,6 @@ func (o CassandraDatacenterOutput) SeedNodeIpAddresses() pulumi.StringArrayOutpu
 }
 
 // Determines the selected sku. Defaults to `Standard_E16s_v5`.
-//
-// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

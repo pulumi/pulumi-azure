@@ -3,13 +3,10 @@
 
 package com.pulumi.azure.monitoring.outputs;
 
-import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingEnabledLogRetentionPolicy;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AadDiagnosticSettingEnabledLog {
@@ -18,13 +15,6 @@ public final class AadDiagnosticSettingEnabledLog {
      * 
      */
     private String category;
-    /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
-     * 
-     */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
-    private @Nullable AadDiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
 
     private AadDiagnosticSettingEnabledLog() {}
     /**
@@ -33,15 +23,6 @@ public final class AadDiagnosticSettingEnabledLog {
      */
     public String category() {
         return this.category;
-    }
-    /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
-     * 
-     */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
-    public Optional<AadDiagnosticSettingEnabledLogRetentionPolicy> retentionPolicy() {
-        return Optional.ofNullable(this.retentionPolicy);
     }
 
     public static Builder builder() {
@@ -54,12 +35,10 @@ public final class AadDiagnosticSettingEnabledLog {
     @CustomType.Builder
     public static final class Builder {
         private String category;
-        private @Nullable AadDiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
         public Builder() {}
         public Builder(AadDiagnosticSettingEnabledLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
-    	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
         @CustomType.Setter
@@ -70,16 +49,9 @@ public final class AadDiagnosticSettingEnabledLog {
             this.category = category;
             return this;
         }
-        @CustomType.Setter
-        public Builder retentionPolicy(@Nullable AadDiagnosticSettingEnabledLogRetentionPolicy retentionPolicy) {
-
-            this.retentionPolicy = retentionPolicy;
-            return this;
-        }
         public AadDiagnosticSettingEnabledLog build() {
             final var _resultValue = new AadDiagnosticSettingEnabledLog();
             _resultValue.category = category;
-            _resultValue.retentionPolicy = retentionPolicy;
             return _resultValue;
         }
     }

@@ -97,7 +97,6 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
     declare public readonly workspaceId: pulumi.Output<string>;
-    declare public readonly workspaceResourceId: pulumi.Output<string>;
 
     /**
      * Create a LinkedStorageAccount resource with the given unique name, arguments, and options.
@@ -116,7 +115,6 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["storageAccountIds"] = state?.storageAccountIds;
             resourceInputs["workspaceId"] = state?.workspaceId;
-            resourceInputs["workspaceResourceId"] = state?.workspaceResourceId;
         } else {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
             if (args?.dataSourceType === undefined && !opts.urn) {
@@ -128,11 +126,13 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             if (args?.storageAccountIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountIds'");
             }
+            if (args?.workspaceId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceId'");
+            }
             resourceInputs["dataSourceType"] = args?.dataSourceType;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["storageAccountIds"] = args?.storageAccountIds;
             resourceInputs["workspaceId"] = args?.workspaceId;
-            resourceInputs["workspaceResourceId"] = args?.workspaceResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
@@ -159,7 +159,6 @@ export interface LinkedStorageAccountState {
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
     workspaceId?: pulumi.Input<string | undefined>;
-    workspaceResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,6 +180,5 @@ export interface LinkedStorageAccountArgs {
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    workspaceId?: pulumi.Input<string | undefined>;
-    workspaceResourceId?: pulumi.Input<string | undefined>;
+    workspaceId: pulumi.Input<string>;
 }

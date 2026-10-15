@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// 
-        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
+        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/azure/azure-functions/consumption-plan) for more information.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// 
-        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
+        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/azure/azure-functions/consumption-plan) for more information.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// 
-        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
+        /// &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/azure/azure-functions/consumption-plan) for more information.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

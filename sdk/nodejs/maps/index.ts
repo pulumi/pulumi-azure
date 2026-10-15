@@ -10,11 +10,6 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
-export { CreatorArgs, CreatorState } from "./creator";
-export type Creator = import("./creator").Creator;
-export const Creator: typeof import("./creator").Creator = null as any;
-utilities.lazyLoad(exports, ["Creator"], () => require("./creator"));
-
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -27,12 +22,9 @@ const _module = {
         switch (type) {
             case "azure:maps/account:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure:maps/creator:Creator":
-                return new Creator(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "maps/account", _module)
-pulumi.runtime.registerResourceModule("azure", "maps/creator", _module)

@@ -66,6 +66,6 @@ resources:
     properties:
       managedDiskId: ${exampleDisk.id}
       virtualMachineId: ${exampleVirtualMachine.id}
-      createOption: attach
+      createOption: Attach
       lun: 10
       caching: ReadWrite

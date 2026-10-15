@@ -25,7 +25,7 @@ public final class AppRegistry {
      */
     private @Nullable String passwordSecretName;
     /**
-     * @return The hostname for the Container Registry.
+     * @return The FQDN for the Container Registry.
      * 
      * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
      * 
@@ -55,7 +55,7 @@ public final class AppRegistry {
         return Optional.ofNullable(this.passwordSecretName);
     }
     /**
-     * @return The hostname for the Container Registry.
+     * @return The FQDN for the Container Registry.
      * 
      * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
      * 

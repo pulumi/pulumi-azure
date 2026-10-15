@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// </summary>
         public readonly bool? RequireMultifactorAuthentication;
         /// <summary>
-        /// Is ticket information requrired during activation of the role.
+        /// Is ticket information required during activation of the role.
         /// </summary>
         public readonly bool? RequireTicketInfo;
         /// <summary>

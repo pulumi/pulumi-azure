@@ -77,7 +77,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
     declare public readonly queryAccessMode: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface PrivateLinkScopeState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
     queryAccessMode?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface PrivateLinkScopeArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
     queryAccessMode?: pulumi.Input<string | undefined>;
     /**

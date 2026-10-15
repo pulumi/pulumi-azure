@@ -228,7 +228,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+     * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
      * 
      * &gt; **Note:** This property conflicts with `javaVersion`.
      * 
@@ -237,7 +237,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+     * @return The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
      * 
      * &gt; **Note:** This property conflicts with `javaVersion`.
      * 
@@ -615,7 +615,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+         * @param nodeVersion The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          * 
          * &gt; **Note:** This property conflicts with `javaVersion`.
          * 
@@ -628,7 +628,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+         * @param nodeVersion The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          * 
          * &gt; **Note:** This property conflicts with `javaVersion`.
          * 

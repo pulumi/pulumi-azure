@@ -50,7 +50,7 @@ namespace Pulumi.Azure.MSSql
     ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
-    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         BlobStorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         StorageAccountAccessKeyIsSecondary = false,
     ///         RetentionInDays = 6,
@@ -102,8 +102,14 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Sql",
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Sql",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });
@@ -180,7 +186,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("example", new()
     ///     {
-    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         BlobStorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
     ///         ServerId = exampleServer.Id,
     ///         RetentionInDays = 6,
     ///         LogMonitoringEnabled = false,
@@ -215,9 +221,15 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableArray<string>> AuditActionsAndGroups { get; private set; } = null!;
 
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Output("blobStorageEndpoint")]
+        public Output<string?> BlobStorageEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -263,12 +275,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("storageAccountSubscriptionId")]
         public Output<string?> StorageAccountSubscriptionId { get; private set; } = null!;
-
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Output("storageEndpoint")]
-        public Output<string?> StorageEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -334,9 +340,15 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Input("blobStorageEndpoint")]
+        public Input<string>? BlobStorageEndpoint { get; set; }
+
+        /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -403,12 +415,6 @@ namespace Pulumi.Azure.MSSql
             }
         }
 
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Input("storageEndpoint")]
-        public Input<string>? StorageEndpoint { get; set; }
-
         public ServerExtendedAuditingPolicyArgs()
         {
         }
@@ -430,9 +436,15 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Input("blobStorageEndpoint")]
+        public Input<string>? BlobStorageEndpoint { get; set; }
+
+        /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -498,12 +510,6 @@ namespace Pulumi.Azure.MSSql
                 _storageAccountSubscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
-
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Input("storageEndpoint")]
-        public Input<string>? StorageEndpoint { get; set; }
 
         public ServerExtendedAuditingPolicyState()
         {

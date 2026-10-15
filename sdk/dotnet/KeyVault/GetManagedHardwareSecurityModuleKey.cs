@@ -35,7 +35,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["hsm-key-vesrion"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
+        ///         ["hsm-key-version"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["hsm-key-vesrion"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
+        ///         ["hsm-key-version"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
         ///     };
         /// });
         /// ```
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.KeyVault
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["hsm-key-vesrion"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
+        ///         ["hsm-key-version"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
         ///     };
         /// });
         /// ```

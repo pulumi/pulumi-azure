@@ -29,10 +29,8 @@ class EventGridDataConnectionArgs:
                  data_format: pulumi.Input[Optional[_builtins.str]] = None,
                  database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_first_record: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -71,20 +69,10 @@ class EventGridDataConnectionArgs:
             pulumi.set(__self__, "database_routing_type", database_routing_type)
         if eventgrid_event_subscription_id is not None:
             pulumi.set(__self__, "eventgrid_event_subscription_id", eventgrid_event_subscription_id)
-        if eventgrid_resource_id is not None:
-            warnings.warn("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""eventgrid_resource_id is deprecated: `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if eventgrid_resource_id is not None:
-            pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_identity_id is not None:
             pulumi.set(__self__, "managed_identity_id", managed_identity_id)
-        if managed_identity_resource_id is not None:
-            warnings.warn("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed_identity_resource_id is deprecated: `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if name is not None:
@@ -215,16 +203,6 @@ class EventGridDataConnectionArgs:
         pulumi.set(self, "eventgrid_event_subscription_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="eventgridResourceId")
-    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def eventgrid_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "eventgrid_resource_id")
-
-    @eventgrid_resource_id.setter
-    def eventgrid_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "eventgrid_resource_id", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -247,16 +225,6 @@ class EventGridDataConnectionArgs:
     @managed_identity_id.setter
     def managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @managed_identity_resource_id.setter
-    def managed_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_identity_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
@@ -316,12 +284,10 @@ class _EventGridDataConnectionState:
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -360,11 +326,6 @@ class _EventGridDataConnectionState:
             pulumi.set(__self__, "database_routing_type", database_routing_type)
         if eventgrid_event_subscription_id is not None:
             pulumi.set(__self__, "eventgrid_event_subscription_id", eventgrid_event_subscription_id)
-        if eventgrid_resource_id is not None:
-            warnings.warn("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""eventgrid_resource_id is deprecated: `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if eventgrid_resource_id is not None:
-            pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
         if eventhub_consumer_group_name is not None:
             pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_id is not None:
@@ -373,11 +334,6 @@ class _EventGridDataConnectionState:
             pulumi.set(__self__, "location", location)
         if managed_identity_id is not None:
             pulumi.set(__self__, "managed_identity_id", managed_identity_id)
-        if managed_identity_resource_id is not None:
-            warnings.warn("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed_identity_resource_id is deprecated: `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if name is not None:
@@ -464,16 +420,6 @@ class _EventGridDataConnectionState:
         pulumi.set(self, "eventgrid_event_subscription_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="eventgridResourceId")
-    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def eventgrid_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "eventgrid_resource_id")
-
-    @eventgrid_resource_id.setter
-    def eventgrid_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "eventgrid_resource_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -520,16 +466,6 @@ class _EventGridDataConnectionState:
     @managed_identity_id.setter
     def managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @managed_identity_resource_id.setter
-    def managed_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_identity_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
@@ -616,12 +552,10 @@ class EventGridDataConnection(pulumi.CustomResource):
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -859,12 +793,10 @@ class EventGridDataConnection(pulumi.CustomResource):
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -890,7 +822,6 @@ class EventGridDataConnection(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["database_routing_type"] = database_routing_type
             __props__.__dict__["eventgrid_event_subscription_id"] = eventgrid_event_subscription_id
-            __props__.__dict__["eventgrid_resource_id"] = eventgrid_resource_id
             if eventhub_consumer_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_consumer_group_name'")
             __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
@@ -899,7 +830,6 @@ class EventGridDataConnection(pulumi.CustomResource):
             __props__.__dict__["eventhub_id"] = eventhub_id
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_identity_id"] = managed_identity_id
-            __props__.__dict__["managed_identity_resource_id"] = managed_identity_resource_id
             __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -926,12 +856,10 @@ class EventGridDataConnection(pulumi.CustomResource):
             database_name: pulumi.Input[Optional[_builtins.str]] = None,
             database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
             eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-            eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -972,12 +900,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["database_routing_type"] = database_routing_type
         __props__.__dict__["eventgrid_event_subscription_id"] = eventgrid_event_subscription_id
-        __props__.__dict__["eventgrid_resource_id"] = eventgrid_resource_id
         __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
         __props__.__dict__["eventhub_id"] = eventhub_id
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_identity_id"] = managed_identity_id
-        __props__.__dict__["managed_identity_resource_id"] = managed_identity_resource_id
         __props__.__dict__["mapping_rule_name"] = mapping_rule_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1028,17 +954,11 @@ class EventGridDataConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="eventgridEventSubscriptionId")
-    def eventgrid_event_subscription_id(self) -> pulumi.Output[_builtins.str]:
+    def eventgrid_event_subscription_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The resource ID of the event grid that is subscribed to the storage account events.
         """
         return pulumi.get(self, "eventgrid_event_subscription_id")
-
-    @_builtins.property
-    @pulumi.getter(name="eventgridResourceId")
-    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def eventgrid_resource_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "eventgrid_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
@@ -1066,17 +986,11 @@ class EventGridDataConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedIdentityId")
-    def managed_identity_id(self) -> pulumi.Output[_builtins.str]:
+    def managed_identity_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_id")
-
-    @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_identity_resource_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "managed_identity_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")

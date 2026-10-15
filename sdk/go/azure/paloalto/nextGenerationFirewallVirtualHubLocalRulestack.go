@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/paloalto"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/paloalto"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,9 +125,7 @@ type NextGenerationFirewallVirtualHubLocalRulestack struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -186,9 +184,7 @@ type nextGenerationFirewallVirtualHubLocalRulestackState struct {
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -209,9 +205,7 @@ type NextGenerationFirewallVirtualHubLocalRulestackState struct {
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -236,9 +230,7 @@ type nextGenerationFirewallVirtualHubLocalRulestackArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -260,9 +252,7 @@ type NextGenerationFirewallVirtualHubLocalRulestackArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
 	ResourceGroupName pulumi.StringInput
@@ -392,9 +382,7 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) NetworkProfile() N
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput)
 }
 
-// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-//
-// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }

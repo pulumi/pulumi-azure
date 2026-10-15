@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ScriptName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        /// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         /// </summary>
         [Output("scriptParameters")]
         public Output<ImmutableDictionary<string, string>?> ScriptParameters { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Automation
         private InputMap<string>? _scriptParameters;
 
         /// <summary>
-        /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        /// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         /// </summary>
         public InputMap<string> ScriptParameters
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Automation
         private InputMap<string>? _scriptParameters;
 
         /// <summary>
-        /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        /// Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         /// </summary>
         public InputMap<string> ScriptParameters
         {

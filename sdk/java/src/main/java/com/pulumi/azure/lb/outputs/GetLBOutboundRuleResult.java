@@ -24,7 +24,6 @@ public final class GetLBOutboundRuleResult {
      * 
      */
     private String backendAddressPoolId;
-    private Boolean enableTcpReset;
     /**
      * @return A `frontendIpConfiguration` block as defined below.
      * 
@@ -71,9 +70,6 @@ public final class GetLBOutboundRuleResult {
      */
     public String backendAddressPoolId() {
         return this.backendAddressPoolId;
-    }
-    public Boolean enableTcpReset() {
-        return this.enableTcpReset;
     }
     /**
      * @return A `frontendIpConfiguration` block as defined below.
@@ -132,7 +128,6 @@ public final class GetLBOutboundRuleResult {
     public static final class Builder {
         private Integer allocatedOutboundPorts;
         private String backendAddressPoolId;
-        private Boolean enableTcpReset;
         private List<GetLBOutboundRuleFrontendIpConfiguration> frontendIpConfigurations;
         private String id;
         private Integer idleTimeoutInMinutes;
@@ -145,7 +140,6 @@ public final class GetLBOutboundRuleResult {
     	      Objects.requireNonNull(defaults);
     	      this.allocatedOutboundPorts = defaults.allocatedOutboundPorts;
     	      this.backendAddressPoolId = defaults.backendAddressPoolId;
-    	      this.enableTcpReset = defaults.enableTcpReset;
     	      this.frontendIpConfigurations = defaults.frontendIpConfigurations;
     	      this.id = defaults.id;
     	      this.idleTimeoutInMinutes = defaults.idleTimeoutInMinutes;
@@ -169,14 +163,6 @@ public final class GetLBOutboundRuleResult {
               throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "backendAddressPoolId");
             }
             this.backendAddressPoolId = backendAddressPoolId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableTcpReset(Boolean enableTcpReset) {
-            if (enableTcpReset == null) {
-              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "enableTcpReset");
-            }
-            this.enableTcpReset = enableTcpReset;
             return this;
         }
         @CustomType.Setter
@@ -242,7 +228,6 @@ public final class GetLBOutboundRuleResult {
             final var _resultValue = new GetLBOutboundRuleResult();
             _resultValue.allocatedOutboundPorts = allocatedOutboundPorts;
             _resultValue.backendAddressPoolId = backendAddressPoolId;
-            _resultValue.enableTcpReset = enableTcpReset;
             _resultValue.frontendIpConfigurations = frontendIpConfigurations;
             _resultValue.id = id;
             _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;

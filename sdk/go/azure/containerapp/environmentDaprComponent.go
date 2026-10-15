@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,7 +102,7 @@ type EnvironmentDaprComponent struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayOutput `pulumi:"secrets"`
@@ -170,7 +170,7 @@ type environmentDaprComponentState struct {
 	Name *string `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes []string `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets []EnvironmentDaprComponentSecret `pulumi:"secrets"`
@@ -193,7 +193,7 @@ type EnvironmentDaprComponentState struct {
 	Name pulumi.StringPtrInput
 	// A list of scopes to which this component applies.
 	//
-	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayInput
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayInput
@@ -220,7 +220,7 @@ type environmentDaprComponentArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes []string `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets []EnvironmentDaprComponentSecret `pulumi:"secrets"`
@@ -244,7 +244,7 @@ type EnvironmentDaprComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of scopes to which this component applies.
 	//
-	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayInput
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayInput
@@ -371,7 +371,7 @@ func (o EnvironmentDaprComponentOutput) Name() pulumi.StringOutput {
 
 // A list of scopes to which this component applies.
 //
-// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+// > **Note:** See the official docs for more information at https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 func (o EnvironmentDaprComponentOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }

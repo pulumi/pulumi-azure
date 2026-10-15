@@ -254,7 +254,7 @@ class CustomProviderValidationArgs:
 class ResourceDeploymentScriptAzureCliContainerArgsDict(TypedDict):
     container_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
     """
 
 @pulumi.input_type
@@ -262,7 +262,7 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
     def __init__(__self__, *,
                  container_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
@@ -271,7 +271,7 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
     @pulumi.getter(name="containerGroupName")
     def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
@@ -445,7 +445,7 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
 class ResourceDeploymentScriptPowerShellContainerArgsDict(TypedDict):
     container_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
     """
 
 @pulumi.input_type
@@ -453,7 +453,7 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
     def __init__(__self__, *,
                  container_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
@@ -462,7 +462,7 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
     @pulumi.getter(name="containerGroupName")
     def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
@@ -1181,7 +1181,7 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
 class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
     value: pulumi.Input[_builtins.str]
     """
-    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
     """
     selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
@@ -1194,7 +1194,7 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
                  value: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -1205,7 +1205,7 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 
@@ -1510,7 +1510,7 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
 class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
     value: pulumi.Input[_builtins.str]
     """
-    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
     """
     selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
@@ -1523,7 +1523,7 @@ class ResourcePolicyAssignmentOverrideArgs:
                  value: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -1534,7 +1534,7 @@ class ResourcePolicyAssignmentOverrideArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 
@@ -2295,7 +2295,7 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
 class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
     value: pulumi.Input[_builtins.str]
     """
-    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
     """
     selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
@@ -2308,7 +2308,7 @@ class SubscriptionPolicyAssignmentOverrideArgs:
                  value: pulumi.Input[_builtins.str],
                  selectors: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -2319,7 +2319,7 @@ class SubscriptionPolicyAssignmentOverrideArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 

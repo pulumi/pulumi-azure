@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Inputs
     {
         /// <summary>
         /// The client id of the Azure VPN application.
-        /// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+        /// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
         /// </summary>
         [Input("aadAudience")]
         public Input<string>? AadAudience { get; set; }

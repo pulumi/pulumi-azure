@@ -25,7 +25,6 @@ class PolicySetDefinitionArgs:
                  policy_definition_references: pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]],
                  policy_type: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,11 +46,6 @@ class PolicySetDefinitionArgs:
         pulumi.set(__self__, "policy_type", policy_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if management_group_id is not None:
-            warnings.warn("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""management_group_id is deprecated: `management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-        if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -110,16 +104,6 @@ class PolicySetDefinitionArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter(name="managementGroupId")
-    @_utilities.deprecated("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "management_group_id")
-
-    @management_group_id.setter
-    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "management_group_id", value)
-
-    @_builtins.property
     @pulumi.getter
     def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -173,7 +157,6 @@ class _PolicySetDefinitionState:
     def __init__(__self__, *,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
@@ -196,11 +179,6 @@ class _PolicySetDefinitionState:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if management_group_id is not None:
-            warnings.warn("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""management_group_id is deprecated: `management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-        if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -237,16 +215,6 @@ class _PolicySetDefinitionState:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managementGroupId")
-    @_utilities.deprecated("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "management_group_id")
-
-    @management_group_id.setter
-    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -329,7 +297,6 @@ class PolicySetDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
@@ -379,8 +346,6 @@ class PolicySetDefinition(pulumi.CustomResource):
         This resource uses the following Azure API Providers:
 
         * `Microsoft.Authorization` - 2025-01-01
-
-        * `Microsoft.Management` - 2025-01-01
 
         ## Import
 
@@ -451,8 +416,6 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         * `Microsoft.Authorization` - 2025-01-01
 
-        * `Microsoft.Management` - 2025-01-01
-
         ## Import
 
         Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -479,7 +442,6 @@ class PolicySetDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
@@ -499,7 +461,6 @@ class PolicySetDefinition(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["management_group_id"] = management_group_id
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -522,7 +483,6 @@ class PolicySetDefinition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             metadata: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[_builtins.str]] = None,
@@ -551,7 +511,6 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
-        __props__.__dict__["management_group_id"] = management_group_id
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
@@ -575,12 +534,6 @@ class PolicySetDefinition(pulumi.CustomResource):
         The display name of this Policy Set Definition.
         """
         return pulumi.get(self, "display_name")
-
-    @_builtins.property
-    @pulumi.getter(name="managementGroupId")
-    @_utilities.deprecated("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-    def management_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "management_group_id")
 
     @_builtins.property
     @pulumi.getter

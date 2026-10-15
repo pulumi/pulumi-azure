@@ -34,18 +34,18 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="privateDnsZoneName", required=true)
-    private Output<String> privateDnsZoneName;
+    @Import(name="privateDnsZoneId", required=true)
+    private Output<String> privateDnsZoneId;
 
     /**
-     * @return The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> privateDnsZoneName() {
-        return this.privateDnsZoneName;
+    public Output<String> privateDnsZoneId() {
+        return this.privateDnsZoneId;
     }
 
     /**
@@ -76,21 +76,6 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> resolutionPolicy() {
         return Optional.ofNullable(this.resolutionPolicy);
-    }
-
-    /**
-     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
 
     /**
@@ -127,10 +112,9 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
 
     private ZoneVirtualNetworkLinkArgs(ZoneVirtualNetworkLinkArgs $) {
         this.name = $.name;
-        this.privateDnsZoneName = $.privateDnsZoneName;
+        this.privateDnsZoneId = $.privateDnsZoneId;
         this.registrationEnabled = $.registrationEnabled;
         this.resolutionPolicy = $.resolutionPolicy;
-        this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.virtualNetworkId = $.virtualNetworkId;
     }
@@ -175,24 +159,24 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privateDnsZoneName The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder privateDnsZoneName(Output<String> privateDnsZoneName) {
-            $.privateDnsZoneName = privateDnsZoneName;
+        public Builder privateDnsZoneId(Output<String> privateDnsZoneId) {
+            $.privateDnsZoneId = privateDnsZoneId;
             return this;
         }
 
         /**
-         * @param privateDnsZoneName The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder privateDnsZoneName(String privateDnsZoneName) {
-            return privateDnsZoneName(Output.of(privateDnsZoneName));
+        public Builder privateDnsZoneId(String privateDnsZoneId) {
+            return privateDnsZoneId(Output.of(privateDnsZoneId));
         }
 
         /**
@@ -238,27 +222,6 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
          * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
@@ -301,11 +264,8 @@ public final class ZoneVirtualNetworkLinkArgs extends com.pulumi.resources.Resou
         }
 
         public ZoneVirtualNetworkLinkArgs build() {
-            if ($.privateDnsZoneName == null) {
-                throw new MissingRequiredPropertyException("ZoneVirtualNetworkLinkArgs", "privateDnsZoneName");
-            }
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("ZoneVirtualNetworkLinkArgs", "resourceGroupName");
+            if ($.privateDnsZoneId == null) {
+                throw new MissingRequiredPropertyException("ZoneVirtualNetworkLinkArgs", "privateDnsZoneId");
             }
             if ($.virtualNetworkId == null) {
                 throw new MissingRequiredPropertyException("ZoneVirtualNetworkLinkArgs", "virtualNetworkId");

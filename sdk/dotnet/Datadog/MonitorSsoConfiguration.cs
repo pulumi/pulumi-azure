@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// ## Import
     /// 
-    /// SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.
+    /// SingleSignOn on the Datadog Monitor can be imported using the `single sign on resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
@@ -108,9 +108,6 @@ namespace Pulumi.Azure.Datadog
         /// </summary>
         [Output("singleSignOn")]
         public Output<string> SingleSignOn { get; private set; } = null!;
-
-        [Output("singleSignOnEnabled")]
-        public Output<string> SingleSignOnEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,11 +176,8 @@ namespace Pulumi.Azure.Datadog
         /// <summary>
         /// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         /// </summary>
-        [Input("singleSignOn")]
-        public Input<string>? SingleSignOn { get; set; }
-
-        [Input("singleSignOnEnabled")]
-        public Input<string>? SingleSignOnEnabled { get; set; }
+        [Input("singleSignOn", required: true)]
+        public Input<string> SingleSignOn { get; set; } = null!;
 
         public MonitorSsoConfigurationArgs()
         {
@@ -222,9 +216,6 @@ namespace Pulumi.Azure.Datadog
         /// </summary>
         [Input("singleSignOn")]
         public Input<string>? SingleSignOn { get; set; }
-
-        [Input("singleSignOnEnabled")]
-        public Input<string>? SingleSignOnEnabled { get; set; }
 
         public MonitorSsoConfigurationState()
         {

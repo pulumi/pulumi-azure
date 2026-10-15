@@ -312,6 +312,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool VirtualNetworkBackupRestoreEnabled;
         /// <summary>
+        /// Whether image pull traffic is routed through the virtual network integration.
+        /// </summary>
+        public readonly bool VirtualNetworkImagePullEnabled;
+        /// <summary>
         /// The subnet id which the Linux Web App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
@@ -398,6 +402,8 @@ namespace Pulumi.Azure.AppService
 
             bool virtualNetworkBackupRestoreEnabled,
 
+            bool virtualNetworkImagePullEnabled,
+
             string virtualNetworkSubnetId,
 
             bool webdeployPublishBasicAuthenticationEnabled)
@@ -440,6 +446,7 @@ namespace Pulumi.Azure.AppService
             Tags = tags;
             Usage = usage;
             VirtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            VirtualNetworkImagePullEnabled = virtualNetworkImagePullEnabled;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
             WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }

@@ -23,7 +23,7 @@ public final class WorkspaceGithubRepo {
      */
     private String branchName;
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
      * 
      * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
      * 
@@ -61,7 +61,7 @@ public final class WorkspaceGithubRepo {
         return this.branchName;
     }
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`.
      * 
      * &gt; **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
      * 

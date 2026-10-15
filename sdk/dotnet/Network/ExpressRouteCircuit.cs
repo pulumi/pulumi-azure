@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> PeeringLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
+        /// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Output("rateLimitingEnabled")]
         public Output<bool?> RateLimitingEnabled { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
+        /// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Input("rateLimitingEnabled")]
         public Input<bool>? RateLimitingEnabled { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
-        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
+        /// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `False`.
         /// </summary>
         [Input("rateLimitingEnabled")]
         public Input<bool>? RateLimitingEnabled { get; set; }

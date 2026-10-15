@@ -7,12 +7,10 @@ import com.pulumi.azure.nginx.inputs.DeploymentAutoScaleProfileArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPrivateArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentIdentityArgs;
-import com.pulumi.azure.nginx.inputs.DeploymentLoggingStorageAccountArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentWebApplicationFirewallArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,25 +86,6 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> dataplaneApiEndpoint() {
         return Optional.ofNullable(this.dataplaneApiEndpoint);
-    }
-
-    /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-    @Import(name="diagnoseSupportEnabled")
-    private @Nullable Output<Boolean> diagnoseSupportEnabled;
-
-    /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-    public Optional<Output<Boolean>> diagnoseSupportEnabled() {
-        return Optional.ofNullable(this.diagnoseSupportEnabled);
     }
 
     /**
@@ -197,44 +176,6 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
-    }
-
-    /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     * 
-     */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-    @Import(name="loggingStorageAccounts")
-    private @Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts;
-
-    /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     * 
-     */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-    public Optional<Output<List<DeploymentLoggingStorageAccountArgs>>> loggingStorageAccounts() {
-        return Optional.ofNullable(this.loggingStorageAccounts);
-    }
-
-    /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="managedResourceGroup")
-    private @Nullable Output<String> managedResourceGroup;
-
-    /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> managedResourceGroup() {
-        return Optional.ofNullable(this.managedResourceGroup);
     }
 
     /**
@@ -357,15 +298,12 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.capacity = $.capacity;
         this.dataplaneApiEndpoint = $.dataplaneApiEndpoint;
-        this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
         this.email = $.email;
         this.frontendPrivates = $.frontendPrivates;
         this.frontendPublic = $.frontendPublic;
         this.identity = $.identity;
         this.ipAddress = $.ipAddress;
         this.location = $.location;
-        this.loggingStorageAccounts = $.loggingStorageAccounts;
-        this.managedResourceGroup = $.managedResourceGroup;
         this.name = $.name;
         this.networkInterfaces = $.networkInterfaces;
         this.nginxVersion = $.nginxVersion;
@@ -489,31 +427,6 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dataplaneApiEndpoint(String dataplaneApiEndpoint) {
             return dataplaneApiEndpoint(Output.of(dataplaneApiEndpoint));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-         * 
-         */
-        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-        public Builder diagnoseSupportEnabled(@Nullable Output<Boolean> diagnoseSupportEnabled) {
-            $.diagnoseSupportEnabled = diagnoseSupportEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-         * 
-         */
-        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-        public Builder diagnoseSupportEnabled(Boolean diagnoseSupportEnabled) {
-            return diagnoseSupportEnabled(Output.of(diagnoseSupportEnabled));
         }
 
         /**
@@ -650,68 +563,6 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-         * 
-         */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-        public Builder loggingStorageAccounts(@Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts) {
-            $.loggingStorageAccounts = loggingStorageAccounts;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-         * 
-         */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-        public Builder loggingStorageAccounts(List<DeploymentLoggingStorageAccountArgs> loggingStorageAccounts) {
-            return loggingStorageAccounts(Output.of(loggingStorageAccounts));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-         * 
-         */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-        public Builder loggingStorageAccounts(DeploymentLoggingStorageAccountArgs... loggingStorageAccounts) {
-            return loggingStorageAccounts(List.of(loggingStorageAccounts));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder managedResourceGroup(@Nullable Output<String> managedResourceGroup) {
-            $.managedResourceGroup = managedResourceGroup;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder managedResourceGroup(String managedResourceGroup) {
-            return managedResourceGroup(Output.of(managedResourceGroup));
         }
 
         /**

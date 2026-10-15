@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +81,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2023-09-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -100,6 +100,8 @@ type Probe struct {
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+	NoHealthyBackendsBehavior pulumi.StringPtrOutput `pulumi:"noHealthyBackendsBehavior"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrOutput `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -155,6 +157,8 @@ type probeState struct {
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+	NoHealthyBackendsBehavior *string `pulumi:"noHealthyBackendsBehavior"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -175,6 +179,8 @@ type ProbeState struct {
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+	NoHealthyBackendsBehavior pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -198,6 +204,8 @@ type probeArgs struct {
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+	NoHealthyBackendsBehavior *string `pulumi:"noHealthyBackendsBehavior"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -218,6 +226,8 @@ type ProbeArgs struct {
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+	NoHealthyBackendsBehavior pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -334,6 +344,11 @@ func (o ProbeOutput) LoadbalancerId() pulumi.StringOutput {
 // Specifies the name of the Probe. Changing this forces a new resource to be created.
 func (o ProbeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+func (o ProbeOutput) NoHealthyBackendsBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Probe) pulumi.StringPtrOutput { return v.NoHealthyBackendsBehavior }).(pulumi.StringPtrOutput)
 }
 
 // The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
