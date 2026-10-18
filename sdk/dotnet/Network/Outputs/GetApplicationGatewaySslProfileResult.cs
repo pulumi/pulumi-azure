@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewaySslProfileResult
     {
         /// <summary>
+        /// The client authentication mode used by the SSL Profile.
+        /// </summary>
+        public readonly string ClientAuthenticationMode;
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
@@ -22,13 +26,16 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// a `SslPolicy` block as defined below.
+        /// An `SslPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewaySslProfileSslPolicyResult> SslPolicies;
         /// <summary>
-        /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+        /// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
+        /// <summary>
+        /// Will the client certificate issuer DN be verified?
+        /// </summary>
         public readonly bool VerifyClientCertificateIssuerDn;
         /// <summary>
         /// The method used to check client certificate revocation status.
@@ -37,6 +44,8 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private GetApplicationGatewaySslProfileResult(
+            string clientAuthenticationMode,
+
             string id,
 
             string name,
@@ -49,6 +58,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string verifyClientCertificateRevocation)
         {
+            ClientAuthenticationMode = clientAuthenticationMode;
             Id = id;
             Name = name;
             SslPolicies = sslPolicies;

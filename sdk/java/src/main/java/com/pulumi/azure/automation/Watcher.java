@@ -218,14 +218,14 @@ public class Watcher extends com.pulumi.resources.CustomResource {
         return this.scriptName;
     }
     /**
-     * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      * 
      */
     @Export(name="scriptParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> scriptParameters;
 
     /**
-     * @return Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * @return Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> scriptParameters() {

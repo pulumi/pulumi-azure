@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { Azurerm_portal_dashboardArgs, Azurerm_portal_dashboardResult, Azurerm_portal_dashboardOutputArgs } from "./azurerm_portal_dashboard";
-export const azurerm_portal_dashboard: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboard = null as any;
-export const azurerm_portal_dashboardOutput: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboardOutput = null as any;
-utilities.lazyLoad(exports, ["azurerm_portal_dashboard","azurerm_portal_dashboardOutput"], () => require("./azurerm_portal_dashboard"));
-
 export { GetGrafanaArgs, GetGrafanaResult, GetGrafanaOutputArgs } from "./getGrafana";
 export const getGrafana: typeof import("./getGrafana").getGrafana = null as any;
 export const getGrafanaOutput: typeof import("./getGrafana").getGrafanaOutput = null as any;

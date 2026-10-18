@@ -33,13 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
- * import com.pulumi.azure.appservice.AppService;
- * import com.pulumi.azure.appservice.AppServiceArgs;
- * import com.pulumi.azure.appservice.Slot;
- * import com.pulumi.azure.appservice.SlotArgs;
+ * import com.pulumi.azurerm.AppServicePlan;
+ * import com.pulumi.azurerm.AppServicePlanArgs;
+ * import com.pulumi.azurerm.AppService;
+ * import com.pulumi.azurerm.AppServiceArgs;
+ * import com.pulumi.azurerm.AppServiceSlot;
+ * import com.pulumi.azurerm.AppServiceSlotArgs;
  * import com.pulumi.azure.appservice.SlotVirtualNetworkSwiftConnection;
  * import com.pulumi.azure.appservice.SlotVirtualNetworkSwiftConnectionArgs;
  * import java.util.ArrayList;
@@ -81,34 +80,34 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleAppServicePlan = new AppServicePlan("exampleAppServicePlan", AppServicePlanArgs.builder()
  *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Standard")
- *                 .size("S1")
- *                 .build())
+ *             .sku(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("tier", "Standard"),
+ *                 Map.entry("size", "S1")
+ *             )))
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("example-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
- *         var example_staging = new Slot("example-staging", SlotArgs.builder()
+ *         var example_staging = new AppServiceSlot("example-staging", AppServiceSlotArgs.builder()
  *             .name("staging")
- *             .appServiceName(exampleAppService.name())
+ *             .appServiceName(exampleAppService.get("name"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.get("id"))
  *             .build());
  * 
  *         var exampleSlotVirtualNetworkSwiftConnection = new SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", SlotVirtualNetworkSwiftConnectionArgs.builder()
- *             .slotName(example_staging.name())
- *             .appServiceId(exampleAppService.id())
+ *             .slotName(example_staging.get("name"))
+ *             .appServiceId(exampleAppService.get("id"))
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 

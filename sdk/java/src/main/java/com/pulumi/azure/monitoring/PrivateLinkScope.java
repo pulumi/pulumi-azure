@@ -108,14 +108,14 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      * 
      */
     @Export(name="queryAccessMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryAccessMode;
 
     /**
-     * @return The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+     * @return The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      * 
      */
     public Output<Optional<String>> queryAccessMode() {

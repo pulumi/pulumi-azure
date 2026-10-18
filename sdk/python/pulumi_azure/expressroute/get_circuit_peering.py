@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCircuitPeeringResult',
@@ -26,7 +27,7 @@ class GetCircuitPeeringResult:
     """
     A collection of values returned by getCircuitPeering.
     """
-    def __init__(__self__, azure_asn=None, express_route_circuit_name=None, gateway_manager_etag=None, id=None, ipv4_enabled=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, resource_group_name=None, route_filter_id=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, vlan_id=None):
+    def __init__(__self__, azure_asn=None, express_route_circuit_name=None, gateway_manager_etag=None, id=None, ipv4_enabled=None, ipv6s=None, microsoft_peering_configs=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, resource_group_name=None, route_filter_id=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, vlan_id=None):
         if azure_asn and not isinstance(azure_asn, int):
             raise TypeError("Expected argument 'azure_asn' to be a int")
         pulumi.set(__self__, "azure_asn", azure_asn)
@@ -42,6 +43,12 @@ class GetCircuitPeeringResult:
         if ipv4_enabled and not isinstance(ipv4_enabled, bool):
             raise TypeError("Expected argument 'ipv4_enabled' to be a bool")
         pulumi.set(__self__, "ipv4_enabled", ipv4_enabled)
+        if ipv6s and not isinstance(ipv6s, list):
+            raise TypeError("Expected argument 'ipv6s' to be a list")
+        pulumi.set(__self__, "ipv6s", ipv6s)
+        if microsoft_peering_configs and not isinstance(microsoft_peering_configs, list):
+            raise TypeError("Expected argument 'microsoft_peering_configs' to be a list")
+        pulumi.set(__self__, "microsoft_peering_configs", microsoft_peering_configs)
         if peer_asn and not isinstance(peer_asn, int):
             raise TypeError("Expected argument 'peer_asn' to be a int")
         pulumi.set(__self__, "peer_asn", peer_asn)
@@ -108,6 +115,22 @@ class GetCircuitPeeringResult:
         return pulumi.get(self, "ipv4_enabled")
 
     @_builtins.property
+    @pulumi.getter
+    def ipv6s(self) -> Sequence['outputs.GetCircuitPeeringIpv6Result']:
+        """
+        A block describing the IPv6 configuration, if enabled.
+        """
+        return pulumi.get(self, "ipv6s")
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftPeeringConfigs")
+    def microsoft_peering_configs(self) -> Sequence['outputs.GetCircuitPeeringMicrosoftPeeringConfigResult']:
+        """
+        A block describing the Microsoft Peering configuration, if applicable.
+        """
+        return pulumi.get(self, "microsoft_peering_configs")
+
+    @_builtins.property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> _builtins.int:
         return pulumi.get(self, "peer_asn")
@@ -132,7 +155,7 @@ class GetCircuitPeeringResult:
     @pulumi.getter(name="primaryPeerAddressPrefix")
     def primary_peer_address_prefix(self) -> _builtins.str:
         """
-        The primary peer address prefix.
+        A subnet for the primary link.
         """
         return pulumi.get(self, "primary_peer_address_prefix")
 
@@ -144,6 +167,9 @@ class GetCircuitPeeringResult:
     @_builtins.property
     @pulumi.getter(name="routeFilterId")
     def route_filter_id(self) -> _builtins.str:
+        """
+        The ID of the Route Filter.
+        """
         return pulumi.get(self, "route_filter_id")
 
     @_builtins.property
@@ -158,7 +184,7 @@ class GetCircuitPeeringResult:
     @pulumi.getter(name="secondaryPeerAddressPrefix")
     def secondary_peer_address_prefix(self) -> _builtins.str:
         """
-        The secondary peer address prefix.
+        A subnet for the secondary link.
         """
         return pulumi.get(self, "secondary_peer_address_prefix")
 
@@ -187,6 +213,8 @@ class AwaitableGetCircuitPeeringResult(GetCircuitPeeringResult):
             gateway_manager_etag=self.gateway_manager_etag,
             id=self.id,
             ipv4_enabled=self.ipv4_enabled,
+            ipv6s=self.ipv6s,
+            microsoft_peering_configs=self.microsoft_peering_configs,
             peer_asn=self.peer_asn,
             peering_type=self.peering_type,
             primary_azure_port=self.primary_azure_port,
@@ -222,7 +250,7 @@ def get_circuit_peering(express_route_circuit_name: Optional[_builtins.str] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
@@ -242,6 +270,8 @@ def get_circuit_peering(express_route_circuit_name: Optional[_builtins.str] = No
         gateway_manager_etag=pulumi.get(__ret__, 'gateway_manager_etag'),
         id=pulumi.get(__ret__, 'id'),
         ipv4_enabled=pulumi.get(__ret__, 'ipv4_enabled'),
+        ipv6s=pulumi.get(__ret__, 'ipv6s'),
+        microsoft_peering_configs=pulumi.get(__ret__, 'microsoft_peering_configs'),
         peer_asn=pulumi.get(__ret__, 'peer_asn'),
         peering_type=pulumi.get(__ret__, 'peering_type'),
         primary_azure_port=pulumi.get(__ret__, 'primary_azure_port'),
@@ -275,7 +305,7 @@ def get_circuit_peering_output(express_route_circuit_name: pulumi.Input[Optional
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
@@ -294,6 +324,8 @@ def get_circuit_peering_output(express_route_circuit_name: pulumi.Input[Optional
         gateway_manager_etag=pulumi.get(__response__, 'gateway_manager_etag'),
         id=pulumi.get(__response__, 'id'),
         ipv4_enabled=pulumi.get(__response__, 'ipv4_enabled'),
+        ipv6s=pulumi.get(__response__, 'ipv6s'),
+        microsoft_peering_configs=pulumi.get(__response__, 'microsoft_peering_configs'),
         peer_asn=pulumi.get(__response__, 'peer_asn'),
         peering_type=pulumi.get(__response__, 'peering_type'),
         primary_azure_port=pulumi.get(__response__, 'primary_azure_port'),

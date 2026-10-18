@@ -8,8 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionGroupEventHubReceiver {
@@ -42,7 +40,7 @@ public final class GetActionGroupEventHubReceiver {
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private @Nullable Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
     private GetActionGroupEventHubReceiver() {}
     /**
@@ -84,8 +82,8 @@ public final class GetActionGroupEventHubReceiver {
      * @return Indicates whether to use common alert schema.
      * 
      */
-    public Optional<Boolean> useCommonAlertSchema() {
-        return Optional.ofNullable(this.useCommonAlertSchema);
+    public Boolean useCommonAlertSchema() {
+        return this.useCommonAlertSchema;
     }
 
     public static Builder builder() {
@@ -102,7 +100,7 @@ public final class GetActionGroupEventHubReceiver {
         private String name;
         private String subscriptionId;
         private String tenantId;
-        private @Nullable Boolean useCommonAlertSchema;
+        private Boolean useCommonAlertSchema;
         public Builder() {}
         public Builder(GetActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,8 +153,10 @@ public final class GetActionGroupEventHubReceiver {
             return this;
         }
         @CustomType.Setter
-        public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
-
+        public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
+            if (useCommonAlertSchema == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "useCommonAlertSchema");
+            }
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }

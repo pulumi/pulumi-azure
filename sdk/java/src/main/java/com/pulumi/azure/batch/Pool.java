@@ -7,7 +7,6 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.batch.PoolArgs;
 import com.pulumi.azure.batch.inputs.PoolState;
 import com.pulumi.azure.batch.outputs.PoolAutoScale;
-import com.pulumi.azure.batch.outputs.PoolCertificate;
 import com.pulumi.azure.batch.outputs.PoolContainerConfiguration;
 import com.pulumi.azure.batch.outputs.PoolDataDisk;
 import com.pulumi.azure.batch.outputs.PoolDiskEncryption;
@@ -193,18 +192,6 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<PoolAutoScale>> autoScale() {
         return Codegen.optional(this.autoScale);
-    }
-    /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-    @Export(name="certificates", refs={List.class,PoolCertificate.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PoolCertificate>> certificates;
-
-    public Output<Optional<List<PoolCertificate>>> certificates() {
-        return Codegen.optional(this.certificates);
     }
     /**
      * The container configuration used in the pool&#39;s VMs. One `containerConfiguration` block as defined below.
@@ -431,14 +418,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nodePlacements);
     }
     /**
-     * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
+     * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
      * 
      */
     @Export(name="osDiskPlacement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osDiskPlacement;
 
     /**
-     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
+     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
      * 
      */
     public Output<Optional<String>> osDiskPlacement() {

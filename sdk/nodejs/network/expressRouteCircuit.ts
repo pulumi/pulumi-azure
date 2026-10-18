@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -118,7 +118,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     declare public readonly peeringLocation: pulumi.Output<string | undefined>;
     /**
-     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
     declare public readonly rateLimitingEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface ExpressRouteCircuitState {
      */
     peeringLocation?: pulumi.Input<string | undefined>;
     /**
-     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
     rateLimitingEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface ExpressRouteCircuitArgs {
      */
     peeringLocation?: pulumi.Input<string | undefined>;
     /**
-     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
     rateLimitingEnabled?: pulumi.Input<boolean | undefined>;
     /**

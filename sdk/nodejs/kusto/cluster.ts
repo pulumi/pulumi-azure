@@ -107,11 +107,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A `languageExtension` block as defined below.
      */
-    declare public readonly languageExtension: pulumi.Output<outputs.kusto.ClusterLanguageExtension[]>;
-    /**
-     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly languageExtensions: pulumi.Output<outputs.kusto.ClusterLanguageExtension[]>;
+    declare public readonly languageExtensions: pulumi.Output<outputs.kusto.ClusterLanguageExtension[] | undefined>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
@@ -167,10 +163,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly uri: pulumi.Output<string>;
     /**
-     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     */
-    declare public readonly virtualNetworkConfiguration: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
-    /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
     declare public readonly zones: pulumi.Output<string[] | undefined>;
@@ -195,7 +187,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["diskEncryptionEnabled"] = state?.diskEncryptionEnabled;
             resourceInputs["doubleEncryptionEnabled"] = state?.doubleEncryptionEnabled;
             resourceInputs["identity"] = state?.identity;
-            resourceInputs["languageExtension"] = state?.languageExtension;
             resourceInputs["languageExtensions"] = state?.languageExtensions;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
@@ -210,7 +201,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["trustedExternalTenants"] = state?.trustedExternalTenants;
             resourceInputs["uri"] = state?.uri;
-            resourceInputs["virtualNetworkConfiguration"] = state?.virtualNetworkConfiguration;
             resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -226,7 +216,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["diskEncryptionEnabled"] = args?.diskEncryptionEnabled;
             resourceInputs["doubleEncryptionEnabled"] = args?.doubleEncryptionEnabled;
             resourceInputs["identity"] = args?.identity;
-            resourceInputs["languageExtension"] = args?.languageExtension;
             resourceInputs["languageExtensions"] = args?.languageExtensions;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -240,7 +229,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["streamingIngestionEnabled"] = args?.streamingIngestionEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trustedExternalTenants"] = args?.trustedExternalTenants;
-            resourceInputs["virtualNetworkConfiguration"] = args?.virtualNetworkConfiguration;
             resourceInputs["zones"] = args?.zones;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
@@ -284,10 +272,6 @@ export interface ClusterState {
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity | undefined>;
     /**
      * A `languageExtension` block as defined below.
-     */
-    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
-    /**
-     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      */
     languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
@@ -345,10 +329,6 @@ export interface ClusterState {
      */
     uri?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
-    /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -384,10 +364,6 @@ export interface ClusterArgs {
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity | undefined>;
     /**
      * A `languageExtension` block as defined below.
-     */
-    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
-    /**
-     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      */
     languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
@@ -440,10 +416,6 @@ export interface ClusterArgs {
      * > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
      */
     trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */

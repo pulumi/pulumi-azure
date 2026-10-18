@@ -29,7 +29,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// specifies the defrag configuration for Transparent Huge Page. Possible values are `Always`, `Defer`, `defer+madvise`, `Madvise` and `Never`.
         /// </summary>
         public readonly string? TransparentHugePageDefrag;
-        public readonly string? TransparentHugePageEnabled;
 
         [OutputConstructor]
         private KubernetesClusterDefaultNodePoolLinuxOsConfig(
@@ -39,15 +38,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? transparentHugePage,
 
-            string? transparentHugePageDefrag,
-
-            string? transparentHugePageEnabled)
+            string? transparentHugePageDefrag)
         {
             SwapFileSizeMb = swapFileSizeMb;
             SysctlConfig = sysctlConfig;
             TransparentHugePage = transparentHugePage;
             TransparentHugePageDefrag = transparentHugePageDefrag;
-            TransparentHugePageEnabled = transparentHugePageEnabled;
         }
     }
 }

@@ -177,14 +177,14 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Import(name="overrides")
     private @Nullable Output<List<GroupPolicyAssignmentOverrideArgs>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Optional<Output<List<GroupPolicyAssignmentOverrideArgs>>> overrides() {
@@ -508,7 +508,7 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 

@@ -166,11 +166,28 @@ namespace Pulumi.Azure.Automation
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+        /// </summary>
+        public readonly string DscPrimaryAccessKey;
+        /// <summary>
+        /// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+        /// </summary>
+        public readonly string DscSecondaryAccessKey;
+        /// <summary>
+        /// The DSC Server Endpoint associated with this Automation Account.
+        /// </summary>
+        public readonly string DscServerEndpoint;
+        /// <summary>
+        /// An `Encryption` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountEncryptionResult> Encryptions;
+        /// <summary>
         /// The Endpoint for this Automation Account.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        /// The URL of automation hybrid service which is used for 
+        /// hybrid worker on-boarding With this Automation Account.
         /// </summary>
         public readonly string HybridServiceUrl;
         /// <summary>
@@ -178,23 +195,51 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (Optional) An `Identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
+        /// <summary>
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `True`.
+        /// </summary>
+        public readonly bool LocalAuthenticationEnabled;
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Location;
         public readonly string Name;
         /// <summary>
         /// The Primary Access Key for the Automation Account.
         /// </summary>
         public readonly string PrimaryKey;
         public readonly ImmutableArray<Outputs.GetAccountPrivateEndpointConnectionResult> PrivateEndpointConnections;
+        /// <summary>
+        /// Whether public network access is allowed for the automation account. Defaults to `True`.
+        /// </summary>
+        public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Secondary Access Key for the Automation Account.
         /// </summary>
         public readonly string SecondaryKey;
+        /// <summary>
+        /// The SKU of the account. Possible values are `Basic` and `Free`.
+        /// </summary>
+        public readonly string SkuName;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetAccountResult(
+            string dscPrimaryAccessKey,
+
+            string dscSecondaryAccessKey,
+
+            string dscServerEndpoint,
+
+            ImmutableArray<Outputs.GetAccountEncryptionResult> encryptions,
+
             string endpoint,
 
             string hybridServiceUrl,
@@ -203,25 +248,44 @@ namespace Pulumi.Azure.Automation
 
             ImmutableArray<Outputs.GetAccountIdentityResult> identities,
 
+            bool localAuthenticationEnabled,
+
+            string location,
+
             string name,
 
             string primaryKey,
 
             ImmutableArray<Outputs.GetAccountPrivateEndpointConnectionResult> privateEndpointConnections,
 
+            bool publicNetworkAccessEnabled,
+
             string resourceGroupName,
 
-            string secondaryKey)
+            string secondaryKey,
+
+            string skuName,
+
+            ImmutableDictionary<string, string> tags)
         {
+            DscPrimaryAccessKey = dscPrimaryAccessKey;
+            DscSecondaryAccessKey = dscSecondaryAccessKey;
+            DscServerEndpoint = dscServerEndpoint;
+            Encryptions = encryptions;
             Endpoint = endpoint;
             HybridServiceUrl = hybridServiceUrl;
             Id = id;
             Identities = identities;
+            LocalAuthenticationEnabled = localAuthenticationEnabled;
+            Location = location;
             Name = name;
             PrimaryKey = primaryKey;
             PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
+            SkuName = skuName;
+            Tags = tags;
         }
     }
 }

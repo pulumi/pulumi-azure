@@ -126,7 +126,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      * 
      */
     @Import(name="parallelism")
@@ -135,7 +135,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      * 
      */
     public Optional<Output<Integer>> parallelism() {
@@ -207,33 +207,6 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @return Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
-    }
-
-    /**
      * The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      * 
      */
@@ -246,33 +219,6 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> storageContainerId() {
         return Optional.ofNullable(this.storageContainerId);
-    }
-
-    /**
-     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="storageContainerName")
-    private @Nullable Output<String> storageContainerName;
-
-    /**
-     * @return The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> storageContainerName() {
-        return Optional.ofNullable(this.storageContainerName);
     }
 
     /**
@@ -320,9 +266,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         this.source = $.source;
         this.sourceContent = $.sourceContent;
         this.sourceUri = $.sourceUri;
-        this.storageAccountName = $.storageAccountName;
         this.storageContainerId = $.storageContainerId;
-        this.storageContainerName = $.storageContainerName;
         this.type = $.type;
         this.url = $.url;
     }
@@ -495,7 +439,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+         * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
          * 
          * @return builder
          * 
@@ -508,7 +452,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+         * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
          * 
          * @return builder
          * 
@@ -606,39 +550,6 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
-        }
-
-        /**
          * @param storageContainerId The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -657,39 +568,6 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageContainerId(String storageContainerId) {
             return storageContainerId(Output.of(storageContainerId));
-        }
-
-        /**
-         * @param storageContainerName The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageContainerName(@Nullable Output<String> storageContainerName) {
-            $.storageContainerName = storageContainerName;
-            return this;
-        }
-
-        /**
-         * @param storageContainerName The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageContainerName(String storageContainerName) {
-            return storageContainerName(Output.of(storageContainerName));
         }
 
         /**

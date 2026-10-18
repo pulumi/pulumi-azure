@@ -21,7 +21,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         /// </summary>
         public readonly int? ContainerLogMaxFiles;
-        public readonly int? ContainerLogMaxLine;
         /// <summary>
         /// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         /// </summary>
@@ -61,8 +60,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? containerLogMaxFiles,
 
-            int? containerLogMaxLine,
-
             int? containerLogMaxSizeMb,
 
             bool? cpuCfsQuotaEnabled,
@@ -81,7 +78,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             AllowedUnsafeSysctls = allowedUnsafeSysctls;
             ContainerLogMaxFiles = containerLogMaxFiles;
-            ContainerLogMaxLine = containerLogMaxLine;
             ContainerLogMaxSizeMb = containerLogMaxSizeMb;
             CpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
             CpuCfsQuotaPeriod = cpuCfsQuotaPeriod;

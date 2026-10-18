@@ -56,11 +56,28 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    readonly dscPrimaryAccessKey: string;
+    /**
+     * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    readonly dscSecondaryAccessKey: string;
+    /**
+     * The DSC Server Endpoint associated with this Automation Account.
+     */
+    readonly dscServerEndpoint: string;
+    /**
+     * An `encryption` block as defined below.
+     */
+    readonly encryptions: outputs.automation.GetAccountEncryption[];
+    /**
      * The Endpoint for this Automation Account.
      */
     readonly endpoint: string;
     /**
-     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * The URL of automation hybrid service which is used for
+     * hybrid worker on-boarding With this Automation Account.
      */
     readonly hybridServiceUrl: string;
     /**
@@ -68,20 +85,40 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * (Optional) An `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.automation.GetAccountIdentity[];
+    /**
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+     */
+    readonly localAuthenticationEnabled: boolean;
+    /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     */
+    readonly location: string;
     readonly name: string;
     /**
      * The Primary Access Key for the Automation Account.
      */
     readonly primaryKey: string;
     readonly privateEndpointConnections: outputs.automation.GetAccountPrivateEndpointConnection[];
+    /**
+     * Whether public network access is allowed for the automation account. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The Secondary Access Key for the Automation Account.
      */
     readonly secondaryKey: string;
+    /**
+     * The SKU of the account. Possible values are `Basic` and `Free`.
+     */
+    readonly skuName: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to access information about an existing Automation Account.

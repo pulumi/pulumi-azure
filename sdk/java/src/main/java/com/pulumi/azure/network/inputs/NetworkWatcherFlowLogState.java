@@ -66,25 +66,6 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-    @Import(name="networkSecurityGroupId")
-    private @Nullable Output<String> networkSecurityGroupId;
-
-    /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> networkSecurityGroupId() {
-        return Optional.ofNullable(this.networkSecurityGroupId);
-    }
-
-    /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */
@@ -194,14 +175,14 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * @return The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -214,7 +195,6 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         this.enabled = $.enabled;
         this.location = $.location;
         this.name = $.name;
-        this.networkSecurityGroupId = $.networkSecurityGroupId;
         this.networkWatcherName = $.networkWatcherName;
         this.resourceGroupName = $.resourceGroupName;
         this.retentionPolicy = $.retentionPolicy;
@@ -304,31 +284,6 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
-            $.networkSecurityGroupId = networkSecurityGroupId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }
 
         /**
@@ -483,7 +438,7 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -494,7 +449,7 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param version The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+         * @param version The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
          * 
          * @return builder
          * 

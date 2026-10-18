@@ -727,7 +727,7 @@ class PolicyPolicySettings(dict):
                  request_body_inspect_limit_in_kb: Optional[_builtins.int] = None):
         """
         :param _builtins.bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
-        :param _builtins.bool file_upload_enforcement: Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        :param _builtins.bool file_upload_enforcement: Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`. Defaults to `true`.
         :param _builtins.int file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         :param _builtins.int js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
         :param 'PolicyPolicySettingsLogScrubbingArgs' log_scrubbing: One `log_scrubbing` block as defined below.
@@ -770,7 +770,7 @@ class PolicyPolicySettings(dict):
     @pulumi.getter(name="fileUploadEnforcement")
     def file_upload_enforcement(self) -> Optional[_builtins.bool]:
         """
-        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`. Defaults to `true`.
         """
         return pulumi.get(self, "file_upload_enforcement")
 

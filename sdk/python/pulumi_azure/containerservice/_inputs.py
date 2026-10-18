@@ -774,7 +774,7 @@ class AutomaticClusterServiceMeshCertificateAuthorityArgsDict(TypedDict):
     """
     The intermediate certificate private key object name in Azure Key Vault.
 
-    > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+    > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
     """
     key_vault_id: pulumi.Input[_builtins.str]
     """
@@ -798,7 +798,7 @@ class AutomaticClusterServiceMeshCertificateAuthorityArgs:
         :param pulumi.Input[_builtins.str] certificate_object_name: The intermediate certificate object name in Azure Key Vault.
         :param pulumi.Input[_builtins.str] key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param pulumi.Input[_builtins.str] key_vault_id: The resource ID of the Key Vault.
         :param pulumi.Input[_builtins.str] root_certificate_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -838,7 +838,7 @@ class AutomaticClusterServiceMeshCertificateAuthorityArgs:
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -5385,7 +5385,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     orchestrator_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+    Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
     > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
     """
@@ -5399,7 +5399,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     os_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+    Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
     > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
     """
@@ -5433,7 +5433,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
-    > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+    > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
     """
     ultra_ssd_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -5530,12 +5530,12 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
-        :param pulumi.Input[_builtins.str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param pulumi.Input[_builtins.str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
@@ -5548,7 +5548,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param pulumi.Input[_builtins.str] type: The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
                
-               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[_builtins.str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
@@ -5877,7 +5877,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         """
@@ -5915,7 +5915,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -6005,7 +6005,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
-        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         """
         return pulumi.get(self, "type")
 
@@ -6101,7 +6101,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -6140,7 +6139,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -6165,11 +6163,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -6210,16 +6203,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -6335,7 +6318,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
@@ -6343,8 +6325,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -6359,11 +6340,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -6412,16 +6388,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -7160,7 +7126,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgsDict(TypedDict):
     """
     drain_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+    The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
     """
     node_soak_duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -7184,7 +7150,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
         :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
-        :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
                
                > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
@@ -7216,7 +7182,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -7840,7 +7806,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
 class KubernetesClusterKeyManagementServiceArgsDict(TypedDict):
     key_vault_key_id: pulumi.Input[_builtins.str]
     """
-    Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+    Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
     """
     key_vault_network_access: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -7853,7 +7819,7 @@ class KubernetesClusterKeyManagementServiceArgs:
                  key_vault_key_id: pulumi.Input[_builtins.str],
                  key_vault_network_access: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param pulumi.Input[_builtins.str] key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -7864,7 +7830,7 @@ class KubernetesClusterKeyManagementServiceArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -9648,7 +9614,7 @@ class KubernetesClusterNetworkProfileAdvancedNetworkingArgs:
 class KubernetesClusterNetworkProfileLoadBalancerProfileArgsDict(TypedDict):
     backend_pool_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+    The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
     """
     effective_outbound_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -9697,7 +9663,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
                  outbound_ip_prefix_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  outbound_ports_allocated: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        :param pulumi.Input[_builtins.str] backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
         :param pulumi.Input[_builtins.int] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
@@ -9733,7 +9699,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     @pulumi.getter(name="backendPoolType")
     def backend_pool_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         """
         return pulumi.get(self, "backend_pool_type")
 
@@ -9910,7 +9876,6 @@ class KubernetesClusterNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -9949,7 +9914,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -9974,11 +9938,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -10019,16 +9978,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -10144,7 +10093,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterNodePoolLinuxOsConfigArgs:
@@ -10152,8 +10100,7 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -10168,11 +10115,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -10221,16 +10163,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -10835,7 +10767,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgsDict(TypedDict):
     """
     Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
-    > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+    > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
     """
 
 @pulumi.input_type
@@ -10849,7 +10781,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
-               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -10888,7 +10820,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
-        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -10969,7 +10901,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs:
 class KubernetesClusterNodePoolUpgradeSettingsArgsDict(TypedDict):
     drain_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+    The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
     """
     max_surge: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -10999,7 +10931,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
                  node_soak_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  undrainable_node_behavior: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param pulumi.Input[_builtins.int] drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param pulumi.Input[_builtins.str] max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
                
@@ -11022,7 +10954,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -11171,23 +11103,31 @@ class KubernetesClusterOmsAgentArgsDict(TypedDict):
     """
     An `oms_agent_identity` block is exported. The exported attributes are defined below.
     """
+    retina_flow_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Is Retina Flow Logs collection enabled?
+    """
 
 @pulumi.input_type
 class KubernetesClusterOmsAgentArgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  msi_auth_for_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 oms_agent_identities: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None):
+                 oms_agent_identities: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None,
+                 retina_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param pulumi.Input[_builtins.bool] msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[_builtins.bool] retina_flow_logs_enabled: Is Retina Flow Logs collection enabled?
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
             pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         if oms_agent_identities is not None:
             pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+        if retina_flow_logs_enabled is not None:
+            pulumi.set(__self__, "retina_flow_logs_enabled", retina_flow_logs_enabled)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -11224,6 +11164,18 @@ class KubernetesClusterOmsAgentArgs:
     @oms_agent_identities.setter
     def oms_agent_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]):
         pulumi.set(self, "oms_agent_identities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retinaFlowLogsEnabled")
+    def retina_flow_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Is Retina Flow Logs collection enabled?
+        """
+        return pulumi.get(self, "retina_flow_logs_enabled")
+
+    @retina_flow_logs_enabled.setter
+    def retina_flow_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "retina_flow_logs_enabled", value)
 
 
 class KubernetesClusterOmsAgentOmsAgentIdentityArgsDict(TypedDict):
@@ -11427,7 +11379,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthorityArgsDict(TypedDict)
     """
     The intermediate certificate private key object name in Azure Key Vault.
 
-    > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+    > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
     """
     key_vault_id: pulumi.Input[_builtins.str]
     """
@@ -11451,7 +11403,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthorityArgs:
         :param pulumi.Input[_builtins.str] cert_object_name: The intermediate certificate object name in Azure Key Vault.
         :param pulumi.Input[_builtins.str] key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param pulumi.Input[_builtins.str] key_vault_id: The resource ID of the Key Vault.
         :param pulumi.Input[_builtins.str] root_cert_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -11491,7 +11443,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthorityArgs:
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -12260,13 +12212,13 @@ class RegistryEncryptionArgs:
 
 
 class RegistryGeoreplicationArgsDict(TypedDict):
+    global_endpoint_routing_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+    """
     location: pulumi.Input[_builtins.str]
     """
     A location where the container registry should be geo-replicated.
-    """
-    regional_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Whether regional endpoint is enabled for this Container Registry?
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -12282,25 +12234,36 @@ class RegistryGeoreplicationArgsDict(TypedDict):
 @pulumi.input_type
 class RegistryGeoreplicationArgs:
     def __init__(__self__, *,
+                 global_endpoint_routing_enabled: pulumi.Input[_builtins.bool],
                  location: pulumi.Input[_builtins.str],
-                 regional_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
+        :param pulumi.Input[_builtins.bool] global_endpoint_routing_enabled: Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
         :param pulumi.Input[_builtins.str] location: A location where the container registry should be geo-replicated.
-        :param pulumi.Input[_builtins.bool] regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
                > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
+        pulumi.set(__self__, "global_endpoint_routing_enabled", global_endpoint_routing_enabled)
         pulumi.set(__self__, "location", location)
-        if regional_endpoint_enabled is not None:
-            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="globalEndpointRoutingEnabled")
+    def global_endpoint_routing_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        """
+        return pulumi.get(self, "global_endpoint_routing_enabled")
+
+    @global_endpoint_routing_enabled.setter
+    def global_endpoint_routing_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "global_endpoint_routing_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12313,18 +12276,6 @@ class RegistryGeoreplicationArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionalEndpointEnabled")
-    def regional_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether regional endpoint is enabled for this Container Registry?
-        """
-        return pulumi.get(self, "regional_endpoint_enabled")
-
-    @regional_endpoint_enabled.setter
-    def regional_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "regional_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter

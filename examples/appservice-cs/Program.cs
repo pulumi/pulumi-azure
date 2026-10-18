@@ -26,37 +26,33 @@ class Program
                 AccountTier = "Standard",
             });
 
-            var appServicePlan = new Plan("asp", new PlanArgs
+            var appServicePlan = new ServicePlan("asp", new ServicePlanArgs
             {
                 ResourceGroupName = resourceGroup.Name,
-                Kind = "App",
-                Sku = new PlanSkuArgs
-                {
-                    Tier = "Basic",
-                    Size = "B1",
-                },
+                OsType = "Windows",
+                SkuName = "B1",
             });
 
             var container = new Container("zips", new ContainerArgs
             {
-                StorageAccountName = storageAccount.Name,
+                StorageAccountId = storageAccount.Id,
                 ContainerAccessType = "private",
             });
 
             var blob = new Blob("zip", new BlobArgs
             {
-                StorageAccountName = storageAccount.Name,
-                StorageContainerName = container.Name,
+                StorageContainerId = container.Id,
                 Type = "Block",
                 Source = new FileArchive("wwwroot")
             });
 
             var codeBlobUrl = SharedAccessSignature.SignedBlobReadUrl(blob, storageAccount);
 
-            var app = new AppService("app", new AppServiceArgs
+            var app = new WindowsWebApp("app", new WindowsWebAppArgs
             {
                 ResourceGroupName = resourceGroup.Name,
-                AppServicePlanId = appServicePlan.Id,
+                ServicePlanId = appServicePlan.Id,
+                SiteConfig = new WindowsWebAppSiteConfigArgs(),
                 AppSettings =
                 {
                     { "WEBSITE_RUN_FROM_PACKAGE", codeBlobUrl },
@@ -65,7 +61,7 @@ class Program
 
             return new Dictionary<string, object>
             {
-                { "url", Output.Format($"https://{app.DefaultSiteHostname}") },
+                { "url", Output.Format($"https://{app.DefaultHostname}") },
             };
 
         });

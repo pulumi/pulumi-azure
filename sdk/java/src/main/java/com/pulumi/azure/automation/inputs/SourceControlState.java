@@ -153,14 +153,14 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      * 
      */
     @Import(name="sourceControlType")
     private @Nullable Output<String> sourceControlType;
 
     /**
-     * @return The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * @return The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      * 
      */
     public Optional<Output<String>> sourceControlType() {
@@ -390,7 +390,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceControlType The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+         * @param sourceControlType The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceControlType The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+         * @param sourceControlType The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
          * 
          * @return builder
          * 

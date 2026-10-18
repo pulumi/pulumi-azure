@@ -96,7 +96,7 @@ export class AutomationRule extends pulumi.CustomResource {
      */
     declare public readonly actionPlaybooks: pulumi.Output<outputs.sentinel.AutomationRuleActionPlaybook[] | undefined>;
     /**
-     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
     declare public readonly conditionJson: pulumi.Output<string | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface AutomationRuleState {
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionPlaybook>[] | undefined>;
     /**
-     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
     conditionJson?: pulumi.Input<string | undefined>;
     /**
@@ -263,7 +263,7 @@ export interface AutomationRuleArgs {
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionPlaybook>[] | undefined>;
     /**
-     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
     conditionJson?: pulumi.Input<string | undefined>;
     /**

@@ -63,14 +63,14 @@ public final class JobEventTriggerConfigScaleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `rules` block as defined below.
+     * One or more `rules` blocks as defined below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<JobEventTriggerConfigScaleRuleArgs>> rules;
 
     /**
-     * @return A `rules` block as defined below.
+     * @return One or more `rules` blocks as defined below.
      * 
      */
     public Optional<Output<List<JobEventTriggerConfigScaleRuleArgs>>> rules() {
@@ -168,7 +168,7 @@ public final class JobEventTriggerConfigScaleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param rules A `rules` block as defined below.
+         * @param rules One or more `rules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class JobEventTriggerConfigScaleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param rules A `rules` block as defined below.
+         * @param rules One or more `rules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class JobEventTriggerConfigScaleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param rules A `rules` block as defined below.
+         * @param rules One or more `rules` blocks as defined below.
          * 
          * @return builder
          * 

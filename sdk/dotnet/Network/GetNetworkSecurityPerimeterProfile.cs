@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterProfileResult> InvokeAsync(GetNetworkSecurityPerimeterProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterProfileResult>("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileArgs(), options.WithDefaults());
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());

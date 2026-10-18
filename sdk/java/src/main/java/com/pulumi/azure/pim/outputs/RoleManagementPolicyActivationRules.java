@@ -39,7 +39,7 @@ public final class RoleManagementPolicyActivationRules {
      */
     private @Nullable Boolean requireMultifactorAuthentication;
     /**
-     * @return Is ticket information requrired during activation of the role.
+     * @return Is ticket information required during activation of the role.
      * 
      */
     private @Nullable Boolean requireTicketInfo;
@@ -86,7 +86,7 @@ public final class RoleManagementPolicyActivationRules {
         return Optional.ofNullable(this.requireMultifactorAuthentication);
     }
     /**
-     * @return Is ticket information requrired during activation of the role.
+     * @return Is ticket information required during activation of the role.
      * 
      */
     public Optional<Boolean> requireTicketInfo() {

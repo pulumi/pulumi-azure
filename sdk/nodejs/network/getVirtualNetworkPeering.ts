@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +117,7 @@ export interface GetVirtualNetworkPeeringResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

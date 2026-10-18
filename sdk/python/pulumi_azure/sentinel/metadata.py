@@ -770,7 +770,7 @@ class Metadata(pulumi.CustomResource):
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         example_metadata = azure.sentinel.Metadata("example",
-            name="exampl",
+            name="example",
             workspace_id=example_analytics_solution.workspace_resource_id,
             content_id=example_alert_rule_nrt.name,
             kind="AnalyticsRule",
@@ -861,7 +861,7 @@ class Metadata(pulumi.CustomResource):
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         example_metadata = azure.sentinel.Metadata("example",
-            name="exampl",
+            name="example",
             workspace_id=example_analytics_solution.workspace_resource_id,
             content_id=example_alert_rule_nrt.name,
             kind="AnalyticsRule",

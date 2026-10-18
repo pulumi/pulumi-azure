@@ -188,9 +188,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The current IP Filter for this CosmosDB account
+        /// A list of IP ranges associated with this CosmosDB account.
         /// </summary>
-        public readonly string IpRangeFilter;
+        public readonly ImmutableArray<string> IpRangeFilters;
         /// <summary>
         /// If virtual network filtering is enabled for this Cosmos DB account.
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.CosmosDB
 
             string id,
 
-            string ipRangeFilter,
+            ImmutableArray<string> ipRangeFilters,
 
             bool isVirtualNetworkFilterEnabled,
 
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.CosmosDB
             FreeTierEnabled = freeTierEnabled;
             GeoLocations = geoLocations;
             Id = id;
-            IpRangeFilter = ipRangeFilter;
+            IpRangeFilters = ipRangeFilters;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             KeyVaultKeyId = keyVaultKeyId;
             Kind = kind;

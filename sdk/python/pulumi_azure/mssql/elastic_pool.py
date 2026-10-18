@@ -584,7 +584,7 @@ class ElasticPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -671,7 +671,7 @@ class ElasticPool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -820,7 +820,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enclaveType")
-    def enclave_type(self) -> pulumi.Output[_builtins.str]:
+    def enclave_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 

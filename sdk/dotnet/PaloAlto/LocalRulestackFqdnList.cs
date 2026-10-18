@@ -31,7 +31,7 @@ namespace Pulumi.Azure.PaloAlto
     ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
     ///     {
     ///         Name = "example",
-    ///         ResourceGroupName = exampleAzurermResrouceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 

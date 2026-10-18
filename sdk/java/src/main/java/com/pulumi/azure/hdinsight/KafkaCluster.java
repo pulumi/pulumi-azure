@@ -94,35 +94,36 @@ import javax.annotation.Nullable;
  *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion("4.0")
+ *             .clusterVersion("5.1")
  *             .tier("Standard")
+ *             .tlsMinVersion("1.2")
  *             .componentVersion(KafkaClusterComponentVersionArgs.builder()
- *                 .kafka("2.1")
+ *                 .kafka("3.2")
  *                 .build())
  *             .gateway(KafkaClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
  *                 .build())
  *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
+ *                 .storageContainerUrl(exampleContainer.url())
  *                 .storageAccountKey(exampleAccount.primaryAccessKey())
  *                 .isDefault(true)
  *                 .build())
  *             .roles(KafkaClusterRolesArgs.builder()
  *                 .headNode(KafkaClusterRolesHeadNodeArgs.builder()
- *                     .vmSize("Standard_D3_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(KafkaClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize("Standard_D3_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .numberOfDisksPerNode(3)
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(KafkaClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize("Standard_D3_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
@@ -197,16 +198,12 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     /**
      * One or more `diskEncryption` block as defined below.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
     @Export(name="diskEncryptions", refs={List.class,KafkaClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
 
     /**
      * @return One or more `diskEncryption` block as defined below.
-     * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
     public Output<Optional<List<KafkaClusterDiskEncryption>>> diskEncryptions() {
@@ -497,14 +494,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tlsMinVersion;
+    private Output<String> tlsMinVersion;
 
     /**
      * @return The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> tlsMinVersion() {
-        return Codegen.optional(this.tlsMinVersion);
+    public Output<String> tlsMinVersion() {
+        return this.tlsMinVersion;
     }
 
     /**

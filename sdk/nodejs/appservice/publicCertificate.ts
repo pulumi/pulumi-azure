@@ -12,26 +12,27 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  * import * as std from "@pulumi/std";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "example-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "example-app-service",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const examplePublicCertificate = new azure.appservice.PublicCertificate("example", {
  *     resourceGroupName: example.name,

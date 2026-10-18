@@ -7,13 +7,13 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
 //
-// > **Note:** When using Service Principal authentication, the Service Principal must be assigned the _Contributor_ role at the scope `/providers/Microsoft.aadiam`. You can assign this role using the `az` CLI command: `az role assignment create --assignee-principal-type ServicePrincipal --assignee-object-id "<sp-object-id>" --scope "/providers/Microsoft.aadiam" --role "Contributor"`. The assigning user must be a User Access Administrator at the root level. Refer to the [Azure elevation guide](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) for details.
+// > **Note:** When using Service Principal authentication, the Service Principal must be assigned the _Contributor_ role at the scope `/providers/Microsoft.aadiam`. You can assign this role using the `az` CLI command: `az role assignment create --assignee-principal-type ServicePrincipal --assignee-object-id "<sp-object-id>" --scope "/providers/Microsoft.aadiam" --role "Contributor"`. The assigning user must be a User Access Administrator at the root level. Refer to the [Azure elevation guide](https://learn.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) for details.
 //
 // ## Example Usage
 //
@@ -22,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

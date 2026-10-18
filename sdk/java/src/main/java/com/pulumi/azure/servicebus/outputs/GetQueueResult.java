@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueueResult {
@@ -39,9 +37,6 @@ public final class GetQueueResult {
      * 
      */
     private String duplicateDetectionHistoryTimeWindow;
-    private Boolean enableBatchedOperations;
-    private Boolean enableExpress;
-    private Boolean enablePartitioning;
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      * 
@@ -77,15 +72,13 @@ public final class GetQueueResult {
      * 
      */
     private Integer maxSizeInMegabytes;
-    private String name;
-    private @Nullable String namespaceId;
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    private @Nullable String namespaceName;
+    private Integer maximumMessageSizeInKb;
+    private String name;
+    private String namespaceId;
     /**
      * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
      * 
@@ -101,13 +94,6 @@ public final class GetQueueResult {
      * 
      */
     private Boolean requiresSession;
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    private @Nullable String resourceGroupName;
     /**
      * @return The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
      * 
@@ -149,15 +135,6 @@ public final class GetQueueResult {
      */
     public String duplicateDetectionHistoryTimeWindow() {
         return this.duplicateDetectionHistoryTimeWindow;
-    }
-    public Boolean enableBatchedOperations() {
-        return this.enableBatchedOperations;
-    }
-    public Boolean enableExpress() {
-        return this.enableExpress;
-    }
-    public Boolean enablePartitioning() {
-        return this.enablePartitioning;
     }
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
@@ -208,20 +185,18 @@ public final class GetQueueResult {
     public Integer maxSizeInMegabytes() {
         return this.maxSizeInMegabytes;
     }
+    /**
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+     * 
+     */
+    public Integer maximumMessageSizeInKb() {
+        return this.maximumMessageSizeInKb;
+    }
     public String name() {
         return this.name;
     }
-    public Optional<String> namespaceId() {
-        return Optional.ofNullable(this.namespaceId);
-    }
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
+    public String namespaceId() {
+        return this.namespaceId;
     }
     /**
      * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
@@ -245,15 +220,6 @@ public final class GetQueueResult {
         return this.requiresSession;
     }
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-    /**
      * @return The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
      * 
      */
@@ -275,9 +241,6 @@ public final class GetQueueResult {
         private Boolean deadLetteringOnMessageExpiration;
         private String defaultMessageTtl;
         private String duplicateDetectionHistoryTimeWindow;
-        private Boolean enableBatchedOperations;
-        private Boolean enableExpress;
-        private Boolean enablePartitioning;
         private Boolean expressEnabled;
         private String forwardDeadLetteredMessagesTo;
         private String forwardTo;
@@ -285,13 +248,12 @@ public final class GetQueueResult {
         private String lockDuration;
         private Integer maxDeliveryCount;
         private Integer maxSizeInMegabytes;
+        private Integer maximumMessageSizeInKb;
         private String name;
-        private @Nullable String namespaceId;
-        private @Nullable String namespaceName;
+        private String namespaceId;
         private Boolean partitioningEnabled;
         private Boolean requiresDuplicateDetection;
         private Boolean requiresSession;
-        private @Nullable String resourceGroupName;
         private String status;
         public Builder() {}
         public Builder(GetQueueResult defaults) {
@@ -301,9 +263,6 @@ public final class GetQueueResult {
     	      this.deadLetteringOnMessageExpiration = defaults.deadLetteringOnMessageExpiration;
     	      this.defaultMessageTtl = defaults.defaultMessageTtl;
     	      this.duplicateDetectionHistoryTimeWindow = defaults.duplicateDetectionHistoryTimeWindow;
-    	      this.enableBatchedOperations = defaults.enableBatchedOperations;
-    	      this.enableExpress = defaults.enableExpress;
-    	      this.enablePartitioning = defaults.enablePartitioning;
     	      this.expressEnabled = defaults.expressEnabled;
     	      this.forwardDeadLetteredMessagesTo = defaults.forwardDeadLetteredMessagesTo;
     	      this.forwardTo = defaults.forwardTo;
@@ -311,13 +270,12 @@ public final class GetQueueResult {
     	      this.lockDuration = defaults.lockDuration;
     	      this.maxDeliveryCount = defaults.maxDeliveryCount;
     	      this.maxSizeInMegabytes = defaults.maxSizeInMegabytes;
+    	      this.maximumMessageSizeInKb = defaults.maximumMessageSizeInKb;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
-    	      this.namespaceName = defaults.namespaceName;
     	      this.partitioningEnabled = defaults.partitioningEnabled;
     	      this.requiresDuplicateDetection = defaults.requiresDuplicateDetection;
     	      this.requiresSession = defaults.requiresSession;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.status = defaults.status;
         }
 
@@ -359,30 +317,6 @@ public final class GetQueueResult {
               throw new MissingRequiredPropertyException("GetQueueResult", "duplicateDetectionHistoryTimeWindow");
             }
             this.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            if (enableBatchedOperations == null) {
-              throw new MissingRequiredPropertyException("GetQueueResult", "enableBatchedOperations");
-            }
-            this.enableBatchedOperations = enableBatchedOperations;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableExpress(Boolean enableExpress) {
-            if (enableExpress == null) {
-              throw new MissingRequiredPropertyException("GetQueueResult", "enableExpress");
-            }
-            this.enableExpress = enableExpress;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enablePartitioning(Boolean enablePartitioning) {
-            if (enablePartitioning == null) {
-              throw new MissingRequiredPropertyException("GetQueueResult", "enablePartitioning");
-            }
-            this.enablePartitioning = enablePartitioning;
             return this;
         }
         @CustomType.Setter
@@ -442,6 +376,14 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
+        public Builder maximumMessageSizeInKb(Integer maximumMessageSizeInKb) {
+            if (maximumMessageSizeInKb == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "maximumMessageSizeInKb");
+            }
+            this.maximumMessageSizeInKb = maximumMessageSizeInKb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetQueueResult", "name");
@@ -450,15 +392,11 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceId(@Nullable String namespaceId) {
-
+        public Builder namespaceId(String namespaceId) {
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "namespaceId");
+            }
             this.namespaceId = namespaceId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder namespaceName(@Nullable String namespaceName) {
-
-            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
@@ -486,12 +424,6 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
-            this.resourceGroupName = resourceGroupName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetQueueResult", "status");
@@ -506,9 +438,6 @@ public final class GetQueueResult {
             _resultValue.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             _resultValue.defaultMessageTtl = defaultMessageTtl;
             _resultValue.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            _resultValue.enableBatchedOperations = enableBatchedOperations;
-            _resultValue.enableExpress = enableExpress;
-            _resultValue.enablePartitioning = enablePartitioning;
             _resultValue.expressEnabled = expressEnabled;
             _resultValue.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             _resultValue.forwardTo = forwardTo;
@@ -516,13 +445,12 @@ public final class GetQueueResult {
             _resultValue.lockDuration = lockDuration;
             _resultValue.maxDeliveryCount = maxDeliveryCount;
             _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
+            _resultValue.maximumMessageSizeInKb = maximumMessageSizeInKb;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
-            _resultValue.namespaceName = namespaceName;
             _resultValue.partitioningEnabled = partitioningEnabled;
             _resultValue.requiresDuplicateDetection = requiresDuplicateDetection;
             _resultValue.requiresSession = requiresSession;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.status = status;
             return _resultValue;
         }

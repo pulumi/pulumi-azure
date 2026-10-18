@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,6 +141,8 @@ type LookupLinuxWebAppResult struct {
 	Usage string `pulumi:"usage"`
 	// Whether backup and restore operations over the linked virtual network are enabled.
 	VirtualNetworkBackupRestoreEnabled bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// Whether image pull traffic is routed through the virtual network integration.
+	VirtualNetworkImagePullEnabled bool `pulumi:"virtualNetworkImagePullEnabled"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
@@ -365,6 +367,11 @@ func (o LookupLinuxWebAppResultOutput) Usage() pulumi.StringOutput {
 // Whether backup and restore operations over the linked virtual network are enabled.
 func (o LookupLinuxWebAppResultOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether image pull traffic is routed through the virtual network integration.
+func (o LookupLinuxWebAppResultOutput) VirtualNetworkImagePullEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolOutput)
 }
 
 // The subnet id which the Linux Web App is vNet Integrated with.

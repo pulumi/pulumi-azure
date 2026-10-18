@@ -142,6 +142,10 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     */
+    declare public readonly endToEndTlsEncryptionEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
     declare public readonly ftpPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
@@ -222,11 +226,11 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
@@ -244,7 +248,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
-     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
      */
     declare public readonly zipDeployFile: pulumi.Output<string>;
 
@@ -275,6 +279,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
             resourceInputs["defaultHostname"] = state?.defaultHostname;
             resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endToEndTlsEncryptionEnabled"] = state?.endToEndTlsEncryptionEnabled;
             resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state?.ftpPublishBasicAuthenticationEnabled;
             resourceInputs["hostingEnvironmentId"] = state?.hostingEnvironmentId;
             resourceInputs["httpsOnly"] = state?.httpsOnly;
@@ -317,6 +322,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
             resourceInputs["connectionStrings"] = args?.connectionStrings;
             resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endToEndTlsEncryptionEnabled"] = args?.endToEndTlsEncryptionEnabled;
             resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args?.ftpPublishBasicAuthenticationEnabled;
             resourceInputs["httpsOnly"] = args?.httpsOnly;
             resourceInputs["identity"] = args?.identity;
@@ -414,6 +420,10 @@ export interface LinuxWebAppSlotState {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     */
+    endToEndTlsEncryptionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
@@ -494,11 +504,11 @@ export interface LinuxWebAppSlotState {
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -516,7 +526,7 @@ export interface LinuxWebAppSlotState {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
-     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
      */
     zipDeployFile?: pulumi.Input<string | undefined>;
 }
@@ -572,6 +582,10 @@ export interface LinuxWebAppSlotArgs {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     */
+    endToEndTlsEncryptionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
@@ -624,11 +638,11 @@ export interface LinuxWebAppSlotArgs {
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -646,7 +660,7 @@ export interface LinuxWebAppSlotArgs {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
-     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/azure/app-service/deploy-run-package) for further details.
      */
     zipDeployFile?: pulumi.Input<string | undefined>;
 }

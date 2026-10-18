@@ -56,7 +56,10 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///     });
     /// 

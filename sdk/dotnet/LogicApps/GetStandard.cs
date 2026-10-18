@@ -249,7 +249,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A `SiteConfig` object as defined below.
         /// </summary>
-        public readonly Outputs.GetStandardSiteConfigResult SiteConfig;
+        public readonly ImmutableArray<Outputs.GetStandardSiteConfigResult> SiteConfigs;
         /// <summary>
         /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
         /// </summary>
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.LogicApps
 
             bool scmPublishBasicAuthenticationEnabled,
 
-            Outputs.GetStandardSiteConfigResult siteConfig,
+            ImmutableArray<Outputs.GetStandardSiteConfigResult> siteConfigs,
 
             ImmutableArray<Outputs.GetStandardSiteCredentialResult> siteCredentials,
 
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.LogicApps
             PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
             ScmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
-            SiteConfig = siteConfig;
+            SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountName = storageAccountName;

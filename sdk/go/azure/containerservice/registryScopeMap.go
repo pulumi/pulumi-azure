@@ -8,11 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+// Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 //
 // ## Example Usage
 //
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,10 +44,12 @@ import (
 //				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
 //					&containerservice.RegistryGeoreplicationArgs{
-//						Location: pulumi.String("East US"),
+//						Location:                     pulumi.String("East US"),
+//						GlobalEndpointRoutingEnabled: pulumi.Bool(true),
 //					},
 //					&containerservice.RegistryGeoreplicationArgs{
-//						Location: pulumi.String("West Europe"),
+//						Location:                     pulumi.String("West Europe"),
+//						GlobalEndpointRoutingEnabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

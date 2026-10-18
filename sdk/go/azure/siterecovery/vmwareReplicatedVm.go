@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,11 +21,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -150,7 +150,7 @@ type VmwareReplicatedVm struct {
 
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName pulumi.StringOutput `pulumi:"applianceName"`
-	// The ID of the stroage account that should be used for logging during replication.
+	// The ID of the storage account that should be used for logging during replication.
 	//
 	// > **Note:** Only standard types of storage accounts are allowed.
 	//
@@ -186,7 +186,7 @@ type VmwareReplicatedVm struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringOutput `pulumi:"physicalServerCredentialName"`
 	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
@@ -271,7 +271,7 @@ func GetVmwareReplicatedVm(ctx *pulumi.Context,
 type vmwareReplicatedVmState struct {
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName *string `pulumi:"applianceName"`
-	// The ID of the stroage account that should be used for logging during replication.
+	// The ID of the storage account that should be used for logging during replication.
 	//
 	// > **Note:** Only standard types of storage accounts are allowed.
 	//
@@ -307,7 +307,7 @@ type vmwareReplicatedVmState struct {
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces []VmwareReplicatedVmNetworkInterface `pulumi:"networkInterfaces"`
-	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName *string `pulumi:"physicalServerCredentialName"`
 	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
@@ -342,7 +342,7 @@ type vmwareReplicatedVmState struct {
 type VmwareReplicatedVmState struct {
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName pulumi.StringPtrInput
-	// The ID of the stroage account that should be used for logging during replication.
+	// The ID of the storage account that should be used for logging during replication.
 	//
 	// > **Note:** Only standard types of storage accounts are allowed.
 	//
@@ -378,7 +378,7 @@ type VmwareReplicatedVmState struct {
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayInput
-	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringPtrInput
 	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
@@ -417,7 +417,7 @@ func (VmwareReplicatedVmState) ElementType() reflect.Type {
 type vmwareReplicatedVmArgs struct {
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName string `pulumi:"applianceName"`
-	// The ID of the stroage account that should be used for logging during replication.
+	// The ID of the storage account that should be used for logging during replication.
 	//
 	// > **Note:** Only standard types of storage accounts are allowed.
 	//
@@ -453,7 +453,7 @@ type vmwareReplicatedVmArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces []VmwareReplicatedVmNetworkInterface `pulumi:"networkInterfaces"`
-	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName string `pulumi:"physicalServerCredentialName"`
 	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
@@ -489,7 +489,7 @@ type vmwareReplicatedVmArgs struct {
 type VmwareReplicatedVmArgs struct {
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName pulumi.StringInput
-	// The ID of the stroage account that should be used for logging during replication.
+	// The ID of the storage account that should be used for logging during replication.
 	//
 	// > **Note:** Only standard types of storage accounts are allowed.
 	//
@@ -525,7 +525,7 @@ type VmwareReplicatedVmArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayInput
-	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringInput
 	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringInput
@@ -649,7 +649,7 @@ func (o VmwareReplicatedVmOutput) ApplianceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.ApplianceName }).(pulumi.StringOutput)
 }
 
-// The ID of the stroage account that should be used for logging during replication.
+// The ID of the storage account that should be used for logging during replication.
 //
 // > **Note:** Only standard types of storage accounts are allowed.
 //
@@ -709,7 +709,7 @@ func (o VmwareReplicatedVmOutput) NetworkInterfaces() VmwareReplicatedVmNetworkI
 	return o.ApplyT(func(v *VmwareReplicatedVm) VmwareReplicatedVmNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(VmwareReplicatedVmNetworkInterfaceArrayOutput)
 }
 
-// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 func (o VmwareReplicatedVmOutput) PhysicalServerCredentialName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.PhysicalServerCredentialName }).(pulumi.StringOutput)
 }

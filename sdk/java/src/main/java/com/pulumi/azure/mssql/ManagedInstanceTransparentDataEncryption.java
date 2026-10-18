@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -318,12 +318,6 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      */
     public Output<Optional<String>> keyVaultKeyId() {
         return Codegen.optional(this.keyVaultKeyId);
-    }
-    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managedHsmKeyId;
-
-    public Output<Optional<String>> managedHsmKeyId() {
-        return Codegen.optional(this.managedHsmKeyId);
     }
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.

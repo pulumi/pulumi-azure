@@ -109,26 +109,10 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the Storage Container where the Blob exists.
         /// </summary>
-        [Input("storageContainerId")]
-        public string? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Container where the Blob exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public string? StorageContainerName { get; set; }
+        [Input("storageContainerId", required: true)]
+        public string StorageContainerId { get; set; } = null!;
 
         public GetBlobArgs()
         {
@@ -157,26 +141,10 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the Storage Container where the Blob exists.
         /// </summary>
-        [Input("storageContainerId")]
-        public Input<string>? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Container where the Blob exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
+        [Input("storageContainerId", required: true)]
+        public Input<string> StorageContainerId { get; set; } = null!;
 
         public GetBlobInvokeArgs()
         {
@@ -192,6 +160,10 @@ namespace Pulumi.Azure.Storage
         /// The access tier of the storage blob.
         /// </summary>
         public readonly string AccessTier;
+        /// <summary>
+        /// The cache control directive that is set on the blob.
+        /// </summary>
+        public readonly string CacheControl;
         /// <summary>
         /// The MD5 sum of the blob contents.
         /// </summary>
@@ -213,9 +185,11 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
-        public readonly string StorageAccountName;
+        /// <summary>
+        /// The source URI used to copy the blob, if it was created from another blob.
+        /// </summary>
+        public readonly string SourceUri;
         public readonly string StorageContainerId;
-        public readonly string StorageContainerName;
         /// <summary>
         /// The type of the storage blob
         /// </summary>
@@ -229,6 +203,8 @@ namespace Pulumi.Azure.Storage
         private GetBlobResult(
             string accessTier,
 
+            string cacheControl,
+
             string contentMd5,
 
             string contentType,
@@ -241,26 +217,24 @@ namespace Pulumi.Azure.Storage
 
             string name,
 
-            string storageAccountName,
+            string sourceUri,
 
             string storageContainerId,
-
-            string storageContainerName,
 
             string type,
 
             string url)
         {
             AccessTier = accessTier;
+            CacheControl = cacheControl;
             ContentMd5 = contentMd5;
             ContentType = contentType;
             EncryptionScope = encryptionScope;
             Id = id;
             Metadata = metadata;
             Name = name;
-            StorageAccountName = storageAccountName;
+            SourceUri = sourceUri;
             StorageContainerId = storageContainerId;
-            StorageContainerName = storageContainerName;
             Type = type;
             Url = url;
         }

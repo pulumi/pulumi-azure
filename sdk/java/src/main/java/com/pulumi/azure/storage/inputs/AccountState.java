@@ -10,11 +10,9 @@ import com.pulumi.azure.storage.inputs.AccountCustomerManagedKeyArgs;
 import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
 import com.pulumi.azure.storage.inputs.AccountImmutabilityPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
-import com.pulumi.azure.storage.inputs.AccountQueuePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountRoutingArgs;
 import com.pulumi.azure.storage.inputs.AccountSasPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountSharePropertiesArgs;
-import com.pulumi.azure.storage.inputs.AccountStaticWebsiteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -64,18 +62,56 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     * 
+     * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     * 
+     * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      * 
      */
     @Import(name="accountReplicationType")
     private @Nullable Output<String> accountReplicationType;
 
     /**
-     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * @return Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+     * 
+     * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+     * 
+     * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
      * 
      */
     public Optional<Output<String>> accountReplicationType() {
         return Optional.ofNullable(this.accountReplicationType);
+    }
+
+    /**
+     * The `accountReplicationType` that the Storage Account is migrating to.
+     * 
+     */
+    @Import(name="accountReplicationTypeMigratingTo")
+    private @Nullable Output<String> accountReplicationTypeMigratingTo;
+
+    /**
+     * @return The `accountReplicationType` that the Storage Account is migrating to.
+     * 
+     */
+    public Optional<Output<String>> accountReplicationTypeMigratingTo() {
+        return Optional.ofNullable(this.accountReplicationTypeMigratingTo);
+    }
+
+    /**
+     * Whether a replication type migration is in progress.
+     * 
+     */
+    @Import(name="accountReplicationTypeMigrationInProgress")
+    private @Nullable Output<Boolean> accountReplicationTypeMigrationInProgress;
+
+    /**
+     * @return Whether a replication type migration is in progress.
+     * 
+     */
+    public Optional<Output<Boolean>> accountReplicationTypeMigrationInProgress() {
+        return Optional.ofNullable(this.accountReplicationTypeMigrationInProgress);
     }
 
     /**
@@ -98,7 +134,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      * 
      * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
@@ -107,7 +143,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> allowNestedItemsToBePublic;
 
     /**
-     * @return Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * @return Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      * 
      * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
@@ -392,7 +428,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -403,7 +439,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * @return The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -1019,16 +1055,35 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the public network access is enabled? Defaults to `true`.
+     * The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
+     * @deprecated
+     * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether the public network access is enabled? Defaults to `true`.
+     * @deprecated
+     * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -1046,33 +1101,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> queueEncryptionKeyType() {
         return Optional.ofNullable(this.queueEncryptionKeyType);
-    }
-
-    /**
-     * A `queueProperties` block as defined below.
-     * 
-     * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="queueProperties")
-    private @Nullable Output<AccountQueuePropertiesArgs> queueProperties;
-
-    /**
-     * @return A `queueProperties` block as defined below.
-     * 
-     * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<AccountQueuePropertiesArgs>> queueProperties() {
-        return Optional.ofNullable(this.queueProperties);
     }
 
     /**
@@ -1718,37 +1746,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `staticWebsite` block as defined below.
-     * 
-     * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     * 
-     * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="staticWebsite")
-    private @Nullable Output<AccountStaticWebsiteArgs> staticWebsite;
-
-    /**
-     * @return A `staticWebsite` block as defined below.
-     * 
-     * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     * 
-     * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<AccountStaticWebsiteArgs>> staticWebsite() {
-        return Optional.ofNullable(this.staticWebsite);
-    }
-
-    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      * &gt; **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1788,6 +1785,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.accessTier = $.accessTier;
         this.accountKind = $.accountKind;
         this.accountReplicationType = $.accountReplicationType;
+        this.accountReplicationTypeMigratingTo = $.accountReplicationTypeMigratingTo;
+        this.accountReplicationTypeMigrationInProgress = $.accountReplicationTypeMigrationInProgress;
         this.accountTier = $.accountTier;
         this.allowNestedItemsToBePublic = $.allowNestedItemsToBePublic;
         this.allowedCopyScope = $.allowedCopyScope;
@@ -1848,9 +1847,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.primaryWebMicrosoftEndpoint = $.primaryWebMicrosoftEndpoint;
         this.primaryWebMicrosoftHost = $.primaryWebMicrosoftHost;
         this.provisionedBillingModelVersion = $.provisionedBillingModelVersion;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
-        this.queueProperties = $.queueProperties;
         this.resourceGroupName = $.resourceGroupName;
         this.routing = $.routing;
         this.sasPolicy = $.sasPolicy;
@@ -1893,7 +1892,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.sftpEnabled = $.sftpEnabled;
         this.shareProperties = $.shareProperties;
         this.sharedAccessKeyEnabled = $.sharedAccessKeyEnabled;
-        this.staticWebsite = $.staticWebsite;
         this.tableEncryptionKeyType = $.tableEncryptionKeyType;
         this.tags = $.tags;
     }
@@ -1963,7 +1961,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+         * 
+         * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+         * 
+         * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
          * 
          * @return builder
          * 
@@ -1974,13 +1976,59 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+         * 
+         * &gt; **Note:** Changing `accountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `accountReplicationType` that match the type of the migration request will be suppressed.
+         * 
+         * &gt; **Note:** For more information on `accountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
          * 
          * @return builder
          * 
          */
         public Builder accountReplicationType(String accountReplicationType) {
             return accountReplicationType(Output.of(accountReplicationType));
+        }
+
+        /**
+         * @param accountReplicationTypeMigratingTo The `accountReplicationType` that the Storage Account is migrating to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountReplicationTypeMigratingTo(@Nullable Output<String> accountReplicationTypeMigratingTo) {
+            $.accountReplicationTypeMigratingTo = accountReplicationTypeMigratingTo;
+            return this;
+        }
+
+        /**
+         * @param accountReplicationTypeMigratingTo The `accountReplicationType` that the Storage Account is migrating to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountReplicationTypeMigratingTo(String accountReplicationTypeMigratingTo) {
+            return accountReplicationTypeMigratingTo(Output.of(accountReplicationTypeMigratingTo));
+        }
+
+        /**
+         * @param accountReplicationTypeMigrationInProgress Whether a replication type migration is in progress.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountReplicationTypeMigrationInProgress(@Nullable Output<Boolean> accountReplicationTypeMigrationInProgress) {
+            $.accountReplicationTypeMigrationInProgress = accountReplicationTypeMigrationInProgress;
+            return this;
+        }
+
+        /**
+         * @param accountReplicationTypeMigrationInProgress Whether a replication type migration is in progress.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountReplicationTypeMigrationInProgress(Boolean accountReplicationTypeMigrationInProgress) {
+            return accountReplicationTypeMigrationInProgress(Output.of(accountReplicationTypeMigrationInProgress));
         }
 
         /**
@@ -2009,7 +2057,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
          * 
          * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
          * 
@@ -2022,7 +2070,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
          * 
          * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
          * 
@@ -2411,7 +2459,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+         * @param minTlsVersion The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -2426,7 +2474,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+         * @param minTlsVersion The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -3284,22 +3332,47 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
+         * @param publicNetworkAccess The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
          */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `publicNetworkAccessEnabled` has been deprecated in favour of `publicNetworkAccess` and will be removed in v6.0 of the AzureRM provider */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
@@ -3323,39 +3396,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queueEncryptionKeyType(String queueEncryptionKeyType) {
             return queueEncryptionKeyType(Output.of(queueEncryptionKeyType));
-        }
-
-        /**
-         * @param queueProperties A `queueProperties` block as defined below.
-         * 
-         * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder queueProperties(@Nullable Output<AccountQueuePropertiesArgs> queueProperties) {
-            $.queueProperties = queueProperties;
-            return this;
-        }
-
-        /**
-         * @param queueProperties A `queueProperties` block as defined below.
-         * 
-         * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder queueProperties(AccountQueuePropertiesArgs queueProperties) {
-            return queueProperties(Output.of(queueProperties));
         }
 
         /**
@@ -4250,43 +4290,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sharedAccessKeyEnabled(Boolean sharedAccessKeyEnabled) {
             return sharedAccessKeyEnabled(Output.of(sharedAccessKeyEnabled));
-        }
-
-        /**
-         * @param staticWebsite A `staticWebsite` block as defined below.
-         * 
-         * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-         * 
-         * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder staticWebsite(@Nullable Output<AccountStaticWebsiteArgs> staticWebsite) {
-            $.staticWebsite = staticWebsite;
-            return this;
-        }
-
-        /**
-         * @param staticWebsite A `staticWebsite` block as defined below.
-         * 
-         * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-         * 
-         * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder staticWebsite(AccountStaticWebsiteArgs staticWebsite) {
-            return staticWebsite(Output.of(staticWebsite));
         }
 
         /**

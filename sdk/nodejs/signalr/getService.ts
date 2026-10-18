@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,17 +59,37 @@ export interface GetServiceResult {
      */
     readonly aadAuthEnabled: boolean;
     /**
+     * Whether the log category `ConnectivityLogs` is enabled.
+     */
+    readonly connectivityLogsEnabled: boolean;
+    /**
+     * A `cors` block as documented below.
+     */
+    readonly cors: outputs.signalr.GetServiceCor[];
+    /**
      * The FQDN of the SignalR service.
      */
     readonly hostname: string;
+    /**
+     * Whether the log category `HttpRequestLogs` is enabled.
+     */
+    readonly httpRequestLogsEnabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
+     * An `identity` block as documented below.
+     */
+    readonly identities: outputs.signalr.GetServiceIdentity[];
+    /**
      * The publicly accessible IP of the SignalR service.
      */
     readonly ipAddress: string;
+    /**
+     * A `liveTrace` block as defined below.
+     */
+    readonly liveTraces: outputs.signalr.GetServiceLiveTrace[];
     /**
      * Is local auth enable for this SignalR serviced?
      */
@@ -76,6 +98,13 @@ export interface GetServiceResult {
      * Specifies the supported Azure location where the SignalR service exists.
      */
     readonly location: string;
+    /**
+     * Whether the log category `MessagingLogs` is enabled.
+     */
+    readonly messagingLogsEnabled: boolean;
+    /**
+     * The name of the SKU.
+     */
     readonly name: string;
     /**
      * The primary access key of the SignalR service.
@@ -110,11 +139,23 @@ export interface GetServiceResult {
      * The serverless connection timeout of this SignalR service.
      */
     readonly serverlessConnectionTimeoutInSeconds: number;
+    /**
+     * Specifies the service mode.
+     */
+    readonly serviceMode: string;
+    /**
+     * A `sku` block as documented below.
+     */
+    readonly skus: outputs.signalr.GetServiceSkus[];
     readonly tags: {[key: string]: string};
     /**
      * Is tls client cert enabled for this SignalR service?
      */
     readonly tlsClientCertEnabled: boolean;
+    /**
+     * One or more `upstreamEndpoint` blocks as documented below.
+     */
+    readonly upstreamEndpoints: outputs.signalr.GetServiceUpstreamEndpoint[];
 }
 /**
  * Use this data source to access information about an existing Azure SignalR service.

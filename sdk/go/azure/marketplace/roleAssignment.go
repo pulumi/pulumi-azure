@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/marketplace"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/marketplace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,9 +55,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/marketplace"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/marketplace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +120,7 @@ type RoleAssignment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
@@ -128,7 +128,7 @@ type RoleAssignment struct {
 	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	//
-	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 	RoleDefinitionName pulumi.StringPtrOutput `pulumi:"roleDefinitionName"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -183,7 +183,7 @@ type roleAssignmentState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 	PrincipalId *string `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType *string `pulumi:"principalType"`
@@ -191,7 +191,7 @@ type roleAssignmentState struct {
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	//
-	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 	RoleDefinitionName *string `pulumi:"roleDefinitionName"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -214,7 +214,7 @@ type RoleAssignmentState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 	PrincipalId pulumi.StringPtrInput
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type RoleAssignmentState struct {
 	RoleDefinitionId pulumi.StringPtrInput
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	//
-	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 	RoleDefinitionName pulumi.StringPtrInput
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -249,13 +249,13 @@ type roleAssignmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 	PrincipalId string `pulumi:"principalId"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	//
-	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 	RoleDefinitionName *string `pulumi:"roleDefinitionName"`
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -279,13 +279,13 @@ type RoleAssignmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+	// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 	PrincipalId pulumi.StringInput
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringPtrInput
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	//
-	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+	// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 	RoleDefinitionName pulumi.StringPtrInput
 	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -409,7 +409,7 @@ func (o RoleAssignmentOutput) Name() pulumi.StringOutput {
 
 // The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 //
-// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
+// > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information.
 func (o RoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -426,7 +426,7 @@ func (o RoleAssignmentOutput) RoleDefinitionId() pulumi.StringPtrOutput {
 
 // The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 //
-// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
+// > **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
 func (o RoleAssignmentOutput) RoleDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.RoleDefinitionName }).(pulumi.StringPtrOutput)
 }

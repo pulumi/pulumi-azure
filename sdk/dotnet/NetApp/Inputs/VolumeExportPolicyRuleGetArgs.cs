@@ -66,9 +66,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        [Input("protocolsEnabled")]
-        public Input<string>? ProtocolsEnabled { get; set; }
-
         /// <summary>
         /// Is root access permitted to this volume?
         /// </summary>

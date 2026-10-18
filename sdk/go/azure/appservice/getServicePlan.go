@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type LookupServicePlanResult struct {
 	OsType string `pulumi:"osType"`
 	// Is Per Site Scaling be enabled?
 	PerSiteScalingEnabled bool `pulumi:"perSiteScalingEnabled"`
+	// Is premium plan autoscale enabled.
+	PremiumPlanAutoScaleEnabled bool `pulumi:"premiumPlanAutoScaleEnabled"`
 	// Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
 	Reserved          bool   `pulumi:"reserved"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -164,6 +166,11 @@ func (o LookupServicePlanResultOutput) OsType() pulumi.StringOutput {
 // Is Per Site Scaling be enabled?
 func (o LookupServicePlanResultOutput) PerSiteScalingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServicePlanResult) bool { return v.PerSiteScalingEnabled }).(pulumi.BoolOutput)
+}
+
+// Is premium plan autoscale enabled.
+func (o LookupServicePlanResultOutput) PremiumPlanAutoScaleEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServicePlanResult) bool { return v.PremiumPlanAutoScaleEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.

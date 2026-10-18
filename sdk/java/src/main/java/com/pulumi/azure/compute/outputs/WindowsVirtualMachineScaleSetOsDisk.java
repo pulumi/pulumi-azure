@@ -53,8 +53,6 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
      * 
      * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
-     * 
      */
     private @Nullable String securityEncryptionType;
     /**
@@ -118,8 +116,6 @@ public final class WindowsVirtualMachineScaleSetOsDisk {
      * @return Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-     * 
-     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<String> securityEncryptionType() {

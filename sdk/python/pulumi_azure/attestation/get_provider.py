@@ -26,7 +26,7 @@ class GetProviderResult:
     """
     A collection of values returned by getProvider.
     """
-    def __init__(__self__, attestation_uri=None, id=None, location=None, name=None, resource_group_name=None, tags=None, trust_model=None):
+    def __init__(__self__, attestation_uri=None, id=None, location=None, name=None, open_enclave_policy_base64=None, resource_group_name=None, sev_snp_policy_base64=None, sgx_enclave_policy_base64=None, tags=None, tpm_policy_base64=None, trust_model=None):
         if attestation_uri and not isinstance(attestation_uri, str):
             raise TypeError("Expected argument 'attestation_uri' to be a str")
         pulumi.set(__self__, "attestation_uri", attestation_uri)
@@ -39,12 +39,24 @@ class GetProviderResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if open_enclave_policy_base64 and not isinstance(open_enclave_policy_base64, str):
+            raise TypeError("Expected argument 'open_enclave_policy_base64' to be a str")
+        pulumi.set(__self__, "open_enclave_policy_base64", open_enclave_policy_base64)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sev_snp_policy_base64 and not isinstance(sev_snp_policy_base64, str):
+            raise TypeError("Expected argument 'sev_snp_policy_base64' to be a str")
+        pulumi.set(__self__, "sev_snp_policy_base64", sev_snp_policy_base64)
+        if sgx_enclave_policy_base64 and not isinstance(sgx_enclave_policy_base64, str):
+            raise TypeError("Expected argument 'sgx_enclave_policy_base64' to be a str")
+        pulumi.set(__self__, "sgx_enclave_policy_base64", sgx_enclave_policy_base64)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tpm_policy_base64 and not isinstance(tpm_policy_base64, str):
+            raise TypeError("Expected argument 'tpm_policy_base64' to be a str")
+        pulumi.set(__self__, "tpm_policy_base64", tpm_policy_base64)
         if trust_model and not isinstance(trust_model, str):
             raise TypeError("Expected argument 'trust_model' to be a str")
         pulumi.set(__self__, "trust_model", trust_model)
@@ -79,9 +91,33 @@ class GetProviderResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="openEnclavePolicyBase64")
+    def open_enclave_policy_base64(self) -> _builtins.str:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        """
+        return pulumi.get(self, "open_enclave_policy_base64")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sevSnpPolicyBase64")
+    def sev_snp_policy_base64(self) -> _builtins.str:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        """
+        return pulumi.get(self, "sev_snp_policy_base64")
+
+    @_builtins.property
+    @pulumi.getter(name="sgxEnclavePolicyBase64")
+    def sgx_enclave_policy_base64(self) -> _builtins.str:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        """
+        return pulumi.get(self, "sgx_enclave_policy_base64")
 
     @_builtins.property
     @pulumi.getter
@@ -90,6 +126,14 @@ class GetProviderResult:
         A mapping of tags assigned to the Attestation Provider.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tpmPolicyBase64")
+    def tpm_policy_base64(self) -> _builtins.str:
+        """
+        Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+        """
+        return pulumi.get(self, "tpm_policy_base64")
 
     @_builtins.property
     @pulumi.getter(name="trustModel")
@@ -110,8 +154,12 @@ class AwaitableGetProviderResult(GetProviderResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            open_enclave_policy_base64=self.open_enclave_policy_base64,
             resource_group_name=self.resource_group_name,
+            sev_snp_policy_base64=self.sev_snp_policy_base64,
+            sgx_enclave_policy_base64=self.sgx_enclave_policy_base64,
             tags=self.tags,
+            tpm_policy_base64=self.tpm_policy_base64,
             trust_model=self.trust_model)
 
 
@@ -154,8 +202,12 @@ def get_provider(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        open_enclave_policy_base64=pulumi.get(__ret__, 'open_enclave_policy_base64'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sev_snp_policy_base64=pulumi.get(__ret__, 'sev_snp_policy_base64'),
+        sgx_enclave_policy_base64=pulumi.get(__ret__, 'sgx_enclave_policy_base64'),
         tags=pulumi.get(__ret__, 'tags'),
+        tpm_policy_base64=pulumi.get(__ret__, 'tpm_policy_base64'),
         trust_model=pulumi.get(__ret__, 'trust_model'))
 def get_provider_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -195,6 +247,10 @@ def get_provider_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        open_enclave_policy_base64=pulumi.get(__response__, 'open_enclave_policy_base64'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sev_snp_policy_base64=pulumi.get(__response__, 'sev_snp_policy_base64'),
+        sgx_enclave_policy_base64=pulumi.get(__response__, 'sgx_enclave_policy_base64'),
         tags=pulumi.get(__response__, 'tags'),
+        tpm_policy_base64=pulumi.get(__response__, 'tpm_policy_base64'),
         trust_model=pulumi.get(__response__, 'trust_model')))

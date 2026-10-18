@@ -141,7 +141,7 @@ class TokenPassword(pulumi.CustomResource):
                  password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']]] = None,
                  __props__=None):
         """
-        Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 
@@ -211,7 +211,7 @@ class TokenPassword(pulumi.CustomResource):
                  args: TokenPasswordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+        Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ## Example Usage
 

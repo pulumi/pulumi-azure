@@ -78,15 +78,15 @@ export class FlexibleDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
      */
     declare public readonly charset: pulumi.Output<string>;
     /**
-     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
      */
     declare public readonly collation: pulumi.Output<string>;
     /**
-     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -146,15 +146,15 @@ export class FlexibleDatabase extends pulumi.CustomResource {
  */
 export interface FlexibleDatabaseState {
     /**
-     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
      */
     charset?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -172,15 +172,15 @@ export interface FlexibleDatabaseState {
  */
 export interface FlexibleDatabaseArgs {
     /**
-     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+     * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
      */
     charset: pulumi.Input<string>;
     /**
-     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+     * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
      */
     collation: pulumi.Input<string>;
     /**
-     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+     * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**

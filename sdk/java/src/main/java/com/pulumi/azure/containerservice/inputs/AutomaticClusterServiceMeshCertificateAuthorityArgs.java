@@ -47,7 +47,7 @@ public final class AutomaticClusterServiceMeshCertificateAuthorityArgs extends c
     /**
      * The intermediate certificate private key object name in Azure Key Vault.
      * 
-     * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+     * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
      * 
      */
     @Import(name="keyObjectName", required=true)
@@ -56,7 +56,7 @@ public final class AutomaticClusterServiceMeshCertificateAuthorityArgs extends c
     /**
      * @return The intermediate certificate private key object name in Azure Key Vault.
      * 
-     * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+     * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
      * 
      */
     public Output<String> keyObjectName() {
@@ -166,7 +166,7 @@ public final class AutomaticClusterServiceMeshCertificateAuthorityArgs extends c
         /**
          * @param keyObjectName The intermediate certificate private key object name in Azure Key Vault.
          * 
-         * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AutomaticClusterServiceMeshCertificateAuthorityArgs extends c
         /**
          * @param keyObjectName The intermediate certificate private key object name in Azure Key Vault.
          * 
-         * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * &gt; **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          * 
          * @return builder
          * 

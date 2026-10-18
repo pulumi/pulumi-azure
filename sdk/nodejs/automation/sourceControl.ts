@@ -119,7 +119,7 @@ export class SourceControl extends pulumi.CustomResource {
      */
     declare public readonly security: pulumi.Output<outputs.automation.SourceControlSecurity>;
     /**
-     * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      */
     declare public readonly sourceControlType: pulumi.Output<string>;
 
@@ -220,7 +220,7 @@ export interface SourceControlState {
      */
     security?: pulumi.Input<inputs.automation.SourceControlSecurity | undefined>;
     /**
-     * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      */
     sourceControlType?: pulumi.Input<string | undefined>;
 }
@@ -266,7 +266,7 @@ export interface SourceControlArgs {
      */
     security: pulumi.Input<inputs.automation.SourceControlSecurity>;
     /**
-     * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
+     * The source type of Source Control, possible values are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      */
     sourceControlType: pulumi.Input<string>;
 }

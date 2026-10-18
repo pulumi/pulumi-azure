@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The label of the filter. This label should be unique across all `LabelIncludeFileter` block. Possible value is `MicrosoftMetricsIncludeLabel`.
+        /// The label of the filter. This label should be unique across all `LabelIncludeFilter` block. Possible value is `MicrosoftMetricsIncludeLabel`.
         /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;

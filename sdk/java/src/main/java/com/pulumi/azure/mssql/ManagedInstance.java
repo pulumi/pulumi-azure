@@ -272,7 +272,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -494,7 +494,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceConfigurationName);
     }
     /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -503,7 +503,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * @return The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -526,18 +526,18 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
     @Export(name="proxyOverride", refs={String.class}, tree="[0]")
-    private Output<String> proxyOverride;
+    private Output</* @Nullable */ String> proxyOverride;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * @return Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
-    public Output<String> proxyOverride() {
-        return this.proxyOverride;
+    public Output<Optional<String>> proxyOverride() {
+        return Codegen.optional(this.proxyOverride);
     }
     /**
      * Is the public data endpoint enabled? Defaults to `false`.
@@ -612,7 +612,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
      * 
-     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     @Export(name="storageIops", refs={Integer.class}, tree="[0]")
@@ -621,7 +621,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
      * 
-     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     public Output<Integer> storageIops() {
@@ -630,7 +630,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
-     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     @Export(name="storageSizeInGb", refs={Integer.class}, tree="[0]")
@@ -639,7 +639,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
-     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/azure/azure-sql/managed-instance/resource-limits) for detailed information.
      * 
      */
     public Output<Integer> storageSizeInGb() {
@@ -704,7 +704,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
-     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
      * 
      */
     @Export(name="zoneRedundantEnabled", refs={Boolean.class}, tree="[0]")
@@ -713,7 +713,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
-     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the [Next-gen General Purpose service tier](https://learn.microsoft.com/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#next-gen-general-purpose-service-tier)
      * 
      */
     public Output<Optional<Boolean>> zoneRedundantEnabled() {

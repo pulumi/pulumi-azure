@@ -25,14 +25,15 @@ public final class GetServiceResult {
      */
     private List<String> autoApprovalSubscriptionIds;
     /**
-     * @return Does the Private Link Service support the Proxy Protocol?
-     * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @return The destination IP address of the Private Link Service.
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private Boolean enableProxyProtocol;
+    private String destinationIpAddress;
+    /**
+     * @return List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    private List<String> fqdns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -87,15 +88,18 @@ public final class GetServiceResult {
         return this.autoApprovalSubscriptionIds;
     }
     /**
-     * @return Does the Private Link Service support the Proxy Protocol?
-     * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @return The destination IP address of the Private Link Service.
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Boolean enableProxyProtocol() {
-        return this.enableProxyProtocol;
+    public String destinationIpAddress() {
+        return this.destinationIpAddress;
+    }
+    /**
+     * @return List of FQDNs allowed for the Private Link Service.
+     * 
+     */
+    public List<String> fqdns() {
+        return this.fqdns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -164,7 +168,8 @@ public final class GetServiceResult {
     public static final class Builder {
         private String alias;
         private List<String> autoApprovalSubscriptionIds;
-        private Boolean enableProxyProtocol;
+        private String destinationIpAddress;
+        private List<String> fqdns;
         private String id;
         private List<String> loadBalancerFrontendIpConfigurationIds;
         private String location;
@@ -179,7 +184,8 @@ public final class GetServiceResult {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
     	      this.autoApprovalSubscriptionIds = defaults.autoApprovalSubscriptionIds;
-    	      this.enableProxyProtocol = defaults.enableProxyProtocol;
+    	      this.destinationIpAddress = defaults.destinationIpAddress;
+    	      this.fqdns = defaults.fqdns;
     	      this.id = defaults.id;
     	      this.loadBalancerFrontendIpConfigurationIds = defaults.loadBalancerFrontendIpConfigurationIds;
     	      this.location = defaults.location;
@@ -211,12 +217,23 @@ public final class GetServiceResult {
             return autoApprovalSubscriptionIds(List.of(autoApprovalSubscriptionIds));
         }
         @CustomType.Setter
-        public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
-            if (enableProxyProtocol == null) {
-              throw new MissingRequiredPropertyException("GetServiceResult", "enableProxyProtocol");
+        public Builder destinationIpAddress(String destinationIpAddress) {
+            if (destinationIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "destinationIpAddress");
             }
-            this.enableProxyProtocol = enableProxyProtocol;
+            this.destinationIpAddress = destinationIpAddress;
             return this;
+        }
+        @CustomType.Setter
+        public Builder fqdns(List<String> fqdns) {
+            if (fqdns == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "fqdns");
+            }
+            this.fqdns = fqdns;
+            return this;
+        }
+        public Builder fqdns(String... fqdns) {
+            return fqdns(List.of(fqdns));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -303,7 +320,8 @@ public final class GetServiceResult {
             final var _resultValue = new GetServiceResult();
             _resultValue.alias = alias;
             _resultValue.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
-            _resultValue.enableProxyProtocol = enableProxyProtocol;
+            _resultValue.destinationIpAddress = destinationIpAddress;
+            _resultValue.fqdns = fqdns;
             _resultValue.id = id;
             _resultValue.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             _resultValue.location = location;

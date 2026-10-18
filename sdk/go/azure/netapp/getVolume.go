@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2026-01-01
+// * `Microsoft.NetApp` - 2026-05-01
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeResult
@@ -78,9 +78,11 @@ type LookupVolumeResult struct {
 	// The accept grow capacity pool for short term clone split property.
 	AcceptGrowCapacityPoolForShortTermCloneSplit string `pulumi:"acceptGrowCapacityPoolForShortTermCloneSplit"`
 	AccountName                                  string `pulumi:"accountName"`
+	// Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+	BreakthroughModeEnabled bool `pulumi:"breakthroughModeEnabled"`
 	// An Advanced Ransomware Protection (ARP) data protection block.
 	DataProtectionAdvancedRansomwares []GetVolumeDataProtectionAdvancedRansomware `pulumi:"dataProtectionAdvancedRansomwares"`
-	// A data protecion backup policy block
+	// A data protection backup policy block
 	DataProtectionBackupPolicies []GetVolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicies"`
 	// Volume data protection replication block
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
@@ -92,9 +94,9 @@ type LookupVolumeResult struct {
 	LargeVolumeEnabled bool `pulumi:"largeVolumeEnabled"`
 	// The Azure Region where the NetApp Volume exists.
 	Location string `pulumi:"location"`
-	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses []string `pulumi:"mountIpAddresses"`
-	Name             string   `pulumi:"name"`
+	// One or more `mountTarget` blocks as defined below.
+	MountTargets []GetVolumeMountTarget `pulumi:"mountTargets"`
+	Name         string                 `pulumi:"name"`
 	// Network features in use `Basic` or `Standard`.
 	NetworkFeatures string `pulumi:"networkFeatures"`
 	PoolName        string `pulumi:"poolName"`
@@ -166,6 +168,11 @@ func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+func (o LookupVolumeResultOutput) BreakthroughModeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVolumeResult) bool { return v.BreakthroughModeEnabled }).(pulumi.BoolOutput)
+}
+
 // An Advanced Ransomware Protection (ARP) data protection block.
 func (o LookupVolumeResultOutput) DataProtectionAdvancedRansomwares() GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionAdvancedRansomware {
@@ -173,7 +180,7 @@ func (o LookupVolumeResultOutput) DataProtectionAdvancedRansomwares() GetVolumeD
 	}).(GetVolumeDataProtectionAdvancedRansomwareArrayOutput)
 }
 
-// A data protecion backup policy block
+// A data protection backup policy block
 func (o LookupVolumeResultOutput) DataProtectionBackupPolicies() GetVolumeDataProtectionBackupPolicyArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionBackupPolicy {
 		return v.DataProtectionBackupPolicies
@@ -208,9 +215,9 @@ func (o LookupVolumeResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// A list of IPv4 Addresses which should be used to mount the volume.
-func (o LookupVolumeResultOutput) MountIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupVolumeResult) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+// One or more `mountTarget` blocks as defined below.
+func (o LookupVolumeResultOutput) MountTargets() GetVolumeMountTargetArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeMountTarget { return v.MountTargets }).(GetVolumeMountTargetArrayOutput)
 }
 
 func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {

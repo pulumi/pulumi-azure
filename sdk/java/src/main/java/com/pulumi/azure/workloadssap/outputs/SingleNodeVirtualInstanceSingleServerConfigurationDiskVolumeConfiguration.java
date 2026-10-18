@@ -27,7 +27,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeC
      */
     private String skuName;
     /**
-     * @return Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+     * @return Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
      * 
      */
     private String volumeName;
@@ -55,7 +55,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeC
         return this.skuName;
     }
     /**
-     * @return Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+     * @return Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
      * 
      */
     public String volumeName() {

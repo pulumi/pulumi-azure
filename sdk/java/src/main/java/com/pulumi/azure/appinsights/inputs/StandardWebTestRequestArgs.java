@@ -80,14 +80,14 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Should the parsing of dependend requests be enabled? Defaults to `true`.
+     * Should the parsing of dependent requests be enabled? Defaults to `true`.
      * 
      */
     @Import(name="parseDependentRequestsEnabled")
     private @Nullable Output<Boolean> parseDependentRequestsEnabled;
 
     /**
-     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
+     * @return Should the parsing of dependent requests be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> parseDependentRequestsEnabled() {
@@ -233,7 +233,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled? Defaults to `true`.
+         * @param parseDependentRequestsEnabled Should the parsing of dependent requests be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled? Defaults to `true`.
+         * @param parseDependentRequestsEnabled Should the parsing of dependent requests be enabled? Defaults to `true`.
          * 
          * @return builder
          * 

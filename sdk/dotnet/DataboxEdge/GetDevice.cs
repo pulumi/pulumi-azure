@@ -168,7 +168,7 @@ namespace Pulumi.Azure.DataboxEdge
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The `SkuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `SkuName` defines the `Name` of the SKU. The second segment defines the `Tier` of the `SkuName`. For more information see the product documentation.
+        /// The `SkuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `SkuName` defines the `Name` of the SKU. The second segment defines the `Tier` of the `SkuName`. For more information see the [product documentation](https://learn.microsoft.com/azure/templates/microsoft.databoxedge/databoxedgedevices).
         /// </summary>
         public readonly string SkuName;
         /// <summary>

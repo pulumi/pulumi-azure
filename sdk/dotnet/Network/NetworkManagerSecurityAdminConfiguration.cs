@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerSecurityAdminConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         /// </summary>
         [Output("applyOnNetworkIntentPolicyBasedServices")]
         public Output<string?> ApplyOnNetworkIntentPolicyBasedServices { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerSecurityAdminConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         /// </summary>
         [Input("applyOnNetworkIntentPolicyBasedServices")]
         public Input<string>? ApplyOnNetworkIntentPolicyBasedServices { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerSecurityAdminConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
+        /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         /// </summary>
         [Input("applyOnNetworkIntentPolicyBasedServices")]
         public Input<string>? ApplyOnNetworkIntentPolicyBasedServices { get; set; }

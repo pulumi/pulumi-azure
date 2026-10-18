@@ -64,12 +64,28 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.omsAgentIdentities);
     }
 
+    /**
+     * Is Retina Flow Logs collection enabled?
+     * 
+     */
+    @Import(name="retinaFlowLogsEnabled")
+    private @Nullable Output<Boolean> retinaFlowLogsEnabled;
+
+    /**
+     * @return Is Retina Flow Logs collection enabled?
+     * 
+     */
+    public Optional<Output<Boolean>> retinaFlowLogsEnabled() {
+        return Optional.ofNullable(this.retinaFlowLogsEnabled);
+    }
+
     private KubernetesClusterOmsAgentArgs() {}
 
     private KubernetesClusterOmsAgentArgs(KubernetesClusterOmsAgentArgs $) {
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.msiAuthForMonitoringEnabled = $.msiAuthForMonitoringEnabled;
         this.omsAgentIdentities = $.omsAgentIdentities;
+        this.retinaFlowLogsEnabled = $.retinaFlowLogsEnabled;
     }
 
     public static Builder builder() {
@@ -161,6 +177,27 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
          */
         public Builder omsAgentIdentities(KubernetesClusterOmsAgentOmsAgentIdentityArgs... omsAgentIdentities) {
             return omsAgentIdentities(List.of(omsAgentIdentities));
+        }
+
+        /**
+         * @param retinaFlowLogsEnabled Is Retina Flow Logs collection enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retinaFlowLogsEnabled(@Nullable Output<Boolean> retinaFlowLogsEnabled) {
+            $.retinaFlowLogsEnabled = retinaFlowLogsEnabled;
+            return this;
+        }
+
+        /**
+         * @param retinaFlowLogsEnabled Is Retina Flow Logs collection enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retinaFlowLogsEnabled(Boolean retinaFlowLogsEnabled) {
+            return retinaFlowLogsEnabled(Output.of(retinaFlowLogsEnabled));
         }
 
         public KubernetesClusterOmsAgentArgs build() {

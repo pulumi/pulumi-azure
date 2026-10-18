@@ -1,0 +1,865 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2026-10-14T12:49:57.181666+02:00",
+      "magic": "9a855bcb621a22a207f70669dab3c8533fb667eeff636e7d0301661e70d79222",
+      "version": "v3.268.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:FNcGuAUalW4=:v1:5+FN1yxCSoaQV6VG:S0XJQEsEgJQLx4hX1Ovp4HKYGPHLfw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2026-10-14T10:48:45.297659Z",
+        "modified": "2026-10-14T10:48:45.297659Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::pulumi:providers:azure::default",
+        "custom": true,
+        "id": "95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "type": "pulumi:providers:azure",
+        "inputs": {
+          "features": "{\"resourceGroup\":{\"preventDeletionIfContainsResources\":false}}",
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          }
+        },
+        "outputs": {
+          "features": "{\"resourceGroup\":{\"preventDeletionIfContainsResources\":false}}",
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          }
+        },
+        "created": "2026-10-14T10:48:56.691038Z",
+        "modified": "2026-10-14T10:48:56.691038Z"
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665",
+        "type": "azure:core/resourceGroup:ResourceGroup",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "location": "East US",
+          "name": "exampleresourcegroupbf310665"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
+          "__pulumi_raw_state_delta": {
+            "obj": {}
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665",
+          "location": "eastus",
+          "managedBy": "",
+          "name": "exampleresourcegroupbf310665",
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "location": []
+        },
+        "created": "2026-10-14T10:49:24.066916Z",
+        "modified": "2026-10-14T10:49:24.066916Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:servicebus/namespace:Namespace::exampleNamespace",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+        "type": "azure:servicebus/namespace:Namespace",
+        "inputs": {
+          "__defaults": [
+            "localAuthEnabled",
+            "minimumTlsVersion",
+            "name",
+            "publicNetworkAccessEnabled"
+          ],
+          "localAuthEnabled": true,
+          "location": "eastus",
+          "minimumTlsVersion": "1.2",
+          "name": "examplenamespacedd86488f",
+          "publicNetworkAccessEnabled": true,
+          "resourceGroupName": "exampleresourcegroupbf310665",
+          "sku": "Standard",
+          "tags": {
+            "source": "example"
+          }
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"1\"}",
+          "__pulumi_raw_state_delta": {
+            "obj": {
+              "ps": {
+                "customerManagedKey": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "identity": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "networkRuleSet": {
+                  "plu": {
+                    "i": {
+                      "obj": {
+                        "ps": {
+                          "ipRules": {
+                            "arr": {}
+                          },
+                          "networkRules": {
+                            "arr": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "tags": {
+                  "map": {}
+                }
+              }
+            }
+          },
+          "capacity": 0,
+          "customerManagedKey": null,
+          "defaultPrimaryConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "defaultPrimaryKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "defaultSecondaryConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "defaultSecondaryKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "endpoint": "https://examplenamespacedd86488f.servicebus.windows.net:443/",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+          "identity": null,
+          "localAuthEnabled": true,
+          "location": "eastus",
+          "minimumTlsVersion": "1.2",
+          "name": "examplenamespacedd86488f",
+          "networkRuleSet": {
+            "defaultAction": "Allow",
+            "ipRules": [],
+            "networkRules": [],
+            "publicNetworkAccessEnabled": true,
+            "trustedServicesAllowed": false
+          },
+          "premiumMessagingPartitions": 0,
+          "publicNetworkAccessEnabled": true,
+          "resourceGroupName": "exampleresourcegroupbf310665",
+          "sku": "Standard",
+          "tags": {
+            "source": "example"
+          }
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "dependencies": [
+          "urn:pulumi:test::servicebus::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "location": [
+            "urn:pulumi:test::servicebus::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::servicebus::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "sku": [],
+          "tags": []
+        },
+        "additionalSecretOutputs": [
+          "defaultPrimaryConnectionString",
+          "defaultPrimaryKey",
+          "defaultSecondaryConnectionString",
+          "defaultSecondaryKey"
+        ],
+        "created": "2026-10-14T10:49:43.24522Z",
+        "modified": "2026-10-14T10:49:43.24522Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:servicebus/topic:Topic::exampleTopic",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586",
+        "type": "azure:servicebus/topic:Topic",
+        "inputs": {
+          "__defaults": [
+            "autoDeleteOnIdle",
+            "defaultMessageTtl",
+            "duplicateDetectionHistoryTimeWindow",
+            "name",
+            "status"
+          ],
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "defaultMessageTtl": "P10675199DT2H48M5.4775807S",
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "name": "exampletopicd8f25586",
+          "namespaceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+          "partitioningEnabled": true,
+          "status": "Active"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "__pulumi_raw_state_delta": {
+            "obj": {}
+          },
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "batchedOperationsEnabled": false,
+          "defaultMessageTtl": "P10675199DT2H48M5.4775807S",
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "expressEnabled": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586",
+          "maxMessageSizeInKilobytes": 256,
+          "maxSizeInMegabytes": 5120,
+          "name": "exampletopicd8f25586",
+          "namespaceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+          "namespaceName": "examplenamespacedd86488f",
+          "partitioningEnabled": true,
+          "requiresDuplicateDetection": false,
+          "resourceGroupName": "exampleresourcegroupbf310665",
+          "status": "Active",
+          "supportOrdering": false
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "dependencies": [
+          "urn:pulumi:test::servicebus::azure:servicebus/namespace:Namespace::exampleNamespace"
+        ],
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "namespaceId": [
+            "urn:pulumi:test::servicebus::azure:servicebus/namespace:Namespace::exampleNamespace"
+          ],
+          "partitioningEnabled": []
+        },
+        "created": "2026-10-14T10:49:48.812802Z",
+        "modified": "2026-10-14T10:49:48.812802Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:servicebus/queue:Queue::exampleQueue",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/queues/examplequeue4702dc9f",
+        "type": "azure:servicebus/queue:Queue",
+        "inputs": {
+          "__defaults": [
+            "batchedOperationsEnabled",
+            "duplicateDetectionHistoryTimeWindow",
+            "lockDuration",
+            "maxDeliveryCount",
+            "name",
+            "status"
+          ],
+          "batchedOperationsEnabled": true,
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "lockDuration": "PT1M",
+          "maxDeliveryCount": 10,
+          "name": "examplequeue4702dc9f",
+          "namespaceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+          "partitioningEnabled": true,
+          "status": "Active"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "__pulumi_raw_state_delta": {
+            "obj": {}
+          },
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "batchedOperationsEnabled": true,
+          "deadLetteringOnMessageExpiration": false,
+          "defaultMessageTtl": "P10675199DT2H48M5.4775807S",
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "expressEnabled": false,
+          "forwardDeadLetteredMessagesTo": "",
+          "forwardTo": "",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/queues/examplequeue4702dc9f",
+          "lockDuration": "PT1M",
+          "maxDeliveryCount": 10,
+          "maxMessageSizeInKilobytes": 256,
+          "maxSizeInMegabytes": 5120,
+          "name": "examplequeue4702dc9f",
+          "namespaceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f",
+          "namespaceName": "examplenamespacedd86488f",
+          "partitioningEnabled": true,
+          "requiresDuplicateDetection": false,
+          "requiresSession": false,
+          "resourceGroupName": "exampleresourcegroupbf310665",
+          "status": "Active"
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "dependencies": [
+          "urn:pulumi:test::servicebus::azure:servicebus/namespace:Namespace::exampleNamespace"
+        ],
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "namespaceId": [
+            "urn:pulumi:test::servicebus::azure:servicebus/namespace:Namespace::exampleNamespace"
+          ],
+          "partitioningEnabled": []
+        },
+        "created": "2026-10-14T10:49:49.665537Z",
+        "modified": "2026-10-14T10:49:49.665537Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:servicebus/subscription:Subscription::exampleSubsn",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0",
+        "type": "azure:servicebus/subscription:Subscription",
+        "inputs": {
+          "__defaults": [
+            "autoDeleteOnIdle",
+            "deadLetteringOnFilterEvaluationError",
+            "defaultMessageTtl",
+            "lockDuration",
+            "name",
+            "status"
+          ],
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "deadLetteringOnFilterEvaluationError": true,
+          "defaultMessageTtl": "P10675199DT2H48M5.4775807S",
+          "lockDuration": "PT1M",
+          "maxDeliveryCount": 1,
+          "name": "exampleSubsnb4b02d0",
+          "status": "Active",
+          "topicId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"1\"}",
+          "__pulumi_raw_state_delta": {
+            "obj": {
+              "ps": {
+                "clientScopedSubscription": {
+                  "plu": {
+                    "i": {}
+                  }
+                }
+              }
+            }
+          },
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "batchedOperationsEnabled": false,
+          "clientScopedSubscription": null,
+          "clientScopedSubscriptionEnabled": false,
+          "deadLetteringOnFilterEvaluationError": true,
+          "deadLetteringOnMessageExpiration": false,
+          "defaultMessageTtl": "P10675199DT2H48M5.4775807S",
+          "forwardDeadLetteredMessagesTo": "",
+          "forwardTo": "",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0",
+          "lockDuration": "PT1M",
+          "maxDeliveryCount": 1,
+          "name": "exampleSubsnb4b02d0",
+          "requiresSession": false,
+          "status": "Active",
+          "topicId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586"
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "dependencies": [
+          "urn:pulumi:test::servicebus::azure:servicebus/topic:Topic::exampleTopic"
+        ],
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "maxDeliveryCount": [],
+          "topicId": [
+            "urn:pulumi:test::servicebus::azure:servicebus/topic:Topic::exampleTopic"
+          ]
+        },
+        "created": "2026-10-14T10:49:52.919934Z",
+        "modified": "2026-10-14T10:49:52.919934Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::servicebus::azure:servicebus/subscriptionRule:SubscriptionRule::exampleSubscnRule",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0/rules/exampleSubscnRule85b3fbb",
+        "type": "azure:servicebus/subscriptionRule:SubscriptionRule",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "filterType": "SqlFilter",
+          "name": "exampleSubscnRule85b3fbb",
+          "sqlFilter": "colour = 'red'",
+          "subscriptionId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "__pulumi_raw_state_delta": {
+            "obj": {
+              "ps": {
+                "correlationFilter": {
+                  "plu": {
+                    "i": {}
+                  }
+                }
+              }
+            }
+          },
+          "action": "",
+          "correlationFilter": null,
+          "filterType": "SqlFilter",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0/rules/exampleSubscnRule85b3fbb",
+          "name": "exampleSubscnRule85b3fbb",
+          "sqlFilter": "colour = 'red'",
+          "sqlFilterCompatibilityLevel": 20,
+          "subscriptionId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupbf310665/providers/Microsoft.ServiceBus/namespaces/examplenamespacedd86488f/topics/exampletopicd8f25586/subscriptions/exampleSubsnb4b02d0"
+        },
+        "parent": "urn:pulumi:test::servicebus::pulumi:pulumi:Stack::servicebus-test",
+        "dependencies": [
+          "urn:pulumi:test::servicebus::azure:servicebus/subscription:Subscription::exampleSubsn"
+        ],
+        "provider": "urn:pulumi:test::servicebus::pulumi:providers:azure::default::95878c66-2a55-4318-8dbb-67d30c1d5fb6",
+        "propertyDependencies": {
+          "filterType": [],
+          "sqlFilter": [],
+          "subscriptionId": [
+            "urn:pulumi:test::servicebus::azure:servicebus/subscription:Subscription::exampleSubsn"
+          ]
+        },
+        "created": "2026-10-14T10:49:57.176535Z",
+        "modified": "2026-10-14T10:49:57.176535Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      }
+    ],
+    "metadata": {}
+  }
+}

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/managedapplication"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/managedapplication"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -137,6 +137,8 @@ type Application struct {
 
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrOutput `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -198,6 +200,8 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -221,6 +225,8 @@ type applicationState struct {
 type ApplicationState struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrInput
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrInput
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -248,6 +254,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -270,6 +278,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrInput
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrInput
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -378,6 +388,11 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 // The application definition ID to deploy.
 func (o ApplicationOutput) ApplicationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// An `identity` block as defined below. Removing this block forces a new resource to be created.
+func (o ApplicationOutput) Identity() ApplicationIdentityPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationIdentityPtrOutput { return v.Identity }).(ApplicationIdentityPtrOutput)
 }
 
 // The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.

@@ -41,6 +41,7 @@ __all__ = [
     'VolumeGroupSapHanaVolumeDataProtectionReplication',
     'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy',
     'VolumeGroupSapHanaVolumeExportPolicyRule',
+    'VolumeMountTarget',
     'GetAccountIdentityResult',
     'GetSnapshotPolicyDailyScheduleResult',
     'GetSnapshotPolicyHourlyScheduleResult',
@@ -62,6 +63,7 @@ __all__ = [
     'GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult',
     'GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult',
     'GetVolumeGroupSapHanaVolumeExportPolicyRuleResult',
+    'GetVolumeMountTargetResult',
 ]
 
 @pulumi.output_type
@@ -983,7 +985,7 @@ class VolumeDataProtectionAdvancedRansomware(dict):
         """
         :param _builtins.bool protection_enabled: Enable or disable the Advanced Ransomware Protection feature.
                
-               > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+               > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
                
                > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
         """
@@ -995,7 +997,7 @@ class VolumeDataProtectionAdvancedRansomware(dict):
         """
         Enable or disable the Advanced Ransomware Protection feature.
 
-        > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+        > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
 
         > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
         """
@@ -1034,7 +1036,7 @@ class VolumeDataProtectionBackupPolicy(dict):
         :param _builtins.str backup_vault_id: Resource ID of the backup backup vault to associate this volume to.
         :param _builtins.bool policy_enabled: Enables the backup policy on the volume, defaults to `true`.
                
-               For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+               For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "backup_vault_id", backup_vault_id)
@@ -1063,7 +1065,7 @@ class VolumeDataProtectionBackupPolicy(dict):
         """
         Enables the backup policy on the volume, defaults to `true`.
 
-        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
         """
         return pulumi.get(self, "policy_enabled")
 
@@ -1219,8 +1221,6 @@ class VolumeExportPolicyRule(dict):
             suggest = "kerberos5p_read_only_enabled"
         elif key == "kerberos5pReadWriteEnabled":
             suggest = "kerberos5p_read_write_enabled"
-        elif key == "protocolsEnabled":
-            suggest = "protocols_enabled"
         elif key == "rootAccessEnabled":
             suggest = "root_access_enabled"
         elif key == "unixReadOnly":
@@ -1249,7 +1249,6 @@ class VolumeExportPolicyRule(dict):
                  kerberos5p_read_only_enabled: Optional[_builtins.bool] = None,
                  kerberos5p_read_write_enabled: Optional[_builtins.bool] = None,
                  protocol: Optional[_builtins.str] = None,
-                 protocols_enabled: Optional[_builtins.str] = None,
                  root_access_enabled: Optional[_builtins.bool] = None,
                  unix_read_only: Optional[_builtins.bool] = None,
                  unix_read_write: Optional[_builtins.bool] = None):
@@ -1283,8 +1282,6 @@ class VolumeExportPolicyRule(dict):
             pulumi.set(__self__, "kerberos5p_read_write_enabled", kerberos5p_read_write_enabled)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if protocols_enabled is not None:
-            pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
             pulumi.set(__self__, "root_access_enabled", root_access_enabled)
         if unix_read_only is not None:
@@ -1363,12 +1360,6 @@ class VolumeExportPolicyRule(dict):
         A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         """
         return pulumi.get(self, "protocol")
-
-    @_builtins.property
-    @pulumi.getter(name="protocolsEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""")
-    def protocols_enabled(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "protocols_enabled")
 
     @_builtins.property
     @pulumi.getter(name="rootAccessEnabled")
@@ -1479,7 +1470,7 @@ class VolumeGroupOracleVolume(dict):
         :param _builtins.str security_style: Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.bool snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
         :param _builtins.str subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.float throughput_in_mibps: Throughput of this volume in Mibps.
         :param _builtins.str volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1489,12 +1480,12 @@ class VolumeGroupOracleVolume(dict):
         :param _builtins.str encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param _builtins.str id: The ID of the Application Volume Group.
         :param _builtins.str key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
-        :param _builtins.str network_features: Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        :param _builtins.str network_features: Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         :param _builtins.str proximity_placement_group_id: The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
                
-               > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+               > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         :param Mapping[str, _builtins.str] tags: A mapping of tags which should be assigned to the Application Volume Group.
-        :param _builtins.str zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+        :param _builtins.str zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
         """
         pulumi.set(__self__, "capacity_pool_id", capacity_pool_id)
         pulumi.set(__self__, "export_policy_rules", export_policy_rules)
@@ -1591,7 +1582,7 @@ class VolumeGroupOracleVolume(dict):
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> _builtins.int:
         """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
+        The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
         """
         return pulumi.get(self, "storage_quota_in_gb")
 
@@ -1676,7 +1667,7 @@ class VolumeGroupOracleVolume(dict):
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[_builtins.str]:
         """
-        Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         """
         return pulumi.get(self, "network_features")
 
@@ -1686,7 +1677,7 @@ class VolumeGroupOracleVolume(dict):
         """
         The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 
-        > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+        > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
@@ -1702,7 +1693,7 @@ class VolumeGroupOracleVolume(dict):
     @pulumi.getter
     def zone(self) -> Optional[_builtins.str]:
         """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
         """
         return pulumi.get(self, "zone")
 
@@ -1857,7 +1848,7 @@ class VolumeGroupOracleVolumeExportPolicyRule(dict):
                  unix_read_only: Optional[_builtins.bool] = None,
                  unix_read_write: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str allowed_clients: A comma-sperated list of allowed client IPv4 addresses.
+        :param _builtins.str allowed_clients: A comma-separated list of allowed client IPv4 addresses.
         :param _builtins.bool nfsv3_enabled: Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
         :param _builtins.bool nfsv41_enabled: Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
         :param _builtins.int rule_index: The index number of the rule, must start at 1 and maximum 5.
@@ -1880,7 +1871,7 @@ class VolumeGroupOracleVolumeExportPolicyRule(dict):
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> _builtins.str:
         """
-        A comma-sperated list of allowed client IPv4 addresses.
+        A comma-separated list of allowed client IPv4 addresses.
         """
         return pulumi.get(self, "allowed_clients")
 
@@ -2011,13 +2002,13 @@ class VolumeGroupSapHanaVolume(dict):
         :param _builtins.str capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param Sequence['VolumeGroupSapHanaVolumeExportPolicyRuleArgs'] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
         :param _builtins.str name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.str protocols: The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+        :param _builtins.str protocols: The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
                
                > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
         :param _builtins.str security_style: Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.str service_level: Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.bool snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param _builtins.int storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
         :param _builtins.str subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.float throughput_in_mibps: Throughput of this volume in Mibps.
         :param _builtins.str volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -2028,9 +2019,9 @@ class VolumeGroupSapHanaVolume(dict):
         :param _builtins.str id: The ID of the Application Volume Group.
         :param _builtins.str key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param _builtins.str network_features: Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param _builtins.str proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+        :param _builtins.str proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         :param Mapping[str, _builtins.str] tags: A mapping of tags which should be assigned to the Application Volume Group.
-        :param _builtins.str zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param _builtins.str zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         pulumi.set(__self__, "capacity_pool_id", capacity_pool_id)
         pulumi.set(__self__, "export_policy_rules", export_policy_rules)
@@ -2093,7 +2084,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter
     def protocols(self) -> _builtins.str:
         """
-        The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+        The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 
         > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
         """
@@ -2127,7 +2118,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> _builtins.int:
         """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
+        The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
         """
         return pulumi.get(self, "storage_quota_in_gb")
 
@@ -2220,7 +2211,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+        The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
@@ -2236,7 +2227,7 @@ class VolumeGroupSapHanaVolume(dict):
     @pulumi.getter
     def zone(self) -> Optional[_builtins.str]:
         """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "zone")
 
@@ -2391,7 +2382,7 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
                  unix_read_only: Optional[_builtins.bool] = None,
                  unix_read_write: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str allowed_clients: A comma-sperated list of allowed client IPv4 addresses.
+        :param _builtins.str allowed_clients: A comma-separated list of allowed client IPv4 addresses.
         :param _builtins.bool nfsv3_enabled: Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
         :param _builtins.bool nfsv41_enabled: Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
         :param _builtins.int rule_index: The index number of the rule, must start at 1 and maximum 5.
@@ -2414,7 +2405,7 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> _builtins.str:
         """
-        A comma-sperated list of allowed client IPv4 addresses.
+        A comma-separated list of allowed client IPv4 addresses.
         """
         return pulumi.get(self, "allowed_clients")
 
@@ -2465,6 +2456,56 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
         Is the file system on unix read and write? Defaults to `true`.
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class VolumeMountTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeMountTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeMountTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeMountTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[_builtins.str] = None,
+                 smb_server_fqdn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str ip_address: The IP address of the mount target.
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if smb_server_fqdn is not None:
+            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        The IP address of the mount target.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> Optional[_builtins.str]:
+        """
+        The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        return pulumi.get(self, "smb_server_fqdn")
 
 
 @pulumi.output_type
@@ -3767,5 +3808,34 @@ class GetVolumeGroupSapHanaVolumeExportPolicyRuleResult(dict):
         Is the file system on unix read and write?.
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class GetVolumeMountTargetResult(dict):
+    def __init__(__self__, *,
+                 ip_address: _builtins.str,
+                 smb_server_fqdn: _builtins.str):
+        """
+        :param _builtins.str ip_address: The IP address of the mount target.
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The IP address of the mount target.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> _builtins.str:
+        """
+        The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        return pulumi.get(self, "smb_server_fqdn")
 
 

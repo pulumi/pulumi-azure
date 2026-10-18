@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,11 +76,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -213,7 +213,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql` - 2023-08-01-preview
+// * `Microsoft.Sql` - 2025-01-01
 //
 // ## Import
 //
@@ -244,7 +244,7 @@ type Database struct {
 	// > **Note:** Geo Replicated and Failover databases must have the same `enclaveType`.
 	//
 	// > **Note:** The default value for the `enclaveType` field is unset not `Default`.
-	EnclaveType pulumi.StringOutput `pulumi:"enclaveType"`
+	EnclaveType pulumi.StringPtrOutput `pulumi:"enclaveType"`
 	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
@@ -883,8 +883,8 @@ func (o DatabaseOutput) ElasticPoolId() pulumi.StringPtrOutput {
 // > **Note:** Geo Replicated and Failover databases must have the same `enclaveType`.
 //
 // > **Note:** The default value for the `enclaveType` field is unset not `Default`.
-func (o DatabaseOutput) EnclaveType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.EnclaveType }).(pulumi.StringOutput)
+func (o DatabaseOutput) EnclaveType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.EnclaveType }).(pulumi.StringPtrOutput)
 }
 
 // A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.

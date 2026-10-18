@@ -50,7 +50,10 @@ namespace Pulumi.Azure.MySql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         Delegations = new[]
     ///         {
@@ -78,9 +81,8 @@ namespace Pulumi.Azure.MySql
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "exampleVnetZone.com",
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
@@ -238,9 +240,6 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string> PublicNetworkAccess { get; private set; } = null!;
-
-        [Output("publicNetworkAccessEnabled")]
-        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of replicas that a primary MySQL Flexible Server can have.
@@ -673,9 +672,6 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
-
-        [Input("publicNetworkAccessEnabled")]
-        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The maximum number of replicas that a primary MySQL Flexible Server can have.

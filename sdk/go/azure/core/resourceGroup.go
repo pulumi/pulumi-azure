@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ type ResourceGroup struct {
 
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The ID of the resource or application that manages this Resource Group.
+	// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -96,7 +96,7 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the resource or application that manages this Resource Group.
+	// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
@@ -107,7 +107,7 @@ type resourceGroupState struct {
 type ResourceGroupState struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the resource or application that manages this Resource Group.
+	// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 	ManagedBy pulumi.StringPtrInput
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
@@ -122,7 +122,7 @@ func (ResourceGroupState) ElementType() reflect.Type {
 type resourceGroupArgs struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the resource or application that manages this Resource Group.
+	// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
@@ -134,7 +134,7 @@ type resourceGroupArgs struct {
 type ResourceGroupArgs struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the resource or application that manages this Resource Group.
+	// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 	ManagedBy pulumi.StringPtrInput
 	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
@@ -234,7 +234,7 @@ func (o ResourceGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The ID of the resource or application that manages this Resource Group.
+// The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
 func (o ResourceGroupOutput) ManagedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
 }

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Watcher Flow Log.
     /// 
-    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `StorageAccount` with no existing management rules, until the issue is fixed.
+    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `StorageAccount` with no existing management rules, until the issue is fixed.
     /// 
     /// ## Example Usage
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 
@@ -124,9 +124,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        [Output("networkSecurityGroupId")]
-        public Output<string> NetworkSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -173,7 +170,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Output("version")]
         public Output<int?> Version { get; private set; } = null!;
@@ -242,9 +239,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("networkSecurityGroupId")]
-        public Input<string>? NetworkSecurityGroupId { get; set; }
-
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
         /// </summary>
@@ -286,8 +280,8 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         /// </summary>
-        [Input("targetResourceId")]
-        public Input<string>? TargetResourceId { get; set; }
+        [Input("targetResourceId", required: true)]
+        public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
         /// A `TrafficAnalytics` block as documented below.
@@ -296,7 +290,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -326,9 +320,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("networkSecurityGroupId")]
-        public Input<string>? NetworkSecurityGroupId { get; set; }
 
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -381,7 +372,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+        /// The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

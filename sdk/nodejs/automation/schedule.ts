@@ -122,7 +122,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     declare public readonly startTime: pulumi.Output<string>;
     /**
-     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     declare public readonly timezone: pulumi.Output<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface ScheduleState {
      */
     startTime?: pulumi.Input<string | undefined>;
     /**
-     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     timezone?: pulumi.Input<string | undefined>;
     /**
@@ -283,7 +283,7 @@ export interface ScheduleArgs {
      */
     startTime?: pulumi.Input<string | undefined>;
     /**
-     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     timezone?: pulumi.Input<string | undefined>;
     /**

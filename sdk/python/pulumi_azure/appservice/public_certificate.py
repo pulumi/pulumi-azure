@@ -225,27 +225,28 @@ class PublicCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
         import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_public_certificate = azure.appservice.PublicCertificate("example",
             resource_group_name=example.name,
-            app_service_name=example_app_service.name,
+            app_service_name=example_app_service["name"],
             certificate_name="example-public-certificate",
             certificate_location="Unknown",
             blob=std.filebase64(input="app_service_public_certificate.cer").result)
@@ -289,27 +290,28 @@ class PublicCertificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
         import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_public_certificate = azure.appservice.PublicCertificate("example",
             resource_group_name=example.name,
-            app_service_name=example_app_service.name,
+            app_service_name=example_app_service["name"],
             certificate_name="example-public-certificate",
             certificate_location="Unknown",
             blob=std.filebase64(input="app_service_public_certificate.cer").result)

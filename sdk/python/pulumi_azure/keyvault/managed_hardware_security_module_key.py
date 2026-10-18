@@ -32,7 +32,7 @@ class ManagedHardwareSecurityModuleKeyArgs:
         The set of arguments for constructing a ManagedHardwareSecurityModuleKey resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
-        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_hsm_id: Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
@@ -75,7 +75,7 @@ class ManagedHardwareSecurityModuleKeyArgs:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -190,7 +190,7 @@ class _ManagedHardwareSecurityModuleKeyState:
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_hsm_id: Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -272,7 +272,7 @@ class _ManagedHardwareSecurityModuleKeyState:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -433,7 +433,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_hsm_id: Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -595,7 +595,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_hsm_id: Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -656,7 +656,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+        Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 

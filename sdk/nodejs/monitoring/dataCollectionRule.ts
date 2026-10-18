@@ -74,7 +74,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly immutableId: pulumi.Output<string>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
      *
      * > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
@@ -83,6 +83,14 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
     declare public readonly location: pulumi.Output<string>;
+    /**
+     * The endpoint used for ingesting logs.
+     */
+    declare public /*out*/ readonly logsIngestionEndpoint: pulumi.Output<string>;
+    /**
+     * The endpoint used for ingesting metrics.
+     */
+    declare public /*out*/ readonly metricsIngestionEndpoint: pulumi.Output<string>;
     /**
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
      */
@@ -122,6 +130,8 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["immutableId"] = state?.immutableId;
             resourceInputs["kind"] = state?.kind;
             resourceInputs["location"] = state?.location;
+            resourceInputs["logsIngestionEndpoint"] = state?.logsIngestionEndpoint;
+            resourceInputs["metricsIngestionEndpoint"] = state?.metricsIngestionEndpoint;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["streamDeclarations"] = state?.streamDeclarations;
@@ -150,6 +160,8 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["streamDeclarations"] = args?.streamDeclarations;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["immutableId"] = undefined /*out*/;
+            resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;
+            resourceInputs["metricsIngestionEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCollectionRule.__pulumiType, name, resourceInputs, opts);
@@ -189,7 +201,7 @@ export interface DataCollectionRuleState {
      */
     immutableId?: pulumi.Input<string | undefined>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
      *
      * > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
@@ -198,6 +210,14 @@ export interface DataCollectionRuleState {
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The endpoint used for ingesting logs.
+     */
+    logsIngestionEndpoint?: pulumi.Input<string | undefined>;
+    /**
+     * The endpoint used for ingesting metrics.
+     */
+    metricsIngestionEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
      */
@@ -245,7 +265,7 @@ export interface DataCollectionRuleArgs {
      */
     identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity | undefined>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you're sending data to a Log Analytics workspace configured for private link.
      *
      * > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */

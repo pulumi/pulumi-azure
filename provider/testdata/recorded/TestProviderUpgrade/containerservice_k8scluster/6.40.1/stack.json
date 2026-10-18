@@ -1,0 +1,777 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2026-10-14T12:54:59.041645+02:00",
+      "magic": "9a855bcb621a22a207f70669dab3c8533fb667eeff636e7d0301661e70d79222",
+      "version": "v3.268.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Zt+ieOFHlWY=:v1:YB/FXGiP5wN5ES9P:K2dLggijj8/nVB+CFi0N5Ig+9qtFbA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::containerservice_k8scluster::pulumi:pulumi:Stack::containerservice_k8scluster-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2026-10-14T10:48:58.39842Z",
+        "modified": "2026-10-14T10:48:58.39842Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::containerservice_k8scluster::pulumi:providers:azure::default",
+        "custom": true,
+        "id": "810e9761-8c23-4471-aa56-aa324b007cc0",
+        "type": "pulumi:providers:azure",
+        "inputs": {
+          "features": "{\"resourceGroup\":{\"preventDeletionIfContainsResources\":false}}",
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          }
+        },
+        "outputs": {
+          "features": "{\"resourceGroup\":{\"preventDeletionIfContainsResources\":false}}",
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          }
+        },
+        "created": "2026-10-14T10:49:08.990036Z",
+        "modified": "2026-10-14T10:49:08.990036Z"
+      },
+      {
+        "urn": "urn:pulumi:test::containerservice_k8scluster::azure:core/resourceGroup:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg5fbbcca4",
+        "type": "azure:core/resourceGroup:ResourceGroup",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "location": "West US 2",
+          "name": "rg5fbbcca4"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
+          "__pulumi_raw_state_delta": {
+            "obj": {}
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg5fbbcca4",
+          "location": "westus2",
+          "managedBy": "",
+          "name": "rg5fbbcca4",
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::containerservice_k8scluster::pulumi:pulumi:Stack::containerservice_k8scluster-test",
+        "provider": "urn:pulumi:test::containerservice_k8scluster::pulumi:providers:azure::default::810e9761-8c23-4471-aa56-aa324b007cc0",
+        "propertyDependencies": {
+          "location": []
+        },
+        "created": "2026-10-14T10:49:37.626003Z",
+        "modified": "2026-10-14T10:49:37.626003Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::containerservice_k8scluster::azure:containerservice/kubernetesCluster:KubernetesCluster::exampleKubernetesCluster",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg5fbbcca4/providers/Microsoft.ContainerService/managedClusters/examplekubernetescluster-590e2d7",
+        "type": "azure:containerservice/kubernetesCluster:KubernetesCluster",
+        "inputs": {
+          "__defaults": [
+            "name",
+            "nodeOsUpgradeChannel",
+            "roleBasedAccessControlEnabled",
+            "runCommandEnabled",
+            "skuTier",
+            "supportPlan"
+          ],
+          "defaultNodePool": {
+            "__defaults": [
+              "scaleDownMode",
+              "type"
+            ],
+            "name": "default",
+            "nodeCount": 1,
+            "scaleDownMode": "Delete",
+            "type": "VirtualMachineScaleSets",
+            "vmSize": "Standard_D2s_v3"
+          },
+          "dnsPrefix": "exampleakstest",
+          "identity": {
+            "__defaults": [],
+            "type": "SystemAssigned"
+          },
+          "location": "westus2",
+          "name": "examplekubernetescluster-590e2d7",
+          "networkProfile": {
+            "__defaults": [
+              "networkDataPlane",
+              "outboundType"
+            ],
+            "loadBalancerSku": "standard",
+            "networkDataPlane": "azure",
+            "networkPlugin": "azure",
+            "outboundType": "loadBalancer"
+          },
+          "nodeOsUpgradeChannel": "NodeImage",
+          "resourceGroupName": "rg5fbbcca4",
+          "roleBasedAccessControlEnabled": true,
+          "runCommandEnabled": true,
+          "skuTier": "Free",
+          "supportPlan": "KubernetesOfficial",
+          "tags": {
+            "Environment": "Production"
+          }
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000},\"schema_version\":\"2\"}",
+          "__pulumi_raw_state_delta": {
+            "obj": {
+              "ps": {
+                "aciConnectorLinux": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "apiServerAccessProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "autoScalerProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "azureActiveDirectoryRoleBasedAccessControl": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "bootstrapProfile": {
+                  "plu": {
+                    "i": {
+                      "obj": {}
+                    }
+                  }
+                },
+                "confidentialComputing": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "defaultNodePool": {
+                  "plu": {
+                    "i": {
+                      "obj": {
+                        "ps": {
+                          "kubeletConfig": {
+                            "plu": {
+                              "i": {}
+                            }
+                          },
+                          "linuxOsConfig": {
+                            "plu": {
+                              "i": {}
+                            }
+                          },
+                          "nodeLabels": {
+                            "map": {}
+                          },
+                          "nodeNetworkProfile": {
+                            "plu": {
+                              "i": {}
+                            }
+                          },
+                          "upgradeSettings": {
+                            "plu": {
+                              "i": {
+                                "obj": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "httpProxyConfig": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "identity": {
+                  "plu": {
+                    "i": {
+                      "obj": {}
+                    }
+                  }
+                },
+                "ingressApplicationGateway": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "keyManagementService": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "keyVaultSecretsProvider": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "kubeAdminConfigs": {
+                  "arr": {}
+                },
+                "kubeConfigs": {
+                  "arr": {
+                    "el": {
+                      "0": {
+                        "obj": {}
+                      }
+                    }
+                  }
+                },
+                "kubeletIdentity": {
+                  "plu": {
+                    "i": {
+                      "obj": {}
+                    }
+                  }
+                },
+                "linuxProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "maintenanceWindow": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "maintenanceWindowAutoUpgrade": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "maintenanceWindowNodeOs": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "microsoftDefender": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "monitorMetrics": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "networkProfile": {
+                  "plu": {
+                    "i": {
+                      "obj": {
+                        "ps": {
+                          "advancedNetworking": {
+                            "plu": {
+                              "i": {}
+                            }
+                          },
+                          "ipVersions": {
+                            "arr": {}
+                          },
+                          "loadBalancerProfile": {
+                            "plu": {
+                              "i": {
+                                "obj": {
+                                  "ps": {
+                                    "effectiveOutboundIps": {
+                                      "arr": {}
+                                    },
+                                    "outboundIpAddressIds": {
+                                      "arr": {}
+                                    },
+                                    "outboundIpPrefixIds": {
+                                      "arr": {}
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "natGatewayProfile": {
+                            "plu": {
+                              "i": {}
+                            }
+                          },
+                          "podCidrs": {
+                            "arr": {}
+                          },
+                          "serviceCidrs": {
+                            "arr": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "nodeProvisioningProfile": {
+                  "plu": {
+                    "i": {
+                      "obj": {}
+                    }
+                  }
+                },
+                "omsAgent": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "serviceMeshProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "servicePrincipal": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "storageProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "tags": {
+                  "map": {}
+                },
+                "upgradeOverride": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "webAppRouting": {
+                  "plu": {
+                    "i": {}
+                  }
+                },
+                "windowsProfile": {
+                  "plu": {
+                    "i": {
+                      "obj": {
+                        "ps": {
+                          "gmsa": {
+                            "plu": {
+                              "i": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "workloadAutoscalerProfile": {
+                  "plu": {
+                    "i": {}
+                  }
+                }
+              },
+              "renamed": {
+                "customCaTrustCertificatesBase64s": "custom_ca_trust_certificates_base64",
+                "kubeAdminConfigs": "kube_admin_config",
+                "kubeConfigs": "kube_config"
+              }
+            }
+          },
+          "aciConnectorLinux": null,
+          "aiToolchainOperatorEnabled": false,
+          "apiServerAccessProfile": null,
+          "autoScalerProfile": null,
+          "automaticUpgradeChannel": "",
+          "azureActiveDirectoryRoleBasedAccessControl": null,
+          "azurePolicyEnabled": false,
+          "bootstrapProfile": {
+            "artifactSource": "Direct",
+            "containerRegistryId": ""
+          },
+          "confidentialComputing": null,
+          "costAnalysisEnabled": false,
+          "currentKubernetesVersion": "1.35.8",
+          "customCaTrustCertificatesBase64s": null,
+          "defaultNodePool": {
+            "autoScalingEnabled": false,
+            "capacityReservationGroupId": "",
+            "fipsEnabled": false,
+            "gpuDriver": "",
+            "gpuInstance": "",
+            "hostEncryptionEnabled": false,
+            "hostGroupId": "",
+            "kubeletConfig": null,
+            "kubeletDiskType": "OS",
+            "linuxOsConfig": null,
+            "maxCount": 0,
+            "maxPods": 30,
+            "minCount": 0,
+            "name": "default",
+            "nodeCount": 1,
+            "nodeLabels": {},
+            "nodeNetworkProfile": null,
+            "nodePublicIpEnabled": false,
+            "nodePublicIpPrefixId": "",
+            "onlyCriticalAddonsEnabled": false,
+            "orchestratorVersion": "1.35",
+            "osDiskSizeGb": 128,
+            "osDiskType": "Managed",
+            "osSku": "Ubuntu",
+            "podSubnetId": "",
+            "proximityPlacementGroupId": "",
+            "scaleDownMode": "Delete",
+            "snapshotId": "",
+            "tags": null,
+            "temporaryNameForRotation": "",
+            "type": "VirtualMachineScaleSets",
+            "ultraSsdEnabled": false,
+            "upgradeSettings": {
+              "drainTimeoutInMinutes": 0,
+              "maxSurge": "10%",
+              "nodeSoakDurationInMinutes": 0,
+              "undrainableNodeBehavior": ""
+            },
+            "vmSize": "Standard_D2s_v3",
+            "vnetSubnetId": "",
+            "workloadRuntime": "",
+            "zones": null
+          },
+          "diskEncryptionSetId": "",
+          "dnsPrefix": "exampleakstest",
+          "dnsPrefixPrivateCluster": "",
+          "edgeZone": "",
+          "fqdn": "exampleakstest-ufnwa5gq.hcp.westus2.azmk8s.io",
+          "httpApplicationRoutingEnabled": false,
+          "httpApplicationRoutingZoneName": "",
+          "httpProxyConfig": null,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg5fbbcca4/providers/Microsoft.ContainerService/managedClusters/examplekubernetescluster-590e2d7",
+          "identity": {
+            "identityIds": null,
+            "principalId": "f083eaf7-8889-4ab6-91ac-ffc85f5b086d",
+            "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7",
+            "type": "SystemAssigned"
+          },
+          "imageCleanerEnabled": null,
+          "imageCleanerIntervalHours": null,
+          "ingressApplicationGateway": null,
+          "keyManagementService": null,
+          "keyVaultSecretsProvider": null,
+          "kubeAdminConfigRaw": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "kubeAdminConfigs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "[]"
+          },
+          "kubeConfigRaw": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "kubeConfigs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "[{\"clientCertificate\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"},\"clientKey\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"},\"clusterCaCertificate\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"},\"host\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"},\"password\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"},\"username\":{\"4dabf18193072939515e22adb298388d\":\"1b47061264138c4ac30d75fd1eb44270\",\"plaintext\":\"\\\"REDACTED BY PROVIDERTEST\\\"\"}}]"
+          },
+          "kubeletIdentity": {
+            "clientId": "55d9f45c-c42b-4395-a5ef-26e64e2e7d24",
+            "objectId": "2dc95522-91df-409e-8ac6-085ae1eff1f4",
+            "userAssignedIdentityId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rg5fbbcca4_examplekubernetescluster-590e2d7_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplekubernetescluster-590e2d7-agentpool"
+          },
+          "kubernetesVersion": "1.35",
+          "linuxProfile": null,
+          "localAccountDisabled": false,
+          "location": "westus2",
+          "maintenanceWindow": null,
+          "maintenanceWindowAutoUpgrade": null,
+          "maintenanceWindowNodeOs": null,
+          "microsoftDefender": null,
+          "monitorMetrics": null,
+          "name": "examplekubernetescluster-590e2d7",
+          "networkProfile": {
+            "advancedNetworking": null,
+            "dnsServiceIp": "10.0.0.10",
+            "ipVersions": [
+              "IPv4"
+            ],
+            "loadBalancerProfile": {
+              "backendPoolType": "NodeIPConfiguration",
+              "effectiveOutboundIps": [
+                "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rg5fbbcca4_examplekubernetescluster-590e2d7_westus2/providers/Microsoft.Network/publicIPAddresses/6725fa4d-e2e7-4f4b-bd93-ba2bbc414cbc"
+              ],
+              "idleTimeoutInMinutes": 0,
+              "managedOutboundIpCount": 1,
+              "managedOutboundIpv6Count": 0,
+              "outboundIpAddressIds": [],
+              "outboundIpPrefixIds": [],
+              "outboundPortsAllocated": 0
+            },
+            "loadBalancerSku": "standard",
+            "natGatewayProfile": null,
+            "networkDataPlane": "azure",
+            "networkMode": "",
+            "networkPlugin": "azure",
+            "networkPluginMode": "",
+            "networkPolicy": "",
+            "outboundType": "loadBalancer",
+            "podCidr": "",
+            "podCidrs": [],
+            "serviceCidr": "10.0.0.0/16",
+            "serviceCidrs": [
+              "10.0.0.0/16"
+            ]
+          },
+          "nodeOsUpgradeChannel": "NodeImage",
+          "nodeProvisioningProfile": {
+            "defaultNodePools": "",
+            "mode": "Manual"
+          },
+          "nodeResourceGroup": "MC_rg5fbbcca4_examplekubernetescluster-590e2d7_westus2",
+          "nodeResourceGroupId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rg5fbbcca4_examplekubernetescluster-590e2d7_westus2",
+          "oidcIssuerEnabled": true,
+          "oidcIssuerUrl": "https://westus2.oic.prod-aks.azure.com/706143bc-e1d4-4593-aee2-c9dc60ab9be7/093d4f18-61aa-4079-add6-1156abc22f8e/",
+          "omsAgent": null,
+          "openServiceMeshEnabled": false,
+          "portalFqdn": "exampleakstest-ufnwa5gq.portal.hcp.westus2.azmk8s.io",
+          "privateClusterEnabled": false,
+          "privateClusterPublicFqdnEnabled": false,
+          "privateDnsZoneId": "",
+          "privateFqdn": "",
+          "resourceGroupName": "rg5fbbcca4",
+          "roleBasedAccessControlEnabled": true,
+          "runCommandEnabled": true,
+          "serviceMeshProfile": null,
+          "servicePrincipal": null,
+          "skuTier": "Free",
+          "storageProfile": null,
+          "supportPlan": "KubernetesOfficial",
+          "tags": {
+            "Environment": "Production"
+          },
+          "upgradeOverride": null,
+          "webAppRouting": null,
+          "windowsProfile": {
+            "adminPassword": {
+              "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+              "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            },
+            "adminUsername": "azureuser",
+            "gmsa": null,
+            "license": ""
+          },
+          "workloadAutoscalerProfile": null,
+          "workloadIdentityEnabled": false
+        },
+        "parent": "urn:pulumi:test::containerservice_k8scluster::pulumi:pulumi:Stack::containerservice_k8scluster-test",
+        "dependencies": [
+          "urn:pulumi:test::containerservice_k8scluster::azure:core/resourceGroup:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::containerservice_k8scluster::pulumi:providers:azure::default::810e9761-8c23-4471-aa56-aa324b007cc0",
+        "propertyDependencies": {
+          "defaultNodePool": [],
+          "dnsPrefix": [],
+          "identity": [],
+          "location": [
+            "urn:pulumi:test::containerservice_k8scluster::azure:core/resourceGroup:ResourceGroup::rg"
+          ],
+          "networkProfile": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::containerservice_k8scluster::azure:core/resourceGroup:ResourceGroup::rg"
+          ],
+          "tags": []
+        },
+        "additionalSecretOutputs": [
+          "kubeAdminConfigRaw",
+          "kubeAdminConfigs",
+          "kubeConfigRaw",
+          "kubeConfigs"
+        ],
+        "created": "2026-10-14T10:54:59.030719Z",
+        "modified": "2026-10-14T10:54:59.030719Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1028"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1137"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#528"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#318"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/pulumi/run.go#144"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#316"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#588"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#320"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/grpc-ecosystem/grpc-opentracing@v0.0.0-20180507213350-8e809c8a8645/go/otgrpc/server.go#57"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1238"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/go/common/util/rpcutil/interceptor.go#235"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1229"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.267.0/proto/go/language_grpc.pb.go#590"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1284"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1450"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1595"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.84.0/server.go#1096"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.26.6/x64/src/runtime/asm_arm64.s#1447"
+          }
+        ]
+      }
+    ],
+    "metadata": {}
+  }
+}

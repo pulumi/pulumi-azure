@@ -19,6 +19,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,38 +29,41 @@ namespace Pulumi.Azure.AppService
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             
+    ///             {
+    ///                 { "tier", "Standard" },
+    ///                 { "size", "S1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azurerm.AppService("example", new()
     ///     {
     ///         Name = "some-app-service",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("example", new()
+    ///     var exampleAppServiceSlot = new Azurerm.AppServiceSlot("example", new()
     ///     {
     ///         Name = "staging",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServiceName = exampleAppService.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
     ///     var exampleSlotCustomHostnameBinding = new Azure.AppService.SlotCustomHostnameBinding("example", new()
     ///     {
-    ///         AppServiceSlotId = exampleSlot.Id,
+    ///         AppServiceSlotId = exampleAppServiceSlot.Id,
     ///         Hostname = "www.mywebsite.com",
     ///     });
     /// 

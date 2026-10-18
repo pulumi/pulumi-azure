@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ArcMachine.Outputs
     public sealed class GetServiceStatusExtensionServiceResult
     {
         /// <summary>
-        /// The behavior of the service when the Arc-enabled machine starts up.
+        /// The behaviour of the service when the Arc-enabled machine starts up.
         /// </summary>
         public readonly string StartupType;
         /// <summary>

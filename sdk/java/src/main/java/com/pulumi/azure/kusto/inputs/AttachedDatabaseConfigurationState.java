@@ -18,14 +18,14 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
     public static final AttachedDatabaseConfigurationState Empty = new AttachedDatabaseConfigurationState();
 
     /**
-     * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+     * The list of databases from the `clusterId` which are currently attached to the cluster.
      * 
      */
     @Import(name="attachedDatabaseNames")
     private @Nullable Output<List<String>> attachedDatabaseNames;
 
     /**
-     * @return The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+     * @return The list of databases from the `clusterId` which are currently attached to the cluster.
      * 
      */
     public Optional<Output<List<String>>> attachedDatabaseNames() {
@@ -60,25 +60,6 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
      */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
-    }
-
-    /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="clusterResourceId")
-    private @Nullable Output<String> clusterResourceId;
-
-    /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> clusterResourceId() {
-        return Optional.ofNullable(this.clusterResourceId);
     }
 
     /**
@@ -211,7 +192,6 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         this.attachedDatabaseNames = $.attachedDatabaseNames;
         this.clusterId = $.clusterId;
         this.clusterName = $.clusterName;
-        this.clusterResourceId = $.clusterResourceId;
         this.databaseName = $.databaseName;
         this.databaseNameOverride = $.databaseNameOverride;
         this.databaseNamePrefix = $.databaseNamePrefix;
@@ -241,7 +221,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param attachedDatabaseNames The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+         * @param attachedDatabaseNames The list of databases from the `clusterId` which are currently attached to the cluster.
          * 
          * @return builder
          * 
@@ -252,7 +232,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param attachedDatabaseNames The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+         * @param attachedDatabaseNames The list of databases from the `clusterId` which are currently attached to the cluster.
          * 
          * @return builder
          * 
@@ -262,7 +242,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param attachedDatabaseNames The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+         * @param attachedDatabaseNames The list of databases from the `clusterId` which are currently attached to the cluster.
          * 
          * @return builder
          * 
@@ -311,31 +291,6 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder clusterResourceId(@Nullable Output<String> clusterResourceId) {
-            $.clusterResourceId = clusterResourceId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder clusterResourceId(String clusterResourceId) {
-            return clusterResourceId(Output.of(clusterResourceId));
         }
 
         /**

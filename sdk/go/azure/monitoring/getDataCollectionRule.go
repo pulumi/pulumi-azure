@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/monitoring"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,12 +80,17 @@ type LookupDataCollectionRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
-	Identities  []GetDataCollectionRuleIdentity `pulumi:"identities"`
-	ImmutableId string                          `pulumi:"immutableId"`
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	Identities []GetDataCollectionRuleIdentity `pulumi:"identities"`
+	// The immutable ID of the Data Collection Rule.
+	ImmutableId string `pulumi:"immutableId"`
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location string `pulumi:"location"`
+	// The endpoint used for ingesting logs.
+	LogsIngestionEndpoint string `pulumi:"logsIngestionEndpoint"`
+	// The endpoint used for ingesting metrics.
+	MetricsIngestionEndpoint string `pulumi:"metricsIngestionEndpoint"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -162,11 +167,12 @@ func (o LookupDataCollectionRuleResultOutput) Identities() GetDataCollectionRule
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) []GetDataCollectionRuleIdentity { return v.Identities }).(GetDataCollectionRuleIdentityArrayOutput)
 }
 
+// The immutable ID of the Data Collection Rule.
 func (o LookupDataCollectionRuleResultOutput) ImmutableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ImmutableId }).(pulumi.StringOutput)
 }
 
-// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 func (o LookupDataCollectionRuleResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -174,6 +180,16 @@ func (o LookupDataCollectionRuleResultOutput) Kind() pulumi.StringOutput {
 // The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 func (o LookupDataCollectionRuleResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The endpoint used for ingesting logs.
+func (o LookupDataCollectionRuleResultOutput) LogsIngestionEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.LogsIngestionEndpoint }).(pulumi.StringOutput)
+}
+
+// The endpoint used for ingesting metrics.
+func (o LookupDataCollectionRuleResultOutput) MetricsIngestionEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.MetricsIngestionEndpoint }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.

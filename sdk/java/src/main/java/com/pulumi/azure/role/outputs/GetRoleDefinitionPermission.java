@@ -8,7 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRoleDefinitionPermission {
@@ -31,7 +30,7 @@ public final class GetRoleDefinitionPermission {
      * @return A list of data actions allowed by this role.
      * 
      */
-    private @Nullable List<String> dataActions;
+    private List<String> dataActions;
     /**
      * @return A list of actions which are denied by this role.
      * 
@@ -41,7 +40,7 @@ public final class GetRoleDefinitionPermission {
      * @return A list of data actions which are denied by this role.
      * 
      */
-    private @Nullable List<String> notDataActions;
+    private List<String> notDataActions;
 
     private GetRoleDefinitionPermission() {}
     /**
@@ -70,7 +69,7 @@ public final class GetRoleDefinitionPermission {
      * 
      */
     public List<String> dataActions() {
-        return this.dataActions == null ? List.of() : this.dataActions;
+        return this.dataActions;
     }
     /**
      * @return A list of actions which are denied by this role.
@@ -84,7 +83,7 @@ public final class GetRoleDefinitionPermission {
      * 
      */
     public List<String> notDataActions() {
-        return this.notDataActions == null ? List.of() : this.notDataActions;
+        return this.notDataActions;
     }
 
     public static Builder builder() {
@@ -99,9 +98,9 @@ public final class GetRoleDefinitionPermission {
         private List<String> actions;
         private String condition;
         private String conditionVersion;
-        private @Nullable List<String> dataActions;
+        private List<String> dataActions;
         private List<String> notActions;
-        private @Nullable List<String> notDataActions;
+        private List<String> notDataActions;
         public Builder() {}
         public Builder(GetRoleDefinitionPermission defaults) {
     	      Objects.requireNonNull(defaults);
@@ -141,8 +140,10 @@ public final class GetRoleDefinitionPermission {
             return this;
         }
         @CustomType.Setter
-        public Builder dataActions(@Nullable List<String> dataActions) {
-
+        public Builder dataActions(List<String> dataActions) {
+            if (dataActions == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "dataActions");
+            }
             this.dataActions = dataActions;
             return this;
         }
@@ -161,8 +162,10 @@ public final class GetRoleDefinitionPermission {
             return notActions(List.of(notActions));
         }
         @CustomType.Setter
-        public Builder notDataActions(@Nullable List<String> notDataActions) {
-
+        public Builder notDataActions(List<String> notDataActions) {
+            if (notDataActions == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "notDataActions");
+            }
             this.notDataActions = notDataActions;
             return this;
         }

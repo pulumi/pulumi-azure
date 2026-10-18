@@ -81,8 +81,8 @@ class ServiceArgs:
         if live_trace is not None:
             pulumi.set(__self__, "live_trace", live_trace)
         if live_trace_enabled is not None:
-            warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
+            warnings.warn("""`live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""")
         if live_trace_enabled is not None:
             pulumi.set(__self__, "live_trace_enabled", live_trace_enabled)
         if local_auth_enabled is not None:
@@ -204,7 +204,7 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="liveTraceEnabled")
-    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "live_trace_enabled")
 
@@ -418,8 +418,8 @@ class _ServiceState:
         if live_trace is not None:
             pulumi.set(__self__, "live_trace", live_trace)
         if live_trace_enabled is not None:
-            warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
+            warnings.warn("""`live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""")
         if live_trace_enabled is not None:
             pulumi.set(__self__, "live_trace_enabled", live_trace_enabled)
         if local_auth_enabled is not None:
@@ -557,7 +557,7 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="liveTraceEnabled")
-    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "live_trace_enabled")
 
@@ -1201,7 +1201,7 @@ class Service(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="liveTraceEnabled")
-    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
+    @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favour of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "live_trace_enabled")
 

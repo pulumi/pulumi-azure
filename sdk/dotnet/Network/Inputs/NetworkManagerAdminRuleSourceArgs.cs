@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        /// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
         /// </summary>
         [Input("addressPrefixType", required: true)]
         public Input<string> AddressPrefixType { get; set; } = null!;

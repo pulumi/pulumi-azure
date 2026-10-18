@@ -175,7 +175,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -301,7 +301,9 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     declare public readonly rollingUpgradePolicy: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
@@ -592,7 +594,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -718,7 +720,9 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
@@ -862,7 +866,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see here for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -988,7 +992,9 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**

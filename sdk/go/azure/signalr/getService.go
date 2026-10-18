@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/signalr"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/signalr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,17 +68,30 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// Is aad auth enabled for this SignalR service?
 	AadAuthEnabled bool `pulumi:"aadAuthEnabled"`
+	// Whether the log category `ConnectivityLogs` is enabled.
+	ConnectivityLogsEnabled bool `pulumi:"connectivityLogsEnabled"`
+	// A `cors` block as documented below.
+	Cors []GetServiceCor `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname string `pulumi:"hostname"`
+	// Whether the log category `HttpRequestLogs` is enabled.
+	HttpRequestLogsEnabled bool `pulumi:"httpRequestLogsEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as documented below.
+	Identities []GetServiceIdentity `pulumi:"identities"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress string `pulumi:"ipAddress"`
+	// A `liveTrace` block as defined below.
+	LiveTraces []GetServiceLiveTrace `pulumi:"liveTraces"`
 	// Is local auth enable for this SignalR serviced?
 	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// Whether the log category `MessagingLogs` is enabled.
+	MessagingLogsEnabled bool `pulumi:"messagingLogsEnabled"`
+	// The name of the SKU.
+	Name string `pulumi:"name"`
 	// The primary access key of the SignalR service.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The primary connection string of the SignalR service.
@@ -95,10 +108,16 @@ type LookupServiceResult struct {
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort int `pulumi:"serverPort"`
 	// The serverless connection timeout of this SignalR service.
-	ServerlessConnectionTimeoutInSeconds int               `pulumi:"serverlessConnectionTimeoutInSeconds"`
-	Tags                                 map[string]string `pulumi:"tags"`
+	ServerlessConnectionTimeoutInSeconds int `pulumi:"serverlessConnectionTimeoutInSeconds"`
+	// Specifies the service mode.
+	ServiceMode string `pulumi:"serviceMode"`
+	// A `sku` block as documented below.
+	Skus []GetServiceSkus  `pulumi:"skus"`
+	Tags map[string]string `pulumi:"tags"`
 	// Is tls client cert enabled for this SignalR service?
 	TlsClientCertEnabled bool `pulumi:"tlsClientCertEnabled"`
+	// One or more `upstreamEndpoint` blocks as documented below.
+	UpstreamEndpoints []GetServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -138,9 +157,24 @@ func (o LookupServiceResultOutput) AadAuthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServiceResult) bool { return v.AadAuthEnabled }).(pulumi.BoolOutput)
 }
 
+// Whether the log category `ConnectivityLogs` is enabled.
+func (o LookupServiceResultOutput) ConnectivityLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.ConnectivityLogsEnabled }).(pulumi.BoolOutput)
+}
+
+// A `cors` block as documented below.
+func (o LookupServiceResultOutput) Cors() GetServiceCorArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceCor { return v.Cors }).(GetServiceCorArrayOutput)
+}
+
 // The FQDN of the SignalR service.
 func (o LookupServiceResultOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// Whether the log category `HttpRequestLogs` is enabled.
+func (o LookupServiceResultOutput) HttpRequestLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.HttpRequestLogsEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -148,9 +182,19 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// An `identity` block as documented below.
+func (o LookupServiceResultOutput) Identities() GetServiceIdentityArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceIdentity { return v.Identities }).(GetServiceIdentityArrayOutput)
+}
+
 // The publicly accessible IP of the SignalR service.
 func (o LookupServiceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// A `liveTrace` block as defined below.
+func (o LookupServiceResultOutput) LiveTraces() GetServiceLiveTraceArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceLiveTrace { return v.LiveTraces }).(GetServiceLiveTraceArrayOutput)
 }
 
 // Is local auth enable for this SignalR serviced?
@@ -163,6 +207,12 @@ func (o LookupServiceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// Whether the log category `MessagingLogs` is enabled.
+func (o LookupServiceResultOutput) MessagingLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.MessagingLogsEnabled }).(pulumi.BoolOutput)
+}
+
+// The name of the SKU.
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -211,6 +261,16 @@ func (o LookupServiceResultOutput) ServerlessConnectionTimeoutInSeconds() pulumi
 	return o.ApplyT(func(v LookupServiceResult) int { return v.ServerlessConnectionTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
+// Specifies the service mode.
+func (o LookupServiceResultOutput) ServiceMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceMode }).(pulumi.StringOutput)
+}
+
+// A `sku` block as documented below.
+func (o LookupServiceResultOutput) Skus() GetServiceSkusArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceSkus { return v.Skus }).(GetServiceSkusArrayOutput)
+}
+
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -218,6 +278,11 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 // Is tls client cert enabled for this SignalR service?
 func (o LookupServiceResultOutput) TlsClientCertEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServiceResult) bool { return v.TlsClientCertEnabled }).(pulumi.BoolOutput)
+}
+
+// One or more `upstreamEndpoint` blocks as documented below.
+func (o LookupServiceResultOutput) UpstreamEndpoints() GetServiceUpstreamEndpointArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceUpstreamEndpoint { return v.UpstreamEndpoints }).(GetServiceUpstreamEndpointArrayOutput)
 }
 
 func init() {

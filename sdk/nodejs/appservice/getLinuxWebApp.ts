@@ -202,6 +202,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly virtualNetworkBackupRestoreEnabled: boolean;
     /**
+     * Whether image pull traffic is routed through the virtual network integration.
+     */
+    readonly virtualNetworkImagePullEnabled: boolean;
+    /**
      * The subnet id which the Linux Web App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;

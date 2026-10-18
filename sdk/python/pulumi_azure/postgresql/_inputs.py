@@ -27,10 +27,6 @@ __all__ = [
     'FlexibleServerIdentityArgsDict',
     'FlexibleServerMaintenanceWindowArgs',
     'FlexibleServerMaintenanceWindowArgsDict',
-    'ServerIdentityArgs',
-    'ServerIdentityArgsDict',
-    'ServerThreatDetectionPolicyArgs',
-    'ServerThreatDetectionPolicyArgsDict',
 ]
 
 class FlexibleServerAuthenticationArgsDict(TypedDict):
@@ -46,7 +42,7 @@ class FlexibleServerAuthenticationArgsDict(TypedDict):
     """
     The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
 
-    > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+    > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 
     > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
     """
@@ -62,7 +58,7 @@ class FlexibleServerAuthenticationArgs:
         :param pulumi.Input[_builtins.bool] password_auth_enabled: Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
                
-               > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+               > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
                
                > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
@@ -103,7 +99,7 @@ class FlexibleServerAuthenticationArgs:
         """
         The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
 
-        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 
         > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
         """
@@ -459,7 +455,7 @@ class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
     """
     The start minute for maintenance window. Defaults to `0`.
 
-    > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+    > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
     """
 
 @pulumi.input_type
@@ -473,7 +469,7 @@ class FlexibleServerMaintenanceWindowArgs:
         :param pulumi.Input[_builtins.int] start_hour: The start hour for maintenance window. Defaults to `0`.
         :param pulumi.Input[_builtins.int] start_minute: The start minute for maintenance window. Defaults to `0`.
                
-               > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+               > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
@@ -512,229 +508,12 @@ class FlexibleServerMaintenanceWindowArgs:
         """
         The start minute for maintenance window. Defaults to `0`.
 
-        > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+        > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
     def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
-
-
-class ServerIdentityArgsDict(TypedDict):
-    type: pulumi.Input[_builtins.str]
-    """
-    Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
-    """
-    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The Principal ID associated with this Managed Service Identity.
-    """
-    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The Tenant ID associated with this Managed Service Identity.
-    """
-
-@pulumi.input_type
-class ServerIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[_builtins.str],
-                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
-        :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
-        :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
-        """
-        pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tenant_id", value)
-
-
-class ServerThreatDetectionPolicyArgsDict(TypedDict):
-    disabled_alerts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-    """
-    email_account_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Should the account administrators be emailed when this alert is triggered?
-    """
-    email_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    A list of email addresses which alerts should be sent to.
-    """
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Is the policy enabled?
-    """
-    retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the number of days to keep in the Threat Detection audit logs.
-    """
-    storage_account_access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Specifies the identifier key of the Threat Detection audit storage account.
-    """
-    storage_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-    """
-
-@pulumi.input_type
-class ServerThreatDetectionPolicyArgs:
-    def __init__(__self__, *,
-                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
-                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-        :param pulumi.Input[_builtins.bool] email_account_admins: Should the account administrators be emailed when this alert is triggered?
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: A list of email addresses which alerts should be sent to.
-        :param pulumi.Input[_builtins.bool] enabled: Is the policy enabled?
-        :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
-        :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-        """
-        if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
-        if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
-        if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-
-    @_builtins.property
-    @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-        """
-        return pulumi.get(self, "disabled_alerts")
-
-    @disabled_alerts.setter
-    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "disabled_alerts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Should the account administrators be emailed when this alert is triggered?
-        """
-        return pulumi.get(self, "email_account_admins")
-
-    @email_account_admins.setter
-    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "email_account_admins", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of email addresses which alerts should be sent to.
-        """
-        return pulumi.get(self, "email_addresses")
-
-    @email_addresses.setter
-    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "email_addresses", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Is the policy enabled?
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the number of days to keep in the Threat Detection audit logs.
-        """
-        return pulumi.get(self, "retention_days")
-
-    @retention_days.setter
-    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "retention_days", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the identifier key of the Threat Detection audit storage account.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @storage_account_access_key.setter
-    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_account_access_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-        """
-        return pulumi.get(self, "storage_endpoint")
-
-    @storage_endpoint.setter
-    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_endpoint", value)
 
 

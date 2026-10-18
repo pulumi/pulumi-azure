@@ -191,14 +191,14 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
         return this.primaryAccessKey;
     }
     /**
-     * The Primary Connetion String associated with this Authorization Rule.
+     * The Primary Connection String associated with this Authorization Rule.
      * 
      */
     @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
-     * @return The Primary Connetion String associated with this Authorization Rule.
+     * @return The Primary Connection String associated with this Authorization Rule.
      * 
      */
     public Output<String> primaryConnectionString() {
@@ -233,14 +233,14 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
         return this.secondaryAccessKey;
     }
     /**
-     * The Secondary Connetion String associated with this Authorization Rule.
+     * The Secondary Connection String associated with this Authorization Rule.
      * 
      */
     @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
-     * @return The Secondary Connetion String associated with this Authorization Rule.
+     * @return The Secondary Connection String associated with this Authorization Rule.
      * 
      */
     public Output<String> secondaryConnectionString() {

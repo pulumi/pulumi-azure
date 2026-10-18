@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Management Workspace.
  * 
- * &gt; **Note:** This resource is currently available only when using the Classic Premium SKU of `azure.apimanagement.Service`. For more details, refer to [Federated API Management with Workspaces](https://learn.microsoft.com/en-us/azure/api-management/workspaces-overview).
+ * &gt; **Note:** This resource is currently available only when using the Classic Premium SKU of `azure.apimanagement.Service`. For more details, refer to [Federated API Management with Workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview).
  * 
  * ## Example Usage
  * 

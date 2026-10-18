@@ -22,7 +22,6 @@ __all__ = [
     'DeploymentFrontendPrivate',
     'DeploymentFrontendPublic',
     'DeploymentIdentity',
-    'DeploymentLoggingStorageAccount',
     'DeploymentNetworkInterface',
     'DeploymentWebApplicationFirewall',
     'DeploymentWebApplicationFirewallStatus',
@@ -36,7 +35,6 @@ __all__ = [
     'GetDeploymentFrontendPrivateResult',
     'GetDeploymentFrontendPublicResult',
     'GetDeploymentIdentityResult',
-    'GetDeploymentLoggingStorageAccountResult',
     'GetDeploymentNetworkInterfaceResult',
     'GetDeploymentWebApplicationFirewallResult',
     'GetDeploymentWebApplicationFirewallStatusResult',
@@ -381,50 +379,6 @@ class DeploymentIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class DeploymentLoggingStorageAccount(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "containerName":
-            suggest = "container_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentLoggingStorageAccount. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentLoggingStorageAccount.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentLoggingStorageAccount.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 container_name: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        """
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "container_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -813,26 +767,14 @@ class GetConfigurationConfigFileResult(dict):
 @pulumi.output_type
 class GetConfigurationProtectedFileResult(dict):
     def __init__(__self__, *,
-                 content: _builtins.str,
                  content_hash: _builtins.str,
                  virtual_path: _builtins.str):
         """
-        :param _builtins.str content: The base-64 encoded contents of this configuration file.
         :param _builtins.str content_hash: The hash of the contents of this configuration file prefixed by the algorithm used.
         :param _builtins.str virtual_path: The path of this configuration file.
         """
-        pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_hash", content_hash)
         pulumi.set(__self__, "virtual_path", virtual_path)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def content(self) -> _builtins.str:
-        """
-        The base-64 encoded contents of this configuration file.
-        """
-        return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="contentHash")
@@ -990,31 +932,6 @@ class GetDeploymentIdentityResult(dict):
         Type of identity attached to the NGINX Deployment.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetDeploymentLoggingStorageAccountResult(dict):
-    def __init__(__self__, *,
-                 container_name: _builtins.str,
-                 name: _builtins.str):
-        """
-        :param _builtins.str name: The name of this NGINX Deployment.
-        """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> _builtins.str:
-        return pulumi.get(self, "container_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of this NGINX Deployment.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -83,6 +83,10 @@ export interface GetServicePlanResult {
      */
     readonly perSiteScalingEnabled: boolean;
     /**
+     * Is premium plan autoscale enabled.
+     */
+    readonly premiumPlanAutoScaleEnabled: boolean;
+    /**
      * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      */
     readonly reserved: boolean;

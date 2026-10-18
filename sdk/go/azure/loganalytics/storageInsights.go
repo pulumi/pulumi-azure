@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,7 +97,7 @@ type StorageInsights struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account used by this Log Analytics Storage Insights.
+	// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// The storage access key to be used to connect to the storage account.
 	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
@@ -162,7 +162,7 @@ type storageInsightsState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account used by this Log Analytics Storage Insights.
+	// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The storage access key to be used to connect to the storage account.
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
@@ -179,7 +179,7 @@ type StorageInsightsState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Storage Account used by this Log Analytics Storage Insights.
+	// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The storage access key to be used to connect to the storage account.
 	StorageAccountKey pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type storageInsightsArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Storage Account used by this Log Analytics Storage Insights.
+	// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// The storage access key to be used to connect to the storage account.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
@@ -218,7 +218,7 @@ type StorageInsightsArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the Storage Account used by this Log Analytics Storage Insights.
+	// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 	// The storage access key to be used to connect to the storage account.
 	StorageAccountKey pulumi.StringInput
@@ -330,7 +330,7 @@ func (o StorageInsightsOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageInsights) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account used by this Log Analytics Storage Insights.
+// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
 func (o StorageInsightsOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageInsights) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }

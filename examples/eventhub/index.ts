@@ -11,8 +11,7 @@ const namespace = new eventhub.EventHubNamespace("test", {
 });
 
 const eventHub = new eventhub.EventHub("test", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: namespace.name,
+    namespaceId: namespace.id,
     partitionCount: 2,
     messageRetention: 7,
 });

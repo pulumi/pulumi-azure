@@ -52,9 +52,13 @@ public final class GetDataCollectionRuleResult {
      * 
      */
     private List<GetDataCollectionRuleIdentity> identities;
+    /**
+     * @return The immutable ID of the Data Collection Rule.
+     * 
+     */
     private String immutableId;
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     private String kind;
@@ -63,6 +67,16 @@ public final class GetDataCollectionRuleResult {
      * 
      */
     private String location;
+    /**
+     * @return The endpoint used for ingesting logs.
+     * 
+     */
+    private String logsIngestionEndpoint;
+    /**
+     * @return The endpoint used for ingesting metrics.
+     * 
+     */
+    private String metricsIngestionEndpoint;
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
@@ -130,11 +144,15 @@ public final class GetDataCollectionRuleResult {
     public List<GetDataCollectionRuleIdentity> identities() {
         return this.identities;
     }
+    /**
+     * @return The immutable ID of the Data Collection Rule.
+     * 
+     */
     public String immutableId() {
         return this.immutableId;
     }
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     public String kind() {
@@ -146,6 +164,20 @@ public final class GetDataCollectionRuleResult {
      */
     public String location() {
         return this.location;
+    }
+    /**
+     * @return The endpoint used for ingesting logs.
+     * 
+     */
+    public String logsIngestionEndpoint() {
+        return this.logsIngestionEndpoint;
+    }
+    /**
+     * @return The endpoint used for ingesting metrics.
+     * 
+     */
+    public String metricsIngestionEndpoint() {
+        return this.metricsIngestionEndpoint;
     }
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
@@ -191,6 +223,8 @@ public final class GetDataCollectionRuleResult {
         private String immutableId;
         private String kind;
         private String location;
+        private String logsIngestionEndpoint;
+        private String metricsIngestionEndpoint;
         private String name;
         private String resourceGroupName;
         private List<GetDataCollectionRuleStreamDeclaration> streamDeclarations;
@@ -208,6 +242,8 @@ public final class GetDataCollectionRuleResult {
     	      this.immutableId = defaults.immutableId;
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
+    	      this.logsIngestionEndpoint = defaults.logsIngestionEndpoint;
+    	      this.metricsIngestionEndpoint = defaults.metricsIngestionEndpoint;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.streamDeclarations = defaults.streamDeclarations;
@@ -307,6 +343,22 @@ public final class GetDataCollectionRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder logsIngestionEndpoint(String logsIngestionEndpoint) {
+            if (logsIngestionEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "logsIngestionEndpoint");
+            }
+            this.logsIngestionEndpoint = logsIngestionEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder metricsIngestionEndpoint(String metricsIngestionEndpoint) {
+            if (metricsIngestionEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "metricsIngestionEndpoint");
+            }
+            this.metricsIngestionEndpoint = metricsIngestionEndpoint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "name");
@@ -353,6 +405,8 @@ public final class GetDataCollectionRuleResult {
             _resultValue.immutableId = immutableId;
             _resultValue.kind = kind;
             _resultValue.location = location;
+            _resultValue.logsIngestionEndpoint = logsIngestionEndpoint;
+            _resultValue.metricsIngestionEndpoint = metricsIngestionEndpoint;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.streamDeclarations = streamDeclarations;

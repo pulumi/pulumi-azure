@@ -943,7 +943,7 @@ export namespace apimanagement {
 
     export interface BackendCircuitBreakerRule {
         /**
-         * Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         * Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
          */
         acceptRetryAfterEnabled?: boolean;
         /**
@@ -1110,13 +1110,7 @@ export namespace apimanagement {
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
-        keyVaultCertificateId: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         *
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1151,13 +1145,7 @@ export namespace apimanagement {
          * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
-        keyVaultCertificateId: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         *
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1188,13 +1176,7 @@ export namespace apimanagement {
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
-        keyVaultCertificateId: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         *
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1225,13 +1207,7 @@ export namespace apimanagement {
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
-        keyVaultCertificateId: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         *
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1262,13 +1238,7 @@ export namespace apimanagement {
          * The Hostname to use for the corresponding endpoint.
          */
         hostName: string;
-        keyVaultCertificateId: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         *
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1584,7 +1554,6 @@ export namespace apimanagement {
          * The ID of the Key Vault Secret which contains the SSL Certificate.
          */
         keyVaultCertificateId: string;
-        keyVaultId: string;
         /**
          * Is Client Certificate Negotiation enabled?
          */
@@ -1600,7 +1569,6 @@ export namespace apimanagement {
          * The ID of the Key Vault Secret which contains the SSL Certificate.
          */
         keyVaultCertificateId: string;
-        keyVaultId: string;
         /**
          * Is Client Certificate Negotiation enabled?
          */
@@ -1616,7 +1584,6 @@ export namespace apimanagement {
          * The ID of the Key Vault Secret which contains the SSL Certificate.
          */
         keyVaultCertificateId: string;
-        keyVaultId: string;
         /**
          * Is Client Certificate Negotiation enabled?
          */
@@ -1636,7 +1603,6 @@ export namespace apimanagement {
          * The ID of the Key Vault Secret which contains the SSL Certificate.
          */
         keyVaultCertificateId: string;
-        keyVaultId: string;
         /**
          * Is Client Certificate Negotiation enabled?
          */
@@ -1652,7 +1618,6 @@ export namespace apimanagement {
          * The ID of the Key Vault Secret which contains the SSL Certificate.
          */
         keyVaultCertificateId: string;
-        keyVaultId: string;
         /**
          * Is Client Certificate Negotiation enabled?
          */
@@ -1897,11 +1862,7 @@ export namespace apimanagement {
          *
          * > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
-        keyVaultCertificateId: string;
-        /**
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -1954,11 +1915,7 @@ export namespace apimanagement {
          *
          * > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
-        keyVaultCertificateId: string;
-        /**
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -2011,11 +1968,7 @@ export namespace apimanagement {
          *
          * > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
-        keyVaultCertificateId: string;
-        /**
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -2072,11 +2025,7 @@ export namespace apimanagement {
          *
          * > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
-        keyVaultCertificateId: string;
-        /**
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -2127,11 +2076,7 @@ export namespace apimanagement {
          *
          * > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
-        keyVaultCertificateId: string;
-        /**
-         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         */
-        keyVaultId: string;
+        keyVaultCertificateId?: string;
         /**
          * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
@@ -2175,13 +2120,9 @@ export namespace apimanagement {
 
     export interface ServiceProtocols {
         /**
-         * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableHttp2: boolean;
-        /**
          * Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
          */
-        http2Enabled: boolean;
+        http2Enabled?: boolean;
     }
 
     export interface ServiceSecurity {
@@ -2190,61 +2131,37 @@ export namespace apimanagement {
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
          */
-        backendSsl30Enabled: boolean;
+        backendSsl30Enabled?: boolean;
         /**
          * Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
          */
-        backendTls10Enabled: boolean;
+        backendTls10Enabled?: boolean;
         /**
          * Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
          */
-        backendTls11Enabled: boolean;
-        /**
-         * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableBackendSsl30: boolean;
-        /**
-         * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableBackendTls10: boolean;
-        /**
-         * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableBackendTls11: boolean;
-        /**
-         * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableFrontendSsl30: boolean;
-        /**
-         * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableFrontendTls10: boolean;
-        /**
-         * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
-         */
-        enableFrontendTls11: boolean;
+        backendTls11Enabled?: boolean;
         /**
          * Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
          */
-        frontendSsl30Enabled: boolean;
+        frontendSsl30Enabled?: boolean;
         /**
          * Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
          */
-        frontendTls10Enabled: boolean;
+        frontendTls10Enabled?: boolean;
         /**
          * Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
          */
-        frontendTls11Enabled: boolean;
+        frontendTls11Enabled?: boolean;
         /**
          * Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          *
@@ -2707,7 +2624,7 @@ export namespace appinsights {
          */
         httpVerb?: string;
         /**
-         * Should the parsing of dependend requests be enabled? Defaults to `true`.
+         * Should the parsing of dependent requests be enabled? Defaults to `true`.
          */
         parseDependentRequestsEnabled?: boolean;
         /**
@@ -2800,7 +2717,7 @@ export namespace appinsights {
         /**
          * Type of workbook supported by the workbook template. Defaults to `workbook`.
          *
-         * > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
+         * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resourceType` and `type`.
          */
         type?: string;
     }
@@ -4093,7 +4010,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -4626,7 +4543,7 @@ export namespace appservice {
 
     export interface AppFlexConsumptionSiteCredential {
         /**
-         * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -4644,619 +4561,6 @@ export namespace appservice {
          * A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
          */
         connectionStringNames?: string[];
-    }
-
-    export interface AppServiceAuthSettings {
-        /**
-         * A `activeDirectory` block as defined below.
-         */
-        activeDirectory?: outputs.appservice.AppServiceAuthSettingsActiveDirectory;
-        /**
-         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-         */
-        additionalLoginParams?: {[key: string]: string};
-        /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app.
-         */
-        allowedExternalRedirectUrls?: string[];
-        /**
-         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
-         *
-         * > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
-         */
-        defaultProvider?: string;
-        /**
-         * Is Authentication enabled?
-         */
-        enabled: boolean;
-        /**
-         * A `facebook` block as defined below.
-         */
-        facebook?: outputs.appservice.AppServiceAuthSettingsFacebook;
-        /**
-         * A `google` block as defined below.
-         */
-        google?: outputs.appservice.AppServiceAuthSettingsGoogle;
-        /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-         */
-        issuer?: string;
-        /**
-         * A `microsoft` block as defined below.
-         */
-        microsoft?: outputs.appservice.AppServiceAuthSettingsMicrosoft;
-        /**
-         * The runtime version of the Authentication/Authorization module.
-         */
-        runtimeVersion?: string;
-        /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
-         */
-        tokenRefreshExtensionHours?: number;
-        /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-         */
-        tokenStoreEnabled?: boolean;
-        /**
-         * A `twitter` block as defined below.
-         */
-        twitter?: outputs.appservice.AppServiceAuthSettingsTwitter;
-        /**
-         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
-         */
-        unauthenticatedClientAction?: string;
-    }
-
-    export interface AppServiceAuthSettingsActiveDirectory {
-        /**
-         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         */
-        allowedAudiences?: string[];
-        /**
-         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-         */
-        clientId: string;
-        /**
-         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-         */
-        clientSecret?: string;
-    }
-
-    export interface AppServiceAuthSettingsFacebook {
-        /**
-         * The App ID of the Facebook app used for login
-         */
-        appId: string;
-        /**
-         * The App Secret of the Facebook app used for Facebook login.
-         */
-        appSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface AppServiceAuthSettingsGoogle {
-        /**
-         * The OpenID Connect Client ID for the Google web application.
-         */
-        clientId: string;
-        /**
-         * The client secret associated with the Google web application.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface AppServiceAuthSettingsMicrosoft {
-        /**
-         * The OAuth 2.0 client ID that was created for the app used for authentication.
-         */
-        clientId: string;
-        /**
-         * The OAuth 2.0 client secret that was created for the app used for authentication.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface AppServiceAuthSettingsTwitter {
-        /**
-         * The consumer key of the Twitter app used for login
-         */
-        consumerKey: string;
-        /**
-         * The consumer secret of the Twitter app used for login.
-         */
-        consumerSecret: string;
-    }
-
-    export interface AppServiceBackup {
-        /**
-         * Is this Backup enabled? Defaults to `true`.
-         */
-        enabled?: boolean;
-        /**
-         * Specifies the name for this Backup.
-         */
-        name: string;
-        /**
-         * A `schedule` block as defined below.
-         */
-        schedule: outputs.appservice.AppServiceBackupSchedule;
-        /**
-         * The SAS URL to a Storage Container where Backups should be saved.
-         */
-        storageAccountUrl: string;
-    }
-
-    export interface AppServiceBackupSchedule {
-        /**
-         * Sets how often the backup should be executed.
-         */
-        frequencyInterval: number;
-        /**
-         * Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
-         */
-        frequencyUnit: string;
-        /**
-         * Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
-         */
-        keepAtLeastOneBackup?: boolean;
-        /**
-         * Specifies the number of days after which Backups should be deleted. Defaults to `30`.
-         */
-        retentionPeriodInDays?: number;
-        /**
-         * Sets when the schedule should start working.
-         */
-        startTime?: string;
-    }
-
-    export interface AppServiceConnectionString {
-        /**
-         * The name of the Connection String.
-         */
-        name: string;
-        /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface AppServiceIdentity {
-        /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        tenantId: string;
-        /**
-         * Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-         *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the App Service has been created. More details are available below.
-         */
-        type: string;
-    }
-
-    export interface AppServiceLogs {
-        /**
-         * An `applicationLogs` block as defined below.
-         */
-        applicationLogs: outputs.appservice.AppServiceLogsApplicationLogs;
-        /**
-         * Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
-         */
-        detailedErrorMessagesEnabled?: boolean;
-        /**
-         * Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
-         */
-        failedRequestTracingEnabled?: boolean;
-        /**
-         * An `httpLogs` block as defined below.
-         */
-        httpLogs: outputs.appservice.AppServiceLogsHttpLogs;
-    }
-
-    export interface AppServiceLogsApplicationLogs {
-        /**
-         * An `azureBlobStorage` block as defined below.
-         */
-        azureBlobStorage?: outputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage;
-        /**
-         * Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
-         */
-        fileSystemLevel?: string;
-    }
-
-    export interface AppServiceLogsApplicationLogsAzureBlobStorage {
-        /**
-         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
-         */
-        level: string;
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The URL to the storage container with a shared access signature token appended.
-         *
-         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
-         */
-        sasUrl: string;
-    }
-
-    export interface AppServiceLogsHttpLogs {
-        /**
-         * An `azureBlobStorage` block as defined below.
-         */
-        azureBlobStorage?: outputs.appservice.AppServiceLogsHttpLogsAzureBlobStorage;
-        /**
-         * A `fileSystem` block as defined below.
-         */
-        fileSystem?: outputs.appservice.AppServiceLogsHttpLogsFileSystem;
-    }
-
-    export interface AppServiceLogsHttpLogsAzureBlobStorage {
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The URL to the storage container with a shared access signature token appended.
-         *
-         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
-         */
-        sasUrl: string;
-    }
-
-    export interface AppServiceLogsHttpLogsFileSystem {
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The maximum size in megabytes that HTTP log files can use before being removed.
-         */
-        retentionInMb: number;
-    }
-
-    export interface AppServiceSiteConfig {
-        /**
-         * Are Managed Identity Credentials used for Azure Container Registry pull
-         */
-        acrUseManagedIdentityCredentials?: boolean;
-        /**
-         * If using User Managed Identity, the User Managed Identity Client Id
-         *
-         * > **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
-         */
-        acrUserManagedIdentityClientId?: string;
-        /**
-         * Should the app be loaded at all times? Defaults to `false`.
-         *
-         * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
-         */
-        alwaysOn?: boolean;
-        /**
-         * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-         */
-        appCommandLine?: string;
-        /**
-         * The name of the slot to automatically swap to during deployment
-         */
-        autoSwapSlotName?: string;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors: outputs.appservice.AppServiceSiteConfigCors;
-        /**
-         * The ordering of default documents to load, if an address isn't specified.
-         */
-        defaultDocuments?: string[];
-        /**
-         * The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
-         */
-        dotnetFrameworkVersion?: string;
-        /**
-         * State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-         */
-        ftpsState: string;
-        /**
-         * The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
-         */
-        healthCheckPath?: string;
-        /**
-         * Is HTTP2 Enabled on this App Service? Defaults to `false`.
-         */
-        http2Enabled?: boolean;
-        /**
-         * A list of objects representing ip restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
-         */
-        ipRestrictions: outputs.appservice.AppServiceSiteConfigIpRestriction[];
-        /**
-         * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
-         */
-        javaContainer?: string;
-        /**
-         * The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
-         */
-        javaContainerVersion?: string;
-        /**
-         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
-         */
-        javaVersion?: string;
-        /**
-         * Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
-         *
-         * > **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
-         */
-        linuxFxVersion: string;
-        /**
-         * Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
-         *
-         * > **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
-         */
-        localMysqlEnabled: boolean;
-        /**
-         * The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
-         */
-        managedPipelineMode: string;
-        /**
-         * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-         */
-        minTlsVersion: string;
-        /**
-         * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
-         */
-        numberOfWorkers: number;
-        /**
-         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
-         */
-        phpVersion?: string;
-        /**
-         * The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
-         */
-        pythonVersion?: string;
-        /**
-         * Is Remote Debugging Enabled? Defaults to `false`.
-         */
-        remoteDebuggingEnabled?: boolean;
-        /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
-         */
-        remoteDebuggingVersion: string;
-        /**
-         * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
-         */
-        scmIpRestrictions: outputs.appservice.AppServiceSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main. Defaults to `false`.
-         *
-         * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
-         */
-        scmUseMainIpRestriction?: boolean;
-        /**
-         * Should the App Service run in 32 bit mode, rather than 64 bit mode?
-         *
-         * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-         */
-        use32BitWorkerProcess?: boolean;
-        /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-         *
-         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
-         */
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled: boolean;
-        /**
-         * The Windows Docker container image (`DOCKER|<user/image:tag>`)
-         */
-        windowsFxVersion: string;
-    }
-
-    export interface AppServiceSiteConfigCors {
-        /**
-         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: boolean;
-    }
-
-    export interface AppServiceSiteConfigIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers: outputs.appservice.AppServiceSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface AppServiceSiteConfigIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface AppServiceSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `scmIpRestriction` as defined below.
-         */
-        headers: outputs.appservice.AppServiceSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface AppServiceSiteConfigScmIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface AppServiceSiteCredential {
-        /**
-         * The password associated with the username, which can be used to publish to this App Service.
-         */
-        password: string;
-        /**
-         * The username which can be used to publish to this App Service
-         */
-        username: string;
-    }
-
-    export interface AppServiceSourceControl {
-        /**
-         * The branch of the remote repository to use. Defaults to 'master'.
-         */
-        branch: string;
-        /**
-         * Limits to manual integration. Defaults to `false` if not specified.
-         */
-        manualIntegration: boolean;
-        /**
-         * The URL of the source code repository.
-         */
-        repoUrl: string;
-        /**
-         * Enable roll-back for the repository. Defaults to `false` if not specified.
-         */
-        rollbackEnabled: boolean;
-        /**
-         * Use Mercurial if `true`, otherwise uses Git.
-         */
-        useMercurial: boolean;
-    }
-
-    export interface AppServiceStorageAccount {
-        /**
-         * The access key for the storage account.
-         */
-        accessKey: string;
-        /**
-         * The name of the storage account.
-         */
-        accountName: string;
-        /**
-         * The path to mount the storage within the site's runtime environment.
-         */
-        mountPath?: string;
-        /**
-         * The name of the storage account identifier.
-         */
-        name: string;
-        /**
-         * The name of the file share (container name, for Blob storage).
-         */
-        shareName: string;
-        /**
-         * The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
-         */
-        type: string;
     }
 
     export interface CertificateOrderCertificate {
@@ -5342,153 +4646,6 @@ export namespace appservice {
         ports: string[];
     }
 
-    export interface FunctionAppAuthSettings {
-        /**
-         * A `activeDirectory` block as defined below.
-         */
-        activeDirectory?: outputs.appservice.FunctionAppAuthSettingsActiveDirectory;
-        /**
-         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-         */
-        additionalLoginParams?: {[key: string]: string};
-        /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app.
-         */
-        allowedExternalRedirectUrls?: string[];
-        /**
-         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
-         *
-         * > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
-         */
-        defaultProvider?: string;
-        /**
-         * Is Authentication enabled?
-         */
-        enabled: boolean;
-        /**
-         * A `facebook` block as defined below.
-         */
-        facebook?: outputs.appservice.FunctionAppAuthSettingsFacebook;
-        /**
-         * A `google` block as defined below.
-         */
-        google?: outputs.appservice.FunctionAppAuthSettingsGoogle;
-        /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-         */
-        issuer?: string;
-        /**
-         * A `microsoft` block as defined below.
-         */
-        microsoft?: outputs.appservice.FunctionAppAuthSettingsMicrosoft;
-        /**
-         * The runtime version of the Authentication/Authorization module.
-         */
-        runtimeVersion?: string;
-        /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
-         */
-        tokenRefreshExtensionHours?: number;
-        /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-         */
-        tokenStoreEnabled?: boolean;
-        /**
-         * A `twitter` block as defined below.
-         */
-        twitter?: outputs.appservice.FunctionAppAuthSettingsTwitter;
-        /**
-         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
-         */
-        unauthenticatedClientAction?: string;
-    }
-
-    export interface FunctionAppAuthSettingsActiveDirectory {
-        /**
-         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         */
-        allowedAudiences?: string[];
-        /**
-         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-         */
-        clientId: string;
-        /**
-         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-         */
-        clientSecret?: string;
-    }
-
-    export interface FunctionAppAuthSettingsFacebook {
-        /**
-         * The App ID of the Facebook app used for login
-         */
-        appId: string;
-        /**
-         * The App Secret of the Facebook app used for Facebook login.
-         */
-        appSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppAuthSettingsGoogle {
-        /**
-         * The OpenID Connect Client ID for the Google web application.
-         */
-        clientId: string;
-        /**
-         * The client secret associated with the Google web application.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppAuthSettingsMicrosoft {
-        /**
-         * The OAuth 2.0 client ID that was created for the app used for authentication.
-         */
-        clientId: string;
-        /**
-         * The OAuth 2.0 client secret that was created for the app used for authentication.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppAuthSettingsTwitter {
-        /**
-         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-         */
-        consumerKey: string;
-        /**
-         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
-         */
-        consumerSecret: string;
-    }
-
-    export interface FunctionAppConnectionString {
-        /**
-         * The name of the Connection String.
-         */
-        name: string;
-        /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
     export interface FunctionAppFunctionFile {
         /**
          * The content of the file. Changing this forces a new resource to be created.
@@ -5498,925 +4655,6 @@ export namespace appservice {
          * The filename of the file to be uploaded. Changing this forces a new resource to be created.
          */
         name: string;
-    }
-
-    export interface FunctionAppIdentity {
-        /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        tenantId: string;
-        /**
-         * Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-         *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Function App has been created. More details are available below.
-         */
-        type: string;
-    }
-
-    export interface FunctionAppSiteConfig {
-        /**
-         * Should the Function App be loaded at all times? Defaults to `false`.
-         */
-        alwaysOn?: boolean;
-        /**
-         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-         */
-        appScaleLimit: number;
-        /**
-         * The name of the slot to automatically swap to during deployment
-         *
-         * > **NOTE:** This attribute is only used for slots.
-         */
-        autoSwapSlotName?: string;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors: outputs.appservice.FunctionAppSiteConfigCors;
-        /**
-         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
-         */
-        dotnetFrameworkVersion?: string;
-        /**
-         * The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
-         */
-        elasticInstanceMinimum: number;
-        /**
-         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
-         */
-        ftpsState: string;
-        /**
-         * Path which will be checked for this function app health.
-         */
-        healthCheckPath?: string;
-        /**
-         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-         */
-        http2Enabled?: boolean;
-        /**
-         * A list of `ipRestriction` objects representing IP restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
-         */
-        ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
-        /**
-         * Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
-         */
-        javaVersion?: string;
-        /**
-         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
-         */
-        linuxFxVersion: string;
-        /**
-         * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
-         */
-        minTlsVersion: string;
-        /**
-         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-         */
-        preWarmedInstanceCount: number;
-        /**
-         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-         */
-        runtimeScaleMonitoringEnabled?: boolean;
-        /**
-         * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
-         */
-        scmIpRestrictions: outputs.appservice.FunctionAppSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
-         *
-         * > **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main. Defaults to `false`.
-         *
-         * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
-         */
-        scmUseMainIpRestriction?: boolean;
-        /**
-         * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
-         *
-         * > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-         */
-        use32BitWorkerProcess?: boolean;
-        /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-         *
-         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
-         */
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled?: boolean;
-    }
-
-    export interface FunctionAppSiteConfigCors {
-        /**
-         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: boolean;
-    }
-
-    export interface FunctionAppSiteConfigIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers: outputs.appservice.FunctionAppSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface FunctionAppSiteConfigIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface FunctionAppSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `scmIpRestriction` as defined below.
-         */
-        headers: outputs.appservice.FunctionAppSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface FunctionAppSiteConfigScmIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface FunctionAppSiteCredential {
-        /**
-         * The password associated with the username, which can be used to publish to this App Service.
-         */
-        password: string;
-        /**
-         * The username which can be used to publish to this App Service
-         */
-        username: string;
-    }
-
-    export interface FunctionAppSlotAuthSettings {
-        /**
-         * An `activeDirectory` block as defined below.
-         */
-        activeDirectory?: outputs.appservice.FunctionAppSlotAuthSettingsActiveDirectory;
-        /**
-         * login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-         */
-        additionalLoginParams?: {[key: string]: string};
-        /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app.
-         */
-        allowedExternalRedirectUrls?: string[];
-        /**
-         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
-         *
-         * > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
-         */
-        defaultProvider?: string;
-        /**
-         * Is Authentication enabled?
-         */
-        enabled: boolean;
-        /**
-         * A `facebook` block as defined below.
-         */
-        facebook?: outputs.appservice.FunctionAppSlotAuthSettingsFacebook;
-        /**
-         * A `google` block as defined below.
-         */
-        google?: outputs.appservice.FunctionAppSlotAuthSettingsGoogle;
-        /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-         */
-        issuer?: string;
-        /**
-         * A `microsoft` block as defined below.
-         */
-        microsoft?: outputs.appservice.FunctionAppSlotAuthSettingsMicrosoft;
-        /**
-         * The runtime version of the Authentication/Authorization module.
-         */
-        runtimeVersion?: string;
-        /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
-         */
-        tokenRefreshExtensionHours?: number;
-        /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-         */
-        tokenStoreEnabled?: boolean;
-        /**
-         * A `twitter` block as defined below.
-         */
-        twitter?: outputs.appservice.FunctionAppSlotAuthSettingsTwitter;
-        /**
-         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
-         */
-        unauthenticatedClientAction?: string;
-    }
-
-    export interface FunctionAppSlotAuthSettingsActiveDirectory {
-        /**
-         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         */
-        allowedAudiences?: string[];
-        /**
-         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-         */
-        clientId: string;
-        /**
-         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-         */
-        clientSecret?: string;
-    }
-
-    export interface FunctionAppSlotAuthSettingsFacebook {
-        /**
-         * The App ID of the Facebook app used for login
-         */
-        appId: string;
-        /**
-         * The App Secret of the Facebook app used for Facebook login.
-         */
-        appSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppSlotAuthSettingsGoogle {
-        /**
-         * The OpenID Connect Client ID for the Google web application.
-         */
-        clientId: string;
-        /**
-         * The client secret associated with the Google web application.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppSlotAuthSettingsMicrosoft {
-        /**
-         * The OAuth 2.0 client ID that was created for the app used for authentication.
-         */
-        clientId: string;
-        /**
-         * The OAuth 2.0 client secret that was created for the app used for authentication.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface FunctionAppSlotAuthSettingsTwitter {
-        /**
-         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-         */
-        consumerKey: string;
-        /**
-         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
-         */
-        consumerSecret: string;
-    }
-
-    export interface FunctionAppSlotConnectionString {
-        /**
-         * The name of the Connection String.
-         */
-        name: string;
-        /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface FunctionAppSlotIdentity {
-        /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-         */
-        tenantId: string;
-        /**
-         * Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-         *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Function App has been created. More details are available below.
-         */
-        type: string;
-    }
-
-    export interface FunctionAppSlotSiteConfig {
-        /**
-         * Should the Function App be loaded at all times? Defaults to `false`.
-         */
-        alwaysOn?: boolean;
-        /**
-         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-         */
-        appScaleLimit: number;
-        /**
-         * The name of the slot to automatically swap to during deployment
-         */
-        autoSwapSlotName?: string;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
-        /**
-         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
-         */
-        dotnetFrameworkVersion?: string;
-        /**
-         * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
-         */
-        elasticInstanceMinimum: number;
-        /**
-         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-         */
-        ftpsState: string;
-        /**
-         * Path which will be checked for this function app health.
-         */
-        healthCheckPath?: string;
-        /**
-         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-         */
-        http2Enabled?: boolean;
-        /**
-         * A list of `ipRestriction` objects representing IP restrictions as defined below.
-         */
-        ipRestrictions: outputs.appservice.FunctionAppSlotSiteConfigIpRestriction[];
-        /**
-         * Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
-         */
-        javaVersion?: string;
-        /**
-         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
-         */
-        linuxFxVersion: string;
-        /**
-         * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
-         */
-        minTlsVersion: string;
-        /**
-         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-         */
-        preWarmedInstanceCount: number;
-        /**
-         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-         */
-        runtimeScaleMonitoringEnabled?: boolean;
-        /**
-         * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
-         */
-        scmIpRestrictions: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
-         *
-         * > **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main. Defaults to `false`.
-         *
-         * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
-         */
-        scmUseMainIpRestriction?: boolean;
-        /**
-         * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
-         *
-         * > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-         */
-        use32BitWorkerProcess?: boolean;
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled?: boolean;
-    }
-
-    export interface FunctionAppSlotSiteConfigCors {
-        /**
-         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: boolean;
-    }
-
-    export interface FunctionAppSlotSiteConfigIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers: outputs.appservice.FunctionAppSlotSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface FunctionAppSlotSiteConfigIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface FunctionAppSlotSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `scmIpRestriction` as defined below.
-         */
-        headers: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface FunctionAppSlotSiteCredential {
-        /**
-         * The password associated with the username, which can be used to publish to this App Service.
-         */
-        password: string;
-        /**
-         * The username which can be used to publish to this App Service
-         */
-        username: string;
-    }
-
-    export interface FunctionAppSourceControl {
-        /**
-         * The branch of the remote repository to use. Defaults to 'master'.
-         */
-        branch: string;
-        /**
-         * Limits to manual integration. Defaults to `false` if not specified.
-         */
-        manualIntegration: boolean;
-        /**
-         * The URL of the source code repository.
-         */
-        repoUrl: string;
-        /**
-         * Enable roll-back for the repository. Defaults to `false` if not specified.
-         */
-        rollbackEnabled: boolean;
-        /**
-         * Use Mercurial if `true`, otherwise uses Git.
-         */
-        useMercurial: boolean;
-    }
-
-    export interface GetAppServiceConnectionString {
-        /**
-         * The name of the App Service.
-         */
-        name: string;
-        /**
-         * The type of the Connection String.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface GetAppServicePlanSku {
-        /**
-         * Specifies the number of workers associated with this App Service Plan.
-         */
-        capacity: number;
-        /**
-         * Specifies the plan's instance size.
-         */
-        size: string;
-        /**
-         * Specifies the plan's pricing tier.
-         */
-        tier: string;
-    }
-
-    export interface GetAppServiceSiteConfig {
-        /**
-         * Are Managed Identity Credentials used for Azure Container Registry pull.
-         */
-        acrUseManagedIdentityCredentials: boolean;
-        /**
-         * The User Managed Identity Client Id.
-         */
-        acrUserManagedIdentityClientId: string;
-        /**
-         * Is the app loaded at all times?
-         */
-        alwaysOn: boolean;
-        /**
-         * App command line to launch.
-         */
-        appCommandLine: string;
-        /**
-         * A `cors` block as defined above.
-         */
-        cors: outputs.appservice.GetAppServiceSiteConfigCor[];
-        /**
-         * The ordering of default documents to load, if an address isn't specified.
-         */
-        defaultDocuments: string[];
-        /**
-         * The version of the .NET framework's CLR used in this App Service.
-         */
-        dotnetFrameworkVersion: string;
-        /**
-         * State of FTP / FTPS service for this AppService.
-         */
-        ftpsState: string;
-        /**
-         * The health check path to be pinged by App Service.
-         */
-        healthCheckPath: string;
-        /**
-         * Is HTTP2 Enabled on this App Service?
-         */
-        http2Enabled: boolean;
-        /**
-         * One or more `ipRestriction` blocks as defined above.
-         */
-        ipRestrictions: outputs.appservice.GetAppServiceSiteConfigIpRestriction[];
-        /**
-         * The Java Container in use.
-         */
-        javaContainer: string;
-        /**
-         * The version of the Java Container in use.
-         */
-        javaContainerVersion: string;
-        /**
-         * The version of Java in use.
-         */
-        javaVersion: string;
-        /**
-         * Linux App Framework and version for the AppService.
-         */
-        linuxFxVersion: string;
-        /**
-         * Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
-         */
-        localMysqlEnabled: boolean;
-        /**
-         * The Managed Pipeline Mode used in this App Service.
-         */
-        managedPipelineMode: string;
-        /**
-         * The minimum supported TLS version for this App Service.
-         */
-        minTlsVersion: string;
-        /**
-         * The scaled number of workers (for per site scaling) of this App Service.
-         */
-        numberOfWorkers: number;
-        /**
-         * The version of PHP used in this App Service.
-         */
-        phpVersion: string;
-        /**
-         * The version of Python used in this App Service.
-         */
-        pythonVersion: string;
-        /**
-         * Is Remote Debugging Enabled in this App Service?
-         */
-        remoteDebuggingEnabled: boolean;
-        /**
-         * Which version of Visual Studio is the Remote Debugger compatible with?
-         */
-        remoteDebuggingVersion: string;
-        /**
-         * One or more `scmIpRestriction` blocks as defined above.
-         */
-        scmIpRestrictions: outputs.appservice.GetAppServiceSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control enabled for this App Service.
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main.
-         */
-        scmUseMainIpRestriction: boolean;
-        /**
-         * Does the App Service run in 32 bit mode, rather than 64 bit mode?
-         */
-        use32BitWorkerProcess: boolean;
-        /**
-         * (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
-         */
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Are WebSockets enabled for this App Service?
-         */
-        websocketsEnabled: boolean;
-        /**
-         * Windows Container Docker Image for the AppService.
-         */
-        windowsFxVersion: string;
-    }
-
-    export interface GetAppServiceSiteConfigCor {
-        /**
-         * A list of origins which are able to make cross-origin calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials: boolean;
-    }
-
-    export interface GetAppServiceSiteConfigIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
-         */
-        action: string;
-        headers: outputs.appservice.GetAppServiceSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress: string;
-        /**
-         * The name of the App Service.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction.
-         */
-        priority: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId: string;
-    }
-
-    export interface GetAppServiceSiteConfigIpRestrictionHeaders {
-        xAzureFdids: string[];
-        xFdHealthProbes: string[];
-        xForwardedFors: string[];
-        xForwardedHosts: string[];
-    }
-
-    export interface GetAppServiceSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
-         */
-        action: string;
-        headers: outputs.appservice.GetAppServiceSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress: string;
-        /**
-         * The name of the App Service.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction.
-         */
-        priority: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId: string;
-    }
-
-    export interface GetAppServiceSiteConfigScmIpRestrictionHeaders {
-        xAzureFdids: string[];
-        xFdHealthProbes: string[];
-        xForwardedFors: string[];
-        xForwardedHosts: string[];
-    }
-
-    export interface GetAppServiceSiteCredential {
-        password: string;
-        username: string;
-    }
-
-    export interface GetAppServiceSourceControl {
-        /**
-         * The branch of the remote repository in use.
-         */
-        branch: string;
-        /**
-         * Limits to manual integration.
-         */
-        manualIntegration: boolean;
-        /**
-         * The URL of the source code repository.
-         */
-        repoUrl: string;
-        /**
-         * Is roll-back enabled for the repository.
-         */
-        rollbackEnabled: boolean;
-        /**
-         * Uses Mercurial if `true`, otherwise uses Git.
-         */
-        useMercurial: boolean;
     }
 
     export interface GetCertificateOrderCertificate {
@@ -6462,230 +4700,6 @@ export namespace appservice {
          * The ports that network traffic will arrive to the App Service Environment V3 on.
          */
         ports: string[];
-    }
-
-    export interface GetFunctionAppConnectionString {
-        /**
-         * The name of the Function App resource.
-         */
-        name: string;
-        /**
-         * The identity type of the Managed Identity assigned to the Function App.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface GetFunctionAppIdentity {
-        /**
-         * A list of User Assigned Identity IDs assigned to the Function App.
-         */
-        identityIds: string[];
-        /**
-         * The ID of the Managed Identity assigned to the Function App.
-         */
-        principalId: string;
-        /**
-         * The ID of the Tenant where the Managed Identity assigned to the Function App is located.
-         */
-        tenantId: string;
-        /**
-         * The identity type of the Managed Identity assigned to the Function App.
-         */
-        type: string;
-    }
-
-    export interface GetFunctionAppSiteConfig {
-        /**
-         * Is the app loaded at all times?
-         */
-        alwaysOn: boolean;
-        /**
-         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-         */
-        appScaleLimit: number;
-        autoSwapSlotName: string;
-        /**
-         * A `cors` block as defined above.
-         */
-        cors: outputs.appservice.GetFunctionAppSiteConfigCors;
-        /**
-         * The version of the .NET framework's CLR used in this App Service.
-         */
-        dotnetFrameworkVersion: string;
-        /**
-         * The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
-         */
-        elasticInstanceMinimum: number;
-        /**
-         * State of FTP / FTPS service for this AppService.
-         */
-        ftpsState: string;
-        healthCheckPath: string;
-        /**
-         * Is HTTP2 Enabled on this App Service?
-         */
-        http2Enabled: boolean;
-        /**
-         * One or more `ipRestriction` blocks as defined above.
-         */
-        ipRestrictions: outputs.appservice.GetFunctionAppSiteConfigIpRestriction[];
-        /**
-         * Java version hosted by the function app in Azure.
-         */
-        javaVersion: string;
-        /**
-         * Linux App Framework and version for the AppService.
-         */
-        linuxFxVersion: string;
-        /**
-         * The minimum supported TLS version for this App Service.
-         */
-        minTlsVersion: string;
-        /**
-         * The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
-         */
-        preWarmedInstanceCount: number;
-        /**
-         * Is Runtime Scale Monitoring Enabled on this function app?
-         */
-        runtimeScaleMonitoringEnabled: boolean;
-        /**
-         * One or more `scmIpRestriction` blocks as defined above.
-         */
-        scmIpRestrictions: outputs.appservice.GetFunctionAppSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control enabled for this App Service.
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main.
-         */
-        scmUseMainIpRestriction: boolean;
-        /**
-         * Does the App Service run in 32 bit mode, rather than 64 bit mode?
-         */
-        use32BitWorkerProcess: boolean;
-        /**
-         * (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
-         */
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Are WebSockets enabled for this App Service?
-         */
-        websocketsEnabled: boolean;
-    }
-
-    export interface GetFunctionAppSiteConfigCors {
-        allowedOrigins: string[];
-        supportCredentials?: boolean;
-    }
-
-    export interface GetFunctionAppSiteConfigIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
-         */
-        action: string;
-        headers: outputs.appservice.GetFunctionAppSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress: string;
-        /**
-         * The name of the Function App resource.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction.
-         */
-        priority: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId: string;
-    }
-
-    export interface GetFunctionAppSiteConfigIpRestrictionHeaders {
-        xAzureFdids: string[];
-        xFdHealthProbes: string[];
-        xForwardedFors: string[];
-        xForwardedHosts: string[];
-    }
-
-    export interface GetFunctionAppSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
-         */
-        action: string;
-        headers: outputs.appservice.GetFunctionAppSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress: string;
-        /**
-         * The name of the Function App resource.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction.
-         */
-        priority: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId: string;
-    }
-
-    export interface GetFunctionAppSiteConfigScmIpRestrictionHeaders {
-        xAzureFdids: string[];
-        xFdHealthProbes: string[];
-        xForwardedFors: string[];
-        xForwardedHosts: string[];
-    }
-
-    export interface GetFunctionAppSiteCredential {
-        /**
-         * The password associated with the username, which can be used to publish to this App Service.
-         */
-        password: string;
-        /**
-         * The username which can be used to publish to this App Service
-         */
-        username: string;
-    }
-
-    export interface GetFunctionAppSourceControl {
-        /**
-         * The branch of the remote repository in use.
-         */
-        branch: string;
-        /**
-         * Limits to manual integration.
-         */
-        manualIntegration: boolean;
-        /**
-         * The URL of the source code repository.
-         */
-        repoUrl: string;
-        /**
-         * Is roll-back enabled for the repository.
-         */
-        rollbackEnabled: boolean;
-        /**
-         * Uses Mercurial if `true`, otherwise uses Git.
-         */
-        useMercurial: boolean;
     }
 
     export interface GetLinuxFunctionAppAuthSetting {
@@ -7397,7 +5411,7 @@ export namespace appservice {
         /**
          * The Default action for traffic that does not match any `scmIpRestriction` rule.
          */
-        scmIpRestrictionDefaultAction?: string;
+        scmIpRestrictionDefaultAction: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -8490,12 +6504,6 @@ export namespace appservice {
          * The version of Python in use.
          */
         pythonVersion: string;
-        /**
-         * The version of Ruby in use.
-         *
-         * @deprecated `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-         */
-        rubyVersion: string;
     }
 
     export interface GetLinuxWebAppSiteConfigAutoHealSetting {
@@ -8532,7 +6540,7 @@ export namespace appservice {
         /**
          * A `slowRequest` block as defined above.
          */
-        slowRequests?: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        slowRequests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * A `statusCode` block as defined above.
          */
@@ -11238,7 +9246,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -11746,7 +9754,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          */
         powershellCoreVersion?: string;
         /**
@@ -11915,7 +9923,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -12250,7 +10258,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -12756,7 +10764,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+         * The version of PowerShell Core to use. Possibles values are `7` , `7.2`, `7.4` and `7.6`.
          */
         powershellCoreVersion?: string;
         /**
@@ -13325,7 +11333,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -13903,7 +11911,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -13912,12 +11920,6 @@ export namespace appservice {
          * The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
-        /**
-         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
-         *
-         * @deprecated `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-         */
-        rubyVersion?: string;
     }
 
     export interface LinuxWebAppSiteConfigAutoHealSetting {
@@ -14495,7 +12497,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -15075,7 +13077,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4` and `8.5`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -15084,12 +13086,6 @@ export namespace appservice {
          * The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
-        /**
-         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
-         *
-         * @deprecated `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-         */
-        rubyVersion?: string;
     }
 
     export interface LinuxWebAppSlotSiteConfigAutoHealSetting {
@@ -15406,571 +13402,6 @@ export namespace appservice {
         type: string;
     }
 
-    export interface PlanSku {
-        /**
-         * Specifies the number of workers associated with this App Service Plan.
-         */
-        capacity: number;
-        /**
-         * Specifies the plan's instance size.
-         */
-        size: string;
-        /**
-         * Specifies the plan's pricing tier.
-         */
-        tier: string;
-    }
-
-    export interface SlotAuthSettings {
-        /**
-         * A `activeDirectory` block as defined below.
-         */
-        activeDirectory?: outputs.appservice.SlotAuthSettingsActiveDirectory;
-        /**
-         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-         */
-        additionalLoginParams?: {[key: string]: string};
-        /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app.
-         */
-        allowedExternalRedirectUrls?: string[];
-        /**
-         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
-         *
-         * > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
-         */
-        defaultProvider?: string;
-        /**
-         * Is Authentication enabled?
-         */
-        enabled: boolean;
-        /**
-         * A `facebook` block as defined below.
-         */
-        facebook?: outputs.appservice.SlotAuthSettingsFacebook;
-        /**
-         * A `google` block as defined below.
-         */
-        google?: outputs.appservice.SlotAuthSettingsGoogle;
-        /**
-         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-         */
-        issuer?: string;
-        /**
-         * A `microsoft` block as defined below.
-         */
-        microsoft?: outputs.appservice.SlotAuthSettingsMicrosoft;
-        /**
-         * The runtime version of the Authentication/Authorization module.
-         */
-        runtimeVersion?: string;
-        /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
-         */
-        tokenRefreshExtensionHours?: number;
-        /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-         */
-        tokenStoreEnabled?: boolean;
-        /**
-         * A `twitter` block as defined below.
-         */
-        twitter?: outputs.appservice.SlotAuthSettingsTwitter;
-        /**
-         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
-         */
-        unauthenticatedClientAction?: string;
-    }
-
-    export interface SlotAuthSettingsActiveDirectory {
-        /**
-         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         */
-        allowedAudiences?: string[];
-        /**
-         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-         */
-        clientId: string;
-        /**
-         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-         */
-        clientSecret?: string;
-    }
-
-    export interface SlotAuthSettingsFacebook {
-        /**
-         * The App ID of the Facebook app used for login
-         */
-        appId: string;
-        /**
-         * The App Secret of the Facebook app used for Facebook login.
-         */
-        appSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface SlotAuthSettingsGoogle {
-        /**
-         * The OpenID Connect Client ID for the Google web application.
-         */
-        clientId: string;
-        /**
-         * The client secret associated with the Google web application.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface SlotAuthSettingsMicrosoft {
-        /**
-         * The OAuth 2.0 client ID that was created for the app used for authentication.
-         */
-        clientId: string;
-        /**
-         * The OAuth 2.0 client secret that was created for the app used for authentication.
-         */
-        clientSecret: string;
-        /**
-         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-         */
-        oauthScopes?: string[];
-    }
-
-    export interface SlotAuthSettingsTwitter {
-        /**
-         * The consumer key of the Twitter app used for login
-         */
-        consumerKey: string;
-        /**
-         * The consumer secret of the Twitter app used for login.
-         */
-        consumerSecret: string;
-    }
-
-    export interface SlotConnectionString {
-        /**
-         * The name of the Connection String.
-         */
-        name: string;
-        /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
-         */
-        type: string;
-        /**
-         * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface SlotIdentity {
-        /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
-         */
-        tenantId: string;
-        /**
-         * Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-         *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the App Service has been created. More details are available below.
-         */
-        type: string;
-    }
-
-    export interface SlotLogs {
-        /**
-         * An `applicationLogs` block as defined below.
-         */
-        applicationLogs: outputs.appservice.SlotLogsApplicationLogs;
-        /**
-         * Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
-         */
-        detailedErrorMessagesEnabled?: boolean;
-        /**
-         * Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
-         */
-        failedRequestTracingEnabled?: boolean;
-        /**
-         * An `httpLogs` block as defined below.
-         */
-        httpLogs: outputs.appservice.SlotLogsHttpLogs;
-    }
-
-    export interface SlotLogsApplicationLogs {
-        /**
-         * An `azureBlobStorage` block as defined below.
-         */
-        azureBlobStorage?: outputs.appservice.SlotLogsApplicationLogsAzureBlobStorage;
-        /**
-         * The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
-         */
-        fileSystemLevel?: string;
-    }
-
-    export interface SlotLogsApplicationLogsAzureBlobStorage {
-        /**
-         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
-         */
-        level: string;
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The URL to the storage container, with a Service SAS token appended.
-         *
-         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
-         */
-        sasUrl: string;
-    }
-
-    export interface SlotLogsHttpLogs {
-        /**
-         * An `azureBlobStorage` block as defined below.
-         */
-        azureBlobStorage?: outputs.appservice.SlotLogsHttpLogsAzureBlobStorage;
-        /**
-         * A `fileSystem` block as defined below.
-         */
-        fileSystem?: outputs.appservice.SlotLogsHttpLogsFileSystem;
-    }
-
-    export interface SlotLogsHttpLogsAzureBlobStorage {
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The URL to the storage container, with a Service SAS token appended.
-         *
-         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
-         */
-        sasUrl: string;
-    }
-
-    export interface SlotLogsHttpLogsFileSystem {
-        /**
-         * The number of days to retain logs for.
-         */
-        retentionInDays: number;
-        /**
-         * The maximum size in megabytes that HTTP log files can use before being removed.
-         */
-        retentionInMb: number;
-    }
-
-    export interface SlotSiteConfig {
-        /**
-         * Are Managed Identity Credentials used for Azure Container Registry pull
-         */
-        acrUseManagedIdentityCredentials?: boolean;
-        /**
-         * If using User Managed Identity, the User Managed Identity Client Id
-         *
-         * > **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
-         */
-        acrUserManagedIdentityClientId?: string;
-        /**
-         * Should the slot be loaded at all times? Defaults to `false`.
-         *
-         * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `alwaysOn` must be set to `false`.
-         */
-        alwaysOn?: boolean;
-        /**
-         * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-         */
-        appCommandLine?: string;
-        /**
-         * The name of the slot to automatically swap to during deployment
-         */
-        autoSwapSlotName?: string;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors: outputs.appservice.SlotSiteConfigCors;
-        /**
-         * The ordering of default documents to load, if an address isn't specified.
-         */
-        defaultDocuments?: string[];
-        /**
-         * The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
-         */
-        dotnetFrameworkVersion?: string;
-        /**
-         * State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-         */
-        ftpsState: string;
-        /**
-         * The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
-         */
-        healthCheckPath?: string;
-        /**
-         * Is HTTP2 Enabled on this App Service? Defaults to `false`.
-         */
-        http2Enabled?: boolean;
-        /**
-         * A list of objects representing ip restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
-         */
-        ipRestrictions: outputs.appservice.SlotSiteConfigIpRestriction[];
-        /**
-         * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
-         */
-        javaContainer?: string;
-        /**
-         * The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
-         */
-        javaContainerVersion?: string;
-        /**
-         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
-         */
-        javaVersion?: string;
-        /**
-         * Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
-         *
-         * > **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
-         */
-        linuxFxVersion: string;
-        /**
-         * Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
-         *
-         * > **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
-         */
-        localMysqlEnabled: boolean;
-        /**
-         * The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
-         */
-        managedPipelineMode: string;
-        /**
-         * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-         */
-        minTlsVersion: string;
-        /**
-         * The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
-         */
-        numberOfWorkers: number;
-        /**
-         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
-         */
-        phpVersion?: string;
-        /**
-         * The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
-         */
-        pythonVersion?: string;
-        /**
-         * Is Remote Debugging Enabled? Defaults to `false`.
-         */
-        remoteDebuggingEnabled?: boolean;
-        /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
-         */
-        remoteDebuggingVersion: string;
-        /**
-         * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
-         *
-         * > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
-         */
-        scmIpRestrictions: outputs.appservice.SlotSiteConfigScmIpRestriction[];
-        /**
-         * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-         */
-        scmType: string;
-        /**
-         * IP security restrictions for scm to use main. Defaults to `false`.
-         *
-         * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
-         */
-        scmUseMainIpRestriction?: boolean;
-        /**
-         * Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-         *
-         * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-         */
-        use32BitWorkerProcess?: boolean;
-        /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-         *
-         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
-         */
-        vnetRouteAllEnabled: boolean;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled: boolean;
-        /**
-         * The Windows Docker container image (`DOCKER|<user/image:tag>`)
-         *
-         * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
-         */
-        windowsFxVersion: string;
-    }
-
-    export interface SlotSiteConfigCors {
-        /**
-         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: boolean;
-    }
-
-    export interface SlotSiteConfigIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
-         */
-        headers: outputs.appservice.SlotSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface SlotSiteConfigIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface SlotSiteConfigScmIpRestriction {
-        /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `scmIpRestriction` as defined below.
-         */
-        headers: outputs.appservice.SlotSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name for this IP Restriction.
-         */
-        name: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface SlotSiteConfigScmIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface SlotSiteCredential {
-        /**
-         * The password associated with the username, which can be used to publish to this App Service.
-         */
-        password: string;
-        /**
-         * The username which can be used to publish to this App Service
-         */
-        username: string;
-    }
-
-    export interface SlotStorageAccount {
-        /**
-         * The access key for the storage account.
-         */
-        accessKey: string;
-        /**
-         * The name of the storage account.
-         */
-        accountName: string;
-        /**
-         * The path to mount the storage within the site's runtime environment.
-         */
-        mountPath?: string;
-        /**
-         * The name of the storage account identifier.
-         */
-        name: string;
-        /**
-         * The name of the file share (container name, for Blob storage).
-         */
-        shareName: string;
-        /**
-         * The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
-         */
-        type: string;
-    }
-
     export interface SourceControlGithubActionConfiguration {
         /**
          * A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
@@ -16067,22 +13498,6 @@ export namespace appservice {
          * The username used to upload the image to the container registry. Changing this forces a new resource to be created.
          */
         registryUsername?: string;
-    }
-
-    export interface StaticSiteIdentity {
-        /**
-         * A list of Managed Identity IDs which should be assigned to this Static Site resource.
-         */
-        identityIds?: string[];
-        /**
-         * (Optional) The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        tenantId: string;
-        /**
-         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-         */
-        type: string;
     }
 
     export interface StaticWebAppBasicAuth {
@@ -16435,7 +13850,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -17069,7 +14484,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -17404,7 +14819,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -18436,7 +15851,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -19036,7 +16451,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          *
          * > **Note:** This property conflicts with `javaVersion`.
          */
@@ -19696,7 +17111,7 @@ export namespace appservice {
         /**
          * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
          *
-         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         * > **Note:** [Here](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
          */
         tenantAuthEndpoint: string;
         /**
@@ -20286,7 +17701,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
          *
          * > **Note:** This property conflicts with `javaVersion`.
          */
@@ -21134,7 +18549,7 @@ export namespace arcmachine {
 
     export interface GetServiceStatusExtensionService {
         /**
-         * The behavior of the service when the Arc-enabled machine starts up.
+         * The behaviour of the service when the Arc-enabled machine starts up.
          */
         startupType: string;
         /**
@@ -21145,7 +18560,7 @@ export namespace arcmachine {
 
     export interface GetServiceStatusGuestConfigurationService {
         /**
-         * The behavior of the service when the Arc-enabled machine starts up.
+         * The behaviour of the service when the Arc-enabled machine starts up.
          */
         startupType: string;
         /**
@@ -21173,7 +18588,7 @@ export namespace authorization {
         /**
          * A list of data actions allowed by this role.
          */
-        dataActions?: string[];
+        dataActions: string[];
         /**
          * A list of actions which are denied by this role.
          */
@@ -21181,7 +18596,7 @@ export namespace authorization {
         /**
          * A list of data actions which are denied by this role.
          */
-        notDataActions?: string[];
+        notDataActions: string[];
     }
 
     export interface RoleDefinitionPermission {
@@ -21361,10 +18776,6 @@ export namespace automanage {
 export namespace automation {
     export interface AccountEncryption {
         /**
-         * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
-         */
-        keySource?: string;
-        /**
          * The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
          */
         keyVaultKeyId: string;
@@ -21423,6 +18834,11 @@ export namespace automation {
          * The type of the connection field definition.
          */
         type: string;
+    }
+
+    export interface GetAccountEncryption {
+        keyVaultKeyId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface GetAccountIdentity {
@@ -21767,187 +19183,6 @@ export namespace automation {
         occurrence: number;
     }
 
-    export interface SoftwareUpdateConfigurationLinux {
-        /**
-         * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-         */
-        classificationsIncludeds: string[];
-        /**
-         * Specifies a list of packages to excluded from the Software Update Configuration.
-         */
-        excludedPackages?: string[];
-        /**
-         * Specifies a list of packages to included from the Software Update Configuration.
-         */
-        includedPackages?: string[];
-        /**
-         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
-         */
-        reboot?: string;
-    }
-
-    export interface SoftwareUpdateConfigurationPostTask {
-        /**
-         * Specifies a map of parameters for the task.
-         */
-        parameters?: {[key: string]: string};
-        /**
-         * The name of the runbook for the post task.
-         */
-        source?: string;
-    }
-
-    export interface SoftwareUpdateConfigurationPreTask {
-        /**
-         * Specifies a map of parameters for the task.
-         */
-        parameters?: {[key: string]: string};
-        /**
-         * The name of the runbook for the pre task.
-         */
-        source?: string;
-    }
-
-    export interface SoftwareUpdateConfigurationSchedule {
-        /**
-         * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-         */
-        advancedMonthDays?: number[];
-        /**
-         * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
-         */
-        advancedWeekDays?: string[];
-        creationTime: string;
-        /**
-         * A description for this Schedule.
-         */
-        description?: string;
-        /**
-         * The end time of the schedule.
-         */
-        expiryTime: string;
-        /**
-         * The time offset in minutes for the expiry time.
-         */
-        expiryTimeOffsetMinutes?: number;
-        /**
-         * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-         */
-        frequency: string;
-        /**
-         * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
-         */
-        interval?: number;
-        /**
-         * Whether the schedule is enabled. Defaults to `true`.
-         */
-        isEnabled?: boolean;
-        lastModifiedTime: string;
-        /**
-         * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-         */
-        monthlyOccurrence?: outputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence;
-        nextRun: string;
-        /**
-         * The time offset in minutes for the next run time.
-         */
-        nextRunOffsetMinutes?: number;
-        /**
-         * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-         */
-        startTime: string;
-        /**
-         * The time offset in minutes for the start time.
-         */
-        startTimeOffsetMinutes?: number;
-        /**
-         * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
-         */
-        timeZone?: string;
-    }
-
-    export interface SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
-        /**
-         * Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-         */
-        day: string;
-        /**
-         * Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
-         */
-        occurrence: number;
-    }
-
-    export interface SoftwareUpdateConfigurationTarget {
-        /**
-         * One or more `azureQuery` blocks as defined above.
-         */
-        azureQueries?: outputs.automation.SoftwareUpdateConfigurationTargetAzureQuery[];
-        /**
-         * One or more `nonAzureQuery` blocks as defined above.
-         */
-        nonAzureQueries?: outputs.automation.SoftwareUpdateConfigurationTargetNonAzureQuery[];
-    }
-
-    export interface SoftwareUpdateConfigurationTargetAzureQuery {
-        /**
-         * Specifies a list of locations to scope the query to.
-         */
-        locations?: string[];
-        /**
-         * Specifies a list of Subscription or Resource Group ARM Ids to query.
-         */
-        scopes?: string[];
-        /**
-         * Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-         */
-        tagFilter?: string;
-        /**
-         * A mapping of tags used for query filter. One or more `tags` block as defined below.
-         */
-        tags?: outputs.automation.SoftwareUpdateConfigurationTargetAzureQueryTag[];
-    }
-
-    export interface SoftwareUpdateConfigurationTargetAzureQueryTag {
-        /**
-         * Specifies the name of the tag to filter.
-         */
-        tag: string;
-        /**
-         * Specifies a list of values for this tag key.
-         */
-        values: string[];
-    }
-
-    export interface SoftwareUpdateConfigurationTargetNonAzureQuery {
-        /**
-         * Specifies the Log Analytics save search name.
-         */
-        functionAlias?: string;
-        /**
-         * The workspace id for Log Analytics in which the saved search in.
-         */
-        workspaceId?: string;
-    }
-
-    export interface SoftwareUpdateConfigurationWindows {
-        /**
-         * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         */
-        classificationsIncludeds: string[];
-        /**
-         * Specifies a list of knowledge base numbers excluded.
-         */
-        excludedKnowledgeBaseNumbers?: string[];
-        /**
-         * Specifies a list of knowledge base numbers included.
-         */
-        includedKnowledgeBaseNumbers?: string[];
-        /**
-         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
-         */
-        reboot?: string;
-    }
-
     export interface SourceControlSecurity {
         /**
          * The refresh token of specified rpeo.
@@ -22066,7 +19301,7 @@ export namespace backup {
          */
         startTime: string;
         /**
-         * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+         * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          */
         windowDuration: number;
     }
@@ -22130,7 +19365,7 @@ export namespace backup {
          */
         includeLastDays?: boolean;
         /**
-         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
          */
         months: string[];
         /**
@@ -22539,16 +19774,6 @@ export namespace batch {
         formula: string;
     }
 
-    export interface GetPoolCertificate {
-        /**
-         * The Batch pool ID.
-         */
-        id: string;
-        storeLocation: string;
-        storeName: string;
-        visibilities: string[];
-    }
-
     export interface GetPoolContainerConfiguration {
         /**
          * A list of container image names to use, as would be specified by `docker pull`.
@@ -22663,11 +19888,11 @@ export namespace batch {
         /**
          * A `azureBlobFileSystem` block defined as below.
          */
-        azureBlobFileSystems?: outputs.batch.GetPoolMountAzureBlobFileSystem[];
+        azureBlobFileSystems: outputs.batch.GetPoolMountAzureBlobFileSystem[];
         /**
          * A `azureFileShare` block defined as below.
          */
-        azureFileShares?: outputs.batch.GetPoolMountAzureFileShare[];
+        azureFileShares: outputs.batch.GetPoolMountAzureFileShare[];
         /**
          * A `cifsMount` block defined as below.
          */
@@ -23047,16 +20272,6 @@ export namespace batch {
          * The autoscale formula that needs to be used for scaling the Batch pool.
          */
         formula: string;
-    }
-
-    export interface PoolCertificate {
-        /**
-         * The ID of the Batch Pool.
-         */
-        id: string;
-        storeLocation: string;
-        storeName?: string;
-        visibilities?: string[];
     }
 
     export interface PoolContainerConfiguration {
@@ -23755,7 +20970,7 @@ export namespace cdn {
          */
         protocolType: string;
         /**
-         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. The only possible value is `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -23768,7 +20983,7 @@ export namespace cdn {
          */
         keyVaultSecretId: string;
         /**
-         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. The only possible value is `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -23868,7 +21083,7 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleCacheExpirationAction {
         /**
-         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          */
         behavior: string;
         /**
@@ -23879,7 +21094,7 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleCacheKeyQueryStringAction {
         /**
-         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          */
         behavior: string;
         /**
@@ -24262,7 +21477,7 @@ export namespace cdn {
 
     export interface EndpointGlobalDeliveryRuleCacheExpirationAction {
         /**
-         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         * The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
          */
         behavior: string;
         /**
@@ -24273,7 +21488,7 @@ export namespace cdn {
 
     export interface EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
         /**
-         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          */
         behavior: string;
         /**
@@ -24420,7 +21635,7 @@ export namespace cdn {
         /**
          * A `urlRewrite` block as defined below.
          *
-         * > **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+         * > **Note:** `urlRewrite` conflicts with `urlRedirect`
          */
         urlRewrite?: outputs.cdn.FrontdoorBatchRuleSetRuleActionsUrlRewrite;
     }
@@ -24858,9 +22073,9 @@ export namespace cdn {
          */
         transforms?: string[];
         /**
-         * One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         * One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
          *
-         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
          */
         values?: string[];
     }
@@ -24948,13 +22163,9 @@ export namespace cdn {
          */
         cipherSuite?: outputs.cdn.FrontdoorCustomDomainTlsCipherSuite;
         /**
-         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         */
-        minimumTlsVersion: string;
-        /**
          * TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
          */
-        minimumVersion: string;
+        minimumVersion?: string;
     }
 
     export interface FrontdoorCustomDomainTlsCipherSuite {
@@ -25317,34 +22528,32 @@ export namespace cdn {
 
     export interface FrontdoorRuleActions {
         /**
-         * A `requestHeaderAction` block as defined below.
+         * One or more `modifyRequestHeader` block as defined below.
          */
-        requestHeaderActions?: outputs.cdn.FrontdoorRuleActionsRequestHeaderAction[];
+        modifyRequestHeaders?: outputs.cdn.FrontdoorRuleActionsModifyRequestHeader[];
         /**
-         * A `responseHeaderAction` block as defined below.
+         * One or more `modifyResponseHeader` block as defined below.
          */
-        responseHeaderActions?: outputs.cdn.FrontdoorRuleActionsResponseHeaderAction[];
+        modifyResponseHeaders?: outputs.cdn.FrontdoorRuleActionsModifyResponseHeader[];
         /**
-         * A `routeConfigurationOverrideAction` block as defined below.
+         * A `routeConfigurationOverride` block as defined below.
+         *
+         * > **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
          */
-        routeConfigurationOverrideAction?: outputs.cdn.FrontdoorRuleActionsRouteConfigurationOverrideAction;
+        routeConfigurationOverride?: outputs.cdn.FrontdoorRuleActionsRouteConfigurationOverride;
         /**
-         * A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+         * A `urlRedirect` block as defined below.
+         *
+         * > **Note:** `urlRewrite` conflicts with `urlRedirect`
          */
-        urlRedirectAction?: outputs.cdn.FrontdoorRuleActionsUrlRedirectAction;
+        urlRedirect?: outputs.cdn.FrontdoorRuleActionsUrlRedirect;
         /**
-         * A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+         * A `urlRewrite` block as defined below.
          */
-        urlRewriteAction?: outputs.cdn.FrontdoorRuleActionsUrlRewriteAction;
+        urlRewrite?: outputs.cdn.FrontdoorRuleActionsUrlRewrite;
     }
 
-    export interface FrontdoorRuleActionsRequestHeaderAction {
-        /**
-         * The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
-         *
-         * > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
-         */
-        headerAction: string;
+    export interface FrontdoorRuleActionsModifyRequestHeader {
         /**
          * The name of the header to modify.
          */
@@ -25352,18 +22561,16 @@ export namespace cdn {
         /**
          * The value to append or overwrite.
          *
-         * > **Note:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
+         * > **Note:** `headerValue` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
          */
-        value?: string;
+        headerValue?: string;
+        /**
+         * The action to take on `headerName`. Possible values are `Append`, `Overwrite`, and `Delete`.
+         */
+        operator: string;
     }
 
-    export interface FrontdoorRuleActionsResponseHeaderAction {
-        /**
-         * The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
-         *
-         * > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
-         */
-        headerAction: string;
+    export interface FrontdoorRuleActionsModifyResponseHeader {
         /**
          * The name of the header to modify.
          */
@@ -25371,512 +22578,474 @@ export namespace cdn {
         /**
          * The value to append or overwrite.
          *
-         * > **Note:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
+         * > **Note:** `headerValue` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
          */
-        value?: string;
+        headerValue?: string;
+        /**
+         * The action to take on `headerName`. Possible values are `Append`, `Overwrite`, and `Delete`.
+         */
+        operator: string;
     }
 
-    export interface FrontdoorRuleActionsRouteConfigurationOverrideAction {
+    export interface FrontdoorRuleActionsRouteConfigurationOverride {
         /**
-         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
+         * A `caching` block as defined below.
          */
-        cacheBehavior?: string;
+        caching: outputs.cdn.FrontdoorRuleActionsRouteConfigurationOverrideCaching;
         /**
-         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+         * An `originGroup` block as defined below.
          */
-        cacheDuration?: string;
+        originGroup?: outputs.cdn.FrontdoorRuleActionsRouteConfigurationOverrideOriginGroup;
+    }
+
+    export interface FrontdoorRuleActionsRouteConfigurationOverrideCaching {
         /**
-         * The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
-         */
-        cdnFrontdoorOriginGroupId?: string;
-        /**
-         * Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+         * Controls how Front Door handles cache behaviour for the response. Possible values are `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing`, and `Disabled`.
          *
-         * > **Note:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+         * > **Note:** If `behaviour` is set to `Disabled`, you cannot set `compressionEnabled`, `duration`, `queryStringBehaviour`, or `queryStringParameters`.
+         */
+        behaviour: string;
+        /**
+         * Whether compression is enabled. Defaults to `false`.
          */
         compressionEnabled?: boolean;
         /**
-         * The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+         * When `behaviour` is set to `OverrideAlways` or `OverrideIfOriginMissing`, this field specifies the cache duration to use and is required. The maximum allowed value is `365.23:59:59`. If the desired maximum cache duration is less than `1` day, specify it in the `HH:MM:SS` format, for example `23:59:59`.
          *
-         * > **Note:** If the `cdnFrontdoorOriginGroupId` is not defined you cannot set the `forwardingProtocol`.
+         * > **Note:** `duration` must not be set when `behaviour` is set to `HonorOrigin`.
          */
-        forwardingProtocol?: string;
+        duration?: string;
         /**
-         * `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
-         */
-        queryStringCachingBehavior?: string;
-        /**
-         * A list of query string parameter names.
+         * Controls how query strings contribute to the cache key. Possible values are `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings`, and `IncludeSpecifiedQueryStrings`.
          *
-         * > **Note:** `queryStringParameters` is a required field when the `queryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+         * > **Note:** `queryStringBehaviour` is required when `behaviour` is not set to `Disabled`.
+         */
+        queryStringBehaviour?: string;
+        /**
+         * A list of query string parameter names. A maximum of `100` parameters may be defined.
+         *
+         * > **Note:** `queryStringParameters` is required when `queryStringBehaviour` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`, and must not be set when `queryStringBehaviour` is set to `UseQueryString` or `IgnoreQueryString`.
          */
         queryStringParameters?: string[];
     }
 
-    export interface FrontdoorRuleActionsUrlRedirectAction {
+    export interface FrontdoorRuleActionsRouteConfigurationOverrideOriginGroup {
         /**
-         * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
+         * The Front Door Origin Group resource ID that the request should be routed to.
+         *
+         * > **Note:** If you remove the `originGroup` block from a rule that currently points at the only enabled origin in an Origin Group, apply the Batch Rule Set update first and then remove or disable the last origin in a separate apply. The service rejects deleting or disabling the last origin while the Origin Group is still associated with a route or a rule.
+         */
+        cdnFrontdoorOriginGroupId: string;
+        /**
+         * The forwarding protocol the request is redirected as. Possible values are `MatchRequest`, `HttpOnly`, and `HttpsOnly`.
+         */
+        forwardingProtocol: string;
+    }
+
+    export interface FrontdoorRuleActionsUrlRedirect {
+        /**
+         * The fragment to use in the redirect. The value must be a string between `1` and `1024` characters in length and must not start with `#`. Leave this unset to preserve the incoming fragment.
          */
         destinationFragment?: string;
         /**
-         * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
+         * The host name you want the request to be redirected to. The value must be a string between `1` and `2048` characters in length. Leave this unset to preserve the incoming host.
          */
-        destinationHostname: string;
+        destinationHostName?: string;
         /**
-         * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
+         * The path to use in the redirect. The value must be a string and include the leading `/`. Leave this unset to preserve the incoming path.
          */
         destinationPath?: string;
         /**
-         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
+         * The query string used in the redirect URL. The value must be in the `<key>=<value>` or `<key>={<action_server_variable>}` format and must not include the leading `?`. Leave this unset to preserve the incoming query string. The maximum allowed length for this field is `2048` characters.
          */
         queryString?: string;
         /**
-         * The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+         * The protocol the request is redirected as. Possible values are `MatchRequest`, `Http`, and `Https`. Defaults to `MatchRequest`.
          */
         redirectProtocol?: string;
         /**
-         * The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+         * The response type to return to the requestor. Possible values are `Moved`, `Found`, `TemporaryRedirect`, and `PermanentRedirect`.
          */
         redirectType: string;
     }
 
-    export interface FrontdoorRuleActionsUrlRewriteAction {
+    export interface FrontdoorRuleActionsUrlRewrite {
         /**
-         * The destination path to use in the rewrite. The destination path overwrites the source pattern.
+         * The destination path to use in the rewrite.
          */
-        destination: string;
+        destinationPath: string;
         /**
-         * Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+         * Whether to append the remaining path after the source pattern to the new destination path. Defaults to `false`.
          */
-        preserveUnmatchedPath?: boolean;
+        preserveUnmatchedPathEnabled?: boolean;
         /**
-         * The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+         * The source pattern in the URL path to replace.
          */
         sourcePattern: string;
     }
 
     export interface FrontdoorRuleConditions {
         /**
-         * A `clientPortCondition` block as defined below.
+         * One or more `clientPort` blocks as defined below.
          */
-        clientPortConditions?: outputs.cdn.FrontdoorRuleConditionsClientPortCondition[];
+        clientPorts?: outputs.cdn.FrontdoorRuleConditionsClientPort[];
         /**
-         * A `cookiesCondition` block as defined below.
+         * One or more `deviceType` blocks as defined below.
          */
-        cookiesConditions?: outputs.cdn.FrontdoorRuleConditionsCookiesCondition[];
+        deviceTypes?: outputs.cdn.FrontdoorRuleConditionsDeviceType[];
         /**
-         * A `hostNameCondition` block as defined below.
+         * One or more `hostName` blocks as defined below.
          */
-        hostNameConditions?: outputs.cdn.FrontdoorRuleConditionsHostNameCondition[];
+        hostNames?: outputs.cdn.FrontdoorRuleConditionsHostName[];
         /**
-         * A `httpVersionCondition` block as defined below.
+         * One or more `httpVersion` blocks as defined below.
          */
-        httpVersionConditions?: outputs.cdn.FrontdoorRuleConditionsHttpVersionCondition[];
+        httpVersions?: outputs.cdn.FrontdoorRuleConditionsHttpVersion[];
         /**
-         * A `isDeviceCondition` block as defined below.
+         * One or more `postArgument` blocks as defined below.
          */
-        isDeviceConditions?: outputs.cdn.FrontdoorRuleConditionsIsDeviceCondition[];
+        postArguments?: outputs.cdn.FrontdoorRuleConditionsPostArgument[];
         /**
-         * A `postArgsCondition` block as defined below.
+         * One or more `queryString` blocks as defined below.
          */
-        postArgsConditions?: outputs.cdn.FrontdoorRuleConditionsPostArgsCondition[];
+        queryStrings?: outputs.cdn.FrontdoorRuleConditionsQueryString[];
         /**
-         * A `queryStringCondition` block as defined below.
+         * One or more `remoteAddress` blocks as defined below.
          */
-        queryStringConditions?: outputs.cdn.FrontdoorRuleConditionsQueryStringCondition[];
+        remoteAddresses?: outputs.cdn.FrontdoorRuleConditionsRemoteAddress[];
         /**
-         * A `remoteAddressCondition` block as defined below.
+         * One or more `requestBody` blocks as defined below.
          */
-        remoteAddressConditions?: outputs.cdn.FrontdoorRuleConditionsRemoteAddressCondition[];
+        requestBodies?: outputs.cdn.FrontdoorRuleConditionsRequestBody[];
         /**
-         * A `requestBodyCondition` block as defined below.
+         * One or more `requestCookies` blocks as defined below.
          */
-        requestBodyConditions?: outputs.cdn.FrontdoorRuleConditionsRequestBodyCondition[];
+        requestCookies?: outputs.cdn.FrontdoorRuleConditionsRequestCooky[];
         /**
-         * A `requestHeaderCondition` block as defined below.
+         * One or more `requestFileExtension` blocks as defined below.
          */
-        requestHeaderConditions?: outputs.cdn.FrontdoorRuleConditionsRequestHeaderCondition[];
+        requestFileExtensions?: outputs.cdn.FrontdoorRuleConditionsRequestFileExtension[];
         /**
-         * A `requestMethodCondition` block as defined below.
+         * One or more `requestFilename` blocks as defined below.
          */
-        requestMethodConditions?: outputs.cdn.FrontdoorRuleConditionsRequestMethodCondition[];
+        requestFilenames?: outputs.cdn.FrontdoorRuleConditionsRequestFilename[];
         /**
-         * A `requestSchemeCondition` block as defined below.
+         * One or more `requestHeader` blocks as defined below.
          */
-        requestSchemeConditions?: outputs.cdn.FrontdoorRuleConditionsRequestSchemeCondition[];
+        requestHeaders?: outputs.cdn.FrontdoorRuleConditionsRequestHeader[];
         /**
-         * A `requestUriCondition` block as defined below.
+         * One or more `requestMethod` blocks as defined below.
          */
-        requestUriConditions?: outputs.cdn.FrontdoorRuleConditionsRequestUriCondition[];
+        requestMethods?: outputs.cdn.FrontdoorRuleConditionsRequestMethod[];
         /**
-         * A `serverPortCondition` block as defined below.
+         * One or more `requestPath` blocks as defined below.
          */
-        serverPortConditions?: outputs.cdn.FrontdoorRuleConditionsServerPortCondition[];
+        requestPaths?: outputs.cdn.FrontdoorRuleConditionsRequestPath[];
         /**
-         * A `socketAddressCondition` block as defined below.
+         * One or more `requestScheme` blocks as defined below.
          */
-        socketAddressConditions?: outputs.cdn.FrontdoorRuleConditionsSocketAddressCondition[];
+        requestSchemes?: outputs.cdn.FrontdoorRuleConditionsRequestScheme[];
         /**
-         * A `sslProtocolCondition` block as defined below.
+         * One or more `requestUrl` blocks as defined below.
          */
-        sslProtocolConditions?: outputs.cdn.FrontdoorRuleConditionsSslProtocolCondition[];
+        requestUrls?: outputs.cdn.FrontdoorRuleConditionsRequestUrl[];
         /**
-         * A `urlFileExtensionCondition` block as defined below.
+         * One or more `serverPort` blocks as defined below.
          */
-        urlFileExtensionConditions?: outputs.cdn.FrontdoorRuleConditionsUrlFileExtensionCondition[];
+        serverPorts?: outputs.cdn.FrontdoorRuleConditionsServerPort[];
         /**
-         * A `urlFilenameCondition` block as defined below.
+         * One or more `socketAddress` blocks as defined below.
          */
-        urlFilenameConditions?: outputs.cdn.FrontdoorRuleConditionsUrlFilenameCondition[];
+        socketAddresses?: outputs.cdn.FrontdoorRuleConditionsSocketAddress[];
         /**
-         * A `urlPathCondition` block as defined below.
+         * One or more `sslProtocol` blocks as defined below.
          */
-        urlPathConditions?: outputs.cdn.FrontdoorRuleConditionsUrlPathCondition[];
+        sslProtocols?: outputs.cdn.FrontdoorRuleConditionsSslProtocol[];
     }
 
-    export interface FrontdoorRuleConditionsClientPortCondition {
+    export interface FrontdoorRuleConditionsClientPort {
         /**
-         * One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-    }
-
-    export interface FrontdoorRuleConditionsCookiesCondition {
-        /**
-         * A string value representing the name of the cookie.
-         */
-        cookieName: string;
-        /**
-         * One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+         * One or more values representing the client port to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsDeviceType {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: string;
+        /**
+         * The device type to match. Possible values are `Mobile` and `Desktop`.
+         *
+         * > **Note:** Currently, only a single value may be specified.
+         */
+        values: string;
+    }
+
+    export interface FrontdoorRuleConditionsHostName {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
          */
         transforms?: string[];
+        /**
+         * A list of one or more values representing the request hostname to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
     }
 
-    export interface FrontdoorRuleConditionsHostNameCondition {
+    export interface FrontdoorRuleConditionsHttpVersion {
         /**
-         * A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+         * A list of one or more HTTP versions to match. Possible values are `2.0`, `1.1`, `1.0`, and `0.9`.
          */
-        transforms?: string[];
+        values: string[];
     }
 
-    export interface FrontdoorRuleConditionsHttpVersionCondition {
-        /**
-         * What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * Possible value `Equal`. Defaults to `Equal`.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsIsDeviceCondition {
-        /**
-         * Which device should this rule match on? Possible values `Mobile` or `Desktop`.
-         */
-        matchValues?: string;
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * Possible value `Equal`. Defaults to `Equal`.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsPostArgsCondition {
-        /**
-         * One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
+    export interface FrontdoorRuleConditionsPostArgument {
         /**
          * A string value representing the name of the `POST` argument.
          */
-        postArgsName: string;
+        name: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
-         */
-        transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsQueryStringCondition {
-        /**
-         * One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
          */
         transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsRemoteAddressCondition {
         /**
-         * For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+         * One or more values representing the `POST` argument value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
          *
-         * > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
          */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
-         */
-        operator?: string;
+        values?: string[];
     }
 
-    export interface FrontdoorRuleConditionsRequestBodyCondition {
+    export interface FrontdoorRuleConditionsQueryString {
         /**
-         * A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
          */
         transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsRequestHeaderCondition {
         /**
-         * A string value representing the name of the `POST` argument.
-         */
-        headerName: string;
-        /**
-         * One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-        /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
-         */
-        transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsRequestMethodCondition {
-        /**
-         * A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * Possible value `Equal`. Defaults to `Equal`.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsRequestSchemeCondition {
-        /**
-         * The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
-         */
-        matchValues?: string;
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * Possible value `Equal`. Defaults to `Equal`.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsRequestUriCondition {
-        /**
-         * One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-        /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
-         */
-        transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsServerPortCondition {
-        /**
-         * A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-    }
-
-    export interface FrontdoorRuleConditionsSocketAddressCondition {
-        /**
-         * Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+         * One or more values representing the query string value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
          *
-         * > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
          */
-        matchValues?: string[];
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRemoteAddress {
         /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         * The type of remote address to match. Possible values are `GeoMatch`, `IPMatch`, `NotGeoMatch`, and `NotIPMatch`.
          */
-        negateCondition?: boolean;
+        operator: string;
         /**
-         * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
+         * A list of CIDR ranges or country codes. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
          *
-         * > **Note:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsSslProtocolCondition {
-        /**
-         * A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * Possible value `Equal`. Defaults to `Equal`.
-         */
-        operator?: string;
-    }
-
-    export interface FrontdoorRuleConditionsUrlFileExtensionCondition {
-        /**
-         * A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-        /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
-         */
-        transforms?: string[];
-    }
-
-    export interface FrontdoorRuleConditionsUrlFilenameCondition {
-        /**
-         * A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+         * > **Note:** When `operator` is set to `GeoMatch` or `NotGeoMatch`, each value in `values` must be a two-letter uppercase country code.
          *
-         * > **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
+         * > **Note:** When `operator` is set to `IPMatch` or `NotIPMatch`, each value in `values` must be a valid CIDR range.
          */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-         */
-        operator: string;
-        /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
-         */
-        transforms?: string[];
+        values: string[];
     }
 
-    export interface FrontdoorRuleConditionsUrlPathCondition {
+    export interface FrontdoorRuleConditionsRequestBody {
         /**
-         * One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
-         */
-        matchValues?: string[];
-        /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-         */
-        negateCondition?: boolean;
-        /**
-         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx` or `Wildcard`. Details can be found in the `Condition Operator List` below.
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
          */
         transforms?: string[];
+        /**
+         * One or more values representing the request body text to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestCooky {
+        /**
+         * The name of the cookie.
+         */
+        name: string;
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the cookie value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestFileExtension {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the request file extension to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestFilename {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the request file name to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestHeader {
+        /**
+         * The name of the request header.
+         */
+        name: string;
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the request header value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestMethod {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: string;
+        /**
+         * A list of one or more HTTP methods. Possible values are `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. A maximum of `7` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         */
+        values: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestPath {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `Wildcard`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, `NotRegEx`, and `NotWildcard`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestScheme {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: string;
+        /**
+         * The request protocol to match. Possible values are `HTTP` and `HTTPS`.
+         *
+         * > **Note:** Currently, only a single value may be specified
+         */
+        values: string;
+    }
+
+    export interface FrontdoorRuleConditionsRequestUrl {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: string[];
+        /**
+         * One or more values representing the request URL to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsServerPort {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: string;
+        /**
+         * A list of one or more values representing the server port to match. Possible values are `80` and `443`. If multiple values are specified, they are evaluated using `OR` logic.
+         */
+        values?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsSocketAddress {
+        /**
+         * The type of match. Possible values are `IPMatch` and `NotIPMatch`.
+         */
+        operator: string;
+        /**
+         * One or more IP address ranges. A maximum of `25` values may be defined. If multiple IP address ranges are specified, they are evaluated using `OR` logic.
+         */
+        values: string[];
+    }
+
+    export interface FrontdoorRuleConditionsSslProtocol {
+        operator: string;
+        values: string[];
     }
 
     export interface FrontdoorSecretSecret {
@@ -25887,6 +23056,10 @@ export namespace cdn {
     }
 
     export interface FrontdoorSecretSecretCustomerCertificate {
+        /**
+         * The key vault certificate expiration date.
+         */
+        expirationDate: string;
         /**
          * The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
          *
@@ -26458,10 +23631,6 @@ export namespace cdn {
          */
         cipherSuites: outputs.cdn.GetFrontdoorCustomDomainTlCipherSuite[];
         /**
-         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         */
-        minimumTlsVersion: string;
-        /**
          * The TLS protocol version that will be used for Https connections.
          */
         minimumVersion: string;
@@ -26688,85 +23857,6 @@ export namespace chaosstudio {
 }
 
 export namespace cognitive {
-    export interface AIServicesCustomerManagedKey {
-        /**
-         * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
-         */
-        identityClientId?: string;
-        /**
-         * The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
-         */
-        keyVaultKeyId: string;
-        /**
-         * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
-         *
-         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         */
-        managedHsmKeyId: string;
-    }
-
-    export interface AIServicesIdentity {
-        /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
-         *
-         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
-         */
-        type: string;
-    }
-
-    export interface AIServicesNetworkAcls {
-        /**
-         * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-         */
-        bypass?: string;
-        /**
-         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
-         */
-        defaultAction: string;
-        /**
-         * One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
-         */
-        ipRules?: string[];
-        /**
-         * A `virtualNetworkRules` block as defined below.
-         */
-        virtualNetworkRules?: outputs.cognitive.AIServicesNetworkAclsVirtualNetworkRule[];
-    }
-
-    export interface AIServicesNetworkAclsVirtualNetworkRule {
-        /**
-         * Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
-         */
-        ignoreMissingVnetServiceEndpoint?: boolean;
-        /**
-         * The ID of the subnet which should be able to access this AI Services Account.
-         */
-        subnetId: string;
-    }
-
-    export interface AIServicesStorage {
-        /**
-         * The client ID of the Managed Identity associated with the Storage Account.
-         */
-        identityClientId?: string;
-        /**
-         * The ID of the Storage Account.
-         */
-        storageAccountId: string;
-    }
-
     export interface AccountCustomerManagedKey {
         /**
          * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
@@ -26880,8 +23970,10 @@ export namespace cognitive {
         name: string;
         /**
          * The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+         *
+         * > **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
          */
-        severityThreshold: string;
+        severityThreshold?: string;
         /**
          * Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
          */
@@ -26930,7 +24022,7 @@ export namespace cognitive {
         /**
          * The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+         * > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
          */
         name: string;
         /**
@@ -27792,7 +24884,7 @@ export namespace compute {
          *
          * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          *
-         * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+         * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
          */
         name: string;
         /**
@@ -27954,6 +25046,10 @@ export namespace compute {
 
     export interface GetVirtualMachineScaleSetNetworkInterface {
         /**
+         * Whether accelerated networking is enabled.
+         */
+        acceleratedNetworkingEnabled: boolean;
+        /**
          * The auxiliary mode for the network interface.
          */
         auxiliaryMode: string;
@@ -27966,17 +25062,13 @@ export namespace compute {
          */
         dnsServers: string[];
         /**
-         * Whether accelerated networking is enabled.
-         */
-        enableAcceleratedNetworking: boolean;
-        /**
-         * Whether IP forwarding is enabled on this NIC.
-         */
-        enableIpForwarding: boolean;
-        /**
          * An `ipConfiguration` block as defined below.
          */
         ipConfigurations: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * Whether IP forwarding is enabled on this NIC.
+         */
+        ipForwardingEnabled: boolean;
         /**
          * The name of this Virtual Machine Scale Set.
          */
@@ -28284,7 +25376,7 @@ export namespace compute {
         /**
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: string;
     }
@@ -28354,13 +25446,13 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
         /**
-         * Should automatic rollbacks be disabled?
+         * Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
          */
-        disableAutomaticRollback: boolean;
+        automaticOsUpgradeEnabled: boolean;
         /**
-         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+         * Whether automatic rollbacks are enabled.
          */
-        enableAutomaticOsUpgrade: boolean;
+        automaticRollbackEnabled: boolean;
     }
 
     export interface LinuxVirtualMachineScaleSetBootDiagnostics {
@@ -28415,14 +25507,6 @@ export namespace compute {
          * > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          */
         storageAccountType: string;
-        /**
-         * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-         */
-        ultraSsdDiskIopsReadWrite: number;
-        /**
-         * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-         */
-        ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          *
@@ -28537,6 +25621,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetNetworkInterface {
         /**
+         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         */
+        acceleratedNetworkingEnabled?: boolean;
+        /**
          * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
          *
          * > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -28553,17 +25641,13 @@ export namespace compute {
          */
         dnsServers?: string[];
         /**
-         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
-         */
-        enableAcceleratedNetworking?: boolean;
-        /**
-         * Does this Network Interface support IP Forwarding? Defaults to `false`.
-         */
-        enableIpForwarding?: boolean;
-        /**
          * One or more `ipConfiguration` blocks as defined above.
          */
         ipConfigurations: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * Does this Network Interface support IP Forwarding? Defaults to `false`.
+         */
+        ipForwardingEnabled?: boolean;
         /**
          * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
@@ -28702,8 +25786,6 @@ export namespace compute {
          * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          *
          * > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-         *
-         * > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         securityEncryptionType?: string;
         /**
@@ -28724,7 +25806,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -28986,6 +26068,8 @@ export namespace compute {
          * The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
+        diskIopsReadWrite: number;
+        diskMbpsReadWrite: number;
         /**
          * The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          */
@@ -28998,14 +26082,6 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
          */
         storageAccountType: string;
-        /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         */
-        ultraSsdDiskIopsReadWrite: number;
-        /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         */
-        ultraSsdDiskMbpsReadWrite: number;
         /**
          * Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
          */
@@ -29088,6 +26164,7 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterface {
+        acceleratedNetworkingEnabled?: boolean;
         /**
          * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
          *
@@ -29107,17 +26184,10 @@ export namespace compute {
          */
         dnsServers?: string[];
         /**
-         * Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-         */
-        enableAcceleratedNetworking?: boolean;
-        /**
-         * Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-         */
-        enableIpForwarding?: boolean;
-        /**
          * One or more `ipConfiguration` blocks as defined above.
          */
         ipConfigurations: outputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        ipForwardingEnabled?: boolean;
         /**
          * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
@@ -29260,7 +26330,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -29371,14 +26441,11 @@ export namespace compute {
          * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
          */
         adminUsername: string;
+        automaticUpdatesEnabled?: boolean;
         /**
          * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          */
         computerNamePrefix: string;
-        /**
-         * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-         */
-        enableAutomaticUpdates?: boolean;
         /**
          * Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          *
@@ -29531,10 +26598,6 @@ export namespace compute {
          * > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
          */
         virtualMachineSizes: outputs.compute.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize[];
-        /**
-         * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
-         */
-        vmSizes: string[];
     }
 
     export interface OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
@@ -30547,7 +27610,7 @@ export namespace compute {
         /**
          * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
          *
-         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
          */
         managedDiskType: string;
         /**
@@ -30786,7 +27849,7 @@ export namespace compute {
         /**
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: string;
     }
@@ -30856,13 +27919,13 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
         /**
-         * Should automatic rollbacks be disabled?
-         */
-        disableAutomaticRollback: boolean;
-        /**
          * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
          */
-        enableAutomaticOsUpgrade: boolean;
+        automaticOsUpgradeEnabled: boolean;
+        /**
+         * Should automatic rollbacks be enabled?
+         */
+        automaticRollbackEnabled: boolean;
     }
 
     export interface WindowsVirtualMachineScaleSetBootDiagnostics {
@@ -30917,14 +27980,6 @@ export namespace compute {
          * > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          */
         storageAccountType: string;
-        /**
-         * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-         */
-        ultraSsdDiskIopsReadWrite: number;
-        /**
-         * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-         */
-        ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          *
@@ -31039,6 +28094,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetNetworkInterface {
         /**
+         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         */
+        acceleratedNetworkingEnabled?: boolean;
+        /**
          * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
          *
          * > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -31055,17 +28114,13 @@ export namespace compute {
          */
         dnsServers?: string[];
         /**
-         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
-         */
-        enableAcceleratedNetworking?: boolean;
-        /**
-         * Does this Network Interface support IP Forwarding? Defaults to `false`.
-         */
-        enableIpForwarding?: boolean;
-        /**
          * One or more `ipConfiguration` blocks as defined above.
          */
         ipConfigurations: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * Does this Network Interface support IP Forwarding? Defaults to `false`.
+         */
+        ipForwardingEnabled?: boolean;
         /**
          * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
@@ -31204,8 +28259,6 @@ export namespace compute {
          * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          *
          * > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-         *
-         * > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         securityEncryptionType?: string;
         /**
@@ -31226,7 +28279,7 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
     }
@@ -31469,17 +28522,6 @@ export namespace confidentialledger {
 }
 
 export namespace config {
-    export interface EnhancedValidation {
-        /**
-         * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-         */
-        locations?: boolean;
-        /**
-         * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-         */
-        resourceProviders?: boolean;
-    }
-
     export interface Features {
         apiManagement?: outputs.config.FeaturesApiManagement;
         appConfiguration?: outputs.config.FeaturesAppConfiguration;
@@ -31666,10 +28708,6 @@ export namespace config {
     export interface FeaturesVirtualMachine {
         deleteOsDiskOnDeletion?: boolean;
         detachImplicitDataDiskOnDeletion?: boolean;
-        /**
-         * @deprecated 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-         */
-        gracefulShutdown?: boolean;
         skipShutdownAndForceDelete?: boolean;
     }
 
@@ -32358,7 +29396,7 @@ export namespace containerapp {
          */
         passwordSecretName?: string;
         /**
-         * The hostname for the Container Registry.
+         * The FQDN for the Container Registry.
          *
          * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
          */
@@ -32583,10 +29621,6 @@ export namespace containerapp {
          */
         port: number;
         /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
-        /**
          * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
          */
         timeout?: number;
@@ -32690,10 +29724,6 @@ export namespace containerapp {
          * The port number on which to connect. Possible values are between `1` and `65535`.
          */
         port: number;
-        /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
         /**
          * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
          */
@@ -32918,7 +29948,7 @@ export namespace containerapp {
         /**
          * The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
          *
-         * > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+         * > **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
          */
         identity?: string;
         /**
@@ -33162,7 +30192,7 @@ export namespace containerapp {
          */
         passwordSecretName: string;
         /**
-         * The hostname for the Container Registry.
+         * The FQDN for the Container Registry.
          */
         server: string;
         /**
@@ -33347,10 +30377,6 @@ export namespace containerapp {
          */
         port: number;
         /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
-        /**
          * Time in seconds after which the probe times out.
          */
         timeout: number;
@@ -33454,10 +30480,6 @@ export namespace containerapp {
          * The port number on which to connect.
          */
         port: number;
-        /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
         /**
          * Time in seconds after which the probe times out.
          */
@@ -33667,14 +30689,14 @@ export namespace containerapp {
          */
         pollingIntervalInSeconds?: number;
         /**
-         * A `rules` block as defined below.
+         * One or more `rules` blocks as defined below.
          */
         rules?: outputs.containerapp.JobEventTriggerConfigScaleRule[];
     }
 
     export interface JobEventTriggerConfigScaleRule {
         /**
-         * A `authentication` block as defined below.
+         * One or more `authentication` blocks as defined below.
          */
         authentications?: outputs.containerapp.JobEventTriggerConfigScaleRuleAuthentication[];
         /**
@@ -33912,10 +30934,6 @@ export namespace containerapp {
          */
         port: number;
         /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
-        /**
          * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
          */
         timeout?: number;
@@ -34019,10 +31037,6 @@ export namespace containerapp {
          * The port number on which to connect. Possible values are between `1` and `65535`.
          */
         port: number;
-        /**
-         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         */
-        terminationGracePeriodSeconds: number;
         /**
          * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
          */
@@ -34276,7 +31290,7 @@ export namespace containerservice {
         /**
          * The intermediate certificate private key object name in Azure Key Vault.
          *
-         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          */
         keyObjectName: string;
         /**
@@ -34638,9 +31652,183 @@ export namespace containerservice {
         optional?: boolean;
     }
 
+    export interface GetAutomaticClusterApiServerAccess {
+        /**
+         * A list of IP ranges authorised to access the API server.
+         */
+        authorizedIpRanges: string[];
+        /**
+         * The ID of the subnet that the API server is accessible from.
+         */
+        subnetId: string;
+    }
+
+    export interface GetAutomaticClusterHostedSystem {
+        /**
+         * The ID of the subnet used for the hosted system nodes.
+         */
+        nodeSubnetId: string;
+        /**
+         * The ID of the subnet used for the system nodes.
+         */
+        systemNodeSubnetId: string;
+    }
+
+    export interface GetAutomaticClusterIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+         */
+        type: string;
+    }
+
+    export interface GetAutomaticClusterKubeConfig {
+        /**
+         * Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+         */
+        clientCertificate: string;
+        /**
+         * Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+         */
+        clientKey: string;
+        /**
+         * Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+         */
+        clusterCaCertificate: string;
+        /**
+         * The Kubernetes cluster server host.
+         */
+        host: string;
+        /**
+         * A password or token used to authenticate to the Kubernetes cluster.
+         */
+        password: string;
+        /**
+         * A username used to authenticate to the Kubernetes cluster.
+         */
+        username: string;
+    }
+
+    export interface GetAutomaticClusterKubeletIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface GetAutomaticClusterPrivateCluster {
+        /**
+         * The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+         */
+        privateDnsZoneId: string;
+        /**
+         * If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+         */
+        publicFullyQualifiedDomainNameEnabled: boolean;
+    }
+
+    export interface GetAutomaticClusterServiceMesh {
+        /**
+         * A `certificateAuthority` block as documented below.
+         */
+        certificateAuthorities: outputs.containerservice.GetAutomaticClusterServiceMeshCertificateAuthority[];
+        /**
+         * If the Istio External Ingress Gateway is enabled.
+         */
+        externalIngressGatewayEnabled: boolean;
+        /**
+         * If the Istio Internal Ingress Gateway is enabled.
+         */
+        internalIngressGatewayEnabled: boolean;
+        /**
+         * The proxy redirect mechanism configured for the Istio service mesh.
+         */
+        proxyRedirectMechanism: string;
+        /**
+         * List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
+         */
+        revisions: string[];
+    }
+
+    export interface GetAutomaticClusterServiceMeshCertificateAuthority {
+        /**
+         * The certificate chain object name in Azure Key Vault.
+         */
+        certificateChainObjectName: string;
+        /**
+         * The intermediate certificate object name in Azure Key Vault.
+         */
+        certificateObjectName: string;
+        /**
+         * The intermediate certificate private key object name in Azure Key Vault.
+         */
+        keyObjectName: string;
+        /**
+         * The resource ID of the Key Vault.
+         */
+        keyVaultId: string;
+        /**
+         * The root certificate object name in Azure Key Vault.
+         */
+        rootCertificateObjectName: string;
+    }
+
+    export interface GetAutomaticClusterWebAppRoutingIngress {
+        /**
+         * The default Nginx controller for the web app routing ingress.
+         */
+        defaultNginxController: string;
+        /**
+         * A list of DNS Zone IDs associated with the web app routing ingress.
+         */
+        dnsZoneIds: string[];
+        /**
+         * If Istio is enabled for the web app routing ingress.
+         */
+        istioEnabled: boolean;
+        /**
+         * A `webAppRoutingIdentity` block as documented below.
+         */
+        webAppRoutingIdentities: outputs.containerservice.GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity[];
+    }
+
+    export interface GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface GetClusterNodePoolUpgradeSetting {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
          */
         drainTimeoutInMinutes: number;
         /**
@@ -34762,7 +31950,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
          */
         drainTimeoutInMinutes: number;
         /**
@@ -34866,7 +32054,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: string;
         /**
@@ -35044,6 +32232,10 @@ export namespace containerservice {
          * An `omsAgentIdentity` block as defined below.
          */
         omsAgentIdentities: outputs.containerservice.GetKubernetesClusterOmsAgentOmsAgentIdentity[];
+        /**
+         * Is Retina Flow Logs collection enabled? Defaults to `false`.
+         */
+        retinaFlowLogsEnabled: boolean;
     }
 
     export interface GetKubernetesClusterOmsAgentOmsAgentIdentity {
@@ -35837,7 +33029,7 @@ export namespace containerservice {
          */
         onlyCriticalAddonsEnabled?: boolean;
         /**
-         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
          *
          * > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
          */
@@ -35851,7 +33043,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
          *
          * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
          */
@@ -35885,7 +33077,7 @@ export namespace containerservice {
         /**
          * The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          *
-         * > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+         * > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
          */
         type?: string;
         /**
@@ -35928,11 +33120,7 @@ export namespace containerservice {
         /**
          * Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
          */
-        containerLogMaxFiles: number;
-        /**
-         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-         */
-        containerLogMaxLine: number;
+        containerLogMaxFiles?: number;
         /**
          * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          */
@@ -35979,15 +33167,11 @@ export namespace containerservice {
         /**
          * Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
          */
-        transparentHugePage: string;
+        transparentHugePage?: string;
         /**
          * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          */
         transparentHugePageDefrag?: string;
-        /**
-         * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-         */
-        transparentHugePageEnabled: string;
     }
 
     export interface KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
@@ -36141,7 +33325,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          */
         drainTimeoutInMinutes?: number;
         /**
@@ -36294,7 +33478,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: string;
         /**
@@ -36698,7 +33882,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
         /**
-         * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+         * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
          */
         backendPoolType?: string;
         /**
@@ -36760,11 +33944,7 @@ export namespace containerservice {
         /**
          * Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
          */
-        containerLogMaxFiles: number;
-        /**
-         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-         */
-        containerLogMaxLine: number;
+        containerLogMaxFiles?: number;
         /**
          * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          */
@@ -36811,15 +33991,11 @@ export namespace containerservice {
         /**
          * Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
          */
-        transparentHugePage: string;
+        transparentHugePage?: string;
         /**
          * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          */
         transparentHugePageDefrag?: string;
-        /**
-         * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-         */
-        transparentHugePageEnabled: string;
     }
 
     export interface KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
@@ -36953,7 +34129,7 @@ export namespace containerservice {
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
-         * > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+         * > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
          */
         nodePublicIpTags?: {[key: string]: string};
     }
@@ -36975,7 +34151,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
-         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          */
         drainTimeoutInMinutes?: number;
         /**
@@ -37028,6 +34204,10 @@ export namespace containerservice {
          * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          */
         omsAgentIdentities: outputs.containerservice.KubernetesClusterOmsAgentOmsAgentIdentity[];
+        /**
+         * Is Retina Flow Logs collection enabled?
+         */
+        retinaFlowLogsEnabled?: boolean;
     }
 
     export interface KubernetesClusterOmsAgentOmsAgentIdentity {
@@ -37084,7 +34264,7 @@ export namespace containerservice {
         /**
          * The intermediate certificate private key object name in Azure Key Vault.
          *
-         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
          */
         keyObjectName: string;
         /**
@@ -37262,13 +34442,13 @@ export namespace containerservice {
 
     export interface RegistryGeoreplication {
         /**
+         * Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+         */
+        globalEndpointRoutingEnabled: boolean;
+        /**
          * A location where the container registry should be geo-replicated.
          */
         location: string;
-        /**
-         * Whether regional endpoint is enabled for this Container Registry?
-         */
-        regionalEndpointEnabled?: boolean;
         /**
          * A mapping of tags to assign to this replication location.
          */
@@ -37684,7 +34864,7 @@ export namespace core {
          */
         tags: {[key: string]: string};
         /**
-         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
+         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/azure/templates/#find-resources).
          */
         type: string;
     }
@@ -37730,7 +34910,7 @@ export namespace core {
 
     export interface ResourceDeploymentScriptAzureCliContainer {
         /**
-         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          */
         containerGroupName?: string;
     }
@@ -37774,7 +34954,7 @@ export namespace core {
 
     export interface ResourceDeploymentScriptPowerShellContainer {
         /**
-         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
          */
         containerGroupName?: string;
     }
@@ -37948,7 +35128,7 @@ export namespace core {
          */
         selectors?: outputs.core.ResourceGroupPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -38014,7 +35194,7 @@ export namespace core {
          */
         selectors?: outputs.core.ResourcePolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -38187,7 +35367,7 @@ export namespace core {
          */
         selectors?: outputs.core.SubscriptionPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -38655,56 +35835,6 @@ export namespace cosmosdb {
          * A list of paths to use for this unique key. Changing this forces a new resource to be created.
          */
         paths: string[];
-    }
-
-    export interface MongoClusterConnectionString {
-        /**
-         * The description of the connection string.
-         */
-        description: string;
-        /**
-         * The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
-         */
-        name: string;
-        /**
-         * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
-         */
-        value: string;
-    }
-
-    export interface MongoClusterCustomerManagedKey {
-        /**
-         * The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
-         */
-        keyVaultKeyId: string;
-        /**
-         * The ID of the User Assigned Identity that has access to the Key Vault Key.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface MongoClusterIdentity {
-        /**
-         * A list of one or more Resource IDs for User Assigned Managed identities to assign.
-         *
-         * > **Note:** Required when `type` is set to `UserAssigned`.
-         */
-        identityIds: string[];
-        /**
-         * The type of managed identity to assign. Possible value is `UserAssigned`.
-         */
-        type: string;
-    }
-
-    export interface MongoClusterRestore {
-        /**
-         * The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
-         */
-        pointInTimeUtc: string;
-        /**
-         * The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
-         */
-        sourceId: string;
     }
 
     export interface MongoCollectionAutoscaleSettings {
@@ -40215,7 +37345,7 @@ export namespace datafactory {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+         * Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
          */
         gitUrl?: string;
         /**
@@ -40873,11 +38003,6 @@ export namespace datafactory {
         parameters?: {[key: string]: string};
     }
 
-    export interface LinkedServiceAzureBlobStorageKeyVaultSasToken {
-        linkedServiceName: string;
-        secretName: string;
-    }
-
     export interface LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -41403,7 +38528,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         * The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -41458,7 +38583,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         * The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -41611,50 +38736,6 @@ export namespace dataprotection {
          * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
          */
         duration: string;
-    }
-
-    export interface BackupPolicyPostgresqlRetentionRule {
-        /**
-         * A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        criteria: outputs.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteria;
-        /**
-         * Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        duration: string;
-        /**
-         * The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        name: string;
-        /**
-         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        priority: number;
-    }
-
-    export interface BackupPolicyPostgresqlRetentionRuleCriteria {
-        /**
-         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        absoluteCriteria?: string;
-        /**
-         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        daysOfWeeks?: string[];
-        /**
-         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        monthsOfYears?: string[];
-        /**
-         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
-         */
-        scheduledBackupTimes?: string[];
-        /**
-         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
-         *
-         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
-         */
-        weeksOfMonths?: string[];
     }
 
     export interface BackupVaultIdentity {
@@ -42561,7 +39642,9 @@ export namespace devcenter {
          */
         administratorAccount?: outputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount;
         /**
-         * Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+         * Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
          */
         kind: string;
     }
@@ -43865,7 +40948,7 @@ export namespace elasticsan {
         /**
          * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          *
-         * > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
+         * > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-planning) for more details.
          */
         name: string;
         /**
@@ -45486,6 +42569,8 @@ export namespace eventhub {
     export interface EventHubNamespaceNetworkRulesets {
         /**
          * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+         *
+         * > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honour the setting.
          */
         defaultAction: string;
         /**
@@ -46051,7 +43136,7 @@ export namespace eventhub {
         /**
          * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          *
-         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
          */
         clientId?: string;
         /**
@@ -46103,6 +43188,70 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: string;
+    }
+
+}
+
+export namespace expressroute {
+    export interface GetCircuitPeeringIpv6 {
+        /**
+         * A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+         */
+        enabled: boolean;
+        /**
+         * A `microsoftPeering` block as defined below.
+         */
+        microsoftPeerings: outputs.expressroute.GetCircuitPeeringIpv6MicrosoftPeering[];
+        /**
+         * A subnet for the primary link.
+         */
+        primaryPeerAddressPrefix: string;
+        /**
+         * The ID of the Route Filter.
+         */
+        routeFilterId: string;
+        /**
+         * A subnet for the secondary link.
+         */
+        secondaryPeerAddressPrefix: string;
+    }
+
+    export interface GetCircuitPeeringIpv6MicrosoftPeering {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities: string[];
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn: number;
+        /**
+         * he Routing Registry against which the AS number and prefixes are registered.
+         */
+        routingRegistryName: string;
+    }
+
+    export interface GetCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities: string[];
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn: number;
+        /**
+         * he Routing Registry against which the AS number and prefixes are registered.
+         */
+        routingRegistryName: string;
     }
 
 }
@@ -47171,19 +44320,17 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId?: string;
+        /**
          * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          */
         storageAccountKey: string;
         /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * The URL of the Storage Container. Changing this forces a new resource to be created.
          */
-        storageContainerId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId?: string;
+        storageContainerUrl: string;
     }
 
     export interface HBaseClusterStorageAccountGen2 {
@@ -47198,15 +44345,15 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
-         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          *
          * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          */
-        managedIdentityResourceId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface HadoopClusterComponentVersion {
@@ -47746,19 +44893,17 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId?: string;
+        /**
          * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          */
         storageAccountKey: string;
         /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * The URL of the Storage Container. Changing this forces a new resource to be created.
          */
-        storageContainerId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId?: string;
+        storageContainerUrl: string;
     }
 
     export interface HadoopClusterStorageAccountGen2 {
@@ -47773,15 +44918,15 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
-         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          *
          * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          */
-        managedIdentityResourceId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface InteractiveQueryClusterComponentVersion {
@@ -48228,19 +45373,17 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId?: string;
+        /**
          * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          */
         storageAccountKey: string;
         /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * The URL of the Storage Container. Changing this forces a new resource to be created.
          */
-        storageContainerId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId?: string;
+        storageContainerUrl: string;
     }
 
     export interface InteractiveQueryClusterStorageAccountGen2 {
@@ -48255,15 +45398,15 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
-         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          *
          * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          */
-        managedIdentityResourceId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface KafkaClusterComponentVersion {
@@ -48481,8 +45624,6 @@ export namespace hdinsight {
         headNode: outputs.hdinsight.KafkaClusterRolesHeadNode;
         /**
          * A `kafkaManagementNode` block as defined below.
-         *
-         * > **Note:** This property has been deprecated and will be removed in version 4.0.
          */
         kafkaManagementNode?: outputs.hdinsight.KafkaClusterRolesKafkaManagementNode;
         /**
@@ -48569,7 +45710,7 @@ export namespace hdinsight {
         /**
          * The Username of the local administrator for the Kafka Management Nodes.
          *
-         * > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+         * > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
          */
         username: string;
         /**
@@ -48744,19 +45885,17 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId?: string;
+        /**
          * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          */
         storageAccountKey: string;
         /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * The URL of the Storage Container. Changing this forces a new resource to be created.
          */
-        storageContainerId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId?: string;
+        storageContainerUrl: string;
     }
 
     export interface KafkaClusterStorageAccountGen2 {
@@ -48771,15 +45910,15 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
-         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          *
          * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          */
-        managedIdentityResourceId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId: string;
+        userAssignedIdentityId: string;
     }
 
     export interface SparkClusterComponentVersion {
@@ -49239,19 +46378,17 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId?: string;
+        /**
          * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          */
         storageAccountKey: string;
         /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * The URL of the Storage Container. Changing this forces a new resource to be created.
          */
-        storageContainerId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId?: string;
+        storageContainerUrl: string;
     }
 
     export interface SparkClusterStorageAccountGen2 {
@@ -49266,15 +46403,15 @@ export namespace hdinsight {
          */
         isDefault: boolean;
         /**
-         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          *
          * > **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          */
-        managedIdentityResourceId: string;
-        /**
-         * The ID of the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageResourceId: string;
+        userAssignedIdentityId: string;
     }
 
 }
@@ -49669,221 +46806,6 @@ export namespace healthcare {
 
 }
 
-export namespace hpc {
-    export interface CacheAccessPolicyAccessRule {
-        /**
-         * The access level for this rule. Possible values are: `rw`, `ro`, `no`.
-         */
-        access: string;
-        /**
-         * The anonymous GID used when `rootSquashEnabled` is `true`.
-         */
-        anonymousGid?: number;
-        /**
-         * The anonymous UID used when `rootSquashEnabled` is `true`.
-         */
-        anonymousUid?: number;
-        /**
-         * The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-         */
-        filter?: string;
-        /**
-         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
-         */
-        rootSquashEnabled?: boolean;
-        /**
-         * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
-         *
-         * > **Note:** Each `accessRule` should set a unique `scope`.
-         */
-        scope: string;
-        /**
-         * Whether allow access to subdirectories under the root export?
-         */
-        submountAccessEnabled?: boolean;
-        /**
-         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
-         */
-        suidEnabled?: boolean;
-    }
-
-    export interface CacheDefaultAccessPolicy {
-        /**
-         * One or more `accessRule` blocks (up to three) as defined above.
-         */
-        accessRules: outputs.hpc.CacheDefaultAccessPolicyAccessRule[];
-    }
-
-    export interface CacheDefaultAccessPolicyAccessRule {
-        /**
-         * The access level for this rule. Possible values are: `rw`, `ro`, `no`.
-         */
-        access: string;
-        /**
-         * The anonymous GID used when `rootSquashEnabled` is `true`.
-         */
-        anonymousGid?: number;
-        /**
-         * The anonymous UID used when `rootSquashEnabled` is `true`.
-         */
-        anonymousUid?: number;
-        /**
-         * The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-         */
-        filter?: string;
-        /**
-         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
-         */
-        rootSquashEnabled?: boolean;
-        /**
-         * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
-         *
-         * > **Note:** Each `accessRule` should set a unique `scope`.
-         */
-        scope: string;
-        /**
-         * Whether allow access to subdirectories under the root export?
-         */
-        submountAccessEnabled?: boolean;
-        /**
-         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
-         */
-        suidEnabled?: boolean;
-    }
-
-    export interface CacheDirectoryActiveDirectory {
-        /**
-         * The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
-         */
-        cacheNetbiosName: string;
-        /**
-         * The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
-         */
-        dnsPrimaryIp: string;
-        /**
-         * The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
-         */
-        dnsSecondaryIp?: string;
-        /**
-         * The fully qualified domain name of the Active Directory domain controller.
-         */
-        domainName: string;
-        /**
-         * The Active Directory domain's NetBIOS name.
-         */
-        domainNetbiosName: string;
-        /**
-         * The password of the Active Directory domain administrator.
-         */
-        password: string;
-        /**
-         * The username of the Active Directory domain administrator.
-         */
-        username: string;
-    }
-
-    export interface CacheDirectoryFlatFile {
-        /**
-         * The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
-         */
-        groupFileUri: string;
-        /**
-         * The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
-         */
-        passwordFileUri: string;
-    }
-
-    export interface CacheDirectoryLdap {
-        /**
-         * The base distinguished name (DN) for the LDAP domain.
-         */
-        baseDn: string;
-        /**
-         * A `bind` block as defined above.
-         */
-        bind: outputs.hpc.CacheDirectoryLdapBind;
-        /**
-         * The URI of the CA certificate to validate the LDAP secure connection.
-         */
-        certificateValidationUri?: string;
-        /**
-         * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
-         */
-        downloadCertificateAutomatically?: boolean;
-        /**
-         * Whether the LDAP connection should be encrypted?
-         */
-        encrypted?: boolean;
-        /**
-         * The FQDN or IP address of the LDAP server.
-         */
-        server: string;
-    }
-
-    export interface CacheDirectoryLdapBind {
-        /**
-         * The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
-         */
-        dn: string;
-        /**
-         * The Bind password to be used in the secure LDAP connection.
-         */
-        password: string;
-    }
-
-    export interface CacheDns {
-        /**
-         * The DNS search domain for the HPC Cache.
-         */
-        searchDomain?: string;
-        /**
-         * A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
-         */
-        servers: string[];
-    }
-
-    export interface CacheIdentity {
-        /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
-         *
-         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
-         */
-        type: string;
-    }
-
-    export interface CacheNfsTargetNamespaceJunction {
-        /**
-         * The name of the access policy applied to this target. Defaults to `default`.
-         */
-        accessPolicyName?: string;
-        /**
-         * The client-facing file path of this NFS target within the HPC Cache NFS Target.
-         */
-        namespacePath: string;
-        /**
-         * The NFS export of this NFS target within the HPC Cache NFS Target.
-         */
-        nfsExport: string;
-        /**
-         * The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `""`, in which case the whole `nfsExport` is exported.
-         */
-        targetPath?: string;
-    }
-
-}
-
 export namespace hsm {
     export interface ModuleManagementNetworkProfile {
         /**
@@ -50234,7 +47156,18 @@ export namespace iot {
         /**
          * Connection String of the Diagnostic Storage Account.
          */
-        connectionString: string;
+        connectionString?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Connection String of the Diagnostic Storage Account.
+         *
+         * > **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+         */
+        connectionStringWo?: string;
+        /**
+         * An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+         */
+        connectionStringWoVersion?: number;
         /**
          * Resource ID of the Diagnostic Storage Account.
          */
@@ -50343,7 +47276,7 @@ export namespace iot {
         workspaceId: string;
     }
 
-    export interface SecuritySolutionRecommendationsEnabled {
+    export interface SecuritySolutionRecommendations {
         /**
          * Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
          */
@@ -51156,15 +48089,6 @@ export namespace keyvault {
         tenantId: string;
     }
 
-    export interface KeyVaultContact {
-        email: string;
-        /**
-         * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-         */
-        name?: string;
-        phone?: string;
-    }
-
     export interface KeyVaultNetworkAcls {
         /**
          * Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
@@ -51279,7 +48203,7 @@ export namespace kusto {
          */
         image: string;
         /**
-         * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+         * The name of the language extension. Possible values are `PYTHON` and `R`.
          */
         name: string;
     }
@@ -51308,12 +48232,6 @@ export namespace kusto {
          * The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
          */
         name: string;
-    }
-
-    export interface ClusterVirtualNetworkConfiguration {
-        dataManagementPublicIpId: string;
-        enginePublicIpId: string;
-        subnetId: string;
     }
 
     export interface GetClusterIdentity {
@@ -51884,7 +48802,7 @@ export namespace logicapps {
         /**
          * A `cors` block as defined below.
          */
-        cors: outputs.logicapps.GetStandardSiteConfigCors;
+        cors: outputs.logicapps.GetStandardSiteConfigCor[];
         /**
          * The version of the .NET framework's CLR used in this Logic App.
          */
@@ -51926,10 +48844,6 @@ export namespace logicapps {
          */
         preWarmedInstanceCount: number;
         /**
-         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         */
-        publicNetworkAccessEnabled: boolean;
-        /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
          */
         runtimeScaleMonitoringEnabled: boolean;
@@ -51967,7 +48881,7 @@ export namespace logicapps {
         websocketsEnabled: boolean;
     }
 
-    export interface GetStandardSiteConfigCors {
+    export interface GetStandardSiteConfigCor {
         /**
          * A list of origins which should be able to make cross-origin calls.
          */
@@ -51986,7 +48900,7 @@ export namespace logicapps {
         /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
-        headers: outputs.logicapps.GetStandardSiteConfigIpRestrictionHeaders;
+        headers: outputs.logicapps.GetStandardSiteConfigIpRestrictionHeader[];
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -52009,7 +48923,7 @@ export namespace logicapps {
         virtualNetworkSubnetId: string;
     }
 
-    export interface GetStandardSiteConfigIpRestrictionHeaders {
+    export interface GetStandardSiteConfigIpRestrictionHeader {
         /**
          * A list of allowed Azure FrontDoor IDs in UUID notation.
          */
@@ -52017,7 +48931,7 @@ export namespace logicapps {
         /**
          * A list to allow the Azure FrontDoor health probe header.
          */
-        xFdHealthProbe: string;
+        xFdHealthProbes: string[];
         /**
          * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
          */
@@ -52036,7 +48950,7 @@ export namespace logicapps {
         /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
-        headers: outputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeaders;
+        headers: outputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeader[];
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -52059,7 +48973,7 @@ export namespace logicapps {
         virtualNetworkSubnetId: string;
     }
 
-    export interface GetStandardSiteConfigScmIpRestrictionHeaders {
+    export interface GetStandardSiteConfigScmIpRestrictionHeader {
         /**
          * A list of allowed Azure FrontDoor IDs in UUID notation.
          */
@@ -52067,7 +48981,7 @@ export namespace logicapps {
         /**
          * A list to allow the Azure FrontDoor health probe header.
          */
-        xFdHealthProbe: string;
+        xFdHealthProbes: string[];
         /**
          * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
          */
@@ -52288,7 +49202,7 @@ export namespace logicapps {
          */
         cors?: outputs.logicapps.StandardSiteConfigCors;
         /**
-         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0`, `v8.0` and `v10.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -52326,7 +49240,7 @@ export namespace logicapps {
          */
         linuxFxVersion: string;
         /**
-         * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+         * The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -52335,10 +49249,6 @@ export namespace logicapps {
          * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount: number;
-        /**
-         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         */
-        publicNetworkAccessEnabled: boolean;
         /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
          */
@@ -52354,7 +49264,7 @@ export namespace logicapps {
          */
         scmIpRestrictions?: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
          *
          * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
@@ -52677,7 +49587,7 @@ export namespace machinelearning {
         /**
          * SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
          *
-         * > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+         * > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
          */
         keyValue?: string;
     }
@@ -53107,6 +50017,27 @@ export namespace maintenance {
 }
 
 export namespace managedapplication {
+    export interface ApplicationIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+         *
+         * > **Note:** The `identityIds` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
     export interface ApplicationPlan {
         /**
          * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
@@ -53461,7 +50392,7 @@ export namespace management {
          */
         selectors?: outputs.management.GroupPolicyAssignmentOverrideSelector[];
         /**
-         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          */
         value: string;
     }
@@ -53649,15 +50580,6 @@ export namespace monitoring {
          * The log category for the Azure Active Directory Diagnostic.
          */
         category: string;
-        /**
-         * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
-         */
-        retentionPolicy?: outputs.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicy;
-    }
-
-    export interface AadDiagnosticSettingEnabledLogRetentionPolicy {
-        days?: number;
-        enabled?: boolean;
     }
 
     export interface ActionGroupArmRoleReceiver {
@@ -54224,7 +51146,7 @@ export namespace monitoring {
          */
         recurrence?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrence;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: string;
     }
@@ -54467,7 +51389,7 @@ export namespace monitoring {
          */
         recurrence?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrence;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: string;
     }
@@ -54693,7 +51615,7 @@ export namespace monitoring {
          */
         start: string;
         /**
-         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          */
         timezone?: string;
     }
@@ -54712,7 +51634,7 @@ export namespace monitoring {
          */
         minutes: number;
         /**
-         * The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+         * The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          */
         timezone?: string;
     }
@@ -54976,7 +51898,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesPerformanceCounter {
         /**
-         * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+         * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          */
         counterSpecifiers: string[];
         /**
@@ -55021,7 +51943,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter {
         /**
-         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         * The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
          */
         label: string;
         /**
@@ -55059,7 +51981,7 @@ export namespace monitoring {
          */
         streams: string[];
         /**
-         * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+         * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          */
         xPathQueries: string[];
     }
@@ -55268,15 +52190,6 @@ export namespace monitoring {
          * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
          */
         categoryGroup?: string;
-        /**
-         * @deprecated `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-         */
-        retentionPolicy?: outputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy;
-    }
-
-    export interface DiagnosticSettingEnabledLogRetentionPolicy {
-        days?: number;
-        enabled: boolean;
     }
 
     export interface DiagnosticSettingEnabledMetric {
@@ -55286,20 +52199,6 @@ export namespace monitoring {
          * > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
          */
         category: string;
-    }
-
-    export interface DiagnosticSettingMetric {
-        category: string;
-        enabled?: boolean;
-        /**
-         * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
-         */
-        retentionPolicy?: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
-    }
-
-    export interface DiagnosticSettingMetricRetentionPolicy {
-        days?: number;
-        enabled: boolean;
     }
 
     export interface GetActionGroupArmRoleReceiver {
@@ -55421,7 +52320,7 @@ export namespace monitoring {
         /**
          * Indicates whether to use common alert schema.
          */
-        useCommonAlertSchema?: boolean;
+        useCommonAlertSchema: boolean;
     }
 
     export interface GetActionGroupItsmReceiver {
@@ -55560,7 +52459,7 @@ export namespace monitoring {
         /**
          * One or more `logFile` blocks as defined below.
          */
-        logFiles?: outputs.monitoring.GetDataCollectionRuleDataSourceLogFile[];
+        logFiles: outputs.monitoring.GetDataCollectionRuleDataSourceLogFile[];
         /**
          * One or more `performanceCounter` blocks as defined below.
          */
@@ -55568,7 +52467,7 @@ export namespace monitoring {
         /**
          * One or more `platformTelemetry` blocks as defined below.
          */
-        platformTelemetries?: outputs.monitoring.GetDataCollectionRuleDataSourcePlatformTelemetry[];
+        platformTelemetries: outputs.monitoring.GetDataCollectionRuleDataSourcePlatformTelemetry[];
         /**
          * One or more `prometheusForwarder` blocks as defined below.
          */
@@ -55731,7 +52630,7 @@ export namespace monitoring {
 
     export interface GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter {
         /**
-         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         * The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
          */
         label: string;
         /**
@@ -55793,11 +52692,11 @@ export namespace monitoring {
         /**
          * One or more `eventHub` blocks as defined below.
          */
-        eventHub?: outputs.monitoring.GetDataCollectionRuleDestinationEventHub;
+        eventHub: outputs.monitoring.GetDataCollectionRuleDestinationEventHub;
         /**
          * One or more `eventHubDirect` blocks as defined below.
          */
-        eventHubDirect?: outputs.monitoring.GetDataCollectionRuleDestinationEventHubDirect;
+        eventHubDirect: outputs.monitoring.GetDataCollectionRuleDestinationEventHubDirect;
         /**
          * One or more `logAnalytics` blocks as defined below.
          */
@@ -56288,7 +53187,7 @@ export namespace monitoring {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
          *
-         * > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+         * > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
          */
         identityIds?: string[];
         /**
@@ -56393,13 +53292,9 @@ export namespace mssql {
 
     export interface DatabaseLongTermRetentionPolicy {
         /**
-         * Specifies if the backups are immutable. Defaults to `false`.
-         */
-        immutableBackupsEnabled?: boolean;
-        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
-        monthlyRetention: string;
+        monthlyRetention?: string;
         /**
          * The week of year to take the yearly backup. Value has to be between `1` and `52`.
          */
@@ -56407,11 +53302,11 @@ export namespace mssql {
         /**
          * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
-        weeklyRetention: string;
+        weeklyRetention?: string;
         /**
          * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
-        yearlyRetention: string;
+        yearlyRetention?: string;
     }
 
     export interface DatabaseShortTermRetentionPolicy {
@@ -56431,9 +53326,9 @@ export namespace mssql {
          */
         disabledAlerts?: string[];
         /**
-         * Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+         * Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
          */
-        emailAccountAdmins?: string;
+        emailAccountAdminsEnabled?: boolean;
         /**
          * A list of email addresses which alerts should be sent to.
          */
@@ -56577,10 +53472,6 @@ export namespace mssql {
 
     export interface GetManagedDatabaseLongTermRetentionPolicy {
         /**
-         * @deprecated The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-         */
-        immutableBackupsEnabled: boolean;
-        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format.
          */
         monthlyRetention: string;
@@ -56712,13 +53603,9 @@ export namespace mssql {
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
         /**
-         * @deprecated The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-         */
-        immutableBackupsEnabled?: boolean;
-        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
-        monthlyRetention: string;
+        monthlyRetention?: string;
         /**
          * The week of year to take the yearly backup. Value has to be between `1` and `52`.
          */
@@ -56726,11 +53613,11 @@ export namespace mssql {
         /**
          * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
-        weeklyRetention: string;
+        weeklyRetention?: string;
         /**
          * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
-        yearlyRetention: string;
+        yearlyRetention?: string;
     }
 
     export interface ManagedDatabasePointInTimeRestore {
@@ -56938,10 +53825,6 @@ export namespace mssql {
     }
 
     export interface VirtualMachineAutoBackup {
-        /**
-         * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-         */
-        encryptionEnabled: boolean;
         /**
          * Encryption password to use. Setting a password will enable encryption.
          */
@@ -57261,12 +54144,6 @@ export namespace mysql {
          * The ID of the Key Vault Key.
          */
         keyVaultKeyId?: string;
-        /**
-         * The ID of the Managed HSM Key.
-         *
-         * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
-         */
-        managedHsmKeyId?: string;
         /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
          */
@@ -57934,6 +54811,17 @@ export namespace netapp {
         unixReadWrite: boolean;
     }
 
+    export interface GetVolumeMountTarget {
+        /**
+         * The IP address of the mount target.
+         */
+        ipAddress: string;
+        /**
+         * The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+         */
+        smbServerFqdn: string;
+    }
+
     export interface SnapshotPolicyDailySchedule {
         /**
          * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -58096,7 +54984,7 @@ export namespace netapp {
         /**
          * Enable or disable the Advanced Ransomware Protection feature.
          *
-         * > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+         * > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
          *
          * > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
          */
@@ -58115,7 +55003,7 @@ export namespace netapp {
         /**
          * Enables the backup policy on the volume, defaults to `true`.
          *
-         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
          */
         policyEnabled?: boolean;
     }
@@ -58188,11 +55076,7 @@ export namespace netapp {
         /**
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
-        protocol: string;
-        /**
-         * @deprecated this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-         */
-        protocolsEnabled: string;
+        protocol?: string;
         /**
          * Is root access permitted to this volume?
          */
@@ -58246,7 +55130,7 @@ export namespace netapp {
          */
         name: string;
         /**
-         * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         * Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
          */
         networkFeatures: string;
         /**
@@ -58258,7 +55142,7 @@ export namespace netapp {
         /**
          * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
          *
-         * > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+         * > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
          */
         proximityPlacementGroupId?: string;
         /**
@@ -58274,7 +55158,7 @@ export namespace netapp {
          */
         snapshotDirectoryVisible: boolean;
         /**
-         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         * The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
          */
         storageQuotaInGb: number;
         /**
@@ -58298,7 +55182,7 @@ export namespace netapp {
          */
         volumeSpecName: string;
         /**
-         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
          */
         zone?: string;
     }
@@ -58331,7 +55215,7 @@ export namespace netapp {
 
     export interface VolumeGroupOracleVolumeExportPolicyRule {
         /**
-         * A comma-sperated list of allowed client IPv4 addresses.
+         * A comma-separated list of allowed client IPv4 addresses.
          */
         allowedClients: string;
         /**
@@ -58399,13 +55283,13 @@ export namespace netapp {
          */
         networkFeatures: string;
         /**
-         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
          *
          * > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
          */
         protocols: string;
         /**
-         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
          */
         proximityPlacementGroupId?: string;
         /**
@@ -58421,7 +55305,7 @@ export namespace netapp {
          */
         snapshotDirectoryVisible: boolean;
         /**
-         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         * The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
          */
         storageQuotaInGb: number;
         /**
@@ -58445,7 +55329,7 @@ export namespace netapp {
          */
         volumeSpecName: string;
         /**
-         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         zone?: string;
     }
@@ -58478,7 +55362,7 @@ export namespace netapp {
 
     export interface VolumeGroupSapHanaVolumeExportPolicyRule {
         /**
-         * A comma-sperated list of allowed client IPv4 addresses.
+         * A comma-separated list of allowed client IPv4 addresses.
          */
         allowedClients: string;
         /**
@@ -58507,24 +55391,20 @@ export namespace netapp {
         unixReadWrite?: boolean;
     }
 
+    export interface VolumeMountTarget {
+        /**
+         * The IP address of the mount target.
+         */
+        ipAddress: string;
+        /**
+         * The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+         */
+        smbServerFqdn: string;
+    }
+
 }
 
 export namespace network {
-    export interface ApplicationGatewayAuthenticationCertificate {
-        /**
-         * The contents of the Authentication Certificate which should be used.
-         */
-        data: string;
-        /**
-         * The ID of the Rewrite Rule Set
-         */
-        id: string;
-        /**
-         * The Name of the Authentication Certificate to use.
-         */
-        name: string;
-    }
-
     export interface ApplicationGatewayAutoscaleConfiguration {
         /**
          * Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
@@ -58604,10 +55484,6 @@ export namespace network {
          */
         affinityCookieName?: string;
         /**
-         * One or more `authenticationCertificateBackend` blocks as defined below.
-         */
-        authenticationCertificates?: outputs.network.ApplicationGatewayBackendHttpSettingAuthenticationCertificate[];
-        /**
          * Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
          */
         certificateChainValidationEnabled?: boolean;
@@ -58632,7 +55508,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Authentication Certificate.
+         * The name of the Backend HTTP Settings Collection.
          */
         name: string;
         /**
@@ -58677,17 +55553,6 @@ export namespace network {
          * A list of `trustedRootCertificate` names.
          */
         trustedRootCertificateNames?: string[];
-    }
-
-    export interface ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-        /**
-         * The ID of the Rewrite Rule Set
-         */
-        id: string;
-        /**
-         * The Name of the Authentication Certificate to use.
-         */
-        name: string;
     }
 
     export interface ApplicationGatewayBackendHttpSettingConnectionDraining {
@@ -59399,6 +56264,10 @@ export namespace network {
 
     export interface ApplicationGatewaySslProfile {
         /**
+         * Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+         */
+        clientAuthenticationMode?: string;
+        /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
@@ -59407,23 +56276,23 @@ export namespace network {
          */
         name: string;
         /**
-         * a `sslPolicy` block as defined below.
+         * An `sslPolicy` block as defined below.
          */
         sslPolicy?: outputs.network.ApplicationGatewaySslProfileSslPolicy;
         /**
-         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          */
         trustedClientCertificateNames?: string[];
         /**
-         * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-         */
-        verifyClientCertIssuerDn: boolean;
-        /**
          * Should client certificate issuer DN be verified? Defaults to `false`.
+         *
+         * > **Note:** `verifyClientCertificateIssuerDn` cannot be set to `true` when `clientAuthenticationMode` is set to `Passthrough`.
          */
-        verifyClientCertificateIssuerDn: boolean;
+        verifyClientCertificateIssuerDn?: boolean;
         /**
-         * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+         *
+         * > **Note:** `verifyClientCertificateRevocation` cannot be set to `OCSP` when `clientAuthenticationMode` is set to `Passthrough`.
          */
         verifyClientCertificateRevocation?: string;
     }
@@ -60394,17 +57263,6 @@ export namespace network {
         virtualHubId: string;
     }
 
-    export interface GetApplicationGatewayAuthenticationCertificate {
-        /**
-         * The ID of the Rewrite Rule Set
-         */
-        id: string;
-        /**
-         * The name of this Application Gateway.
-         */
-        name: string;
-    }
-
     export interface GetApplicationGatewayAutoscaleConfiguration {
         /**
          * Maximum capacity for autoscaling.
@@ -60484,10 +57342,6 @@ export namespace network {
          */
         affinityCookieName: string;
         /**
-         * One or more `authenticationCertificate` blocks as defined below.
-         */
-        authenticationCertificates: outputs.network.GetApplicationGatewayBackendHttpSettingAuthenticationCertificate[];
-        /**
          * Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
          */
         certificateChainValidationEnabled: boolean;
@@ -60555,17 +57409,6 @@ export namespace network {
          * A list of `trustedRootCertificate` names.
          */
         trustedRootCertificateNames: string[];
-    }
-
-    export interface GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-        /**
-         * The ID of the Rewrite Rule Set
-         */
-        id: string;
-        /**
-         * The name of this Application Gateway.
-         */
-        name: string;
     }
 
     export interface GetApplicationGatewayBackendHttpSettingConnectionDraining {
@@ -61230,6 +58073,10 @@ export namespace network {
 
     export interface GetApplicationGatewaySslProfile {
         /**
+         * The client authentication mode used by the SSL Profile.
+         */
+        clientAuthenticationMode: string;
+        /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
@@ -61238,13 +58085,16 @@ export namespace network {
          */
         name: string;
         /**
-         * a `sslPolicy` block as defined below.
+         * An `sslPolicy` block as defined below.
          */
         sslPolicies: outputs.network.GetApplicationGatewaySslProfileSslPolicy[];
         /**
-         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         * The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
          */
         trustedClientCertificateNames: string[];
+        /**
+         * Will the client certificate issuer DN be verified?
+         */
         verifyClientCertificateIssuerDn: boolean;
         /**
          * The method used to check client certificate revocation status.
@@ -61782,7 +58632,7 @@ export namespace network {
         /**
          * A List of destination Application Security Group IDs
          */
-        destinationApplicationSecurityGroupIds?: string[];
+        destinationApplicationSecurityGroupIds: string[];
         /**
          * The Destination Port or Range.
          */
@@ -61815,7 +58665,7 @@ export namespace network {
         /**
          * A List of source Application Security Group IDs
          */
-        sourceApplicationSecurityGroupIds?: string[];
+        sourceApplicationSecurityGroupIds: string[];
         /**
          * The Source Port or Range.
          */
@@ -61882,6 +58732,17 @@ export namespace network {
          * The type of Azure hop the packet should be sent to.
          */
         nextHopType: string;
+    }
+
+    export interface GetSubnetServiceEndpoint {
+        /**
+         * The ID of the network resource associated with the Service Endpoint.
+         */
+        networkIdentifier: string;
+        /**
+         * The type of the Service Endpoint.
+         */
+        service: string;
     }
 
     export interface GetTrafficManagerProfileDnsConfig {
@@ -62081,7 +58942,7 @@ export namespace network {
     export interface GetVirtualNetworkGatewayVpnClientConfiguration {
         /**
          * The client id of the Azure VPN application.
-         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
          * This setting is incompatible with the use of
          * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
          */
@@ -62524,7 +59385,7 @@ export namespace network {
 
     export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
         /**
-         * The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+         * The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
          */
         destinationPortBehavior?: string;
         /**
@@ -62605,7 +59466,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          */
         addressPrefixType: string;
     }
@@ -62616,7 +59477,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          */
         addressPrefixType: string;
     }
@@ -62694,7 +59555,7 @@ export namespace network {
         /**
          * A list of management group IDs.
          *
-         * > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+         * > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/azure/virtual-network-manager/concept-network-manager-scope#scope).
          */
         managementGroupIds?: string[];
         /**
@@ -63063,6 +59924,17 @@ export namespace network {
         numberOfIpAddresses: string;
     }
 
+    export interface SubnetServiceEndpoint {
+        /**
+         * The ARM resource ID of the network identifier to associate with the service endpoint.
+         */
+        networkIdentifier?: string;
+        /**
+         * The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+         */
+        service: string;
+    }
+
     export interface SubnetServiceEndpointStoragePolicyDefinition {
         /**
          * The description of this Subnet Service Endpoint Storage Policy Definition.
@@ -63327,7 +60199,7 @@ export namespace network {
         /**
          * Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
          *
-         * > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+         * > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
          */
         enforcement: string;
     }
@@ -63514,7 +60386,7 @@ export namespace network {
     export interface VirtualNetworkGatewayVpnClientConfiguration {
         /**
          * The client id of the Azure VPN application.
-         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
          */
         aadAudience?: string;
         /**
@@ -63705,13 +60577,13 @@ export namespace network {
          *
          * > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
          *
-         * > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         * > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
          */
         privateEndpointNetworkPolicies?: string;
         /**
          * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
          *
-         * > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * > **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
          */
         privateLinkServiceNetworkPoliciesEnabled?: boolean;
         /**
@@ -63729,9 +60601,9 @@ export namespace network {
          */
         serviceEndpointPolicyIds?: string[];
         /**
-         * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * A `serviceEndpoint` block as defined below.
          */
-        serviceEndpoints?: string[];
+        serviceEndpoints?: outputs.network.VirtualNetworkSubnetServiceEndpoint[];
     }
 
     export interface VirtualNetworkSubnetDelegation {
@@ -63756,6 +60628,17 @@ export namespace network {
          * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.MessagingConnectors/connectors`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
          */
         name: string;
+    }
+
+    export interface VirtualNetworkSubnetServiceEndpoint {
+        /**
+         * The ARM resource ID of the network identifier to associate with the service endpoint.
+         */
+        networkIdentifier?: string;
+        /**
+         * The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+         */
+        service: string;
     }
 
     export interface VnpGatewayNatRuleExternalMapping {
@@ -64405,14 +61288,6 @@ export namespace nginx {
         type: string;
     }
 
-    export interface DeploymentLoggingStorageAccount {
-        containerName?: string;
-        /**
-         * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-         */
-        name?: string;
-    }
-
     export interface DeploymentNetworkInterface {
         /**
          * Specify The Subnet Resource ID for this NGINX Deployment.
@@ -64507,12 +61382,6 @@ export namespace nginx {
 
     export interface GetConfigurationProtectedFile {
         /**
-         * The base-64 encoded contents of this configuration file.
-         *
-         * @deprecated the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
-         */
-        content: string;
-        /**
          * The hash of the contents of this configuration file prefixed by the algorithm used.
          */
         contentHash: string;
@@ -64570,14 +61439,6 @@ export namespace nginx {
          * Type of identity attached to the NGINX Deployment.
          */
         type: string;
-    }
-
-    export interface GetDeploymentLoggingStorageAccount {
-        containerName: string;
-        /**
-         * The name of this NGINX Deployment.
-         */
-        name: string;
     }
 
     export interface GetDeploymentNetworkInterface {
@@ -65395,99 +62256,6 @@ export namespace oracle {
          * Total capacity in gigabytes.
          */
         totalSizeInGb: number;
-    }
-
-}
-
-export namespace orbital {
-    export interface ContactProfileLink {
-        /**
-         * A list of contact profile link channels. A `channels` block as defined below.
-         */
-        channels: outputs.orbital.ContactProfileLinkChannel[];
-        /**
-         * Direction of the link. Possible values are `Uplink` and `Downlink`.
-         */
-        direction: string;
-        /**
-         * Name of the link.
-         */
-        name: string;
-        /**
-         * Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
-         */
-        polarization: string;
-    }
-
-    export interface ContactProfileLinkChannel {
-        /**
-         * Bandwidth in MHz.
-         */
-        bandwidthMhz: number;
-        /**
-         * Center frequency in MHz.
-         */
-        centerFrequencyMhz: number;
-        /**
-         * Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
-         */
-        demodulationConfiguration?: string;
-        /**
-         * Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
-         */
-        endPoints: outputs.orbital.ContactProfileLinkChannelEndPoint[];
-        /**
-         * Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
-         */
-        modulationConfiguration?: string;
-        /**
-         * Name of the channel.
-         */
-        name: string;
-    }
-
-    export interface ContactProfileLinkChannelEndPoint {
-        /**
-         * Name of an end point.
-         */
-        endPointName: string;
-        /**
-         * IP address of an end point.
-         */
-        ipAddress?: string;
-        /**
-         * TCP port to listen on to receive data.
-         */
-        port: string;
-        /**
-         * Protocol of an end point. Possible values are `TCP` and `UDP`.
-         */
-        protocol: string;
-    }
-
-    export interface SpacecraftLink {
-        /**
-         * Bandwidth in Mhz.
-         */
-        bandwidthMhz: number;
-        /**
-         * Center frequency in Mhz.
-         *
-         * > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
-         */
-        centerFrequencyMhz: number;
-        /**
-         * Direction if the communication. Possible values are `Uplink` and `Downlink`.
-         */
-        direction: string;
-        /**
-         * Name of the link.
-         */
-        name: string;
-        /**
-         * Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
-         */
-        polarization: string;
     }
 
 }
@@ -66368,7 +63136,7 @@ export namespace pim {
 
     export interface GetRoleManagementPolicyNotificationRule {
         /**
-         * A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+         * A `notificationTarget` block as defined below with the details of notifications on active role assignments.
          */
         activeAssignments: outputs.pim.GetRoleManagementPolicyNotificationRuleActiveAssignment[];
         /**
@@ -66583,7 +63351,7 @@ export namespace pim {
          */
         requireMultifactorAuthentication: boolean;
         /**
-         * Is ticket information requrired during activation of the role.
+         * Is ticket information required during activation of the role.
          */
         requireTicketInfo: boolean;
         /**
@@ -66650,7 +63418,7 @@ export namespace pim {
 
     export interface RoleManagementPolicyNotificationRules {
         /**
-         * A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         * A `notificationTarget` block as defined below to configure notifications on active role assignments.
          */
         activeAssignments: outputs.pim.RoleManagementPolicyNotificationRulesActiveAssignments;
         /**
@@ -67023,7 +63791,7 @@ export namespace postgresql {
         /**
          * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
          *
-         * > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+         * > **Note:** Setting `activeDirectoryAuthEnabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
          *
          * > **Note:** `tenantId` is required when `activeDirectoryAuthEnabled` is set to `true`. And it should not be specified when `activeDirectoryAuthEnabled` is set to `false`
          */
@@ -67122,7 +63890,7 @@ export namespace postgresql {
         /**
          * The start minute for maintenance window. Defaults to `0`.
          *
-         * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+         * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          */
         startMinute?: number;
     }
@@ -67136,67 +63904,6 @@ export namespace postgresql {
          * The availability zone of the standby Flexible Server.
          */
         standbyAvailabilityZone: string;
-    }
-
-    export interface GetServerIdentity {
-        /**
-         * The ID of the System Managed Service Principal assigned to the PostgreSQL Server.
-         */
-        principalId: string;
-        /**
-         * The ID of the Tenant of the System Managed Service Principal assigned to the PostgreSQL Server.
-         */
-        tenantId: string;
-        /**
-         * The identity type of the Managed Identity assigned to the PostgreSQL Server.
-         */
-        type: string;
-    }
-
-    export interface ServerIdentity {
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
-         */
-        type: string;
-    }
-
-    export interface ServerThreatDetectionPolicy {
-        /**
-         * Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-         */
-        disabledAlerts?: string[];
-        /**
-         * Should the account administrators be emailed when this alert is triggered?
-         */
-        emailAccountAdmins?: boolean;
-        /**
-         * A list of email addresses which alerts should be sent to.
-         */
-        emailAddresses?: string[];
-        /**
-         * Is the policy enabled?
-         */
-        enabled?: boolean;
-        /**
-         * Specifies the number of days to keep in the Threat Detection audit logs.
-         */
-        retentionDays?: number;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-         */
-        storageEndpoint?: string;
     }
 
 }
@@ -67697,7 +64404,7 @@ export namespace recoveryservices {
         /**
          * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          *
-         * > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+         * > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          *
          * > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
          */
@@ -67743,7 +64450,7 @@ export namespace recoveryservices {
          */
         alertsForAllReplicationIssuesEnabled?: boolean;
         /**
-         * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+         * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
          */
         alertsForCriticalOperationFailuresEnabled?: boolean;
         /**
@@ -67765,7 +64472,7 @@ export namespace redhatopenshift {
          */
         url: string;
         /**
-         * Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+         * Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: string;
     }
@@ -67788,13 +64495,24 @@ export namespace redhatopenshift {
          */
         pullSecret?: string;
         /**
-         * The resource group that the cluster profile is attached to.
+         * The Resource Group that the cluster profile is attached to.
          */
         resourceGroupId: string;
         /**
          * The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
          */
         version: string;
+    }
+
+    export interface ClusterIdentity {
+        /**
+         * A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+         */
+        identityIds: string;
+        /**
+         * The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+         */
+        type: string;
     }
 
     export interface ClusterIngressProfile {
@@ -67807,7 +64525,7 @@ export namespace redhatopenshift {
          */
         name: string;
         /**
-         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+         * Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: string;
     }
@@ -67835,6 +64553,10 @@ export namespace redhatopenshift {
 
     export interface ClusterNetworkProfile {
         /**
+         * A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+         */
+        loadBalancerProfile: outputs.redhatopenshift.ClusterNetworkProfileLoadBalancerProfile;
+        /**
          * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
          */
         outboundType?: string;
@@ -67850,6 +64572,49 @@ export namespace redhatopenshift {
          * The network range used by the OpenShift service. Changing this forces a new resource to be created.
          */
         serviceCidr: string;
+    }
+
+    export interface ClusterNetworkProfileLoadBalancerProfile {
+        /**
+         * The list of effective outbound IP resource IDs of the cluster's public load balancer.
+         */
+        effectiveOutboundIps: string[];
+        /**
+         * The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+         */
+        managedOutboundIpCount: number;
+    }
+
+    export interface ClusterPlatformWorkloadIdentityProfile {
+        /**
+         * One or more `platformWorkloadIdentity` blocks as defined above.
+         */
+        platformWorkloadIdentities: outputs.redhatopenshift.ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity[];
+        /**
+         * The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+         */
+        upgradeableTo?: string;
+    }
+
+    export interface ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity {
+        /**
+         * The client ID of the User Assigned Managed Identity assigned to the operator.
+         */
+        clientId: string;
+        /**
+         * The resource ID of the User Assigned Managed Identity to assign to the operator.
+         */
+        identityId: string;
+        /**
+         * The name of the platform workload identity operator.
+         *
+         * > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+         */
+        name: string;
+        /**
+         * The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+         */
+        objectId: string;
     }
 
     export interface ClusterServicePrincipal {
@@ -68010,18 +64775,6 @@ export namespace redis {
         storageAccountSubscriptionId?: string;
     }
 
-    export interface EnterpriseDatabaseModule {
-        /**
-         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-         */
-        args?: string;
-        /**
-         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-         */
-        name: string;
-        version: string;
-    }
-
     export interface GetCachePatchSchedule {
         /**
          * the Weekday name for the patch item
@@ -68125,7 +64878,7 @@ export namespace role {
         /**
          * A list of data actions allowed by this role.
          */
-        dataActions?: string[];
+        dataActions: string[];
         /**
          * A list of actions which are denied by this role.
          */
@@ -68133,7 +64886,7 @@ export namespace role {
         /**
          * A list of data actions which are denied by this role.
          */
-        notDataActions?: string[];
+        notDataActions: string[];
     }
 
 }
@@ -68307,7 +65060,7 @@ export namespace sentinel {
          */
         description: string;
         /**
-         * The Name of the built-in Anomaly Alert Rule.
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -68330,7 +65083,7 @@ export namespace sentinel {
          */
         exclude: string;
         /**
-         * The Name of the built-in Anomaly Alert Rule.
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -68356,7 +65109,7 @@ export namespace sentinel {
          */
         description: string;
         /**
-         * The Name of the built-in Anomaly Alert Rule.
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -68383,7 +65136,7 @@ export namespace sentinel {
          */
         min: string;
         /**
-         * The Name of the built-in Anomaly Alert Rule.
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -68542,7 +65295,7 @@ export namespace sentinel {
          */
         name: string;
         /**
-         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          */
         value: string;
     }
@@ -68654,7 +65407,7 @@ export namespace sentinel {
          */
         name: string;
         /**
-         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          */
         value: string;
     }
@@ -69233,7 +65986,7 @@ export namespace servicebus {
         /**
          * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          *
-         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+         * > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
          */
         clientId?: string;
         /**
@@ -69766,6 +66519,85 @@ export namespace servicefabric {
 }
 
 export namespace signalr {
+    export interface GetServiceCor {
+        /**
+         * A list of origins which should be able to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+    }
+
+    export interface GetServiceIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to the SignalR service.
+         */
+        identityIds: string[];
+        /**
+         * The principal id of the system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the signalR service.
+         */
+        type: string;
+    }
+
+    export interface GetServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled.
+         */
+        connectivityLogsEnabled: boolean;
+        /**
+         * Whether live trace is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled.
+         */
+        httpRequestLogsEnabled: boolean;
+        /**
+         * Whether the log category `MessagingLogs` is enabled.
+         */
+        messagingLogsEnabled: boolean;
+    }
+
+    export interface GetServiceSkus {
+        /**
+         * The capacity of the SKU.
+         */
+        capacity: number;
+        /**
+         * Specifies the name of the SignalR service.
+         */
+        name: string;
+    }
+
+    export interface GetServiceUpstreamEndpoint {
+        /**
+         * The pattern that categories match on.
+         */
+        categoryPatterns: string[];
+        /**
+         * The pattern that events match on.
+         */
+        eventPatterns: string[];
+        /**
+         * The pattern that hubs match on.
+         */
+        hubPatterns: string[];
+        /**
+         * The upstream URL Template.
+         */
+        urlTemplate: string;
+        /**
+         * The Managed Identity ID assigned to this SignalR upstream setting.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface ServiceCor {
         /**
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -69984,21 +66816,13 @@ export namespace siterecovery {
         /**
          * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
          *
-         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/azure/automation/whats-new#support-for-run-as-accounts).
          */
         authenticationType?: string;
         /**
          * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-         *
-         * > **Note:** `automationAccountId` is required when `enabled` is specified.
          */
-        automationAccountId?: string;
-        /**
-         * Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-         *
-         * > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-         */
-        enabled?: boolean;
+        automationAccountId: string;
     }
 
     export interface ReplicatedVMManagedDisk {
@@ -70017,15 +66841,15 @@ export namespace siterecovery {
         /**
          * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          *
-         * > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+         * > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` will take more time (up to 5 hours), please extend the `timeout` for `create`.
          */
         targetDiskEncryptionSetId?: string;
         /**
-         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          */
         targetDiskType: string;
         /**
-         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
          */
         targetReplicaDiskType: string;
         /**
@@ -70069,17 +66893,38 @@ export namespace siterecovery {
 
     export interface ReplicatedVMNetworkInterface {
         /**
+         * IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
+         */
+        ipConfigurations?: outputs.siterecovery.ReplicatedVMNetworkInterfaceIpConfiguration[];
+        /**
+         * Id source network interface.
+         */
+        sourceNetworkInterfaceId: string;
+    }
+
+    export interface ReplicatedVMNetworkInterfaceIpConfiguration {
+        /**
          * Id of the public IP object to use when a test failover is done.
          */
-        failoverTestPublicIpAddressId: string;
+        failoverTestPublicIpAddressId?: string;
         /**
          * Static IP to assign when a test failover is done.
          */
-        failoverTestStaticIp: string;
+        failoverTestStaticIp?: string;
         /**
          * Name of the subnet to use when a test failover is done.
          */
-        failoverTestSubnetName: string;
+        failoverTestSubnetName?: string;
+        /**
+         * Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+         *
+         * > **Note:** `name` is required when more than one `ipConfiguration` block is specified.
+         */
+        name: string;
+        /**
+         * Whether this IP configuration is primary. If only one `ipConfiguration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ipConfiguration`.
+         */
+        primary: boolean;
         /**
          * A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
          */
@@ -70088,10 +66933,6 @@ export namespace siterecovery {
          * Id of the public IP object to use when a failover is done.
          */
         recoveryPublicIpAddressId?: string;
-        /**
-         * (Required if the networkInterface block is specified) Id source network interface.
-         */
-        sourceNetworkInterfaceId: string;
         /**
          * Static IP to assign when a failover is done.
          */
@@ -70823,7 +67664,7 @@ export namespace stack {
         /**
          * A `route` block as defined above. Changing this forces a new resource to be created.
          */
-        routes?: outputs.stack.HciLogicalNetworkSubnetRoute[];
+        route?: outputs.stack.HciLogicalNetworkSubnetRoute;
         /**
          * The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
          */
@@ -71045,7 +67886,7 @@ export namespace storage {
         /**
          * Should the Custom Domain Name be validated by using indirect CNAME validation?
          *
-         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+         * > **Note:** [More information on Validation is available here](https://docs.microsoft.com/azure/storage/blobs/storage-custom-domain-name)
          */
         useSubdomain?: boolean;
     }
@@ -71055,10 +67896,6 @@ export namespace storage {
          * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
          */
         keyVaultKeyId: string;
-        /**
-         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         */
-        managedHsmKeyId: string;
         /**
          * The ID of a user assigned identity.
          *
@@ -71154,25 +67991,6 @@ export namespace storage {
          * The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
          */
         endpointTenantId: string;
-    }
-
-    export interface AccountQueueProperties {
-        /**
-         * A `corsRule` block as defined above.
-         */
-        corsRules?: outputs.storage.AccountQueuePropertiesCorsRule[];
-        /**
-         * A `hourMetrics` block as defined below.
-         */
-        hourMetrics: outputs.storage.AccountQueuePropertiesHourMetrics;
-        /**
-         * A `logging` block as defined below.
-         */
-        logging: outputs.storage.AccountQueuePropertiesLogging;
-        /**
-         * A `minuteMetrics` block as defined below.
-         */
-        minuteMetrics: outputs.storage.AccountQueuePropertiesMinuteMetrics;
     }
 
     export interface AccountQueuePropertiesCorsRule {
@@ -71346,17 +68164,6 @@ export namespace storage {
         versions?: string[];
     }
 
-    export interface AccountStaticWebsite {
-        /**
-         * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-         */
-        error404Document?: string;
-        /**
-         * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-         */
-        indexDocument?: string;
-    }
-
     export interface AccountTablePropertiesCorsRule {
         /**
          * A list of headers that are allowed to be a part of the cross-origin request.
@@ -71472,6 +68279,12 @@ export namespace storage {
          */
         blobTypes: string[];
         /**
+         * The number of days in the past to filter blob creation time. Possible values range between `1` and `36500`.
+         *
+         * > **Note:** The `rules.*.schema_fields` for this rule has to include `Creation-Time` so that you can specify the `createdWithinDays` filter.
+         */
+        createdWithinDays?: number;
+        /**
          * A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
          */
         excludePrefixes?: string[];
@@ -71543,6 +68356,25 @@ export namespace storage {
          * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
          */
         type: string;
+    }
+
+    export interface DiscoveryWorkspaceScope {
+        /**
+         * The display name for this scope. Must be unique within the workspace, be 4-64 characters long, and can only contain letters, numbers, spaces, and hyphens. Cannot start or end with a number, space, or hyphen, and cannot contain consecutive hyphens or spaces.
+         */
+        displayName: string;
+        /**
+         * A set of Azure resource type strings to include in this scope. The only possible value is `Microsoft.Storage/storageAccounts`.
+         */
+        resourceTypes: string[];
+        /**
+         * A set of tag keys used to filter resources. Resources with any of these tag keys will be included.
+         */
+        tagKeysOnlies?: string[];
+        /**
+         * A map of tag key-value pairs that resources must have to be included in this scope.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface GetAccountAzureFilesAuthentication {
@@ -72257,7 +69089,7 @@ export namespace storage {
 
     export interface ShareAclAccessPolicy {
         /**
-         * The time at which this Access Policy should be valid untilWhen using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy should be valid until, in RFC3339 format.
          */
         expiry?: string;
         /**
@@ -72267,7 +69099,7 @@ export namespace storage {
          */
         permissions: string;
         /**
-         * The time at which this Access Policy should be valid from. When using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy should be valid from, in RFC3339 format.
          */
         start?: string;
     }
@@ -72746,7 +69578,7 @@ export namespace synapse {
          */
         branchName: string;
         /**
-         * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+         * Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
          *
          * > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
          */
@@ -73202,9 +70034,9 @@ export namespace waf {
          */
         enabled?: boolean;
         /**
-         * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+         * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
          */
-        fileUploadEnforcement: boolean;
+        fileUploadEnforcement?: boolean;
         /**
          * The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
          */
@@ -73275,6 +70107,44 @@ export namespace webpubsub {
          * The  name for the resource that has been onboarded to private link service.
          */
         subresourceName: string;
+    }
+
+    export interface GetServiceIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+         */
+        identityIds: string[];
+        /**
+         * The principal id of the system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the web pubsub.
+         */
+        type: string;
+    }
+
+    export interface GetServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled.
+         */
+        connectivityLogsEnabled: boolean;
+        /**
+         * Whether the live trace is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled.
+         */
+        httpRequestLogsEnabled: boolean;
+        /**
+         * Whether the log category `MessagingLogs` is enabled.
+         */
+        messagingLogsEnabled: boolean;
     }
 
     export interface HubEventHandler {
@@ -73494,7 +70364,7 @@ export namespace workloadssap {
          */
         skuName: string;
         /**
-         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          */
         volumeName: string;
     }
@@ -73799,7 +70669,7 @@ export namespace workloadssap {
          */
         skuName: string;
         /**
-         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         * Specifies the volume name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
          */
         volumeName: string;
     }

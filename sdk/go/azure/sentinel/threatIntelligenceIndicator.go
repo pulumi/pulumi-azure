@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ import (
 //			_, err = sentinel.NewThreatIntelligenceIndicator(ctx, "example", &sentinel.ThreatIntelligenceIndicatorArgs{
 //				WorkspaceId:     exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				PatternType:     pulumi.String("domain-name"),
-//				Pattern:         pulumi.String("http://example.com"),
+//				Pattern:         pulumi.String("example.com"),
 //				Source:          pulumi.String("Microsoft Sentinel"),
 //				ValidateFromUtc: pulumi.String("2022-12-14T16:00:00Z"),
 //				DisplayName:     pulumi.String("example-indicator"),
@@ -69,6 +69,15 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+//
+// * `Microsoft.SecurityInsights` - 2022-10-01-preview
 //
 // ## Import
 //
@@ -88,9 +97,9 @@ type ThreatIntelligenceIndicator struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Whether the Threat Intelligence entity is defanged?
 	Defanged pulumi.BoolOutput `pulumi:"defanged"`
-	// The description of the Threat Intelligence Indicator.
+	// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the Threat Intelligence Indicator.
+	// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The extension config of the Threat Intelligence Indicator in JSON format.
 	Extension pulumi.StringOutput `pulumi:"extension"`
@@ -130,10 +139,10 @@ type ThreatIntelligenceIndicator struct {
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Specifies a list of threat types of this Threat Intelligence Indicator.
 	ThreatTypes pulumi.StringArrayOutput `pulumi:"threatTypes"`
-	// The start of validate date in RFC3339.
+	// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 	ValidateFromUtc pulumi.StringOutput `pulumi:"validateFromUtc"`
 	// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
-	ValidateUntilUtc pulumi.StringPtrOutput `pulumi:"validateUntilUtc"`
+	ValidateUntilUtc pulumi.StringOutput `pulumi:"validateUntilUtc"`
 	// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -194,9 +203,9 @@ type threatIntelligenceIndicatorState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Whether the Threat Intelligence entity is defanged?
 	Defanged *bool `pulumi:"defanged"`
-	// The description of the Threat Intelligence Indicator.
+	// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
-	// The display name of the Threat Intelligence Indicator.
+	// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// The extension config of the Threat Intelligence Indicator in JSON format.
 	Extension *string `pulumi:"extension"`
@@ -236,7 +245,7 @@ type threatIntelligenceIndicatorState struct {
 	Tags []string `pulumi:"tags"`
 	// Specifies a list of threat types of this Threat Intelligence Indicator.
 	ThreatTypes []string `pulumi:"threatTypes"`
-	// The start of validate date in RFC3339.
+	// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 	ValidateFromUtc *string `pulumi:"validateFromUtc"`
 	// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
 	ValidateUntilUtc *string `pulumi:"validateUntilUtc"`
@@ -253,9 +262,9 @@ type ThreatIntelligenceIndicatorState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Whether the Threat Intelligence entity is defanged?
 	Defanged pulumi.BoolPtrInput
-	// The description of the Threat Intelligence Indicator.
+	// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
-	// The display name of the Threat Intelligence Indicator.
+	// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrInput
 	// The extension config of the Threat Intelligence Indicator in JSON format.
 	Extension pulumi.StringPtrInput
@@ -295,7 +304,7 @@ type ThreatIntelligenceIndicatorState struct {
 	Tags pulumi.StringArrayInput
 	// Specifies a list of threat types of this Threat Intelligence Indicator.
 	ThreatTypes pulumi.StringArrayInput
-	// The start of validate date in RFC3339.
+	// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 	ValidateFromUtc pulumi.StringPtrInput
 	// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
 	ValidateUntilUtc pulumi.StringPtrInput
@@ -312,9 +321,9 @@ type threatIntelligenceIndicatorArgs struct {
 	Confidence *int `pulumi:"confidence"`
 	// The creator of the Threat Intelligence Indicator.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The description of the Threat Intelligence Indicator.
+	// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
-	// The display name of the Threat Intelligence Indicator.
+	// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	DisplayName string `pulumi:"displayName"`
 	// The extension config of the Threat Intelligence Indicator in JSON format.
 	Extension *string `pulumi:"extension"`
@@ -342,7 +351,7 @@ type threatIntelligenceIndicatorArgs struct {
 	Tags []string `pulumi:"tags"`
 	// Specifies a list of threat types of this Threat Intelligence Indicator.
 	ThreatTypes []string `pulumi:"threatTypes"`
-	// The start of validate date in RFC3339.
+	// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 	ValidateFromUtc string `pulumi:"validateFromUtc"`
 	// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
 	ValidateUntilUtc *string `pulumi:"validateUntilUtc"`
@@ -356,9 +365,9 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Confidence pulumi.IntPtrInput
 	// The creator of the Threat Intelligence Indicator.
 	CreatedBy pulumi.StringPtrInput
-	// The description of the Threat Intelligence Indicator.
+	// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
-	// The display name of the Threat Intelligence Indicator.
+	// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringInput
 	// The extension config of the Threat Intelligence Indicator in JSON format.
 	Extension pulumi.StringPtrInput
@@ -386,7 +395,7 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Tags pulumi.StringArrayInput
 	// Specifies a list of threat types of this Threat Intelligence Indicator.
 	ThreatTypes pulumi.StringArrayInput
-	// The start of validate date in RFC3339.
+	// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 	ValidateFromUtc pulumi.StringInput
 	// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
 	ValidateUntilUtc pulumi.StringPtrInput
@@ -501,12 +510,12 @@ func (o ThreatIntelligenceIndicatorOutput) Defanged() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.BoolOutput { return v.Defanged }).(pulumi.BoolOutput)
 }
 
-// The description of the Threat Intelligence Indicator.
+// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 func (o ThreatIntelligenceIndicatorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the Threat Intelligence Indicator.
+// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 func (o ThreatIntelligenceIndicatorOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -614,14 +623,14 @@ func (o ThreatIntelligenceIndicatorOutput) ThreatTypes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringArrayOutput { return v.ThreatTypes }).(pulumi.StringArrayOutput)
 }
 
-// The start of validate date in RFC3339.
+// The start of validate date in RFC3339. Changing this forces a new resource to be created.
 func (o ThreatIntelligenceIndicatorOutput) ValidateFromUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.ValidateFromUtc }).(pulumi.StringOutput)
 }
 
 // The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
-func (o ThreatIntelligenceIndicatorOutput) ValidateUntilUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringPtrOutput { return v.ValidateUntilUtc }).(pulumi.StringPtrOutput)
+func (o ThreatIntelligenceIndicatorOutput) ValidateUntilUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.ValidateUntilUtc }).(pulumi.StringOutput)
 }
 
 // The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.

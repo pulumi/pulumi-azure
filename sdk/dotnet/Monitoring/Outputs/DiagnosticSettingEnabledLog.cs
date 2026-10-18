@@ -27,19 +27,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// &gt; **NOTE:** Exactly one of `Category` or `CategoryGroup` must be specified.
         /// </summary>
         public readonly string? CategoryGroup;
-        public readonly Outputs.DiagnosticSettingEnabledLogRetentionPolicy? RetentionPolicy;
 
         [OutputConstructor]
         private DiagnosticSettingEnabledLog(
             string? category,
 
-            string? categoryGroup,
-
-            Outputs.DiagnosticSettingEnabledLogRetentionPolicy? retentionPolicy)
+            string? categoryGroup)
         {
             Category = category;
             CategoryGroup = categoryGroup;
-            RetentionPolicy = retentionPolicy;
         }
     }
 }

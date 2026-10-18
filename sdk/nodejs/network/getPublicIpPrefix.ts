@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,6 +56,10 @@ export interface GetPublicIpPrefixArgs {
  */
 export interface GetPublicIpPrefixResult {
     /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix.
+     */
+    readonly customIpPrefixId: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -63,6 +67,10 @@ export interface GetPublicIpPrefixResult {
      * The Public IP address range, in CIDR notation.
      */
     readonly ipPrefix: string;
+    /**
+     * The IP Version in use.
+     */
+    readonly ipVersion: string;
     /**
      * The supported Azure location where the resource exists.
      */
@@ -113,7 +121,7 @@ export interface GetPublicIpPrefixResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIpPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

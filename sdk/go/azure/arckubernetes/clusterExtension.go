@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/arckubernetes"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/arckubernetes"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -97,7 +97,7 @@ type ClusterExtension struct {
 	ConfigurationSettings pulumi.StringMapOutput `pulumi:"configurationSettings"`
 	// The current version of the extension.
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringOutput `pulumi:"extensionType"`
 	// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Identity ClusterExtensionIdentityOutput `pulumi:"identity"`
@@ -160,7 +160,7 @@ type clusterExtensionState struct {
 	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
 	// The current version of the extension.
 	CurrentVersion *string `pulumi:"currentVersion"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ExtensionType *string `pulumi:"extensionType"`
 	// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Identity *ClusterExtensionIdentity `pulumi:"identity"`
@@ -185,7 +185,7 @@ type ClusterExtensionState struct {
 	ConfigurationSettings pulumi.StringMapInput
 	// The current version of the extension.
 	CurrentVersion pulumi.StringPtrInput
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringPtrInput
 	// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Identity ClusterExtensionIdentityPtrInput
@@ -212,7 +212,7 @@ type clusterExtensionArgs struct {
 	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
 	// Configuration settings, as name-value pairs for configuring this extension.
 	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ExtensionType string `pulumi:"extensionType"`
 	// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Identity ClusterExtensionIdentity `pulumi:"identity"`
@@ -236,7 +236,7 @@ type ClusterExtensionArgs struct {
 	ConfigurationProtectedSettings pulumi.StringMapInput
 	// Configuration settings, as name-value pairs for configuring this extension.
 	ConfigurationSettings pulumi.StringMapInput
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringInput
 	// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Identity ClusterExtensionIdentityInput
@@ -359,7 +359,7 @@ func (o ClusterExtensionOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterExtension) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }
 
-// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 func (o ClusterExtensionOutput) ExtensionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterExtension) pulumi.StringOutput { return v.ExtensionType }).(pulumi.StringOutput)
 }

@@ -33,7 +33,7 @@ public final class PolicyFileShareRetentionYearly {
      */
     private @Nullable Boolean includeLastDays;
     /**
-     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
      * 
      */
     private List<String> months;
@@ -73,7 +73,7 @@ public final class PolicyFileShareRetentionYearly {
         return Optional.ofNullable(this.includeLastDays);
     }
     /**
-     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+     * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
      * 
      */
     public List<String> months() {

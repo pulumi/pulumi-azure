@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
+ * &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
  * 
  * &gt; **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  * 
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  * * `Microsoft.Compute` - 2024-03-01, 2023-04-02
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -503,7 +503,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     @Export(name="zones", refs={String.class}, tree="[0]")
@@ -514,7 +514,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     public Output<Optional<String>> zones() {

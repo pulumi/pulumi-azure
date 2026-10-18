@@ -30,14 +30,14 @@ public final class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs extends c
     }
 
     /**
-     * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+     * The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+     * @return The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
      * 
      */
     public Output<String> value() {
@@ -91,7 +91,7 @@ public final class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs extends c
         }
 
         /**
-         * @param value The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * @param value The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs extends c
         }
 
         /**
-         * @param value The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         * @param value The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
          * 
          * @return builder
          * 

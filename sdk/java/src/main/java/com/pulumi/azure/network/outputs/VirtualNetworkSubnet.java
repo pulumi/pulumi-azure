@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.VirtualNetworkSubnetDelegation;
+import com.pulumi.azure.network.outputs.VirtualNetworkSubnetServiceEndpoint;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -47,14 +48,14 @@ public final class VirtualNetworkSubnet {
      * 
      * &gt; **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
      * 
-     * &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+     * &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      * 
      */
     private @Nullable String privateEndpointNetworkPolicies;
     /**
      * @return Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      * 
-     * &gt; **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * &gt; **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      * 
      */
     private @Nullable Boolean privateLinkServiceNetworkPoliciesEnabled;
@@ -76,10 +77,10 @@ public final class VirtualNetworkSubnet {
      */
     private @Nullable List<String> serviceEndpointPolicyIds;
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    private @Nullable List<String> serviceEndpoints;
+    private @Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints;
 
     private VirtualNetworkSubnet() {}
     /**
@@ -124,7 +125,7 @@ public final class VirtualNetworkSubnet {
      * 
      * &gt; **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
      * 
-     * &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+     * &gt; **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      * 
      */
     public Optional<String> privateEndpointNetworkPolicies() {
@@ -133,7 +134,7 @@ public final class VirtualNetworkSubnet {
     /**
      * @return Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      * 
-     * &gt; **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * &gt; **Note:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      * 
      */
     public Optional<Boolean> privateLinkServiceNetworkPoliciesEnabled() {
@@ -163,10 +164,10 @@ public final class VirtualNetworkSubnet {
         return this.serviceEndpointPolicyIds == null ? List.of() : this.serviceEndpointPolicyIds;
     }
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    public List<String> serviceEndpoints() {
+    public List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints() {
         return this.serviceEndpoints == null ? List.of() : this.serviceEndpoints;
     }
 
@@ -189,7 +190,7 @@ public final class VirtualNetworkSubnet {
         private @Nullable String routeTableId;
         private @Nullable String securityGroup;
         private @Nullable List<String> serviceEndpointPolicyIds;
-        private @Nullable List<String> serviceEndpoints;
+        private @Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints;
         public Builder() {}
         public Builder(VirtualNetworkSubnet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -277,12 +278,12 @@ public final class VirtualNetworkSubnet {
             return serviceEndpointPolicyIds(List.of(serviceEndpointPolicyIds));
         }
         @CustomType.Setter
-        public Builder serviceEndpoints(@Nullable List<String> serviceEndpoints) {
+        public Builder serviceEndpoints(@Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints) {
 
             this.serviceEndpoints = serviceEndpoints;
             return this;
         }
-        public Builder serviceEndpoints(String... serviceEndpoints) {
+        public Builder serviceEndpoints(VirtualNetworkSubnetServiceEndpoint... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
         public VirtualNetworkSubnet build() {

@@ -153,7 +153,7 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
@@ -215,7 +215,7 @@ export class Standard extends pulumi.CustomResource {
      *
      * > **Note:** Setting this property will also set it in the Site Config.
      */
-    declare public readonly publicNetworkAccess: pulumi.Output<string>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
@@ -269,11 +269,11 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly version: pulumi.Output<string | undefined>;
     /**
-     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
@@ -397,7 +397,7 @@ export interface StandardState {
      */
     clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
@@ -513,11 +513,11 @@ export interface StandardState {
      */
     version?: pulumi.Input<string | undefined>;
     /**
-     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -549,7 +549,7 @@ export interface StandardArgs {
      */
     clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
@@ -641,11 +641,11 @@ export interface StandardArgs {
      */
     version?: pulumi.Input<string | undefined>;
     /**
-     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
      * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously.
      *
-     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      */
     virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**

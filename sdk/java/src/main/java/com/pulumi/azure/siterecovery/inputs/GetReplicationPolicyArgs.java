@@ -30,14 +30,14 @@ public final class GetReplicationPolicyArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
      * 
      */
     @Import(name="recoveryVaultName", required=true)
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+     * @return The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
      * 
      */
     public Output<String> recoveryVaultName() {
@@ -107,7 +107,7 @@ public final class GetReplicationPolicyArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param recoveryVaultName The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+         * @param recoveryVaultName The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetReplicationPolicyArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param recoveryVaultName The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+         * @param recoveryVaultName The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
          * 
          * @return builder
          * 

@@ -117,15 +117,18 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="atp-example",
             location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
-            resource_group_name=example.name,
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb-account",
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "example",
-            })
+            resource_group_name=example.name,
+            offer_type="Standard",
+            consistency_policy={
+                "consistency_level": "Eventual",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failover_priority": 0,
+            }])
         example_advanced_threat_protection = azure.securitycenter.AdvancedThreatProtection("example",
             target_resource_id=example_account.id,
             enabled=True)
@@ -136,7 +139,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         Advanced Threat Protection can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+        $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/databaseAccount1/providers/Microsoft.Security/advancedThreatProtectionSettings/default
         ```
 
 
@@ -163,15 +166,18 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="atp-example",
             location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
-            resource_group_name=example.name,
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb-account",
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "example",
-            })
+            resource_group_name=example.name,
+            offer_type="Standard",
+            consistency_policy={
+                "consistency_level": "Eventual",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failover_priority": 0,
+            }])
         example_advanced_threat_protection = azure.securitycenter.AdvancedThreatProtection("example",
             target_resource_id=example_account.id,
             enabled=True)
@@ -182,7 +188,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         Advanced Threat Protection can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+        $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/databaseAccount1/providers/Microsoft.Security/advancedThreatProtectionSettings/default
         ```
 
 

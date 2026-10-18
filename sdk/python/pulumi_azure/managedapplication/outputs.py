@@ -15,9 +15,89 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ApplicationIdentity',
     'ApplicationPlan',
     'DefinitionAuthorization',
 ]
+
+@pulumi.output_type
+class ApplicationIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 identity_ids: Optional[Sequence[_builtins.str]] = None,
+                 principal_id: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[_builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+               
+               > **Note:** The `identity_ids` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param _builtins.str principal_id: The Principal ID associated with this Managed Identity.
+        :param _builtins.str tenant_id: The Tenant ID associated with this Managed Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+
+        > **Note:** The `identity_ids` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[_builtins.str]:
+        """
+        The Principal ID associated with this Managed Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The Tenant ID associated with this Managed Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
 
 @pulumi.output_type
 class ApplicationPlan(dict):

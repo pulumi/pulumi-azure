@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ShareAclAccessPolicy
     {
         /// <summary>
-        /// The time at which this Access Policy should be valid untilWhen using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid until, in RFC3339 format.
         /// </summary>
         public readonly string? Expiry;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string Permissions;
         /// <summary>
-        /// The time at which this Access Policy should be valid from. When using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid from, in RFC3339 format.
         /// </summary>
         public readonly string? Start;
 

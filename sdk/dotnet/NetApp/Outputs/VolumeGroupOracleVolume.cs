@@ -47,7 +47,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+        /// Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         /// </summary>
         public readonly string? NetworkFeatures;
         /// <summary>
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// <summary>
         /// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
         /// 
-        /// &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `Zone`.
+        /// &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `Zone`.
         /// </summary>
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly bool SnapshotDirectoryVisible;
         /// <summary>
-        /// The maximum Storage Quota allowed for a file system in Gigabytes.
+        /// The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
         /// </summary>
         public readonly int StorageQuotaInGb;
         /// <summary>
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string VolumeSpecName;
         /// <summary>
-        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `ProximityPlacementGroupId`.
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `ProximityPlacementGroupId`.
         /// </summary>
         public readonly string? Zone;
 

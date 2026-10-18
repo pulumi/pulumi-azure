@@ -36,7 +36,7 @@ public final class StandardWebTestRequest {
      */
     private @Nullable String httpVerb;
     /**
-     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
+     * @return Should the parsing of dependent requests be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean parseDependentRequestsEnabled;
@@ -76,7 +76,7 @@ public final class StandardWebTestRequest {
         return Optional.ofNullable(this.httpVerb);
     }
     /**
-     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
+     * @return Should the parsing of dependent requests be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> parseDependentRequestsEnabled() {

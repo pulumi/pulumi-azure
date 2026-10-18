@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,8 +88,6 @@ type AlertRuleFusion struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayOutput `pulumi:"sources"`
 }
@@ -136,8 +134,6 @@ type alertRuleFusionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-	Name *string `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources []AlertRuleFusionSource `pulumi:"sources"`
 }
@@ -149,8 +145,6 @@ type AlertRuleFusionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-	Name pulumi.StringPtrInput
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayInput
 }
@@ -166,8 +160,6 @@ type alertRuleFusionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-	Name *string `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources []AlertRuleFusionSource `pulumi:"sources"`
 }
@@ -180,8 +172,6 @@ type AlertRuleFusionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
-	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-	Name pulumi.StringPtrInput
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayInput
 }
@@ -286,11 +276,6 @@ func (o AlertRuleFusionOutput) Enabled() pulumi.BoolPtrOutput {
 // The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 func (o AlertRuleFusionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleFusion) pulumi.StringOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
-}
-
-// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
-func (o AlertRuleFusionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *AlertRuleFusion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // One or more `source` blocks as defined below.

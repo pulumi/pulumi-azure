@@ -137,18 +137,6 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
         return this.logAnalyticsWorkspaceId;
     }
     /**
-     * @deprecated
-     * the `name` is deprecated and will be removed in v5.0 version of the provider.
-     * 
-     */
-    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    public Output<String> name() {
-        return this.name;
-    }
-    /**
      * One or more `source` blocks as defined below.
      * 
      */

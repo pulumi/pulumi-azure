@@ -26,6 +26,8 @@ __all__ = [
     'SocketioIdentity',
     'SocketioSku',
     'GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult',
+    'GetServiceIdentityResult',
+    'GetServiceLiveTraceResult',
 ]
 
 @pulumi.output_type
@@ -624,5 +626,107 @@ class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
         The  name for the resource that has been onboarded to private link service.
         """
         return pulumi.get(self, "subresource_name")
+
+
+@pulumi.output_type
+class GetServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+        :param _builtins.str principal_id: The principal id of the system assigned identity.
+        :param _builtins.str tenant_id: The tenant id of the system assigned identity.
+        :param _builtins.str type: The type of identity used for the web pubsub.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to the Web Pubsub service.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal id of the system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant id of the system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of identity used for the web pubsub.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceLiveTraceResult(dict):
+    def __init__(__self__, *,
+                 connectivity_logs_enabled: _builtins.bool,
+                 enabled: _builtins.bool,
+                 http_request_logs_enabled: _builtins.bool,
+                 messaging_logs_enabled: _builtins.bool):
+        """
+        :param _builtins.bool connectivity_logs_enabled: Whether the log category `ConnectivityLogs` is enabled.
+        :param _builtins.bool enabled: Whether the live trace is enabled.
+        :param _builtins.bool http_request_logs_enabled: Whether the log category `HttpRequestLogs` is enabled.
+        :param _builtins.bool messaging_logs_enabled: Whether the log category `MessagingLogs` is enabled.
+        """
+        pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
+        pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `ConnectivityLogs` is enabled.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the live trace is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `HttpRequestLogs` is enabled.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `MessagingLogs` is enabled.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
 
 

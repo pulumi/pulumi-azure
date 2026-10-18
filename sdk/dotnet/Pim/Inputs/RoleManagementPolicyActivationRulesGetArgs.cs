@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Pim.Inputs
         public Input<bool>? RequireMultifactorAuthentication { get; set; }
 
         /// <summary>
-        /// Is ticket information requrired during activation of the role.
+        /// Is ticket information required during activation of the role.
         /// </summary>
         [Input("requireTicketInfo")]
         public Input<bool>? RequireTicketInfo { get; set; }

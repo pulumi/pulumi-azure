@@ -66,7 +66,7 @@ public final class CredentialUserManagedIdentityState extends com.pulumi.resourc
     }
 
     /**
-     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 
@@ -75,7 +75,7 @@ public final class CredentialUserManagedIdentityState extends com.pulumi.resourc
     private @Nullable Output<String> identityId;
 
     /**
-     * @return The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * @return The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 
@@ -207,7 +207,7 @@ public final class CredentialUserManagedIdentityState extends com.pulumi.resourc
         }
 
         /**
-         * @param identityId The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+         * @param identityId The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
          * 
@@ -220,7 +220,7 @@ public final class CredentialUserManagedIdentityState extends com.pulumi.resourc
         }
 
         /**
-         * @param identityId The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+         * @param identityId The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
          * 

@@ -41,12 +41,16 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
+     * 
      */
     @Import(name="administratorUsername")
     private @Nullable Output<String> administratorUsername;
 
     /**
      * @return The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      * 
      */
     public Optional<Output<String>> administratorUsername() {
@@ -96,6 +100,25 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<MongoClusterConnectionStringArgs>>> connectionStrings() {
         return Optional.ofNullable(this.connectionStrings);
+    }
+
+    /**
+     * Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     * 
+     * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     * 
+     */
+    @Import(name="cosmosDbNetworkBypassEnabled")
+    private @Nullable Output<Boolean> cosmosDbNetworkBypassEnabled;
+
+    /**
+     * @return Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     * 
+     * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     * 
+     */
+    public Optional<Output<Boolean>> cosmosDbNetworkBypassEnabled() {
+        return Optional.ofNullable(this.cosmosDbNetworkBypassEnabled);
     }
 
     /**
@@ -392,6 +415,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         this.authenticationMethods = $.authenticationMethods;
         this.computeTier = $.computeTier;
         this.connectionStrings = $.connectionStrings;
+        this.cosmosDbNetworkBypassEnabled = $.cosmosDbNetworkBypassEnabled;
         this.createMode = $.createMode;
         this.customerManagedKey = $.customerManagedKey;
         this.dataApiModeEnabled = $.dataApiModeEnabled;
@@ -454,6 +478,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param administratorUsername The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
+         * 
          * @return builder
          * 
          */
@@ -464,6 +490,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param administratorUsername The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
          * 
          * @return builder
          * 
@@ -553,6 +581,31 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder connectionStrings(MongoClusterConnectionStringArgs... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
+        }
+
+        /**
+         * @param cosmosDbNetworkBypassEnabled Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+         * 
+         * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cosmosDbNetworkBypassEnabled(@Nullable Output<Boolean> cosmosDbNetworkBypassEnabled) {
+            $.cosmosDbNetworkBypassEnabled = cosmosDbNetworkBypassEnabled;
+            return this;
+        }
+
+        /**
+         * @param cosmosDbNetworkBypassEnabled Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+         * 
+         * &gt; **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cosmosDbNetworkBypassEnabled(Boolean cosmosDbNetworkBypassEnabled) {
+            return cosmosDbNetworkBypassEnabled(Output.of(cosmosDbNetworkBypassEnabled));
         }
 
         /**

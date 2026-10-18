@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Communication
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Communication` - 2023-03-31
+    /// * `Microsoft.Communication` - 2026-03-18
     /// 
     /// ## Import
     /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Communication
         /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `Usgov` and `United States`. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Output("dataLocation")]
-        public Output<string?> DataLocation { get; private set; } = null!;
+        public Output<string> DataLocation { get; private set; } = null!;
 
         /// <summary>
         /// The hostname of the Communication Service
@@ -166,8 +166,8 @@ namespace Pulumi.Azure.Communication
         /// <summary>
         /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `Usgov` and `United States`. Changing this forces a new Communication Service to be created.
         /// </summary>
-        [Input("dataLocation")]
-        public Input<string>? DataLocation { get; set; }
+        [Input("dataLocation", required: true)]
+        public Input<string> DataLocation { get; set; } = null!;
 
         /// <summary>
         /// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.

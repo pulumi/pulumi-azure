@@ -15,7 +15,7 @@ public final class EnvironmentCertificateCertificateKeyVault {
     /**
      * @return The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+     * &gt; **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
      * 
      */
     private @Nullable String identity;
@@ -29,7 +29,7 @@ public final class EnvironmentCertificateCertificateKeyVault {
     /**
      * @return The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+     * &gt; **Note:** Please make sure [required permissions](https://learn.microsoft.com/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
      * 
      */
     public Optional<String> identity() {

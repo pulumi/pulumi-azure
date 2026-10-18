@@ -144,6 +144,16 @@ __all__ = [
     'RegistryTaskTimerTrigger',
     'TokenPasswordPassword1',
     'TokenPasswordPassword2',
+    'GetAutomaticClusterApiServerAccessResult',
+    'GetAutomaticClusterHostedSystemResult',
+    'GetAutomaticClusterIdentityResult',
+    'GetAutomaticClusterKubeConfigResult',
+    'GetAutomaticClusterKubeletIdentityResult',
+    'GetAutomaticClusterPrivateClusterResult',
+    'GetAutomaticClusterServiceMeshResult',
+    'GetAutomaticClusterServiceMeshCertificateAuthorityResult',
+    'GetAutomaticClusterWebAppRoutingIngressResult',
+    'GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityResult',
     'GetClusterNodePoolUpgradeSettingResult',
     'GetGroupIdentityResult',
     'GetKubernetesClusterAciConnectorLinuxResult',
@@ -635,7 +645,7 @@ class AutomaticClusterServiceMeshCertificateAuthority(dict):
         :param _builtins.str certificate_object_name: The intermediate certificate object name in Azure Key Vault.
         :param _builtins.str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param _builtins.str key_vault_id: The resource ID of the Key Vault.
         :param _builtins.str root_certificate_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -667,7 +677,7 @@ class AutomaticClusterServiceMeshCertificateAuthority(dict):
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -4343,12 +4353,12 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.bool node_public_ip_enabled: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param _builtins.str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param _builtins.bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
-        :param _builtins.str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        :param _builtins.str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param _builtins.int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param _builtins.str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param _builtins.str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
@@ -4361,7 +4371,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param _builtins.str temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param _builtins.str type: The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
                
-               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         :param _builtins.bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param _builtins.str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
@@ -4610,7 +4620,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[_builtins.str]:
         """
-        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 
         > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         """
@@ -4636,7 +4646,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[_builtins.str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019`, `Windows2022` and `Windows2025`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -4698,7 +4708,7 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
-        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/azure/aks/use-multiple-node-pools#limitations).
         """
         return pulumi.get(self, "type")
 
@@ -4766,8 +4776,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
             suggest = "allowed_unsafe_sysctls"
         elif key == "containerLogMaxFiles":
             suggest = "container_log_max_files"
-        elif key == "containerLogMaxLine":
-            suggest = "container_log_max_line"
         elif key == "containerLogMaxSizeMb":
             suggest = "container_log_max_size_mb"
         elif key == "cpuCfsQuotaEnabled":
@@ -4799,7 +4807,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[Sequence[_builtins.str]] = None,
                  container_log_max_files: Optional[_builtins.int] = None,
-                 container_log_max_line: Optional[_builtins.int] = None,
                  container_log_max_size_mb: Optional[_builtins.int] = None,
                  cpu_cfs_quota_enabled: Optional[_builtins.bool] = None,
                  cpu_cfs_quota_period: Optional[_builtins.str] = None,
@@ -4824,8 +4831,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -4858,12 +4863,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
         Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         """
         return pulumi.get(self, "container_log_max_files")
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> Optional[_builtins.int]:
-        return pulumi.get(self, "container_log_max_line")
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -4943,8 +4942,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
             suggest = "transparent_huge_page"
         elif key == "transparentHugePageDefrag":
             suggest = "transparent_huge_page_defrag"
-        elif key == "transparentHugePageEnabled":
-            suggest = "transparent_huge_page_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolLinuxOsConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4961,8 +4958,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
                  swap_file_size_mb: Optional[_builtins.int] = None,
                  sysctl_config: Optional['outputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig'] = None,
                  transparent_huge_page: Optional[_builtins.str] = None,
-                 transparent_huge_page_defrag: Optional[_builtins.str] = None,
-                 transparent_huge_page_enabled: Optional[_builtins.str] = None):
+                 transparent_huge_page_defrag: Optional[_builtins.str] = None):
         """
         :param _builtins.int swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below.
@@ -4977,8 +4973,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -5011,12 +5005,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
         specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
         """
         return pulumi.get(self, "transparent_huge_page_defrag")
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
 
 
 @pulumi.output_type
@@ -5607,7 +5595,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
                
                > **Note:** The default value for `node_soak_duration_in_minutes` is `0`. <!-- The 0 default happens in code, not in Schema -->.
@@ -5635,7 +5623,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -6173,7 +6161,7 @@ class KubernetesClusterKeyManagementService(dict):
                  key_vault_key_id: _builtins.str,
                  key_vault_network_access: Optional[_builtins.str] = None):
         """
-        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param _builtins.str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -6184,7 +6172,7 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> _builtins.str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -7643,7 +7631,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
                  outbound_ip_prefix_ids: Optional[Sequence[_builtins.str]] = None,
                  outbound_ports_allocated: Optional[_builtins.int] = None):
         """
-        :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         :param Sequence[_builtins.str] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
         :param _builtins.int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
         :param _builtins.int managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
@@ -7679,7 +7667,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     @pulumi.getter(name="backendPoolType")
     def backend_pool_type(self) -> Optional[_builtins.str]:
         """
-        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         """
         return pulumi.get(self, "backend_pool_type")
 
@@ -7819,8 +7807,6 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
             suggest = "allowed_unsafe_sysctls"
         elif key == "containerLogMaxFiles":
             suggest = "container_log_max_files"
-        elif key == "containerLogMaxLine":
-            suggest = "container_log_max_line"
         elif key == "containerLogMaxSizeMb":
             suggest = "container_log_max_size_mb"
         elif key == "cpuCfsQuotaEnabled":
@@ -7852,7 +7838,6 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[Sequence[_builtins.str]] = None,
                  container_log_max_files: Optional[_builtins.int] = None,
-                 container_log_max_line: Optional[_builtins.int] = None,
                  container_log_max_size_mb: Optional[_builtins.int] = None,
                  cpu_cfs_quota_enabled: Optional[_builtins.bool] = None,
                  cpu_cfs_quota_period: Optional[_builtins.str] = None,
@@ -7877,8 +7862,6 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -7911,12 +7894,6 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
         Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         """
         return pulumi.get(self, "container_log_max_files")
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> Optional[_builtins.int]:
-        return pulumi.get(self, "container_log_max_line")
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -7996,8 +7973,6 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
             suggest = "transparent_huge_page"
         elif key == "transparentHugePageDefrag":
             suggest = "transparent_huge_page_defrag"
-        elif key == "transparentHugePageEnabled":
-            suggest = "transparent_huge_page_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolLinuxOsConfig. Access the value via the '{suggest}' property getter instead.")
@@ -8014,8 +7989,7 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
                  swap_file_size_mb: Optional[_builtins.int] = None,
                  sysctl_config: Optional['outputs.KubernetesClusterNodePoolLinuxOsConfigSysctlConfig'] = None,
                  transparent_huge_page: Optional[_builtins.str] = None,
-                 transparent_huge_page_defrag: Optional[_builtins.str] = None,
-                 transparent_huge_page_enabled: Optional[_builtins.str] = None):
+                 transparent_huge_page_defrag: Optional[_builtins.str] = None):
         """
         :param _builtins.int swap_file_size_mb: Specifies the size of swap file on each node in MB.
         :param 'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below.
@@ -8030,8 +8004,6 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -8064,12 +8036,6 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
         specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
         """
         return pulumi.get(self, "transparent_huge_page_defrag")
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
 
 
 @pulumi.output_type
@@ -8532,7 +8498,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         :param Sequence[_builtins.str] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param Mapping[str, _builtins.str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
-               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -8563,7 +8529,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
-        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -8664,7 +8630,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
                  node_soak_duration_in_minutes: Optional[_builtins.int] = None,
                  undrainable_node_behavior: Optional[_builtins.str] = None):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
                
@@ -8687,7 +8653,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -8821,6 +8787,8 @@ class KubernetesClusterOmsAgent(dict):
             suggest = "msi_auth_for_monitoring_enabled"
         elif key == "omsAgentIdentities":
             suggest = "oms_agent_identities"
+        elif key == "retinaFlowLogsEnabled":
+            suggest = "retina_flow_logs_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterOmsAgent. Access the value via the '{suggest}' property getter instead.")
@@ -8836,17 +8804,21 @@ class KubernetesClusterOmsAgent(dict):
     def __init__(__self__, *,
                  log_analytics_workspace_id: _builtins.str,
                  msi_auth_for_monitoring_enabled: Optional[_builtins.bool] = None,
-                 oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']] = None):
+                 oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']] = None,
+                 retina_flow_logs_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param _builtins.bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        :param _builtins.bool retina_flow_logs_enabled: Is Retina Flow Logs collection enabled?
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
             pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         if oms_agent_identities is not None:
             pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+        if retina_flow_logs_enabled is not None:
+            pulumi.set(__self__, "retina_flow_logs_enabled", retina_flow_logs_enabled)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -8871,6 +8843,14 @@ class KubernetesClusterOmsAgent(dict):
         An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "oms_agent_identities")
+
+    @_builtins.property
+    @pulumi.getter(name="retinaFlowLogsEnabled")
+    def retina_flow_logs_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Is Retina Flow Logs collection enabled?
+        """
+        return pulumi.get(self, "retina_flow_logs_enabled")
 
 
 @pulumi.output_type
@@ -9069,7 +9049,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthority(dict):
         :param _builtins.str cert_object_name: The intermediate certificate object name in Azure Key Vault.
         :param _builtins.str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
                
-               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         :param _builtins.str key_vault_id: The resource ID of the Key Vault.
         :param _builtins.str root_cert_object_name: The root certificate object name in Azure Key Vault.
         """
@@ -9101,7 +9081,7 @@ class KubernetesClusterServiceMeshProfileCertificateAuthority(dict):
         """
         The intermediate certificate private key object name in Azure Key Vault.
 
-        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/azure/aks/istio-plugin-ca),
         """
         return pulumi.get(self, "key_object_name")
 
@@ -9819,8 +9799,8 @@ class RegistryGeoreplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "regionalEndpointEnabled":
-            suggest = "regional_endpoint_enabled"
+        if key == "globalEndpointRoutingEnabled":
+            suggest = "global_endpoint_routing_enabled"
         elif key == "zoneRedundancyEnabled":
             suggest = "zone_redundancy_enabled"
 
@@ -9836,25 +9816,32 @@ class RegistryGeoreplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 global_endpoint_routing_enabled: _builtins.bool,
                  location: _builtins.str,
-                 regional_endpoint_enabled: Optional[_builtins.bool] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  zone_redundancy_enabled: Optional[_builtins.bool] = None):
         """
+        :param _builtins.bool global_endpoint_routing_enabled: Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
         :param _builtins.str location: A location where the container registry should be geo-replicated.
-        :param _builtins.bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param Mapping[str, _builtins.str] tags: A mapping of tags to assign to this replication location.
         :param _builtins.bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
                > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
+        pulumi.set(__self__, "global_endpoint_routing_enabled", global_endpoint_routing_enabled)
         pulumi.set(__self__, "location", location)
-        if regional_endpoint_enabled is not None:
-            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="globalEndpointRoutingEnabled")
+    def global_endpoint_routing_enabled(self) -> _builtins.bool:
+        """
+        Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        """
+        return pulumi.get(self, "global_endpoint_routing_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -9863,14 +9850,6 @@ class RegistryGeoreplication(dict):
         A location where the container registry should be geo-replicated.
         """
         return pulumi.get(self, "location")
-
-    @_builtins.property
-    @pulumi.getter(name="regionalEndpointEnabled")
-    def regional_endpoint_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether regional endpoint is enabled for this Container Registry?
-        """
-        return pulumi.get(self, "regional_endpoint_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -11077,6 +11056,472 @@ class TokenPasswordPassword2(dict):
 
 
 @pulumi.output_type
+class GetAutomaticClusterApiServerAccessResult(dict):
+    def __init__(__self__, *,
+                 authorized_ip_ranges: Sequence[_builtins.str],
+                 subnet_id: _builtins.str):
+        """
+        :param Sequence[_builtins.str] authorized_ip_ranges: A list of IP ranges authorised to access the API server.
+        :param _builtins.str subnet_id: The ID of the subnet that the API server is accessible from.
+        """
+        pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizedIpRanges")
+    def authorized_ip_ranges(self) -> Sequence[_builtins.str]:
+        """
+        A list of IP ranges authorised to access the API server.
+        """
+        return pulumi.get(self, "authorized_ip_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> _builtins.str:
+        """
+        The ID of the subnet that the API server is accessible from.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetAutomaticClusterHostedSystemResult(dict):
+    def __init__(__self__, *,
+                 node_subnet_id: _builtins.str,
+                 system_node_subnet_id: _builtins.str):
+        """
+        :param _builtins.str node_subnet_id: The ID of the subnet used for the hosted system nodes.
+        :param _builtins.str system_node_subnet_id: The ID of the subnet used for the system nodes.
+        """
+        pulumi.set(__self__, "node_subnet_id", node_subnet_id)
+        pulumi.set(__self__, "system_node_subnet_id", system_node_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSubnetId")
+    def node_subnet_id(self) -> _builtins.str:
+        """
+        The ID of the subnet used for the hosted system nodes.
+        """
+        return pulumi.get(self, "node_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="systemNodeSubnetId")
+    def system_node_subnet_id(self) -> _builtins.str:
+        """
+        The ID of the subnet used for the system nodes.
+        """
+        return pulumi.get(self, "system_node_subnet_id")
+
+
+@pulumi.output_type
+class GetAutomaticClusterIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+        :param _builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        :param _builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        :param _builtins.str type: The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetAutomaticClusterKubeConfigResult(dict):
+    def __init__(__self__, *,
+                 client_certificate: _builtins.str,
+                 client_key: _builtins.str,
+                 cluster_ca_certificate: _builtins.str,
+                 host: _builtins.str,
+                 password: _builtins.str,
+                 username: _builtins.str):
+        """
+        :param _builtins.str client_certificate: Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+        :param _builtins.str client_key: Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+        :param _builtins.str cluster_ca_certificate: Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+        :param _builtins.str host: The Kubernetes cluster server host.
+        :param _builtins.str password: A password or token used to authenticate to the Kubernetes cluster.
+        :param _builtins.str username: A username used to authenticate to the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "client_certificate", client_certificate)
+        pulumi.set(__self__, "client_key", client_key)
+        pulumi.set(__self__, "cluster_ca_certificate", cluster_ca_certificate)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> _builtins.str:
+        """
+        Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="clientKey")
+    def client_key(self) -> _builtins.str:
+        """
+        Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "client_key")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterCaCertificate")
+    def cluster_ca_certificate(self) -> _builtins.str:
+        """
+        Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+        """
+        return pulumi.get(self, "cluster_ca_certificate")
+
+    @_builtins.property
+    @pulumi.getter
+    def host(self) -> _builtins.str:
+        """
+        The Kubernetes cluster server host.
+        """
+        return pulumi.get(self, "host")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> _builtins.str:
+        """
+        A password or token used to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> _builtins.str:
+        """
+        A username used to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetAutomaticClusterKubeletIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 object_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
+        """
+        :param _builtins.str client_id: The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        :param _builtins.str object_id: The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        :param _builtins.str user_assigned_identity_id: The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> _builtins.str:
+        """
+        The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "object_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetAutomaticClusterPrivateClusterResult(dict):
+    def __init__(__self__, *,
+                 private_dns_zone_id: _builtins.str,
+                 public_fully_qualified_domain_name_enabled: _builtins.bool):
+        """
+        :param _builtins.str private_dns_zone_id: The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+        :param _builtins.bool public_fully_qualified_domain_name_enabled: If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+        """
+        pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        pulumi.set(__self__, "public_fully_qualified_domain_name_enabled", public_fully_qualified_domain_name_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> _builtins.str:
+        """
+        The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @_builtins.property
+    @pulumi.getter(name="publicFullyQualifiedDomainNameEnabled")
+    def public_fully_qualified_domain_name_enabled(self) -> _builtins.bool:
+        """
+        If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+        """
+        return pulumi.get(self, "public_fully_qualified_domain_name_enabled")
+
+
+@pulumi.output_type
+class GetAutomaticClusterServiceMeshResult(dict):
+    def __init__(__self__, *,
+                 certificate_authorities: Sequence['outputs.GetAutomaticClusterServiceMeshCertificateAuthorityResult'],
+                 external_ingress_gateway_enabled: _builtins.bool,
+                 internal_ingress_gateway_enabled: _builtins.bool,
+                 proxy_redirect_mechanism: _builtins.str,
+                 revisions: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAutomaticClusterServiceMeshCertificateAuthorityArgs'] certificate_authorities: A `certificate_authority` block as documented below.
+        :param _builtins.bool external_ingress_gateway_enabled: If the Istio External Ingress Gateway is enabled.
+        :param _builtins.bool internal_ingress_gateway_enabled: If the Istio Internal Ingress Gateway is enabled.
+        :param _builtins.str proxy_redirect_mechanism: The proxy redirect mechanism configured for the Istio service mesh.
+        :param Sequence[_builtins.str] revisions: List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
+        """
+        pulumi.set(__self__, "certificate_authorities", certificate_authorities)
+        pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
+        pulumi.set(__self__, "internal_ingress_gateway_enabled", internal_ingress_gateway_enabled)
+        pulumi.set(__self__, "proxy_redirect_mechanism", proxy_redirect_mechanism)
+        pulumi.set(__self__, "revisions", revisions)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthorities")
+    def certificate_authorities(self) -> Sequence['outputs.GetAutomaticClusterServiceMeshCertificateAuthorityResult']:
+        """
+        A `certificate_authority` block as documented below.
+        """
+        return pulumi.get(self, "certificate_authorities")
+
+    @_builtins.property
+    @pulumi.getter(name="externalIngressGatewayEnabled")
+    def external_ingress_gateway_enabled(self) -> _builtins.bool:
+        """
+        If the Istio External Ingress Gateway is enabled.
+        """
+        return pulumi.get(self, "external_ingress_gateway_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="internalIngressGatewayEnabled")
+    def internal_ingress_gateway_enabled(self) -> _builtins.bool:
+        """
+        If the Istio Internal Ingress Gateway is enabled.
+        """
+        return pulumi.get(self, "internal_ingress_gateway_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="proxyRedirectMechanism")
+    def proxy_redirect_mechanism(self) -> _builtins.str:
+        """
+        The proxy redirect mechanism configured for the Istio service mesh.
+        """
+        return pulumi.get(self, "proxy_redirect_mechanism")
+
+    @_builtins.property
+    @pulumi.getter
+    def revisions(self) -> Sequence[_builtins.str]:
+        """
+        List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/azure/aks/istio-upgrade).
+        """
+        return pulumi.get(self, "revisions")
+
+
+@pulumi.output_type
+class GetAutomaticClusterServiceMeshCertificateAuthorityResult(dict):
+    def __init__(__self__, *,
+                 certificate_chain_object_name: _builtins.str,
+                 certificate_object_name: _builtins.str,
+                 key_object_name: _builtins.str,
+                 key_vault_id: _builtins.str,
+                 root_certificate_object_name: _builtins.str):
+        """
+        :param _builtins.str certificate_chain_object_name: The certificate chain object name in Azure Key Vault.
+        :param _builtins.str certificate_object_name: The intermediate certificate object name in Azure Key Vault.
+        :param _builtins.str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
+        :param _builtins.str key_vault_id: The resource ID of the Key Vault.
+        :param _builtins.str root_certificate_object_name: The root certificate object name in Azure Key Vault.
+        """
+        pulumi.set(__self__, "certificate_chain_object_name", certificate_chain_object_name)
+        pulumi.set(__self__, "certificate_object_name", certificate_object_name)
+        pulumi.set(__self__, "key_object_name", key_object_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "root_certificate_object_name", root_certificate_object_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChainObjectName")
+    def certificate_chain_object_name(self) -> _builtins.str:
+        """
+        The certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "certificate_chain_object_name")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateObjectName")
+    def certificate_object_name(self) -> _builtins.str:
+        """
+        The intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "certificate_object_name")
+
+    @_builtins.property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> _builtins.str:
+        """
+        The intermediate certificate private key object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> _builtins.str:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @_builtins.property
+    @pulumi.getter(name="rootCertificateObjectName")
+    def root_certificate_object_name(self) -> _builtins.str:
+        """
+        The root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_certificate_object_name")
+
+
+@pulumi.output_type
+class GetAutomaticClusterWebAppRoutingIngressResult(dict):
+    def __init__(__self__, *,
+                 default_nginx_controller: _builtins.str,
+                 dns_zone_ids: Sequence[_builtins.str],
+                 istio_enabled: _builtins.bool,
+                 web_app_routing_identities: Sequence['outputs.GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityResult']):
+        """
+        :param _builtins.str default_nginx_controller: The default Nginx controller for the web app routing ingress.
+        :param Sequence[_builtins.str] dns_zone_ids: A list of DNS Zone IDs associated with the web app routing ingress.
+        :param _builtins.bool istio_enabled: If Istio is enabled for the web app routing ingress.
+        :param Sequence['GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs'] web_app_routing_identities: A `web_app_routing_identity` block as documented below.
+        """
+        pulumi.set(__self__, "default_nginx_controller", default_nginx_controller)
+        pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
+        pulumi.set(__self__, "istio_enabled", istio_enabled)
+        pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNginxController")
+    def default_nginx_controller(self) -> _builtins.str:
+        """
+        The default Nginx controller for the web app routing ingress.
+        """
+        return pulumi.get(self, "default_nginx_controller")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsZoneIds")
+    def dns_zone_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of DNS Zone IDs associated with the web app routing ingress.
+        """
+        return pulumi.get(self, "dns_zone_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="istioEnabled")
+    def istio_enabled(self) -> _builtins.bool:
+        """
+        If Istio is enabled for the web app routing ingress.
+        """
+        return pulumi.get(self, "istio_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webAppRoutingIdentities")
+    def web_app_routing_identities(self) -> Sequence['outputs.GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityResult']:
+        """
+        A `web_app_routing_identity` block as documented below.
+        """
+        return pulumi.get(self, "web_app_routing_identities")
+
+
+@pulumi.output_type
+class GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 object_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
+        """
+        :param _builtins.str client_id: The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        :param _builtins.str object_id: The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        :param _builtins.str user_assigned_identity_id: The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> _builtins.str:
+        """
+        The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "object_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
 class GetClusterNodePoolUpgradeSettingResult(dict):
     def __init__(__self__, *,
                  drain_timeout_in_minutes: _builtins.int,
@@ -11085,7 +11530,7 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
                  node_soak_duration_in_minutes: _builtins.int,
                  undrainable_node_behavior: _builtins.str):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
@@ -11101,7 +11546,7 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> _builtins.int:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -11424,7 +11869,7 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
                  node_soak_duration_in_minutes: _builtins.int,
                  undrainable_node_behavior: _builtins.str):
         """
-        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         :param _builtins.str max_surge: The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging it and moving on to next node.
         :param _builtins.str undrainable_node_behavior: The action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`.
@@ -11439,7 +11884,7 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> _builtins.int:
         """
-        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
+        The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -11708,7 +12153,7 @@ class GetKubernetesClusterKeyManagementServiceResult(dict):
                  key_vault_key_id: _builtins.str,
                  key_vault_network_access: _builtins.str):
         """
-        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param _builtins.str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param _builtins.str key_vault_network_access: Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -11718,7 +12163,7 @@ class GetKubernetesClusterKeyManagementServiceResult(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> _builtins.str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -12158,15 +12603,18 @@ class GetKubernetesClusterOmsAgentResult(dict):
     def __init__(__self__, *,
                  log_analytics_workspace_id: _builtins.str,
                  msi_auth_for_monitoring_enabled: _builtins.bool,
-                 oms_agent_identities: Sequence['outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult']):
+                 oms_agent_identities: Sequence['outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult'],
+                 retina_flow_logs_enabled: _builtins.bool):
         """
         :param _builtins.str log_analytics_workspace_id: The ID of the Log Analytics Workspace to which the OMS Agent should send data.
         :param _builtins.bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param Sequence['GetKubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
+        :param _builtins.bool retina_flow_logs_enabled: Is Retina Flow Logs collection enabled? Defaults to `false`.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+        pulumi.set(__self__, "retina_flow_logs_enabled", retina_flow_logs_enabled)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -12191,6 +12639,14 @@ class GetKubernetesClusterOmsAgentResult(dict):
         An `oms_agent_identity` block as defined below.
         """
         return pulumi.get(self, "oms_agent_identities")
+
+    @_builtins.property
+    @pulumi.getter(name="retinaFlowLogsEnabled")
+    def retina_flow_logs_enabled(self) -> _builtins.bool:
+        """
+        Is Retina Flow Logs collection enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "retina_flow_logs_enabled")
 
 
 @pulumi.output_type

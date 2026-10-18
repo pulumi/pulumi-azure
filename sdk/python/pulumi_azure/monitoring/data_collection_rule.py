@@ -43,7 +43,7 @@ class DataCollectionRuleArgs:
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[_builtins.str] description: The description of the Data Collection Rule.
         :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
                
                > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -161,7 +161,7 @@ class DataCollectionRuleArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
 
         > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
@@ -232,6 +232,8 @@ class _DataCollectionRuleState:
                  immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs_ingestion_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_ingestion_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
@@ -246,10 +248,12 @@ class _DataCollectionRuleState:
         :param pulumi.Input['DataCollectionRuleDestinationsArgs'] destinations: A `destinations` block as defined below.
         :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutable_id: The immutable ID of the Data Collection Rule.
-        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
                
                > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[_builtins.str] logs_ingestion_endpoint: The endpoint used for ingesting logs.
+        :param pulumi.Input[_builtins.str] metrics_ingestion_endpoint: The endpoint used for ingesting metrics.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]] stream_declarations: A `stream_declaration` block as defined below.
@@ -273,6 +277,10 @@ class _DataCollectionRuleState:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if logs_ingestion_endpoint is not None:
+            pulumi.set(__self__, "logs_ingestion_endpoint", logs_ingestion_endpoint)
+        if metrics_ingestion_endpoint is not None:
+            pulumi.set(__self__, "metrics_ingestion_endpoint", metrics_ingestion_endpoint)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -370,7 +378,7 @@ class _DataCollectionRuleState:
     @pulumi.getter
     def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
 
         > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
@@ -391,6 +399,30 @@ class _DataCollectionRuleState:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logsIngestionEndpoint")
+    def logs_ingestion_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint used for ingesting logs.
+        """
+        return pulumi.get(self, "logs_ingestion_endpoint")
+
+    @logs_ingestion_endpoint.setter
+    def logs_ingestion_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "logs_ingestion_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint used for ingesting metrics.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
+
+    @metrics_ingestion_endpoint.setter
+    def metrics_ingestion_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metrics_ingestion_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
@@ -480,7 +512,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Data Collection Rule.
         :param pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict', 'outputs.DataCollectionRuleDestinations']] destinations: A `destinations` block as defined below.
         :param pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict', 'outputs.DataCollectionRuleIdentity']] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
                
                > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -562,6 +594,8 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__.__dict__["stream_declarations"] = stream_declarations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["immutable_id"] = None
+            __props__.__dict__["logs_ingestion_endpoint"] = None
+            __props__.__dict__["metrics_ingestion_endpoint"] = None
         super(DataCollectionRule, __self__).__init__(
             'azure:monitoring/dataCollectionRule:DataCollectionRule',
             resource_name,
@@ -581,6 +615,8 @@ class DataCollectionRule(pulumi.CustomResource):
             immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs_ingestion_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_ingestion_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             stream_declarations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict', 'outputs.DataCollectionRuleStreamDeclaration']]]]] = None,
@@ -599,10 +635,12 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict', 'outputs.DataCollectionRuleDestinations']] destinations: A `destinations` block as defined below.
         :param pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict', 'outputs.DataCollectionRuleIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutable_id: The immutable ID of the Data Collection Rule.
-        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
                
                > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[_builtins.str] logs_ingestion_endpoint: The endpoint used for ingesting logs.
+        :param pulumi.Input[_builtins.str] metrics_ingestion_endpoint: The endpoint used for ingesting metrics.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict', 'outputs.DataCollectionRuleStreamDeclaration']]]] stream_declarations: A `stream_declaration` block as defined below.
@@ -621,6 +659,8 @@ class DataCollectionRule(pulumi.CustomResource):
         __props__.__dict__["immutable_id"] = immutable_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
+        __props__.__dict__["logs_ingestion_endpoint"] = logs_ingestion_endpoint
+        __props__.__dict__["metrics_ingestion_endpoint"] = metrics_ingestion_endpoint
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["stream_declarations"] = stream_declarations
@@ -687,7 +727,7 @@ class DataCollectionRule(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `data_collection_endpoint_id` if you're sending data to a Log Analytics workspace configured for private link.
 
         > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
@@ -700,6 +740,22 @@ class DataCollectionRule(pulumi.CustomResource):
         The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="logsIngestionEndpoint")
+    def logs_ingestion_endpoint(self) -> pulumi.Output[_builtins.str]:
+        """
+        The endpoint used for ingesting logs.
+        """
+        return pulumi.get(self, "logs_ingestion_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> pulumi.Output[_builtins.str]:
+        """
+        The endpoint used for ingesting metrics.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
 
     @_builtins.property
     @pulumi.getter

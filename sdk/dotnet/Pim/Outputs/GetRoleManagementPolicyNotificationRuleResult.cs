@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class GetRoleManagementPolicyNotificationRuleResult
     {
         /// <summary>
-        /// A `NotificationTarget` block as defined below with the details of notfications on active role assignments.
+        /// A `NotificationTarget` block as defined below with the details of notifications on active role assignments.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyNotificationRuleActiveAssignmentResult> ActiveAssignments;
         /// <summary>

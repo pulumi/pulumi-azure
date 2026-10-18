@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *
@@ -99,7 +99,7 @@ export class ElasticPool extends pulumi.CustomResource {
      *
      * > **Note:** The default value for `enclaveType` field is unset not `Default`.
      */
-    declare public readonly enclaveType: pulumi.Output<string>;
+    declare public readonly enclaveType: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
      *

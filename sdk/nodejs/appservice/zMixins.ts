@@ -17,14 +17,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurefunctions from "@azure/functions";
 import { AzureServiceClient } from "@azure/ms-rest-azure-js";
 
-import { FunctionApp } from "./functionApp";
+import { LinuxFunctionApp } from "./linuxFunctionApp";
+import { WindowsFunctionApp } from "./windowsFunctionApp";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
 import * as eventhubForTypesOnly from "../eventhub";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
-import * as outputs from "../types/output";
 import * as inputs from "../types/input";
 
 /**
@@ -34,6 +34,35 @@ import * as inputs from "../types/input";
  * `void` can be specified as the Result type indicating that no value need be provided.
  */
 export type Result = string | Buffer | ArrayBufferView | number | object | void;
+
+/**
+ * A Linux or Windows Function App resource, whichever `CallbackFunctionApp` (and friends) created
+ * based on their `os` type parameter. `azurerm_function_app` was split into OS-specific resources
+ * upstream; this union covers the members shared by both (`id`, `defaultHostname`, etc.).
+ */
+export type FunctionApp = LinuxFunctionApp | WindowsFunctionApp;
+
+/**
+ * The two Function App flavors available since `azurerm_function_app` was split upstream.
+ * `CallbackFunctionApp` and friends are generic over this so that OS-specific arguments
+ * (`siteConfig`, `identity`, `authSettings`) are fully typed rather than `any`.
+ */
+export type FunctionAppOS = "linux" | "windows";
+
+/** The concrete resource class corresponding to a given {@link FunctionAppOS}. */
+export type ConcreteFunctionApp<OS extends FunctionAppOS> = OS extends "windows" ? WindowsFunctionApp : LinuxFunctionApp;
+
+/** The `siteConfig` shape corresponding to a given {@link FunctionAppOS}. */
+export type SiteConfigFor<OS extends FunctionAppOS> =
+    OS extends "windows" ? inputs.appservice.WindowsFunctionAppSiteConfig : inputs.appservice.LinuxFunctionAppSiteConfig;
+
+/** The `identity` shape corresponding to a given {@link FunctionAppOS}. */
+export type IdentityFor<OS extends FunctionAppOS> =
+    OS extends "windows" ? inputs.appservice.WindowsFunctionAppIdentity : inputs.appservice.LinuxFunctionAppIdentity;
+
+/** The `authSettings` shape corresponding to a given {@link FunctionAppOS}. */
+export type AuthSettingsFor<OS extends FunctionAppOS> =
+    OS extends "windows" ? inputs.appservice.WindowsFunctionAppAuthSettings : inputs.appservice.LinuxFunctionAppAuthSettings;
 
 export interface Context<R extends Result> extends azurefunctions.Context {
     /**
@@ -95,7 +124,7 @@ export interface CallbackArgs<C extends Context<R>, E, R extends Result> {
     callbackFactory?: CallbackFactory<C, E, R>;
 }
 
-interface FunctionAppArgsBase {
+interface FunctionAppArgsBase<OS extends FunctionAppOS = "linux"> {
     /**
      * The storage account to use where the zip-file blob for the FunctionApp will be located. If
      * not provided, a new storage account will create. It will be a 'Standard', 'LRS', 'StorageV2'
@@ -111,12 +140,7 @@ interface FunctionAppArgsBase {
     /**
      * A `authSettings` block as defined below.
      */
-    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
-
-    /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    readonly authSettings?: pulumi.Input<AuthSettingsFor<OS>>;
 
     /**
      * Options to control which files and packages are included with the serialized FunctionApp code.
@@ -145,6 +169,16 @@ interface FunctionAppArgsBase {
     readonly enableBuiltinLogging?: pulumi.Input<boolean>;
 
     /**
+     * The operating system the Function App runs on. Determines whether a `LinuxFunctionApp` or a
+     * `WindowsFunctionApp` is created (and, correspondingly, the OS of the default Consumption
+     * plan created when [plan] is not supplied). Defaults to `"linux"`.
+     *
+     * Must match the `OS` type parameter used to instantiate this class/interface, which in turn
+     * determines the shape required for [siteConfig], [identity] and [authSettings].
+     */
+    readonly os?: OS;
+
+    /**
      * Is the Function App enabled?
      */
     readonly enabled?: pulumi.Input<boolean>;
@@ -162,7 +196,7 @@ interface FunctionAppArgsBase {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
+    readonly identity?: pulumi.Input<IdentityFor<OS>>;
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -175,15 +209,11 @@ interface FunctionAppArgsBase {
     readonly name?: pulumi.Input<string>;
 
     /**
-     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
+     * Controls the Node.js runtime version (`site_config.application_stack.node_version`). Accepts
+     * either the classic App Service format (e.g. `~22`) or a bare version number. If not provided,
      * defaults to `~14`.
      */
     readonly nodeVersion?: pulumi.Input<string>;
-
-    /**
-     * A string indicating the Operating System type for this function app. 
-     */
-    readonly osType?: pulumi.Input<string>;
 
     /**
      * The App Service Plan within which to create this Function App. Changing this forces a new
@@ -193,7 +223,7 @@ interface FunctionAppArgsBase {
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan for
      * more details.
      */
-    readonly plan?: appservice.Plan;
+    readonly plan?: appservice.ServicePlan;
 
     /**
      * The resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
@@ -209,7 +239,7 @@ interface FunctionAppArgsBase {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
+    readonly siteConfig?: pulumi.Input<SiteConfigFor<OS>>;
 
     /**
      * A mapping of tags to assign to the resource.
@@ -231,7 +261,8 @@ export interface CallbackFunctionArgs<C extends Context<R>, E, R extends Result>
 /**
  * Base arguments for all single-Function subscription apps.
  */
-export interface CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> extends CallbackFunctionArgs<C, E, R>, FunctionAppArgsBase {
+export interface CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result, OS extends FunctionAppOS = "linux">
+    extends CallbackFunctionArgs<C, E, R>, FunctionAppArgsBase<OS> {
 }
 
 /**
@@ -375,7 +406,7 @@ function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     });
 }
 
-function produceDeploymentArchive(args: MultiCallbackFunctionAppArgs): pulumi.Output<pulumi.asset.Archive> {
+function produceDeploymentArchive(args: MultiCallbackFunctionAppArgs<any>): pulumi.Output<pulumi.asset.Archive> {
     const deploymentArchivePromise = produceDeploymentArchiveAsync(args);
     const ret = pulumi.output(deploymentArchivePromise.then(d => d.archive));
     (ret as any).isSecret = deploymentArchivePromise.then(d => d.containsSecrets);
@@ -387,7 +418,7 @@ interface DeploymentArchiveResult {
     containsSecrets: boolean;
 }
 
-async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<DeploymentArchiveResult> {
+async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs<any>): Promise<DeploymentArchiveResult> {
 
     // Different runtime versions now require different extension bundle version ranges
     // This mapping is described in the following MS doc
@@ -435,7 +466,7 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
     };
 }
 
-function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
+function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs<any>): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
     return combineAppSettings([{FUNCTIONS_WORKER_RUNTIME: "node"}, applicationSetting, ...perFunctionSettings]);
@@ -535,7 +566,7 @@ export abstract class Function<C extends Context<R>, E, R extends Result> {
 /**
  * Arguments to create a Function App component with multiple callback functions in it.
  */
-export interface MultiCallbackFunctionAppArgs extends FunctionAppArgsBase {
+export interface MultiCallbackFunctionAppArgs<OS extends FunctionAppOS = "linux"> extends FunctionAppArgsBase<OS> {
     /**
      * The functions to deploy as parts of this application. At least 1 function is required.
      */
@@ -545,15 +576,15 @@ export interface MultiCallbackFunctionAppArgs extends FunctionAppArgsBase {
 /**
  * Arguments to create a Function App component and deploy the specified raw archive package.
  */
-export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
+export interface ArchiveFunctionAppArgs<OS extends FunctionAppOS = "linux"> extends FunctionAppArgsBase<OS> {
     /**
      * The deployment package of a Function App to deploy as-is.
      */
     archive: pulumi.Input<pulumi.asset.Archive>;
 };
 
-function createFunctionAppParts(name: string,
-                                args: ArchiveFunctionAppArgs,
+function createFunctionAppParts<OS extends FunctionAppOS = "linux">(name: string,
+                                args: ArchiveFunctionAppArgs<OS>,
                                 opts: pulumi.CustomResourceOptions = {}) {
 
     if (!args.archive) {
@@ -564,15 +595,13 @@ function createFunctionAppParts(name: string,
 
     const resourceGroupArgs = { resourceGroupName, location: args.location };
 
-    const plan = args.plan || new appservice.Plan(name, {
+    const os = args.os ?? "linux";
+
+    const plan = args.plan || new appservice.ServicePlan(name, {
         ...resourceGroupArgs,
 
-        kind: "FunctionApp",
-
-        sku: {
-            tier: "Dynamic",
-            size: "Y1",
-        },
+        osType: os === "windows" ? "Windows" : "Linux",
+        skuName: "Y1",
     }, opts);
 
     const storageMod = <typeof storageForTypesOnly>require("../storage");
@@ -585,33 +614,51 @@ function createFunctionAppParts(name: string,
     }, opts);
 
     const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
-        storageAccountName: account.name,
+        storageAccountId: account.id,
         containerAccessType: "private",
     }, opts);
 
     const zipBlob = new storageMod.Blob(name, {
-        storageAccountName: account.name,
-        storageContainerName: container.name,
+        storageContainerId: container.id,
         type: "Block",
         source: args.archive,
     }, opts);
 
     const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
 
-    const functionArgs: appservice.FunctionAppArgs = {
+    // Azure Functions on Linux/Windows Function Apps read the Node runtime version from
+    // `site_config.application_stack.node_version`, not from a `WEBSITE_NODE_DEFAULT_VERSION` app
+    // setting (that only applied to the pre-v5.0 unified Function App resource, and is silently
+    // dropped by the split Linux/WindowsFunctionApp resources - setting it produces a perpetual,
+    // never-resolving diff). [nodeVersion] here uses the classic "~14"/"~22" App Service format;
+    // the site config field expects a bare version number, so the leading "~" is stripped.
+    const nodeVersion = pulumi.output(args.nodeVersion).apply(v => (v ?? "~14").replace(/^~/, ""));
+    const siteConfig = pulumi.all([args.siteConfig, nodeVersion]).apply(([config, resolvedNodeVersion]: [any, string]) => ({
+        ...(config ?? {}),
+        applicationStack: {
+            ...(config?.applicationStack ?? {}),
+            nodeVersion: resolvedNodeVersion,
+        },
+    }));
+
+    // `siteConfig` differs in shape between Linux and Windows Function Apps (see [os]), so this is
+    // deliberately loosely typed here and cast to the right shape at each `new ...FunctionApp(...)`
+    // call site in the callers of createFunctionAppParts below.
+    const functionArgs: any = {
         ...args,
         ...resourceGroupArgs,
 
-        appServicePlanId: plan.id,
+        servicePlanId: plan.id,
         storageAccountName: account.name,
         storageAccountAccessKey: account.primaryAccessKey,
-        version: args.version || "~4",
+        functionsExtensionVersion: args.version || "~4",
+        builtinLoggingEnabled: args.enableBuiltinLogging,
+        siteConfig,
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
             return {
                 ...settings,
                 WEBSITE_RUN_FROM_PACKAGE: codeBlobUrl,
-                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~14"),
             };
         }),
     };
@@ -625,14 +672,26 @@ function createFunctionAppParts(name: string,
     return { account, container, plan, zipBlob, functionArgs, rootPath };
 }
 
+// `args` is loosely typed here as an implementation detail: `functionArgs` (built above) is shaped
+// according to `os` at runtime, but its precise static shape (LinuxFunctionAppArgs vs.
+// WindowsFunctionAppArgs) isn't tracked through `createFunctionAppParts`. The public-facing
+// `os`/`siteConfig`/`identity`/`authSettings` arguments callers provide remain fully typed via
+// `FunctionAppArgsBase<OS>`; only this internal wiring uses `any`.
+function createFunctionApp<OS extends FunctionAppOS>(name: string, os: OS | undefined, args: any, opts?: pulumi.CustomResourceOptions): ConcreteFunctionApp<OS> {
+    return (os === "windows"
+        ? new WindowsFunctionApp(name, args, opts)
+        : new LinuxFunctionApp(name, args, opts)) as ConcreteFunctionApp<OS>;
+}
+
 /**
-  * A CallbackFunctionApp is a special type of azure.appservice.FunctionApp that can be created out
-  * of an actual JavaScript function instance.  The function instance will be analyzed and packaged
-  * up (including dependencies) into a form that can be used by Azure Functions. See
+  * A CallbackFunctionApp is a component that wraps a `LinuxFunctionApp` or `WindowsFunctionApp`
+  * (selected via [os], default `"linux"`) that can be created out of an actual JavaScript function
+  * instance.  The function instance will be analyzed and packaged up (including dependencies) into
+  * a form that can be used by Azure Functions. See
   * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
   * details on this process.
  */
-export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends FunctionApp {
+export class CallbackFunctionApp<C extends Context<R>, E, R extends Result, OS extends FunctionAppOS = "linux"> extends pulumi.ComponentResource {
     /**
      * Storage account where the FunctionApp's zipBlob is uploaded to.
      */
@@ -648,14 +707,27 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     /**
      * The plan this Function App runs under.
      */
-    public readonly plan: appservice.Plan;
+    public readonly plan: appservice.ServicePlan;
+    /**
+     * The underlying Linux or Windows Function App resource, per the `OS` type parameter.
+     */
+    public readonly app: ConcreteFunctionApp<OS>;
     /**
      * Root HTTP endpoint of the Function App.
      */
     public readonly endpoint: pulumi.Output<string>;
 
+    /** Pass-through of `this.app.id`, kept for source compatibility with code written against
+     * the pre-v5.0 unified `FunctionApp` resource. */
+    public readonly id: pulumi.Output<string>;
+    /** Pass-through of `this.app.defaultHostname`. */
+    public readonly defaultHostname: pulumi.Output<string>;
+
     constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+                args: CallbackFunctionAppArgs<C, E, R, OS>, opts: pulumi.ComponentResourceOptions = {}) {
+
+        super("azure:appservice:CallbackFunctionApp", name, undefined, opts);
+        const parentOpts = { parent: this };
 
         const functions = bindingsOrFunc instanceof Function ? [bindingsOrFunc] : [<Function<C, E, R>>{ name, bindings: bindingsOrFunc, callback: args }];
         const parts = createFunctionAppParts(name, {
@@ -663,15 +735,50 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
             resourceGroupName: args.resourceGroupName ?? args.account?.resourceGroupName,
             archive: produceDeploymentArchive({ ...args, functions }),
             appSettings: combineFunctionAppSettings({ ...args, functions }),
-        }, opts);
-
-        super(name, parts.functionArgs, opts);
+        }, parentOpts);
 
         this.account = parts.account;
         this.container = parts.container;
         this.plan = parts.plan;
         this.zipBlob = parts.zipBlob;
-        this.endpoint = getEndpoint(this, parts.rootPath);
+        this.app = createFunctionApp(name, args.os, parts.functionArgs, parentOpts);
+        this.id = this.app.id;
+        this.defaultHostname = this.app.defaultHostname;
+        this.endpoint = getEndpoint(this.app, parts.rootPath);
+
+        this.registerOutputs();
+    }
+
+    /** Retrieve the keys associated with this Function App. Pass-through of `this.app.getHostKeys()`. */
+    getHostKeys(): pulumi.Output<FunctionHostKeys> {
+        return this.app.getHostKeys();
+    }
+
+    /** Retrieve the keys associated with the given Function. Pass-through of `this.app.getFunctionKeys()`. */
+    getFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys> {
+        return this.app.getFunctionKeys(functionName);
+    }
+}
+
+/**
+ * Convenience subclass of `CallbackFunctionApp` that always targets Linux, so callers don't need
+ * to write `CallbackFunctionApp<C, E, R, "linux">` or pass `os: "linux"` themselves.
+ */
+export class LinuxCallbackFunctionApp<C extends Context<R>, E, R extends Result> extends CallbackFunctionApp<C, E, R, "linux"> {
+    constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+                args: Omit<CallbackFunctionAppArgs<C, E, R, "linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, bindingsOrFunc, { ...args, os: "linux" }, opts);
+    }
+}
+
+/**
+ * Convenience subclass of `CallbackFunctionApp` that always targets Windows, so callers don't need
+ * to write `CallbackFunctionApp<C, E, R, "windows">` or pass `os: "windows"` themselves.
+ */
+export class WindowsCallbackFunctionApp<C extends Context<R>, E, R extends Result> extends CallbackFunctionApp<C, E, R, "windows"> {
+    constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+                args: Omit<CallbackFunctionAppArgs<C, E, R, "windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, bindingsOrFunc, { ...args, os: "windows" }, opts);
     }
 }
 
@@ -684,7 +791,7 @@ function getEndpoint(app: FunctionApp, rootPath: string) {
  * for all resources, so that they are logically grouped under the same root in the Pulumi resource
  * tree.
  */
-export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
+export abstract class PackagedFunctionApp<OS extends FunctionAppOS = "linux"> extends pulumi.ComponentResource {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
      */
@@ -700,11 +807,11 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
     /**
      * The plan this Function App runs under.
      */
-    public readonly plan: appservice.Plan;
+    public readonly plan: appservice.ServicePlan;
     /**
      * The Function App which contains the functions from the archive.
      */
-    public readonly functionApp: appservice.FunctionApp;
+    public readonly functionApp: ConcreteFunctionApp<OS>;
     /**
      * Root HTTP endpoint of the Function App.
      */
@@ -712,7 +819,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
 
     constructor(type: string,
                 name: string,
-                args: ArchiveFunctionAppArgs,
+                args: ArchiveFunctionAppArgs<OS>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
@@ -723,7 +830,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
         this.container = parts.container;
         this.zipBlob = parts.zipBlob;
         this.plan = parts.plan;
-        this.functionApp = new FunctionApp(name, parts.functionArgs, parentOpts);
+        this.functionApp = createFunctionApp(name, args.os, parts.functionArgs, parentOpts);
         this.endpoint = getEndpoint(this.functionApp, parts.rootPath);
     }
 }
@@ -733,12 +840,26 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
   * dependencies and deploys the specified archive into it. The archive must contain the full artifact to be deployed
   * into the Function App.
  */
-export class ArchiveFunctionApp extends PackagedFunctionApp {
+export class ArchiveFunctionApp<OS extends FunctionAppOS = "linux"> extends PackagedFunctionApp<OS> {
     constructor(name: string,
-                args: ArchiveFunctionAppArgs,
+                args: ArchiveFunctionAppArgs<OS>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super("azure:appservice:ArchiveFunctionApp", name, args, opts);
         this.registerOutputs();
+    }
+}
+
+/** Convenience subclass of `ArchiveFunctionApp` that always targets Linux. */
+export class LinuxArchiveFunctionApp extends ArchiveFunctionApp<"linux"> {
+    constructor(name: string, args: Omit<ArchiveFunctionAppArgs<"linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "linux" }, opts);
+    }
+}
+
+/** Convenience subclass of `ArchiveFunctionApp` that always targets Windows. */
+export class WindowsArchiveFunctionApp extends ArchiveFunctionApp<"windows"> {
+    constructor(name: string, args: Omit<ArchiveFunctionAppArgs<"windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "windows" }, opts);
     }
 }
 
@@ -749,9 +870,9 @@ export class ArchiveFunctionApp extends PackagedFunctionApp {
   * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
   * details on this process.
  */
-export class MultiCallbackFunctionApp extends PackagedFunctionApp {
+export class MultiCallbackFunctionApp<OS extends FunctionAppOS = "linux"> extends PackagedFunctionApp<OS> {
     constructor(name: string,
-                args: MultiCallbackFunctionAppArgs,
+                args: MultiCallbackFunctionAppArgs<OS>,
                 opts: pulumi.ComponentResourceOptions = {}) {
 
         if (args.functions.length == 0) {
@@ -775,16 +896,30 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
     }
 }
 
+/** Convenience subclass of `MultiCallbackFunctionApp` that always targets Linux. */
+export class LinuxMultiCallbackFunctionApp extends MultiCallbackFunctionApp<"linux"> {
+    constructor(name: string, args: Omit<MultiCallbackFunctionAppArgs<"linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "linux" }, opts);
+    }
+}
+
+/** Convenience subclass of `MultiCallbackFunctionApp` that always targets Windows. */
+export class WindowsMultiCallbackFunctionApp extends MultiCallbackFunctionApp<"windows"> {
+    constructor(name: string, args: Omit<MultiCallbackFunctionAppArgs<"windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "windows" }, opts);
+    }
+}
+
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
  * azure resource an an FunctionApp that will be triggered when something happens to that resource.
  */
-export abstract class EventSubscription<C extends Context<R>, E, R extends Result> extends pulumi.ComponentResource {
-    public readonly functionApp: CallbackFunctionApp<C, E, R>;
+export abstract class EventSubscription<C extends Context<R>, E, R extends Result, OS extends FunctionAppOS = "linux"> extends pulumi.ComponentResource {
+    public readonly functionApp: CallbackFunctionApp<C, E, R, OS>;
 
     constructor(type: string, name: string,
                 bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-                args: CallbackFunctionAppArgs<C, E, R>,
+                args: CallbackFunctionAppArgs<C, E, R, OS>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
@@ -861,8 +996,22 @@ export interface FunctionKeys {
     [key: string]: string;
 }
 
-declare module "./functionApp" {
-    interface FunctionApp {
+declare module "./linuxFunctionApp" {
+    interface LinuxFunctionApp {
+        /**
+         * Retrieve the keys associated with the Function App.
+         */
+        getHostKeys(): pulumi.Output<FunctionHostKeys>;
+
+        /**
+         * Retrieve the keys associated with the given Function.
+         */
+        getFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
+    }
+}
+
+declare module "./windowsFunctionApp" {
+    interface WindowsFunctionApp {
         /**
          * Retrieve the keys associated with the Function App.
          */
@@ -896,11 +1045,11 @@ async function getHostKeysWithRetries(functionAppId: string, retryAttempts: numb
         return getHostKeysWithRetries(functionAppId, retryAttempts - 1);
 }
 
-FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+function getHostKeysImpl(this: FunctionApp) {
     return this.id.apply(async id => await getHostKeysWithRetries(id, 5));
-};
+}
 
-FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
+function getFunctionKeysImpl(this: FunctionApp, functionName: pulumi.Input<string>) {
     return pulumi.all([this.id, functionName]).apply(async ([id, functionName]) => {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
@@ -918,4 +1067,9 @@ FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName
 
         return body as FunctionKeys;
     });
-};
+}
+
+LinuxFunctionApp.prototype.getHostKeys = getHostKeysImpl;
+LinuxFunctionApp.prototype.getFunctionKeys = getFunctionKeysImpl;
+WindowsFunctionApp.prototype.getHostKeys = getHostKeysImpl;
+WindowsFunctionApp.prototype.getFunctionKeys = getFunctionKeysImpl;

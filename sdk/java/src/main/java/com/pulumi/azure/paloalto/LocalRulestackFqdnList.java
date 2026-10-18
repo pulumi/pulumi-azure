@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLocalRulestack = new LocalRulestack("exampleLocalRulestack", LocalRulestackArgs.builder()
  *             .name("example")
- *             .resourceGroupName(exampleAzurermResrouceGroup.get("name"))
+ *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
  * 

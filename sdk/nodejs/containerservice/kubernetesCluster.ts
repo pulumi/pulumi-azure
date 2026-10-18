@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-10-01
+ * * `Microsoft.ContainerService` - 2026-05-01
  *
  * ## Import
  *
@@ -116,7 +116,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public readonly azureActiveDirectoryRoleBasedAccessControl: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
-     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
      */
     declare public readonly azurePolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -124,7 +124,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public readonly bootstrapProfile: pulumi.Output<outputs.containerservice.KubernetesClusterBootstrapProfile>;
     /**
-     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     declare public readonly confidentialComputing: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
@@ -198,11 +198,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `ingressApplicationGateway` block as defined below.
      *
-     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     declare public readonly ingressApplicationGateway: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
-     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
      */
     declare public readonly keyManagementService: pulumi.Output<outputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
     /**
@@ -230,7 +230,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public readonly kubeletIdentity: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
-     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      *
      * > **Note:** Upgrading your cluster may take up to 10 minutes per node.
      */
@@ -302,11 +302,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeResourceGroupId: pulumi.Output<string>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
-    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean>;
+    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The OIDC issuer URL that is associated with the cluster.
      */
@@ -528,6 +528,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if (args?.defaultNodePool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultNodePool'");
             }
+            if (args?.nodeProvisioningProfile === undefined && !opts.urn) {
+                throw new Error("Missing required property 'nodeProvisioningProfile'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -642,7 +645,7 @@ export interface KubernetesClusterState {
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
-     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -650,7 +653,7 @@ export interface KubernetesClusterState {
      */
     bootstrapProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterBootstrapProfile | undefined>;
     /**
-     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
@@ -724,11 +727,11 @@ export interface KubernetesClusterState {
     /**
      * A `ingressApplicationGateway` block as defined below.
      *
-     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
-     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
      */
     keyManagementService?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
     /**
@@ -756,7 +759,7 @@ export interface KubernetesClusterState {
      */
     kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity | undefined>;
     /**
-     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      *
      * > **Note:** Upgrading your cluster may take up to 10 minutes per node.
      */
@@ -828,7 +831,7 @@ export interface KubernetesClusterState {
      */
     nodeResourceGroupId?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
@@ -1000,7 +1003,7 @@ export interface KubernetesClusterArgs {
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
-     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -1008,7 +1011,7 @@ export interface KubernetesClusterArgs {
      */
     bootstrapProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterBootstrapProfile | undefined>;
     /**
-     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
@@ -1070,11 +1073,11 @@ export interface KubernetesClusterArgs {
     /**
      * A `ingressApplicationGateway` block as defined below.
      *
-     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
+     * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
-     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/azure/aks/use-kms-etcd-encryption).
      */
     keyManagementService?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
     /**
@@ -1086,7 +1089,7 @@ export interface KubernetesClusterArgs {
      */
     kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity | undefined>;
     /**
-     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+     * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      *
      * > **Note:** Upgrading your cluster may take up to 10 minutes per node.
      */
@@ -1146,7 +1149,7 @@ export interface KubernetesClusterArgs {
     /**
      * A `nodeProvisioningProfile` block as defined below.
      */
-    nodeProvisioningProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile | undefined>;
+    nodeProvisioningProfile: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -1154,7 +1157,7 @@ export interface KubernetesClusterArgs {
      */
     nodeResourceGroup?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */

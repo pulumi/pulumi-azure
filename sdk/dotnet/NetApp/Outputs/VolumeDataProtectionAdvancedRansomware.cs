@@ -16,7 +16,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// <summary>
         /// Enable or disable the Advanced Ransomware Protection feature.
         /// 
-        /// &gt; **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+        /// &gt; **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/azure/azure-netapp-files/ransomware-configure).
         /// 
         /// &gt; **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
         /// </summary>

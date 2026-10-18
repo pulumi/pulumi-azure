@@ -199,25 +199,6 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-     * 
-     */
-    @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
-    @Import(name="softDeleteEnabled")
-    private @Nullable Output<Boolean> softDeleteEnabled;
-
-    /**
-     * @deprecated
-     * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-     * 
-     */
-    @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
-    public Optional<Output<Boolean>> softDeleteEnabled() {
-        return Optional.ofNullable(this.softDeleteEnabled);
-    }
-
-    /**
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      * 
      */
@@ -261,7 +242,6 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
-        this.softDeleteEnabled = $.softDeleteEnabled;
         this.storageModeType = $.storageModeType;
         this.tags = $.tags;
     }
@@ -525,31 +505,6 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-         * 
-         */
-        @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
-        public Builder softDeleteEnabled(@Nullable Output<Boolean> softDeleteEnabled) {
-            $.softDeleteEnabled = softDeleteEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-         * 
-         */
-        @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
-        public Builder softDeleteEnabled(Boolean softDeleteEnabled) {
-            return softDeleteEnabled(Output.of(softDeleteEnabled));
         }
 
         /**

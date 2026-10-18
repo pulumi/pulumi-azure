@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.monitoring.inputs;
 
-import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -58,31 +57,11 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.categoryGroup);
     }
 
-    /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-     * 
-     */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-    @Import(name="retentionPolicy")
-    private @Nullable Output<DiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy;
-
-    /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-     * 
-     */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-    public Optional<Output<DiagnosticSettingEnabledLogRetentionPolicyArgs>> retentionPolicy() {
-        return Optional.ofNullable(this.retentionPolicy);
-    }
-
     private DiagnosticSettingEnabledLogArgs() {}
 
     private DiagnosticSettingEnabledLogArgs(DiagnosticSettingEnabledLogArgs $) {
         this.category = $.category;
         this.categoryGroup = $.categoryGroup;
-        this.retentionPolicy = $.retentionPolicy;
     }
 
     public static Builder builder() {
@@ -155,31 +134,6 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
          */
         public Builder categoryGroup(String categoryGroup) {
             return categoryGroup(Output.of(categoryGroup));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-         * 
-         */
-        @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-        public Builder retentionPolicy(@Nullable Output<DiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy) {
-            $.retentionPolicy = retentionPolicy;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-         * 
-         */
-        @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-        public Builder retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs retentionPolicy) {
-            return retentionPolicy(Output.of(retentionPolicy));
         }
 
         public DiagnosticSettingEnabledLogArgs build() {

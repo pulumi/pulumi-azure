@@ -58,13 +58,6 @@ public final class ServiceHostnameConfigurationProxy {
      */
     private @Nullable String keyVaultCertificateId;
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable String keyVaultId;
-    /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
@@ -147,15 +140,6 @@ public final class ServiceHostnameConfigurationProxy {
         return Optional.ofNullable(this.keyVaultCertificateId);
     }
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<String> keyVaultId() {
-        return Optional.ofNullable(this.keyVaultId);
-    }
-    /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
@@ -201,7 +185,6 @@ public final class ServiceHostnameConfigurationProxy {
         private @Nullable String expiry;
         private String hostName;
         private @Nullable String keyVaultCertificateId;
-        private @Nullable String keyVaultId;
         private @Nullable Boolean negotiateClientCertificate;
         private @Nullable String sslKeyvaultIdentityClientId;
         private @Nullable String subject;
@@ -217,7 +200,6 @@ public final class ServiceHostnameConfigurationProxy {
     	      this.expiry = defaults.expiry;
     	      this.hostName = defaults.hostName;
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
-    	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
     	      this.sslKeyvaultIdentityClientId = defaults.sslKeyvaultIdentityClientId;
     	      this.subject = defaults.subject;
@@ -275,12 +257,6 @@ public final class ServiceHostnameConfigurationProxy {
             return this;
         }
         @CustomType.Setter
-        public Builder keyVaultId(@Nullable String keyVaultId) {
-
-            this.keyVaultId = keyVaultId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder negotiateClientCertificate(@Nullable Boolean negotiateClientCertificate) {
 
             this.negotiateClientCertificate = negotiateClientCertificate;
@@ -314,7 +290,6 @@ public final class ServiceHostnameConfigurationProxy {
             _resultValue.expiry = expiry;
             _resultValue.hostName = hostName;
             _resultValue.keyVaultCertificateId = keyVaultCertificateId;
-            _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             _resultValue.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
             _resultValue.subject = subject;

@@ -130,7 +130,7 @@ export class Watcher extends pulumi.CustomResource {
      */
     declare public readonly scriptName: pulumi.Output<string>;
     /**
-     * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      */
     declare public readonly scriptParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface WatcherState {
      */
     scriptName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      */
     scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface WatcherArgs {
      */
     scriptName: pulumi.Input<string>;
     /**
-     * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      */
     scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

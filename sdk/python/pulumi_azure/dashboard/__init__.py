@@ -6,7 +6,6 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .azurerm_portal_dashboard import *
 from .get_grafana import *
 from .grafana import *
 from .grafana_managed_private_endpoint import *

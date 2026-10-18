@@ -139,7 +139,7 @@ export interface GetStandardResult {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig: outputs.logicapps.GetStandardSiteConfig;
+    readonly siteConfigs: outputs.logicapps.GetStandardSiteConfig[];
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      */

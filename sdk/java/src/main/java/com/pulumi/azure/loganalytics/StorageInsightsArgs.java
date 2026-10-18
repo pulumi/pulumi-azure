@@ -63,14 +63,14 @@ public final class StorageInsightsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountId", required=true)
     private Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * @return The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountId() {
@@ -226,7 +226,7 @@ public final class StorageInsightsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account used by this Log Analytics Storage Insights.
+         * @param storageAccountId The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class StorageInsightsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account used by this Log Analytics Storage Insights.
+         * @param storageAccountId The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

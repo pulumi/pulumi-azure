@@ -115,7 +115,7 @@ def get_fabric(name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str name: Specifies the name of the Site Recovery Replication Fabric.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated Recovery Services Vault resides.
     """
     __args__ = dict()
@@ -158,7 +158,7 @@ def get_fabric_output(name: pulumi.Input[Optional[_builtins.str]] = None,
 
 
     :param _builtins.str name: Specifies the name of the Site Recovery Replication Fabric.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated Recovery Services Vault resides.
     """
     __args__ = dict()

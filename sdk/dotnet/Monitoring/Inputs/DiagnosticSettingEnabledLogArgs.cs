@@ -30,9 +30,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("categoryGroup")]
         public Input<string>? CategoryGroup { get; set; }
 
-        [Input("retentionPolicy")]
-        public Input<Inputs.DiagnosticSettingEnabledLogRetentionPolicyArgs>? RetentionPolicy { get; set; }
-
         public DiagnosticSettingEnabledLogArgs()
         {
         }

@@ -13,7 +13,6 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class GetManagedDatabaseLongTermRetentionPolicyResult
     {
-        public readonly bool ImmutableBackupsEnabled;
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
         /// </summary>
@@ -33,8 +32,6 @@ namespace Pulumi.Azure.MSSql.Outputs
 
         [OutputConstructor]
         private GetManagedDatabaseLongTermRetentionPolicyResult(
-            bool immutableBackupsEnabled,
-
             string monthlyRetention,
 
             int weekOfYear,
@@ -43,7 +40,6 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             string yearlyRetention)
         {
-            ImmutableBackupsEnabled = immutableBackupsEnabled;
             MonthlyRetention = monthlyRetention;
             WeekOfYear = weekOfYear;
             WeeklyRetention = weeklyRetention;

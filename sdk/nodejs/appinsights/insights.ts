@@ -117,17 +117,9 @@ export class Insights extends pulumi.CustomResource {
      */
     declare public readonly dailyDataCapInGb: pulumi.Output<number | undefined>;
     /**
-     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly dailyDataCapNotificationsDisabled: pulumi.Output<boolean>;
-    /**
      * Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      */
-    declare public readonly dailyDataCapNotificationsEnabled: pulumi.Output<boolean>;
-    /**
-     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly disableIpMasking: pulumi.Output<boolean>;
+    declare public readonly dailyDataCapNotificationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
@@ -147,15 +139,11 @@ export class Insights extends pulumi.CustomResource {
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
      */
-    declare public readonly ipMaskingEnabled: pulumi.Output<boolean>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean>;
+    declare public readonly ipMaskingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
      */
-    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -204,15 +192,12 @@ export class Insights extends pulumi.CustomResource {
             resourceInputs["applicationType"] = state?.applicationType;
             resourceInputs["connectionString"] = state?.connectionString;
             resourceInputs["dailyDataCapInGb"] = state?.dailyDataCapInGb;
-            resourceInputs["dailyDataCapNotificationsDisabled"] = state?.dailyDataCapNotificationsDisabled;
             resourceInputs["dailyDataCapNotificationsEnabled"] = state?.dailyDataCapNotificationsEnabled;
-            resourceInputs["disableIpMasking"] = state?.disableIpMasking;
             resourceInputs["forceCustomerStorageForProfiler"] = state?.forceCustomerStorageForProfiler;
             resourceInputs["instrumentationKey"] = state?.instrumentationKey;
             resourceInputs["internetIngestionEnabled"] = state?.internetIngestionEnabled;
             resourceInputs["internetQueryEnabled"] = state?.internetQueryEnabled;
             resourceInputs["ipMaskingEnabled"] = state?.ipMaskingEnabled;
-            resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
             resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
@@ -231,14 +216,11 @@ export class Insights extends pulumi.CustomResource {
             }
             resourceInputs["applicationType"] = args?.applicationType;
             resourceInputs["dailyDataCapInGb"] = args?.dailyDataCapInGb;
-            resourceInputs["dailyDataCapNotificationsDisabled"] = args?.dailyDataCapNotificationsDisabled;
             resourceInputs["dailyDataCapNotificationsEnabled"] = args?.dailyDataCapNotificationsEnabled;
-            resourceInputs["disableIpMasking"] = args?.disableIpMasking;
             resourceInputs["forceCustomerStorageForProfiler"] = args?.forceCustomerStorageForProfiler;
             resourceInputs["internetIngestionEnabled"] = args?.internetIngestionEnabled;
             resourceInputs["internetQueryEnabled"] = args?.internetQueryEnabled;
             resourceInputs["ipMaskingEnabled"] = args?.ipMaskingEnabled;
-            resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
             resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -279,17 +261,9 @@ export interface InsightsState {
      */
     dailyDataCapInGb?: pulumi.Input<number | undefined>;
     /**
-     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean | undefined>;
-    /**
      * Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      */
     dailyDataCapNotificationsEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    disableIpMasking?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
@@ -310,10 +284,6 @@ export interface InsightsState {
      * By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
      */
     ipMaskingEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
      */
@@ -363,17 +333,9 @@ export interface InsightsArgs {
      */
     dailyDataCapInGb?: pulumi.Input<number | undefined>;
     /**
-     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean | undefined>;
-    /**
      * Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      */
     dailyDataCapNotificationsEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    disableIpMasking?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
@@ -390,10 +352,6 @@ export interface InsightsArgs {
      * By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
      */
     ipMaskingEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
      */

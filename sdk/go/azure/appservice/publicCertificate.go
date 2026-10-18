@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -37,23 +38,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("example-app-service-plan"),
+//			exampleAppServicePlan, err := azurerm.NewAppServicePlan(ctx, "example", &azurerm.AppServicePlanArgs{
+//				Name:              "example-app-service-plan",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
+//				Sku: []map[string]string{
+//					{
+//						"tier": "Standard",
+//						"size": "S1",
+//					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              pulumi.String("example-app-service"),
+//			exampleAppService, err := azurerm.NewAppService(ctx, "example", &azurerm.AppServiceArgs{
+//				Name:              "example-app-service",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  exampleAppServicePlan.Id,
 //			})
 //			if err != nil {
 //				return err

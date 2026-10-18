@@ -19,8 +19,7 @@ __all__ = ['ZoneVirtualNetworkLinkArgs', 'ZoneVirtualNetworkLink']
 @pulumi.input_type
 class ZoneVirtualNetworkLinkArgs:
     def __init__(__self__, *,
-                 private_dns_zone_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
+                 private_dns_zone_id: pulumi.Input[_builtins.str],
                  virtual_network_id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -29,16 +28,14 @@ class ZoneVirtualNetworkLinkArgs:
         """
         The set of arguments for constructing a ZoneVirtualNetworkLink resource.
 
-        :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resolution_policy: Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "private_dns_zone_name", private_dns_zone_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         pulumi.set(__self__, "virtual_network_id", virtual_network_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -50,28 +47,16 @@ class ZoneVirtualNetworkLinkArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="privateDnsZoneName")
-    def private_dns_zone_name(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "private_dns_zone_name")
+        return pulumi.get(self, "private_dns_zone_id")
 
-    @private_dns_zone_name.setter
-    def private_dns_zone_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_dns_zone_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_group_name", value)
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
@@ -138,33 +123,29 @@ class ZoneVirtualNetworkLinkArgs:
 class _ZoneVirtualNetworkLinkState:
     def __init__(__self__, *,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resolution_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneVirtualNetworkLink resources.
 
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resolution_policy: Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if private_dns_zone_name is not None:
-            pulumi.set(__self__, "private_dns_zone_name", private_dns_zone_name)
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if registration_enabled is not None:
             pulumi.set(__self__, "registration_enabled", registration_enabled)
         if resolution_policy is not None:
             pulumi.set(__self__, "resolution_policy", resolution_policy)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_id is not None:
@@ -183,16 +164,16 @@ class _ZoneVirtualNetworkLinkState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="privateDnsZoneName")
-    def private_dns_zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "private_dns_zone_name")
+        return pulumi.get(self, "private_dns_zone_id")
 
-    @private_dns_zone_name.setter
-    def private_dns_zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "private_dns_zone_name", value)
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationEnabled")
@@ -217,18 +198,6 @@ class _ZoneVirtualNetworkLinkState:
     @resolution_policy.setter
     def resolution_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolution_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -262,10 +231,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resolution_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -291,8 +259,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="test",
-            resource_group_name=example.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id)
         ```
 
@@ -315,10 +282,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resolution_policy: Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
@@ -350,8 +316,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="test",
-            resource_group_name=example.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id)
         ```
 
@@ -387,10 +352,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resolution_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -403,14 +367,11 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             __props__ = ZoneVirtualNetworkLinkArgs.__new__(ZoneVirtualNetworkLinkArgs)
 
             __props__.__dict__["name"] = name
-            if private_dns_zone_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_dns_zone_name'")
-            __props__.__dict__["private_dns_zone_name"] = private_dns_zone_name
+            if private_dns_zone_id is None and not opts.urn:
+                raise TypeError("Missing required property 'private_dns_zone_id'")
+            __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
             __props__.__dict__["registration_enabled"] = registration_enabled
             __props__.__dict__["resolution_policy"] = resolution_policy
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             if virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_id'")
@@ -426,10 +387,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_dns_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
             registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resolution_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZoneVirtualNetworkLink':
         """
@@ -440,10 +400,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resolution_policy: Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
@@ -452,10 +411,9 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         __props__ = _ZoneVirtualNetworkLinkState.__new__(_ZoneVirtualNetworkLinkState)
 
         __props__.__dict__["name"] = name
-        __props__.__dict__["private_dns_zone_name"] = private_dns_zone_name
+        __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["registration_enabled"] = registration_enabled
         __props__.__dict__["resolution_policy"] = resolution_policy
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return ZoneVirtualNetworkLink(resource_name, opts=opts, __props__=__props__)
@@ -469,12 +427,12 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="privateDnsZoneName")
-    def private_dns_zone_name(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "private_dns_zone_name")
+        return pulumi.get(self, "private_dns_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="registrationEnabled")
@@ -491,14 +449,6 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
         """
         return pulumi.get(self, "resolution_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
     @pulumi.getter

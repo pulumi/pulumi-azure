@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceStatusExtensionService {
     /**
-     * @return The behavior of the service when the Arc-enabled machine starts up.
+     * @return The behaviour of the service when the Arc-enabled machine starts up.
      * 
      */
     private String startupType;
@@ -23,7 +23,7 @@ public final class GetServiceStatusExtensionService {
 
     private GetServiceStatusExtensionService() {}
     /**
-     * @return The behavior of the service when the Arc-enabled machine starts up.
+     * @return The behaviour of the service when the Arc-enabled machine starts up.
      * 
      */
     public String startupType() {

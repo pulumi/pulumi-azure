@@ -127,8 +127,8 @@ namespace Pulumi.Azure.StreamAnalytics
         /// 
         /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
-        [Output("jobStorageAccounts")]
-        public Output<ImmutableArray<Outputs.JobJobStorageAccount>> JobStorageAccounts { get; private set; } = null!;
+        [Output("jobStorageAccount")]
+        public Output<Outputs.JobJobStorageAccount?> JobStorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -278,19 +278,13 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("identity")]
         public Input<Inputs.JobIdentityArgs>? Identity { get; set; }
 
-        [Input("jobStorageAccounts")]
-        private InputList<Inputs.JobJobStorageAccountArgs>? _jobStorageAccounts;
-
         /// <summary>
         /// The details of the job storage account. A `JobStorageAccount` block as defined below.
         /// 
         /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
-        public InputList<Inputs.JobJobStorageAccountArgs> JobStorageAccounts
-        {
-            get => _jobStorageAccounts ?? (_jobStorageAccounts = new InputList<Inputs.JobJobStorageAccountArgs>());
-            set => _jobStorageAccounts = value;
-        }
+        [Input("jobStorageAccount")]
+        public Input<Inputs.JobJobStorageAccountArgs>? JobStorageAccount { get; set; }
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -413,19 +407,13 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("jobId")]
         public Input<string>? JobId { get; set; }
 
-        [Input("jobStorageAccounts")]
-        private InputList<Inputs.JobJobStorageAccountGetArgs>? _jobStorageAccounts;
-
         /// <summary>
         /// The details of the job storage account. A `JobStorageAccount` block as defined below.
         /// 
         /// &gt; **Note:** `ContentStoragePolicy` must be set to `JobStorageAccount` when specifying `JobStorageAccount`.
         /// </summary>
-        public InputList<Inputs.JobJobStorageAccountGetArgs> JobStorageAccounts
-        {
-            get => _jobStorageAccounts ?? (_jobStorageAccounts = new InputList<Inputs.JobJobStorageAccountGetArgs>());
-            set => _jobStorageAccounts = value;
-        }
+        [Input("jobStorageAccount")]
+        public Input<Inputs.JobJobStorageAccountGetArgs>? JobStorageAccount { get; set; }
 
         /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionScheduleRecurrence? Recurrence;
         /// <summary>
-        /// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        /// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         /// </summary>
         public readonly string? TimeZone;
 

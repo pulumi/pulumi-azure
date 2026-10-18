@@ -96,7 +96,7 @@ export class StorageInsights extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      */
     declare public readonly storageAccountId: pulumi.Output<string>;
     /**
@@ -178,7 +178,7 @@ export interface StorageInsightsState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface StorageInsightsArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      */
     storageAccountId: pulumi.Input<string>;
     /**

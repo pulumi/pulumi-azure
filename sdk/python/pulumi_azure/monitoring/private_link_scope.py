@@ -30,7 +30,7 @@ class PrivateLinkScopeArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -83,7 +83,7 @@ class PrivateLinkScopeArgs:
     @pulumi.getter(name="queryAccessMode")
     def query_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         """
         return pulumi.get(self, "query_access_mode")
 
@@ -117,7 +117,7 @@ class _PrivateLinkScopeState:
 
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
@@ -160,7 +160,7 @@ class _PrivateLinkScopeState:
     @pulumi.getter(name="queryAccessMode")
     def query_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         """
         return pulumi.get(self, "query_access_mode")
 
@@ -244,7 +244,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
@@ -349,7 +349,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
         """
@@ -384,7 +384,7 @@ class PrivateLinkScope(pulumi.CustomResource):
     @pulumi.getter(name="queryAccessMode")
     def query_access_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         """
         return pulumi.get(self, "query_access_mode")
 

@@ -301,6 +301,21 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     * 
+     */
+    @Import(name="ocid")
+    private @Nullable Output<String> ocid;
+
+    /**
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     * 
+     */
+    public Optional<Output<String>> ocid() {
+        return Optional.ofNullable(this.ocid);
+    }
+
+    /**
      * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      * 
      */
@@ -374,6 +389,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         this.mtlsConnectionRequired = $.mtlsConnectionRequired;
         this.name = $.name;
         this.nationalCharacterSet = $.nationalCharacterSet;
+        this.ocid = $.ocid;
         this.resourceGroupName = $.resourceGroupName;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -795,6 +811,27 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
          */
         public Builder nationalCharacterSet(String nationalCharacterSet) {
             return nationalCharacterSet(Output.of(nationalCharacterSet));
+        }
+
+        /**
+         * @param ocid The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocid(@Nullable Output<String> ocid) {
+            $.ocid = ocid;
+            return this;
+        }
+
+        /**
+         * @param ocid The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocid(String ocid) {
+            return ocid(Output.of(ocid));
         }
 
         /**

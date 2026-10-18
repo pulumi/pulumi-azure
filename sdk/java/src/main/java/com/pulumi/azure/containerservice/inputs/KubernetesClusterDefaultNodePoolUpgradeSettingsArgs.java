@@ -18,14 +18,14 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
     public static final KubernetesClusterDefaultNodePoolUpgradeSettingsArgs Empty = new KubernetesClusterDefaultNodePoolUpgradeSettingsArgs();
 
     /**
-     * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+     * The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
      * 
      */
     @Import(name="drainTimeoutInMinutes")
     private @Nullable Output<Integer> drainTimeoutInMinutes;
 
     /**
-     * @return The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+     * @return The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> drainTimeoutInMinutes() {
@@ -113,7 +113,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         }
 
         /**
-         * @param drainTimeoutInMinutes The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * @param drainTimeoutInMinutes The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         }
 
         /**
-         * @param drainTimeoutInMinutes The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+         * @param drainTimeoutInMinutes The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honours pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
          * 
          * @return builder
          * 

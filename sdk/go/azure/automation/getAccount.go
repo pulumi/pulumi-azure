@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/automation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,21 +67,40 @@ type LookupAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
+	// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscPrimaryAccessKey string `pulumi:"dscPrimaryAccessKey"`
+	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscSecondaryAccessKey string `pulumi:"dscSecondaryAccessKey"`
+	// The DSC Server Endpoint associated with this Automation Account.
+	DscServerEndpoint string `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions []GetAccountEncryption `pulumi:"encryptions"`
 	// The Endpoint for this Automation Account.
 	Endpoint string `pulumi:"endpoint"`
-	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+	// The URL of automation hybrid service which is used for
+	// hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl string `pulumi:"hybridServiceUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (Optional) An `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identities []GetAccountIdentity `pulumi:"identities"`
-	Name       string               `pulumi:"name"`
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+	LocalAuthenticationEnabled bool `pulumi:"localAuthenticationEnabled"`
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
 	// The Primary Access Key for the Automation Account.
 	PrimaryKey                 string                                `pulumi:"primaryKey"`
 	PrivateEndpointConnections []GetAccountPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	ResourceGroupName          string                                `pulumi:"resourceGroupName"`
+	// Whether public network access is allowed for the automation account. Defaults to `true`.
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Automation Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
+	// The SKU of the account. Possible values are `Basic` and `Free`.
+	SkuName string `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -116,12 +135,33 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
+// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+func (o LookupAccountResultOutput) DscPrimaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DscPrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+func (o LookupAccountResultOutput) DscSecondaryAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DscSecondaryAccessKey }).(pulumi.StringOutput)
+}
+
+// The DSC Server Endpoint associated with this Automation Account.
+func (o LookupAccountResultOutput) DscServerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DscServerEndpoint }).(pulumi.StringOutput)
+}
+
+// An `encryption` block as defined below.
+func (o LookupAccountResultOutput) Encryptions() GetAccountEncryptionArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountEncryption { return v.Encryptions }).(GetAccountEncryptionArrayOutput)
+}
+
 // The Endpoint for this Automation Account.
 func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+// The URL of automation hybrid service which is used for
+// hybrid worker on-boarding With this Automation Account.
 func (o LookupAccountResultOutput) HybridServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.HybridServiceUrl }).(pulumi.StringOutput)
 }
@@ -131,9 +171,19 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (Optional) An `identity` block as defined below.
+// An `identity` block as defined below.
 func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountIdentity { return v.Identities }).(GetAccountIdentityArrayOutput)
+}
+
+// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+func (o LookupAccountResultOutput) LocalAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.LocalAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
@@ -149,6 +199,11 @@ func (o LookupAccountResultOutput) PrivateEndpointConnections() GetAccountPrivat
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountPrivateEndpointConnection { return v.PrivateEndpointConnections }).(GetAccountPrivateEndpointConnectionArrayOutput)
 }
 
+// Whether public network access is allowed for the automation account. Defaults to `true`.
+func (o LookupAccountResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
 func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -156,6 +211,16 @@ func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 // The Secondary Access Key for the Automation Account.
 func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// The SKU of the account. Possible values are `Basic` and `Free`.
+func (o LookupAccountResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

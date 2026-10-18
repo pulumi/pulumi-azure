@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class BackendCircuitBreakerRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `False`.
+        /// Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `False`.
         /// </summary>
         [Input("acceptRetryAfterEnabled")]
         public Input<bool>? AcceptRetryAfterEnabled { get; set; }

@@ -172,6 +172,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable end-to-end TLS encryption. Defaults to `False`.
+        /// </summary>
+        [Output("endToEndTlsEncryptionEnabled")]
+        public Output<bool?> EndToEndTlsEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Output("ftpPublishBasicAuthenticationEnabled")]
@@ -322,11 +328,11 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// 
         /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app slot configuration.
         /// 
-        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
@@ -484,6 +490,12 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Whether to enable end-to-end TLS encryption. Defaults to `False`.
+        /// </summary>
+        [Input("endToEndTlsEncryptionEnabled")]
+        public Input<bool>? EndToEndTlsEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
@@ -614,11 +626,11 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// 
         /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app slot configuration.
         /// 
-        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -752,6 +764,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable end-to-end TLS encryption. Defaults to `False`.
+        /// </summary>
+        [Input("endToEndTlsEncryptionEnabled")]
+        public Input<bool>? EndToEndTlsEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
@@ -948,11 +966,11 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// 
         /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app slot configuration.
         /// 
-        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

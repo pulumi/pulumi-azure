@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes azure.redis.EnterpriseCluster and azure.redis.EnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+ * Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes the removed `azurermRedisEnterpriseCluster` and `azurermRedisEnterpriseDatabase` resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
  * 
  * ## Example Usage
  * 
@@ -342,7 +342,7 @@ public class ManagedRedis extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
      * 
-     * &gt; **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+     * &gt; **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -353,7 +353,7 @@ public class ManagedRedis extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
      * 
-     * &gt; **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
+     * &gt; **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/azure/redis/how-to-scale) for more information.
      * 
      */
     public Output<String> skuName() {

@@ -49,11 +49,6 @@ public final class GetAppTemplateContainerLivenessProbe {
      */
     private Integer port;
     /**
-     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    private Integer terminationGracePeriodSeconds;
-    /**
      * @return Time in seconds after which the probe times out.
      * 
      */
@@ -115,13 +110,6 @@ public final class GetAppTemplateContainerLivenessProbe {
         return this.port;
     }
     /**
-     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    public Integer terminationGracePeriodSeconds() {
-        return this.terminationGracePeriodSeconds;
-    }
-    /**
      * @return Time in seconds after which the probe times out.
      * 
      */
@@ -152,7 +140,6 @@ public final class GetAppTemplateContainerLivenessProbe {
         private Integer intervalSeconds;
         private String path;
         private Integer port;
-        private Integer terminationGracePeriodSeconds;
         private Integer timeout;
         private String transport;
         public Builder() {}
@@ -165,7 +152,6 @@ public final class GetAppTemplateContainerLivenessProbe {
     	      this.intervalSeconds = defaults.intervalSeconds;
     	      this.path = defaults.path;
     	      this.port = defaults.port;
-    	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
     	      this.timeout = defaults.timeout;
     	      this.transport = defaults.transport;
         }
@@ -230,14 +216,6 @@ public final class GetAppTemplateContainerLivenessProbe {
             return this;
         }
         @CustomType.Setter
-        public Builder terminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
-            if (terminationGracePeriodSeconds == null) {
-              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "terminationGracePeriodSeconds");
-            }
-            this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
-            return this;
-        }
-        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             if (timeout == null) {
               throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "timeout");
@@ -262,7 +240,6 @@ public final class GetAppTemplateContainerLivenessProbe {
             _resultValue.intervalSeconds = intervalSeconds;
             _resultValue.path = path;
             _resultValue.port = port;
-            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             _resultValue.timeout = timeout;
             _resultValue.transport = transport;
             return _resultValue;

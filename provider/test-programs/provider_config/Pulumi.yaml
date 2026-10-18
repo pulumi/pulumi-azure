@@ -1,0 +1,23 @@
+name: provider_config
+runtime: yaml
+
+# Replacing an explicit provider would replace every resource that uses it, so its changed
+# configuration must only ever update it. v7 removes `skipProviderRegistration` and moves
+# `enhancedValidation` into `features`.
+resources:
+
+  explicitProvider:
+    type: pulumi:providers:azure
+    properties:
+      features: {}
+      skipProviderRegistration: true
+      enhancedValidation:
+        locations: true
+        resourceProviders: false
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+    options:
+      provider: ${explicitProvider}

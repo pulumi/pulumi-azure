@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  * import * as random from "@pulumi/random";
  *
  * const server = new random.index.Id("server", {
@@ -24,20 +25,20 @@ import * as utilities from "../utilities";
  *     name: "some-resource-group",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: server.hex,
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
  *     hostname: "www.mywebsite.com",

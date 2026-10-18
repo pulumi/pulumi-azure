@@ -16,10 +16,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountQueuePropertiesInitArgs', 'AccountQueueProperties']
+__all__ = ['AccountQueuePropertiesArgs', 'AccountQueueProperties']
 
 @pulumi.input_type
-class AccountQueuePropertiesInitArgs:
+class AccountQueuePropertiesArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
                  cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
@@ -288,7 +288,7 @@ class AccountQueueProperties(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountQueuePropertiesInitArgs,
+                 args: AccountQueuePropertiesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Queue Properties of an Azure Storage Account.
@@ -350,12 +350,12 @@ class AccountQueueProperties(pulumi.CustomResource):
 
 
         :param str resource_name: The name of the resource.
-        :param AccountQueuePropertiesInitArgs args: The arguments to use to populate this resource's properties.
+        :param AccountQueuePropertiesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountQueuePropertiesInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountQueuePropertiesArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -376,7 +376,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountQueuePropertiesInitArgs.__new__(AccountQueuePropertiesInitArgs)
+            __props__ = AccountQueuePropertiesArgs.__new__(AccountQueuePropertiesArgs)
 
             __props__.__dict__["cors_rules"] = cors_rules
             __props__.__dict__["hour_metrics"] = hour_metrics

@@ -1,0 +1,27 @@
+name: apimanagement
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  # v7 renames the `protocols` and `security` booleans from `enableX` to `xEnabled`.
+  # Consumption is the only tier that provisions in minutes rather than the better part of an hour.
+  exampleService:
+    type: azure:apimanagement:Service
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      publisherName: Pulumi
+      publisherEmail: upgrade-tests@example.com
+      skuName: Consumption_0
+      protocols:
+        enableHttp2: true
+      security:
+        enableBackendTls10: false
+        enableBackendTls11: false
+        enableFrontendTls10: false
+        enableFrontendTls11: false

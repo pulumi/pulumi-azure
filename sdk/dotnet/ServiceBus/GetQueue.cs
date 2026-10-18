@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ServiceBus` - 2024-01-01
+        /// * `Microsoft.ServiceBus` - 2026-01-01
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -132,14 +132,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
         /// </summary>
-        [Input("namespaceId")]
-        public string? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public string? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public string NamespaceId { get; set; } = null!;
 
         public GetQueueArgs()
         {
@@ -158,14 +152,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         public GetQueueInvokeArgs()
         {
@@ -197,9 +185,6 @@ namespace Pulumi.Azure.ServiceBus
         /// The ISO 8601 timespan duration during which duplicates can be detected.
         /// </summary>
         public readonly string DuplicateDetectionHistoryTimeWindow;
-        public readonly bool EnableBatchedOperations;
-        public readonly bool EnableExpress;
-        public readonly bool EnablePartitioning;
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
@@ -228,9 +213,12 @@ namespace Pulumi.Azure.ServiceBus
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         public readonly int MaxSizeInMegabytes;
+        /// <summary>
+        /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU.
+        /// </summary>
+        public readonly int MaximumMessageSizeInKb;
         public readonly string Name;
-        public readonly string? NamespaceId;
-        public readonly string? NamespaceName;
+        public readonly string NamespaceId;
         /// <summary>
         /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
         /// </summary>
@@ -243,7 +231,6 @@ namespace Pulumi.Azure.ServiceBus
         /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
         /// </summary>
         public readonly bool RequiresSession;
-        public readonly string? ResourceGroupName;
         /// <summary>
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
         /// </summary>
@@ -261,12 +248,6 @@ namespace Pulumi.Azure.ServiceBus
 
             string duplicateDetectionHistoryTimeWindow,
 
-            bool enableBatchedOperations,
-
-            bool enableExpress,
-
-            bool enablePartitioning,
-
             bool expressEnabled,
 
             string forwardDeadLetteredMessagesTo,
@@ -281,19 +262,17 @@ namespace Pulumi.Azure.ServiceBus
 
             int maxSizeInMegabytes,
 
+            int maximumMessageSizeInKb,
+
             string name,
 
-            string? namespaceId,
-
-            string? namespaceName,
+            string namespaceId,
 
             bool partitioningEnabled,
 
             bool requiresDuplicateDetection,
 
             bool requiresSession,
-
-            string? resourceGroupName,
 
             string status)
         {
@@ -302,9 +281,6 @@ namespace Pulumi.Azure.ServiceBus
             DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             DefaultMessageTtl = defaultMessageTtl;
             DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            EnableBatchedOperations = enableBatchedOperations;
-            EnableExpress = enableExpress;
-            EnablePartitioning = enablePartitioning;
             ExpressEnabled = expressEnabled;
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
@@ -312,13 +288,12 @@ namespace Pulumi.Azure.ServiceBus
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             MaxSizeInMegabytes = maxSizeInMegabytes;
+            MaximumMessageSizeInKb = maximumMessageSizeInKb;
             Name = name;
             NamespaceId = namespaceId;
-            NamespaceName = namespaceName;
             PartitioningEnabled = partitioningEnabled;
             RequiresDuplicateDetection = requiresDuplicateDetection;
             RequiresSession = requiresSession;
-            ResourceGroupName = resourceGroupName;
             Status = status;
         }
     }

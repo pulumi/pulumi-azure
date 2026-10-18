@@ -127,7 +127,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
     /**
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    declare public readonly zones: pulumi.Output<string[]>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ExadataInfrastructure resource with the given unique name, arguments, and options.
@@ -171,9 +171,6 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
             }
             if (args?.storageCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCount'");
-            }
-            if (args?.zones === undefined && !opts.urn) {
-                throw new Error("Missing required property 'zones'");
             }
             resourceInputs["computeCount"] = args?.computeCount;
             resourceInputs["customerContacts"] = args?.customerContacts;
@@ -307,5 +304,5 @@ export interface ExadataInfrastructureArgs {
     /**
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    zones: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

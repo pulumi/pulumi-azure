@@ -1,0 +1,20 @@
+name: provider_config
+runtime: yaml
+
+resources:
+
+  explicitProvider:
+    type: pulumi:providers:azure
+    properties:
+      # Skipping registration is the default now, so `skipProviderRegistration` is just deleted.
+      features:
+        enhancedValidation:
+          locations: true
+          resourceProviders: false
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+    options:
+      provider: ${explicitProvider}

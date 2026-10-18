@@ -150,9 +150,6 @@ namespace Pulumi.Azure.Nginx
         [Output("dataplaneApiEndpoint")]
         public Output<string> DataplaneApiEndpoint { get; private set; } = null!;
 
-        [Output("diagnoseSupportEnabled")]
-        public Output<bool?> DiagnoseSupportEnabled { get; private set; } = null!;
-
         /// <summary>
         /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
@@ -188,12 +185,6 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        [Output("loggingStorageAccounts")]
-        public Output<ImmutableArray<Outputs.DeploymentLoggingStorageAccount>> LoggingStorageAccounts { get; private set; } = null!;
-
-        [Output("managedResourceGroup")]
-        public Output<string> ManagedResourceGroup { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
@@ -313,9 +304,6 @@ namespace Pulumi.Azure.Nginx
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
-        [Input("diagnoseSupportEnabled")]
-        public Input<bool>? DiagnoseSupportEnabled { get; set; }
-
         /// <summary>
         /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
@@ -351,18 +339,6 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("loggingStorageAccounts")]
-        private InputList<Inputs.DeploymentLoggingStorageAccountArgs>? _loggingStorageAccounts;
-        [Obsolete(@"The `LoggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
-        public InputList<Inputs.DeploymentLoggingStorageAccountArgs> LoggingStorageAccounts
-        {
-            get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountArgs>());
-            set => _loggingStorageAccounts = value;
-        }
-
-        [Input("managedResourceGroup")]
-        public Input<string>? ManagedResourceGroup { get; set; }
 
         /// <summary>
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
@@ -456,9 +432,6 @@ namespace Pulumi.Azure.Nginx
         [Input("dataplaneApiEndpoint")]
         public Input<string>? DataplaneApiEndpoint { get; set; }
 
-        [Input("diagnoseSupportEnabled")]
-        public Input<bool>? DiagnoseSupportEnabled { get; set; }
-
         /// <summary>
         /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
@@ -500,18 +473,6 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("loggingStorageAccounts")]
-        private InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>? _loggingStorageAccounts;
-        [Obsolete(@"The `LoggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
-        public InputList<Inputs.DeploymentLoggingStorageAccountGetArgs> LoggingStorageAccounts
-        {
-            get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>());
-            set => _loggingStorageAccounts = value;
-        }
-
-        [Input("managedResourceGroup")]
-        public Input<string>? ManagedResourceGroup { get; set; }
 
         /// <summary>
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.

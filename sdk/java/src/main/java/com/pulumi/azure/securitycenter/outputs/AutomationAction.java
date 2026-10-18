@@ -35,7 +35,7 @@ public final class AutomationAction {
      * @return Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    private @Nullable String type;
+    private String type;
 
     private AutomationAction() {}
     /**
@@ -67,8 +67,8 @@ public final class AutomationAction {
      * @return Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -83,7 +83,7 @@ public final class AutomationAction {
         private @Nullable String connectionString;
         private String resourceId;
         private @Nullable String triggerUrl;
-        private @Nullable String type;
+        private String type;
         public Builder() {}
         public Builder(AutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,8 +114,10 @@ public final class AutomationAction {
             return this;
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AutomationAction", "type");
+            }
             this.type = type;
             return this;
         }

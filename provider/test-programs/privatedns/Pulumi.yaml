@@ -1,0 +1,60 @@
+name: privatedns
+runtime: yaml
+
+# v7 replaces `zoneName`/`privateDnsZoneName` and `resourceGroupName` with `privateDnsZoneId`.
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleVirtualNetwork:
+    type: azure:network:VirtualNetwork
+    properties:
+      addressSpaces:
+        - 10.0.0.0/16
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+
+  exampleZone:
+    type: azure:privatedns:Zone
+    properties:
+      name: upgrade-test.internal
+      resourceGroupName: ${exampleResourceGroup.name}
+
+  exampleARecord:
+    type: azure:privatedns:ARecord
+    properties:
+      name: api
+      zoneName: ${exampleZone.name}
+      resourceGroupName: ${exampleResourceGroup.name}
+      ttl: 300
+      records:
+        - 10.0.0.4
+
+  exampleCnameRecord:
+    type: azure:privatedns:CnameRecord
+    properties:
+      name: www
+      zoneName: ${exampleZone.name}
+      resourceGroupName: ${exampleResourceGroup.name}
+      ttl: 300
+      record: api.upgrade-test.internal
+
+  exampleTxtRecord:
+    type: azure:privatedns:TxtRecord
+    properties:
+      name: txt
+      zoneName: ${exampleZone.name}
+      resourceGroupName: ${exampleResourceGroup.name}
+      ttl: 300
+      records:
+        - value: v=spf1 -all
+
+  exampleLink:
+    type: azure:privatedns:ZoneVirtualNetworkLink
+    properties:
+      privateDnsZoneName: ${exampleZone.name}
+      resourceGroupName: ${exampleResourceGroup.name}
+      virtualNetworkId: ${exampleVirtualNetwork.id}

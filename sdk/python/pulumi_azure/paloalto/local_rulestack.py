@@ -36,7 +36,7 @@ class LocalRulestackArgs:
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] description: The description for this Local Rulestack.
-        :param pulumi.Input[_builtins.str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[_builtins.str] dns_subscription: The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] file_blocking_profile: The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
@@ -115,7 +115,7 @@ class LocalRulestackArgs:
     @pulumi.getter(name="dnsSubscription")
     def dns_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "dns_subscription")
 
@@ -203,7 +203,7 @@ class _LocalRulestackState:
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] description: The description for this Local Rulestack.
-        :param pulumi.Input[_builtins.str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[_builtins.str] dns_subscription: The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] file_blocking_profile: The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
@@ -272,7 +272,7 @@ class _LocalRulestackState:
     @pulumi.getter(name="dnsSubscription")
     def dns_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "dns_subscription")
 
@@ -409,7 +409,7 @@ class LocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] description: The description for this Local Rulestack.
-        :param pulumi.Input[_builtins.str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[_builtins.str] dns_subscription: The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] file_blocking_profile: The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
@@ -533,7 +533,7 @@ class LocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] description: The description for this Local Rulestack.
-        :param pulumi.Input[_builtins.str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[_builtins.str] dns_subscription: The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] file_blocking_profile: The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
@@ -585,7 +585,7 @@ class LocalRulestack(pulumi.CustomResource):
     @pulumi.getter(name="dnsSubscription")
     def dns_subscription(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+        The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "dns_subscription")
 

@@ -22,7 +22,7 @@ public final class PolicyFileShareBackupHourly {
      */
     private String startTime;
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     private Integer windowDuration;
@@ -43,7 +43,7 @@ public final class PolicyFileShareBackupHourly {
         return this.startTime;
     }
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     public Integer windowDuration() {

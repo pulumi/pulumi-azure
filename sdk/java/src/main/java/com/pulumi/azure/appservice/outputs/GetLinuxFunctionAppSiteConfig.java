@@ -15,8 +15,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinuxFunctionAppSiteConfig {
@@ -162,7 +160,7 @@ public final class GetLinuxFunctionAppSiteConfig {
      * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
-    private @Nullable String scmIpRestrictionDefaultAction;
+    private String scmIpRestrictionDefaultAction;
     /**
      * @return One or more `scmIpRestriction` blocks as defined above.
      * 
@@ -403,8 +401,8 @@ public final class GetLinuxFunctionAppSiteConfig {
      * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
-    public Optional<String> scmIpRestrictionDefaultAction() {
-        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
+    public String scmIpRestrictionDefaultAction() {
+        return this.scmIpRestrictionDefaultAction;
     }
     /**
      * @return One or more `scmIpRestriction` blocks as defined above.
@@ -498,7 +496,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
         private Boolean runtimeScaleMonitoringEnabled;
-        private @Nullable String scmIpRestrictionDefaultAction;
+        private String scmIpRestrictionDefaultAction;
         private List<GetLinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinimumTlsVersion;
         private String scmType;
@@ -807,8 +805,10 @@ public final class GetLinuxFunctionAppSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder scmIpRestrictionDefaultAction(@Nullable String scmIpRestrictionDefaultAction) {
-
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            if (scmIpRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "scmIpRestrictionDefaultAction");
+            }
             this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }

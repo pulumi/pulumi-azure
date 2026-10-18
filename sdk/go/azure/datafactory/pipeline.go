@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +64,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,7 +132,7 @@ type Pipeline struct {
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
-	MoniterMetricsAfterDuration pulumi.StringPtrOutput `pulumi:"moniterMetricsAfterDuration"`
+	MonitorMetricsAfterDuration pulumi.StringPtrOutput `pulumi:"monitorMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -187,7 +187,7 @@ type pipelineState struct {
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
-	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
+	MonitorMetricsAfterDuration *string `pulumi:"monitorMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -210,7 +210,7 @@ type PipelineState struct {
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
-	MoniterMetricsAfterDuration pulumi.StringPtrInput
+	MonitorMetricsAfterDuration pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -237,7 +237,7 @@ type pipelineArgs struct {
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
-	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
+	MonitorMetricsAfterDuration *string `pulumi:"monitorMetricsAfterDuration"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -261,7 +261,7 @@ type PipelineArgs struct {
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
-	MoniterMetricsAfterDuration pulumi.StringPtrInput
+	MonitorMetricsAfterDuration pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -388,8 +388,8 @@ func (o PipelineOutput) Folder() pulumi.StringPtrOutput {
 }
 
 // The TimeSpan value after which an Azure Monitoring Metric is fired.
-func (o PipelineOutput) MoniterMetricsAfterDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.MoniterMetricsAfterDuration }).(pulumi.StringPtrOutput)
+func (o PipelineOutput) MonitorMetricsAfterDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.MonitorMetricsAfterDuration }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

@@ -31,7 +31,6 @@ class VirtualNetworkGatewayConnectionArgs:
                  custom_bgp_addresses: pulumi.Input[Optional['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -60,7 +59,7 @@ class VirtualNetworkGatewayConnectionArgs:
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
-               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[_builtins.int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[_builtins.str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -100,11 +99,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
@@ -227,7 +221,7 @@ class VirtualNetworkGatewayConnectionArgs:
         """
         A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
-        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """
         return pulumi.get(self, "custom_bgp_addresses")
 
@@ -258,16 +252,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @egress_nat_rule_ids.setter
     def egress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "egress_nat_rule_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")
@@ -464,7 +448,6 @@ class _VirtualNetworkGatewayConnectionState:
                  custom_bgp_addresses: pulumi.Input[Optional['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -493,7 +476,7 @@ class _VirtualNetworkGatewayConnectionState:
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
-               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[_builtins.int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[_builtins.str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -533,11 +516,6 @@ class _VirtualNetworkGatewayConnectionState:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
@@ -630,7 +608,7 @@ class _VirtualNetworkGatewayConnectionState:
         """
         A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
-        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """
         return pulumi.get(self, "custom_bgp_addresses")
 
@@ -661,16 +639,6 @@ class _VirtualNetworkGatewayConnectionState:
     @egress_nat_rule_ids.setter
     def egress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "egress_nat_rule_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")
@@ -906,7 +874,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']]] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1080,7 +1047,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -1100,7 +1067,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
-               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[_builtins.int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[_builtins.str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -1286,7 +1253,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -1319,7 +1286,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']]] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1354,7 +1320,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
-            __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
@@ -1398,7 +1363,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']]] = None,
             dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
             express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
             express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
             ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1431,7 +1395,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
-               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+               For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[_builtins.int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[_builtins.str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -1468,7 +1432,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
         __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
         __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
-        __props__.__dict__["enable_bgp"] = enable_bgp
         __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
         __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
         __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
@@ -1499,7 +1462,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpEnabled")
-    def bgp_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def bgp_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
         """
@@ -1528,7 +1491,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
-        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """
         return pulumi.get(self, "custom_bgp_addresses")
 
@@ -1547,12 +1510,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         A list of the egress NAT Rule Ids.
         """
         return pulumi.get(self, "egress_nat_rule_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_bgp")
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")

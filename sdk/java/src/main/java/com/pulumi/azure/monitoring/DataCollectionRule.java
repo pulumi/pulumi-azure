@@ -134,7 +134,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
         return this.immutableId;
     }
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -143,7 +143,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources, and a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. A rule of kind `Direct` must use a `dataCollectionEndpointId` if you&#39;re sending data to a Log Analytics workspace configured for private link.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -164,6 +164,34 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The endpoint used for ingesting logs.
+     * 
+     */
+    @Export(name="logsIngestionEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> logsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting logs.
+     * 
+     */
+    public Output<String> logsIngestionEndpoint() {
+        return this.logsIngestionEndpoint;
+    }
+    /**
+     * The endpoint used for ingesting metrics.
+     * 
+     */
+    @Export(name="metricsIngestionEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> metricsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting metrics.
+     * 
+     */
+    public Output<String> metricsIngestionEndpoint() {
+        return this.metricsIngestionEndpoint;
     }
     /**
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.

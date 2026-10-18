@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,8 +132,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -287,7 +287,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -302,7 +302,7 @@ type VirtualNetworkGatewayConnection struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
-	BgpEnabled pulumi.BoolOutput `pulumi:"bgpEnabled"`
+	BgpEnabled pulumi.BoolPtrOutput `pulumi:"bgpEnabled"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -310,14 +310,12 @@ type VirtualNetworkGatewayConnection struct {
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayOutput `pulumi:"egressNatRuleIds"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrOutput `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
@@ -421,14 +419,12 @@ type virtualNetworkGatewayConnectionState struct {
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp *bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
@@ -483,14 +479,12 @@ type VirtualNetworkGatewayConnectionState struct {
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
@@ -549,14 +543,12 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp *bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
@@ -612,14 +604,12 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ConnectionProtocol pulumi.StringPtrInput
 	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
-	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
@@ -755,8 +745,8 @@ func (o VirtualNetworkGatewayConnectionOutput) AuthorizationKey() pulumi.StringP
 }
 
 // If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
-func (o VirtualNetworkGatewayConnectionOutput) BgpEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.BgpEnabled }).(pulumi.BoolOutput)
+func (o VirtualNetworkGatewayConnectionOutput) BgpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolPtrOutput { return v.BgpEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -772,7 +762,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.Strin
 
 // A `customBgpAddresses` block which is documented below.
 // The block can only be used on `IPSec` / `activeactive` connections,
-// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 func (o VirtualNetworkGatewayConnectionOutput) CustomBgpAddresses() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
 		return v.CustomBgpAddresses
@@ -787,11 +777,6 @@ func (o VirtualNetworkGatewayConnectionOutput) DpdTimeoutSeconds() pulumi.IntPtr
 // A list of the egress NAT Rule Ids.
 func (o VirtualNetworkGatewayConnectionOutput) EgressNatRuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringArrayOutput { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-func (o VirtualNetworkGatewayConnectionOutput) EnableBgp() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
 // The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.

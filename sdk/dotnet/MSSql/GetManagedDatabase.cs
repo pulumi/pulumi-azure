@@ -23,7 +23,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql` - 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2025-01-01
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.CostManagement
     /// <summary>
     /// Manages a Cost Anomaly Alert.
     /// 
-    /// &gt; **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+    /// &gt; **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
     /// 
     /// ## Example Usage
     /// 

@@ -224,15 +224,15 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      * 
      */
-    @Export(name="moniterMetricsAfterDuration", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> moniterMetricsAfterDuration;
+    @Export(name="monitorMetricsAfterDuration", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> monitorMetricsAfterDuration;
 
     /**
      * @return The TimeSpan value after which an Azure Monitoring Metric is fired.
      * 
      */
-    public Output<Optional<String>> moniterMetricsAfterDuration() {
-        return Codegen.optional(this.moniterMetricsAfterDuration);
+    public Output<Optional<String>> monitorMetricsAfterDuration() {
+        return Codegen.optional(this.monitorMetricsAfterDuration);
     }
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

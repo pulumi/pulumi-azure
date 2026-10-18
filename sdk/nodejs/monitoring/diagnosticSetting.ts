@@ -106,7 +106,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      */
-    declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
+    declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      *
@@ -124,7 +124,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
-     * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * > **Note:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
     declare public readonly logAnalyticsDestinationType: pulumi.Output<string>;
     /**
@@ -134,17 +134,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly metrics: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
-    /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
@@ -179,7 +175,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["eventhubName"] = state?.eventhubName;
             resourceInputs["logAnalyticsDestinationType"] = state?.logAnalyticsDestinationType;
             resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
-            resourceInputs["metrics"] = state?.metrics;
             resourceInputs["name"] = state?.name;
             resourceInputs["partnerSolutionId"] = state?.partnerSolutionId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
@@ -195,7 +190,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["eventhubName"] = args?.eventhubName;
             resourceInputs["logAnalyticsDestinationType"] = args?.logAnalyticsDestinationType;
             resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
-            resourceInputs["metrics"] = args?.metrics;
             resourceInputs["name"] = args?.name;
             resourceInputs["partnerSolutionId"] = args?.partnerSolutionId;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
@@ -239,7 +233,7 @@ export interface DiagnosticSettingState {
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
-     * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * > **Note:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
     logAnalyticsDestinationType?: pulumi.Input<string | undefined>;
     /**
@@ -249,17 +243,13 @@ export interface DiagnosticSettingState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
-    /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
@@ -309,7 +299,7 @@ export interface DiagnosticSettingArgs {
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
-     * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * > **Note:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
     logAnalyticsDestinationType?: pulumi.Input<string | undefined>;
     /**
@@ -319,17 +309,13 @@ export interface DiagnosticSettingArgs {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
-    /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
+     * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */

@@ -62,14 +62,14 @@ public final class AlertProcessingRuleActionGroupScheduleArgs extends com.pulumi
     }
 
     /**
-     * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
+     * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
+     * @return The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -167,7 +167,7 @@ public final class AlertProcessingRuleActionGroupScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param timeZone The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
+         * @param timeZone The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AlertProcessingRuleActionGroupScheduleArgs extends com.pulumi
         }
 
         /**
-         * @param timeZone The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
+         * @param timeZone The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](&lt;https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)&gt;).
          * 
          * @return builder
          * 

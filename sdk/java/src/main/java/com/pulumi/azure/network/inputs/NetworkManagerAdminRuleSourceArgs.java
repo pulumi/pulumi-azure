@@ -30,14 +30,14 @@ public final class NetworkManagerAdminRuleSourceArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+     * Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
      * 
      */
     @Import(name="addressPrefixType", required=true)
     private Output<String> addressPrefixType;
 
     /**
-     * @return Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+     * @return Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
      * 
      */
     public Output<String> addressPrefixType() {
@@ -91,7 +91,7 @@ public final class NetworkManagerAdminRuleSourceArgs extends com.pulumi.resource
         }
 
         /**
-         * @param addressPrefixType Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * @param addressPrefixType Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class NetworkManagerAdminRuleSourceArgs extends com.pulumi.resource
         }
 
         /**
-         * @param addressPrefixType Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+         * @param addressPrefixType Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
          * 
          * @return builder
          * 

@@ -50,25 +50,6 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * @deprecated
-     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="managementGroupId")
-    private @Nullable Output<String> managementGroupId;
-
-    /**
-     * @deprecated
-     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> managementGroupId() {
-        return Optional.ofNullable(this.managementGroupId);
-    }
-
-    /**
      * The metadata for the Policy Set Definition in JSON format.
      * 
      */
@@ -163,7 +144,6 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     private PolicySetDefinitionArgs(PolicySetDefinitionArgs $) {
         this.description = $.description;
         this.displayName = $.displayName;
-        this.managementGroupId = $.managementGroupId;
         this.metadata = $.metadata;
         this.name = $.name;
         this.parameters = $.parameters;
@@ -230,31 +210,6 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder managementGroupId(@Nullable Output<String> managementGroupId) {
-            $.managementGroupId = managementGroupId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder managementGroupId(String managementGroupId) {
-            return managementGroupId(Output.of(managementGroupId));
         }
 
         /**

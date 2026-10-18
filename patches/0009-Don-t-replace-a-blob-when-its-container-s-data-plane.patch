@@ -1,0 +1,54 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Zaid Ajaj <zaid.naom@gmail.com>
+Date: Wed, 14 Oct 2026 13:26:35 +0200
+Subject: [PATCH] Don't replace a blob when its container's data-plane URL is
+ passed as its ID
+
+
+diff --git a/internal/services/storage/storage_blob_resource.go b/internal/services/storage/storage_blob_resource.go
+index 48a52476caa4..5b0d5dcd0bd0 100644
+--- a/internal/services/storage/storage_blob_resource.go
++++ b/internal/services/storage/storage_blob_resource.go
+@@ -7,6 +7,7 @@ import (
+ 	"context"
+ 	"fmt"
+ 	"log"
++	"net/url"
+ 	"strings"
+ 	"time"
+ 
+@@ -62,6 +63,9 @@ func resourceStorageBlob() *pluginsdk.Resource {
+ 				Type:     pluginsdk.TypeString,
+ 				Required: true,
+ 				ForceNew: true,
++				// FORK: a container created by name in v4 has its data-plane URL for an ID until it's refreshed
++				// in Pulumi, so programs migrated to v5 pass that URL here. Don't replace the blob over it.
++				DiffSuppressFunc: suppressContainerDataPlaneURL,
+ 			},
+ 
+ 			"type": {
+@@ -506,3 +510,24 @@ func resourceStorageBlobDelete(d *pluginsdk.ResourceData, meta any) error {
+ 
+ 	return nil
+ }
++
++// FORK: suppressContainerDataPlaneURL reports whether old and new identify the same container, one by its
++// resource manager ID and the other by its data-plane URL.
++func suppressContainerDataPlaneURL(_, old, new string, _ *pluginsdk.ResourceData) bool {
++	return isContainerDataPlaneURL(old, new) || isContainerDataPlaneURL(new, old)
++}
++
++func isContainerDataPlaneURL(resourceManagerID, dataPlaneURL string) bool {
++	id, err := commonids.ParseStorageContainerID(resourceManagerID)
++	if err != nil {
++		return false
++	}
++	u, err := url.Parse(dataPlaneURL)
++	if err != nil || u.Scheme != "https" {
++		return false
++	}
++	// https://ACCOUNT.blob.DOMAIN_SUFFIX/CONTAINER
++	account, endpoint, _ := strings.Cut(u.Host, ".")
++	return strings.HasPrefix(endpoint, "blob.") && strings.EqualFold(account, id.StorageAccountName) &&
++		strings.Trim(u.Path, "/") == id.ContainerName
++}

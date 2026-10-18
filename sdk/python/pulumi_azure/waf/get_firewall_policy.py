@@ -108,7 +108,7 @@ def get_firewall_policy(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of the Web Application Firewall Policy
@@ -150,7 +150,7 @@ def get_firewall_policy_output(name: pulumi.Input[Optional[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of the Web Application Firewall Policy

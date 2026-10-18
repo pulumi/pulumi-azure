@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobEventTriggerConfigScaleRule {
     /**
-     * @return A `authentication` block as defined below.
+     * @return One or more `authentication` blocks as defined below.
      * 
      */
     private @Nullable List<JobEventTriggerConfigScaleRuleAuthentication> authentications;
@@ -43,7 +43,7 @@ public final class JobEventTriggerConfigScaleRule {
 
     private JobEventTriggerConfigScaleRule() {}
     /**
-     * @return A `authentication` block as defined below.
+     * @return One or more `authentication` blocks as defined below.
      * 
      */
     public List<JobEventTriggerConfigScaleRuleAuthentication> authentications() {

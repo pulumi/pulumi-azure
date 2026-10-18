@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *     exportPolicyRules: [{
  *         ruleIndex: 1,
  *         allowedClients: ["0.0.0.0/0"],
- *         protocolsEnabled: "NFSv3",
+ *         protocolsEnabled: ["NFSv3"],
  *         unixReadOnly: false,
  *         unixReadWrite: true,
  *         rootAccessEnabled: true,
@@ -192,7 +192,7 @@ export class NetappVolumeAttachment extends pulumi.CustomResource {
     /**
      * The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
      *
-     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
+     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
      */
     declare public readonly vmwareClusterId: pulumi.Output<string>;
 
@@ -244,7 +244,7 @@ export interface NetappVolumeAttachmentState {
     /**
      * The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
      *
-     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
+     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
      */
     vmwareClusterId?: pulumi.Input<string | undefined>;
 }
@@ -264,7 +264,7 @@ export interface NetappVolumeAttachmentArgs {
     /**
      * The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
      *
-     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
+     * > **Note:** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
      */
     vmwareClusterId: pulumi.Input<string>;
 }

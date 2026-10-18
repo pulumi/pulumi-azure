@@ -64,7 +64,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
 
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
@@ -212,7 +212,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         """
         Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -769,7 +769,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[_builtins.str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: A `priority_mix` block as defined below.
                
@@ -1153,7 +1153,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         """
         Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -1507,7 +1507,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[_builtins.str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']] priority_mix: A `priority_mix` block as defined below.
                
@@ -1788,7 +1788,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
-               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+               > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[_builtins.str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']] priority_mix: A `priority_mix` block as defined below.
                
@@ -2054,7 +2054,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         """
         Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 
-        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+        > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 

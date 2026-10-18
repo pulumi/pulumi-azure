@@ -18,6 +18,16 @@ public final class GetIpGroupResult {
      */
     private List<String> cidrs;
     /**
+     * @return A list of ID of Firewall.
+     * 
+     */
+    private List<String> firewallIds;
+    /**
+     * @return A list of ID of Firewall Policy`.
+     * 
+     */
+    private List<String> firewallPolicyIds;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -42,6 +52,20 @@ public final class GetIpGroupResult {
      */
     public List<String> cidrs() {
         return this.cidrs;
+    }
+    /**
+     * @return A list of ID of Firewall.
+     * 
+     */
+    public List<String> firewallIds() {
+        return this.firewallIds;
+    }
+    /**
+     * @return A list of ID of Firewall Policy`.
+     * 
+     */
+    public List<String> firewallPolicyIds() {
+        return this.firewallPolicyIds;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -81,6 +105,8 @@ public final class GetIpGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> cidrs;
+        private List<String> firewallIds;
+        private List<String> firewallPolicyIds;
         private String id;
         private String location;
         private String name;
@@ -90,6 +116,8 @@ public final class GetIpGroupResult {
         public Builder(GetIpGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
+    	      this.firewallIds = defaults.firewallIds;
+    	      this.firewallPolicyIds = defaults.firewallPolicyIds;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -107,6 +135,28 @@ public final class GetIpGroupResult {
         }
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
+        }
+        @CustomType.Setter
+        public Builder firewallIds(List<String> firewallIds) {
+            if (firewallIds == null) {
+              throw new MissingRequiredPropertyException("GetIpGroupResult", "firewallIds");
+            }
+            this.firewallIds = firewallIds;
+            return this;
+        }
+        public Builder firewallIds(String... firewallIds) {
+            return firewallIds(List.of(firewallIds));
+        }
+        @CustomType.Setter
+        public Builder firewallPolicyIds(List<String> firewallPolicyIds) {
+            if (firewallPolicyIds == null) {
+              throw new MissingRequiredPropertyException("GetIpGroupResult", "firewallPolicyIds");
+            }
+            this.firewallPolicyIds = firewallPolicyIds;
+            return this;
+        }
+        public Builder firewallPolicyIds(String... firewallPolicyIds) {
+            return firewallPolicyIds(List.of(firewallPolicyIds));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -151,6 +201,8 @@ public final class GetIpGroupResult {
         public GetIpGroupResult build() {
             final var _resultValue = new GetIpGroupResult();
             _resultValue.cidrs = cidrs;
+            _resultValue.firewallIds = firewallIds;
+            _resultValue.firewallPolicyIds = firewallPolicyIds;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;

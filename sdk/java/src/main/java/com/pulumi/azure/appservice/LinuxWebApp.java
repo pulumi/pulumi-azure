@@ -277,6 +277,20 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    @Export(name="endToEndTlsEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> endToEndTlsEncryptionEnabled;
+
+    /**
+     * @return Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> endToEndTlsEncryptionEnabled() {
+        return Codegen.optional(this.endToEndTlsEncryptionEnabled);
+    }
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      * 
      */
@@ -589,22 +603,22 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkBackupRestoreEnabled);
     }
     /**
-     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**
-     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     public Output<Optional<String>> virtualNetworkSubnetId() {
@@ -649,7 +663,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -658,7 +672,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

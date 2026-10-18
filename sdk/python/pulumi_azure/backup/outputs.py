@@ -118,7 +118,7 @@ class PolicyFileShareBackupHourly(dict):
         """
         :param _builtins.int interval: Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
         :param _builtins.str start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
-        :param _builtins.int window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+        :param _builtins.int window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "start_time", start_time)
@@ -144,7 +144,7 @@ class PolicyFileShareBackupHourly(dict):
     @pulumi.getter(name="windowDuration")
     def window_duration(self) -> _builtins.int:
         """
-        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         """
         return pulumi.get(self, "window_duration")
 
@@ -311,7 +311,7 @@ class PolicyFileShareRetentionYearly(dict):
                  weeks: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.int count: The number of yearly backups to keep. Must be between `1` and `10`
-        :param Sequence[_builtins.str] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        :param Sequence[_builtins.str] months: The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         :param Sequence[_builtins.int] days: The days of the month to retain backups of. Must be between `1` and `31`.
         :param _builtins.bool include_last_days: Including the last day of the month, default to `false`.
                
@@ -342,7 +342,7 @@ class PolicyFileShareRetentionYearly(dict):
     @pulumi.getter
     def months(self) -> Sequence[_builtins.str]:
         """
-        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
         """
         return pulumi.get(self, "months")
 

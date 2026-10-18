@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.
+ * SingleSignOn on the Datadog Monitor can be imported using the `single sign on resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
@@ -169,18 +169,6 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      */
     public Output<String> singleSignOn() {
         return this.singleSignOn;
-    }
-    /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Export(name="singleSignOnEnabled", refs={String.class}, tree="[0]")
-    private Output<String> singleSignOnEnabled;
-
-    public Output<String> singleSignOnEnabled() {
-        return this.singleSignOnEnabled;
     }
 
     /**

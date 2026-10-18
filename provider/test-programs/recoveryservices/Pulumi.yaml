@@ -1,0 +1,18 @@
+name: recoveryservices
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  # v7 removes `softDeleteEnabled`: soft delete is always on.
+  exampleVault:
+    type: azure:recoveryservices:Vault
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: Standard
+      softDeleteEnabled: true

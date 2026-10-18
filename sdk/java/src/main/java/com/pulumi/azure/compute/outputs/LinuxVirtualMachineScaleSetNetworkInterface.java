@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxVirtualMachineScaleSetNetworkInterface {
     /**
+     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean acceleratedNetworkingEnabled;
+    /**
      * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
      * &gt; **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -35,20 +40,15 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
      */
     private @Nullable List<String> dnsServers;
     /**
-     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
-     * 
-     */
-    private @Nullable Boolean enableAcceleratedNetworking;
-    /**
-     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
-     * 
-     */
-    private @Nullable Boolean enableIpForwarding;
-    /**
      * @return One or more `ipConfiguration` blocks as defined above.
      * 
      */
     private List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    /**
+     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean ipForwardingEnabled;
     /**
      * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
@@ -68,6 +68,13 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
     private @Nullable Boolean primary;
 
     private LinuxVirtualMachineScaleSetNetworkInterface() {}
+    /**
+     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
     /**
      * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
@@ -94,25 +101,18 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
     /**
-     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
-     * 
-     */
-    public Optional<Boolean> enableAcceleratedNetworking() {
-        return Optional.ofNullable(this.enableAcceleratedNetworking);
-    }
-    /**
-     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
-     * 
-     */
-    public Optional<Boolean> enableIpForwarding() {
-        return Optional.ofNullable(this.enableIpForwarding);
-    }
-    /**
      * @return One or more `ipConfiguration` blocks as defined above.
      * 
      */
     public List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
         return this.ipConfigurations;
+    }
+    /**
+     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> ipForwardingEnabled() {
+        return Optional.ofNullable(this.ipForwardingEnabled);
     }
     /**
      * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -147,29 +147,35 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean acceleratedNetworkingEnabled;
         private @Nullable String auxiliaryMode;
         private @Nullable String auxiliarySku;
         private @Nullable List<String> dnsServers;
-        private @Nullable Boolean enableAcceleratedNetworking;
-        private @Nullable Boolean enableIpForwarding;
         private List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+        private @Nullable Boolean ipForwardingEnabled;
         private String name;
         private @Nullable String networkSecurityGroupId;
         private @Nullable Boolean primary;
         public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.auxiliaryMode = defaults.auxiliaryMode;
     	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
-    	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
-    	      this.enableIpForwarding = defaults.enableIpForwarding;
     	      this.ipConfigurations = defaults.ipConfigurations;
+    	      this.ipForwardingEnabled = defaults.ipForwardingEnabled;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(@Nullable Boolean acceleratedNetworkingEnabled) {
+
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder auxiliaryMode(@Nullable String auxiliaryMode) {
 
@@ -192,18 +198,6 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
             return dnsServers(List.of(dnsServers));
         }
         @CustomType.Setter
-        public Builder enableAcceleratedNetworking(@Nullable Boolean enableAcceleratedNetworking) {
-
-            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableIpForwarding(@Nullable Boolean enableIpForwarding) {
-
-            this.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ipConfigurations(List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             if (ipConfigurations == null) {
               throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
@@ -213,6 +207,12 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
         }
         public Builder ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+        @CustomType.Setter
+        public Builder ipForwardingEnabled(@Nullable Boolean ipForwardingEnabled) {
+
+            this.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -236,12 +236,12 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
         }
         public LinuxVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new LinuxVirtualMachineScaleSetNetworkInterface();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.auxiliaryMode = auxiliaryMode;
             _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
-            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            _resultValue.enableIpForwarding = enableIpForwarding;
             _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwardingEnabled = ipForwardingEnabled;
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
             _resultValue.primary = primary;

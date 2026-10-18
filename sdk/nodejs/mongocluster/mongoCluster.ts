@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DocumentDB` - 2025-09-01
+ * * `Microsoft.DocumentDB` - 2026-06-01
  *
  * ## Import
  *
@@ -82,6 +82,8 @@ export class MongoCluster extends pulumi.CustomResource {
     declare public readonly administratorPassword: pulumi.Output<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     declare public readonly administratorUsername: pulumi.Output<string | undefined>;
     /**
@@ -96,6 +98,12 @@ export class MongoCluster extends pulumi.CustomResource {
      * One or more `connectionStrings` blocks as defined below.
      */
     declare public /*out*/ readonly connectionStrings: pulumi.Output<outputs.mongocluster.MongoClusterConnectionString[]>;
+    /**
+     * Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     *
+     * > **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     */
+    declare public readonly cosmosDbNetworkBypassEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      */
@@ -195,6 +203,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["authenticationMethods"] = state?.authenticationMethods;
             resourceInputs["computeTier"] = state?.computeTier;
             resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["cosmosDbNetworkBypassEnabled"] = state?.cosmosDbNetworkBypassEnabled;
             resourceInputs["createMode"] = state?.createMode;
             resourceInputs["customerManagedKey"] = state?.customerManagedKey;
             resourceInputs["dataApiModeEnabled"] = state?.dataApiModeEnabled;
@@ -222,6 +231,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["administratorUsername"] = args?.administratorUsername;
             resourceInputs["authenticationMethods"] = args?.authenticationMethods;
             resourceInputs["computeTier"] = args?.computeTier;
+            resourceInputs["cosmosDbNetworkBypassEnabled"] = args?.cosmosDbNetworkBypassEnabled;
             resourceInputs["createMode"] = args?.createMode;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
             resourceInputs["dataApiModeEnabled"] = args?.dataApiModeEnabled;
@@ -243,7 +253,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }, { type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword", "connectionStrings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
@@ -261,6 +271,8 @@ export interface MongoClusterState {
     administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     administratorUsername?: pulumi.Input<string | undefined>;
     /**
@@ -275,6 +287,12 @@ export interface MongoClusterState {
      * One or more `connectionStrings` blocks as defined below.
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.mongocluster.MongoClusterConnectionString>[] | undefined>;
+    /**
+     * Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     *
+     * > **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     */
+    cosmosDbNetworkBypassEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      */
@@ -367,6 +385,8 @@ export interface MongoClusterArgs {
     administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     administratorUsername?: pulumi.Input<string | undefined>;
     /**
@@ -377,6 +397,12 @@ export interface MongoClusterArgs {
      * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      */
     computeTier?: pulumi.Input<string | undefined>;
+    /**
+     * Whether Cosmos DB network bypass is enabled for the MongoDB Cluster. Defaults to `false`.
+     *
+     * > **Note:** `cosmosDbNetworkBypassEnabled` can only be set to `true` when `publicNetworkAccess` is `Disabled`, `authenticationMethods` contains only `MicrosoftEntraID`, and no firewall rules exist on the cluster. This is not supported on portal yet because Entra ID-only authentication is not supported there.
+     */
+    cosmosDbNetworkBypassEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
      */

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VolumeGroupSapHanaVolumeExportPolicyRule {
     /**
-     * @return A comma-sperated list of allowed client IPv4 addresses.
+     * @return A comma-separated list of allowed client IPv4 addresses.
      * 
      */
     private String allowedClients;
@@ -52,7 +52,7 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRule {
 
     private VolumeGroupSapHanaVolumeExportPolicyRule() {}
     /**
-     * @return A comma-sperated list of allowed client IPv4 addresses.
+     * @return A comma-separated list of allowed client IPv4 addresses.
      * 
      */
     public String allowedClients() {

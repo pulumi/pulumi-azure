@@ -13,7 +13,7 @@ const storageAccount = new azure.storage.Account("storage", {
 
  // A table to store value lookups
 const values = new azure.storage.Table("values", {
-    storageAccountName: storageAccount.name,
+    storageAccountId: storageAccount.id,
 });
 
 // HTTP Function gets the value from the store

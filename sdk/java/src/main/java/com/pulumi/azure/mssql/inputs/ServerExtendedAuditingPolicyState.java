@@ -34,9 +34,24 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
     }
 
     /**
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    @Import(name="blobStorageEndpoint")
+    private @Nullable Output<String> blobStorageEndpoint;
+
+    /**
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    public Optional<Output<String>> blobStorageEndpoint() {
+        return Optional.ofNullable(this.blobStorageEndpoint);
+    }
+
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Import(name="enabled")
@@ -45,7 +60,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -157,25 +172,11 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         return Optional.ofNullable(this.storageAccountSubscriptionId);
     }
 
-    /**
-     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    @Import(name="storageEndpoint")
-    private @Nullable Output<String> storageEndpoint;
-
-    /**
-     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    public Optional<Output<String>> storageEndpoint() {
-        return Optional.ofNullable(this.storageEndpoint);
-    }
-
     private ServerExtendedAuditingPolicyState() {}
 
     private ServerExtendedAuditingPolicyState(ServerExtendedAuditingPolicyState $) {
         this.auditActionsAndGroups = $.auditActionsAndGroups;
+        this.blobStorageEndpoint = $.blobStorageEndpoint;
         this.enabled = $.enabled;
         this.logMonitoringEnabled = $.logMonitoringEnabled;
         this.predicateExpression = $.predicateExpression;
@@ -184,7 +185,6 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         this.storageAccountAccessKey = $.storageAccountAccessKey;
         this.storageAccountAccessKeyIsSecondary = $.storageAccountAccessKeyIsSecondary;
         this.storageAccountSubscriptionId = $.storageAccountSubscriptionId;
-        this.storageEndpoint = $.storageEndpoint;
     }
 
     public static Builder builder() {
@@ -237,9 +237,30 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         }
 
         /**
+         * @param blobStorageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobStorageEndpoint(@Nullable Output<String> blobStorageEndpoint) {
+            $.blobStorageEndpoint = blobStorageEndpoint;
+            return this;
+        }
+
+        /**
+         * @param blobStorageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobStorageEndpoint(String blobStorageEndpoint) {
+            return blobStorageEndpoint(Output.of(blobStorageEndpoint));
+        }
+
+        /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
          * 
          * @return builder
          * 
@@ -252,7 +273,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
          * 
          * @return builder
          * 
@@ -406,27 +427,6 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
          */
         public Builder storageAccountSubscriptionId(String storageAccountSubscriptionId) {
             return storageAccountSubscriptionId(Output.of(storageAccountSubscriptionId));
-        }
-
-        /**
-         * @param storageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageEndpoint(@Nullable Output<String> storageEndpoint) {
-            $.storageEndpoint = storageEndpoint;
-            return this;
-        }
-
-        /**
-         * @param storageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageEndpoint(String storageEndpoint) {
-            return storageEndpoint(Output.of(storageEndpoint));
         }
 
         public ServerExtendedAuditingPolicyState build() {

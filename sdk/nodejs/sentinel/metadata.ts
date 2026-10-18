@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleMetadata = new azure.sentinel.Metadata("example", {
- *     name: "exampl",
+ *     name: "example",
  *     workspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     contentId: exampleAlertRuleNrt.name,
  *     kind: "AnalyticsRule",

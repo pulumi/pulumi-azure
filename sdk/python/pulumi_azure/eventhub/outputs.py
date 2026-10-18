@@ -979,6 +979,8 @@ class EventHubNamespaceNetworkRulesets(dict):
                  virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
         """
         :param _builtins.str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+               
+               > **Note:** `default_action` can only be set to `Deny` when at least one `ip_rule` or `virtual_network_rule` block is specified, otherwise the Azure API will not honour the setting.
         :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         :param _builtins.bool public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
                
@@ -1001,6 +1003,8 @@ class EventHubNamespaceNetworkRulesets(dict):
     def default_action(self) -> _builtins.str:
         """
         The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+
+        > **Note:** `default_action` can only be set to `Deny` when at least one `ip_rule` or `virtual_network_rule` block is specified, otherwise the Azure API will not honour the setting.
         """
         return pulumi.get(self, "default_action")
 
@@ -2929,7 +2933,7 @@ class SubscriptionClientScopedSubscription(dict):
         """
         :param _builtins.str client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
                
-               > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+               > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         :param _builtins.bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param _builtins.bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
@@ -2946,7 +2950,7 @@ class SubscriptionClientScopedSubscription(dict):
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
-        > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+        > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behaviour. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         """
         return pulumi.get(self, "client_id")
 

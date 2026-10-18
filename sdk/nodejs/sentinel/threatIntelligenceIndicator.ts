@@ -30,12 +30,21 @@ import * as utilities from "../utilities";
  * const exampleThreatIntelligenceIndicator = new azure.sentinel.ThreatIntelligenceIndicator("example", {
  *     workspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     patternType: "domain-name",
- *     pattern: "http://example.com",
+ *     pattern: "example.com",
  *     source: "Microsoft Sentinel",
  *     validateFromUtc: "2022-12-14T16:00:00Z",
  *     displayName: "example-indicator",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  *
  * ## Import
  *
@@ -90,11 +99,11 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly defanged: pulumi.Output<boolean>;
     /**
-     * The description of the Threat Intelligence Indicator.
+     * The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The display name of the Threat Intelligence Indicator.
+     * The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
@@ -174,13 +183,13 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
      */
     declare public readonly threatTypes: pulumi.Output<string[] | undefined>;
     /**
-     * The start of validate date in RFC3339.
+     * The start of validate date in RFC3339. Changing this forces a new resource to be created.
      */
     declare public readonly validateFromUtc: pulumi.Output<string>;
     /**
      * The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      */
-    declare public readonly validateUntilUtc: pulumi.Output<string | undefined>;
+    declare public readonly validateUntilUtc: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
      */
@@ -302,11 +311,11 @@ export interface ThreatIntelligenceIndicatorState {
      */
     defanged?: pulumi.Input<boolean | undefined>;
     /**
-     * The description of the Threat Intelligence Indicator.
+     * The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The display name of the Threat Intelligence Indicator.
+     * The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
@@ -386,7 +395,7 @@ export interface ThreatIntelligenceIndicatorState {
      */
     threatTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The start of validate date in RFC3339.
+     * The start of validate date in RFC3339. Changing this forces a new resource to be created.
      */
     validateFromUtc?: pulumi.Input<string | undefined>;
     /**
@@ -412,11 +421,11 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
-     * The description of the Threat Intelligence Indicator.
+     * The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The display name of the Threat Intelligence Indicator.
+     * The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     displayName: pulumi.Input<string>;
     /**
@@ -472,7 +481,7 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     threatTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The start of validate date in RFC3339.
+     * The start of validate date in RFC3339. Changing this forces a new resource to be created.
      */
     validateFromUtc: pulumi.Input<string>;
     /**

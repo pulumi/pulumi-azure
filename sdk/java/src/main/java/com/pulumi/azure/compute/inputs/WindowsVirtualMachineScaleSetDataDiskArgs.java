@@ -166,44 +166,6 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
     }
 
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-    @Import(name="ultraSsdDiskIopsReadWrite")
-    private @Nullable Output<Integer> ultraSsdDiskIopsReadWrite;
-
-    /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-    public Optional<Output<Integer>> ultraSsdDiskIopsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
-    }
-
-    /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-    @Import(name="ultraSsdDiskMbpsReadWrite")
-    private @Nullable Output<Integer> ultraSsdDiskMbpsReadWrite;
-
-    /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-    public Optional<Output<Integer>> ultraSsdDiskMbpsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
-    }
-
-    /**
      * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
      * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -234,8 +196,6 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
         this.lun = $.lun;
         this.name = $.name;
         this.storageAccountType = $.storageAccountType;
-        this.ultraSsdDiskIopsReadWrite = $.ultraSsdDiskIopsReadWrite;
-        this.ultraSsdDiskMbpsReadWrite = $.ultraSsdDiskMbpsReadWrite;
         this.writeAcceleratorEnabled = $.writeAcceleratorEnabled;
     }
 
@@ -456,56 +416,6 @@ public final class WindowsVirtualMachineScaleSetDataDiskArgs extends com.pulumi.
          */
         public Builder storageAccountType(String storageAccountType) {
             return storageAccountType(Output.of(storageAccountType));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-         * 
-         */
-        @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-        public Builder ultraSsdDiskIopsReadWrite(@Nullable Output<Integer> ultraSsdDiskIopsReadWrite) {
-            $.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-         * 
-         */
-        @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-        public Builder ultraSsdDiskIopsReadWrite(Integer ultraSsdDiskIopsReadWrite) {
-            return ultraSsdDiskIopsReadWrite(Output.of(ultraSsdDiskIopsReadWrite));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-         * 
-         */
-        @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-        public Builder ultraSsdDiskMbpsReadWrite(@Nullable Output<Integer> ultraSsdDiskMbpsReadWrite) {
-            $.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-         * 
-         */
-        @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-        public Builder ultraSsdDiskMbpsReadWrite(Integer ultraSsdDiskMbpsReadWrite) {
-            return ultraSsdDiskMbpsReadWrite(Output.of(ultraSsdDiskMbpsReadWrite));
         }
 
         /**

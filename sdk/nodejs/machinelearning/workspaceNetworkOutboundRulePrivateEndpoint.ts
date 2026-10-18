@@ -118,7 +118,7 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     declare public readonly serviceResourceId: pulumi.Output<string>;
     /**
@@ -126,10 +126,11 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
      */
     declare public readonly sparkEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      *
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -192,7 +193,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointState {
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     serviceResourceId?: pulumi.Input<string | undefined>;
     /**
@@ -200,10 +201,11 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointState {
      */
     sparkEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      *
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -227,7 +229,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointArgs {
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     serviceResourceId: pulumi.Input<string>;
     /**
@@ -235,10 +237,11 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointArgs {
      */
     sparkEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      *
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |

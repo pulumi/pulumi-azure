@@ -16,7 +16,7 @@ public final class ClusterLanguageExtension {
      */
     private String image;
     /**
-     * @return The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+     * @return The name of the language extension. Possible values are `PYTHON` and `R`.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class ClusterLanguageExtension {
         return this.image;
     }
     /**
-     * @return The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+     * @return The name of the language extension. Possible values are `PYTHON` and `R`.
      * 
      */
     public String name() {

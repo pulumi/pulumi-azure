@@ -14,7 +14,7 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class VolumeGroupSapHanaVolumeExportPolicyRule
     {
         /// <summary>
-        /// A comma-sperated list of allowed client IPv4 addresses.
+        /// A comma-separated list of allowed client IPv4 addresses.
         /// </summary>
         public readonly string AllowedClients;
         /// <summary>

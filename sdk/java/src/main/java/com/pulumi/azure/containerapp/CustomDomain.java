@@ -279,7 +279,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -288,7 +288,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+     * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
      * 
      */
     public Output<String> name() {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewFunctionApp(ctx, "test", &appservice.FunctionAppArgs{
-//				Name:                    pulumi.String("example-function-app"),
-//				Location:                pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
-//				AppServicePlanId:        pulumi.Any(testAzurermAppServicePlan.Id),
-//				StorageAccountName:      pulumi.Any(testAzurermStorageAccount.Name),
-//				StorageAccountAccessKey: pulumi.Any(testAzurermStorageAccount.PrimaryAccessKey),
+//			_, err = azurerm.NewFunctionApp(ctx, "test", &azurerm.FunctionAppArgs{
+//				Name:                    "example-function-app",
+//				Location:                testAzurermResourceGroup.Location,
+//				ResourceGroupName:       testAzurermResourceGroup.Name,
+//				AppServicePlanId:        testAzurermAppServicePlan.Id,
+//				StorageAccountName:      testAzurermStorageAccount.Name,
+//				StorageAccountAccessKey: testAzurermStorageAccount.PrimaryAccessKey,
 //			})
 //			if err != nil {
 //				return err
@@ -153,7 +154,7 @@ type AppConnection struct {
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name        pulumi.StringOutput               `pulumi:"name"`
 	SecretStore AppConnectionSecretStorePtrOutput `pulumi:"secretStore"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringOutput    `pulumi:"targetResourceId"`
 	VnetSolution     pulumi.StringPtrOutput `pulumi:"vnetSolution"`
 }
@@ -207,7 +208,7 @@ type appConnectionState struct {
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name        *string                   `pulumi:"name"`
 	SecretStore *AppConnectionSecretStore `pulumi:"secretStore"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	VnetSolution     *string `pulumi:"vnetSolution"`
 }
@@ -223,7 +224,7 @@ type AppConnectionState struct {
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name        pulumi.StringPtrInput
 	SecretStore AppConnectionSecretStorePtrInput
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringPtrInput
 	VnetSolution     pulumi.StringPtrInput
 }
@@ -243,7 +244,7 @@ type appConnectionArgs struct {
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name        *string                   `pulumi:"name"`
 	SecretStore *AppConnectionSecretStore `pulumi:"secretStore"`
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId string  `pulumi:"targetResourceId"`
 	VnetSolution     *string `pulumi:"vnetSolution"`
 }
@@ -260,7 +261,7 @@ type AppConnectionArgs struct {
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name        pulumi.StringPtrInput
 	SecretStore AppConnectionSecretStorePtrInput
-	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringInput
 	VnetSolution     pulumi.StringPtrInput
 }
@@ -377,7 +378,7 @@ func (o AppConnectionOutput) SecretStore() AppConnectionSecretStorePtrOutput {
 	return o.ApplyT(func(v *AppConnection) AppConnectionSecretStorePtrOutput { return v.SecretStore }).(AppConnectionSecretStorePtrOutput)
 }
 
-// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
+// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/azure/service-connector/how-to-integrate-postgres).
 func (o AppConnectionOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppConnection) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

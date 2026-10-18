@@ -307,7 +307,9 @@ class AccountNetworkRules(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }])
         example_account = azure.storage.Account("example",
             name="storageaccountname",
             resource_group_name=example.name,
@@ -394,7 +396,9 @@ class AccountNetworkRules(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }])
         example_account = azure.storage.Account("example",
             name="storageaccountname",
             resource_group_name=example.name,

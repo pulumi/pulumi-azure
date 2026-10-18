@@ -40,7 +40,7 @@ class WatcherArgs:
         :param pulumi.Input[_builtins.str] etag: A string of etag assigned to this Automation Watcher.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
@@ -160,7 +160,7 @@ class WatcherArgs:
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         """
         return pulumi.get(self, "script_parameters")
 
@@ -205,7 +205,7 @@ class _WatcherState:
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] script_name: Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         :param pulumi.Input[_builtins.str] script_run_on: Specify the name of the Hybrid work group the watcher will run on.
         :param pulumi.Input[_builtins.str] status: The current status of the Automation Watcher.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
@@ -321,7 +321,7 @@ class _WatcherState:
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         """
         return pulumi.get(self, "script_parameters")
 
@@ -457,7 +457,7 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] script_name: Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         :param pulumi.Input[_builtins.str] script_run_on: Specify the name of the Hybrid work group the watcher will run on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
         """
@@ -620,7 +620,7 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
         :param pulumi.Input[_builtins.str] script_name: Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         :param pulumi.Input[_builtins.str] script_run_on: Specify the name of the Hybrid work group the watcher will run on.
         :param pulumi.Input[_builtins.str] status: The current status of the Automation Watcher.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Automation Watcher.
@@ -702,7 +702,7 @@ class Watcher(pulumi.CustomResource):
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+        Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
         """
         return pulumi.get(self, "script_parameters")
 

@@ -39,7 +39,7 @@ class FactoryArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
@@ -105,7 +105,7 @@ class FactoryArgs:
     @pulumi.getter(name="customerManagedKeyIdentityId")
     def customer_managed_key_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         """
         return pulumi.get(self, "customer_managed_key_identity_id")
 
@@ -254,7 +254,7 @@ class _FactoryState:
         Input properties used for looking up and filtering Factory resources.
 
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FactoryGlobalParameterArgs']]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
@@ -310,7 +310,7 @@ class _FactoryState:
     @pulumi.getter(name="customerManagedKeyIdentityId")
     def customer_managed_key_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         """
         return pulumi.get(self, "customer_managed_key_identity_id")
 
@@ -508,7 +508,7 @@ class Factory(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']] identity: An `identity` block as defined below.
@@ -644,7 +644,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]] global_parameters: A list of `global_parameter` blocks as defined above.
         :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']] identity: An `identity` block as defined below.
@@ -688,7 +688,7 @@ class Factory(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKeyIdentityId")
     def customer_managed_key_identity_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
+        Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/azure/data-factory/enable-customer-managed-key) for more information.
         """
         return pulumi.get(self, "customer_managed_key_identity_id")
 

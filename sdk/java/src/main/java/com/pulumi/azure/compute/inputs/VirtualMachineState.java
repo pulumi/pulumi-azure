@@ -391,7 +391,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     @Import(name="zones")
@@ -402,7 +402,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
-     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     public Optional<Output<String>> zones() {
@@ -988,7 +988,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
-         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
-         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#examples)
          * 
          * @return builder
          * 

@@ -173,7 +173,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      *
-     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
      */
     declare public readonly platformFaultDomainCount: pulumi.Output<number>;
     /**
@@ -471,7 +471,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
     /**
      * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      *
-     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
      */
     platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
@@ -663,7 +663,7 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     /**
      * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      *
-     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
+     * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/azure/virtual-machines/availability-set-overview).
      */
     platformFaultDomainCount: pulumi.Input<number>;
     /**

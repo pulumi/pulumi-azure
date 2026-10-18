@@ -79,37 +79,18 @@ public final class SystemTopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-    @Import(name="sourceArmResourceId")
-    private @Nullable Output<String> sourceArmResourceId;
-
-    /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> sourceArmResourceId() {
-        return Optional.ofNullable(this.sourceArmResourceId);
-    }
-
-    /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Import(name="sourceResourceId")
-    private @Nullable Output<String> sourceResourceId;
+    @Import(name="sourceResourceId", required=true)
+    private Output<String> sourceResourceId;
 
     /**
      * @return The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    public Optional<Output<String>> sourceResourceId() {
-        return Optional.ofNullable(this.sourceResourceId);
+    public Output<String> sourceResourceId() {
+        return this.sourceResourceId;
     }
 
     /**
@@ -157,7 +138,6 @@ public final class SystemTopicArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
-        this.sourceArmResourceId = $.sourceArmResourceId;
         this.sourceResourceId = $.sourceResourceId;
         this.tags = $.tags;
         this.topicType = $.topicType;
@@ -266,37 +246,12 @@ public final class SystemTopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-        public Builder sourceArmResourceId(@Nullable Output<String> sourceArmResourceId) {
-            $.sourceArmResourceId = sourceArmResourceId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-        public Builder sourceArmResourceId(String sourceArmResourceId) {
-            return sourceArmResourceId(Output.of(sourceArmResourceId));
-        }
-
-        /**
          * @param sourceResourceId The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
          * 
          * @return builder
          * 
          */
-        public Builder sourceResourceId(@Nullable Output<String> sourceResourceId) {
+        public Builder sourceResourceId(Output<String> sourceResourceId) {
             $.sourceResourceId = sourceResourceId;
             return this;
         }
@@ -364,6 +319,9 @@ public final class SystemTopicArgs extends com.pulumi.resources.ResourceArgs {
         public SystemTopicArgs build() {
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("SystemTopicArgs", "resourceGroupName");
+            }
+            if ($.sourceResourceId == null) {
+                throw new MissingRequiredPropertyException("SystemTopicArgs", "sourceResourceId");
             }
             if ($.topicType == null) {
                 throw new MissingRequiredPropertyException("SystemTopicArgs", "topicType");

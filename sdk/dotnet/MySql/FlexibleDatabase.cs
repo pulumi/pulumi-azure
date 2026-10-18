@@ -69,19 +69,19 @@ namespace Pulumi.Azure.MySql
     public partial class FlexibleDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         /// </summary>
         [Output("charset")]
         public Output<string> Charset { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         /// </summary>
         [Output("collation")]
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -145,19 +145,19 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("charset", required: true)]
         public Input<string> Charset { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("collation", required: true)]
         public Input<string> Collation { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,19 +183,19 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
+        /// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/8.4/en/charset-charsets.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("charset")]
         public Input<string>? Charset { get; set; }
 
         /// <summary>
-        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
+        /// Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
+        /// Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/8.4/en/identifiers.html). Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

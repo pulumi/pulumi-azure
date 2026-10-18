@@ -48,8 +48,7 @@ namespace Pulumi.Azure.PrivateDns
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "test",
-    ///         ResourceGroupName = example.Name,
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
@@ -81,10 +80,10 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
-        [Output("privateDnsZoneName")]
-        public Output<string> PrivateDnsZoneName { get; private set; } = null!;
+        [Output("privateDnsZoneId")]
+        public Output<string> PrivateDnsZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
@@ -97,12 +96,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Output("resolutionPolicy")]
         public Output<string> ResolutionPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -169,10 +162,10 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("privateDnsZoneName", required: true)]
-        public Input<string> PrivateDnsZoneName { get; set; } = null!;
+        [Input("privateDnsZoneId", required: true)]
+        public Input<string> PrivateDnsZoneId { get; set; } = null!;
 
         /// <summary>
         /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
@@ -185,12 +178,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("resolutionPolicy")]
         public Input<string>? ResolutionPolicy { get; set; }
-
-        /// <summary>
-        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -225,10 +212,10 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("privateDnsZoneName")]
-        public Input<string>? PrivateDnsZoneName { get; set; }
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
         /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
@@ -241,12 +228,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("resolutionPolicy")]
         public Input<string>? ResolutionPolicy { get; set; }
-
-        /// <summary>
-        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

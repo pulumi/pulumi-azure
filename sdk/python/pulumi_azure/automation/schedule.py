@@ -46,7 +46,7 @@ class ScheduleArgs:
         :param pulumi.Input['ScheduleMonthlyOccurrenceArgs'] monthly_occurrence: One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -195,7 +195,7 @@ class ScheduleArgs:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 
@@ -244,7 +244,7 @@ class _ScheduleState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         if automation_account_name is not None:
@@ -396,7 +396,7 @@ class _ScheduleState:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 
@@ -493,7 +493,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         ...
@@ -640,7 +640,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        :param pulumi.Input[_builtins.str] timezone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -745,7 +745,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 

@@ -14,10 +14,6 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class GetConfigurationProtectedFileResult
     {
         /// <summary>
-        /// The base-64 encoded contents of this configuration file.
-        /// </summary>
-        public readonly string Content;
-        /// <summary>
         /// The hash of the contents of this configuration file prefixed by the algorithm used.
         /// </summary>
         public readonly string ContentHash;
@@ -28,13 +24,10 @@ namespace Pulumi.Azure.Nginx.Outputs
 
         [OutputConstructor]
         private GetConfigurationProtectedFileResult(
-            string content,
-
             string contentHash,
 
             string virtualPath)
         {
-            Content = content;
             ContentHash = contentHash;
             VirtualPath = virtualPath;
         }

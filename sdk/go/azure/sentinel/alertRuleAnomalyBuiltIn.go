@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // ## Disclaimers
 //
-// > **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+// > **Note:** A Built-in Anomaly Alert Rule cannot be deleted. Deleting a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
 //
 // Manages a Built-in Anomaly Alert Rule.
 //
@@ -25,9 +25,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,15 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+//
+// * `Microsoft.SecurityInsights` - 2022-10-01-preview
+//
 // ## Import
 //
 // Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -92,7 +101,7 @@ type AlertRuleAnomalyBuiltIn struct {
 	AnomalyVersion pulumi.StringOutput `pulumi:"anomalyVersion"`
 	// The description of the threshold observation.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The Display Name of the built-in Anomaly Alert Rule.
+	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	//
 	// > **Note:** One of `name` or `displayName` block must be specified.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -106,7 +115,7 @@ type AlertRuleAnomalyBuiltIn struct {
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput `pulumi:"multiSelectObservations"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput `pulumi:"prioritizedExcludeObservations"`
@@ -169,7 +178,7 @@ type alertRuleAnomalyBuiltInState struct {
 	AnomalyVersion *string `pulumi:"anomalyVersion"`
 	// The description of the threshold observation.
 	Description *string `pulumi:"description"`
-	// The Display Name of the built-in Anomaly Alert Rule.
+	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	//
 	// > **Note:** One of `name` or `displayName` block must be specified.
 	DisplayName *string `pulumi:"displayName"`
@@ -183,7 +192,7 @@ type alertRuleAnomalyBuiltInState struct {
 	Mode *string `pulumi:"mode"`
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations []AlertRuleAnomalyBuiltInMultiSelectObservation `pulumi:"multiSelectObservations"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations []AlertRuleAnomalyBuiltInPrioritizedExcludeObservation `pulumi:"prioritizedExcludeObservations"`
@@ -208,7 +217,7 @@ type AlertRuleAnomalyBuiltInState struct {
 	AnomalyVersion pulumi.StringPtrInput
 	// The description of the threshold observation.
 	Description pulumi.StringPtrInput
-	// The Display Name of the built-in Anomaly Alert Rule.
+	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	//
 	// > **Note:** One of `name` or `displayName` block must be specified.
 	DisplayName pulumi.StringPtrInput
@@ -222,7 +231,7 @@ type AlertRuleAnomalyBuiltInState struct {
 	Mode pulumi.StringPtrInput
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput
@@ -245,7 +254,7 @@ func (AlertRuleAnomalyBuiltInState) ElementType() reflect.Type {
 }
 
 type alertRuleAnomalyBuiltInArgs struct {
-	// The Display Name of the built-in Anomaly Alert Rule.
+	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	//
 	// > **Note:** One of `name` or `displayName` block must be specified.
 	DisplayName *string `pulumi:"displayName"`
@@ -255,13 +264,13 @@ type alertRuleAnomalyBuiltInArgs struct {
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
 	Mode string `pulumi:"mode"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a AlertRuleAnomalyBuiltIn resource.
 type AlertRuleAnomalyBuiltInArgs struct {
-	// The Display Name of the built-in Anomaly Alert Rule.
+	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	//
 	// > **Note:** One of `name` or `displayName` block must be specified.
 	DisplayName pulumi.StringPtrInput
@@ -271,7 +280,7 @@ type AlertRuleAnomalyBuiltInArgs struct {
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
 	Mode pulumi.StringInput
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 }
 
@@ -377,7 +386,7 @@ func (o AlertRuleAnomalyBuiltInOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyBuiltIn) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The Display Name of the built-in Anomaly Alert Rule.
+// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 //
 // > **Note:** One of `name` or `displayName` block must be specified.
 func (o AlertRuleAnomalyBuiltInOutput) DisplayName() pulumi.StringOutput {
@@ -411,7 +420,7 @@ func (o AlertRuleAnomalyBuiltInOutput) MultiSelectObservations() AlertRuleAnomal
 	}).(AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule.
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 func (o AlertRuleAnomalyBuiltInOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyBuiltIn) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

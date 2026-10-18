@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? PasswordSecretName;
         /// <summary>
-        /// The hostname for the Container Registry.
+        /// The FQDN for the Container Registry.
         /// 
         /// The authentication details must also be supplied, `Identity` and `Username`/`PasswordSecretName` are mutually exclusive.
         /// </summary>

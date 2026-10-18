@@ -27,7 +27,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
@@ -38,7 +38,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
@@ -95,12 +95,16 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
      * 
+     * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
+     * 
      */
     @Import(name="autoGrowEnabled")
     private @Nullable Output<Boolean> autoGrowEnabled;
 
     /**
      * @return Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
      * 
      */
     public Optional<Output<Boolean>> autoGrowEnabled() {
@@ -408,8 +412,19 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.sourceServerId);
     }
 
+    @Import(name="storageIops")
+    private @Nullable Output<Integer> storageIops;
+
+    public Optional<Output<Integer>> storageIops() {
+        return Optional.ofNullable(this.storageIops);
+    }
+
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * The max storage allowed for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * 
+     * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
      * 
      * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
@@ -420,7 +435,11 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<Integer> storageMb;
 
     /**
-     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * @return The max storage allowed for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * 
+     * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
      * 
      * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
      * 
@@ -431,10 +450,19 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.storageMb);
     }
 
+    @Import(name="storageThroughput")
+    private @Nullable Output<Integer> storageThroughput;
+
+    public Optional<Output<Integer>> storageThroughput() {
+        return Optional.ofNullable(this.storageThroughput);
+    }
+
     /**
      * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      * 
      * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * 
+     * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
      * 
      */
     @Import(name="storageTier")
@@ -445,76 +473,45 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
      * 
+     * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
+     * 
      */
     public Optional<Output<String>> storageTier() {
         return Optional.ofNullable(this.storageTier);
     }
 
     /**
-     * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+     * The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
      * 
      */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-     * 
-     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-     * 
-     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-     * 
-     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-     * 
-     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-     * 
-     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-     * 
-     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
 
-    /**
-     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-     * 
-     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-     * 
-     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
-    /**
-     * @return Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-     * 
-     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-     * 
-     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-     * 
-     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -546,8 +543,11 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.sourceServerId = $.sourceServerId;
+        this.storageIops = $.storageIops;
         this.storageMb = $.storageMb;
+        this.storageThroughput = $.storageThroughput;
         this.storageTier = $.storageTier;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.version = $.version;
         this.zone = $.zone;
@@ -574,7 +574,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
          * 
          * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
@@ -589,7 +589,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
          * 
          * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
@@ -666,6 +666,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param autoGrowEnabled Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
          * 
+         * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
+         * 
          * @return builder
          * 
          */
@@ -676,6 +678,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param autoGrowEnabled Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
          * 
          * @return builder
          * 
@@ -1099,8 +1103,21 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
             return sourceServerId(Output.of(sourceServerId));
         }
 
+        public Builder storageIops(@Nullable Output<Integer> storageIops) {
+            $.storageIops = storageIops;
+            return this;
+        }
+
+        public Builder storageIops(Integer storageIops) {
+            return storageIops(Output.of(storageIops));
+        }
+
         /**
-         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server.
+         * 
+         * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+         * 
+         * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
          * 
          * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
          * 
@@ -1115,7 +1132,11 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server.
+         * 
+         * &gt; **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+         * 
+         * &gt; **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
          * 
          * &gt; **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
          * 
@@ -1128,10 +1149,21 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
             return storageMb(Output.of(storageMb));
         }
 
+        public Builder storageThroughput(@Nullable Output<Integer> storageThroughput) {
+            $.storageThroughput = storageThroughput;
+            return this;
+        }
+
+        public Builder storageThroughput(Integer storageThroughput) {
+            return storageThroughput(Output.of(storageThroughput));
+        }
+
         /**
          * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
          * 
          * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+         * 
+         * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
          * 
          * @return builder
          * 
@@ -1146,6 +1178,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
          * 
+         * &gt; **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
+         * 
          * @return builder
          * 
          */
@@ -1154,88 +1188,49 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+         * @param storageType The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
+        }
+
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-         * 
-         * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-         * 
-         * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-         * 
-         * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-         * 
-         * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-         * 
-         * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
-         * 
-         * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-         * 
-         * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
-         * 
-         * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-         * 
-         * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-         * 
-         * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
-        /**
-         * @param zone Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-         * 
-         * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
-         * 
-         * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

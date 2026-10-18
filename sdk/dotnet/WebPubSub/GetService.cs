@@ -164,6 +164,14 @@ namespace Pulumi.Azure.WebPubSub
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `Identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
+        /// <summary>
+        /// A `LiveTrace` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceLiveTraceResult> LiveTraces;
         public readonly bool LocalAuthEnabled;
         /// <summary>
         /// The Azure location where the Web Pubsub service exists.
@@ -213,6 +221,10 @@ namespace Pulumi.Azure.WebPubSub
 
             string id,
 
+            ImmutableArray<Outputs.GetServiceIdentityResult> identities,
+
+            ImmutableArray<Outputs.GetServiceLiveTraceResult> liveTraces,
+
             bool localAuthEnabled,
 
             string location,
@@ -248,6 +260,8 @@ namespace Pulumi.Azure.WebPubSub
             ExternalIp = externalIp;
             Hostname = hostname;
             Id = id;
+            Identities = identities;
+            LiveTraces = liveTraces;
             LocalAuthEnabled = localAuthEnabled;
             Location = location;
             Name = name;

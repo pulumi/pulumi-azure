@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -49,7 +50,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      * 
      */
     @Import(name="contentMd5")
@@ -58,7 +59,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      * 
      */
     public Optional<Output<String>> contentMd5() {
@@ -126,7 +127,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      * 
      * &gt; **Note:** The file specified with `source` can not be empty.
      * 
@@ -135,7 +136,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> source;
 
     /**
-     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      * 
      * &gt; **Note:** The file specified with `source` can not be empty.
      * 
@@ -145,37 +146,41 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
-    @Import(name="storageShareId")
-    private @Nullable Output<String> storageShareId;
+    @Import(name="sourceContent")
+    private @Nullable Output<String> sourceContent;
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * @return The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> storageShareId() {
-        return Optional.ofNullable(this.storageShareId);
+    public Optional<Output<String>> sourceContent() {
+        return Optional.ofNullable(this.sourceContent);
     }
 
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageShareUrl")
-    private @Nullable Output<String> storageShareUrl;
+    @Import(name="storageShareUrl", required=true)
+    private Output<String> storageShareUrl;
 
     /**
      * @return The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> storageShareUrl() {
-        return Optional.ofNullable(this.storageShareUrl);
+    public Output<String> storageShareUrl() {
+        return this.storageShareUrl;
     }
 
     private ShareFileArgs() {}
@@ -189,7 +194,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.path = $.path;
         this.source = $.source;
-        this.storageShareId = $.storageShareId;
+        this.sourceContent = $.sourceContent;
         this.storageShareUrl = $.storageShareUrl;
     }
 
@@ -256,7 +261,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param contentMd5 The MD5 sum of the file contents. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+         * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
          * 
          * @return builder
          * 
@@ -269,7 +274,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param contentMd5 The MD5 sum of the file contents. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+         * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
          * 
          * @return builder
          * 
@@ -363,7 +368,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
+         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
          * 
          * &gt; **Note:** The file specified with `source` can not be empty.
          * 
@@ -376,7 +381,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
+         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
          * 
          * &gt; **Note:** The file specified with `source` can not be empty.
          * 
@@ -388,28 +393,32 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param sourceContent The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+         * 
+         * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+         * 
+         * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-         * 
          */
-        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
-        public Builder storageShareId(@Nullable Output<String> storageShareId) {
-            $.storageShareId = storageShareId;
+        public Builder sourceContent(@Nullable Output<String> sourceContent) {
+            $.sourceContent = sourceContent;
             return this;
         }
 
         /**
+         * @param sourceContent The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+         * 
+         * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+         * 
+         * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-         * 
          */
-        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
-        public Builder storageShareId(String storageShareId) {
-            return storageShareId(Output.of(storageShareId));
+        public Builder sourceContent(String sourceContent) {
+            return sourceContent(Output.of(sourceContent));
         }
 
         /**
@@ -418,7 +427,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder storageShareUrl(@Nullable Output<String> storageShareUrl) {
+        public Builder storageShareUrl(Output<String> storageShareUrl) {
             $.storageShareUrl = storageShareUrl;
             return this;
         }
@@ -434,6 +443,9 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ShareFileArgs build() {
+            if ($.storageShareUrl == null) {
+                throw new MissingRequiredPropertyException("ShareFileArgs", "storageShareUrl");
+            }
             return $;
         }
     }

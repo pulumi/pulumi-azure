@@ -255,8 +255,7 @@ namespace Pulumi.Azure.PrivateLink
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "example-link",
-    ///         ResourceGroupName = example.Name,
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
@@ -279,7 +278,7 @@ namespace Pulumi.Azure.PrivateLink
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2025-01-01
+    /// * `Microsoft.Network` - 2025-07-01
     /// 
     /// ## Import
     /// 

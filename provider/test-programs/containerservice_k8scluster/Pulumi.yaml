@@ -1,4 +1,4 @@
-name: dns
+name: containerservice_k8scluster
 runtime: yaml
 
 resources:
@@ -6,24 +6,22 @@ resources:
   rg:
     type: azure:core:ResourceGroup
     properties:
-      location: East US
+      location: West US 2
 
   exampleKubernetesCluster:
     type: azure:containerservice:KubernetesCluster
     properties:
-      name: example-aks1
       location: ${rg.location}
       resourceGroupName: ${rg.name}
       dnsPrefix: exampleakstest
       defaultNodePool:
         name: default
         nodeCount: 1
-        vmSize: Standard_D2_v2
+        vmSize: Standard_D2s_v3
       identity:
         type: SystemAssigned
       tags:
         Environment: Production
       networkProfile:
         networkPlugin: azure
-        # Incorrect case: the correct case is lowercase
-        loadBalancerSku: Basic
+        loadBalancerSku: standard

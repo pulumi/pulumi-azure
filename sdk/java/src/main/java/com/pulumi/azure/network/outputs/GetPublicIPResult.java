@@ -34,6 +34,16 @@ public final class GetPublicIPResult {
      */
     private String domainNameLabel;
     /**
+     * @return Scope for the domain name label.
+     * 
+     */
+    private String domainNameLabelScope;
+    /**
+     * @return The Edge Zone within the Azure Region where this Public IP exists.
+     * 
+     */
+    private String edgeZone;
+    /**
      * @return Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
      * 
      */
@@ -69,6 +79,11 @@ public final class GetPublicIPResult {
      */
     private String location;
     private String name;
+    /**
+     * @return If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * 
+     */
+    private String publicIpPrefixId;
     private String resourceGroupName;
     /**
      * @return The fully qualified domain name that resolves to this public IP address.
@@ -80,6 +95,11 @@ public final class GetPublicIPResult {
      * 
      */
     private String sku;
+    /**
+     * @return The SKU Tier that is used for the Public IP.
+     * 
+     */
+    private String skuTier;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
@@ -119,6 +139,20 @@ public final class GetPublicIPResult {
      */
     public String domainNameLabel() {
         return this.domainNameLabel;
+    }
+    /**
+     * @return Scope for the domain name label.
+     * 
+     */
+    public String domainNameLabelScope() {
+        return this.domainNameLabelScope;
+    }
+    /**
+     * @return The Edge Zone within the Azure Region where this Public IP exists.
+     * 
+     */
+    public String edgeZone() {
+        return this.edgeZone;
     }
     /**
      * @return Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
@@ -172,6 +206,13 @@ public final class GetPublicIPResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * 
+     */
+    public String publicIpPrefixId() {
+        return this.publicIpPrefixId;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -188,6 +229,13 @@ public final class GetPublicIPResult {
      */
     public String sku() {
         return this.sku;
+    }
+    /**
+     * @return The SKU Tier that is used for the Public IP.
+     * 
+     */
+    public String skuTier() {
+        return this.skuTier;
     }
     /**
      * @return A mapping of tags to assigned to the resource.
@@ -217,6 +265,8 @@ public final class GetPublicIPResult {
         private String ddosProtectionMode;
         private String ddosProtectionPlanId;
         private String domainNameLabel;
+        private String domainNameLabelScope;
+        private String edgeZone;
         private String fqdn;
         private String id;
         private Integer idleTimeoutInMinutes;
@@ -225,9 +275,11 @@ public final class GetPublicIPResult {
         private String ipVersion;
         private String location;
         private String name;
+        private String publicIpPrefixId;
         private String resourceGroupName;
         private String reverseFqdn;
         private String sku;
+        private String skuTier;
         private Map<String,String> tags;
         private List<String> zones;
         public Builder() {}
@@ -237,6 +289,8 @@ public final class GetPublicIPResult {
     	      this.ddosProtectionMode = defaults.ddosProtectionMode;
     	      this.ddosProtectionPlanId = defaults.ddosProtectionPlanId;
     	      this.domainNameLabel = defaults.domainNameLabel;
+    	      this.domainNameLabelScope = defaults.domainNameLabelScope;
+    	      this.edgeZone = defaults.edgeZone;
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
     	      this.idleTimeoutInMinutes = defaults.idleTimeoutInMinutes;
@@ -245,9 +299,11 @@ public final class GetPublicIPResult {
     	      this.ipVersion = defaults.ipVersion;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.publicIpPrefixId = defaults.publicIpPrefixId;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.reverseFqdn = defaults.reverseFqdn;
     	      this.sku = defaults.sku;
+    	      this.skuTier = defaults.skuTier;
     	      this.tags = defaults.tags;
     	      this.zones = defaults.zones;
         }
@@ -282,6 +338,22 @@ public final class GetPublicIPResult {
               throw new MissingRequiredPropertyException("GetPublicIPResult", "domainNameLabel");
             }
             this.domainNameLabel = domainNameLabel;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder domainNameLabelScope(String domainNameLabelScope) {
+            if (domainNameLabelScope == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "domainNameLabelScope");
+            }
+            this.domainNameLabelScope = domainNameLabelScope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder edgeZone(String edgeZone) {
+            if (edgeZone == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "edgeZone");
+            }
+            this.edgeZone = edgeZone;
             return this;
         }
         @CustomType.Setter
@@ -349,6 +421,14 @@ public final class GetPublicIPResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicIpPrefixId(String publicIpPrefixId) {
+            if (publicIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "publicIpPrefixId");
+            }
+            this.publicIpPrefixId = publicIpPrefixId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetPublicIPResult", "resourceGroupName");
@@ -370,6 +450,14 @@ public final class GetPublicIPResult {
               throw new MissingRequiredPropertyException("GetPublicIPResult", "sku");
             }
             this.sku = sku;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skuTier(String skuTier) {
+            if (skuTier == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "skuTier");
+            }
+            this.skuTier = skuTier;
             return this;
         }
         @CustomType.Setter
@@ -397,6 +485,8 @@ public final class GetPublicIPResult {
             _resultValue.ddosProtectionMode = ddosProtectionMode;
             _resultValue.ddosProtectionPlanId = ddosProtectionPlanId;
             _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.domainNameLabelScope = domainNameLabelScope;
+            _resultValue.edgeZone = edgeZone;
             _resultValue.fqdn = fqdn;
             _resultValue.id = id;
             _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
@@ -405,9 +495,11 @@ public final class GetPublicIPResult {
             _resultValue.ipVersion = ipVersion;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.reverseFqdn = reverseFqdn;
             _resultValue.sku = sku;
+            _resultValue.skuTier = skuTier;
             _resultValue.tags = tags;
             _resultValue.zones = zones;
             return _resultValue;

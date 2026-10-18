@@ -191,7 +191,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -376,10 +376,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     declare public readonly virtualMachineScaleSetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    declare public readonly vmAgentPlatformUpdatesEnabled: pulumi.Output<boolean>;
+    declare public /*out*/ readonly vmAgentPlatformUpdatesEnabled: pulumi.Output<boolean>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
@@ -518,7 +516,6 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["terminationNotification"] = args?.terminationNotification;
             resourceInputs["userData"] = args?.userData;
             resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
-            resourceInputs["vmAgentPlatformUpdatesEnabled"] = args?.vmAgentPlatformUpdatesEnabled;
             resourceInputs["vtpmEnabled"] = args?.vtpmEnabled;
             resourceInputs["zone"] = args?.zone;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
@@ -526,6 +523,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["publicIpAddress"] = undefined /*out*/;
             resourceInputs["publicIpAddresses"] = undefined /*out*/;
             resourceInputs["virtualMachineId"] = undefined /*out*/;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
@@ -604,7 +602,7 @@ export interface LinuxVirtualMachineState {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -789,8 +787,6 @@ export interface LinuxVirtualMachineState {
     virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
     vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -873,7 +869,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -1036,12 +1032,6 @@ export interface LinuxVirtualMachineArgs {
      * > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      */
     virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     */
-    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */

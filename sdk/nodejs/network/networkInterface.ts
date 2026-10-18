@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -87,7 +87,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Whether accelerated networking is enabled. Defaults to `false`.
      *
      * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
      *
@@ -99,15 +99,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly appliedDnsServers: pulumi.Output<string[]>;
     /**
-     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-     *
-     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
      */
     declare public readonly auxiliaryMode: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-     *
-     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
      */
     declare public readonly auxiliarySku: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +129,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public readonly ipConfigurations: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Whether IP Forwarding is enabled. Defaults to `false`.
      */
     declare public readonly ipForwardingEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -237,7 +233,7 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceState {
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Whether accelerated networking is enabled. Defaults to `false`.
      *
      * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
      *
@@ -249,15 +245,11 @@ export interface NetworkInterfaceState {
      */
     appliedDnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-     *
-     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
      */
     auxiliaryMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-     *
-     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
      */
     auxiliarySku?: pulumi.Input<string | undefined>;
     /**
@@ -283,7 +275,7 @@ export interface NetworkInterfaceState {
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[] | undefined>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Whether IP Forwarding is enabled. Defaults to `false`.
      */
     ipForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -325,7 +317,7 @@ export interface NetworkInterfaceState {
  */
 export interface NetworkInterfaceArgs {
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Whether accelerated networking is enabled. Defaults to `false`.
      *
      * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
      *
@@ -333,15 +325,11 @@ export interface NetworkInterfaceArgs {
      */
     acceleratedNetworkingEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-     *
-     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
      */
     auxiliaryMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-     *
-     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
      */
     auxiliarySku?: pulumi.Input<string | undefined>;
     /**
@@ -363,7 +351,7 @@ export interface NetworkInterfaceArgs {
      */
     ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Whether IP Forwarding is enabled. Defaults to `false`.
      */
     ipForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**

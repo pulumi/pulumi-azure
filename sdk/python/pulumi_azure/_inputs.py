@@ -15,8 +15,6 @@ else:
 from . import _utilities
 
 __all__ = [
-    'ProviderEnhancedValidationArgs',
-    'ProviderEnhancedValidationArgsDict',
     'ProviderFeaturesArgs',
     'ProviderFeaturesArgsDict',
     'ProviderFeaturesApiManagementArgs',
@@ -62,55 +60,6 @@ __all__ = [
     'ProviderFeaturesVirtualMachineScaleSetArgs',
     'ProviderFeaturesVirtualMachineScaleSetArgsDict',
 ]
-
-class ProviderEnhancedValidationArgsDict(TypedDict):
-    locations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-    """
-    resource_providers: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-    """
-
-@pulumi.input_type
-class ProviderEnhancedValidationArgs:
-    def __init__(__self__, *,
-                 locations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_providers: pulumi.Input[Optional[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-        :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-        """
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if resource_providers is not None:
-            pulumi.set(__self__, "resource_providers", resource_providers)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "locations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceProviders")
-    def resource_providers(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-        """
-        return pulumi.get(self, "resource_providers")
-
-    @resource_providers.setter
-    def resource_providers(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "resource_providers", value)
-
 
 class ProviderFeaturesArgsDict(TypedDict):
     api_management: NotRequired[pulumi.Input[Optional['ProviderFeaturesApiManagementArgsDict']]]
@@ -1193,7 +1142,6 @@ class ProviderFeaturesTemplateDeploymentArgs:
 class ProviderFeaturesVirtualMachineArgsDict(TypedDict):
     delete_os_disk_on_deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     detach_implicit_data_disk_on_deletion: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    graceful_shutdown: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     skip_shutdown_and_force_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
@@ -1201,17 +1149,11 @@ class ProviderFeaturesVirtualMachineArgs:
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
                  detach_implicit_data_disk_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 graceful_shutdown: pulumi.Input[Optional[_builtins.bool]] = None,
                  skip_shutdown_and_force_delete: pulumi.Input[Optional[_builtins.bool]] = None):
         if delete_os_disk_on_deletion is not None:
             pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
         if detach_implicit_data_disk_on_deletion is not None:
             pulumi.set(__self__, "detach_implicit_data_disk_on_deletion", detach_implicit_data_disk_on_deletion)
-        if graceful_shutdown is not None:
-            warnings.warn("""'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""graceful_shutdown is deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""")
-        if graceful_shutdown is not None:
-            pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
         if skip_shutdown_and_force_delete is not None:
             pulumi.set(__self__, "skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
 
@@ -1232,16 +1174,6 @@ class ProviderFeaturesVirtualMachineArgs:
     @detach_implicit_data_disk_on_deletion.setter
     def detach_implicit_data_disk_on_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detach_implicit_data_disk_on_deletion", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gracefulShutdown")
-    @_utilities.deprecated("""'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.""")
-    def graceful_shutdown(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "graceful_shutdown")
-
-    @graceful_shutdown.setter
-    def graceful_shutdown(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "graceful_shutdown", value)
 
     @_builtins.property
     @pulumi.getter(name="skipShutdownAndForceDelete")

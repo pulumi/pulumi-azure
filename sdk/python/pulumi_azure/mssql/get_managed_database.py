@@ -141,7 +141,7 @@ def get_managed_database(managed_instance_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql` - 2023-08-01-preview
+    * `Microsoft.Sql` - 2025-01-01
 
 
     :param _builtins.str managed_instance_id: The SQL Managed Instance ID.
@@ -175,7 +175,7 @@ def get_managed_database_output(managed_instance_id: pulumi.Input[Optional[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql` - 2023-08-01-preview
+    * `Microsoft.Sql` - 2025-01-01
 
 
     :param _builtins.str managed_instance_id: The SQL Managed Instance ID.

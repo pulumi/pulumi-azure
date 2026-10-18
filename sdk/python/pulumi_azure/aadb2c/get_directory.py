@@ -67,7 +67,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="dataResidencyLocation")
     def data_residency_location(self) -> _builtins.str:
         """
-        Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+        Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
         """
         return pulumi.get(self, "data_residency_location")
 

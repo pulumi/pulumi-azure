@@ -279,7 +279,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -311,14 +311,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="bgpEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bgpEnabled;
+    private Output</* @Nullable */ Boolean> bgpEnabled;
 
     /**
      * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
-    public Output<Boolean> bgpEnabled() {
-        return this.bgpEnabled;
+    public Output<Optional<Boolean>> bgpEnabled() {
+        return Codegen.optional(this.bgpEnabled);
     }
     /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -353,7 +353,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     @Export(name="customBgpAddresses", refs={VirtualNetworkGatewayConnectionCustomBgpAddresses.class}, tree="[0]")
@@ -362,7 +362,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
     /**
      * @return A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     public Output<Optional<VirtualNetworkGatewayConnectionCustomBgpAddresses>> customBgpAddresses() {
@@ -395,18 +395,6 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      */
     public Output<Optional<List<String>>> egressNatRuleIds() {
         return Codegen.optional(this.egressNatRuleIds);
-    }
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableBgp;
-
-    public Output<Boolean> enableBgp() {
-        return this.enableBgp;
     }
     /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.

@@ -45,10 +45,10 @@ public final class GetAccountResult {
      */
     private String id;
     /**
-     * @return The current IP Filter for this CosmosDB account
+     * @return A list of IP ranges associated with this CosmosDB account.
      * 
      */
-    private String ipRangeFilter;
+    private List<String> ipRangeFilters;
     /**
      * @return If virtual network filtering is enabled for this Cosmos DB account.
      * 
@@ -205,11 +205,11 @@ public final class GetAccountResult {
         return this.id;
     }
     /**
-     * @return The current IP Filter for this CosmosDB account
+     * @return A list of IP ranges associated with this CosmosDB account.
      * 
      */
-    public String ipRangeFilter() {
-        return this.ipRangeFilter;
+    public List<String> ipRangeFilters() {
+        return this.ipRangeFilters;
     }
     /**
      * @return If virtual network filtering is enabled for this Cosmos DB account.
@@ -388,7 +388,7 @@ public final class GetAccountResult {
         private Boolean freeTierEnabled;
         private List<GetAccountGeoLocation> geoLocations;
         private String id;
-        private String ipRangeFilter;
+        private List<String> ipRangeFilters;
         private Boolean isVirtualNetworkFilterEnabled;
         private String keyVaultKeyId;
         private String kind;
@@ -423,7 +423,7 @@ public final class GetAccountResult {
     	      this.freeTierEnabled = defaults.freeTierEnabled;
     	      this.geoLocations = defaults.geoLocations;
     	      this.id = defaults.id;
-    	      this.ipRangeFilter = defaults.ipRangeFilter;
+    	      this.ipRangeFilters = defaults.ipRangeFilters;
     	      this.isVirtualNetworkFilterEnabled = defaults.isVirtualNetworkFilterEnabled;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.kind = defaults.kind;
@@ -516,12 +516,15 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ipRangeFilter(String ipRangeFilter) {
-            if (ipRangeFilter == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "ipRangeFilter");
+        public Builder ipRangeFilters(List<String> ipRangeFilters) {
+            if (ipRangeFilters == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "ipRangeFilters");
             }
-            this.ipRangeFilter = ipRangeFilter;
+            this.ipRangeFilters = ipRangeFilters;
             return this;
+        }
+        public Builder ipRangeFilters(String... ipRangeFilters) {
+            return ipRangeFilters(List.of(ipRangeFilters));
         }
         @CustomType.Setter
         public Builder isVirtualNetworkFilterEnabled(Boolean isVirtualNetworkFilterEnabled) {
@@ -733,7 +736,7 @@ public final class GetAccountResult {
             _resultValue.freeTierEnabled = freeTierEnabled;
             _resultValue.geoLocations = geoLocations;
             _resultValue.id = id;
-            _resultValue.ipRangeFilter = ipRangeFilter;
+            _resultValue.ipRangeFilters = ipRangeFilters;
             _resultValue.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             _resultValue.keyVaultKeyId = keyVaultKeyId;
             _resultValue.kind = kind;

@@ -35,6 +35,7 @@ class LinuxFunctionAppSlotArgs:
                  content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -72,6 +73,7 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
@@ -93,11 +95,11 @@ class LinuxFunctionAppSlotArgs:
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
@@ -129,6 +131,8 @@ class LinuxFunctionAppSlotArgs:
             pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_to_end_tls_encryption_enabled is not None:
+            pulumi.set(__self__, "end_to_end_tls_encryption_enabled", end_to_end_tls_encryption_enabled)
         if ftp_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if functions_extension_version is not None:
@@ -337,6 +341,18 @@ class LinuxFunctionAppSlotArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
+
+    @end_to_end_tls_encryption_enabled.setter
+    def end_to_end_tls_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "end_to_end_tls_encryption_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
     def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -526,11 +542,11 @@ class LinuxFunctionAppSlotArgs:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -582,6 +598,7 @@ class _LinuxFunctionAppSlotState:
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -628,6 +645,7 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[_builtins.bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -658,11 +676,11 @@ class _LinuxFunctionAppSlotState:
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
@@ -696,6 +714,8 @@ class _LinuxFunctionAppSlotState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_to_end_tls_encryption_enabled is not None:
+            pulumi.set(__self__, "end_to_end_tls_encryption_enabled", end_to_end_tls_encryption_enabled)
         if ftp_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if function_app_id is not None:
@@ -920,6 +940,18 @@ class _LinuxFunctionAppSlotState:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
+
+    @end_to_end_tls_encryption_enabled.setter
+    def end_to_end_tls_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "end_to_end_tls_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
@@ -1219,11 +1251,11 @@ class _LinuxFunctionAppSlotState:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1276,6 +1308,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1367,6 +1400,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -1390,11 +1424,11 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
@@ -1487,6 +1521,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1528,6 +1563,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["content_share_force_disabled"] = content_share_force_disabled
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["end_to_end_tls_encryption_enabled"] = end_to_end_tls_encryption_enabled
             __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             if function_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'function_app_id'")
@@ -1587,6 +1623,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_to_end_tls_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
             functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1637,6 +1674,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[_builtins.bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] end_to_end_tls_encryption_enabled: Whether to enable end-to-end TLS encryption. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -1667,11 +1705,11 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
                
                > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
                
-               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
@@ -1695,6 +1733,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["end_to_end_tls_encryption_enabled"] = end_to_end_tls_encryption_enabled
         __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["function_app_id"] = function_app_id
         __props__.__dict__["functions_extension_version"] = functions_extension_version
@@ -1837,6 +1876,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         Is the Linux Function App Slot enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="endToEndTlsEncryptionEnabled")
+    def end_to_end_tls_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable end-to-end TLS encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "end_to_end_tls_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
@@ -2040,11 +2087,11 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
         > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app slot configuration.
 
-        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 

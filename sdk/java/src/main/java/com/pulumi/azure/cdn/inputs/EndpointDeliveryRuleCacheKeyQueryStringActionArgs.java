@@ -17,14 +17,14 @@ public final class EndpointDeliveryRuleCacheKeyQueryStringActionArgs extends com
     public static final EndpointDeliveryRuleCacheKeyQueryStringActionArgs Empty = new EndpointDeliveryRuleCacheKeyQueryStringActionArgs();
 
     /**
-     * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+     * The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
      */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
     /**
-     * @return The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+     * @return The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
      */
     public Output<String> behavior() {
@@ -72,7 +72,7 @@ public final class EndpointDeliveryRuleCacheKeyQueryStringActionArgs extends com
         }
 
         /**
-         * @param behavior The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * @param behavior The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EndpointDeliveryRuleCacheKeyQueryStringActionArgs extends com
         }
 
         /**
-         * @param behavior The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         * @param behavior The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
          * 
          * @return builder
          * 

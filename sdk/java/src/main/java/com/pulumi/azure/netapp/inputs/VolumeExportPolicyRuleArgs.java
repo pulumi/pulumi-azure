@@ -140,25 +140,6 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-    @Import(name="protocolsEnabled")
-    private @Nullable Output<String> protocolsEnabled;
-
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> protocolsEnabled() {
-        return Optional.ofNullable(this.protocolsEnabled);
-    }
-
-    /**
      * Is root access permitted to this volume?
      * 
      */
@@ -229,7 +210,6 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
         this.kerberos5pReadOnlyEnabled = $.kerberos5pReadOnlyEnabled;
         this.kerberos5pReadWriteEnabled = $.kerberos5pReadWriteEnabled;
         this.protocol = $.protocol;
-        this.protocolsEnabled = $.protocolsEnabled;
         this.rootAccessEnabled = $.rootAccessEnabled;
         this.ruleIndex = $.ruleIndex;
         this.unixReadOnly = $.unixReadOnly;
@@ -430,31 +410,6 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-        public Builder protocolsEnabled(@Nullable Output<String> protocolsEnabled) {
-            $.protocolsEnabled = protocolsEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-        public Builder protocolsEnabled(String protocolsEnabled) {
-            return protocolsEnabled(Output.of(protocolsEnabled));
         }
 
         /**

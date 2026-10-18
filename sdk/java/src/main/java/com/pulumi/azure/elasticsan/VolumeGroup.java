@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.AccessPolicy;
@@ -73,7 +74,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
- *             .name("examplees-es")
+ *             .name("examples-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
@@ -102,7 +103,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.1.0/24")
- *             .serviceEndpoints("Microsoft.Storage.Global")
+ *             .serviceEndpoints(SubnetServiceEndpointArgs.builder()
+ *                 .service("Microsoft.Storage.Global")
+ *                 .build())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()

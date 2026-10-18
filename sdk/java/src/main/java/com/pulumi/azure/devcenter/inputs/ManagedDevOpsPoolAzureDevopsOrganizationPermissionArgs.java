@@ -33,14 +33,18 @@ public final class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs extend
     }
 
     /**
-     * Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
      * 
      */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
     /**
-     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * @return Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
      * 
      */
     public Output<String> kind() {
@@ -94,7 +98,9 @@ public final class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs extend
         }
 
         /**
-         * @param kind Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+         * @param kind Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
          * 
          * @return builder
          * 
@@ -105,7 +111,9 @@ public final class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs extend
         }
 
         /**
-         * @param kind Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+         * @param kind Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
          * 
          * @return builder
          * 

@@ -48,18 +48,18 @@ public final class FrontdoorBatchRuleSetRuleConditionsRequestPathArgs extends co
     }
 
     /**
-     * One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+     * One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
      * 
-     * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+     * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+     * @return One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
      * 
-     * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+     * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -145,9 +145,9 @@ public final class FrontdoorBatchRuleSetRuleConditionsRequestPathArgs extends co
         }
 
         /**
-         * @param values One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         * @param values One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
          * 
-         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
          * 
          * @return builder
          * 
@@ -158,9 +158,9 @@ public final class FrontdoorBatchRuleSetRuleConditionsRequestPathArgs extends co
         }
 
         /**
-         * @param values One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         * @param values One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
          * 
-         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
          * 
          * @return builder
          * 
@@ -170,9 +170,9 @@ public final class FrontdoorBatchRuleSetRuleConditionsRequestPathArgs extends co
         }
 
         /**
-         * @param values One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         * @param values One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
          * 
-         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         * &gt; **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
          * 
          * @return builder
          * 

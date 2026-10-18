@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -200,7 +200,7 @@ type AutomationAction struct {
 	// > **Note:** `triggerUrl` is required when `type` is `LogicApp`.
 	TriggerUrl *string `pulumi:"triggerUrl"`
 	// Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AutomationActionInput is an input type that accepts AutomationActionArgs and AutomationActionOutput values.
@@ -226,7 +226,7 @@ type AutomationActionArgs struct {
 	// > **Note:** `triggerUrl` is required when `type` is `LogicApp`.
 	TriggerUrl pulumi.StringPtrInput `pulumi:"triggerUrl"`
 	// Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AutomationActionArgs) ElementType() reflect.Type {
@@ -300,8 +300,8 @@ func (o AutomationActionOutput) TriggerUrl() pulumi.StringPtrOutput {
 }
 
 // Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-func (o AutomationActionOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AutomationActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AutomationActionArrayOutput struct{ *pulumi.OutputState }

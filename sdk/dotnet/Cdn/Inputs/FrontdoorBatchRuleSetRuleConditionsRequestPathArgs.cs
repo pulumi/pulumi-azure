@@ -34,9 +34,9 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+        /// One or more values representing the request path to match. If multiple values are specified, they are evaluated using `OR` logic.
         /// 
-        /// &gt; **Note:** `Values` must not be set when `Operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        /// &gt; **Note:** `Values` must not be set when `Operator` is set to `Any` or `NotAny`, and is required for all other operators. A maximum of `25` values may be defined. Do not include a leading slash (`/`) unless matching the root path, which is represented by `/`.
         /// </summary>
         public InputList<string> Values
         {

@@ -50,14 +50,14 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * @return Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -213,7 +213,7 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseType Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+         * @param licenseType Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseType Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+         * @param licenseType Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
          * 
          * @return builder
          * 

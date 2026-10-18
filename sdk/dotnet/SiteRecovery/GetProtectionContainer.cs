@@ -130,7 +130,7 @@ namespace Pulumi.Azure.SiteRecovery
         public string RecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Recovery Services Vault that the protection container is associated witth.
+        /// The name of the Recovery Services Vault that the protection container is associated with.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public string RecoveryVaultName { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> RecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Recovery Services Vault that the protection container is associated witth.
+        /// The name of the Recovery Services Vault that the protection container is associated with.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;

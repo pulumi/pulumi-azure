@@ -20,16 +20,6 @@ export type CacheAccessPolicyAssignment = import("./cacheAccessPolicyAssignment"
 export const CacheAccessPolicyAssignment: typeof import("./cacheAccessPolicyAssignment").CacheAccessPolicyAssignment = null as any;
 utilities.lazyLoad(exports, ["CacheAccessPolicyAssignment"], () => require("./cacheAccessPolicyAssignment"));
 
-export { EnterpriseClusterArgs, EnterpriseClusterState } from "./enterpriseCluster";
-export type EnterpriseCluster = import("./enterpriseCluster").EnterpriseCluster;
-export const EnterpriseCluster: typeof import("./enterpriseCluster").EnterpriseCluster = null as any;
-utilities.lazyLoad(exports, ["EnterpriseCluster"], () => require("./enterpriseCluster"));
-
-export { EnterpriseDatabaseArgs, EnterpriseDatabaseState } from "./enterpriseDatabase";
-export type EnterpriseDatabase = import("./enterpriseDatabase").EnterpriseDatabase;
-export const EnterpriseDatabase: typeof import("./enterpriseDatabase").EnterpriseDatabase = null as any;
-utilities.lazyLoad(exports, ["EnterpriseDatabase"], () => require("./enterpriseDatabase"));
-
 export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
@@ -39,11 +29,6 @@ export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
 export const getCache: typeof import("./getCache").getCache = null as any;
 export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
-
-export { GetEnterpriseDatabaseArgs, GetEnterpriseDatabaseResult, GetEnterpriseDatabaseOutputArgs } from "./getEnterpriseDatabase";
-export const getEnterpriseDatabase: typeof import("./getEnterpriseDatabase").getEnterpriseDatabase = null as any;
-export const getEnterpriseDatabaseOutput: typeof import("./getEnterpriseDatabase").getEnterpriseDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getEnterpriseDatabase","getEnterpriseDatabaseOutput"], () => require("./getEnterpriseDatabase"));
 
 export { LinkedServerArgs, LinkedServerState } from "./linkedServer";
 export type LinkedServer = import("./linkedServer").LinkedServer;
@@ -61,10 +46,6 @@ const _module = {
                 return new CacheAccessPolicy(name, <any>undefined, { urn })
             case "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment":
                 return new CacheAccessPolicyAssignment(name, <any>undefined, { urn })
-            case "azure:redis/enterpriseCluster:EnterpriseCluster":
-                return new EnterpriseCluster(name, <any>undefined, { urn })
-            case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
-                return new EnterpriseDatabase(name, <any>undefined, { urn })
             case "azure:redis/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:redis/linkedServer:LinkedServer":
@@ -77,7 +58,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "redis/cache", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/cacheAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/cacheAccessPolicyAssignment", _module)
-pulumi.runtime.registerResourceModule("azure", "redis/enterpriseCluster", _module)
-pulumi.runtime.registerResourceModule("azure", "redis/enterpriseDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/linkedServer", _module)

@@ -20,14 +20,14 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
     public static final JobEventTriggerConfigScaleRuleArgs Empty = new JobEventTriggerConfigScaleRuleArgs();
 
     /**
-     * A `authentication` block as defined below.
+     * One or more `authentication` blocks as defined below.
      * 
      */
     @Import(name="authentications")
     private @Nullable Output<List<JobEventTriggerConfigScaleRuleAuthenticationArgs>> authentications;
 
     /**
-     * @return A `authentication` block as defined below.
+     * @return One or more `authentication` blocks as defined below.
      * 
      */
     public Optional<Output<List<JobEventTriggerConfigScaleRuleAuthenticationArgs>>> authentications() {
@@ -123,7 +123,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param authentications A `authentication` block as defined below.
+         * @param authentications One or more `authentication` blocks as defined below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param authentications A `authentication` block as defined below.
+         * @param authentications One or more `authentication` blocks as defined below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param authentications A `authentication` block as defined below.
+         * @param authentications One or more `authentication` blocks as defined below.
          * 
          * @return builder
          * 

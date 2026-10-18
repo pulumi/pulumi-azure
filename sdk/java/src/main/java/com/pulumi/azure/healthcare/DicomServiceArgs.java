@@ -52,14 +52,14 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
      * 
      */
     @Import(name="encryptionKeyUrl")
     private @Nullable Output<String> encryptionKeyUrl;
 
     /**
-     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
      * 
      */
     public Optional<Output<String>> encryptionKeyUrl() {
@@ -247,7 +247,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
          * 
          * @return builder
          * 
