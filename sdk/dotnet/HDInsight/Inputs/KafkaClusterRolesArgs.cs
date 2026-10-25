@@ -20,8 +20,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
         /// <summary>
         /// A `KafkaManagementNode` block as defined below.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
         /// </summary>
         [Input("kafkaManagementNode")]
         public Input<Inputs.KafkaClusterRolesKafkaManagementNodeArgs>? KafkaManagementNode { get; set; }

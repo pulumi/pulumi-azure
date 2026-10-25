@@ -148,11 +148,10 @@ def get_cname_record(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.CnameRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsCnameRecordId", example_azurerm_private_dns_cname_record["id"])
+    example = azure.privatedns.get_cname_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsCnameRecordId", example.id)
     ```
 
     ## API Providers
@@ -199,11 +198,10 @@ def get_cname_record_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.CnameRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsCnameRecordId", example_azurerm_private_dns_cname_record["id"])
+    example = azure.privatedns.get_cname_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsCnameRecordId", example.id)
     ```
 
     ## API Providers

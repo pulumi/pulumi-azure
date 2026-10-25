@@ -14,64 +14,22 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMNetworkInterface
     {
         /// <summary>
-        /// Id of the public IP object to use when a test failover is done.
+        /// IP configuration to assign when a failover is done. One or more `IpConfiguration` blocks as defined below.
         /// </summary>
-        public readonly string? FailoverTestPublicIpAddressId;
+        public readonly ImmutableArray<Outputs.ReplicatedVMNetworkInterfaceIpConfiguration> IpConfigurations;
         /// <summary>
-        /// Static IP to assign when a test failover is done.
-        /// </summary>
-        public readonly string? FailoverTestStaticIp;
-        /// <summary>
-        /// Name of the subnet to use when a test failover is done.
-        /// </summary>
-        public readonly string? FailoverTestSubnetName;
-        /// <summary>
-        /// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-        /// </summary>
-        public readonly ImmutableArray<string> RecoveryLoadBalancerBackendAddressPoolIds;
-        /// <summary>
-        /// Id of the public IP object to use when a failover is done.
-        /// </summary>
-        public readonly string? RecoveryPublicIpAddressId;
-        /// <summary>
-        /// (Required if the NetworkInterface block is specified) Id source network interface.
+        /// Id source network interface.
         /// </summary>
         public readonly string? SourceNetworkInterfaceId;
-        /// <summary>
-        /// Static IP to assign when a failover is done.
-        /// </summary>
-        public readonly string? TargetStaticIp;
-        /// <summary>
-        /// Name of the subnet to use when a failover is done.
-        /// </summary>
-        public readonly string? TargetSubnetName;
 
         [OutputConstructor]
         private ReplicatedVMNetworkInterface(
-            string? failoverTestPublicIpAddressId,
+            ImmutableArray<Outputs.ReplicatedVMNetworkInterfaceIpConfiguration> ipConfigurations,
 
-            string? failoverTestStaticIp,
-
-            string? failoverTestSubnetName,
-
-            ImmutableArray<string> recoveryLoadBalancerBackendAddressPoolIds,
-
-            string? recoveryPublicIpAddressId,
-
-            string? sourceNetworkInterfaceId,
-
-            string? targetStaticIp,
-
-            string? targetSubnetName)
+            string? sourceNetworkInterfaceId)
         {
-            FailoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
-            FailoverTestStaticIp = failoverTestStaticIp;
-            FailoverTestSubnetName = failoverTestSubnetName;
-            RecoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
-            RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
+            IpConfigurations = ipConfigurations;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;
-            TargetStaticIp = targetStaticIp;
-            TargetSubnetName = targetSubnetName;
         }
     }
 }

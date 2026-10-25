@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string StartTime;
         /// <summary>
-        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         /// </summary>
         public readonly int WindowDuration;
 

@@ -37,7 +37,7 @@ public final class HciLogicalNetworkSubnet {
      * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    private @Nullable List<HciLogicalNetworkSubnetRoute> routes;
+    private @Nullable HciLogicalNetworkSubnetRoute route;
     /**
      * @return The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
      * 
@@ -72,8 +72,8 @@ public final class HciLogicalNetworkSubnet {
      * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    public List<HciLogicalNetworkSubnetRoute> routes() {
-        return this.routes == null ? List.of() : this.routes;
+    public Optional<HciLogicalNetworkSubnetRoute> route() {
+        return Optional.ofNullable(this.route);
     }
     /**
      * @return The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
@@ -95,7 +95,7 @@ public final class HciLogicalNetworkSubnet {
         private @Nullable String addressPrefix;
         private String ipAllocationMethod;
         private @Nullable List<HciLogicalNetworkSubnetIpPool> ipPools;
-        private @Nullable List<HciLogicalNetworkSubnetRoute> routes;
+        private @Nullable HciLogicalNetworkSubnetRoute route;
         private @Nullable Integer vlanId;
         public Builder() {}
         public Builder(HciLogicalNetworkSubnet defaults) {
@@ -103,7 +103,7 @@ public final class HciLogicalNetworkSubnet {
     	      this.addressPrefix = defaults.addressPrefix;
     	      this.ipAllocationMethod = defaults.ipAllocationMethod;
     	      this.ipPools = defaults.ipPools;
-    	      this.routes = defaults.routes;
+    	      this.route = defaults.route;
     	      this.vlanId = defaults.vlanId;
         }
 
@@ -131,13 +131,10 @@ public final class HciLogicalNetworkSubnet {
             return ipPools(List.of(ipPools));
         }
         @CustomType.Setter
-        public Builder routes(@Nullable List<HciLogicalNetworkSubnetRoute> routes) {
+        public Builder route(@Nullable HciLogicalNetworkSubnetRoute route) {
 
-            this.routes = routes;
+            this.route = route;
             return this;
-        }
-        public Builder routes(HciLogicalNetworkSubnetRoute... routes) {
-            return routes(List.of(routes));
         }
         @CustomType.Setter
         public Builder vlanId(@Nullable Integer vlanId) {
@@ -150,7 +147,7 @@ public final class HciLogicalNetworkSubnet {
             _resultValue.addressPrefix = addressPrefix;
             _resultValue.ipAllocationMethod = ipAllocationMethod;
             _resultValue.ipPools = ipPools;
-            _resultValue.routes = routes;
+            _resultValue.route = route;
             _resultValue.vlanId = vlanId;
             return _resultValue;
         }

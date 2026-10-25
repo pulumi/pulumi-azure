@@ -82,14 +82,14 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The ID of the resource or application that manages this Resource Group.
+     * The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
     @Export(name="managedBy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedBy;
 
     /**
-     * @return The ID of the resource or application that manages this Resource Group.
+     * @return The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
     public Output<Optional<String>> managedBy() {

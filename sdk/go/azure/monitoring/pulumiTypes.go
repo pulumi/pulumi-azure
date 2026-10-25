@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,8 +16,6 @@ var _ = internal.GetEnvOrDefault
 type AadDiagnosticSettingEnabledLog struct {
 	// The log category for the Azure Active Directory Diagnostic.
 	Category string `pulumi:"category"`
-	// Deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings
-	RetentionPolicy *AadDiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
 // AadDiagnosticSettingEnabledLogInput is an input type that accepts AadDiagnosticSettingEnabledLogArgs and AadDiagnosticSettingEnabledLogOutput values.
@@ -34,8 +32,6 @@ type AadDiagnosticSettingEnabledLogInput interface {
 type AadDiagnosticSettingEnabledLogArgs struct {
 	// The log category for the Azure Active Directory Diagnostic.
 	Category pulumi.StringInput `pulumi:"category"`
-	// Deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings
-	RetentionPolicy AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
 func (AadDiagnosticSettingEnabledLogArgs) ElementType() reflect.Type {
@@ -94,13 +90,6 @@ func (o AadDiagnosticSettingEnabledLogOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v AadDiagnosticSettingEnabledLog) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// Deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings
-func (o AadDiagnosticSettingEnabledLogOutput) RetentionPolicy() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v AadDiagnosticSettingEnabledLog) *AadDiagnosticSettingEnabledLogRetentionPolicy {
-		return v.RetentionPolicy
-	}).(AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
 type AadDiagnosticSettingEnabledLogArrayOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingEnabledLogArrayOutput) ElementType() reflect.Type {
@@ -119,154 +108,6 @@ func (o AadDiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) AadD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AadDiagnosticSettingEnabledLog {
 		return vs[0].([]AadDiagnosticSettingEnabledLog)[vs[1].(int)]
 	}).(AadDiagnosticSettingEnabledLogOutput)
-}
-
-type AadDiagnosticSettingEnabledLogRetentionPolicy struct {
-	Days    *int  `pulumi:"days"`
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// AadDiagnosticSettingEnabledLogRetentionPolicyInput is an input type that accepts AadDiagnosticSettingEnabledLogRetentionPolicyArgs and AadDiagnosticSettingEnabledLogRetentionPolicyOutput values.
-// You can construct a concrete instance of `AadDiagnosticSettingEnabledLogRetentionPolicyInput` via:
-//
-//	AadDiagnosticSettingEnabledLogRetentionPolicyArgs{...}
-type AadDiagnosticSettingEnabledLogRetentionPolicyInput interface {
-	pulumi.Input
-
-	ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput
-	ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput
-}
-
-type AadDiagnosticSettingEnabledLogRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput  `pulumi:"days"`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return i.ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Background())
-}
-
-func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput)
-}
-
-func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return i.ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput).ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx)
-}
-
-// AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput is an input type that accepts AadDiagnosticSettingEnabledLogRetentionPolicyArgs, AadDiagnosticSettingEnabledLogRetentionPolicyPtr and AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput values.
-// You can construct a concrete instance of `AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput` via:
-//
-//	        AadDiagnosticSettingEnabledLogRetentionPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput
-	ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput
-}
-
-type aadDiagnosticSettingEnabledLogRetentionPolicyPtrType AadDiagnosticSettingEnabledLogRetentionPolicyArgs
-
-func AadDiagnosticSettingEnabledLogRetentionPolicyPtr(v *AadDiagnosticSettingEnabledLogRetentionPolicyArgs) AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput {
-	return (*aadDiagnosticSettingEnabledLogRetentionPolicyPtrType)(v)
-}
-
-func (*aadDiagnosticSettingEnabledLogRetentionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (i *aadDiagnosticSettingEnabledLogRetentionPolicyPtrType) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return i.ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *aadDiagnosticSettingEnabledLogRetentionPolicyPtrType) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
-type AadDiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
-
-func (AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutput() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AadDiagnosticSettingEnabledLogRetentionPolicy) *AadDiagnosticSettingEnabledLogRetentionPolicy {
-		return &v
-	}).(AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AadDiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AadDiagnosticSettingEnabledLogRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AadDiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Elem() AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o.ApplyT(func(v *AadDiagnosticSettingEnabledLogRetentionPolicy) AadDiagnosticSettingEnabledLogRetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret AadDiagnosticSettingEnabledLogRetentionPolicy
-		return ret
-	}).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput)
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AadDiagnosticSettingEnabledLogRetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AadDiagnosticSettingEnabledLogRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ActionGroupArmRoleReceiver struct {
@@ -4965,7 +4806,7 @@ type AlertProcessingRuleActionGroupSchedule struct {
 	EffectiveUntil *string `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence *AlertProcessingRuleActionGroupScheduleRecurrence `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -4987,7 +4828,7 @@ type AlertProcessingRuleActionGroupScheduleArgs struct {
 	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence AlertProcessingRuleActionGroupScheduleRecurrencePtrInput `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -5085,7 +4926,7 @@ func (o AlertProcessingRuleActionGroupScheduleOutput) Recurrence() AlertProcessi
 	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleActionGroupScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -5144,7 +4985,7 @@ func (o AlertProcessingRuleActionGroupSchedulePtrOutput) Recurrence() AlertProce
 	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleActionGroupSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *string {
 		if v == nil {
@@ -7743,7 +7584,7 @@ type AlertProcessingRuleSuppressionSchedule struct {
 	EffectiveUntil *string `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence *AlertProcessingRuleSuppressionScheduleRecurrence `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -7765,7 +7606,7 @@ type AlertProcessingRuleSuppressionScheduleArgs struct {
 	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
 	// A `recurrence` block as defined above.
 	Recurrence AlertProcessingRuleSuppressionScheduleRecurrencePtrInput `pulumi:"recurrence"`
-	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
@@ -7863,7 +7704,7 @@ func (o AlertProcessingRuleSuppressionScheduleOutput) Recurrence() AlertProcessi
 	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleSuppressionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -7922,7 +7763,7 @@ func (o AlertProcessingRuleSuppressionSchedulePtrOutput) Recurrence() AlertProce
 	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
 }
 
-// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
 func (o AlertProcessingRuleSuppressionSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *string {
 		if v == nil {
@@ -9704,7 +9545,7 @@ type AutoscaleSettingProfileFixedDate struct {
 	End string `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start string `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9724,7 +9565,7 @@ type AutoscaleSettingProfileFixedDateArgs struct {
 	End pulumi.StringInput `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start pulumi.StringInput `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9815,7 +9656,7 @@ func (o AutoscaleSettingProfileFixedDateOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDateOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -9864,7 +9705,7 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
 		if v == nil {
@@ -9881,7 +9722,7 @@ type AutoscaleSettingProfileRecurrence struct {
 	Hours int `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes int `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9903,7 +9744,7 @@ type AutoscaleSettingProfileRecurrenceArgs struct {
 	Hours pulumi.IntInput `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9999,7 +9840,7 @@ func (o AutoscaleSettingProfileRecurrenceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -10058,7 +9899,7 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *string {
 		if v == nil {
@@ -11883,7 +11724,7 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) RecordStartTi
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounter struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
@@ -11905,7 +11746,7 @@ type DataCollectionRuleDataSourcesPerformanceCounterInput interface {
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11966,7 +11807,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionR
 	return o
 }
 
-// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
@@ -12230,7 +12071,7 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) Index(i pul
 }
 
 type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label string `pulumi:"label"`
 	// The value of the filter.
 	Value string `pulumi:"value"`
@@ -12248,7 +12089,7 @@ type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterInput int
 }
 
 type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label pulumi.StringInput `pulumi:"label"`
 	// The value of the filter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -12305,7 +12146,7 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput
 	return o
 }
 
-// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter) string { return v.Label }).(pulumi.StringOutput)
 }
@@ -12464,7 +12305,7 @@ type DataCollectionRuleDataSourcesWindowsEventLog struct {
 	Name string `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams []string `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -12484,7 +12325,7 @@ type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -12549,7 +12390,7 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }
@@ -14413,8 +14254,6 @@ type DiagnosticSettingEnabledLog struct {
 	//
 	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-	RetentionPolicy *DiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
 // DiagnosticSettingEnabledLogInput is an input type that accepts DiagnosticSettingEnabledLogArgs and DiagnosticSettingEnabledLogOutput values.
@@ -14439,8 +14278,6 @@ type DiagnosticSettingEnabledLogArgs struct {
 	//
 	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-	RetentionPolicy DiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
 func (DiagnosticSettingEnabledLogArgs) ElementType() reflect.Type {
@@ -14510,13 +14347,6 @@ func (o DiagnosticSettingEnabledLogOutput) CategoryGroup() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-func (o DiagnosticSettingEnabledLogOutput) RetentionPolicy() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *DiagnosticSettingEnabledLogRetentionPolicy {
-		return v.RetentionPolicy
-	}).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
 type DiagnosticSettingEnabledLogArrayOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingEnabledLogArrayOutput) ElementType() reflect.Type {
@@ -14535,154 +14365,6 @@ func (o DiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) Diagnos
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingEnabledLog {
 		return vs[0].([]DiagnosticSettingEnabledLog)[vs[1].(int)]
 	}).(DiagnosticSettingEnabledLogOutput)
-}
-
-type DiagnosticSettingEnabledLogRetentionPolicy struct {
-	Days    *int `pulumi:"days"`
-	Enabled bool `pulumi:"enabled"`
-}
-
-// DiagnosticSettingEnabledLogRetentionPolicyInput is an input type that accepts DiagnosticSettingEnabledLogRetentionPolicyArgs and DiagnosticSettingEnabledLogRetentionPolicyOutput values.
-// You can construct a concrete instance of `DiagnosticSettingEnabledLogRetentionPolicyInput` via:
-//
-//	DiagnosticSettingEnabledLogRetentionPolicyArgs{...}
-type DiagnosticSettingEnabledLogRetentionPolicyInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput
-	ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput
-}
-
-type DiagnosticSettingEnabledLogRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-}
-
-func (DiagnosticSettingEnabledLogRetentionPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return i.ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyOutput)
-}
-
-func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyOutput).ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx)
-}
-
-// DiagnosticSettingEnabledLogRetentionPolicyPtrInput is an input type that accepts DiagnosticSettingEnabledLogRetentionPolicyArgs, DiagnosticSettingEnabledLogRetentionPolicyPtr and DiagnosticSettingEnabledLogRetentionPolicyPtrOutput values.
-// You can construct a concrete instance of `DiagnosticSettingEnabledLogRetentionPolicyPtrInput` via:
-//
-//	        DiagnosticSettingEnabledLogRetentionPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type DiagnosticSettingEnabledLogRetentionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput
-	ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput
-}
-
-type diagnosticSettingEnabledLogRetentionPolicyPtrType DiagnosticSettingEnabledLogRetentionPolicyArgs
-
-func DiagnosticSettingEnabledLogRetentionPolicyPtr(v *DiagnosticSettingEnabledLogRetentionPolicyArgs) DiagnosticSettingEnabledLogRetentionPolicyPtrInput {
-	return (*diagnosticSettingEnabledLogRetentionPolicyPtrType)(v)
-}
-
-func (*diagnosticSettingEnabledLogRetentionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
-type DiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingEnabledLogRetentionPolicy) *DiagnosticSettingEnabledLogRetentionPolicy {
-		return &v
-	}).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type DiagnosticSettingEnabledLogRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingEnabledLogRetentionPolicyOutput {
-	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) DiagnosticSettingEnabledLogRetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticSettingEnabledLogRetentionPolicy
-		return ret
-	}).(DiagnosticSettingEnabledLogRetentionPolicyOutput)
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type DiagnosticSettingEnabledMetric struct {
@@ -14786,263 +14468,6 @@ func (o DiagnosticSettingEnabledMetricArrayOutput) Index(i pulumi.IntInput) Diag
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingEnabledMetric {
 		return vs[0].([]DiagnosticSettingEnabledMetric)[vs[1].(int)]
 	}).(DiagnosticSettingEnabledMetricOutput)
-}
-
-type DiagnosticSettingMetric struct {
-	Category string `pulumi:"category"`
-	Enabled  *bool  `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
-	RetentionPolicy *DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
-}
-
-// DiagnosticSettingMetricInput is an input type that accepts DiagnosticSettingMetricArgs and DiagnosticSettingMetricOutput values.
-// You can construct a concrete instance of `DiagnosticSettingMetricInput` via:
-//
-//	DiagnosticSettingMetricArgs{...}
-type DiagnosticSettingMetricInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingMetricOutput() DiagnosticSettingMetricOutput
-	ToDiagnosticSettingMetricOutputWithContext(context.Context) DiagnosticSettingMetricOutput
-}
-
-type DiagnosticSettingMetricArgs struct {
-	Category pulumi.StringInput  `pulumi:"category"`
-	Enabled  pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
-	RetentionPolicy DiagnosticSettingMetricRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
-}
-
-func (DiagnosticSettingMetricArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingMetric)(nil)).Elem()
-}
-
-func (i DiagnosticSettingMetricArgs) ToDiagnosticSettingMetricOutput() DiagnosticSettingMetricOutput {
-	return i.ToDiagnosticSettingMetricOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingMetricArgs) ToDiagnosticSettingMetricOutputWithContext(ctx context.Context) DiagnosticSettingMetricOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricOutput)
-}
-
-// DiagnosticSettingMetricArrayInput is an input type that accepts DiagnosticSettingMetricArray and DiagnosticSettingMetricArrayOutput values.
-// You can construct a concrete instance of `DiagnosticSettingMetricArrayInput` via:
-//
-//	DiagnosticSettingMetricArray{ DiagnosticSettingMetricArgs{...} }
-type DiagnosticSettingMetricArrayInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingMetricArrayOutput() DiagnosticSettingMetricArrayOutput
-	ToDiagnosticSettingMetricArrayOutputWithContext(context.Context) DiagnosticSettingMetricArrayOutput
-}
-
-type DiagnosticSettingMetricArray []DiagnosticSettingMetricInput
-
-func (DiagnosticSettingMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticSettingMetric)(nil)).Elem()
-}
-
-func (i DiagnosticSettingMetricArray) ToDiagnosticSettingMetricArrayOutput() DiagnosticSettingMetricArrayOutput {
-	return i.ToDiagnosticSettingMetricArrayOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingMetricArray) ToDiagnosticSettingMetricArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricArrayOutput)
-}
-
-type DiagnosticSettingMetricOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingMetric)(nil)).Elem()
-}
-
-func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutput() DiagnosticSettingMetricOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContext(ctx context.Context) DiagnosticSettingMetricOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
-}
-
-func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
-func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetric) *DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
-}
-
-type DiagnosticSettingMetricArrayOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingMetricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticSettingMetric)(nil)).Elem()
-}
-
-func (o DiagnosticSettingMetricArrayOutput) ToDiagnosticSettingMetricArrayOutput() DiagnosticSettingMetricArrayOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricArrayOutput) ToDiagnosticSettingMetricArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricArrayOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingMetricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingMetric {
-		return vs[0].([]DiagnosticSettingMetric)[vs[1].(int)]
-	}).(DiagnosticSettingMetricOutput)
-}
-
-type DiagnosticSettingMetricRetentionPolicy struct {
-	Days    *int `pulumi:"days"`
-	Enabled bool `pulumi:"enabled"`
-}
-
-// DiagnosticSettingMetricRetentionPolicyInput is an input type that accepts DiagnosticSettingMetricRetentionPolicyArgs and DiagnosticSettingMetricRetentionPolicyOutput values.
-// You can construct a concrete instance of `DiagnosticSettingMetricRetentionPolicyInput` via:
-//
-//	DiagnosticSettingMetricRetentionPolicyArgs{...}
-type DiagnosticSettingMetricRetentionPolicyInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingMetricRetentionPolicyOutput() DiagnosticSettingMetricRetentionPolicyOutput
-	ToDiagnosticSettingMetricRetentionPolicyOutputWithContext(context.Context) DiagnosticSettingMetricRetentionPolicyOutput
-}
-
-type DiagnosticSettingMetricRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-}
-
-func (DiagnosticSettingMetricRetentionPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicy)(nil)).Elem()
-}
-
-func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRetentionPolicyOutput() DiagnosticSettingMetricRetentionPolicyOutput {
-	return i.ToDiagnosticSettingMetricRetentionPolicyOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyOutput)
-}
-
-func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return i.ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyOutput).ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx)
-}
-
-// DiagnosticSettingMetricRetentionPolicyPtrInput is an input type that accepts DiagnosticSettingMetricRetentionPolicyArgs, DiagnosticSettingMetricRetentionPolicyPtr and DiagnosticSettingMetricRetentionPolicyPtrOutput values.
-// You can construct a concrete instance of `DiagnosticSettingMetricRetentionPolicyPtrInput` via:
-//
-//	        DiagnosticSettingMetricRetentionPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type DiagnosticSettingMetricRetentionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput
-	ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput
-}
-
-type diagnosticSettingMetricRetentionPolicyPtrType DiagnosticSettingMetricRetentionPolicyArgs
-
-func DiagnosticSettingMetricRetentionPolicyPtr(v *DiagnosticSettingMetricRetentionPolicyArgs) DiagnosticSettingMetricRetentionPolicyPtrInput {
-	return (*diagnosticSettingMetricRetentionPolicyPtrType)(v)
-}
-
-func (*diagnosticSettingMetricRetentionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticSettingMetricRetentionPolicy)(nil)).Elem()
-}
-
-func (i *diagnosticSettingMetricRetentionPolicyPtrType) ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return i.ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticSettingMetricRetentionPolicyPtrType) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
-}
-
-type DiagnosticSettingMetricRetentionPolicyOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingMetricRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicy)(nil)).Elem()
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricRetentionPolicyOutput() DiagnosticSettingMetricRetentionPolicyOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o.ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingMetricRetentionPolicy) *DiagnosticSettingMetricRetentionPolicy {
-		return &v
-	}).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type DiagnosticSettingMetricRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingMetricRetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticSettingMetricRetentionPolicy)(nil)).Elem()
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Elem() DiagnosticSettingMetricRetentionPolicyOutput {
-	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) DiagnosticSettingMetricRetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticSettingMetricRetentionPolicy
-		return ret
-	}).(DiagnosticSettingMetricRetentionPolicyOutput)
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type MetricAlertAction struct {
@@ -17200,7 +16625,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvalu
 type ScheduledQueryRulesAlertV2Identity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId *string `pulumi:"principalId"`
@@ -17224,7 +16649,7 @@ type ScheduledQueryRulesAlertV2IdentityInput interface {
 type ScheduledQueryRulesAlertV2IdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -17313,7 +16738,7 @@ func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2Id
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -17359,7 +16784,7 @@ func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) Elem() ScheduledQueryRulesA
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+// > **Note:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
 func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) []string {
 		if v == nil {
@@ -18477,7 +17902,7 @@ type GetActionGroupEventHubReceiver struct {
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId string `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
 }
 
 // GetActionGroupEventHubReceiverInput is an input type that accepts GetActionGroupEventHubReceiverArgs and GetActionGroupEventHubReceiverOutput values.
@@ -18503,7 +17928,7 @@ type GetActionGroupEventHubReceiverArgs struct {
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (GetActionGroupEventHubReceiverArgs) ElementType() reflect.Type {
@@ -18583,8 +18008,8 @@ func (o GetActionGroupEventHubReceiverOutput) TenantId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o GetActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetActionGroupEventHubReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+func (o GetActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
 type GetActionGroupEventHubReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -20790,7 +20215,7 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) Index(i p
 }
 
 type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label string `pulumi:"label"`
 	// The value of the filter.
 	Value string `pulumi:"value"`
@@ -20808,7 +20233,7 @@ type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterInput i
 }
 
 type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs struct {
-	// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+	// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 	Label pulumi.StringInput `pulumi:"label"`
 	// The value of the filter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -20865,7 +20290,7 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutp
 	return o
 }
 
-// The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+// The label of the filter. This label should be unique across all `labelIncludeFilter` block. Possible value is `microsoftMetricsIncludeLabel`.
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter) string { return v.Label }).(pulumi.StringOutput)
 }
@@ -21244,9 +20669,9 @@ type GetDataCollectionRuleDestination struct {
 	// A `azureMonitorMetrics` block as defined above.
 	AzureMonitorMetrics []GetDataCollectionRuleDestinationAzureMonitorMetric `pulumi:"azureMonitorMetrics"`
 	// One or more `eventHub` blocks as defined below.
-	EventHub *GetDataCollectionRuleDestinationEventHub `pulumi:"eventHub"`
+	EventHub GetDataCollectionRuleDestinationEventHub `pulumi:"eventHub"`
 	// One or more `eventHubDirect` blocks as defined below.
-	EventHubDirect *GetDataCollectionRuleDestinationEventHubDirect `pulumi:"eventHubDirect"`
+	EventHubDirect GetDataCollectionRuleDestinationEventHubDirect `pulumi:"eventHubDirect"`
 	// One or more `logAnalytics` blocks as defined below.
 	LogAnalytics []GetDataCollectionRuleDestinationLogAnalytic `pulumi:"logAnalytics"`
 	// One or more `monitorAccount` blocks as defined below.
@@ -21274,9 +20699,9 @@ type GetDataCollectionRuleDestinationArgs struct {
 	// A `azureMonitorMetrics` block as defined above.
 	AzureMonitorMetrics GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput `pulumi:"azureMonitorMetrics"`
 	// One or more `eventHub` blocks as defined below.
-	EventHub GetDataCollectionRuleDestinationEventHubPtrInput `pulumi:"eventHub"`
+	EventHub GetDataCollectionRuleDestinationEventHubInput `pulumi:"eventHub"`
 	// One or more `eventHubDirect` blocks as defined below.
-	EventHubDirect GetDataCollectionRuleDestinationEventHubDirectPtrInput `pulumi:"eventHubDirect"`
+	EventHubDirect GetDataCollectionRuleDestinationEventHubDirectInput `pulumi:"eventHubDirect"`
 	// One or more `logAnalytics` blocks as defined below.
 	LogAnalytics GetDataCollectionRuleDestinationLogAnalyticArrayInput `pulumi:"logAnalytics"`
 	// One or more `monitorAccount` blocks as defined below.
@@ -21348,15 +20773,15 @@ func (o GetDataCollectionRuleDestinationOutput) AzureMonitorMetrics() GetDataCol
 }
 
 // One or more `eventHub` blocks as defined below.
-func (o GetDataCollectionRuleDestinationOutput) EventHub() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ApplyT(func(v GetDataCollectionRuleDestination) *GetDataCollectionRuleDestinationEventHub { return v.EventHub }).(GetDataCollectionRuleDestinationEventHubPtrOutput)
+func (o GetDataCollectionRuleDestinationOutput) EventHub() GetDataCollectionRuleDestinationEventHubOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) GetDataCollectionRuleDestinationEventHub { return v.EventHub }).(GetDataCollectionRuleDestinationEventHubOutput)
 }
 
 // One or more `eventHubDirect` blocks as defined below.
-func (o GetDataCollectionRuleDestinationOutput) EventHubDirect() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ApplyT(func(v GetDataCollectionRuleDestination) *GetDataCollectionRuleDestinationEventHubDirect {
+func (o GetDataCollectionRuleDestinationOutput) EventHubDirect() GetDataCollectionRuleDestinationEventHubDirectOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) GetDataCollectionRuleDestinationEventHubDirect {
 		return v.EventHubDirect
-	}).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
+	}).(GetDataCollectionRuleDestinationEventHubDirectOutput)
 }
 
 // One or more `logAnalytics` blocks as defined below.
@@ -21548,47 +20973,6 @@ func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDes
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubOutput).ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx)
-}
-
-// GetDataCollectionRuleDestinationEventHubPtrInput is an input type that accepts GetDataCollectionRuleDestinationEventHubArgs, GetDataCollectionRuleDestinationEventHubPtr and GetDataCollectionRuleDestinationEventHubPtrOutput values.
-// You can construct a concrete instance of `GetDataCollectionRuleDestinationEventHubPtrInput` via:
-//
-//	        GetDataCollectionRuleDestinationEventHubArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDataCollectionRuleDestinationEventHubPtrInput interface {
-	pulumi.Input
-
-	ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput
-	ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput
-}
-
-type getDataCollectionRuleDestinationEventHubPtrType GetDataCollectionRuleDestinationEventHubArgs
-
-func GetDataCollectionRuleDestinationEventHubPtr(v *GetDataCollectionRuleDestinationEventHubArgs) GetDataCollectionRuleDestinationEventHubPtrInput {
-	return (*getDataCollectionRuleDestinationEventHubPtrType)(v)
-}
-
-func (*getDataCollectionRuleDestinationEventHubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHub)(nil)).Elem()
-}
-
-func (i *getDataCollectionRuleDestinationEventHubPtrType) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (i *getDataCollectionRuleDestinationEventHubPtrType) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubPtrOutput)
-}
-
 type GetDataCollectionRuleDestinationEventHubOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubOutput) ElementType() reflect.Type {
@@ -21603,16 +20987,6 @@ func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleD
 	return o
 }
 
-func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
-}
-
-func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDataCollectionRuleDestinationEventHub) *GetDataCollectionRuleDestinationEventHub {
-		return &v
-	}).(GetDataCollectionRuleDestinationEventHubPtrOutput)
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHub) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -21621,50 +20995,6 @@ func (o GetDataCollectionRuleDestinationEventHubOutput) EventHubId() pulumi.Stri
 // Specifies the name of the Data Collection Rule.
 func (o GetDataCollectionRuleDestinationEventHubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHub) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDataCollectionRuleDestinationEventHubPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDataCollectionRuleDestinationEventHubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHub)(nil)).Elem()
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) GetDataCollectionRuleDestinationEventHub {
-		if v != nil {
-			return *v
-		}
-		var ret GetDataCollectionRuleDestinationEventHub
-		return ret
-	}).(GetDataCollectionRuleDestinationEventHubOutput)
-}
-
-// The resource ID of the Event Hub.
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) EventHubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EventHubId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the Data Collection Rule.
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHub) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataCollectionRuleDestinationEventHubDirect struct {
@@ -21704,47 +21034,6 @@ func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectOutput).ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx)
-}
-
-// GetDataCollectionRuleDestinationEventHubDirectPtrInput is an input type that accepts GetDataCollectionRuleDestinationEventHubDirectArgs, GetDataCollectionRuleDestinationEventHubDirectPtr and GetDataCollectionRuleDestinationEventHubDirectPtrOutput values.
-// You can construct a concrete instance of `GetDataCollectionRuleDestinationEventHubDirectPtrInput` via:
-//
-//	        GetDataCollectionRuleDestinationEventHubDirectArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDataCollectionRuleDestinationEventHubDirectPtrInput interface {
-	pulumi.Input
-
-	ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput
-	ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput
-}
-
-type getDataCollectionRuleDestinationEventHubDirectPtrType GetDataCollectionRuleDestinationEventHubDirectArgs
-
-func GetDataCollectionRuleDestinationEventHubDirectPtr(v *GetDataCollectionRuleDestinationEventHubDirectArgs) GetDataCollectionRuleDestinationEventHubDirectPtrInput {
-	return (*getDataCollectionRuleDestinationEventHubDirectPtrType)(v)
-}
-
-func (*getDataCollectionRuleDestinationEventHubDirectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHubDirect)(nil)).Elem()
-}
-
-func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
-}
-
 type GetDataCollectionRuleDestinationEventHubDirectOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubDirectOutput) ElementType() reflect.Type {
@@ -21759,16 +21048,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectio
 	return o
 }
 
-func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDataCollectionRuleDestinationEventHubDirect) *GetDataCollectionRuleDestinationEventHubDirect {
-		return &v
-	}).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubDirectOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHubDirect) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -21777,50 +21056,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectOutput) EventHubId() pulum
 // Specifies the name of the Data Collection Rule.
 func (o GetDataCollectionRuleDestinationEventHubDirectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHubDirect) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDataCollectionRuleDestinationEventHubDirectPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDataCollectionRuleDestinationEventHubDirect)(nil)).Elem()
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
-	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubDirectOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) GetDataCollectionRuleDestinationEventHubDirect {
-		if v != nil {
-			return *v
-		}
-		var ret GetDataCollectionRuleDestinationEventHubDirect
-		return ret
-	}).(GetDataCollectionRuleDestinationEventHubDirectOutput)
-}
-
-// The resource ID of the Event Hub.
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) EventHubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EventHubId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the Data Collection Rule.
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDataCollectionRuleDestinationEventHubDirect) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetDataCollectionRuleDestinationLogAnalytic struct {
@@ -23291,8 +22526,6 @@ func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.In
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogArrayInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicyInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogRetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingEnabledLogRetentionPolicyPtrInput)(nil)).Elem(), AadDiagnosticSettingEnabledLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupArmRoleReceiverInput)(nil)).Elem(), ActionGroupArmRoleReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupArmRoleReceiverArrayInput)(nil)).Elem(), ActionGroupArmRoleReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupAutomationRunbookReceiverInput)(nil)).Elem(), ActionGroupAutomationRunbookReceiverArgs{})
@@ -23478,14 +22711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleStreamDeclarationColumnArrayInput)(nil)).Elem(), DataCollectionRuleStreamDeclarationColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogInput)(nil)).Elem(), DiagnosticSettingEnabledLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogArrayInput)(nil)).Elem(), DiagnosticSettingEnabledLogArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledMetricInput)(nil)).Elem(), DiagnosticSettingEnabledMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledMetricArrayInput)(nil)).Elem(), DiagnosticSettingEnabledMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricInput)(nil)).Elem(), DiagnosticSettingMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricArrayInput)(nil)).Elem(), DiagnosticSettingMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionInput)(nil)).Elem(), MetricAlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionArrayInput)(nil)).Elem(), MetricAlertActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput)(nil)).Elem(), MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs{})
@@ -23581,9 +22808,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubPtrInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubDirectInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubDirectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationEventHubDirectPtrInput)(nil)).Elem(), GetDataCollectionRuleDestinationEventHubDirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationMonitorAccountInput)(nil)).Elem(), GetDataCollectionRuleDestinationMonitorAccountArgs{})
@@ -23612,8 +22837,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimensionArrayInput)(nil)).Elem(), GetScheduledQueryRulesLogCriteriaDimensionArray{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogArrayOutput{})
-	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogRetentionPolicyOutput{})
-	pulumi.RegisterOutputType(AadDiagnosticSettingEnabledLogRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupAutomationRunbookReceiverOutput{})
@@ -23799,14 +23022,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCollectionRuleStreamDeclarationColumnArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledMetricOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingEnabledMetricArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingMetricOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingMetricArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyOutput{})
-	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput{})
@@ -23902,9 +23119,7 @@ func init() {
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubOutput{})
-	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubPtrOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubDirectOutput{})
-	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationEventHubDirectPtrOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationMonitorAccountOutput{})

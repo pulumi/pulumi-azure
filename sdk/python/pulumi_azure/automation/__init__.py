@@ -37,7 +37,6 @@ from .run_book import *
 from .runtime_environment import *
 from .runtime_environment_package import *
 from .schedule import *
-from .software_update_configuration import *
 from .source_control import *
 from .string_variable import *
 from .variable_object import *

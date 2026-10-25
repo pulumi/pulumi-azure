@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Trusted Signing Account.
+ * Manages a Trusted Signing Account (Artifact Signing Account).
+ *
+ * > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
  *
  * ## Example Usage
  *
@@ -30,11 +32,11 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.CodeSigning` - 2024-09-30-preview
+ * * `Microsoft.CodeSigning` - 2025-10-13
  *
  * ## Import
  *
- * Trusted Signing Accounts can be imported using the `resource id`, e.g.
+ * Artifact Signing Accounts can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -69,27 +71,27 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The URI of the Trusted Signing Account which is used during signing files.
+     * The URI of the Artifact Signing Account which is used during signing files.
      */
     declare public /*out*/ readonly accountUri: pulumi.Output<string>;
     /**
-     * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      */
     declare public readonly skuName: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Trusted Signing Account.
+     * A mapping of tags which should be assigned to the Artifact Signing Account.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -137,27 +139,27 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * The URI of the Trusted Signing Account which is used during signing files.
+     * The URI of the Artifact Signing Account which is used during signing files.
      */
     accountUri?: pulumi.Input<string | undefined>;
     /**
-     * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      */
     skuName?: pulumi.Input<string | undefined>;
     /**
-     * A mapping of tags which should be assigned to the Trusted Signing Account.
+     * A mapping of tags which should be assigned to the Artifact Signing Account.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -167,23 +169,23 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      */
     skuName: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Trusted Signing Account.
+     * A mapping of tags which should be assigned to the Artifact Signing Account.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

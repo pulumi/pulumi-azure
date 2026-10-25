@@ -51,7 +51,7 @@ export interface GetProtectionContainerArgs {
      */
     recoveryFabricName: string;
     /**
-     * The name of the Recovery Services Vault that the protection container is associated witth.
+     * The name of the Recovery Services Vault that the protection container is associated with.
      */
     recoveryVaultName: string;
     /**
@@ -120,7 +120,7 @@ export interface GetProtectionContainerOutputArgs {
      */
     recoveryFabricName: pulumi.Input<string>;
     /**
-     * The name of the Recovery Services Vault that the protection container is associated witth.
+     * The name of the Recovery Services Vault that the protection container is associated with.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**

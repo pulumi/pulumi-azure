@@ -8,6 +8,7 @@ import com.pulumi.azure.network.outputs.GetTrafficManagerProfileMonitorConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,11 @@ public final class GetTrafficManagerProfileResult {
      * 
      */
     private String id;
+    /**
+     * @return The amount of endpoints to return for DNS queries to this Profile.
+     * 
+     */
+    private Integer maximumReturn;
     /**
      * @return This block specifies the Endpoint monitoring configuration for the Profile.
      * 
@@ -85,6 +91,13 @@ public final class GetTrafficManagerProfileResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The amount of endpoints to return for DNS queries to this Profile.
+     * 
+     */
+    public Integer maximumReturn() {
+        return this.maximumReturn;
     }
     /**
      * @return This block specifies the Endpoint monitoring configuration for the Profile.
@@ -144,6 +157,7 @@ public final class GetTrafficManagerProfileResult {
         private List<GetTrafficManagerProfileDnsConfig> dnsConfigs;
         private String fqdn;
         private String id;
+        private Integer maximumReturn;
         private List<GetTrafficManagerProfileMonitorConfig> monitorConfigs;
         private String name;
         private String profileStatus;
@@ -157,6 +171,7 @@ public final class GetTrafficManagerProfileResult {
     	      this.dnsConfigs = defaults.dnsConfigs;
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
+    	      this.maximumReturn = defaults.maximumReturn;
     	      this.monitorConfigs = defaults.monitorConfigs;
     	      this.name = defaults.name;
     	      this.profileStatus = defaults.profileStatus;
@@ -191,6 +206,14 @@ public final class GetTrafficManagerProfileResult {
               throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maximumReturn(Integer maximumReturn) {
+            if (maximumReturn == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "maximumReturn");
+            }
+            this.maximumReturn = maximumReturn;
             return this;
         }
         @CustomType.Setter
@@ -253,6 +276,7 @@ public final class GetTrafficManagerProfileResult {
             _resultValue.dnsConfigs = dnsConfigs;
             _resultValue.fqdn = fqdn;
             _resultValue.id = id;
+            _resultValue.maximumReturn = maximumReturn;
             _resultValue.monitorConfigs = monitorConfigs;
             _resultValue.name = name;
             _resultValue.profileStatus = profileStatus;

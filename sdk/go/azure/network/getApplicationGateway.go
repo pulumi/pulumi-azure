@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationGatewayResult
@@ -67,8 +67,6 @@ type LookupApplicationGatewayArgs struct {
 
 // A collection of values returned by getApplicationGateway.
 type LookupApplicationGatewayResult struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates []GetApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfigurations []GetApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfigurations"`
 	// One or more `backendAddressPool` blocks as defined below.
@@ -125,7 +123,7 @@ type LookupApplicationGatewayResult struct {
 	Skus []GetApplicationGatewaySkus `pulumi:"skus"`
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []GetApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
-	// a `sslPolicy` block as defined below.
+	// An `sslPolicy` block as defined below.
 	SslPolicies []GetApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []GetApplicationGatewaySslProfile `pulumi:"sslProfiles"`
@@ -173,13 +171,6 @@ func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOu
 
 func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOutputWithContext(ctx context.Context) LookupApplicationGatewayResultOutput {
 	return o
-}
-
-// One or more `authenticationCertificate` blocks as defined below.
-func (o LookupApplicationGatewayResultOutput) AuthenticationCertificates() GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayAuthenticationCertificate {
-		return v.AuthenticationCertificates
-	}).(GetApplicationGatewayAuthenticationCertificateArrayOutput)
 }
 
 // An `autoscaleConfiguration` block as defined below.
@@ -345,7 +336,7 @@ func (o LookupApplicationGatewayResultOutput) SslCertificates() GetApplicationGa
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslCertificate { return v.SslCertificates }).(GetApplicationGatewaySslCertificateArrayOutput)
 }
 
-// a `sslPolicy` block as defined below.
+// An `sslPolicy` block as defined below.
 func (o LookupApplicationGatewayResultOutput) SslPolicies() GetApplicationGatewaySslPolicyArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslPolicy { return v.SslPolicies }).(GetApplicationGatewaySslPolicyArrayOutput)
 }

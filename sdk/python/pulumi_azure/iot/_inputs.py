@@ -55,8 +55,8 @@ __all__ = [
     'SecurityDeviceGroupRangeRuleArgsDict',
     'SecuritySolutionAdditionalWorkspaceArgs',
     'SecuritySolutionAdditionalWorkspaceArgsDict',
-    'SecuritySolutionRecommendationsEnabledArgs',
-    'SecuritySolutionRecommendationsEnabledArgsDict',
+    'SecuritySolutionRecommendationsArgs',
+    'SecuritySolutionRecommendationsArgsDict',
 ]
 
 class IoTHubCloudToDeviceArgsDict(TypedDict):
@@ -1434,38 +1434,49 @@ class IotHubDeviceUpdateAccountIdentityArgs:
 
 
 class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict(TypedDict):
-    connection_string: pulumi.Input[_builtins.str]
-    """
-    Connection String of the Diagnostic Storage Account.
-    """
     id: pulumi.Input[_builtins.str]
     """
     Resource ID of the Diagnostic Storage Account.
+    """
+    connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Connection String of the Diagnostic Storage Account.
+    """
+    connection_string_wo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+    Connection String of the Diagnostic Storage Account.
+
+    > **Note:** Exactly one of `connection_string` or `connection_string_wo` must be specified.
+    """
+    connection_string_wo_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    An integer value used to trigger an update for `connection_string_wo`. Possible values are integers greater than `1`.
     """
 
 @pulumi.input_type
 class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[_builtins.str]):
+                 id: pulumi.Input[_builtins.str],
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_wo_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] connection_string: Connection String of the Diagnostic Storage Account.
         :param pulumi.Input[_builtins.str] id: Resource ID of the Diagnostic Storage Account.
+        :param pulumi.Input[_builtins.str] connection_string: Connection String of the Diagnostic Storage Account.
+        :param pulumi.Input[_builtins.str] connection_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Connection String of the Diagnostic Storage Account.
+               
+               > **Note:** Exactly one of `connection_string` or `connection_string_wo` must be specified.
+        :param pulumi.Input[_builtins.int] connection_string_wo_version: An integer value used to trigger an update for `connection_string_wo`. Possible values are integers greater than `1`.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[_builtins.str]:
-        """
-        Connection String of the Diagnostic Storage Account.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_string", value)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if connection_string_wo is not None:
+            pulumi.set(__self__, "connection_string_wo", connection_string_wo)
+        if connection_string_wo_version is not None:
+            pulumi.set(__self__, "connection_string_wo_version", connection_string_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -1478,6 +1489,45 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connection String of the Diagnostic Storage Account.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionStringWo")
+    def connection_string_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Connection String of the Diagnostic Storage Account.
+
+        > **Note:** Exactly one of `connection_string` or `connection_string_wo` must be specified.
+        """
+        return pulumi.get(self, "connection_string_wo")
+
+    @connection_string_wo.setter
+    def connection_string_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_string_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionStringWoVersion")
+    def connection_string_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer value used to trigger an update for `connection_string_wo`. Possible values are integers greater than `1`.
+        """
+        return pulumi.get(self, "connection_string_wo_version")
+
+    @connection_string_wo_version.setter
+    def connection_string_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "connection_string_wo_version", value)
 
 
 class IotHubDpsIpFilterRuleArgsDict(TypedDict):
@@ -1941,7 +1991,7 @@ class SecuritySolutionAdditionalWorkspaceArgs:
         pulumi.set(self, "workspace_id", value)
 
 
-class SecuritySolutionRecommendationsEnabledArgsDict(TypedDict):
+class SecuritySolutionRecommendationsArgsDict(TypedDict):
     acr_authentication: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -2008,7 +2058,7 @@ class SecuritySolutionRecommendationsEnabledArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class SecuritySolutionRecommendationsEnabledArgs:
+class SecuritySolutionRecommendationsArgs:
     def __init__(__self__, *,
                  acr_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  agent_send_unutilized_msg: pulumi.Input[Optional[_builtins.bool]] = None,

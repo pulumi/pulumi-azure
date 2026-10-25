@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/siterecovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +64,7 @@ type LookupProtectionContainerArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the fabric that contains the protection container.
 	RecoveryFabricName string `pulumi:"recoveryFabricName"`
-	// The name of the Recovery Services Vault that the protection container is associated witth.
+	// The name of the Recovery Services Vault that the protection container is associated with.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated protection container resides.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -91,7 +91,7 @@ type LookupProtectionContainerOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the fabric that contains the protection container.
 	RecoveryFabricName pulumi.StringInput `pulumi:"recoveryFabricName"`
-	// The name of the Recovery Services Vault that the protection container is associated witth.
+	// The name of the Recovery Services Vault that the protection container is associated with.
 	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which the associated protection container resides.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

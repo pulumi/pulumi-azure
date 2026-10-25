@@ -193,62 +193,18 @@ public class Container extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Resource Manager ID of this Storage Container.
-     * 
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
-    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
-    private Output<String> resourceManagerId;
-
-    /**
-     * @return The Resource Manager ID of this Storage Container.
-     * 
-     */
-    public Output<String> resourceManagerId() {
-        return this.resourceManagerId;
-    }
-    /**
-     * The name of the Storage Account where the Container should be created.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountId;
+    private Output<String> storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Container should be created.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * @return The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> storageAccountId() {
-        return Codegen.optional(this.storageAccountId);
-    }
-    /**
-     * The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountName;
-
-    /**
-     * @return The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     */
-    public Output<Optional<String>> storageAccountName() {
-        return Codegen.optional(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
     /**
      * The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
@@ -277,7 +233,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Container(java.lang.String name, @Nullable ContainerArgs args) {
+    public Container(java.lang.String name, ContainerArgs args) {
         this(name, args, null);
     }
     /**
@@ -286,7 +242,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Container(java.lang.String name, @Nullable ContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Container(java.lang.String name, ContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/container:Container", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -294,7 +250,7 @@ public class Container extends com.pulumi.resources.CustomResource {
         super("azure:storage/container:Container", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ContainerArgs makeArgs(@Nullable ContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ContainerArgs makeArgs(ContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -19,14 +19,14 @@ public final class BackendCircuitBreakerRuleArgs extends com.pulumi.resources.Re
     public static final BackendCircuitBreakerRuleArgs Empty = new BackendCircuitBreakerRuleArgs();
 
     /**
-     * Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+     * Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
      * 
      */
     @Import(name="acceptRetryAfterEnabled")
     private @Nullable Output<Boolean> acceptRetryAfterEnabled;
 
     /**
-     * @return Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+     * @return Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> acceptRetryAfterEnabled() {
@@ -106,7 +106,7 @@ public final class BackendCircuitBreakerRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptRetryAfterEnabled Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         * @param acceptRetryAfterEnabled Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class BackendCircuitBreakerRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptRetryAfterEnabled Specifies whether the circuit breaker should honor `Retry-After` requests. Defaults to `false`.
+         * @param acceptRetryAfterEnabled Specifies whether the circuit breaker should honour `Retry-After` requests. Defaults to `false`.
          * 
          * @return builder
          * 

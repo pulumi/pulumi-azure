@@ -143,7 +143,7 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
     }
 }
 
-function retrieveEventGridKey(functionApp: appservice.FunctionApp, attempts: number): pulumi.Output<string> {
+function retrieveEventGridKey(functionApp: appservice.CallbackFunctionApp<any, any, any>, attempts: number): pulumi.Output<string> {
     return functionApp.getHostKeys().apply(async ks => {
         const k = ks.systemKeys["eventgrid_extension"];
         if (k) return pulumi.output(k);

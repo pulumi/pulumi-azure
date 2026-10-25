@@ -23,14 +23,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     @Import(name="contentTypesToCompresses")
     private @Nullable Output<List<String>> contentTypesToCompresses;
 
     /**
-     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     public Optional<Output<List<String>>> contentTypesToCompresses() {
@@ -267,14 +267,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     @Import(name="querystringCachingBehaviour")
     private @Nullable Output<String> querystringCachingBehaviour;
 
     /**
-     * @return Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+     * @return Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
     public Optional<Output<String>> querystringCachingBehaviour() {
@@ -354,7 +354,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param querystringCachingBehaviour Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+         * @param querystringCachingBehaviour Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param querystringCachingBehaviour Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
+         * @param querystringCachingBehaviour Sets query string caching behaviour. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
          * 
          * @return builder
          * 

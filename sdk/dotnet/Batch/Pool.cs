@@ -144,9 +144,6 @@ namespace Pulumi.Azure.Batch
         [Output("autoScale")]
         public Output<Outputs.PoolAutoScale?> AutoScale { get; private set; } = null!;
 
-        [Output("certificates")]
-        public Output<ImmutableArray<Outputs.PoolCertificate>> Certificates { get; private set; } = null!;
-
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.
         /// </summary>
@@ -244,7 +241,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<Outputs.PoolNodePlacement>> NodePlacements { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
         /// </summary>
         [Output("osDiskPlacement")]
         public Output<string?> OsDiskPlacement { get; private set; } = null!;
@@ -368,15 +365,6 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleArgs>? AutoScale { get; set; }
-
-        [Input("certificates")]
-        private InputList<Inputs.PoolCertificateArgs>? _certificates;
-        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
-        public InputList<Inputs.PoolCertificateArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateArgs>());
-            set => _certificates = value;
-        }
 
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.
@@ -511,7 +499,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
         /// </summary>
         [Input("osDiskPlacement")]
         public Input<string>? OsDiskPlacement { get; set; }
@@ -615,15 +603,6 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleGetArgs>? AutoScale { get; set; }
-
-        [Input("certificates")]
-        private InputList<Inputs.PoolCertificateGetArgs>? _certificates;
-        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
-        public InputList<Inputs.PoolCertificateGetArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateGetArgs>());
-            set => _certificates = value;
-        }
 
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.
@@ -758,7 +737,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
         /// </summary>
         [Input("osDiskPlacement")]
         public Input<string>? OsDiskPlacement { get; set; }

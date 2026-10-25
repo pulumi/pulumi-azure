@@ -14,14 +14,14 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccountPlainArgs Empty = new GetAccountPlainArgs();
 
     /**
-     * The name of the Trusted Signing Account.
+     * The name of the Artifact Signing Account.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Trusted Signing Account.
+     * @return The name of the Artifact Signing Account.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Resource Group where the Trusted Signing Account exists.
+     * The name of the Resource Group where the Artifact Signing Account exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Trusted Signing Account exists.
+     * @return The name of the Resource Group where the Artifact Signing Account exists.
      * 
      */
     public String resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Trusted Signing Account.
+         * @param name The name of the Artifact Signing Account.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Trusted Signing Account exists.
+         * @param resourceGroupName The name of the Resource Group where the Artifact Signing Account exists.
          * 
          * @return builder
          * 

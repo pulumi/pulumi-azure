@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/notificationhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,13 +104,13 @@ type AuthorizationRule struct {
 	NotificationHubName pulumi.StringOutput `pulumi:"notificationHubName"`
 	// The Primary Access Key associated with this Authorization Rule.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
-	// The Primary Connetion String associated with this Authorization Rule.
+	// The Primary Connection String associated with this Authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Access Key associated with this Authorization Rule.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
-	// The Secondary Connetion String associated with this Authorization Rule.
+	// The Secondary Connection String associated with this Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
@@ -176,13 +176,13 @@ type authorizationRuleState struct {
 	NotificationHubName *string `pulumi:"notificationHubName"`
 	// The Primary Access Key associated with this Authorization Rule.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
-	// The Primary Connetion String associated with this Authorization Rule.
+	// The Primary Connection String associated with this Authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key associated with this Authorization Rule.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
-	// The Secondary Connetion String associated with this Authorization Rule.
+	// The Secondary Connection String associated with this Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -203,13 +203,13 @@ type AuthorizationRuleState struct {
 	NotificationHubName pulumi.StringPtrInput
 	// The Primary Access Key associated with this Authorization Rule.
 	PrimaryAccessKey pulumi.StringPtrInput
-	// The Primary Connetion String associated with this Authorization Rule.
+	// The Primary Connection String associated with this Authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Access Key associated with this Authorization Rule.
 	SecondaryAccessKey pulumi.StringPtrInput
-	// The Secondary Connetion String associated with this Authorization Rule.
+	// The Secondary Connection String associated with this Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
 	// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
 	Send pulumi.BoolPtrInput
@@ -377,7 +377,7 @@ func (o AuthorizationRuleOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.PrimaryAccessKey }).(pulumi.StringOutput)
 }
 
-// The Primary Connetion String associated with this Authorization Rule.
+// The Primary Connection String associated with this Authorization Rule.
 func (o AuthorizationRuleOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
@@ -392,7 +392,7 @@ func (o AuthorizationRuleOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// The Secondary Connetion String associated with this Authorization Rule.
+// The Secondary Connection String associated with this Authorization Rule.
 func (o AuthorizationRuleOutput) SecondaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.SecondaryConnectionString }).(pulumi.StringOutput)
 }

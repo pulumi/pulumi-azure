@@ -67,6 +67,10 @@ export interface GetWorkspaceArgs {
 export interface GetWorkspaceResult {
     readonly apiManagementId: string;
     /**
+     * The description of the API Management Workspace.
+     */
+    readonly description: string;
+    /**
      * The display name of the API Management Workspace.
      */
     readonly displayName: string;

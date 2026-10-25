@@ -87,7 +87,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
         /// 
         /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
         /// </summary>
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
         /// 
         /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
         /// </summary>
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
         /// 
         /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
         /// </summary>

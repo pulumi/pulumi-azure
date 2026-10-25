@@ -16,7 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Trusted Signing Account.
+ * Manages a Trusted Signing Account (Artifact Signing Account).
+ * 
+ * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
  * 
  * ## Example Usage
  * 
@@ -66,11 +68,11 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.CodeSigning` - 2024-09-30-preview
+ * * `Microsoft.CodeSigning` - 2025-10-13
  * 
  * ## Import
  * 
- * Trusted Signing Accounts can be imported using the `resource id`, e.g.
+ * Artifact Signing Accounts can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -80,84 +82,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:trustedsigning/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * The URI of the Trusted Signing Account which is used during signing files.
+     * The URI of the Artifact Signing Account which is used during signing files.
      * 
      */
     @Export(name="accountUri", refs={String.class}, tree="[0]")
     private Output<String> accountUri;
 
     /**
-     * @return The URI of the Trusted Signing Account which is used during signing files.
+     * @return The URI of the Artifact Signing Account which is used during signing files.
      * 
      */
     public Output<String> accountUri() {
         return this.accountUri;
     }
     /**
-     * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * @return The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * @return The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * @return The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * @return The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * A mapping of tags which should be assigned to the Trusted Signing Account.
+     * A mapping of tags which should be assigned to the Artifact Signing Account.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Trusted Signing Account.
+     * @return A mapping of tags which should be assigned to the Artifact Signing Account.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -37,6 +37,21 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageAccountId")
+    private @Nullable Output<String> storageAccountId;
+
+    /**
+     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
      * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
      * 
      */
@@ -52,46 +67,27 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Storage Container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+     * The URL of the Storage Container. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageContainerId", required=true)
-    private Output<String> storageContainerId;
+    @Import(name="storageContainerUrl", required=true)
+    private Output<String> storageContainerUrl;
 
     /**
-     * @return The ID of the Storage Container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+     * @return The URL of the Storage Container. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> storageContainerId() {
-        return this.storageContainerId;
-    }
-
-    /**
-     * The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="storageResourceId")
-    private @Nullable Output<String> storageResourceId;
-
-    /**
-     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<Output<String>> storageResourceId() {
-        return Optional.ofNullable(this.storageResourceId);
+    public Output<String> storageContainerUrl() {
+        return this.storageContainerUrl;
     }
 
     private HBaseClusterStorageAccountArgs() {}
 
     private HBaseClusterStorageAccountArgs(HBaseClusterStorageAccountArgs $) {
         this.isDefault = $.isDefault;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountKey = $.storageAccountKey;
-        this.storageContainerId = $.storageContainerId;
-        this.storageResourceId = $.storageResourceId;
+        this.storageContainerUrl = $.storageContainerUrl;
     }
 
     public static Builder builder() {
@@ -138,6 +134,27 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param storageAccountId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
          * @param storageAccountKey The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -159,49 +176,24 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * @param storageContainerUrl The URL of the Storage Container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageContainerId(Output<String> storageContainerId) {
-            $.storageContainerId = storageContainerId;
+        public Builder storageContainerUrl(Output<String> storageContainerUrl) {
+            $.storageContainerUrl = storageContainerUrl;
             return this;
         }
 
         /**
-         * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+         * @param storageContainerUrl The URL of the Storage Container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageContainerId(String storageContainerId) {
-            return storageContainerId(Output.of(storageContainerId));
-        }
-
-        /**
-         * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageResourceId(@Nullable Output<String> storageResourceId) {
-            $.storageResourceId = storageResourceId;
-            return this;
-        }
-
-        /**
-         * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageResourceId(String storageResourceId) {
-            return storageResourceId(Output.of(storageResourceId));
+        public Builder storageContainerUrl(String storageContainerUrl) {
+            return storageContainerUrl(Output.of(storageContainerUrl));
         }
 
         public HBaseClusterStorageAccountArgs build() {
@@ -211,8 +203,8 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
             if ($.storageAccountKey == null) {
                 throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "storageAccountKey");
             }
-            if ($.storageContainerId == null) {
-                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "storageContainerId");
+            if ($.storageContainerUrl == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "storageContainerUrl");
             }
             return $;
         }

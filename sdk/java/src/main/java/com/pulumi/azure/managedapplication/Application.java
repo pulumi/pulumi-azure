@@ -6,6 +6,7 @@ package com.pulumi.azure.managedapplication;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.managedapplication.ApplicationArgs;
 import com.pulumi.azure.managedapplication.inputs.ApplicationState;
+import com.pulumi.azure.managedapplication.outputs.ApplicationIdentity;
 import com.pulumi.azure.managedapplication.outputs.ApplicationPlan;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -142,6 +143,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> applicationDefinitionId() {
         return Codegen.optional(this.applicationDefinitionId);
+    }
+    /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    @Export(name="identity", refs={ApplicationIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ApplicationIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<ApplicationIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.

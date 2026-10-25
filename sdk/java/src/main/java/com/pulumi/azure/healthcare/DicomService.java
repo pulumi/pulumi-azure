@@ -134,14 +134,14 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataPartitionsEnabled);
     }
     /**
-     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
      * 
      */
     @Export(name="encryptionKeyUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionKeyUrl;
 
     /**
-     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
      * 
      */
     public Output<Optional<String>> encryptionKeyUrl() {

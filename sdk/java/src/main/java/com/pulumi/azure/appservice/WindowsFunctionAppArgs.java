@@ -233,6 +233,21 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    @Import(name="endToEndTlsEncryptionEnabled")
+    private @Nullable Output<Boolean> endToEndTlsEncryptionEnabled;
+
+    /**
+     * @return Whether to enable end-to-end TLS encryption. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> endToEndTlsEncryptionEnabled() {
+        return Optional.ofNullable(this.endToEndTlsEncryptionEnabled);
+    }
+
+    /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      * 
      */
@@ -323,14 +338,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+     * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+     * @return The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
     public Optional<Output<String>> name() {
@@ -530,22 +545,22 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
-     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
      * 
-     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -593,7 +608,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -602,7 +617,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -624,6 +639,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         this.contentShareForceDisabled = $.contentShareForceDisabled;
         this.dailyMemoryTimeQuota = $.dailyMemoryTimeQuota;
         this.enabled = $.enabled;
+        this.endToEndTlsEncryptionEnabled = $.endToEndTlsEncryptionEnabled;
         this.ftpPublishBasicAuthenticationEnabled = $.ftpPublishBasicAuthenticationEnabled;
         this.functionsExtensionVersion = $.functionsExtensionVersion;
         this.httpsOnly = $.httpsOnly;
@@ -954,6 +970,27 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param endToEndTlsEncryptionEnabled Whether to enable end-to-end TLS encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endToEndTlsEncryptionEnabled(@Nullable Output<Boolean> endToEndTlsEncryptionEnabled) {
+            $.endToEndTlsEncryptionEnabled = endToEndTlsEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param endToEndTlsEncryptionEnabled Whether to enable end-to-end TLS encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endToEndTlsEncryptionEnabled(Boolean endToEndTlsEncryptionEnabled) {
+            return endToEndTlsEncryptionEnabled(Output.of(endToEndTlsEncryptionEnabled));
+        }
+
+        /**
          * @param ftpPublishBasicAuthenticationEnabled Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
          * 
          * @return builder
@@ -1080,7 +1117,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * @param name The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          * 
          * @return builder
          * 
@@ -1091,7 +1128,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * @param name The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          * 
          * @return builder
          * 
@@ -1375,11 +1412,11 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
          * 
-         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
          * 
          * @return builder
          * 
@@ -1390,11 +1427,11 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
          * 
-         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/azure/app-service/overview-vnet-integration#permissions)
          * 
          * @return builder
          * 
@@ -1456,7 +1493,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 
@@ -1469,7 +1506,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 

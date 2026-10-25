@@ -26,7 +26,7 @@ class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, allocation_method=None, ddos_protection_mode=None, ddos_protection_plan_id=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
+    def __init__(__self__, allocation_method=None, ddos_protection_mode=None, ddos_protection_plan_id=None, domain_name_label=None, domain_name_label_scope=None, edge_zone=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, ip_version=None, location=None, name=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, sku_tier=None, tags=None, zones=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError("Expected argument 'allocation_method' to be a str")
         pulumi.set(__self__, "allocation_method", allocation_method)
@@ -39,6 +39,12 @@ class GetPublicIPResult:
         if domain_name_label and not isinstance(domain_name_label, str):
             raise TypeError("Expected argument 'domain_name_label' to be a str")
         pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if domain_name_label_scope and not isinstance(domain_name_label_scope, str):
+            raise TypeError("Expected argument 'domain_name_label_scope' to be a str")
+        pulumi.set(__self__, "domain_name_label_scope", domain_name_label_scope)
+        if edge_zone and not isinstance(edge_zone, str):
+            raise TypeError("Expected argument 'edge_zone' to be a str")
+        pulumi.set(__self__, "edge_zone", edge_zone)
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
@@ -63,6 +69,9 @@ class GetPublicIPResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_ip_prefix_id and not isinstance(public_ip_prefix_id, str):
+            raise TypeError("Expected argument 'public_ip_prefix_id' to be a str")
+        pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,6 +81,9 @@ class GetPublicIPResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if sku_tier and not isinstance(sku_tier, str):
+            raise TypeError("Expected argument 'sku_tier' to be a str")
+        pulumi.set(__self__, "sku_tier", sku_tier)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -110,6 +122,22 @@ class GetPublicIPResult:
         The label for the Domain Name.
         """
         return pulumi.get(self, "domain_name_label")
+
+    @_builtins.property
+    @pulumi.getter(name="domainNameLabelScope")
+    def domain_name_label_scope(self) -> _builtins.str:
+        """
+        Scope for the domain name label.
+        """
+        return pulumi.get(self, "domain_name_label_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> _builtins.str:
+        """
+        The Edge Zone within the Azure Region where this Public IP exists.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @_builtins.property
     @pulumi.getter
@@ -173,6 +201,14 @@ class GetPublicIPResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpPrefixId")
+    def public_ip_prefix_id(self) -> _builtins.str:
+        """
+        If specified then public IP address allocated will be provided from the public IP prefix resource.
+        """
+        return pulumi.get(self, "public_ip_prefix_id")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -192,6 +228,14 @@ class GetPublicIPResult:
         The SKU of the Public IP.
         """
         return pulumi.get(self, "sku")
+
+    @_builtins.property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> _builtins.str:
+        """
+        The SKU Tier that is used for the Public IP.
+        """
+        return pulumi.get(self, "sku_tier")
 
     @_builtins.property
     @pulumi.getter
@@ -220,6 +264,8 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             ddos_protection_mode=self.ddos_protection_mode,
             ddos_protection_plan_id=self.ddos_protection_plan_id,
             domain_name_label=self.domain_name_label,
+            domain_name_label_scope=self.domain_name_label_scope,
+            edge_zone=self.edge_zone,
             fqdn=self.fqdn,
             id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
@@ -228,9 +274,11 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             ip_version=self.ip_version,
             location=self.location,
             name=self.name,
+            public_ip_prefix_id=self.public_ip_prefix_id,
             resource_group_name=self.resource_group_name,
             reverse_fqdn=self.reverse_fqdn,
             sku=self.sku,
+            sku_tier=self.sku_tier,
             tags=self.tags,
             zones=self.zones)
 
@@ -309,7 +357,7 @@ def get_public_ip(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the public IP address.
@@ -326,6 +374,8 @@ def get_public_ip(name: Optional[_builtins.str] = None,
         ddos_protection_mode=pulumi.get(__ret__, 'ddos_protection_mode'),
         ddos_protection_plan_id=pulumi.get(__ret__, 'ddos_protection_plan_id'),
         domain_name_label=pulumi.get(__ret__, 'domain_name_label'),
+        domain_name_label_scope=pulumi.get(__ret__, 'domain_name_label_scope'),
+        edge_zone=pulumi.get(__ret__, 'edge_zone'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
         id=pulumi.get(__ret__, 'id'),
         idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
@@ -334,9 +384,11 @@ def get_public_ip(name: Optional[_builtins.str] = None,
         ip_version=pulumi.get(__ret__, 'ip_version'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        public_ip_prefix_id=pulumi.get(__ret__, 'public_ip_prefix_id'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         reverse_fqdn=pulumi.get(__ret__, 'reverse_fqdn'),
         sku=pulumi.get(__ret__, 'sku'),
+        sku_tier=pulumi.get(__ret__, 'sku_tier'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_public_ip_output(name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -413,7 +465,7 @@ def get_public_ip_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the public IP address.
@@ -429,6 +481,8 @@ def get_public_ip_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         ddos_protection_mode=pulumi.get(__response__, 'ddos_protection_mode'),
         ddos_protection_plan_id=pulumi.get(__response__, 'ddos_protection_plan_id'),
         domain_name_label=pulumi.get(__response__, 'domain_name_label'),
+        domain_name_label_scope=pulumi.get(__response__, 'domain_name_label_scope'),
+        edge_zone=pulumi.get(__response__, 'edge_zone'),
         fqdn=pulumi.get(__response__, 'fqdn'),
         id=pulumi.get(__response__, 'id'),
         idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
@@ -437,8 +491,10 @@ def get_public_ip_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         ip_version=pulumi.get(__response__, 'ip_version'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        public_ip_prefix_id=pulumi.get(__response__, 'public_ip_prefix_id'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         reverse_fqdn=pulumi.get(__response__, 'reverse_fqdn'),
         sku=pulumi.get(__response__, 'sku'),
+        sku_tier=pulumi.get(__response__, 'sku_tier'),
         tags=pulumi.get(__response__, 'tags'),
         zones=pulumi.get(__response__, 'zones')))

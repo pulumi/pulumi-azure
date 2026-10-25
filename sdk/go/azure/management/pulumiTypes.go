@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -324,7 +324,7 @@ func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.Int
 type GroupPolicyAssignmentOverride struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors []GroupPolicyAssignmentOverrideSelector `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value string `pulumi:"value"`
 }
 
@@ -342,7 +342,7 @@ type GroupPolicyAssignmentOverrideInput interface {
 type GroupPolicyAssignmentOverrideArgs struct {
 	// One or more `overrideSelector` block as defined below.
 	Selectors GroupPolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
-	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -402,7 +402,7 @@ func (o GroupPolicyAssignmentOverrideOutput) Selectors() GroupPolicyAssignmentOv
 	return o.ApplyT(func(v GroupPolicyAssignmentOverride) []GroupPolicyAssignmentOverrideSelector { return v.Selectors }).(GroupPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
-// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
 func (o GroupPolicyAssignmentOverrideOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentOverride) string { return v.Value }).(pulumi.StringOutput)
 }

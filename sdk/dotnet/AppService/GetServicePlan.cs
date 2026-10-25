@@ -195,6 +195,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool PerSiteScalingEnabled;
         /// <summary>
+        /// Is premium plan autoscale enabled.
+        /// </summary>
+        public readonly bool PremiumPlanAutoScaleEnabled;
+        /// <summary>
         /// Whether this is a reserved Service Plan Type. `True` if `OsType` is `Linux`, otherwise `False`.
         /// </summary>
         public readonly bool Reserved;
@@ -234,6 +238,8 @@ namespace Pulumi.Azure.AppService
 
             bool perSiteScalingEnabled,
 
+            bool premiumPlanAutoScaleEnabled,
+
             bool reserved,
 
             string resourceGroupName,
@@ -254,6 +260,7 @@ namespace Pulumi.Azure.AppService
             Name = name;
             OsType = osType;
             PerSiteScalingEnabled = perSiteScalingEnabled;
+            PremiumPlanAutoScaleEnabled = premiumPlanAutoScaleEnabled;
             Reserved = reserved;
             ResourceGroupName = resourceGroupName;
             SkuName = skuName;

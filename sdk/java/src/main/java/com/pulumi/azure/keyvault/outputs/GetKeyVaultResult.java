@@ -21,15 +21,6 @@ public final class GetKeyVaultResult {
      */
     private List<GetKeyVaultAccessPolicy> accessPolicies;
     /**
-     * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-     * 
-     * @deprecated
-     * the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider. */
-    private Boolean enableRbacAuthorization;
-    /**
      * @return Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      * 
      */
@@ -66,6 +57,10 @@ public final class GetKeyVaultResult {
      * 
      */
     private Boolean purgeProtectionEnabled;
+    /**
+     * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+     * 
+     */
     private Boolean rbacAuthorizationEnabled;
     private String resourceGroupName;
     /**
@@ -96,17 +91,6 @@ public final class GetKeyVaultResult {
      */
     public List<GetKeyVaultAccessPolicy> accessPolicies() {
         return this.accessPolicies;
-    }
-    /**
-     * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-     * 
-     * @deprecated
-     * the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider. */
-    public Boolean enableRbacAuthorization() {
-        return this.enableRbacAuthorization;
     }
     /**
      * @return Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
@@ -163,6 +147,10 @@ public final class GetKeyVaultResult {
     public Boolean purgeProtectionEnabled() {
         return this.purgeProtectionEnabled;
     }
+    /**
+     * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+     * 
+     */
     public Boolean rbacAuthorizationEnabled() {
         return this.rbacAuthorizationEnabled;
     }
@@ -208,7 +196,6 @@ public final class GetKeyVaultResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetKeyVaultAccessPolicy> accessPolicies;
-        private Boolean enableRbacAuthorization;
         private Boolean enabledForDeployment;
         private Boolean enabledForDiskEncryption;
         private Boolean enabledForTemplateDeployment;
@@ -228,7 +215,6 @@ public final class GetKeyVaultResult {
         public Builder(GetKeyVaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicies = defaults.accessPolicies;
-    	      this.enableRbacAuthorization = defaults.enableRbacAuthorization;
     	      this.enabledForDeployment = defaults.enabledForDeployment;
     	      this.enabledForDiskEncryption = defaults.enabledForDiskEncryption;
     	      this.enabledForTemplateDeployment = defaults.enabledForTemplateDeployment;
@@ -256,14 +242,6 @@ public final class GetKeyVaultResult {
         }
         public Builder accessPolicies(GetKeyVaultAccessPolicy... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
-        }
-        @CustomType.Setter
-        public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
-            if (enableRbacAuthorization == null) {
-              throw new MissingRequiredPropertyException("GetKeyVaultResult", "enableRbacAuthorization");
-            }
-            this.enableRbacAuthorization = enableRbacAuthorization;
-            return this;
         }
         @CustomType.Setter
         public Builder enabledForDeployment(Boolean enabledForDeployment) {
@@ -391,7 +369,6 @@ public final class GetKeyVaultResult {
         public GetKeyVaultResult build() {
             final var _resultValue = new GetKeyVaultResult();
             _resultValue.accessPolicies = accessPolicies;
-            _resultValue.enableRbacAuthorization = enableRbacAuthorization;
             _resultValue.enabledForDeployment = enabledForDeployment;
             _resultValue.enabledForDiskEncryption = enabledForDiskEncryption;
             _resultValue.enabledForTemplateDeployment = enabledForTemplateDeployment;

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Backup.Inputs
         public Input<string> StartTime { get; set; } = null!;
 
         /// <summary>
-        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         /// </summary>
         [Input("windowDuration", required: true)]
         public Input<int> WindowDuration { get; set; } = null!;

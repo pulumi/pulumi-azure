@@ -30,7 +30,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string? PullSecret;
         /// <summary>
-        /// The resource group that the cluster profile is attached to.
+        /// The Resource Group that the cluster profile is attached to.
         /// </summary>
         public readonly string? ResourceGroupId;
         /// <summary>

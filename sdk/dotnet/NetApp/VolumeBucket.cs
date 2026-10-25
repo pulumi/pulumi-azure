@@ -16,7 +16,7 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// &gt; **Note:** The **first** bucket on a volume must be created with the `azure.netapp.VolumeBucketWithServer` resource, which sets up the shared bucket server (FQDN and certificate). Every additional bucket on the same volume is then created with this server-less resource. Declaring a `Server` block on more than one bucket would overwrite the shared server configuration, which is why this resource intentionally does not expose one.
     /// 
-    /// &gt; **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
+    /// &gt; **Note:** The Object REST API feature is in preview and must be registered on the subscription via `Microsoft.NetApp / ANFEnableObjectRESTAPI` before buckets can be created. See [Configure access to the Azure NetApp Files Object REST API](https://learn.microsoft.com/azure/azure-netapp-files/object-rest-api-access-configure) for the registration command and Key Vault prerequisites.
     /// 
     /// &gt; **Note:** Buckets are supported on cool-access and large NetApp volumes. Buckets are not supported on cache volumes. Deleting the parent volume cascade-deletes its buckets.
     /// 
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.NetApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetApp` - 2026-01-01
+    /// * `Microsoft.NetApp` - 2026-05-01
     /// 
     /// ## Import
     /// 

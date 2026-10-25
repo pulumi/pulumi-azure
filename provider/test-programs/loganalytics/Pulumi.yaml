@@ -1,0 +1,56 @@
+name: loganalytics
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US 2
+
+  exampleIdentity:
+    type: azure:authorization:UserAssignedIdentity
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+
+  # v7 replaces `parentId` with `userAssignedIdentityId` and drops `resourceGroupName`.
+  federatedCred:
+    type: azure:armmsi:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      parentId: ${exampleIdentity.id}
+      audience: api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure:ref:refs/heads/master
+
+  # v7 turns the `internet...Enabled` booleans into access types, and
+  # `localAuthenticationDisabled` into `localAuthenticationEnabled` with the value inverted.
+  exampleWorkspace:
+    type: azure:operationalinsights:AnalyticsWorkspace
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: PerGB2018
+      retentionInDays: 30
+      internetIngestionEnabled: true
+      internetQueryEnabled: false
+      localAuthenticationDisabled: false
+
+  exampleAccount:
+    type: azure:storage:Account
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      accountTier: Standard
+      accountReplicationType: LRS
+
+  # v7 renames `workspaceResourceId` to `workspaceId`.
+  linkedStorage:
+    type: azure:loganalytics:LinkedStorageAccount
+    properties:
+      dataSourceType: CustomLogs
+      resourceGroupName: ${exampleResourceGroup.name}
+      workspaceResourceId: ${exampleWorkspace.id}
+      storageAccountIds:
+        - ${exampleAccount.id}

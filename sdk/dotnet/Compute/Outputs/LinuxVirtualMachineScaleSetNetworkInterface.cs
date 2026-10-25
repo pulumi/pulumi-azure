@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetNetworkInterface
     {
         /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Defaults to `False`.
+        /// </summary>
+        public readonly bool? AcceleratedNetworkingEnabled;
+        /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
         /// 
         /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -30,17 +34,13 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// Does this Network Interface support Accelerated Networking? Defaults to `False`.
-        /// </summary>
-        public readonly bool? EnableAcceleratedNetworking;
-        /// <summary>
-        /// Does this Network Interface support IP Forwarding? Defaults to `False`.
-        /// </summary>
-        public readonly bool? EnableIpForwarding;
-        /// <summary>
         /// One or more `IpConfiguration` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> IpConfigurations;
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Defaults to `False`.
+        /// </summary>
+        public readonly bool? IpForwardingEnabled;
         /// <summary>
         /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         /// </summary>
@@ -58,17 +58,17 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private LinuxVirtualMachineScaleSetNetworkInterface(
+            bool? acceleratedNetworkingEnabled,
+
             string? auxiliaryMode,
 
             string? auxiliarySku,
 
             ImmutableArray<string> dnsServers,
 
-            bool? enableAcceleratedNetworking,
-
-            bool? enableIpForwarding,
-
             ImmutableArray<Outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations,
+
+            bool? ipForwardingEnabled,
 
             string name,
 
@@ -76,12 +76,12 @@ namespace Pulumi.Azure.Compute.Outputs
 
             bool? primary)
         {
+            AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             AuxiliaryMode = auxiliaryMode;
             AuxiliarySku = auxiliarySku;
             DnsServers = dnsServers;
-            EnableAcceleratedNetworking = enableAcceleratedNetworking;
-            EnableIpForwarding = enableIpForwarding;
             IpConfigurations = ipConfigurations;
+            IpForwardingEnabled = ipForwardingEnabled;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
             Primary = primary;

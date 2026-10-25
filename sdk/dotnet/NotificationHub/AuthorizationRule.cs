@@ -116,7 +116,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary Connetion String associated with this Authorization Rule.
+        /// The Primary Connection String associated with this Authorization Rule.
         /// </summary>
         [Output("primaryConnectionString")]
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Secondary Connetion String associated with this Authorization Rule.
+        /// The Secondary Connection String associated with this Authorization Rule.
         /// </summary>
         [Output("secondaryConnectionString")]
         public Output<string> SecondaryConnectionString { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.NotificationHub
         private Input<string>? _primaryConnectionString;
 
         /// <summary>
-        /// The Primary Connetion String associated with this Authorization Rule.
+        /// The Primary Connection String associated with this Authorization Rule.
         /// </summary>
         public Input<string>? PrimaryConnectionString
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.NotificationHub
         private Input<string>? _secondaryConnectionString;
 
         /// <summary>
-        /// The Secondary Connetion String associated with this Authorization Rule.
+        /// The Secondary Connection String associated with this Authorization Rule.
         /// </summary>
         public Input<string>? SecondaryConnectionString
         {

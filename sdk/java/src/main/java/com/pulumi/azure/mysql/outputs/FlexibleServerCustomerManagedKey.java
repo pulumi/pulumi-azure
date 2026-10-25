@@ -29,15 +29,6 @@ public final class FlexibleServerCustomerManagedKey {
      */
     private @Nullable String keyVaultKeyId;
     /**
-     * @return The ID of the Managed HSM Key.
-     * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable String managedHsmKeyId;
-    /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
      * 
      */
@@ -68,17 +59,6 @@ public final class FlexibleServerCustomerManagedKey {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
     /**
-     * @return The ID of the Managed HSM Key.
-     * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<String> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
-    }
-    /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
      * 
      */
@@ -98,7 +78,6 @@ public final class FlexibleServerCustomerManagedKey {
         private @Nullable String geoBackupKeyVaultKeyId;
         private @Nullable String geoBackupUserAssignedIdentityId;
         private @Nullable String keyVaultKeyId;
-        private @Nullable String managedHsmKeyId;
         private @Nullable String primaryUserAssignedIdentityId;
         public Builder() {}
         public Builder(FlexibleServerCustomerManagedKey defaults) {
@@ -106,7 +85,6 @@ public final class FlexibleServerCustomerManagedKey {
     	      this.geoBackupKeyVaultKeyId = defaults.geoBackupKeyVaultKeyId;
     	      this.geoBackupUserAssignedIdentityId = defaults.geoBackupUserAssignedIdentityId;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
-    	      this.managedHsmKeyId = defaults.managedHsmKeyId;
     	      this.primaryUserAssignedIdentityId = defaults.primaryUserAssignedIdentityId;
         }
 
@@ -129,12 +107,6 @@ public final class FlexibleServerCustomerManagedKey {
             return this;
         }
         @CustomType.Setter
-        public Builder managedHsmKeyId(@Nullable String managedHsmKeyId) {
-
-            this.managedHsmKeyId = managedHsmKeyId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder primaryUserAssignedIdentityId(@Nullable String primaryUserAssignedIdentityId) {
 
             this.primaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
@@ -145,7 +117,6 @@ public final class FlexibleServerCustomerManagedKey {
             _resultValue.geoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
             _resultValue.geoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
             _resultValue.keyVaultKeyId = keyVaultKeyId;
-            _resultValue.managedHsmKeyId = managedHsmKeyId;
             _resultValue.primaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             return _resultValue;
         }

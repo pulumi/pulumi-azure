@@ -83,14 +83,14 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
     }
 
     /**
-     * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+     * The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
      * 
      */
     @Import(name="powershellCoreVersion")
     private @Nullable Output<String> powershellCoreVersion;
 
     /**
-     * @return The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+     * @return The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
      * 
      */
     public Optional<Output<String>> powershellCoreVersion() {
@@ -272,7 +272,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param powershellCoreVersion The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+         * @param powershellCoreVersion The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param powershellCoreVersion The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+         * @param powershellCoreVersion The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          * 
          * @return builder
          * 

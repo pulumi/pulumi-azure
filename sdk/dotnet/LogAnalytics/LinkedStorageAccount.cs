@@ -101,9 +101,6 @@ namespace Pulumi.Azure.LogAnalytics
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
-        [Output("workspaceResourceId")]
-        public Output<string> WorkspaceResourceId { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a LinkedStorageAccount resource with the given unique name, arguments, and options.
@@ -177,11 +174,8 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
-        [Input("workspaceId")]
-        public Input<string>? WorkspaceId { get; set; }
-
-        [Input("workspaceResourceId")]
-        public Input<string>? WorkspaceResourceId { get; set; }
+        [Input("workspaceId", required: true)]
+        public Input<string> WorkspaceId { get; set; } = null!;
 
         public LinkedStorageAccountArgs()
         {
@@ -220,9 +214,6 @@ namespace Pulumi.Azure.LogAnalytics
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
-
-        [Input("workspaceResourceId")]
-        public Input<string>? WorkspaceResourceId { get; set; }
 
         public LinkedStorageAccountState()
         {

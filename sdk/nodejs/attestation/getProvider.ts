@@ -66,11 +66,27 @@ export interface GetProviderResult {
      */
     readonly location: string;
     readonly name: string;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     */
+    readonly openEnclavePolicyBase64: string;
     readonly resourceGroupName: string;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     */
+    readonly sevSnpPolicyBase64: string;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     */
+    readonly sgxEnclavePolicyBase64: string;
     /**
      * A mapping of tags assigned to the Attestation Provider.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     */
+    readonly tpmPolicyBase64: string;
     /**
      * Trust model used for the Attestation Service.
      */

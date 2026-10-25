@@ -14,10 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
-__all__ = ['AccountStaticWebsiteInitArgs', 'AccountStaticWebsite']
+__all__ = ['AccountStaticWebsiteArgs', 'AccountStaticWebsite']
 
 @pulumi.input_type
-class AccountStaticWebsiteInitArgs:
+class AccountStaticWebsiteArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
                  error404_document: pulumi.Input[Optional[_builtins.str]] = None,
@@ -185,7 +185,7 @@ class AccountStaticWebsite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountStaticWebsiteInitArgs,
+                 args: AccountStaticWebsiteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Static Website of an Azure Storage Account.
@@ -224,12 +224,12 @@ class AccountStaticWebsite(pulumi.CustomResource):
 
 
         :param str resource_name: The name of the resource.
-        :param AccountStaticWebsiteInitArgs args: The arguments to use to populate this resource's properties.
+        :param AccountStaticWebsiteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountStaticWebsiteInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountStaticWebsiteArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -248,7 +248,7 @@ class AccountStaticWebsite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountStaticWebsiteInitArgs.__new__(AccountStaticWebsiteInitArgs)
+            __props__ = AccountStaticWebsiteArgs.__new__(AccountStaticWebsiteArgs)
 
             __props__.__dict__["error404_document"] = error404_document
             __props__.__dict__["index_document"] = index_document

@@ -211,7 +211,7 @@ def get_volume_bucket_with_server(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2026-01-01
+    * `Microsoft.NetApp` - 2026-05-01
 
 
     :param _builtins.str name: The name of the NetApp Volume Bucket.
@@ -260,7 +260,7 @@ def get_volume_bucket_with_server_output(name: pulumi.Input[Optional[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2026-01-01
+    * `Microsoft.NetApp` - 2026-05-01
 
 
     :param _builtins.str name: The name of the NetApp Volume Bucket.

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -26,25 +27,43 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, aad_auth_enabled=None, hostname=None, id=None, ip_address=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_network_access_enabled=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, serverless_connection_timeout_in_seconds=None, tags=None, tls_client_cert_enabled=None):
+    def __init__(__self__, aad_auth_enabled=None, connectivity_logs_enabled=None, cors=None, hostname=None, http_request_logs_enabled=None, id=None, identities=None, ip_address=None, live_traces=None, local_auth_enabled=None, location=None, messaging_logs_enabled=None, name=None, primary_access_key=None, primary_connection_string=None, public_network_access_enabled=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, serverless_connection_timeout_in_seconds=None, service_mode=None, skus=None, tags=None, tls_client_cert_enabled=None, upstream_endpoints=None):
         if aad_auth_enabled and not isinstance(aad_auth_enabled, bool):
             raise TypeError("Expected argument 'aad_auth_enabled' to be a bool")
         pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+        if connectivity_logs_enabled and not isinstance(connectivity_logs_enabled, bool):
+            raise TypeError("Expected argument 'connectivity_logs_enabled' to be a bool")
+        pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+        if cors and not isinstance(cors, list):
+            raise TypeError("Expected argument 'cors' to be a list")
+        pulumi.set(__self__, "cors", cors)
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if http_request_logs_enabled and not isinstance(http_request_logs_enabled, bool):
+            raise TypeError("Expected argument 'http_request_logs_enabled' to be a bool")
+        pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if live_traces and not isinstance(live_traces, list):
+            raise TypeError("Expected argument 'live_traces' to be a list")
+        pulumi.set(__self__, "live_traces", live_traces)
         if local_auth_enabled and not isinstance(local_auth_enabled, bool):
             raise TypeError("Expected argument 'local_auth_enabled' to be a bool")
         pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if messaging_logs_enabled and not isinstance(messaging_logs_enabled, bool):
+            raise TypeError("Expected argument 'messaging_logs_enabled' to be a bool")
+        pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -75,12 +94,21 @@ class GetServiceResult:
         if serverless_connection_timeout_in_seconds and not isinstance(serverless_connection_timeout_in_seconds, int):
             raise TypeError("Expected argument 'serverless_connection_timeout_in_seconds' to be a int")
         pulumi.set(__self__, "serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
+        if service_mode and not isinstance(service_mode, str):
+            raise TypeError("Expected argument 'service_mode' to be a str")
+        pulumi.set(__self__, "service_mode", service_mode)
+        if skus and not isinstance(skus, list):
+            raise TypeError("Expected argument 'skus' to be a list")
+        pulumi.set(__self__, "skus", skus)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if tls_client_cert_enabled and not isinstance(tls_client_cert_enabled, bool):
             raise TypeError("Expected argument 'tls_client_cert_enabled' to be a bool")
         pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+        if upstream_endpoints and not isinstance(upstream_endpoints, list):
+            raise TypeError("Expected argument 'upstream_endpoints' to be a list")
+        pulumi.set(__self__, "upstream_endpoints", upstream_endpoints)
 
     @_builtins.property
     @pulumi.getter(name="aadAuthEnabled")
@@ -91,12 +119,36 @@ class GetServiceResult:
         return pulumi.get(self, "aad_auth_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `ConnectivityLogs` is enabled.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> Sequence['outputs.GetServiceCorResult']:
+        """
+        A `cors` block as documented below.
+        """
+        return pulumi.get(self, "cors")
+
+    @_builtins.property
     @pulumi.getter
     def hostname(self) -> _builtins.str:
         """
         The FQDN of the SignalR service.
         """
         return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `HttpRequestLogs` is enabled.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -107,12 +159,28 @@ class GetServiceResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
+        """
+        An `identity` block as documented below.
+        """
+        return pulumi.get(self, "identities")
+
+    @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
         """
         The publicly accessible IP of the SignalR service.
         """
         return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="liveTraces")
+    def live_traces(self) -> Sequence['outputs.GetServiceLiveTraceResult']:
+        """
+        A `live_trace` block as defined below.
+        """
+        return pulumi.get(self, "live_traces")
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
@@ -131,8 +199,19 @@ class GetServiceResult:
         return pulumi.get(self, "location")
 
     @_builtins.property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> _builtins.bool:
+        """
+        Whether the log category `MessagingLogs` is enabled.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the SKU.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -205,6 +284,22 @@ class GetServiceResult:
         return pulumi.get(self, "serverless_connection_timeout_in_seconds")
 
     @_builtins.property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> _builtins.str:
+        """
+        Specifies the service mode.
+        """
+        return pulumi.get(self, "service_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def skus(self) -> Sequence['outputs.GetServiceSkusResult']:
+        """
+        A `sku` block as documented below.
+        """
+        return pulumi.get(self, "skus")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         return pulumi.get(self, "tags")
@@ -217,6 +312,14 @@ class GetServiceResult:
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 
+    @_builtins.property
+    @pulumi.getter(name="upstreamEndpoints")
+    def upstream_endpoints(self) -> Sequence['outputs.GetServiceUpstreamEndpointResult']:
+        """
+        One or more `upstream_endpoint` blocks as documented below.
+        """
+        return pulumi.get(self, "upstream_endpoints")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -225,11 +328,17 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             aad_auth_enabled=self.aad_auth_enabled,
+            connectivity_logs_enabled=self.connectivity_logs_enabled,
+            cors=self.cors,
             hostname=self.hostname,
+            http_request_logs_enabled=self.http_request_logs_enabled,
             id=self.id,
+            identities=self.identities,
             ip_address=self.ip_address,
+            live_traces=self.live_traces,
             local_auth_enabled=self.local_auth_enabled,
             location=self.location,
+            messaging_logs_enabled=self.messaging_logs_enabled,
             name=self.name,
             primary_access_key=self.primary_access_key,
             primary_connection_string=self.primary_connection_string,
@@ -240,8 +349,11 @@ class AwaitableGetServiceResult(GetServiceResult):
             secondary_connection_string=self.secondary_connection_string,
             server_port=self.server_port,
             serverless_connection_timeout_in_seconds=self.serverless_connection_timeout_in_seconds,
+            service_mode=self.service_mode,
+            skus=self.skus,
             tags=self.tags,
-            tls_client_cert_enabled=self.tls_client_cert_enabled)
+            tls_client_cert_enabled=self.tls_client_cert_enabled,
+            upstream_endpoints=self.upstream_endpoints)
 
 
 def get_service(name: Optional[_builtins.str] = None,
@@ -279,11 +391,17 @@ def get_service(name: Optional[_builtins.str] = None,
 
     return AwaitableGetServiceResult(
         aad_auth_enabled=pulumi.get(__ret__, 'aad_auth_enabled'),
+        connectivity_logs_enabled=pulumi.get(__ret__, 'connectivity_logs_enabled'),
+        cors=pulumi.get(__ret__, 'cors'),
         hostname=pulumi.get(__ret__, 'hostname'),
+        http_request_logs_enabled=pulumi.get(__ret__, 'http_request_logs_enabled'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
+        live_traces=pulumi.get(__ret__, 'live_traces'),
         local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
         location=pulumi.get(__ret__, 'location'),
+        messaging_logs_enabled=pulumi.get(__ret__, 'messaging_logs_enabled'),
         name=pulumi.get(__ret__, 'name'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
         primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
@@ -294,8 +412,11 @@ def get_service(name: Optional[_builtins.str] = None,
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         server_port=pulumi.get(__ret__, 'server_port'),
         serverless_connection_timeout_in_seconds=pulumi.get(__ret__, 'serverless_connection_timeout_in_seconds'),
+        service_mode=pulumi.get(__ret__, 'service_mode'),
+        skus=pulumi.get(__ret__, 'skus'),
         tags=pulumi.get(__ret__, 'tags'),
-        tls_client_cert_enabled=pulumi.get(__ret__, 'tls_client_cert_enabled'))
+        tls_client_cert_enabled=pulumi.get(__ret__, 'tls_client_cert_enabled'),
+        upstream_endpoints=pulumi.get(__ret__, 'upstream_endpoints'))
 def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
@@ -330,11 +451,17 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:signalr/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         aad_auth_enabled=pulumi.get(__response__, 'aad_auth_enabled'),
+        connectivity_logs_enabled=pulumi.get(__response__, 'connectivity_logs_enabled'),
+        cors=pulumi.get(__response__, 'cors'),
         hostname=pulumi.get(__response__, 'hostname'),
+        http_request_logs_enabled=pulumi.get(__response__, 'http_request_logs_enabled'),
         id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
         ip_address=pulumi.get(__response__, 'ip_address'),
+        live_traces=pulumi.get(__response__, 'live_traces'),
         local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
         location=pulumi.get(__response__, 'location'),
+        messaging_logs_enabled=pulumi.get(__response__, 'messaging_logs_enabled'),
         name=pulumi.get(__response__, 'name'),
         primary_access_key=pulumi.get(__response__, 'primary_access_key'),
         primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
@@ -345,5 +472,8 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
         server_port=pulumi.get(__response__, 'server_port'),
         serverless_connection_timeout_in_seconds=pulumi.get(__response__, 'serverless_connection_timeout_in_seconds'),
+        service_mode=pulumi.get(__response__, 'service_mode'),
+        skus=pulumi.get(__response__, 'skus'),
         tags=pulumi.get(__response__, 'tags'),
-        tls_client_cert_enabled=pulumi.get(__response__, 'tls_client_cert_enabled')))
+        tls_client_cert_enabled=pulumi.get(__response__, 'tls_client_cert_enabled'),
+        upstream_endpoints=pulumi.get(__response__, 'upstream_endpoints')))

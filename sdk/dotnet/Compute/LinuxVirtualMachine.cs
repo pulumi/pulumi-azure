@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>
@@ -678,7 +678,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>
@@ -934,12 +934,6 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
-        /// </summary>
-        [Input("vmAgentPlatformUpdatesEnabled")]
-        public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
-
-        /// <summary>
         /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
@@ -1077,7 +1071,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// &gt; **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed#ssh-keys-use-and-benefits).
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
         /// </summary>

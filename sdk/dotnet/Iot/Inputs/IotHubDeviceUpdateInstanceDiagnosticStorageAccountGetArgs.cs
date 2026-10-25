@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Iot.Inputs
 
     public sealed class IotHubDeviceUpdateInstanceDiagnosticStorageAccountGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("connectionString", required: true)]
+        [Input("connectionString")]
         private Input<string>? _connectionString;
 
         /// <summary>
@@ -27,6 +27,31 @@ namespace Pulumi.Azure.Iot.Inputs
                 _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("connectionStringWo")]
+        private Input<string>? _connectionStringWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Connection String of the Diagnostic Storage Account.
+        /// 
+        /// &gt; **Note:** Exactly one of `ConnectionString` or `ConnectionStringWo` must be specified.
+        /// </summary>
+        public Input<string>? ConnectionStringWo
+        {
+            get => _connectionStringWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionStringWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `ConnectionStringWo`. Possible values are integers greater than `1`.
+        /// </summary>
+        [Input("connectionStringWoVersion")]
+        public Input<int>? ConnectionStringWoVersion { get; set; }
 
         /// <summary>
         /// Resource ID of the Diagnostic Storage Account.

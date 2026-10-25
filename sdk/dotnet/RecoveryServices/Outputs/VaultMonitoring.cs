@@ -26,7 +26,7 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
         /// </summary>
         public readonly bool? AlertsForAllReplicationIssuesEnabled;
         /// <summary>
-        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
         /// </summary>
         public readonly bool? AlertsForCriticalOperationFailuresEnabled;
         /// <summary>

@@ -204,7 +204,7 @@ class ComputeClusterSsh(dict):
         :param _builtins.str admin_password: Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param _builtins.str key_value: SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
                
-               > **Note:** At least one of `admin_password` and `key_value` shoud be specified.
+               > **Note:** At least one of `admin_password` and `key_value` should be specified.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -234,7 +234,7 @@ class ComputeClusterSsh(dict):
         """
         SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 
-        > **Note:** At least one of `admin_password` and `key_value` shoud be specified.
+        > **Note:** At least one of `admin_password` and `key_value` should be specified.
         """
         return pulumi.get(self, "key_value")
 

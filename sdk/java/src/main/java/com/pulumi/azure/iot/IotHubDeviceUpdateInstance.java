@@ -133,14 +133,14 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
         return this.deviceUpdateAccountId;
     }
     /**
-     * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * Whether the diagnostic log collection is enabled. Defaults to `false`.
      * 
      */
     @Export(name="diagnosticEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diagnosticEnabled;
 
     /**
-     * @return Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
+     * @return Whether the diagnostic log collection is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> diagnosticEnabled() {

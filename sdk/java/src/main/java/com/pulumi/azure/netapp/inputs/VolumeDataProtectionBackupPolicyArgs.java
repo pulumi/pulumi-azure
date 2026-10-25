@@ -50,7 +50,7 @@ public final class VolumeDataProtectionBackupPolicyArgs extends com.pulumi.resou
     /**
      * Enables the backup policy on the volume, defaults to `true`.
      * 
-     * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+     * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
      * 
      */
     @Import(name="policyEnabled")
@@ -59,7 +59,7 @@ public final class VolumeDataProtectionBackupPolicyArgs extends com.pulumi.resou
     /**
      * @return Enables the backup policy on the volume, defaults to `true`.
      * 
-     * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+     * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
      * 
      */
     public Optional<Output<Boolean>> policyEnabled() {
@@ -137,7 +137,7 @@ public final class VolumeDataProtectionBackupPolicyArgs extends com.pulumi.resou
         /**
          * @param policyEnabled Enables the backup policy on the volume, defaults to `true`.
          * 
-         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class VolumeDataProtectionBackupPolicyArgs extends com.pulumi.resou
         /**
          * @param policyEnabled Enables the backup policy on the volume, defaults to `true`.
          * 
-         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/azure/azure-netapp-files/backup-introduction)
          * 
          * @return builder
          * 

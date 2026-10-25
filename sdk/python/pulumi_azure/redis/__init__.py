@@ -9,11 +9,8 @@ import typing
 from .cache import *
 from .cache_access_policy import *
 from .cache_access_policy_assignment import *
-from .enterprise_cluster import *
-from .enterprise_database import *
 from .firewall_rule import *
 from .get_cache import *
-from .get_enterprise_database import *
 from .linked_server import *
 from ._inputs import *
 from . import outputs

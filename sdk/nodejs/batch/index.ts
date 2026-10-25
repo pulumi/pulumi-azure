@@ -15,11 +15,6 @@ export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
-export { CertificateArgs, CertificateState } from "./certificate";
-export type Certificate = import("./certificate").Certificate;
-export const Certificate: typeof import("./certificate").Certificate = null as any;
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -29,11 +24,6 @@ export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } fr
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-
-export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
-export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
-export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -59,8 +49,6 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:batch/application:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure:batch/certificate:Certificate":
-                return new Certificate(name, <any>undefined, { urn })
             case "azure:batch/job:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure:batch/pool:Pool":
@@ -72,6 +60,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "batch/account", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/application", _module)
-pulumi.runtime.registerResourceModule("azure", "batch/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/job", _module)
 pulumi.runtime.registerResourceModule("azure", "batch/pool", _module)

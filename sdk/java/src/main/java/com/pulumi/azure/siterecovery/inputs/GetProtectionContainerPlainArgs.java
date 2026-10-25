@@ -44,14 +44,14 @@ public final class GetProtectionContainerPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the Recovery Services Vault that the protection container is associated witth.
+     * The name of the Recovery Services Vault that the protection container is associated with.
      * 
      */
     @Import(name="recoveryVaultName", required=true)
     private String recoveryVaultName;
 
     /**
-     * @return The name of the Recovery Services Vault that the protection container is associated witth.
+     * @return The name of the Recovery Services Vault that the protection container is associated with.
      * 
      */
     public String recoveryVaultName() {
@@ -123,7 +123,7 @@ public final class GetProtectionContainerPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param recoveryVaultName The name of the Recovery Services Vault that the protection container is associated witth.
+         * @param recoveryVaultName The name of the Recovery Services Vault that the protection container is associated with.
          * 
          * @return builder
          * 

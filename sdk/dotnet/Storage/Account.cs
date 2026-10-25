@@ -82,8 +82,14 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Sql",
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Sql",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -148,10 +154,26 @@ namespace Pulumi.Azure.Storage
         public Output<string?> AccountKind { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Output("accountReplicationType")]
         public Output<string> AccountReplicationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The `AccountReplicationType` that the Storage Account is migrating to.
+        /// </summary>
+        [Output("accountReplicationTypeMigratingTo")]
+        public Output<string> AccountReplicationTypeMigratingTo { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether a replication type migration is in progress.
+        /// </summary>
+        [Output("accountReplicationTypeMigrationInProgress")]
+        public Output<bool> AccountReplicationTypeMigrationInProgress { get; private set; } = null!;
 
         /// <summary>
         /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
@@ -162,7 +184,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountTier { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `False`.
         /// 
         /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
@@ -282,7 +304,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
@@ -534,24 +556,19 @@ namespace Pulumi.Azure.Storage
         public Output<string?> ProvisionedBillingModelVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+
         [Output("publicNetworkAccessEnabled")]
-        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// </summary>
         [Output("queueEncryptionKeyType")]
         public Output<string?> QueueEncryptionKeyType { get; private set; } = null!;
-
-        /// <summary>
-        /// A `QueueProperties` block as defined below.
-        /// 
-        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
-        /// </summary>
-        [Output("queueProperties")]
-        public Output<Outputs.AccountQueueProperties> QueueProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -812,16 +829,6 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> SharedAccessKeyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `StaticWebsite` block as defined below.
-        /// 
-        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
-        /// 
-        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-        /// </summary>
-        [Output("staticWebsite")]
-        public Output<Outputs.AccountStaticWebsite> StaticWebsite { get; private set; } = null!;
-
-        /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
         /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
@@ -905,7 +912,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Input("accountReplicationType", required: true)]
         public Input<string> AccountReplicationType { get; set; } = null!;
@@ -919,7 +930,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> AccountTier { get; set; } = null!;
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `False`.
         /// 
         /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
@@ -1039,7 +1050,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
@@ -1075,8 +1086,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -1085,14 +1099,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("queueEncryptionKeyType")]
         public Input<string>? QueueEncryptionKeyType { get; set; }
-
-        /// <summary>
-        /// A `QueueProperties` block as defined below.
-        /// 
-        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
-        /// </summary>
-        [Input("queueProperties")]
-        public Input<Inputs.AccountQueuePropertiesArgs>? QueueProperties { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -1137,16 +1143,6 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
         /// <summary>
-        /// A `StaticWebsite` block as defined below.
-        /// 
-        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
-        /// 
-        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-        /// </summary>
-        [Input("staticWebsite")]
-        public Input<Inputs.AccountStaticWebsiteArgs>? StaticWebsite { get; set; }
-
-        /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
         /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
@@ -1189,10 +1185,26 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+        /// 
+        /// &gt; **Note:** Changing `AccountReplicationType` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` &lt;&gt; `ZRS`, `GRS` &lt;&gt; `GZRS`, and `RAGRS` &lt;&gt; `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `AccountReplicationType` that match the type of the migration request will be suppressed.
+        /// 
+        /// &gt; **Note:** For more information on `AccountReplicationType` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         /// </summary>
         [Input("accountReplicationType")]
         public Input<string>? AccountReplicationType { get; set; }
+
+        /// <summary>
+        /// The `AccountReplicationType` that the Storage Account is migrating to.
+        /// </summary>
+        [Input("accountReplicationTypeMigratingTo")]
+        public Input<string>? AccountReplicationTypeMigratingTo { get; set; }
+
+        /// <summary>
+        /// Whether a replication type migration is in progress.
+        /// </summary>
+        [Input("accountReplicationTypeMigrationInProgress")]
+        public Input<bool>? AccountReplicationTypeMigrationInProgress { get; set; }
 
         /// <summary>
         /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
@@ -1203,7 +1215,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountTier { get; set; }
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `False`.
         /// 
         /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
@@ -1323,7 +1335,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
@@ -1605,8 +1617,11 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `True`.
+        /// The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -1615,14 +1630,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("queueEncryptionKeyType")]
         public Input<string>? QueueEncryptionKeyType { get; set; }
-
-        /// <summary>
-        /// A `QueueProperties` block as defined below.
-        /// 
-        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
-        /// </summary>
-        [Input("queueProperties")]
-        public Input<Inputs.AccountQueuePropertiesGetArgs>? QueueProperties { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -1911,16 +1918,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("sharedAccessKeyEnabled")]
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
-
-        /// <summary>
-        /// A `StaticWebsite` block as defined below.
-        /// 
-        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
-        /// 
-        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-        /// </summary>
-        [Input("staticWebsite")]
-        public Input<Inputs.AccountStaticWebsiteGetArgs>? StaticWebsite { get; set; }
 
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

@@ -27,22 +27,34 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, accelerated_networking_enabled=None, applied_dns_servers=None, dns_servers=None, id=None, internal_dns_name_label=None, ip_configurations=None, ip_forwarding_enabled=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
+    def __init__(__self__, accelerated_networking_enabled=None, applied_dns_servers=None, auxiliary_mode=None, auxiliary_sku=None, dns_servers=None, edge_zone=None, id=None, internal_dns_name_label=None, internal_domain_name_suffix=None, ip_configurations=None, ip_forwarding_enabled=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
         if accelerated_networking_enabled and not isinstance(accelerated_networking_enabled, bool):
             raise TypeError("Expected argument 'accelerated_networking_enabled' to be a bool")
         pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if applied_dns_servers and not isinstance(applied_dns_servers, list):
             raise TypeError("Expected argument 'applied_dns_servers' to be a list")
         pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
+        if auxiliary_mode and not isinstance(auxiliary_mode, str):
+            raise TypeError("Expected argument 'auxiliary_mode' to be a str")
+        pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku and not isinstance(auxiliary_sku, str):
+            raise TypeError("Expected argument 'auxiliary_sku' to be a str")
+        pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         pulumi.set(__self__, "dns_servers", dns_servers)
+        if edge_zone and not isinstance(edge_zone, str):
+            raise TypeError("Expected argument 'edge_zone' to be a str")
+        pulumi.set(__self__, "edge_zone", edge_zone)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if internal_dns_name_label and not isinstance(internal_dns_name_label, str):
             raise TypeError("Expected argument 'internal_dns_name_label' to be a str")
         pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+        if internal_domain_name_suffix and not isinstance(internal_domain_name_suffix, str):
+            raise TypeError("Expected argument 'internal_domain_name_suffix' to be a str")
+        pulumi.set(__self__, "internal_domain_name_suffix", internal_domain_name_suffix)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -94,12 +106,36 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "applied_dns_servers")
 
     @_builtins.property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> _builtins.str:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> _builtins.str:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+        """
+        return pulumi.get(self, "auxiliary_sku")
+
+    @_builtins.property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Sequence[_builtins.str]:
         """
         The list of DNS servers used by the specified Network Interface.
         """
         return pulumi.get(self, "dns_servers")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> _builtins.str:
+        """
+        Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @_builtins.property
     @pulumi.getter
@@ -116,6 +152,14 @@ class GetNetworkInterfaceResult:
         The internal DNS name label of the specified Network Interface.
         """
         return pulumi.get(self, "internal_dns_name_label")
+
+    @_builtins.property
+    @pulumi.getter(name="internalDomainNameSuffix")
+    def internal_domain_name_suffix(self) -> _builtins.str:
+        """
+        Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM.
+        """
+        return pulumi.get(self, "internal_domain_name_suffix")
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -211,9 +255,13 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
         return GetNetworkInterfaceResult(
             accelerated_networking_enabled=self.accelerated_networking_enabled,
             applied_dns_servers=self.applied_dns_servers,
+            auxiliary_mode=self.auxiliary_mode,
+            auxiliary_sku=self.auxiliary_sku,
             dns_servers=self.dns_servers,
+            edge_zone=self.edge_zone,
             id=self.id,
             internal_dns_name_label=self.internal_dns_name_label,
+            internal_domain_name_suffix=self.internal_domain_name_suffix,
             ip_configurations=self.ip_configurations,
             ip_forwarding_enabled=self.ip_forwarding_enabled,
             location=self.location,
@@ -249,7 +297,7 @@ def get_network_interface(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Network Interface.
@@ -264,9 +312,13 @@ def get_network_interface(name: Optional[_builtins.str] = None,
     return AwaitableGetNetworkInterfaceResult(
         accelerated_networking_enabled=pulumi.get(__ret__, 'accelerated_networking_enabled'),
         applied_dns_servers=pulumi.get(__ret__, 'applied_dns_servers'),
+        auxiliary_mode=pulumi.get(__ret__, 'auxiliary_mode'),
+        auxiliary_sku=pulumi.get(__ret__, 'auxiliary_sku'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        edge_zone=pulumi.get(__ret__, 'edge_zone'),
         id=pulumi.get(__ret__, 'id'),
         internal_dns_name_label=pulumi.get(__ret__, 'internal_dns_name_label'),
+        internal_domain_name_suffix=pulumi.get(__ret__, 'internal_domain_name_suffix'),
         ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
         ip_forwarding_enabled=pulumi.get(__ret__, 'ip_forwarding_enabled'),
         location=pulumi.get(__ret__, 'location'),
@@ -300,7 +352,7 @@ def get_network_interface_output(name: pulumi.Input[Optional[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the Network Interface.
@@ -314,9 +366,13 @@ def get_network_interface_output(name: pulumi.Input[Optional[_builtins.str]] = N
     return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
         accelerated_networking_enabled=pulumi.get(__response__, 'accelerated_networking_enabled'),
         applied_dns_servers=pulumi.get(__response__, 'applied_dns_servers'),
+        auxiliary_mode=pulumi.get(__response__, 'auxiliary_mode'),
+        auxiliary_sku=pulumi.get(__response__, 'auxiliary_sku'),
         dns_servers=pulumi.get(__response__, 'dns_servers'),
+        edge_zone=pulumi.get(__response__, 'edge_zone'),
         id=pulumi.get(__response__, 'id'),
         internal_dns_name_label=pulumi.get(__response__, 'internal_dns_name_label'),
+        internal_domain_name_suffix=pulumi.get(__response__, 'internal_domain_name_suffix'),
         ip_configurations=pulumi.get(__response__, 'ip_configurations'),
         ip_forwarding_enabled=pulumi.get(__response__, 'ip_forwarding_enabled'),
         location=pulumi.get(__response__, 'location'),

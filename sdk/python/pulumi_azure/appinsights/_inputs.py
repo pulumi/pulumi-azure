@@ -52,7 +52,7 @@ class StandardWebTestRequestArgsDict(TypedDict):
     """
     parse_dependent_requests_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the parsing of dependend requests be enabled? Defaults to `true`.
+    Should the parsing of dependent requests be enabled? Defaults to `true`.
     """
 
 @pulumi.input_type
@@ -70,7 +70,7 @@ class StandardWebTestRequestArgs:
         :param pulumi.Input[_builtins.bool] follow_redirects_enabled: Should the following of redirects be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
         :param pulumi.Input[_builtins.str] http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
-        :param pulumi.Input[_builtins.bool] parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] parse_dependent_requests_enabled: Should the parsing of dependent requests be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "url", url)
         if body is not None:
@@ -148,7 +148,7 @@ class StandardWebTestRequestArgs:
     @pulumi.getter(name="parseDependentRequestsEnabled")
     def parse_dependent_requests_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the parsing of dependend requests be enabled? Defaults to `true`.
+        Should the parsing of dependent requests be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "parse_dependent_requests_enabled")
 
@@ -470,7 +470,7 @@ class WorkbookTemplateGalleryArgsDict(TypedDict):
     """
     Type of workbook supported by the workbook template. Defaults to `workbook`.
 
-    > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+    > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
     """
 
 @pulumi.input_type
@@ -488,7 +488,7 @@ class WorkbookTemplateGalleryArgs:
         :param pulumi.Input[_builtins.str] resource_type: Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
         :param pulumi.Input[_builtins.str] type: Type of workbook supported by the workbook template. Defaults to `workbook`.
                
-               > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+               > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
@@ -553,7 +553,7 @@ class WorkbookTemplateGalleryArgs:
         """
         Type of workbook supported by the workbook template. Defaults to `workbook`.
 
-        > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+        > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
         return pulumi.get(self, "type")
 

@@ -24,10 +24,16 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Storage.GetTable.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "exampleaccount",
+        ///         ResourceGroupName = "examples",
+        ///     });
+        /// 
+        ///     var exampleGetTable = Azure.Storage.GetTable.Invoke(new()
         ///     {
         ///         Name = "example-table-name",
-        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         /// });
@@ -49,10 +55,16 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Storage.GetTable.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "exampleaccount",
+        ///         ResourceGroupName = "examples",
+        ///     });
+        /// 
+        ///     var exampleGetTable = Azure.Storage.GetTable.Invoke(new()
         ///     {
         ///         Name = "example-table-name",
-        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         /// });
@@ -74,10 +86,16 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Storage.GetTable.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "exampleaccount",
+        ///         ResourceGroupName = "examples",
+        ///     });
+        /// 
+        ///     var exampleGetTable = Azure.Storage.GetTable.Invoke(new()
         ///     {
         ///         Name = "example-table-name",
-        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         /// });
@@ -99,16 +117,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the Storage Account where the Table exists.
         /// </summary>
-        [Input("storageAccountId")]
-        public string? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Table exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public string StorageAccountId { get; set; } = null!;
 
         public GetTableArgs()
         {
@@ -127,16 +137,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the Storage Account where the Table exists.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Table exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public GetTableInvokeArgs()
         {
@@ -162,7 +164,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string ResourceManagerId;
         public readonly string StorageAccountId;
-        public readonly string StorageAccountName;
 
         [OutputConstructor]
         private GetTableResult(
@@ -174,16 +175,13 @@ namespace Pulumi.Azure.Storage
 
             string resourceManagerId,
 
-            string storageAccountId,
-
-            string storageAccountName)
+            string storageAccountId)
         {
             Acls = acls;
             Id = id;
             Name = name;
             ResourceManagerId = resourceManagerId;
             StorageAccountId = storageAccountId;
-            StorageAccountName = storageAccountName;
         }
     }
 }

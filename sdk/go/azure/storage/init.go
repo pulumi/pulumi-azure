@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataLakeGen2Filesystem{}
 	case "azure:storage/dataLakeGen2Path:DataLakeGen2Path":
 		r = &DataLakeGen2Path{}
+	case "azure:storage/discoveryWorkspace:DiscoveryWorkspace":
+		r = &DiscoveryWorkspace{}
 	case "azure:storage/encryptionScope:EncryptionScope":
 		r = &EncryptionScope{}
 	case "azure:storage/localUser:LocalUser":
@@ -158,6 +160,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/dataLakeGen2Path",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/discoveryWorkspace",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

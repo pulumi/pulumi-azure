@@ -68,8 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("test")
- *             .resourceGroupName(example.name())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
@@ -111,18 +110,18 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateDnsZoneName", refs={String.class}, tree="[0]")
-    private Output<String> privateDnsZoneName;
+    @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
+    private Output<String> privateDnsZoneId;
 
     /**
-     * @return The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> privateDnsZoneName() {
-        return this.privateDnsZoneName;
+    public Output<String> privateDnsZoneId() {
+        return this.privateDnsZoneId;
     }
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
@@ -151,20 +150,6 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      */
     public Output<String> resolutionPolicy() {
         return this.resolutionPolicy;
-    }
-    /**
-     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * A mapping of tags to assign to the resource.

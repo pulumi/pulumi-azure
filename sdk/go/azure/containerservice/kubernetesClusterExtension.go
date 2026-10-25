@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,7 +94,7 @@ type KubernetesClusterExtension struct {
 	ConfigurationSettings pulumi.StringMapOutput `pulumi:"configurationSettings"`
 	// The current version of the extension.
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringOutput `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -156,7 +156,7 @@ type kubernetesClusterExtensionState struct {
 	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
 	// The current version of the extension.
 	CurrentVersion *string `pulumi:"currentVersion"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 	ExtensionType *string `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name *string `pulumi:"name"`
@@ -183,7 +183,7 @@ type KubernetesClusterExtensionState struct {
 	ConfigurationSettings pulumi.StringMapInput
 	// The current version of the extension.
 	CurrentVersion pulumi.StringPtrInput
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringPtrInput
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type kubernetesClusterExtensionArgs struct {
 	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
 	// Configuration settings, as name-value pairs for configuring this extension.
 	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 	ExtensionType string `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name *string `pulumi:"name"`
@@ -234,7 +234,7 @@ type KubernetesClusterExtensionArgs struct {
 	ConfigurationProtectedSettings pulumi.StringMapInput
 	// Configuration settings, as name-value pairs for configuring this extension.
 	ConfigurationSettings pulumi.StringMapInput
-	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 	ExtensionType pulumi.StringInput
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringPtrInput
@@ -364,7 +364,7 @@ func (o KubernetesClusterExtensionOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }
 
-// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
+// Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
 func (o KubernetesClusterExtensionOutput) ExtensionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) pulumi.StringOutput { return v.ExtensionType }).(pulumi.StringOutput)
 }

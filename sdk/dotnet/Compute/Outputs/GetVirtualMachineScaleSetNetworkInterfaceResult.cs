@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetVirtualMachineScaleSetNetworkInterfaceResult
     {
         /// <summary>
+        /// Whether accelerated networking is enabled.
+        /// </summary>
+        public readonly bool AcceleratedNetworkingEnabled;
+        /// <summary>
         /// The auxiliary mode for the network interface.
         /// </summary>
         public readonly string AuxiliaryMode;
@@ -26,17 +30,13 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// Whether accelerated networking is enabled.
-        /// </summary>
-        public readonly bool EnableAcceleratedNetworking;
-        /// <summary>
-        /// Whether IP forwarding is enabled on this NIC.
-        /// </summary>
-        public readonly bool EnableIpForwarding;
-        /// <summary>
         /// An `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> IpConfigurations;
+        /// <summary>
+        /// Whether IP forwarding is enabled on this NIC.
+        /// </summary>
+        public readonly bool IpForwardingEnabled;
         /// <summary>
         /// The name of this Virtual Machine Scale Set.
         /// </summary>
@@ -52,17 +52,17 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetNetworkInterfaceResult(
+            bool acceleratedNetworkingEnabled,
+
             string auxiliaryMode,
 
             string auxiliarySku,
 
             ImmutableArray<string> dnsServers,
 
-            bool enableAcceleratedNetworking,
-
-            bool enableIpForwarding,
-
             ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> ipConfigurations,
+
+            bool ipForwardingEnabled,
 
             string name,
 
@@ -70,12 +70,12 @@ namespace Pulumi.Azure.Compute.Outputs
 
             bool primary)
         {
+            AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             AuxiliaryMode = auxiliaryMode;
             AuxiliarySku = auxiliarySku;
             DnsServers = dnsServers;
-            EnableAcceleratedNetworking = enableAcceleratedNetworking;
-            EnableIpForwarding = enableIpForwarding;
             IpConfigurations = ipConfigurations;
+            IpForwardingEnabled = ipForwardingEnabled;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
             Primary = primary;

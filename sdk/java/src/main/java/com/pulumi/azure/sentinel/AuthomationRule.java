@@ -155,14 +155,14 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actionPlaybooks);
     }
     /**
-     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
     @Export(name="conditionJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionJson;
 
     /**
-     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
     public Output<Optional<String>> conditionJson() {

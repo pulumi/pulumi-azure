@@ -30,7 +30,7 @@ public final class AutoscaleSettingProfileRecurrence {
      */
     private Integer minutes;
     /**
-     * @return The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+     * @return The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     private @Nullable String timezone;
@@ -58,7 +58,7 @@ public final class AutoscaleSettingProfileRecurrence {
         return this.minutes;
     }
     /**
-     * @return The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+     * @return The Time Zone used for the `hours` field. A list of [possible values can be found here](https://learn.microsoft.com/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     public Optional<String> timezone() {

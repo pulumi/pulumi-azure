@@ -123,14 +123,14 @@ public final class WatcherState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      * 
      */
     @Import(name="scriptParameters")
     private @Nullable Output<Map<String,String>> scriptParameters;
 
     /**
-     * @return Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+     * @return Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> scriptParameters() {
@@ -364,7 +364,7 @@ public final class WatcherState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptParameters Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+         * @param scriptParameters Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class WatcherState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptParameters Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
+         * @param scriptParameters Specifies a list of key-value parameters. Changing this forces a new Automation watcher to be created.
          * 
          * @return builder
          * 

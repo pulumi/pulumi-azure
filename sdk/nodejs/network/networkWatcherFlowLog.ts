@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Watcher Flow Log.
  *
- * > **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
+ * > **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecycle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
  *
  * ## Example Usage
  *
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  *
  * ## Import
  *
@@ -123,10 +123,6 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    declare public readonly networkSecurityGroupId: pulumi.Output<string>;
-    /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
     declare public readonly networkWatcherName: pulumi.Output<string>;
@@ -157,7 +153,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     declare public readonly trafficAnalytics: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      */
     declare public readonly version: pulumi.Output<number | undefined>;
 
@@ -177,7 +173,6 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
-            resourceInputs["networkSecurityGroupId"] = state?.networkSecurityGroupId;
             resourceInputs["networkWatcherName"] = state?.networkWatcherName;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["retentionPolicy"] = state?.retentionPolicy;
@@ -203,10 +198,12 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
+            if (args?.targetResourceId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetResourceId'");
+            }
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
-            resourceInputs["networkSecurityGroupId"] = args?.networkSecurityGroupId;
             resourceInputs["networkWatcherName"] = args?.networkWatcherName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionPolicy"] = args?.retentionPolicy;
@@ -238,10 +235,6 @@ export interface NetworkWatcherFlowLogState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    networkSecurityGroupId?: pulumi.Input<string | undefined>;
-    /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
     networkWatcherName?: pulumi.Input<string | undefined>;
@@ -272,7 +265,7 @@ export interface NetworkWatcherFlowLogState {
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      */
     version?: pulumi.Input<number | undefined>;
 }
@@ -293,10 +286,6 @@ export interface NetworkWatcherFlowLogArgs {
      * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    networkSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
@@ -322,13 +311,13 @@ export interface NetworkWatcherFlowLogArgs {
      *
      * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
-    targetResourceId?: pulumi.Input<string | undefined>;
+    targetResourceId: pulumi.Input<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+     * The version (revision) of the flow log. Possible values are `1`, `2` and `5`. Defaults to `1`.
      */
     version?: pulumi.Input<number | undefined>;
 }

@@ -32,14 +32,14 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the resource or application that manages this Resource Group.
+     * The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
     @Import(name="managedBy")
     private @Nullable Output<String> managedBy;
 
     /**
-     * @return The ID of the resource or application that manages this Resource Group.
+     * @return The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
     public Optional<Output<String>> managedBy() {
@@ -125,7 +125,7 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param managedBy The ID of the resource or application that manages this Resource Group.
+         * @param managedBy The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ResourceGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param managedBy The ID of the resource or application that manages this Resource Group.
+         * @param managedBy The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
          * 
          * @return builder
          * 

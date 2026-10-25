@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a NetApp Account Encryption Resource.
  *
- * For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+ * For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/azure/azure-netapp-files/configure-customer-managed-keys)
  *
  * ## Example Usage
  *
@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  *
  * ## Import
  *
@@ -169,7 +169,7 @@ export class AccountEncryption extends pulumi.CustomResource {
      */
     declare public readonly netappAccountId: pulumi.Output<string>;
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      */
     declare public readonly systemAssignedIdentityPrincipalId: pulumi.Output<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface AccountEncryptionState {
      */
     netappAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      */
     systemAssignedIdentityPrincipalId?: pulumi.Input<string | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface AccountEncryptionArgs {
      */
     netappAccountId: pulumi.Input<string>;
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      */
     systemAssignedIdentityPrincipalId?: pulumi.Input<string | undefined>;
     /**

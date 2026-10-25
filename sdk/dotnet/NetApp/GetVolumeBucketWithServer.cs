@@ -43,7 +43,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Task<GetVolumeBucketWithServerResult> InvokeAsync(GetVolumeBucketWithServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeBucketWithServerResult>("azure:netapp/getVolumeBucketWithServer:getVolumeBucketWithServer", args ?? new GetVolumeBucketWithServerArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeBucketWithServerResult> Invoke(GetVolumeBucketWithServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeBucketWithServerResult>("azure:netapp/getVolumeBucketWithServer:getVolumeBucketWithServer", args ?? new GetVolumeBucketWithServerInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeBucketWithServerResult> Invoke(GetVolumeBucketWithServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeBucketWithServerResult>("azure:netapp/getVolumeBucketWithServer:getVolumeBucketWithServer", args ?? new GetVolumeBucketWithServerInvokeArgs(), options.WithDefaults());

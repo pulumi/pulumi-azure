@@ -64,7 +64,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The ID of the resource or application that manages this Resource Group.
+     * The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      */
     declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +114,7 @@ export interface ResourceGroupState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the resource or application that manages this Resource Group.
+     * The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      */
     managedBy?: pulumi.Input<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface ResourceGroupArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the resource or application that manages this Resource Group.
+     * The ID of the resource or application that manages this Resource Group. Changing this forces a new Resource Group to be created.
      */
     managedBy?: pulumi.Input<string | undefined>;
     /**

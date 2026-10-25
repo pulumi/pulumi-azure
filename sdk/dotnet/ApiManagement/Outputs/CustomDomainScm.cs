@@ -30,10 +30,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly string HostName;
         public readonly string? KeyVaultCertificateId;
         /// <summary>
-        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        /// </summary>
-        public readonly string? KeyVaultId;
-        /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
@@ -62,8 +58,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? keyVaultCertificateId,
 
-            string? keyVaultId,
-
             bool? negotiateClientCertificate,
 
             string? sslKeyvaultIdentityClientId,
@@ -79,7 +73,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             Expiry = expiry;
             HostName = hostName;
             KeyVaultCertificateId = keyVaultCertificateId;
-            KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
             SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
             Subject = subject;

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Channels Registration.
     /// 
-    /// &gt; **Note:** Bot Channels Registration has been [deprecated by Azure](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-resources-faq-azure?view=azure-bot-service-4.0#why-are-web-app-bot-and-bot-channel-registration-being-deprecated). New implementations should use the `azure.bot.ServiceAzureBot` resource.
+    /// &gt; **Note:** Bot Channels Registration has been [deprecated by Azure](https://learn.microsoft.com/azure/bot-service/bot-service-resources-faq-azure?view=azure-bot-service-4.0#why-are-web-app-bot-and-bot-channel-registration-being-deprecated). New implementations should use the `azure.bot.ServiceAzureBot` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -312,8 +312,8 @@ namespace Pulumi.Azure.Bot
         /// 
         /// &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         /// </summary>
-        [Input("microsoftAppType")]
-        public Input<string>? MicrosoftAppType { get; set; }
+        [Input("microsoftAppType", required: true)]
+        public Input<string> MicrosoftAppType { get; set; } = null!;
 
         /// <summary>
         /// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.

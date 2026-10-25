@@ -70,6 +70,21 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     * 
+     */
+    @Import(name="noHealthyBackendsBehavior")
+    private @Nullable Output<String> noHealthyBackendsBehavior;
+
+    /**
+     * @return Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     * 
+     */
+    public Optional<Output<String>> noHealthyBackendsBehavior() {
+        return Optional.ofNullable(this.noHealthyBackendsBehavior);
+    }
+
+    /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
@@ -151,6 +166,7 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         this.loadBalancerRules = $.loadBalancerRules;
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
+        this.noHealthyBackendsBehavior = $.noHealthyBackendsBehavior;
         this.numberOfProbes = $.numberOfProbes;
         this.port = $.port;
         this.probeThreshold = $.probeThreshold;
@@ -250,6 +266,27 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param noHealthyBackendsBehavior Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noHealthyBackendsBehavior(@Nullable Output<String> noHealthyBackendsBehavior) {
+            $.noHealthyBackendsBehavior = noHealthyBackendsBehavior;
+            return this;
+        }
+
+        /**
+         * @param noHealthyBackendsBehavior Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noHealthyBackendsBehavior(String noHealthyBackendsBehavior) {
+            return noHealthyBackendsBehavior(Output.of(noHealthyBackendsBehavior));
         }
 
         /**

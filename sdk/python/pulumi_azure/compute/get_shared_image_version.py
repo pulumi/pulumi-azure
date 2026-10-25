@@ -218,7 +218,7 @@ def get_shared_image_version(gallery_name: Optional[_builtins.str] = None,
            
            > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
            
-           > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+           > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exclude_from_latest` set to `true`.
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param _builtins.bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     :param Mapping[str, _builtins.str] tags: A mapping of tags assigned to the Shared Image.
@@ -283,7 +283,7 @@ def get_shared_image_version_output(gallery_name: pulumi.Input[Optional[_builtin
            
            > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
            
-           > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+           > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exclude_from_latest` set to `true`.
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param _builtins.bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     :param Mapping[str, _builtins.str] tags: A mapping of tags assigned to the Shared Image.

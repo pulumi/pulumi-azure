@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2738,7 +2738,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
 	Option string `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement *string `pulumi:"placement"`
 }
 
@@ -2758,7 +2758,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	Option pulumi.StringInput `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -2846,7 +2846,7 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringO
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -2887,7 +2887,7 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.Stri
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -3658,10 +3658,10 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
-	// Should automatic rollbacks be disabled?
-	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
+	// Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
+	AutomaticOsUpgradeEnabled bool `pulumi:"automaticOsUpgradeEnabled"`
+	// Whether automatic rollbacks are enabled.
+	AutomaticRollbackEnabled bool `pulumi:"automaticRollbackEnabled"`
 }
 
 // LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs and LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput values.
@@ -3676,10 +3676,10 @@ type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
-	// Should automatic rollbacks be disabled?
-	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
+	// Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
+	AutomaticOsUpgradeEnabled pulumi.BoolInput `pulumi:"automaticOsUpgradeEnabled"`
+	// Whether automatic rollbacks are enabled.
+	AutomaticRollbackEnabled pulumi.BoolInput `pulumi:"automaticRollbackEnabled"`
 }
 
 func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ElementType() reflect.Type {
@@ -3759,14 +3759,14 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtua
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-// Should automatic rollbacks be disabled?
-func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+// Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) AutomaticOsUpgradeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.AutomaticOsUpgradeEnabled }).(pulumi.BoolOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+// Whether automatic rollbacks are enabled.
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) AutomaticRollbackEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.AutomaticRollbackEnabled }).(pulumi.BoolOutput)
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -3793,23 +3793,23 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() Lin
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
-// Should automatic rollbacks be disabled?
-func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolPtrOutput {
+// Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) AutomaticOsUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.DisableAutomaticRollback
+		return &v.AutomaticOsUpgradeEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolPtrOutput {
+// Whether automatic rollbacks are enabled.
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) AutomaticRollbackEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.EnableAutomaticOsUpgrade
+		return &v.AutomaticRollbackEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3983,10 +3983,6 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType string `pulumi:"storageAccountType"`
-	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
 	// > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -4029,10 +4025,6 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
 	// > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -4139,16 +4131,6 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutput
 // > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
-}
-
-// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -4870,6 +4852,8 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOut
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterface struct {
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+	AcceleratedNetworkingEnabled *bool `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -4880,12 +4864,10 @@ type LinuxVirtualMachineScaleSetNetworkInterface struct {
 	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Defaults to `false`.
-	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
+	IpForwardingEnabled *bool `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -4908,6 +4890,8 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+	AcceleratedNetworkingEnabled pulumi.BoolPtrInput `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -4918,12 +4902,10 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Defaults to `false`.
-	EnableIpForwarding pulumi.BoolPtrInput `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
+	IpForwardingEnabled pulumi.BoolPtrInput `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -4985,6 +4967,11 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachine
 	return o
 }
 
+// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 //
 // > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -5004,21 +4991,16 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.S
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
-}
-
-// Does this Network Interface support IP Forwarding? Defaults to `false`.
-func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
-}
-
 // One or more `ipConfiguration` blocks as defined above.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
 	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// Does this Network Interface support IP Forwarding? Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.IpForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -5559,8 +5541,6 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-	//
-	// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
@@ -5603,8 +5583,6 @@ type LinuxVirtualMachineScaleSetOsDiskArgs struct {
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-	//
-	// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
@@ -5729,8 +5707,6 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecureVmDiskEncryptionSetId() p
 // Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 //
 // > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-//
-// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
@@ -5832,8 +5808,6 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecureVmDiskEncryptionSetId(
 // Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 //
 // > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-//
-// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -5868,7 +5842,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pu
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -5886,7 +5860,7 @@ type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -5972,7 +5946,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -6011,7 +5985,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -8865,16 +8839,14 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	DiskIopsReadWrite   *int    `pulumi:"diskIopsReadWrite"`
+	DiskMbpsReadWrite   *int    `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
 	Lun *int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -8897,16 +8869,14 @@ type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskIopsReadWrite   pulumi.IntPtrInput    `pulumi:"diskIopsReadWrite"`
+	DiskMbpsReadWrite   pulumi.IntPtrInput    `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
@@ -8977,6 +8947,14 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() 
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
+}
+
 // The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
@@ -8990,16 +8968,6 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntPtrOut
 // The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
-}
-
-// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
@@ -9553,6 +9521,7 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.Strin
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
+	AcceleratedNetworkingEnabled *bool `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -9565,12 +9534,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
 	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
-	IpConfigurations []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	IpConfigurations    []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	IpForwardingEnabled *bool                                                               `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -9595,6 +9561,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	AcceleratedNetworkingEnabled pulumi.BoolPtrInput `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -9607,12 +9574,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-	EnableIpForwarding pulumi.BoolPtrInput `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
-	IpConfigurations OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	IpConfigurations    OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	IpForwardingEnabled pulumi.BoolPtrInput                                                         `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -9676,6 +9640,12 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToOrchestrated
 	return o
 }
 
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool {
+		return v.AcceleratedNetworkingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 //
 // > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -9697,21 +9667,15 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() p
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
-}
-
-// Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
-}
-
 // One or more `ipConfiguration` blocks as defined above.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
 	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.IpForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -10474,7 +10438,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabl
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -10492,7 +10456,7 @@ type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -10578,7 +10542,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option()
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -10617,7 +10581,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Optio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk`, and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -11468,11 +11432,10 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-	AdminUsername string `pulumi:"adminUsername"`
+	AdminUsername           string `pulumi:"adminUsername"`
+	AutomaticUpdatesEnabled *bool  `pulumi:"automaticUpdatesEnabled"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
-	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
 	// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
@@ -11512,11 +11475,10 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct 
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	AdminUsername           pulumi.StringInput  `pulumi:"adminUsername"`
+	AutomaticUpdatesEnabled pulumi.BoolPtrInput `pulumi:"automaticUpdatesEnabled"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput `pulumi:"computerNamePrefix"`
-	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
 	// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
@@ -11633,18 +11595,17 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) A
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AutomaticUpdatesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		return v.AutomaticUpdatesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		return v.ComputerNamePrefix
 	}).(pulumi.StringPtrOutput)
-}
-
-// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
-		return v.EnableAutomaticUpdates
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -11752,6 +11713,15 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AutomaticUpdatesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticUpdatesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
@@ -11760,16 +11730,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 		}
 		return v.ComputerNamePrefix
 	}).(pulumi.StringPtrOutput)
-}
-
-// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAutomaticUpdates
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -12903,8 +12863,6 @@ type OrchestratedVirtualMachineScaleSetSkuProfile struct {
 	//
 	// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
 	VirtualMachineSizes []OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize `pulumi:"virtualMachineSizes"`
-	// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
-	VmSizes []string `pulumi:"vmSizes"`
 }
 
 // OrchestratedVirtualMachineScaleSetSkuProfileInput is an input type that accepts OrchestratedVirtualMachineScaleSetSkuProfileArgs and OrchestratedVirtualMachineScaleSetSkuProfileOutput values.
@@ -12925,8 +12883,6 @@ type OrchestratedVirtualMachineScaleSetSkuProfileArgs struct {
 	//
 	// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
 	VirtualMachineSizes OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput `pulumi:"virtualMachineSizes"`
-	// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
-	VmSizes pulumi.StringArrayInput `pulumi:"vmSizes"`
 }
 
 func (OrchestratedVirtualMachineScaleSetSkuProfileArgs) ElementType() reflect.Type {
@@ -13020,11 +12976,6 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) VirtualMachineSizes(
 	}).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
 }
 
-// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
-func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) VmSizes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) []string { return v.VmSizes }).(pulumi.StringArrayOutput)
-}
-
 type OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) ElementType() reflect.Type {
@@ -13069,16 +13020,6 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VirtualMachineSiz
 		}
 		return v.VirtualMachineSizes
 	}).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
-}
-
-// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
-func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VmSizes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) []string {
-		if v == nil {
-			return nil
-		}
-		return v.VmSizes
-	}).(pulumi.StringArrayOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize struct {
@@ -15180,7 +15121,7 @@ type ScaleSetIdentity struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -15241,7 +15182,7 @@ type ScaleSetIdentityArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -15368,7 +15309,7 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -15454,7 +15395,7 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -22455,7 +22396,7 @@ type VirtualMachineStorageDataDisk struct {
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	//
-	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name string `pulumi:"name"`
@@ -22495,7 +22436,7 @@ type VirtualMachineStorageDataDiskArgs struct {
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	//
-	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+	// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -22589,7 +22530,7 @@ func (o VirtualMachineStorageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOut
 
 // Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 //
-// > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+// > **Note:** `managedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `true`.
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
@@ -24314,7 +24255,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
 	Option string `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement *string `pulumi:"placement"`
 }
 
@@ -24334,7 +24275,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	Option pulumi.StringInput `pulumi:"option"`
 	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+	// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -24422,7 +24363,7 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.Strin
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -24463,7 +24404,7 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.St
 
 // Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 //
-// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
+// > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/azure/virtual-machines/ephemeral-os-disks)
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -25236,10 +25177,10 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeri
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
-	// Should automatic rollbacks be disabled?
-	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
 	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
+	AutomaticOsUpgradeEnabled bool `pulumi:"automaticOsUpgradeEnabled"`
+	// Should automatic rollbacks be enabled?
+	AutomaticRollbackEnabled bool `pulumi:"automaticRollbackEnabled"`
 }
 
 // WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs and WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput values.
@@ -25254,10 +25195,10 @@ type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
-	// Should automatic rollbacks be disabled?
-	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
 	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
+	AutomaticOsUpgradeEnabled pulumi.BoolInput `pulumi:"automaticOsUpgradeEnabled"`
+	// Should automatic rollbacks be enabled?
+	AutomaticRollbackEnabled pulumi.BoolInput `pulumi:"automaticRollbackEnabled"`
 }
 
 func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ElementType() reflect.Type {
@@ -25337,14 +25278,14 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVi
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-// Should automatic rollbacks be disabled?
-func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) AutomaticOsUpgradeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.AutomaticOsUpgradeEnabled }).(pulumi.BoolOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+// Should automatic rollbacks be enabled?
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) AutomaticRollbackEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.AutomaticRollbackEnabled }).(pulumi.BoolOutput)
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -25371,23 +25312,23 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() W
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
-// Should automatic rollbacks be disabled?
-func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolPtrOutput {
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) AutomaticOsUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.DisableAutomaticRollback
+		return &v.AutomaticOsUpgradeEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
-func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolPtrOutput {
+// Should automatic rollbacks be enabled?
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) AutomaticRollbackEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.EnableAutomaticOsUpgrade
+		return &v.AutomaticRollbackEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -25561,10 +25502,6 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType string `pulumi:"storageAccountType"`
-	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
 	// > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -25607,10 +25544,6 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
 	// > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -25717,16 +25650,6 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutp
 // > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
-}
-
-// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -26448,6 +26371,8 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrO
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterface struct {
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+	AcceleratedNetworkingEnabled *bool `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -26458,12 +26383,10 @@ type WindowsVirtualMachineScaleSetNetworkInterface struct {
 	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Defaults to `false`.
-	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
+	IpForwardingEnabled *bool `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -26486,6 +26409,8 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+	AcceleratedNetworkingEnabled pulumi.BoolPtrInput `pulumi:"acceleratedNetworkingEnabled"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -26496,12 +26421,10 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Does this Network Interface support IP Forwarding? Defaults to `false`.
-	EnableIpForwarding pulumi.BoolPtrInput `pulumi:"enableIpForwarding"`
 	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
+	IpForwardingEnabled pulumi.BoolPtrInput `pulumi:"ipForwardingEnabled"`
 	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -26563,6 +26486,11 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMac
 	return o
 }
 
+// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
 //
 // > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -26582,21 +26510,16 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Does this Network Interface support Accelerated Networking? Defaults to `false`.
-func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
-}
-
-// Does this Network Interface support IP Forwarding? Defaults to `false`.
-func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
-}
-
 // One or more `ipConfiguration` blocks as defined above.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
 	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// Does this Network Interface support IP Forwarding? Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.IpForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -27137,8 +27060,6 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-	//
-	// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
@@ -27181,8 +27102,6 @@ type WindowsVirtualMachineScaleSetOsDiskArgs struct {
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-	//
-	// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
@@ -27307,8 +27226,6 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecureVmDiskEncryptionSetId()
 // Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 //
 // > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-//
-// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
@@ -27410,8 +27327,6 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecureVmDiskEncryptionSetI
 // Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 //
 // > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
-//
-// > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -27446,7 +27361,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement *string `pulumi:"placement"`
 }
 
@@ -27464,7 +27379,7 @@ type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
-	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
@@ -27550,7 +27465,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
 }
@@ -27589,7 +27504,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
 		if v == nil {
@@ -32962,7 +32877,7 @@ type GetSharedImageVersionTargetRegion struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
@@ -32986,7 +32901,7 @@ type GetSharedImageVersionTargetRegionArgs struct {
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	//
-	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
@@ -33049,7 +32964,7 @@ func (o GetSharedImageVersionTargetRegionOutput) ToGetSharedImageVersionTargetRe
 //
 // > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 //
-// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
+// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `excludeFromLatest` set to `true`.
 func (o GetSharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34096,18 +34011,18 @@ func (o GetVirtualMachineScaleSetInstanceArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetVirtualMachineScaleSetNetworkInterface struct {
+	// Whether accelerated networking is enabled.
+	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
 	// The auxiliary mode for the network interface.
 	AuxiliaryMode string `pulumi:"auxiliaryMode"`
 	// The auxiliary SKU for the network interface.
 	AuxiliarySku string `pulumi:"auxiliarySku"`
 	// An array of the DNS servers in use.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Whether accelerated networking is enabled.
-	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
-	// Whether IP forwarding is enabled on this NIC.
-	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
 	// An `ipConfiguration` block as defined below.
 	IpConfigurations []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Whether IP forwarding is enabled on this NIC.
+	IpForwardingEnabled bool `pulumi:"ipForwardingEnabled"`
 	// The name of this Virtual Machine Scale Set.
 	Name string `pulumi:"name"`
 	// The identifier for the network security group.
@@ -34128,18 +34043,18 @@ type GetVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Whether accelerated networking is enabled.
+	AcceleratedNetworkingEnabled pulumi.BoolInput `pulumi:"acceleratedNetworkingEnabled"`
 	// The auxiliary mode for the network interface.
 	AuxiliaryMode pulumi.StringInput `pulumi:"auxiliaryMode"`
 	// The auxiliary SKU for the network interface.
 	AuxiliarySku pulumi.StringInput `pulumi:"auxiliarySku"`
 	// An array of the DNS servers in use.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Whether accelerated networking is enabled.
-	EnableAcceleratedNetworking pulumi.BoolInput `pulumi:"enableAcceleratedNetworking"`
-	// Whether IP forwarding is enabled on this NIC.
-	EnableIpForwarding pulumi.BoolInput `pulumi:"enableIpForwarding"`
 	// An `ipConfiguration` block as defined below.
 	IpConfigurations GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// Whether IP forwarding is enabled on this NIC.
+	IpForwardingEnabled pulumi.BoolInput `pulumi:"ipForwardingEnabled"`
 	// The name of this Virtual Machine Scale Set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The identifier for the network security group.
@@ -34199,6 +34114,11 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) ToGetVirtualMachineScal
 	return o
 }
 
+// Whether accelerated networking is enabled.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolOutput)
+}
+
 // The auxiliary mode for the network interface.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) string { return v.AuxiliaryMode }).(pulumi.StringOutput)
@@ -34214,21 +34134,16 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.Str
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Whether accelerated networking is enabled.
-func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
-}
-
-// Whether IP forwarding is enabled on this NIC.
-func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
-}
-
 // An `ipConfiguration` block as defined below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
 	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// Whether IP forwarding is enabled on this NIC.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.IpForwardingEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of this Virtual Machine Scale Set.

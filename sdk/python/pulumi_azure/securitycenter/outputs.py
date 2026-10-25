@@ -91,26 +91,25 @@ class AutomationAction(dict):
 
     def __init__(__self__, *,
                  resource_id: _builtins.str,
+                 type: _builtins.str,
                  connection_string: Optional[_builtins.str] = None,
-                 trigger_url: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
+                 trigger_url: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_id: The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+        :param _builtins.str type: Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         :param _builtins.str connection_string: A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
                
                > **Note:** `connection_string` is required when `type` is `EventHub`.
         :param _builtins.str trigger_url: The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
                
                > **Note:** `trigger_url` is required when `type` is `LogicApp`.
-        :param _builtins.str type: Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "type", type)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
         if trigger_url is not None:
             pulumi.set(__self__, "trigger_url", trigger_url)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -119,6 +118,14 @@ class AutomationAction(dict):
         The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
         """
         return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
+        """
+        return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
@@ -139,14 +146,6 @@ class AutomationAction(dict):
         > **Note:** `trigger_url` is required when `type` is `LogicApp`.
         """
         return pulumi.get(self, "trigger_url")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

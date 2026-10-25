@@ -12,7 +12,9 @@ namespace Pulumi.Azure.TrustedSigning
     public static class GetAccount
     {
         /// <summary>
-        /// Use this data source to access information about an existing Trusted Signing Account.
+        /// Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+        /// 
+        /// &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
         /// 
         /// ## Example Usage
         /// 
@@ -42,13 +44,15 @@ namespace Pulumi.Azure.TrustedSigning
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CodeSigning` - 2024-09-30-preview
+        /// * `Microsoft.CodeSigning` - 2025-10-13
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:trustedsigning/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Trusted Signing Account.
+        /// Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+        /// 
+        /// &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
         /// 
         /// ## Example Usage
         /// 
@@ -78,13 +82,15 @@ namespace Pulumi.Azure.TrustedSigning
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CodeSigning` - 2024-09-30-preview
+        /// * `Microsoft.CodeSigning` - 2025-10-13
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:trustedsigning/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Trusted Signing Account.
+        /// Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+        /// 
+        /// &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
         /// 
         /// ## Example Usage
         /// 
@@ -114,7 +120,7 @@ namespace Pulumi.Azure.TrustedSigning
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CodeSigning` - 2024-09-30-preview
+        /// * `Microsoft.CodeSigning` - 2025-10-13
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:trustedsigning/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -124,13 +130,13 @@ namespace Pulumi.Azure.TrustedSigning
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Trusted Signing Account.
+        /// The name of the Artifact Signing Account.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Trusted Signing Account exists.
+        /// The name of the Resource Group where the Artifact Signing Account exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -144,13 +150,13 @@ namespace Pulumi.Azure.TrustedSigning
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Trusted Signing Account.
+        /// The name of the Artifact Signing Account.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Trusted Signing Account exists.
+        /// The name of the Resource Group where the Artifact Signing Account exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -166,7 +172,7 @@ namespace Pulumi.Azure.TrustedSigning
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The URI of the Trusted Signing Account.
+        /// The URI of the Artifact Signing Account.
         /// </summary>
         public readonly string AccountUri;
         /// <summary>
@@ -174,17 +180,17 @@ namespace Pulumi.Azure.TrustedSigning
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Azure Region where the Trusted Signing Account exists.
+        /// The Azure Region where the Artifact Signing Account exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The sku name of the Trusted Signing Account.
+        /// The sku name of the Artifact Signing Account.
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// A mapping of tags assigned to the Trusted Signing Account.
+        /// A mapping of tags assigned to the Artifact Signing Account.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -47,72 +47,18 @@ public final class GetBlobPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Storage Account where the Container exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="storageAccountName")
-    private @Nullable String storageAccountName;
-
-    /**
-     * @return The name of the Storage Account where the Container exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<String> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
-    }
-
-    /**
      * The ID of the Storage Container where the Blob exists.
      * 
      */
-    @Import(name="storageContainerId")
-    private @Nullable String storageContainerId;
+    @Import(name="storageContainerId", required=true)
+    private String storageContainerId;
 
     /**
      * @return The ID of the Storage Container where the Blob exists.
      * 
      */
-    public Optional<String> storageContainerId() {
-        return Optional.ofNullable(this.storageContainerId);
-    }
-
-    /**
-     * The name of the Storage Container where the Blob exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="storageContainerName")
-    private @Nullable String storageContainerName;
-
-    /**
-     * @return The name of the Storage Container where the Blob exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<String> storageContainerName() {
-        return Optional.ofNullable(this.storageContainerName);
+    public String storageContainerId() {
+        return this.storageContainerId;
     }
 
     private GetBlobPlainArgs() {}
@@ -120,9 +66,7 @@ public final class GetBlobPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetBlobPlainArgs(GetBlobPlainArgs $) {
         this.metadata = $.metadata;
         this.name = $.name;
-        this.storageAccountName = $.storageAccountName;
         this.storageContainerId = $.storageContainerId;
-        this.storageContainerName = $.storageContainerName;
     }
 
     public static Builder builder() {
@@ -166,53 +110,22 @@ public final class GetBlobPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container exists.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageAccountName(@Nullable String storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
          * @param storageContainerId The ID of the Storage Container where the Blob exists.
          * 
          * @return builder
          * 
          */
-        public Builder storageContainerId(@Nullable String storageContainerId) {
+        public Builder storageContainerId(String storageContainerId) {
             $.storageContainerId = storageContainerId;
-            return this;
-        }
-
-        /**
-         * @param storageContainerName The name of the Storage Container where the Blob exists.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageContainerName(@Nullable String storageContainerName) {
-            $.storageContainerName = storageContainerName;
             return this;
         }
 
         public GetBlobPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetBlobPlainArgs", "name");
+            }
+            if ($.storageContainerId == null) {
+                throw new MissingRequiredPropertyException("GetBlobPlainArgs", "storageContainerId");
             }
             return $;
         }

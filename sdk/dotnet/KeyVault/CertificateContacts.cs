@@ -155,7 +155,7 @@ namespace Pulumi.Azure.KeyVault
 
     public sealed class CertificateContactsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("contacts")]
+        [Input("contacts", required: true)]
         private InputList<Inputs.CertificateContactsContactArgs>? _contacts;
 
         /// <summary>

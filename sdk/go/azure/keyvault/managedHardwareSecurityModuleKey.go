@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,7 +123,7 @@ type ManagedHardwareSecurityModuleKey struct {
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
 	// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
 	ManagedHsmId pulumi.StringOutput `pulumi:"managedHsmId"`
@@ -186,7 +186,7 @@ type managedHardwareSecurityModuleKeyState struct {
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 	KeyType *string `pulumi:"keyType"`
 	// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
 	ManagedHsmId *string `pulumi:"managedHsmId"`
@@ -211,7 +211,7 @@ type ManagedHardwareSecurityModuleKeyState struct {
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
-	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 	KeyType pulumi.StringPtrInput
 	// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
 	ManagedHsmId pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type managedHardwareSecurityModuleKeyArgs struct {
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
 	ManagedHsmId string `pulumi:"managedHsmId"`
@@ -264,7 +264,7 @@ type ManagedHardwareSecurityModuleKeyArgs struct {
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
-	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput
 	// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
 	ManagedHsmId pulumi.StringInput
@@ -385,7 +385,7 @@ func (o ManagedHardwareSecurityModuleKeyOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleKey) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
+// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
 func (o ManagedHardwareSecurityModuleKeyOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleKey) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }

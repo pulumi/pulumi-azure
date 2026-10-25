@@ -17,14 +17,14 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
     public static final DataCollectionRuleDataSourcesPerformanceCounterArgs Empty = new DataCollectionRuleDataSourcesPerformanceCounterArgs();
 
     /**
-     * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+     * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     @Import(name="counterSpecifiers", required=true)
     private Output<List<String>> counterSpecifiers;
 
     /**
-     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     public Output<List<String>> counterSpecifiers() {
@@ -104,7 +104,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 

@@ -14,43 +14,47 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleActions
     {
         /// <summary>
-        /// A `RequestHeaderAction` block as defined below.
+        /// One or more `ModifyRequestHeader` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleActionsRequestHeaderAction> RequestHeaderActions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleActionsModifyRequestHeader> ModifyRequestHeaders;
         /// <summary>
-        /// A `ResponseHeaderAction` block as defined below.
+        /// One or more `ModifyResponseHeader` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleActionsResponseHeaderAction> ResponseHeaderActions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleActionsModifyResponseHeader> ModifyResponseHeaders;
         /// <summary>
-        /// A `RouteConfigurationOverrideAction` block as defined below.
+        /// A `RouteConfigurationOverride` block as defined below.
+        /// 
+        /// &gt; **Note:** `RouteConfigurationOverride` conflicts with `UrlRedirect`.
         /// </summary>
-        public readonly Outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction? RouteConfigurationOverrideAction;
+        public readonly Outputs.FrontdoorRuleActionsRouteConfigurationOverride? RouteConfigurationOverride;
         /// <summary>
-        /// A `UrlRedirectAction` block as defined below. You may **not** have a `UrlRedirectAction` **and** a `UrlRewriteAction` defined in the same `Actions` block.
+        /// A `UrlRedirect` block as defined below.
+        /// 
+        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect`
         /// </summary>
-        public readonly Outputs.FrontdoorRuleActionsUrlRedirectAction? UrlRedirectAction;
+        public readonly Outputs.FrontdoorRuleActionsUrlRedirect? UrlRedirect;
         /// <summary>
-        /// A `UrlRewriteAction` block as defined below. You may **not** have a `UrlRewriteAction` **and** a `UrlRedirectAction` defined in the same `Actions` block.
+        /// A `UrlRewrite` block as defined below.
         /// </summary>
-        public readonly Outputs.FrontdoorRuleActionsUrlRewriteAction? UrlRewriteAction;
+        public readonly Outputs.FrontdoorRuleActionsUrlRewrite? UrlRewrite;
 
         [OutputConstructor]
         private FrontdoorRuleActions(
-            ImmutableArray<Outputs.FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions,
+            ImmutableArray<Outputs.FrontdoorRuleActionsModifyRequestHeader> modifyRequestHeaders,
 
-            ImmutableArray<Outputs.FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions,
+            ImmutableArray<Outputs.FrontdoorRuleActionsModifyResponseHeader> modifyResponseHeaders,
 
-            Outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction? routeConfigurationOverrideAction,
+            Outputs.FrontdoorRuleActionsRouteConfigurationOverride? routeConfigurationOverride,
 
-            Outputs.FrontdoorRuleActionsUrlRedirectAction? urlRedirectAction,
+            Outputs.FrontdoorRuleActionsUrlRedirect? urlRedirect,
 
-            Outputs.FrontdoorRuleActionsUrlRewriteAction? urlRewriteAction)
+            Outputs.FrontdoorRuleActionsUrlRewrite? urlRewrite)
         {
-            RequestHeaderActions = requestHeaderActions;
-            ResponseHeaderActions = responseHeaderActions;
-            RouteConfigurationOverrideAction = routeConfigurationOverrideAction;
-            UrlRedirectAction = urlRedirectAction;
-            UrlRewriteAction = urlRewriteAction;
+            ModifyRequestHeaders = modifyRequestHeaders;
+            ModifyResponseHeaders = modifyResponseHeaders;
+            RouteConfigurationOverride = routeConfigurationOverride;
+            UrlRedirect = urlRedirect;
+            UrlRewrite = urlRewrite;
         }
     }
 }

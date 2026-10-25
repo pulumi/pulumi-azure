@@ -1,0 +1,22 @@
+name: datafactory
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleFactory:
+    type: azure:datafactory:Factory
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+
+  # v7 fixes the spelling of `moniterMetricsAfterDuration`.
+  examplePipeline:
+    type: azure:datafactory:Pipeline
+    properties:
+      dataFactoryId: ${exampleFactory.id}
+      moniterMetricsAfterDuration: "00:30:00"

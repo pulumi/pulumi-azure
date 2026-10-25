@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 //			}
 //			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "example", &mssql.ServerExtendedAuditingPolicyArgs{
 //				ServerId:                           exampleServer.ID().ToIDOutput().ToStringOutput(),
-//				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+//				BlobStorageEndpoint:                exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
 //				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
 //				RetentionInDays:                    pulumi.Int(6),
@@ -81,11 +81,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -126,9 +126,13 @@ import (
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Sql"),
-//					pulumi.String("Microsoft.Storage"),
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Sql"),
+//					},
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
 //				},
 //				EnforcePrivateLinkEndpointNetworkPolicies: true,
 //			})
@@ -205,7 +209,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "example", &mssql.ServerExtendedAuditingPolicyArgs{
-//				StorageEndpoint:              exampleAccount.PrimaryBlobEndpoint,
+//				BlobStorageEndpoint:          exampleAccount.PrimaryBlobEndpoint,
 //				ServerId:                     exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				RetentionInDays:              pulumi.Int(6),
 //				LogMonitoringEnabled:         pulumi.Bool(false),
@@ -235,9 +239,11 @@ type ServerExtendedAuditingPolicy struct {
 
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups pulumi.StringArrayOutput `pulumi:"auditActionsAndGroups"`
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrOutput `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
@@ -253,8 +259,6 @@ type ServerExtendedAuditingPolicy struct {
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrOutput `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId pulumi.StringPtrOutput `pulumi:"storageAccountSubscriptionId"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 }
 
 // NewServerExtendedAuditingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -303,9 +307,11 @@ func GetServerExtendedAuditingPolicy(ctx *pulumi.Context,
 type serverExtendedAuditingPolicyState struct {
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
@@ -321,16 +327,16 @@ type serverExtendedAuditingPolicyState struct {
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 type ServerExtendedAuditingPolicyState struct {
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups pulumi.StringArrayInput
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
@@ -346,8 +352,6 @@ type ServerExtendedAuditingPolicyState struct {
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId pulumi.StringPtrInput
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrInput
 }
 
 func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
@@ -357,9 +361,11 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 type serverExtendedAuditingPolicyArgs struct {
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
@@ -375,17 +381,17 @@ type serverExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 // The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 type ServerExtendedAuditingPolicyArgs struct {
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups pulumi.StringArrayInput
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
@@ -401,8 +407,6 @@ type ServerExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId pulumi.StringPtrInput
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrInput
 }
 
 func (ServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
@@ -497,9 +501,14 @@ func (o ServerExtendedAuditingPolicyOutput) AuditActionsAndGroups() pulumi.Strin
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringArrayOutput { return v.AuditActionsAndGroups }).(pulumi.StringArrayOutput)
 }
 
+// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+func (o ServerExtendedAuditingPolicyOutput) BlobStorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.BlobStorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
 // Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 //
-// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 func (o ServerExtendedAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -539,11 +548,6 @@ func (o ServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary()
 // The ID of the Subscription containing the Storage Account.
 func (o ServerExtendedAuditingPolicyOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-func (o ServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type ServerExtendedAuditingPolicyArrayOutput struct{ *pulumi.OutputState }

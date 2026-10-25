@@ -137,8 +137,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The TimeSpan value after which an Azure Monitoring Metric is fired.
         /// </summary>
-        [Output("moniterMetricsAfterDuration")]
-        public Output<string?> MoniterMetricsAfterDuration { get; private set; } = null!;
+        [Output("monitorMetricsAfterDuration")]
+        public Output<string?> MonitorMetricsAfterDuration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -249,8 +249,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The TimeSpan value after which an Azure Monitoring Metric is fired.
         /// </summary>
-        [Input("moniterMetricsAfterDuration")]
-        public Input<string>? MoniterMetricsAfterDuration { get; set; }
+        [Input("monitorMetricsAfterDuration")]
+        public Input<string>? MonitorMetricsAfterDuration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -335,8 +335,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The TimeSpan value after which an Azure Monitoring Metric is fired.
         /// </summary>
-        [Input("moniterMetricsAfterDuration")]
-        public Input<string>? MoniterMetricsAfterDuration { get; set; }
+        [Input("monitorMetricsAfterDuration")]
+        public Input<string>? MonitorMetricsAfterDuration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

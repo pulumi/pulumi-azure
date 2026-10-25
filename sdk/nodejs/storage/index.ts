@@ -65,6 +65,11 @@ export type DataLakeGen2Path = import("./dataLakeGen2Path").DataLakeGen2Path;
 export const DataLakeGen2Path: typeof import("./dataLakeGen2Path").DataLakeGen2Path = null as any;
 utilities.lazyLoad(exports, ["DataLakeGen2Path"], () => require("./dataLakeGen2Path"));
 
+export { DiscoveryWorkspaceArgs, DiscoveryWorkspaceState } from "./discoveryWorkspace";
+export type DiscoveryWorkspace = import("./discoveryWorkspace").DiscoveryWorkspace;
+export const DiscoveryWorkspace: typeof import("./discoveryWorkspace").DiscoveryWorkspace = null as any;
+utilities.lazyLoad(exports, ["DiscoveryWorkspace"], () => require("./discoveryWorkspace"));
+
 export { EncryptionScopeArgs, EncryptionScopeState } from "./encryptionScope";
 export type EncryptionScope = import("./encryptionScope").EncryptionScope;
 export const EncryptionScope: typeof import("./encryptionScope").EncryptionScope = null as any;
@@ -275,6 +280,8 @@ const _module = {
                 return new DataLakeGen2Filesystem(name, <any>undefined, { urn })
             case "azure:storage/dataLakeGen2Path:DataLakeGen2Path":
                 return new DataLakeGen2Path(name, <any>undefined, { urn })
+            case "azure:storage/discoveryWorkspace:DiscoveryWorkspace":
+                return new DiscoveryWorkspace(name, <any>undefined, { urn })
             case "azure:storage/encryptionScope:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
             case "azure:storage/localUser:LocalUser":
@@ -334,6 +341,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/containerImmutabilityPol
 pulumi.runtime.registerResourceModule("azure", "storage/customerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/discoveryWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/encryptionScope", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/localUser", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)

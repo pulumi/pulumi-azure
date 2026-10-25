@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +78,7 @@ type LogAnalyticsWorkspaceOnboarding struct {
 
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 	//
 	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
@@ -121,7 +121,7 @@ func GetLogAnalyticsWorkspaceOnboarding(ctx *pulumi.Context,
 type logAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 	//
 	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
@@ -132,7 +132,7 @@ type logAnalyticsWorkspaceOnboardingState struct {
 type LogAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 	//
 	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
@@ -147,7 +147,7 @@ func (LogAnalyticsWorkspaceOnboardingState) ElementType() reflect.Type {
 type logAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 	//
 	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
@@ -159,7 +159,7 @@ type logAnalyticsWorkspaceOnboardingArgs struct {
 type LogAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 	//
 	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
@@ -256,7 +256,7 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) ToLogAnalyticsWorkspaceOnboarding
 
 // Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 //
-// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
 //
 // > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 func (o LogAnalyticsWorkspaceOnboardingOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {

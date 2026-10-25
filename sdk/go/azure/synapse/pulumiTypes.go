@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1633,7 +1633,7 @@ type WorkspaceGithubRepo struct {
 	AccountName string `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+	// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 	//
 	// > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
 	GitUrl *string `pulumi:"gitUrl"`
@@ -1661,7 +1661,7 @@ type WorkspaceGithubRepoArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+	// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 	//
 	// > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
 	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
@@ -1760,7 +1760,7 @@ func (o WorkspaceGithubRepoOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 //
 // > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
 func (o WorkspaceGithubRepoOutput) GitUrl() pulumi.StringPtrOutput {
@@ -1826,7 +1826,7 @@ func (o WorkspaceGithubRepoPtrOutput) BranchName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+// Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`.
 //
 // > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
 func (o WorkspaceGithubRepoPtrOutput) GitUrl() pulumi.StringPtrOutput {

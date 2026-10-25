@@ -26,16 +26,16 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.AAAARecord("example", new()
+        ///     var example = Azure.PrivateDns.GetAAAARecord.Invoke(new()
         ///     {
-        ///         Name = "test",
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
+        ///         Name = "example",
+        ///         ZoneName = "example-zone",
+        ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["privateDnsAaaaRecordId"] = exampleAzurermPrivateDnsAaaaRecord.Id,
+        ///         ["privateDnsAaaaRecordId"] = example.Apply(getAAAARecordResult =&gt; getAAAARecordResult.Id),
         ///     };
         /// });
         /// ```
@@ -65,16 +65,16 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.AAAARecord("example", new()
+        ///     var example = Azure.PrivateDns.GetAAAARecord.Invoke(new()
         ///     {
-        ///         Name = "test",
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
+        ///         Name = "example",
+        ///         ZoneName = "example-zone",
+        ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["privateDnsAaaaRecordId"] = exampleAzurermPrivateDnsAaaaRecord.Id,
+        ///         ["privateDnsAaaaRecordId"] = example.Apply(getAAAARecordResult =&gt; getAAAARecordResult.Id),
         ///     };
         /// });
         /// ```
@@ -104,16 +104,16 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.AAAARecord("example", new()
+        ///     var example = Azure.PrivateDns.GetAAAARecord.Invoke(new()
         ///     {
-        ///         Name = "test",
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
+        ///         Name = "example",
+        ///         ZoneName = "example-zone",
+        ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["privateDnsAaaaRecordId"] = exampleAzurermPrivateDnsAaaaRecord.Id,
+        ///         ["privateDnsAaaaRecordId"] = example.Apply(getAAAARecordResult =&gt; getAAAARecordResult.Id),
         ///     };
         /// });
         /// ```

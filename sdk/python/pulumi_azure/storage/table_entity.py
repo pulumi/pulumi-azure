@@ -29,7 +29,7 @@ class TableEntityArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_table_id: The Storage Share ID in which this file will be placed into.
+        :param pulumi.Input[_builtins.str] storage_table_id: The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "entity", entity)
         pulumi.set(__self__, "partition_key", partition_key)
@@ -76,7 +76,7 @@ class TableEntityArgs:
     @pulumi.getter(name="storageTableId")
     def storage_table_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Storage Share ID in which this file will be placed into.
+        The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_table_id")
 
@@ -98,7 +98,7 @@ class _TableEntityState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_table_id: The Storage Share ID in which this file will be placed into.
+        :param pulumi.Input[_builtins.str] storage_table_id: The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         if entity is not None:
             pulumi.set(__self__, "entity", entity)
@@ -149,7 +149,7 @@ class _TableEntityState:
     @pulumi.getter(name="storageTableId")
     def storage_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Storage Share ID in which this file will be placed into.
+        The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_table_id")
 
@@ -213,7 +213,7 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_table_id: The Storage Share ID in which this file will be placed into.
+        :param pulumi.Input[_builtins.str] storage_table_id: The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -324,7 +324,7 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_table_id: The Storage Share ID in which this file will be placed into.
+        :param pulumi.Input[_builtins.str] storage_table_id: The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -364,7 +364,7 @@ class TableEntity(pulumi.CustomResource):
     @pulumi.getter(name="storageTableId")
     def storage_table_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Storage Share ID in which this file will be placed into.
+        The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_table_id")
 

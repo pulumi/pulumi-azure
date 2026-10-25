@@ -45,7 +45,7 @@ export interface GetReplicationPolicyArgs {
      */
     name: string;
     /**
-     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
      */
     recoveryVaultName: string;
     /**
@@ -115,7 +115,7 @@ export interface GetReplicationPolicyOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+     * The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**

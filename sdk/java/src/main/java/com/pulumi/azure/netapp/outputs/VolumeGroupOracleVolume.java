@@ -62,7 +62,7 @@ public final class VolumeGroupOracleVolume {
      */
     private String name;
     /**
-     * @return Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+     * @return Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
      * 
      */
     private @Nullable String networkFeatures;
@@ -76,7 +76,7 @@ public final class VolumeGroupOracleVolume {
     /**
      * @return The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
-     * &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+     * &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
      * 
      */
     private @Nullable String proximityPlacementGroupId;
@@ -96,7 +96,7 @@ public final class VolumeGroupOracleVolume {
      */
     private Boolean snapshotDirectoryVisible;
     /**
-     * @return The maximum Storage Quota allowed for a file system in Gigabytes.
+     * @return The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
      * 
      */
     private Integer storageQuotaInGb;
@@ -126,7 +126,7 @@ public final class VolumeGroupOracleVolume {
      */
     private String volumeSpecName;
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     private @Nullable String zone;
@@ -192,7 +192,7 @@ public final class VolumeGroupOracleVolume {
         return this.name;
     }
     /**
-     * @return Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+     * @return Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
      * 
      */
     public Optional<String> networkFeatures() {
@@ -210,7 +210,7 @@ public final class VolumeGroupOracleVolume {
     /**
      * @return The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
-     * &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+     * &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
      * 
      */
     public Optional<String> proximityPlacementGroupId() {
@@ -238,7 +238,7 @@ public final class VolumeGroupOracleVolume {
         return this.snapshotDirectoryVisible;
     }
     /**
-     * @return The maximum Storage Quota allowed for a file system in Gigabytes.
+     * @return The maximum Storage Quota allowed for a file system in Gigabytes. Possible values are between `50` and `102400`.
      * 
      */
     public Integer storageQuotaInGb() {
@@ -280,7 +280,7 @@ public final class VolumeGroupOracleVolume {
         return this.volumeSpecName;
     }
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     public Optional<String> zone() {

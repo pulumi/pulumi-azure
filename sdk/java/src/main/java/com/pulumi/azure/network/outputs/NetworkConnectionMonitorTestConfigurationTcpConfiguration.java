@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
     /**
-     * @return The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+     * @return The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
      */
     private @Nullable String destinationPortBehavior;
@@ -32,7 +32,7 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
 
     private NetworkConnectionMonitorTestConfigurationTcpConfiguration() {}
     /**
-     * @return The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+     * @return The destination port behaviour for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
      */
     public Optional<String> destinationPortBehavior() {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/kusto"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,8 +89,6 @@ type Cluster struct {
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
 	// A `languageExtension` block as defined below.
-	LanguageExtension ClusterLanguageExtensionArrayOutput `pulumi:"languageExtension"`
-	// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 	LanguageExtensions ClusterLanguageExtensionArrayOutput `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -120,8 +118,6 @@ type Cluster struct {
 	TrustedExternalTenants pulumi.StringArrayOutput `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
-	// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -177,8 +173,6 @@ type clusterState struct {
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// A `languageExtension` block as defined below.
-	LanguageExtension []ClusterLanguageExtension `pulumi:"languageExtension"`
-	// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 	LanguageExtensions []ClusterLanguageExtension `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -208,8 +202,6 @@ type clusterState struct {
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
-	// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -230,8 +222,6 @@ type ClusterState struct {
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// A `languageExtension` block as defined below.
-	LanguageExtension ClusterLanguageExtensionArrayInput
-	// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 	LanguageExtensions ClusterLanguageExtensionArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -261,8 +251,6 @@ type ClusterState struct {
 	TrustedExternalTenants pulumi.StringArrayInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
-	// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -285,8 +273,6 @@ type clusterArgs struct {
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// A `languageExtension` block as defined below.
-	LanguageExtension []ClusterLanguageExtension `pulumi:"languageExtension"`
-	// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 	LanguageExtensions []ClusterLanguageExtension `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -314,8 +300,6 @@ type clusterArgs struct {
 	//
 	// > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
-	// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -335,8 +319,6 @@ type ClusterArgs struct {
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// A `languageExtension` block as defined below.
-	LanguageExtension ClusterLanguageExtensionArrayInput
-	// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 	LanguageExtensions ClusterLanguageExtensionArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -364,8 +346,6 @@ type ClusterArgs struct {
 	//
 	// > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants pulumi.StringArrayInput
-	// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -493,11 +473,6 @@ func (o ClusterOutput) Identity() ClusterIdentityPtrOutput {
 }
 
 // A `languageExtension` block as defined below.
-func (o ClusterOutput) LanguageExtension() ClusterLanguageExtensionArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterLanguageExtensionArrayOutput { return v.LanguageExtension }).(ClusterLanguageExtensionArrayOutput)
-}
-
-// Deprecated: `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
 func (o ClusterOutput) LanguageExtensions() ClusterLanguageExtensionArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterLanguageExtensionArrayOutput { return v.LanguageExtensions }).(ClusterLanguageExtensionArrayOutput)
 }
@@ -567,11 +542,6 @@ func (o ClusterOutput) TrustedExternalTenants() pulumi.StringArrayOutput {
 // The FQDN of the Azure Kusto Cluster.
 func (o ClusterOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
-}
-
-// Deprecated: The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-func (o ClusterOutput) VirtualNetworkConfiguration() ClusterVirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterVirtualNetworkConfigurationPtrOutput { return v.VirtualNetworkConfiguration }).(ClusterVirtualNetworkConfigurationPtrOutput)
 }
 
 // Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.

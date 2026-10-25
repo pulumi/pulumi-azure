@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyNotificationRule {
     /**
-     * @return A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notifications on active role assignments.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRuleActiveAssignment> activeAssignments;
@@ -31,7 +31,7 @@ public final class GetRoleManagementPolicyNotificationRule {
 
     private GetRoleManagementPolicyNotificationRule() {}
     /**
-     * @return A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below with the details of notifications on active role assignments.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRuleActiveAssignment> activeAssignments() {

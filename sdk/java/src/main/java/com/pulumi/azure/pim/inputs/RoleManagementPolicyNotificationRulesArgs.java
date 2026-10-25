@@ -18,14 +18,14 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
     public static final RoleManagementPolicyNotificationRulesArgs Empty = new RoleManagementPolicyNotificationRulesArgs();
 
     /**
-     * A `notificationTarget` block as defined below to configure notfications on active role assignments.
+     * A `notificationTarget` block as defined below to configure notifications on active role assignments.
      * 
      */
     @Import(name="activeAssignments")
     private @Nullable Output<RoleManagementPolicyNotificationRulesActiveAssignmentsArgs> activeAssignments;
 
     /**
-     * @return A `notificationTarget` block as defined below to configure notfications on active role assignments.
+     * @return A `notificationTarget` block as defined below to configure notifications on active role assignments.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesActiveAssignmentsArgs>> activeAssignments() {
@@ -89,7 +89,7 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
         }
 
         /**
-         * @param activeAssignments A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         * @param activeAssignments A `notificationTarget` block as defined below to configure notifications on active role assignments.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RoleManagementPolicyNotificationRulesArgs extends com.pulumi.
         }
 
         /**
-         * @param activeAssignments A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         * @param activeAssignments A `notificationTarget` block as defined below to configure notifications on active role assignments.
          * 
          * @return builder
          * 

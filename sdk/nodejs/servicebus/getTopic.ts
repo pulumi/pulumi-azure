@@ -25,15 +25,13 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getTopic:getTopic", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -48,15 +46,7 @@ export interface GetTopicArgs {
     /**
      * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
      */
-    namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     */
-    namespaceName?: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: string;
+    namespaceId: string;
 }
 
 /**
@@ -79,9 +69,6 @@ export interface GetTopicResult {
      * The ISO 8601 timespan duration during which duplicates can be detected.
      */
     readonly duplicateDetectionHistoryTimeWindow: string;
-    readonly enableBatchedOperations: boolean;
-    readonly enableExpress: boolean;
-    readonly enablePartitioning: boolean;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
@@ -94,12 +81,12 @@ export interface GetTopicResult {
      * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     readonly maxSizeInMegabytes: number;
-    readonly name: string;
-    readonly namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU.
      */
-    readonly namespaceName?: string;
+    readonly maximumMessageSizeInKb: number;
+    readonly name: string;
+    readonly namespaceId: string;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
      */
@@ -108,10 +95,6 @@ export interface GetTopicResult {
      * Boolean flag which controls whether the Topic requires duplicate detection.
      */
     readonly requiresDuplicateDetection: boolean;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     */
-    readonly resourceGroupName?: string;
     /**
      * The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
      */
@@ -142,15 +125,13 @@ export interface GetTopicResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getTopic:getTopic", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -165,13 +146,5 @@ export interface GetTopicOutputArgs {
     /**
      * The ID of the ServiceBus Namespace where the Service Bus Topic exists.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
 }

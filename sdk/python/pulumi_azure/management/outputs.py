@@ -158,7 +158,7 @@ class GroupPolicyAssignmentOverride(dict):
                  value: _builtins.str,
                  selectors: Optional[Sequence['outputs.GroupPolicyAssignmentOverrideSelector']] = None):
         """
-        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param _builtins.str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         :param Sequence['GroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
@@ -169,7 +169,7 @@ class GroupPolicyAssignmentOverride(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
         """
         return pulumi.get(self, "value")
 

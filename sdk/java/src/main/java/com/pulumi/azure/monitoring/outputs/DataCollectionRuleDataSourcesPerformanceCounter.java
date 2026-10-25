@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class DataCollectionRuleDataSourcesPerformanceCounter {
     /**
-     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     private List<String> counterSpecifiers;
@@ -35,7 +35,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
 
     private DataCollectionRuleDataSourcesPerformanceCounter() {}
     /**
-     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     public List<String> counterSpecifiers() {

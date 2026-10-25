@@ -43,7 +43,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Task<GetVolumeBucketResult> InvokeAsync(GetVolumeBucketArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeBucketResult>("azure:netapp/getVolumeBucket:getVolumeBucket", args ?? new GetVolumeBucketArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeBucketResult> Invoke(GetVolumeBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeBucketResult>("azure:netapp/getVolumeBucket:getVolumeBucket", args ?? new GetVolumeBucketInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2026-01-01
+        /// * `Microsoft.NetApp` - 2026-05-01
         /// </summary>
         public static Output<GetVolumeBucketResult> Invoke(GetVolumeBucketInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeBucketResult>("azure:netapp/getVolumeBucket:getVolumeBucket", args ?? new GetVolumeBucketInvokeArgs(), options.WithDefaults());

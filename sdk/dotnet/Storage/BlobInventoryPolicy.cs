@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Storage
     /// 
     /// ## Import
     /// 
-    /// Storage Blob Inventory Policies can be imported using the `resource id`, e.g.
+    /// A Storage Blob Inventory Policy can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1

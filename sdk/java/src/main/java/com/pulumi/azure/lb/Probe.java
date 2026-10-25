@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -150,6 +150,20 @@ public class Probe extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     * 
+     */
+    @Export(name="noHealthyBackendsBehavior", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> noHealthyBackendsBehavior;
+
+    /**
+     * @return Determines how new connections are handled by the load balancer when all backend instances are probed down. Possible values are `AllProbedDown` and `AllProbedUp`. Defaults to `AllProbedDown`.
+     * 
+     */
+    public Output<Optional<String>> noHealthyBackendsBehavior() {
+        return Codegen.optional(this.noHealthyBackendsBehavior);
     }
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.

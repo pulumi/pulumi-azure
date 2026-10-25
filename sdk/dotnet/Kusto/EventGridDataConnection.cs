@@ -177,10 +177,7 @@ namespace Pulumi.Azure.Kusto
         /// The resource ID of the event grid that is subscribed to the storage account events.
         /// </summary>
         [Output("eventgridEventSubscriptionId")]
-        public Output<string> EventgridEventSubscriptionId { get; private set; } = null!;
-
-        [Output("eventgridResourceId")]
-        public Output<string> EventgridResourceId { get; private set; } = null!;
+        public Output<string?> EventgridEventSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -204,10 +201,7 @@ namespace Pulumi.Azure.Kusto
         /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Output("managedIdentityId")]
-        public Output<string> ManagedIdentityId { get; private set; } = null!;
-
-        [Output("managedIdentityResourceId")]
-        public Output<string> ManagedIdentityResourceId { get; private set; } = null!;
+        public Output<string?> ManagedIdentityId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -327,9 +321,6 @@ namespace Pulumi.Azure.Kusto
         [Input("eventgridEventSubscriptionId")]
         public Input<string>? EventgridEventSubscriptionId { get; set; }
 
-        [Input("eventgridResourceId")]
-        public Input<string>? EventgridResourceId { get; set; }
-
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
@@ -353,9 +344,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("managedIdentityId")]
         public Input<string>? ManagedIdentityId { get; set; }
-
-        [Input("managedIdentityResourceId")]
-        public Input<string>? ManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -437,9 +425,6 @@ namespace Pulumi.Azure.Kusto
         [Input("eventgridEventSubscriptionId")]
         public Input<string>? EventgridEventSubscriptionId { get; set; }
 
-        [Input("eventgridResourceId")]
-        public Input<string>? EventgridResourceId { get; set; }
-
         /// <summary>
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
@@ -463,9 +448,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("managedIdentityId")]
         public Input<string>? ManagedIdentityId { get; set; }
-
-        [Input("managedIdentityResourceId")]
-        public Input<string>? ManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

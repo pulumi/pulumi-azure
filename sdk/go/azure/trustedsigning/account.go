@@ -8,11 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Trusted Signing Account.
+// Manages a Trusted Signing Account (Artifact Signing Account).
+//
+// > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 //
 // ## Example Usage
 //
@@ -21,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/trustedsigning"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/trustedsigning"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,11 +58,11 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.CodeSigning` - 2024-09-30-preview
+// * `Microsoft.CodeSigning` - 2025-10-13
 //
 // ## Import
 //
-// Trusted Signing Accounts can be imported using the `resource id`, e.g.
+// Artifact Signing Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -68,17 +70,17 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The URI of the Trusted Signing Account which is used during signing files.
+	// The URI of the Artifact Signing Account which is used during signing files.
 	AccountUri pulumi.StringOutput `pulumi:"accountUri"`
-	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+	// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+	// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Trusted Signing Account.
+	// A mapping of tags which should be assigned to the Artifact Signing Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -118,32 +120,32 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The URI of the Trusted Signing Account which is used during signing files.
+	// The URI of the Artifact Signing Account which is used during signing files.
 	AccountUri *string `pulumi:"accountUri"`
-	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+	// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+	// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Trusted Signing Account.
+	// A mapping of tags which should be assigned to the Artifact Signing Account.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
-	// The URI of the Trusted Signing Account which is used during signing files.
+	// The URI of the Artifact Signing Account which is used during signing files.
 	AccountUri pulumi.StringPtrInput
-	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+	// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+	// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Trusted Signing Account.
+	// A mapping of tags which should be assigned to the Artifact Signing Account.
 	Tags pulumi.StringMapInput
 }
 
@@ -152,29 +154,29 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+	// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+	// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the Trusted Signing Account.
+	// A mapping of tags which should be assigned to the Artifact Signing Account.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+	// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+	// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+	// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 	SkuName pulumi.StringInput
-	// A mapping of tags which should be assigned to the Trusted Signing Account.
+	// A mapping of tags which should be assigned to the Artifact Signing Account.
 	Tags pulumi.StringMapInput
 }
 
@@ -265,32 +267,32 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The URI of the Trusted Signing Account which is used during signing files.
+// The URI of the Artifact Signing Account which is used during signing files.
 func (o AccountOutput) AccountUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountUri }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
 func (o AccountOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
 func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Trusted Signing Account.
+// A mapping of tags which should be assigned to the Artifact Signing Account.
 func (o AccountOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

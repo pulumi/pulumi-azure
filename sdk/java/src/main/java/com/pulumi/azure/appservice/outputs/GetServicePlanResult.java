@@ -50,6 +50,11 @@ public final class GetServicePlanResult {
      */
     private Boolean perSiteScalingEnabled;
     /**
+     * @return Is premium plan autoscale enabled.
+     * 
+     */
+    private Boolean premiumPlanAutoScaleEnabled;
+    /**
      * @return Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
@@ -130,6 +135,13 @@ public final class GetServicePlanResult {
         return this.perSiteScalingEnabled;
     }
     /**
+     * @return Is premium plan autoscale enabled.
+     * 
+     */
+    public Boolean premiumPlanAutoScaleEnabled() {
+        return this.premiumPlanAutoScaleEnabled;
+    }
+    /**
      * @return Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
@@ -185,6 +197,7 @@ public final class GetServicePlanResult {
         private String name;
         private String osType;
         private Boolean perSiteScalingEnabled;
+        private Boolean premiumPlanAutoScaleEnabled;
         private Boolean reserved;
         private String resourceGroupName;
         private String skuName;
@@ -202,6 +215,7 @@ public final class GetServicePlanResult {
     	      this.name = defaults.name;
     	      this.osType = defaults.osType;
     	      this.perSiteScalingEnabled = defaults.perSiteScalingEnabled;
+    	      this.premiumPlanAutoScaleEnabled = defaults.premiumPlanAutoScaleEnabled;
     	      this.reserved = defaults.reserved;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.skuName = defaults.skuName;
@@ -275,6 +289,14 @@ public final class GetServicePlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder premiumPlanAutoScaleEnabled(Boolean premiumPlanAutoScaleEnabled) {
+            if (premiumPlanAutoScaleEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServicePlanResult", "premiumPlanAutoScaleEnabled");
+            }
+            this.premiumPlanAutoScaleEnabled = premiumPlanAutoScaleEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder reserved(Boolean reserved) {
             if (reserved == null) {
               throw new MissingRequiredPropertyException("GetServicePlanResult", "reserved");
@@ -332,6 +354,7 @@ public final class GetServicePlanResult {
             _resultValue.name = name;
             _resultValue.osType = osType;
             _resultValue.perSiteScalingEnabled = perSiteScalingEnabled;
+            _resultValue.premiumPlanAutoScaleEnabled = premiumPlanAutoScaleEnabled;
             _resultValue.reserved = reserved;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.skuName = skuName;

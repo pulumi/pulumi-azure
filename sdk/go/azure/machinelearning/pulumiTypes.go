@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -397,7 +397,7 @@ type ComputeClusterSsh struct {
 	AdminUsername string `pulumi:"adminUsername"`
 	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 	//
-	// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+	// > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
 	KeyValue *string `pulumi:"keyValue"`
 }
 
@@ -419,7 +419,7 @@ type ComputeClusterSshArgs struct {
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 	//
-	// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+	// > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
 	KeyValue pulumi.StringPtrInput `pulumi:"keyValue"`
 }
 
@@ -512,7 +512,7 @@ func (o ComputeClusterSshOutput) AdminUsername() pulumi.StringOutput {
 
 // SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 //
-// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+// > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
 func (o ComputeClusterSshOutput) KeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeClusterSsh) *string { return v.KeyValue }).(pulumi.StringPtrOutput)
 }
@@ -563,7 +563,7 @@ func (o ComputeClusterSshPtrOutput) AdminUsername() pulumi.StringPtrOutput {
 
 // SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
 //
-// > **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
+// > **Note:** At least one of `adminPassword` and `keyValue` should be specified.
 func (o ComputeClusterSshPtrOutput) KeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeClusterSsh) *string {
 		if v == nil {

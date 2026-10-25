@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.redhatopenshift.outputs;
 
+import com.pulumi.azure.redhatopenshift.outputs.ClusterNetworkProfileLoadBalancerProfile;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterNetworkProfile {
+    /**
+     * @return A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+     * 
+     */
+    private @Nullable ClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
     /**
      * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
@@ -35,6 +41,13 @@ public final class ClusterNetworkProfile {
     private String serviceCidr;
 
     private ClusterNetworkProfile() {}
+    /**
+     * @return A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+     * 
+     */
+    public Optional<ClusterNetworkProfileLoadBalancerProfile> loadBalancerProfile() {
+        return Optional.ofNullable(this.loadBalancerProfile);
+    }
     /**
      * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
@@ -73,6 +86,7 @@ public final class ClusterNetworkProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
         private @Nullable String outboundType;
         private String podCidr;
         private @Nullable Boolean preconfiguredNetworkSecurityGroupEnabled;
@@ -80,12 +94,19 @@ public final class ClusterNetworkProfile {
         public Builder() {}
         public Builder(ClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.loadBalancerProfile = defaults.loadBalancerProfile;
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
     	      this.preconfiguredNetworkSecurityGroupEnabled = defaults.preconfiguredNetworkSecurityGroupEnabled;
     	      this.serviceCidr = defaults.serviceCidr;
         }
 
+        @CustomType.Setter
+        public Builder loadBalancerProfile(@Nullable ClusterNetworkProfileLoadBalancerProfile loadBalancerProfile) {
+
+            this.loadBalancerProfile = loadBalancerProfile;
+            return this;
+        }
         @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
 
@@ -116,6 +137,7 @@ public final class ClusterNetworkProfile {
         }
         public ClusterNetworkProfile build() {
             final var _resultValue = new ClusterNetworkProfile();
+            _resultValue.loadBalancerProfile = loadBalancerProfile;
             _resultValue.outboundType = outboundType;
             _resultValue.podCidr = podCidr;
             _resultValue.preconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;

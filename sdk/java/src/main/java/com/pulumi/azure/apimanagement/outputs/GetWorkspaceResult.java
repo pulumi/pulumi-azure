@@ -12,6 +12,11 @@ import java.util.Objects;
 public final class GetWorkspaceResult {
     private String apiManagementId;
     /**
+     * @return The description of the API Management Workspace.
+     * 
+     */
+    private String description;
+    /**
      * @return The display name of the API Management Workspace.
      * 
      */
@@ -26,6 +31,13 @@ public final class GetWorkspaceResult {
     private GetWorkspaceResult() {}
     public String apiManagementId() {
         return this.apiManagementId;
+    }
+    /**
+     * @return The description of the API Management Workspace.
+     * 
+     */
+    public String description() {
+        return this.description;
     }
     /**
      * @return The display name of the API Management Workspace.
@@ -55,6 +67,7 @@ public final class GetWorkspaceResult {
     @CustomType.Builder
     public static final class Builder {
         private String apiManagementId;
+        private String description;
         private String displayName;
         private String id;
         private String name;
@@ -62,6 +75,7 @@ public final class GetWorkspaceResult {
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementId = defaults.apiManagementId;
+    	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -73,6 +87,14 @@ public final class GetWorkspaceResult {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "apiManagementId");
             }
             this.apiManagementId = apiManagementId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -102,6 +124,7 @@ public final class GetWorkspaceResult {
         public GetWorkspaceResult build() {
             final var _resultValue = new GetWorkspaceResult();
             _resultValue.apiManagementId = apiManagementId;
+            _resultValue.description = description;
             _resultValue.displayName = displayName;
             _resultValue.id = id;
             _resultValue.name = name;

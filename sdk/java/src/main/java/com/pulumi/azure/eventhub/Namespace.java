@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ServiceBus` - 2024-01-01
+ * * `Microsoft.ServiceBus` - 2026-01-01
  * 
  * ## Import
  * 
@@ -231,7 +231,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -240,7 +240,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+     * @return The minimum supported TLS version for this Service Bus Namespace. Possible values are `1.2` and `1.3`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -279,7 +279,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      * 
      */
     @Export(name="premiumMessagingPartitions", refs={Integer.class}, tree="[0]")
@@ -288,7 +288,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      * 
      */
     public Output<Optional<Integer>> premiumMessagingPartitions() {

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleQueue = new Azure.Storage.Queue("example", new()
     ///     {
     ///         Name = "mysamplequeue",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });
@@ -56,14 +56,6 @@ namespace Pulumi.Azure.Storage
     /// ## Import
     /// 
     /// Storage Queue's can be imported using the `resource id`, e.g.
-    /// 
-    /// If `StorageAccountName` is used:
-    /// 
-    /// ```sh
-    /// $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
-    /// ```
-    /// 
-    /// If `StorageAccountId` is used:
     /// 
     /// ```sh
     /// $ pulumi import azure:storage/queue:Queue queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/queueServices/default/queues/queue1
@@ -85,26 +77,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource Manager ID of this Storage Queue.
-        /// </summary>
-        [Output("resourceManagerId")]
-        public Output<string> ResourceManagerId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string?> StorageAccountName { get; private set; } = null!;
+        public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
@@ -120,7 +96,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Queue(string name, QueueArgs? args = null, CustomResourceOptions? options = null)
+        public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
             : base("azure:storage/queue:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -177,20 +153,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public QueueArgs()
         {
@@ -219,26 +185,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Resource Manager ID of this Storage Queue.
-        /// </summary>
-        [Input("resourceManagerId")]
-        public Input<string>? ResourceManagerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Storage Queue should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
         /// The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.

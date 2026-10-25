@@ -55,25 +55,6 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
     }
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="managedHsmKeyId")
-    private @Nullable Output<String> managedHsmKeyId;
-
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
-    }
-
-    /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
@@ -93,7 +74,6 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
     private ServerTransparentDataEncryptionState(ServerTransparentDataEncryptionState $) {
         this.autoRotationEnabled = $.autoRotationEnabled;
         this.keyVaultKeyId = $.keyVaultKeyId;
-        this.managedHsmKeyId = $.managedHsmKeyId;
         this.serverId = $.serverId;
     }
 
@@ -163,31 +143,6 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
-            $.managedHsmKeyId = managedHsmKeyId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(String managedHsmKeyId) {
-            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

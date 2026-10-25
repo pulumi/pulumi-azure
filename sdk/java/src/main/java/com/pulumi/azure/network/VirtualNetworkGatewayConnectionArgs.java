@@ -88,7 +88,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     @Import(name="customBgpAddresses")
@@ -97,7 +97,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
     /**
      * @return A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
-     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+     * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
     public Optional<Output<VirtualNetworkGatewayConnectionCustomBgpAddressesArgs>> customBgpAddresses() {
@@ -132,25 +132,6 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
      */
     public Optional<Output<List<String>>> egressNatRuleIds() {
         return Optional.ofNullable(this.egressNatRuleIds);
-    }
-
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="enableBgp")
-    private @Nullable Output<Boolean> enableBgp;
-
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableBgp() {
-        return Optional.ofNullable(this.enableBgp);
     }
 
     /**
@@ -441,7 +422,6 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         this.customBgpAddresses = $.customBgpAddresses;
         this.dpdTimeoutSeconds = $.dpdTimeoutSeconds;
         this.egressNatRuleIds = $.egressNatRuleIds;
-        this.enableBgp = $.enableBgp;
         this.expressRouteCircuitId = $.expressRouteCircuitId;
         this.expressRouteGatewayBypass = $.expressRouteGatewayBypass;
         this.ingressNatRuleIds = $.ingressNatRuleIds;
@@ -569,7 +549,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         /**
          * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
          * The block can only be used on `IPSec` / `activeactive` connections,
-         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
          * @return builder
          * 
@@ -582,7 +562,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         /**
          * @param customBgpAddresses A `customBgpAddresses` block which is documented below.
          * The block can only be used on `IPSec` / `activeactive` connections,
-         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+         * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
          * 
          * @return builder
          * 
@@ -641,31 +621,6 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
          */
         public Builder egressNatRuleIds(String... egressNatRuleIds) {
             return egressNatRuleIds(List.of(egressNatRuleIds));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(@Nullable Output<Boolean> enableBgp) {
-            $.enableBgp = enableBgp;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(Boolean enableBgp) {
-            return enableBgp(Output.of(enableBgp));
         }
 
         /**

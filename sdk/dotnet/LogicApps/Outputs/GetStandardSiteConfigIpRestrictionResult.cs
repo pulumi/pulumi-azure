@@ -20,7 +20,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The `Headers` block for this specific `IpRestriction` as defined below.
         /// </summary>
-        public readonly Outputs.GetStandardSiteConfigIpRestrictionHeadersResult Headers;
+        public readonly ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionHeaderResult> Headers;
         /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         private GetStandardSiteConfigIpRestrictionResult(
             string action,
 
-            Outputs.GetStandardSiteConfigIpRestrictionHeadersResult headers,
+            ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionHeaderResult> headers,
 
             string ipAddress,
 

@@ -34,7 +34,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     @Import(name="serviceResourceId")
@@ -43,7 +43,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     /**
      * @return Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     public Optional<Output<String>> serviceResourceId() {
@@ -66,10 +66,11 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     }
 
     /**
-     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      * 
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -80,10 +81,11 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     private @Nullable Output<String> subResourceTarget;
 
     /**
-     * @return Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+     * @return Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
      * 
      * | Service                    | Sub Resource Type                         |
      * |----------------------------|-------------------------------------------|
+     * | Cognitive Services         | `account`                                 |
      * | Machine Learning Workspace | `amlworkspace`                            |
      * | Redis                      | `redisCache`                              |
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -161,7 +163,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         /**
          * @param serviceResourceId Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+         * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
          * 
          * @return builder
          * 
@@ -174,7 +176,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         /**
          * @param serviceResourceId Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+         * &gt; **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
          * 
          * @return builder
          * 
@@ -205,10 +207,11 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         }
 
         /**
-         * @param subResourceTarget Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+         * @param subResourceTarget Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
          * 
          * | Service                    | Sub Resource Type                         |
          * |----------------------------|-------------------------------------------|
+         * | Cognitive Services         | `account`                                 |
          * | Machine Learning Workspace | `amlworkspace`                            |
          * | Redis                      | `redisCache`                              |
          * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -223,10 +226,11 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         }
 
         /**
-         * @param subResourceTarget Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+         * @param subResourceTarget Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
          * 
          * | Service                    | Sub Resource Type                         |
          * |----------------------------|-------------------------------------------|
+         * | Cognitive Services         | `account`                                 |
          * | Machine Learning Workspace | `amlworkspace`                            |
          * | Redis                      | `redisCache`                              |
          * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |

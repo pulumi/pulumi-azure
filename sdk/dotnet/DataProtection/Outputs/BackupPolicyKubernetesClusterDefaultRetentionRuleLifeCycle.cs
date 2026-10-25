@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle
     {
         /// <summary>
-        /// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        /// The type of data store. The possible values are `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string DataStoreType;
         /// <summary>

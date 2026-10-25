@@ -169,7 +169,7 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Communication` - 2023-03-31
+        * `Microsoft.Communication` - 2026-03-18
 
         ## Import
 
@@ -222,7 +222,7 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Communication` - 2023-03-31
+        * `Microsoft.Communication` - 2026-03-18
 
         ## Import
 

@@ -281,6 +281,13 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
+
         ## Import
 
         Front Door Origin Groups can be imported using the `resource id`, e.g.
@@ -340,6 +347,13 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                 "successful_samples_required": 3,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 

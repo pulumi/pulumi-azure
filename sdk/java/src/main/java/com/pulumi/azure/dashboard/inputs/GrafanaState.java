@@ -97,14 +97,14 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Which major version of Grafana to deploy. Possible values are `11`, `12`.
+     * Which major version of Grafana to deploy. Possible values are `12`, `13`.
      * 
      */
     @Import(name="grafanaMajorVersion")
     private @Nullable Output<String> grafanaMajorVersion;
 
     /**
-     * @return Which major version of Grafana to deploy. Possible values are `11`, `12`.
+     * @return Which major version of Grafana to deploy. Possible values are `12`, `13`.
      * 
      */
     public Optional<Output<String>> grafanaMajorVersion() {
@@ -448,7 +448,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `11`, `12`.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `12`, `13`.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `11`, `12`.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `12`, `13`.
          * 
          * @return builder
          * 

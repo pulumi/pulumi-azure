@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
@@ -143,26 +143,10 @@ namespace Pulumi.Azure.Storage
         public Output<string?> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageContainerId")]
         public Output<string> StorageContainerId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("storageContainerName")]
-        public Output<string> StorageContainerName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
@@ -273,7 +257,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
@@ -305,26 +289,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageContainerId")]
-        public Input<string>? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
+        [Input("storageContainerId", required: true)]
+        public Input<string> StorageContainerId { get; set; } = null!;
 
         /// <summary>
         /// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
@@ -391,7 +359,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
@@ -423,26 +391,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
 
         /// <summary>
         /// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.

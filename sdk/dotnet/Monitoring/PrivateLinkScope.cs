@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         /// </summary>
         [Output("queryAccessMode")]
         public Output<string?> QueryAccessMode { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         /// </summary>
         [Input("queryAccessMode")]
         public Input<string>? QueryAccessMode { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
+        /// The default query access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         /// </summary>
         [Input("queryAccessMode")]
         public Input<string>? QueryAccessMode { get; set; }

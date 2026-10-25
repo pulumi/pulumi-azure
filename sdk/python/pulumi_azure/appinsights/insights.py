@@ -22,14 +22,11 @@ class InsightsArgs:
                  application_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -62,18 +59,8 @@ class InsightsArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if daily_data_cap_in_gb is not None:
             pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
-        if daily_data_cap_notifications_disabled is not None:
-            warnings.warn("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""daily_data_cap_notifications_disabled is deprecated: `daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if daily_data_cap_notifications_disabled is not None:
-            pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if daily_data_cap_notifications_enabled is not None:
             pulumi.set(__self__, "daily_data_cap_notifications_enabled", daily_data_cap_notifications_enabled)
-        if disable_ip_masking is not None:
-            warnings.warn("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""disable_ip_masking is deprecated: `disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if disable_ip_masking is not None:
-            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
             pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if internet_ingestion_enabled is not None:
@@ -82,11 +69,6 @@ class InsightsArgs:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
         if ip_masking_enabled is not None:
             pulumi.set(__self__, "ip_masking_enabled", ip_masking_enabled)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
@@ -139,16 +121,6 @@ class InsightsArgs:
         pulumi.set(self, "daily_data_cap_in_gb", value)
 
     @_builtins.property
-    @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "daily_data_cap_notifications_disabled")
-
-    @daily_data_cap_notifications_disabled.setter
-    def daily_data_cap_notifications_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "daily_data_cap_notifications_disabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsEnabled")
     def daily_data_cap_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -159,16 +131,6 @@ class InsightsArgs:
     @daily_data_cap_notifications_enabled.setter
     def daily_data_cap_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daily_data_cap_notifications_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="disableIpMasking")
-    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "disable_ip_masking")
-
-    @disable_ip_masking.setter
-    def disable_ip_masking(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "disable_ip_masking", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
@@ -217,16 +179,6 @@ class InsightsArgs:
     @ip_masking_enabled.setter
     def ip_masking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_masking_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
@@ -322,15 +274,12 @@ class _InsightsState:
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -371,18 +320,8 @@ class _InsightsState:
             pulumi.set(__self__, "connection_string", connection_string)
         if daily_data_cap_in_gb is not None:
             pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
-        if daily_data_cap_notifications_disabled is not None:
-            warnings.warn("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""daily_data_cap_notifications_disabled is deprecated: `daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if daily_data_cap_notifications_disabled is not None:
-            pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if daily_data_cap_notifications_enabled is not None:
             pulumi.set(__self__, "daily_data_cap_notifications_enabled", daily_data_cap_notifications_enabled)
-        if disable_ip_masking is not None:
-            warnings.warn("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""disable_ip_masking is deprecated: `disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if disable_ip_masking is not None:
-            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
             pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if instrumentation_key is not None:
@@ -393,11 +332,6 @@ class _InsightsState:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
         if ip_masking_enabled is not None:
             pulumi.set(__self__, "ip_masking_enabled", ip_masking_enabled)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
@@ -464,16 +398,6 @@ class _InsightsState:
         pulumi.set(self, "daily_data_cap_in_gb", value)
 
     @_builtins.property
-    @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "daily_data_cap_notifications_disabled")
-
-    @daily_data_cap_notifications_disabled.setter
-    def daily_data_cap_notifications_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "daily_data_cap_notifications_disabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsEnabled")
     def daily_data_cap_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -484,16 +408,6 @@ class _InsightsState:
     @daily_data_cap_notifications_enabled.setter
     def daily_data_cap_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daily_data_cap_notifications_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="disableIpMasking")
-    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "disable_ip_masking")
-
-    @disable_ip_masking.setter
-    def disable_ip_masking(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "disable_ip_masking", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
@@ -554,16 +468,6 @@ class _InsightsState:
     @ip_masking_enabled.setter
     def ip_masking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_masking_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
@@ -672,14 +576,11 @@ class Insights(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -860,14 +761,11 @@ class Insights(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -889,14 +787,11 @@ class Insights(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_type'")
             __props__.__dict__["application_type"] = application_type
             __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
-            __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
             __props__.__dict__["daily_data_cap_notifications_enabled"] = daily_data_cap_notifications_enabled
-            __props__.__dict__["disable_ip_masking"] = disable_ip_masking
             __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["ip_masking_enabled"] = ip_masking_enabled
-            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -926,15 +821,12 @@ class Insights(pulumi.CustomResource):
             application_type: pulumi.Input[Optional[_builtins.str]] = None,
             connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
-            daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
             force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
             instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
             internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -979,15 +871,12 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["application_type"] = application_type
         __props__.__dict__["connection_string"] = connection_string
         __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
-        __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
         __props__.__dict__["daily_data_cap_notifications_enabled"] = daily_data_cap_notifications_enabled
-        __props__.__dict__["disable_ip_masking"] = disable_ip_masking
         __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
         __props__.__dict__["instrumentation_key"] = instrumentation_key
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
         __props__.__dict__["ip_masking_enabled"] = ip_masking_enabled
-        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -1031,24 +920,12 @@ class Insights(pulumi.CustomResource):
         return pulumi.get(self, "daily_data_cap_in_gb")
 
     @_builtins.property
-    @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def daily_data_cap_notifications_disabled(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "daily_data_cap_notifications_disabled")
-
-    @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsEnabled")
-    def daily_data_cap_notifications_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def daily_data_cap_notifications_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="disableIpMasking")
-    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def disable_ip_masking(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "disable_ip_masking")
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
@@ -1084,21 +961,15 @@ class Insights(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="ipMaskingEnabled")
-    def ip_masking_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def ip_masking_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
         """
         return pulumi.get(self, "ip_masking_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
         """

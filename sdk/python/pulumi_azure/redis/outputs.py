@@ -18,7 +18,6 @@ __all__ = [
     'CacheIdentity',
     'CachePatchSchedule',
     'CacheRedisConfiguration',
-    'EnterpriseDatabaseModule',
     'GetCachePatchScheduleResult',
     'GetCacheRedisConfigurationResult',
 ]
@@ -437,44 +436,6 @@ class CacheRedisConfiguration(dict):
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
-
-
-@pulumi.output_type
-class EnterpriseDatabaseModule(dict):
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 args: Optional[_builtins.str] = None,
-                 version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-        :param _builtins.str args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-        """
-        pulumi.set(__self__, "name", name)
-        if args is not None:
-            pulumi.set(__self__, "args", args)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def args(self) -> Optional[_builtins.str]:
-        """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-        """
-        return pulumi.get(self, "args")
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

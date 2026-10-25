@@ -77,14 +77,14 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     @Import(name="systemAssignedIdentityPrincipalId")
     private @Nullable Output<String> systemAssignedIdentityPrincipalId;
 
     /**
-     * @return The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+     * @return The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     public Optional<Output<String>> systemAssignedIdentityPrincipalId() {
@@ -220,7 +220,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
          * 
          * @return builder
          * 

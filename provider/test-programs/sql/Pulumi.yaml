@@ -8,17 +8,8 @@ resources:
     properties:
       location: West US
 
-  random:
-    type: random:RandomString
-    properties:
-      length: 8
-      overrideSpecial: "-"
-      upper: false
-      special: true
-
-  # Ignoring deprecation warning because the resource is still widely used.
   examplesql:
-    type: azure:sql:SqlServer
+    type: azure:mssql:Server
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
@@ -37,18 +28,42 @@ resources:
       accountReplicationType: LRS
 
   exampleDatabase:
-    type: azure:sql:Database
+    type: azure:mssql:Database
     properties:
-      resourceGroupName: ${exampleResourceGroup.name}
-      location: ${exampleResourceGroup.location}
-      serverName: ${examplesql.name}
+      serverId: ${examplesql.id}
+      skuName: S0
+      # v7 turns this "Enabled"/"Disabled" string into `emailAccountAdminsEnabled`.
+      threatDetectionPolicy:
+        state: Enabled
+        emailAccountAdmins: Enabled
+      # v7 removes `immutableBackupsEnabled`.
+      longTermRetentionPolicy:
+        weeklyRetention: P4W
+        immutableBackupsEnabled: false
       tags:
         environment: production
 
   exampleFwRule:
-    type: azure:sql:FirewallRule
+    type: azure:mssql:FirewallRule
+    properties:
+      serverId: ${examplesql.id}
+      startIpAddress: 10.0.17.62
+      endIpAddress: 10.0.17.62
+
+  # v7 renames `emailAccountAdmins` to `emailAccountAdminsEnabled`.
+  exampleAlertPolicy:
+    type: azure:mssql:ServerSecurityAlertPolicy
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       serverName: ${examplesql.name}
-      startIpAddress: 10.0.17.62
-      endIpAddress: 10.0.17.62
+      state: Enabled
+      emailAccountAdmins: true
+
+  # v7 renames `storageEndpoint` to `blobStorageEndpoint`.
+  exampleAuditingPolicy:
+    type: azure:mssql:ServerExtendedAuditingPolicy
+    properties:
+      serverId: ${examplesql.id}
+      storageEndpoint: ${exampleAccount.primaryBlobEndpoint}
+      storageAccountAccessKey: ${exampleAccount.primaryAccessKey}
+      retentionInDays: 30

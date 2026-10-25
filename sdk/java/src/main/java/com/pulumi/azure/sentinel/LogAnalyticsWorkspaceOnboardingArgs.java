@@ -20,7 +20,7 @@ public final class LogAnalyticsWorkspaceOnboardingArgs extends com.pulumi.resour
     /**
      * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+     * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
      * 
      * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      * 
@@ -31,7 +31,7 @@ public final class LogAnalyticsWorkspaceOnboardingArgs extends com.pulumi.resour
     /**
      * @return Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+     * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
      * 
      * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      * 
@@ -83,7 +83,7 @@ public final class LogAnalyticsWorkspaceOnboardingArgs extends com.pulumi.resour
         /**
          * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+         * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
          * 
          * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
          * 
@@ -98,7 +98,7 @@ public final class LogAnalyticsWorkspaceOnboardingArgs extends com.pulumi.resour
         /**
          * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+         * &gt; **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/azure/sentinel/customer-managed-keys)
          * 
          * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
          * 

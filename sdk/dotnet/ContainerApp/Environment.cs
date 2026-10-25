@@ -141,7 +141,7 @@ namespace Pulumi.Azure.ContainerApp
         /// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         /// </summary>
         [Output("logsDestination")]
-        public Output<string> LogsDestination { get; private set; } = null!;
+        public Output<string?> LogsDestination { get; private set; } = null!;
 
         /// <summary>
         /// Should mutual transport layer security (mTLS) be enabled? Defaults to `False`.

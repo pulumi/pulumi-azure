@@ -274,6 +274,10 @@ export interface GetAccountResult {
      */
     readonly primaryWebMicrosoftHost: string;
     /**
+     * The public network access setting of the Storage Account.
+     */
+    readonly publicNetworkAccess: string;
+    /**
      * The encryption key type of the queue.
      */
     readonly queueEncryptionKeyType: string;

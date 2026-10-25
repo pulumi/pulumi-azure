@@ -50,25 +50,6 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    @Import(name="enableTcpReset")
-    private @Nullable Output<Boolean> enableTcpReset;
-
-    /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    public Optional<Output<Boolean>> enableTcpReset() {
-        return Optional.ofNullable(this.enableTcpReset);
-    }
-
-    /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
@@ -163,7 +144,6 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
     private OutboundRuleState(OutboundRuleState $) {
         this.allocatedOutboundPorts = $.allocatedOutboundPorts;
         this.backendAddressPoolId = $.backendAddressPoolId;
-        this.enableTcpReset = $.enableTcpReset;
         this.frontendIpConfigurations = $.frontendIpConfigurations;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
         this.loadbalancerId = $.loadbalancerId;
@@ -230,31 +210,6 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backendAddressPoolId(String backendAddressPoolId) {
             return backendAddressPoolId(Output.of(backendAddressPoolId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
-            $.enableTcpReset = enableTcpReset;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableTcpReset(Boolean enableTcpReset) {
-            return enableTcpReset(Output.of(enableTcpReset));
         }
 
         /**

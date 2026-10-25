@@ -27,10 +27,12 @@ class ClusterArgs:
                  main_profile: pulumi.Input['ClusterMainProfileArgs'],
                  network_profile: pulumi.Input['ClusterNetworkProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_principal: pulumi.Input['ClusterServicePrincipalArgs'],
                  worker_profile: pulumi.Input['ClusterWorkerProfileArgs'],
+                 identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_workload_identity_profile: pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']] = None,
+                 service_principal: pulumi.Input[Optional['ClusterServicePrincipalArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -39,12 +41,14 @@ class ClusterArgs:
         :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
         :param pulumi.Input[_builtins.str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterPlatformWorkloadIdentityProfileArgs'] platform_workload_identity_profile: A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
+        :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "api_server_profile", api_server_profile)
@@ -53,12 +57,17 @@ class ClusterArgs:
         pulumi.set(__self__, "main_profile", main_profile)
         pulumi.set(__self__, "network_profile", network_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_principal", service_principal)
         pulumi.set(__self__, "worker_profile", worker_profile)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if platform_workload_identity_profile is not None:
+            pulumi.set(__self__, "platform_workload_identity_profile", platform_workload_identity_profile)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,7 +123,7 @@ class ClusterArgs:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Input['ClusterNetworkProfileArgs']:
         """
-        A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
@@ -135,18 +144,6 @@ class ClusterArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> pulumi.Input['ClusterServicePrincipalArgs']:
-        """
-        A `service_principal` block as defined below.
-        """
-        return pulumi.get(self, "service_principal")
-
-    @service_principal.setter
-    def service_principal(self, value: pulumi.Input['ClusterServicePrincipalArgs']):
-        pulumi.set(self, "service_principal", value)
-
-    @_builtins.property
     @pulumi.getter(name="workerProfile")
     def worker_profile(self) -> pulumi.Input['ClusterWorkerProfileArgs']:
         """
@@ -157,6 +154,18 @@ class ClusterArgs:
     @worker_profile.setter
     def worker_profile(self, value: pulumi.Input['ClusterWorkerProfileArgs']):
         pulumi.set(self, "worker_profile", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['ClusterIdentityArgs']]:
+        """
+        An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['ClusterIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -183,6 +192,30 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="platformWorkloadIdentityProfile")
+    def platform_workload_identity_profile(self) -> pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']]:
+        """
+        A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
+        """
+        return pulumi.get(self, "platform_workload_identity_profile")
+
+    @platform_workload_identity_profile.setter
+    def platform_workload_identity_profile(self, value: pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']]):
+        pulumi.set(self, "platform_workload_identity_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> pulumi.Input[Optional['ClusterServicePrincipalArgs']]:
+        """
+        A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: pulumi.Input[Optional['ClusterServicePrincipalArgs']]):
+        pulumi.set(self, "service_principal", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -201,11 +234,13 @@ class _ClusterState:
                  api_server_profile: pulumi.Input[Optional['ClusterApiServerProfileArgs']] = None,
                  cluster_profile: pulumi.Input[Optional['ClusterClusterProfileArgs']] = None,
                  console_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
                  ingress_profile: pulumi.Input[Optional['ClusterIngressProfileArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_profile: pulumi.Input[Optional['ClusterMainProfileArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['ClusterNetworkProfileArgs']] = None,
+                 platform_workload_identity_profile: pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal: pulumi.Input[Optional['ClusterServicePrincipalArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -215,14 +250,16 @@ class _ClusterState:
 
         :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] console_url: The Red Hat OpenShift cluster console URL.
+        :param pulumi.Input[_builtins.str] console_url: The console URL of the Azure Red Hat OpenShift Cluster.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
         :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['ClusterPlatformWorkloadIdentityProfileArgs'] platform_workload_identity_profile: A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
@@ -232,6 +269,8 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_profile", cluster_profile)
         if console_url is not None:
             pulumi.set(__self__, "console_url", console_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ingress_profile is not None:
             pulumi.set(__self__, "ingress_profile", ingress_profile)
         if location is not None:
@@ -242,6 +281,8 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if platform_workload_identity_profile is not None:
+            pulumi.set(__self__, "platform_workload_identity_profile", platform_workload_identity_profile)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_principal is not None:
@@ -279,13 +320,25 @@ class _ClusterState:
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Red Hat OpenShift cluster console URL.
+        The console URL of the Azure Red Hat OpenShift Cluster.
         """
         return pulumi.get(self, "console_url")
 
     @console_url.setter
     def console_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "console_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['ClusterIdentityArgs']]:
+        """
+        An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['ClusterIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressProfile")
@@ -339,13 +392,25 @@ class _ClusterState:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Input[Optional['ClusterNetworkProfileArgs']]:
         """
-        A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
     def network_profile(self, value: pulumi.Input[Optional['ClusterNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="platformWorkloadIdentityProfile")
+    def platform_workload_identity_profile(self) -> pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']]:
+        """
+        A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
+        """
+        return pulumi.get(self, "platform_workload_identity_profile")
+
+    @platform_workload_identity_profile.setter
+    def platform_workload_identity_profile(self, value: pulumi.Input[Optional['ClusterPlatformWorkloadIdentityProfileArgs']]):
+        pulumi.set(self, "platform_workload_identity_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -363,7 +428,7 @@ class _ClusterState:
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Input[Optional['ClusterServicePrincipalArgs']]:
         """
-        A `service_principal` block as defined below.
+        A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         """
         return pulumi.get(self, "service_principal")
 
@@ -404,11 +469,13 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_server_profile: pulumi.Input[Optional[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']]] = None,
                  cluster_profile: pulumi.Input[Optional[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']]] = None,
+                 identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]] = None,
                  ingress_profile: pulumi.Input[Optional[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_profile: pulumi.Input[Optional[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']]] = None,
+                 platform_workload_identity_profile: pulumi.Input[Optional[Union['ClusterPlatformWorkloadIdentityProfileArgs', 'ClusterPlatformWorkloadIdentityProfileArgsDict', 'outputs.ClusterPlatformWorkloadIdentityProfile']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal: pulumi.Input[Optional[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -421,10 +488,10 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+        An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+        $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
         ```
 
 
@@ -432,13 +499,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']] identity: An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
         :param pulumi.Input[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ClusterPlatformWorkloadIdentityProfileArgs', 'ClusterPlatformWorkloadIdentityProfileArgsDict', 'outputs.ClusterPlatformWorkloadIdentityProfile']] platform_workload_identity_profile: A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']] service_principal: A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Union['ClusterWorkerProfileArgs', 'ClusterWorkerProfileArgsDict', 'outputs.ClusterWorkerProfile']] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
@@ -455,10 +524,10 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+        An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+        $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
         ```
 
 
@@ -479,11 +548,13 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_server_profile: pulumi.Input[Optional[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']]] = None,
                  cluster_profile: pulumi.Input[Optional[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']]] = None,
+                 identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]] = None,
                  ingress_profile: pulumi.Input[Optional[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_profile: pulumi.Input[Optional[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']]] = None,
+                 platform_workload_identity_profile: pulumi.Input[Optional[Union['ClusterPlatformWorkloadIdentityProfileArgs', 'ClusterPlatformWorkloadIdentityProfileArgsDict', 'outputs.ClusterPlatformWorkloadIdentityProfile']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal: pulumi.Input[Optional[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -503,6 +574,7 @@ class Cluster(pulumi.CustomResource):
             if cluster_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_profile'")
             __props__.__dict__["cluster_profile"] = cluster_profile
+            __props__.__dict__["identity"] = identity
             if ingress_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'ingress_profile'")
             __props__.__dict__["ingress_profile"] = ingress_profile
@@ -514,11 +586,10 @@ class Cluster(pulumi.CustomResource):
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile
+            __props__.__dict__["platform_workload_identity_profile"] = platform_workload_identity_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service_principal is None and not opts.urn:
-                raise TypeError("Missing required property 'service_principal'")
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["tags"] = tags
             if worker_profile is None and not opts.urn:
@@ -538,11 +609,13 @@ class Cluster(pulumi.CustomResource):
             api_server_profile: pulumi.Input[Optional[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']]] = None,
             cluster_profile: pulumi.Input[Optional[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']]] = None,
             console_url: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]] = None,
             ingress_profile: pulumi.Input[Optional[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             main_profile: pulumi.Input[Optional[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_profile: pulumi.Input[Optional[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']]] = None,
+            platform_workload_identity_profile: pulumi.Input[Optional[Union['ClusterPlatformWorkloadIdentityProfileArgs', 'ClusterPlatformWorkloadIdentityProfileArgsDict', 'outputs.ClusterPlatformWorkloadIdentityProfile']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_principal: pulumi.Input[Optional[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -556,14 +629,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] console_url: The Red Hat OpenShift cluster console URL.
+        :param pulumi.Input[_builtins.str] console_url: The console URL of the Azure Red Hat OpenShift Cluster.
+        :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']] identity: An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
         :param pulumi.Input[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ClusterPlatformWorkloadIdentityProfileArgs', 'ClusterPlatformWorkloadIdentityProfileArgsDict', 'outputs.ClusterPlatformWorkloadIdentityProfile']] platform_workload_identity_profile: A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']] service_principal: A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Union['ClusterWorkerProfileArgs', 'ClusterWorkerProfileArgsDict', 'outputs.ClusterWorkerProfile']] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
@@ -574,11 +649,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["api_server_profile"] = api_server_profile
         __props__.__dict__["cluster_profile"] = cluster_profile
         __props__.__dict__["console_url"] = console_url
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["ingress_profile"] = ingress_profile
         __props__.__dict__["location"] = location
         __props__.__dict__["main_profile"] = main_profile
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
+        __props__.__dict__["platform_workload_identity_profile"] = platform_workload_identity_profile
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["tags"] = tags
@@ -605,9 +682,17 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> pulumi.Output[_builtins.str]:
         """
-        The Red Hat OpenShift cluster console URL.
+        The console URL of the Azure Red Hat OpenShift Cluster.
         """
         return pulumi.get(self, "console_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ClusterIdentity']]:
+        """
+        An `identity` block as defined below. Exactly one of `identity` or `service_principal` must be specified. Required when `platform_workload_identity_profile` is set.
+        """
+        return pulumi.get(self, "identity")
 
     @_builtins.property
     @pulumi.getter(name="ingressProfile")
@@ -645,9 +730,17 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Output['outputs.ClusterNetworkProfile']:
         """
-        A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
+
+    @_builtins.property
+    @pulumi.getter(name="platformWorkloadIdentityProfile")
+    def platform_workload_identity_profile(self) -> pulumi.Output[Optional['outputs.ClusterPlatformWorkloadIdentityProfile']]:
+        """
+        A `platform_workload_identity_profile` block as defined below. Required when `identity` is set.
+        """
+        return pulumi.get(self, "platform_workload_identity_profile")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -659,9 +752,9 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> pulumi.Output['outputs.ClusterServicePrincipal']:
+    def service_principal(self) -> pulumi.Output[Optional['outputs.ClusterServicePrincipal']]:
         """
-        A `service_principal` block as defined below.
+        A `service_principal` block as defined below. Exactly one of `service_principal` or `identity` must be specified.
         """
         return pulumi.get(self, "service_principal")
 

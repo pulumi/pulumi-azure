@@ -27,7 +27,7 @@ class GetDataCollectionRuleResult:
     """
     A collection of values returned by getDataCollectionRule.
     """
-    def __init__(__self__, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, id=None, identities=None, immutable_id=None, kind=None, location=None, name=None, resource_group_name=None, stream_declarations=None, tags=None):
+    def __init__(__self__, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, id=None, identities=None, immutable_id=None, kind=None, location=None, logs_ingestion_endpoint=None, metrics_ingestion_endpoint=None, name=None, resource_group_name=None, stream_declarations=None, tags=None):
         if data_collection_endpoint_id and not isinstance(data_collection_endpoint_id, str):
             raise TypeError("Expected argument 'data_collection_endpoint_id' to be a str")
         pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
@@ -58,6 +58,12 @@ class GetDataCollectionRuleResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if logs_ingestion_endpoint and not isinstance(logs_ingestion_endpoint, str):
+            raise TypeError("Expected argument 'logs_ingestion_endpoint' to be a str")
+        pulumi.set(__self__, "logs_ingestion_endpoint", logs_ingestion_endpoint)
+        if metrics_ingestion_endpoint and not isinstance(metrics_ingestion_endpoint, str):
+            raise TypeError("Expected argument 'metrics_ingestion_endpoint' to be a str")
+        pulumi.set(__self__, "metrics_ingestion_endpoint", metrics_ingestion_endpoint)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -130,13 +136,16 @@ class GetDataCollectionRuleResult:
     @_builtins.property
     @pulumi.getter(name="immutableId")
     def immutable_id(self) -> _builtins.str:
+        """
+        The immutable ID of the Data Collection Rule.
+        """
         return pulumi.get(self, "immutable_id")
 
     @_builtins.property
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         """
         return pulumi.get(self, "kind")
 
@@ -147,6 +156,22 @@ class GetDataCollectionRuleResult:
         The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="logsIngestionEndpoint")
+    def logs_ingestion_endpoint(self) -> _builtins.str:
+        """
+        The endpoint used for ingesting logs.
+        """
+        return pulumi.get(self, "logs_ingestion_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsIngestionEndpoint")
+    def metrics_ingestion_endpoint(self) -> _builtins.str:
+        """
+        The endpoint used for ingesting metrics.
+        """
+        return pulumi.get(self, "metrics_ingestion_endpoint")
 
     @_builtins.property
     @pulumi.getter
@@ -194,6 +219,8 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
             immutable_id=self.immutable_id,
             kind=self.kind,
             location=self.location,
+            logs_ingestion_endpoint=self.logs_ingestion_endpoint,
+            metrics_ingestion_endpoint=self.metrics_ingestion_endpoint,
             name=self.name,
             resource_group_name=self.resource_group_name,
             stream_declarations=self.stream_declarations,
@@ -245,6 +272,8 @@ def get_data_collection_rule(name: Optional[_builtins.str] = None,
         immutable_id=pulumi.get(__ret__, 'immutable_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        logs_ingestion_endpoint=pulumi.get(__ret__, 'logs_ingestion_endpoint'),
+        metrics_ingestion_endpoint=pulumi.get(__ret__, 'metrics_ingestion_endpoint'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
@@ -293,6 +322,8 @@ def get_data_collection_rule_output(name: pulumi.Input[Optional[_builtins.str]] 
         immutable_id=pulumi.get(__response__, 'immutable_id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        logs_ingestion_endpoint=pulumi.get(__response__, 'logs_ingestion_endpoint'),
+        metrics_ingestion_endpoint=pulumi.get(__response__, 'metrics_ingestion_endpoint'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         stream_declarations=pulumi.get(__response__, 'stream_declarations'),

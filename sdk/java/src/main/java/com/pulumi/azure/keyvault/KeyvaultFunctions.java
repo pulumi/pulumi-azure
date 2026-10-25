@@ -1801,7 +1801,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.version());
+     *         ctx.export("hsm-key-version", example.version());
      *     }
      * }
      * }
@@ -1846,7 +1846,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.version());
+     *         ctx.export("hsm-key-version", example.version());
      *     }
      * }
      * }
@@ -1891,7 +1891,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.version());
+     *         ctx.export("hsm-key-version", example.version());
      *     }
      * }
      * }
@@ -1936,7 +1936,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.version());
+     *         ctx.export("hsm-key-version", example.version());
      *     }
      * }
      * }
@@ -1981,7 +1981,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.version());
+     *         ctx.export("hsm-key-version", example.version());
      *     }
      * }
      * }

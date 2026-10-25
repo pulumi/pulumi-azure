@@ -98,27 +98,16 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      * A `advancedFilter` block as defined below.
      */
     declare public readonly advancedFilter: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter | undefined>;
-    /**
-     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     */
     declare public readonly advancedFilteringOnArraysEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
     declare public readonly azureFunctionEndpoint: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint | undefined>;
-    /**
-     * A `deadLetterIdentity` block as defined below.
-     *
-     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     */
     declare public readonly deadLetterIdentity: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity | undefined>;
     /**
      * A `deliveryIdentity` block as defined below.
      */
     declare public readonly deliveryIdentity: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
-    /**
-     * One or more `deliveryProperty` blocks as defined below.
-     */
     declare public readonly deliveryProperties: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty[] | undefined>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -127,7 +116,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     /**
      * Specifies the id where the Event Hub is located.
      */
-    declare public readonly eventhubEndpointId: pulumi.Output<string>;
+    declare public readonly eventhubId: pulumi.Output<string>;
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
@@ -135,14 +124,13 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
-    declare public readonly hybridConnectionEndpointId: pulumi.Output<string>;
+    declare public readonly hybridConnectionId: pulumi.Output<string>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
+     *
+     * > **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
      */
     declare public readonly includedEventTypes: pulumi.Output<string[]>;
-    /**
-     * A list of labels to assign to the event subscription.
-     */
     declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name which should be used for this Event Subscription. Changing this forces a new Event Subscription to be created.
@@ -152,21 +140,15 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      * The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
-    /**
-     * A `retryPolicy` block as defined below.
-     */
     declare public readonly retryPolicy: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionRetryPolicy>;
     /**
      * Specifies the id where the Service Bus Queue is located.
      */
-    declare public readonly serviceBusQueueEndpointId: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusQueueId: pulumi.Output<string | undefined>;
     /**
      * Specifies the id where the Service Bus Topic is located.
      */
-    declare public readonly serviceBusTopicEndpointId: pulumi.Output<string | undefined>;
-    /**
-     * A `storageBlobDeadLetterDestination` block as defined below.
-     */
+    declare public readonly serviceBusTopicId: pulumi.Output<string | undefined>;
     declare public readonly storageBlobDeadLetterDestination: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination | undefined>;
     /**
      * A `storageQueueEndpoint` block as defined below.
@@ -183,7 +165,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     /**
      * A `webhookEndpoint` block as defined below.
      *
-     * > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      */
     declare public readonly webhookEndpoint: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionWebhookEndpoint | undefined>;
 
@@ -207,16 +189,16 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["deliveryIdentity"] = state?.deliveryIdentity;
             resourceInputs["deliveryProperties"] = state?.deliveryProperties;
             resourceInputs["eventDeliverySchema"] = state?.eventDeliverySchema;
-            resourceInputs["eventhubEndpointId"] = state?.eventhubEndpointId;
+            resourceInputs["eventhubId"] = state?.eventhubId;
             resourceInputs["expirationTimeUtc"] = state?.expirationTimeUtc;
-            resourceInputs["hybridConnectionEndpointId"] = state?.hybridConnectionEndpointId;
+            resourceInputs["hybridConnectionId"] = state?.hybridConnectionId;
             resourceInputs["includedEventTypes"] = state?.includedEventTypes;
             resourceInputs["labels"] = state?.labels;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["retryPolicy"] = state?.retryPolicy;
-            resourceInputs["serviceBusQueueEndpointId"] = state?.serviceBusQueueEndpointId;
-            resourceInputs["serviceBusTopicEndpointId"] = state?.serviceBusTopicEndpointId;
+            resourceInputs["serviceBusQueueId"] = state?.serviceBusQueueId;
+            resourceInputs["serviceBusTopicId"] = state?.serviceBusTopicId;
             resourceInputs["storageBlobDeadLetterDestination"] = state?.storageBlobDeadLetterDestination;
             resourceInputs["storageQueueEndpoint"] = state?.storageQueueEndpoint;
             resourceInputs["subjectFilter"] = state?.subjectFilter;
@@ -237,16 +219,16 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["deliveryIdentity"] = args?.deliveryIdentity;
             resourceInputs["deliveryProperties"] = args?.deliveryProperties;
             resourceInputs["eventDeliverySchema"] = args?.eventDeliverySchema;
-            resourceInputs["eventhubEndpointId"] = args?.eventhubEndpointId;
+            resourceInputs["eventhubId"] = args?.eventhubId;
             resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
-            resourceInputs["hybridConnectionEndpointId"] = args?.hybridConnectionEndpointId;
+            resourceInputs["hybridConnectionId"] = args?.hybridConnectionId;
             resourceInputs["includedEventTypes"] = args?.includedEventTypes;
             resourceInputs["labels"] = args?.labels;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retryPolicy"] = args?.retryPolicy;
-            resourceInputs["serviceBusQueueEndpointId"] = args?.serviceBusQueueEndpointId;
-            resourceInputs["serviceBusTopicEndpointId"] = args?.serviceBusTopicEndpointId;
+            resourceInputs["serviceBusQueueId"] = args?.serviceBusQueueId;
+            resourceInputs["serviceBusTopicId"] = args?.serviceBusTopicId;
             resourceInputs["storageBlobDeadLetterDestination"] = args?.storageBlobDeadLetterDestination;
             resourceInputs["storageQueueEndpoint"] = args?.storageQueueEndpoint;
             resourceInputs["subjectFilter"] = args?.subjectFilter;
@@ -266,27 +248,16 @@ export interface SystemTopicEventSubscriptionState {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter | undefined>;
-    /**
-     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     */
     advancedFilteringOnArraysEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint | undefined>;
-    /**
-     * A `deadLetterIdentity` block as defined below.
-     *
-     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     */
     deadLetterIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity | undefined>;
     /**
      * A `deliveryIdentity` block as defined below.
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
-    /**
-     * One or more `deliveryProperty` blocks as defined below.
-     */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[] | undefined>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -295,7 +266,7 @@ export interface SystemTopicEventSubscriptionState {
     /**
      * Specifies the id where the Event Hub is located.
      */
-    eventhubEndpointId?: pulumi.Input<string | undefined>;
+    eventhubId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
@@ -303,14 +274,13 @@ export interface SystemTopicEventSubscriptionState {
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
-    hybridConnectionEndpointId?: pulumi.Input<string | undefined>;
+    hybridConnectionId?: pulumi.Input<string | undefined>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
+     *
+     * > **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
      */
     includedEventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * A list of labels to assign to the event subscription.
-     */
     labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Event Subscription. Changing this forces a new Event Subscription to be created.
@@ -320,21 +290,15 @@ export interface SystemTopicEventSubscriptionState {
      * The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
-    /**
-     * A `retryPolicy` block as defined below.
-     */
     retryPolicy?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionRetryPolicy | undefined>;
     /**
      * Specifies the id where the Service Bus Queue is located.
      */
-    serviceBusQueueEndpointId?: pulumi.Input<string | undefined>;
+    serviceBusQueueId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id where the Service Bus Topic is located.
      */
-    serviceBusTopicEndpointId?: pulumi.Input<string | undefined>;
-    /**
-     * A `storageBlobDeadLetterDestination` block as defined below.
-     */
+    serviceBusTopicId?: pulumi.Input<string | undefined>;
     storageBlobDeadLetterDestination?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination | undefined>;
     /**
      * A `storageQueueEndpoint` block as defined below.
@@ -351,7 +315,7 @@ export interface SystemTopicEventSubscriptionState {
     /**
      * A `webhookEndpoint` block as defined below.
      *
-     * > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      */
     webhookEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionWebhookEndpoint | undefined>;
 }
@@ -364,27 +328,16 @@ export interface SystemTopicEventSubscriptionArgs {
      * A `advancedFilter` block as defined below.
      */
     advancedFilter?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilter | undefined>;
-    /**
-     * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-     */
     advancedFilteringOnArraysEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAzureFunctionEndpoint | undefined>;
-    /**
-     * A `deadLetterIdentity` block as defined below.
-     *
-     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
-     */
     deadLetterIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeadLetterIdentity | undefined>;
     /**
      * A `deliveryIdentity` block as defined below.
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
-    /**
-     * One or more `deliveryProperty` blocks as defined below.
-     */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[] | undefined>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -393,7 +346,7 @@ export interface SystemTopicEventSubscriptionArgs {
     /**
      * Specifies the id where the Event Hub is located.
      */
-    eventhubEndpointId?: pulumi.Input<string | undefined>;
+    eventhubId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
@@ -401,14 +354,13 @@ export interface SystemTopicEventSubscriptionArgs {
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
-    hybridConnectionEndpointId?: pulumi.Input<string | undefined>;
+    hybridConnectionId?: pulumi.Input<string | undefined>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
+     *
+     * > **Note:** Event types must be specified using their full name, e.g. `Microsoft.Storage.BlobCreated` rather than `BlobCreated`, and the event types that are available depend on the `topicType` of the System Topic. When not specified, all event types for the System Topic are included. See the [official documentation](https://learn.microsoft.com/azure/event-grid/system-topics#azure-services-that-support-system-topics) for the event types supported by each topic type, or list them using `az eventgrid topic-type list-event-types --name Microsoft.Storage.StorageAccounts`.
      */
     includedEventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * A list of labels to assign to the event subscription.
-     */
     labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Event Subscription. Changing this forces a new Event Subscription to be created.
@@ -418,21 +370,15 @@ export interface SystemTopicEventSubscriptionArgs {
      * The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A `retryPolicy` block as defined below.
-     */
     retryPolicy?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionRetryPolicy | undefined>;
     /**
      * Specifies the id where the Service Bus Queue is located.
      */
-    serviceBusQueueEndpointId?: pulumi.Input<string | undefined>;
+    serviceBusQueueId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the id where the Service Bus Topic is located.
      */
-    serviceBusTopicEndpointId?: pulumi.Input<string | undefined>;
-    /**
-     * A `storageBlobDeadLetterDestination` block as defined below.
-     */
+    serviceBusTopicId?: pulumi.Input<string | undefined>;
     storageBlobDeadLetterDestination?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination | undefined>;
     /**
      * A `storageQueueEndpoint` block as defined below.
@@ -449,7 +395,7 @@ export interface SystemTopicEventSubscriptionArgs {
     /**
      * A `webhookEndpoint` block as defined below.
      *
-     * > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      */
     webhookEndpoint?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionWebhookEndpoint | undefined>;
 }

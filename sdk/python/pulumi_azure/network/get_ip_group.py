@@ -26,10 +26,16 @@ class GetIpGroupResult:
     """
     A collection of values returned by getIpGroup.
     """
-    def __init__(__self__, cidrs=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, cidrs=None, firewall_ids=None, firewall_policy_ids=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
         if cidrs and not isinstance(cidrs, list):
             raise TypeError("Expected argument 'cidrs' to be a list")
         pulumi.set(__self__, "cidrs", cidrs)
+        if firewall_ids and not isinstance(firewall_ids, list):
+            raise TypeError("Expected argument 'firewall_ids' to be a list")
+        pulumi.set(__self__, "firewall_ids", firewall_ids)
+        if firewall_policy_ids and not isinstance(firewall_policy_ids, list):
+            raise TypeError("Expected argument 'firewall_policy_ids' to be a list")
+        pulumi.set(__self__, "firewall_policy_ids", firewall_policy_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +59,22 @@ class GetIpGroupResult:
         A list of CIDRs or IP addresses.
         """
         return pulumi.get(self, "cidrs")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of ID of Firewall.
+        """
+        return pulumi.get(self, "firewall_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallPolicyIds")
+    def firewall_policy_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of ID of Firewall Policy`.
+        """
+        return pulumi.get(self, "firewall_policy_ids")
 
     @_builtins.property
     @pulumi.getter
@@ -96,6 +118,8 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
             yield self
         return GetIpGroupResult(
             cidrs=self.cidrs,
+            firewall_ids=self.firewall_ids,
+            firewall_policy_ids=self.firewall_policy_ids,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -125,7 +149,7 @@ def get_ip_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the Name of the IP Group.
@@ -139,6 +163,8 @@ def get_ip_group(name: Optional[_builtins.str] = None,
 
     return AwaitableGetIpGroupResult(
         cidrs=pulumi.get(__ret__, 'cidrs'),
+        firewall_ids=pulumi.get(__ret__, 'firewall_ids'),
+        firewall_policy_ids=pulumi.get(__ret__, 'firewall_policy_ids'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -166,7 +192,7 @@ def get_ip_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the Name of the IP Group.
@@ -179,6 +205,8 @@ def get_ip_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:network/getIpGroup:getIpGroup', __args__, opts=opts, typ=GetIpGroupResult)
     return __ret__.apply(lambda __response__: GetIpGroupResult(
         cidrs=pulumi.get(__response__, 'cidrs'),
+        firewall_ids=pulumi.get(__response__, 'firewall_ids'),
+        firewall_policy_ids=pulumi.get(__response__, 'firewall_policy_ids'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

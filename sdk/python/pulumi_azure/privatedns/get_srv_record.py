@@ -140,11 +140,10 @@ def get_srv_record(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.SRVRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsSrvRecordId", example_azurerm_private_dns_srv_record["id"])
+    example = azure.privatedns.get_srv_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsSrvRecordId", example.id)
     ```
 
     ## API Providers
@@ -190,11 +189,10 @@ def get_srv_record_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.SRVRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsSrvRecordId", example_azurerm_private_dns_srv_record["id"])
+    example = azure.privatedns.get_srv_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsSrvRecordId", example.id)
     ```
 
     ## API Providers

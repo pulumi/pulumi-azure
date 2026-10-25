@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPoolMount {
@@ -19,12 +18,12 @@ public final class GetPoolMount {
      * @return A `azureBlobFileSystem` block defined as below.
      * 
      */
-    private @Nullable List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems;
+    private List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems;
     /**
      * @return A `azureFileShare` block defined as below.
      * 
      */
-    private @Nullable List<GetPoolMountAzureFileShare> azureFileShares;
+    private List<GetPoolMountAzureFileShare> azureFileShares;
     /**
      * @return A `cifsMount` block defined as below.
      * 
@@ -42,14 +41,14 @@ public final class GetPoolMount {
      * 
      */
     public List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems() {
-        return this.azureBlobFileSystems == null ? List.of() : this.azureBlobFileSystems;
+        return this.azureBlobFileSystems;
     }
     /**
      * @return A `azureFileShare` block defined as below.
      * 
      */
     public List<GetPoolMountAzureFileShare> azureFileShares() {
-        return this.azureFileShares == null ? List.of() : this.azureFileShares;
+        return this.azureFileShares;
     }
     /**
      * @return A `cifsMount` block defined as below.
@@ -75,8 +74,8 @@ public final class GetPoolMount {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems;
-        private @Nullable List<GetPoolMountAzureFileShare> azureFileShares;
+        private List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems;
+        private List<GetPoolMountAzureFileShare> azureFileShares;
         private List<GetPoolMountCifsMount> cifsMounts;
         private List<GetPoolMountNfsMount> nfsMounts;
         public Builder() {}
@@ -89,8 +88,10 @@ public final class GetPoolMount {
         }
 
         @CustomType.Setter
-        public Builder azureBlobFileSystems(@Nullable List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems) {
-
+        public Builder azureBlobFileSystems(List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems) {
+            if (azureBlobFileSystems == null) {
+              throw new MissingRequiredPropertyException("GetPoolMount", "azureBlobFileSystems");
+            }
             this.azureBlobFileSystems = azureBlobFileSystems;
             return this;
         }
@@ -98,8 +99,10 @@ public final class GetPoolMount {
             return azureBlobFileSystems(List.of(azureBlobFileSystems));
         }
         @CustomType.Setter
-        public Builder azureFileShares(@Nullable List<GetPoolMountAzureFileShare> azureFileShares) {
-
+        public Builder azureFileShares(List<GetPoolMountAzureFileShare> azureFileShares) {
+            if (azureFileShares == null) {
+              throw new MissingRequiredPropertyException("GetPoolMount", "azureFileShares");
+            }
             this.azureFileShares = azureFileShares;
             return this;
         }

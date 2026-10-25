@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/paloalto"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/paloalto"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -185,9 +185,7 @@ type NextGenerationFirewallVirtualNetworkPanorama struct {
 	PanoramaBase64Config pulumi.StringOutput `pulumi:"panoramaBase64Config"`
 	// A `panorama` block as defined below.
 	Panoramas NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput `pulumi:"panoramas"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -250,9 +248,7 @@ type nextGenerationFirewallVirtualNetworkPanoramaState struct {
 	PanoramaBase64Config *string `pulumi:"panoramaBase64Config"`
 	// A `panorama` block as defined below.
 	Panoramas []NextGenerationFirewallVirtualNetworkPanoramaPanorama `pulumi:"panoramas"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -277,9 +273,7 @@ type NextGenerationFirewallVirtualNetworkPanoramaState struct {
 	PanoramaBase64Config pulumi.StringPtrInput
 	// A `panorama` block as defined below.
 	Panoramas NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -306,9 +300,7 @@ type nextGenerationFirewallVirtualNetworkPanoramaArgs struct {
 	NetworkProfile NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile `pulumi:"networkProfile"`
 	// The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
 	PanoramaBase64Config string `pulumi:"panoramaBase64Config"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -332,9 +324,7 @@ type NextGenerationFirewallVirtualNetworkPanoramaArgs struct {
 	NetworkProfile NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileInput
 	// The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
 	PanoramaBase64Config pulumi.StringInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-	//
-	// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringInput
@@ -481,9 +471,7 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) Panoramas() NextGene
 	}).(NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput)
 }
 
-// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-//
-// > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
 func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }

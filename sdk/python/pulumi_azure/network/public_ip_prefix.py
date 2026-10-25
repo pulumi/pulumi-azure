@@ -35,14 +35,14 @@ class PublicIpPrefixArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
-               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -89,7 +89,7 @@ class PublicIpPrefixArgs:
         """
         The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 
-        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         """
         return pulumi.get(self, "custom_ip_prefix_id")
 
@@ -151,7 +151,7 @@ class PublicIpPrefixArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         """
         return pulumi.get(self, "sku")
 
@@ -219,7 +219,7 @@ class _PublicIpPrefixState:
 
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
-               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -228,7 +228,7 @@ class _PublicIpPrefixState:
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -266,7 +266,7 @@ class _PublicIpPrefixState:
         """
         The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 
-        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         """
         return pulumi.get(self, "custom_ip_prefix_id")
 
@@ -352,7 +352,7 @@ class _PublicIpPrefixState:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         """
         return pulumi.get(self, "sku")
 
@@ -445,7 +445,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -460,7 +460,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
-               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -468,7 +468,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -510,7 +510,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -598,7 +598,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
-               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -607,7 +607,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -639,7 +639,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         """
         The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 
-        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         """
         return pulumi.get(self, "custom_ip_prefix_id")
 
@@ -697,7 +697,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`.
         """
         return pulumi.get(self, "sku")
 

@@ -27,7 +27,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         /// <summary>
         /// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `ActiveDirectoryAuthEnabled` must be set to `True`.
         /// 
-        /// &gt; **Note:** Setting `ActiveDirectoryAuthEnabled` to `True` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+        /// &gt; **Note:** Setting `ActiveDirectoryAuthEnabled` to `True` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
         /// 
         /// &gt; **Note:** `TenantId` is required when `ActiveDirectoryAuthEnabled` is set to `True`. And it should not be specified when `ActiveDirectoryAuthEnabled` is set to `False`
         /// </summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        /// The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
         /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;

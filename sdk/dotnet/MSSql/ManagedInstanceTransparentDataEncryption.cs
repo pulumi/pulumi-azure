@@ -251,7 +251,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -283,9 +283,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
-
-        [Output("managedHsmKeyId")]
-        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
@@ -357,9 +354,6 @@ namespace Pulumi.Azure.MSSql
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
-
         /// <summary>
         /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         /// </summary>
@@ -391,9 +385,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
-
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.

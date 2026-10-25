@@ -170,7 +170,7 @@ namespace Pulumi.Azure.AadB2C
         /// </summary>
         public readonly string BillingType;
         /// <summary>
-        /// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
+        /// Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         public readonly string DataResidencyLocation;
         public readonly string DomainName;

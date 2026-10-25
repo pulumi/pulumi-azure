@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **Note:** You may specify `Latest` to obtain the latest version or `Recent` to obtain the most recently updated version.
         /// 
-        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExludeFromLatest` set to `True`.
+        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExcludeFromLatest` set to `True`.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **Note:** You may specify `Latest` to obtain the latest version or `Recent` to obtain the most recently updated version.
         /// 
-        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExludeFromLatest` set to `True`.
+        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExcludeFromLatest` set to `True`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

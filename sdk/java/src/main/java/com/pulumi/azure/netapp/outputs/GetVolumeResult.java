@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp.outputs;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionAdvancedRansomware;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
+import com.pulumi.azure.netapp.outputs.GetVolumeMountTarget;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -25,12 +26,17 @@ public final class GetVolumeResult {
     private String acceptGrowCapacityPoolForShortTermCloneSplit;
     private String accountName;
     /**
+     * @return Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+     * 
+     */
+    private Boolean breakthroughModeEnabled;
+    /**
      * @return An Advanced Ransomware Protection (ARP) data protection block.
      * 
      */
     private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
     /**
-     * @return A data protecion backup policy block
+     * @return A data protection backup policy block
      * 
      */
     private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
@@ -57,10 +63,10 @@ public final class GetVolumeResult {
      */
     private String location;
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    private List<String> mountIpAddresses;
+    private List<GetVolumeMountTarget> mountTargets;
     private String name;
     /**
      * @return Network features in use `Basic` or `Standard`.
@@ -127,6 +133,13 @@ public final class GetVolumeResult {
         return this.accountName;
     }
     /**
+     * @return Indicates if the large volume runs in Breakthrough Mode, placing it on dedicated capacity that provides higher throughput and greater capacity.
+     * 
+     */
+    public Boolean breakthroughModeEnabled() {
+        return this.breakthroughModeEnabled;
+    }
+    /**
      * @return An Advanced Ransomware Protection (ARP) data protection block.
      * 
      */
@@ -134,7 +147,7 @@ public final class GetVolumeResult {
         return this.dataProtectionAdvancedRansomwares;
     }
     /**
-     * @return A data protecion backup policy block
+     * @return A data protection backup policy block
      * 
      */
     public List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies() {
@@ -175,11 +188,11 @@ public final class GetVolumeResult {
         return this.location;
     }
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    public List<String> mountIpAddresses() {
-        return this.mountIpAddresses;
+    public List<GetVolumeMountTarget> mountTargets() {
+        return this.mountTargets;
     }
     public String name() {
         return this.name;
@@ -272,6 +285,7 @@ public final class GetVolumeResult {
     public static final class Builder {
         private String acceptGrowCapacityPoolForShortTermCloneSplit;
         private String accountName;
+        private Boolean breakthroughModeEnabled;
         private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
         private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
@@ -280,7 +294,7 @@ public final class GetVolumeResult {
         private String keyVaultPrivateEndpointId;
         private Boolean largeVolumeEnabled;
         private String location;
-        private List<String> mountIpAddresses;
+        private List<GetVolumeMountTarget> mountTargets;
         private String name;
         private String networkFeatures;
         private String poolName;
@@ -299,6 +313,7 @@ public final class GetVolumeResult {
     	      Objects.requireNonNull(defaults);
     	      this.acceptGrowCapacityPoolForShortTermCloneSplit = defaults.acceptGrowCapacityPoolForShortTermCloneSplit;
     	      this.accountName = defaults.accountName;
+    	      this.breakthroughModeEnabled = defaults.breakthroughModeEnabled;
     	      this.dataProtectionAdvancedRansomwares = defaults.dataProtectionAdvancedRansomwares;
     	      this.dataProtectionBackupPolicies = defaults.dataProtectionBackupPolicies;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
@@ -307,7 +322,7 @@ public final class GetVolumeResult {
     	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
     	      this.largeVolumeEnabled = defaults.largeVolumeEnabled;
     	      this.location = defaults.location;
-    	      this.mountIpAddresses = defaults.mountIpAddresses;
+    	      this.mountTargets = defaults.mountTargets;
     	      this.name = defaults.name;
     	      this.networkFeatures = defaults.networkFeatures;
     	      this.poolName = defaults.poolName;
@@ -337,6 +352,14 @@ public final class GetVolumeResult {
               throw new MissingRequiredPropertyException("GetVolumeResult", "accountName");
             }
             this.accountName = accountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder breakthroughModeEnabled(Boolean breakthroughModeEnabled) {
+            if (breakthroughModeEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "breakthroughModeEnabled");
+            }
+            this.breakthroughModeEnabled = breakthroughModeEnabled;
             return this;
         }
         @CustomType.Setter
@@ -413,15 +436,15 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder mountIpAddresses(List<String> mountIpAddresses) {
-            if (mountIpAddresses == null) {
-              throw new MissingRequiredPropertyException("GetVolumeResult", "mountIpAddresses");
+        public Builder mountTargets(List<GetVolumeMountTarget> mountTargets) {
+            if (mountTargets == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "mountTargets");
             }
-            this.mountIpAddresses = mountIpAddresses;
+            this.mountTargets = mountTargets;
             return this;
         }
-        public Builder mountIpAddresses(String... mountIpAddresses) {
-            return mountIpAddresses(List.of(mountIpAddresses));
+        public Builder mountTargets(GetVolumeMountTarget... mountTargets) {
+            return mountTargets(List.of(mountTargets));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -532,6 +555,7 @@ public final class GetVolumeResult {
             final var _resultValue = new GetVolumeResult();
             _resultValue.acceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             _resultValue.accountName = accountName;
+            _resultValue.breakthroughModeEnabled = breakthroughModeEnabled;
             _resultValue.dataProtectionAdvancedRansomwares = dataProtectionAdvancedRansomwares;
             _resultValue.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
             _resultValue.dataProtectionReplications = dataProtectionReplications;
@@ -540,7 +564,7 @@ public final class GetVolumeResult {
             _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             _resultValue.largeVolumeEnabled = largeVolumeEnabled;
             _resultValue.location = location;
-            _resultValue.mountIpAddresses = mountIpAddresses;
+            _resultValue.mountTargets = mountTargets;
             _resultValue.name = name;
             _resultValue.networkFeatures = networkFeatures;
             _resultValue.poolName = poolName;

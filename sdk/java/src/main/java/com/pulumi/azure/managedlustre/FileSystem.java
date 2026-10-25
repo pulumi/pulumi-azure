@@ -257,14 +257,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependent on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageCapacityInTb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityInTb;
 
     /**
-     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependent on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     public Output<Integer> storageCapacityInTb() {

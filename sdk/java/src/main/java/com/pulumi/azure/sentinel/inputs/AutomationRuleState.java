@@ -71,14 +71,14 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
     @Import(name="conditionJson")
     private @Nullable Output<String> conditionJson;
 
     /**
-     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
     public Optional<Output<String>> conditionJson() {
@@ -340,7 +340,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
          * 
          * @return builder
          * 

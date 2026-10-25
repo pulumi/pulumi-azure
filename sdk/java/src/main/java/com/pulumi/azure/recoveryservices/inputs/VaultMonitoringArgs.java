@@ -61,14 +61,14 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+     * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     @Import(name="alertsForCriticalOperationFailuresEnabled")
     private @Nullable Output<Boolean> alertsForCriticalOperationFailuresEnabled;
 
     /**
-     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+     * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     public Optional<Output<Boolean>> alertsForCriticalOperationFailuresEnabled() {
@@ -182,7 +182,7 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alertsForCriticalOperationFailuresEnabled Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+         * @param alertsForCriticalOperationFailuresEnabled Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alertsForCriticalOperationFailuresEnabled Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+         * @param alertsForCriticalOperationFailuresEnabled Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/azure/backup/monitoring-and-alerts-overview).
          * 
          * @return builder
          * 

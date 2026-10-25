@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getGatewayConnection(args: GetGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,17 +61,16 @@ export interface GetGatewayConnectionResult {
      * ExpressRoute connection.
      */
     readonly authorizationKey: string;
+    /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+     */
+    readonly bgpEnabled: boolean;
     readonly connectionProtocol: string;
     /**
      * The dead peer detection timeout of this connection in seconds.
      */
     readonly dpdTimeoutSeconds: number;
     readonly egressBytesTransferred: number;
-    /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection.
-     */
-    readonly enableBgp: boolean;
     /**
      * The ID of the Express Route Circuit
      * (i.e. when `type` is `ExpressRoute`).
@@ -115,7 +114,7 @@ export interface GetGatewayConnectionResult {
     readonly peerVirtualNetworkGatewayId: string;
     /**
      * If `true`, data packets will bypass the Express Route gateway when accessing private-links.
-     * This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+     * This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
      */
     readonly privateLinkFastPathEnabled: boolean;
     readonly resourceGroupName: string;
@@ -176,7 +175,7 @@ export interface GetGatewayConnectionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

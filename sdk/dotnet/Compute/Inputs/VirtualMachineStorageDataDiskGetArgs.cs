@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
         /// 
-        /// &gt; **Note:** `ManagedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `True`.
+        /// &gt; **Note:** `ManagedDiskType` of type `UltraSSD_LRS` requires `additional_capabilities.ultra_ssd_enabled` to be set to `True`.
         /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }

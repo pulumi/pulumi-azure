@@ -1,0 +1,73 @@
+name: vmss
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: Central US
+
+  exampleVirtualNetwork:
+    type: azure:network:VirtualNetwork
+    properties:
+      addressSpaces:
+        - 10.0.0.0/16
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+
+  exampleSubnet:
+    type: azure:network:Subnet
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      virtualNetworkName: ${exampleVirtualNetwork.name}
+      addressPrefixes:
+        - 10.0.2.0/24
+
+  exampleScaleSet:
+    type: azure:compute:LinuxVirtualMachineScaleSet
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: Standard_B1s
+      instances: 0
+      adminUsername: azureuser
+      # A key rather than a password: recorded state has secrets redacted, and a redacted
+      # `adminPassword` would itself force a replacement when the test replays.
+      adminSshKeys:
+        - username: azureuser
+          publicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgWVVEEyXUsjtvybjXUVFA/NzhyS7wtlx4eezTKLE0flz0caeBfIjiLGHxUlTLnEsHz1pvscsHNkhL84wXoi3JFK0ucgkU6oB4pGrbZiAe+db4LqkdC9NtqjgbBLWpVhu9A3e61Iu1g1E8THriYEmKT86onia+hLxMwEsoVom/qKlVFfvFRbC/N/D0WOFNbAqIw8EjX2Ae2tTEaiilwRUtJALgiuvqRpOh1sYkt1POolNK2YEpoYjOjo/S1sQkDcIvcYqExWa+vfdn7O4xBPJJZC3df/4OAR3nb2aEPQWFwBuEkHMLAsz2chTyUBxZ8xwosp4zhNHCY140sobZai5h pulumi-azure-upgrade-test
+      sourceImageReference:
+        publisher: Canonical
+        offer: ubuntu-24_04-lts
+        sku: server
+        version: latest
+      osDisk:
+        caching: ReadWrite
+        storageAccountType: Standard_LRS
+      networkInterfaces:
+        - name: primary
+          primary: true
+          acceleratedNetworkingEnabled: false
+          ipForwardingEnabled: true
+          ipConfigurations:
+            - name: internal
+              primary: true
+              subnetId: ${exampleSubnet.id}
+      upgradeMode: Automatic
+      # Azure returns a default rolling upgrade policy for `Automatic` mode, and the property
+      # forces a replacement when it changes, so v6 programs must already set it explicitly.
+      rollingUpgradePolicy:
+        maxBatchInstancePercent: 20
+        maxUnhealthyInstancePercent: 20
+        maxUnhealthyUpgradedInstancePercent: 20
+        pauseTimeBetweenBatches: PT0S
+      automaticOsUpgradePolicy:
+        automaticOsUpgradeEnabled: true
+        automaticRollbackEnabled: true
+      extensions:
+        - name: health
+          publisher: Microsoft.ManagedServices
+          type: ApplicationHealthLinux
+          typeHandlerVersion: "1.0"
+          settings: '{"protocol":"http","port":80,"requestPath":"/healthz"}'

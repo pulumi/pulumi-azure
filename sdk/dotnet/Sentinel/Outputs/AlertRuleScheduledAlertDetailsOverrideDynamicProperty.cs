@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        /// The value of the dynamic property. Possible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
         /// </summary>
         public readonly string Value;
 

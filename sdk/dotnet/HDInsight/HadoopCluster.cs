@@ -49,11 +49,12 @@ namespace Pulumi.Azure.HDInsight
     ///         Name = "example-hdicluster",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         ClusterVersion = "3.6",
+    ///         ClusterVersion = "5.1",
     ///         Tier = "Standard",
+    ///         TlsMinVersion = "1.2",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.HadoopClusterComponentVersionArgs
     ///         {
-    ///             Hadoop = "2.7",
+    ///             Hadoop = "3.3",
     ///         },
     ///         Gateway = new Azure.HDInsight.Inputs.HadoopClusterGatewayArgs
     ///         {
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             new Azure.HDInsight.Inputs.HadoopClusterStorageAccountArgs
     ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageContainerUrl = exampleContainer.Url,
     ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
     ///                 IsDefault = true,
     ///             },
@@ -73,20 +74,20 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             HeadNode = new Azure.HDInsight.Inputs.HadoopClusterRolesHeadNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
     ///             WorkerNode = new Azure.HDInsight.Inputs.HadoopClusterRolesWorkerNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D4_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///                 TargetInstanceCount = 3,
     ///             },
     ///             ZookeeperNode = new Azure.HDInsight.Inputs.HadoopClusterRolesZookeeperNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
@@ -242,11 +243,9 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
         [Output("tlsMinVersion")]
-        public Output<string?> TlsMinVersion { get; private set; } = null!;
+        public Output<string> TlsMinVersion { get; private set; } = null!;
 
 
         /// <summary>
@@ -428,11 +427,9 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
-        [Input("tlsMinVersion")]
-        public Input<string>? TlsMinVersion { get; set; }
+        [Input("tlsMinVersion", required: true)]
+        public Input<string> TlsMinVersion { get; set; } = null!;
 
         public HadoopClusterArgs()
         {
@@ -588,8 +585,6 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
         [Input("tlsMinVersion")]
         public Input<string>? TlsMinVersion { get; set; }

@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  * 
  * ## Import
  * 
@@ -217,14 +217,14 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.peeringLocation);
     }
     /**
-     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      * 
      */
     @Export(name="rateLimitingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rateLimitingEnabled;
 
     /**
-     * @return Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * @return Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> rateLimitingEnabled() {

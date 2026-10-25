@@ -91,9 +91,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        /// `Persistent` should be used if the host pool type is `Personal`
+        /// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+        /// 
+        /// &gt; **Note:** `LoadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `Type` of your Virtual Desktop Host Pool is `Personal`.
         /// </summary>
         [Output("loadBalancerType")]
         public Output<string> LoadBalancerType { get; private set; } = null!;
@@ -244,9 +244,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        /// `Persistent` should be used if the host pool type is `Personal`
+        /// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+        /// 
+        /// &gt; **Note:** `LoadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `Type` of your Virtual Desktop Host Pool is `Personal`.
         /// </summary>
         [Input("loadBalancerType", required: true)]
         public Input<string> LoadBalancerType { get; set; } = null!;
@@ -365,9 +365,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
-        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
-        /// `Persistent` should be used if the host pool type is `Personal`
+        /// The type of the load balancer. Possible values are `BreadthFirst`, `DepthFirst`, `MultiplePersistent` and `Persistent`. Refer to the [Azure documentation](https://learn.microsoft.com/azure/virtual-desktop/host-pool-load-balancing) for more information.
+        /// 
+        /// &gt; **Note:** `LoadBalancerType` must be set to `Persistent` or `MultiplePersistent` if the `Type` of your Virtual Desktop Host Pool is `Personal`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }

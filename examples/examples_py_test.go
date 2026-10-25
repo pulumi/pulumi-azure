@@ -35,8 +35,10 @@ func TestAccDatasourcePy(t *testing.T) {
 func TestAccEventhubPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "eventhub-py"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "eventhub-py"),
+			// RunUpdateTest is incompatible with this major upgrade: phase 1 deploys against the
+			// last-published (pre-v5.0) pulumi-azure package, which doesn't have namespace_id.
+			// RunUpdateTest: true,
 			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,

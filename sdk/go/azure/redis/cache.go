@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/redis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,7 +95,7 @@ type Cache struct {
 	Identity CacheIdentityPtrOutput `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
@@ -147,7 +147,7 @@ type Cache struct {
 	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -212,7 +212,7 @@ type cacheState struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -264,7 +264,7 @@ type cacheState struct {
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -281,7 +281,7 @@ type CacheState struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -333,7 +333,7 @@ type CacheState struct {
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 	Zones pulumi.StringArrayInput
 }
 
@@ -352,7 +352,7 @@ type cacheArgs struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -392,7 +392,7 @@ type cacheArgs struct {
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -408,7 +408,7 @@ type CacheArgs struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -448,7 +448,7 @@ type CacheArgs struct {
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 	Zones pulumi.StringArrayInput
 }
 
@@ -569,7 +569,7 @@ func (o CacheOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 //
 // > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
@@ -687,7 +687,7 @@ func (o CacheOutput) TenantSettings() pulumi.StringMapOutput {
 
 // Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 //
-// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+// > **Note:** Availability Zone support is [only available in certain regions](https://learn.microsoft.com/azure/reliability/availability-zones-region-support).
 func (o CacheOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

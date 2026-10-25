@@ -3,11 +3,14 @@
 
 package com.pulumi.azure.expressroute.outputs;
 
+import com.pulumi.azure.expressroute.outputs.GetCircuitPeeringIpv6;
+import com.pulumi.azure.expressroute.outputs.GetCircuitPeeringMicrosoftPeeringConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -29,6 +32,16 @@ public final class GetCircuitPeeringResult {
      * 
      */
     private Boolean ipv4Enabled;
+    /**
+     * @return A block describing the IPv6 configuration, if enabled.
+     * 
+     */
+    private List<GetCircuitPeeringIpv6> ipv6s;
+    /**
+     * @return A block describing the Microsoft Peering configuration, if applicable.
+     * 
+     */
+    private List<GetCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfigs;
     private Integer peerAsn;
     /**
      * @return The type of the ExpressRoute Circuit Peering.
@@ -41,11 +54,15 @@ public final class GetCircuitPeeringResult {
      */
     private String primaryAzurePort;
     /**
-     * @return The primary peer address prefix.
+     * @return A subnet for the primary link.
      * 
      */
     private String primaryPeerAddressPrefix;
     private String resourceGroupName;
+    /**
+     * @return The ID of the Route Filter.
+     * 
+     */
     private String routeFilterId;
     /**
      * @return The secondary port used by Azure for this peering.
@@ -53,7 +70,7 @@ public final class GetCircuitPeeringResult {
      */
     private String secondaryAzurePort;
     /**
-     * @return The secondary peer address prefix.
+     * @return A subnet for the secondary link.
      * 
      */
     private String secondaryPeerAddressPrefix;
@@ -92,6 +109,20 @@ public final class GetCircuitPeeringResult {
     public Boolean ipv4Enabled() {
         return this.ipv4Enabled;
     }
+    /**
+     * @return A block describing the IPv6 configuration, if enabled.
+     * 
+     */
+    public List<GetCircuitPeeringIpv6> ipv6s() {
+        return this.ipv6s;
+    }
+    /**
+     * @return A block describing the Microsoft Peering configuration, if applicable.
+     * 
+     */
+    public List<GetCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfigs() {
+        return this.microsoftPeeringConfigs;
+    }
     public Integer peerAsn() {
         return this.peerAsn;
     }
@@ -110,7 +141,7 @@ public final class GetCircuitPeeringResult {
         return this.primaryAzurePort;
     }
     /**
-     * @return The primary peer address prefix.
+     * @return A subnet for the primary link.
      * 
      */
     public String primaryPeerAddressPrefix() {
@@ -119,6 +150,10 @@ public final class GetCircuitPeeringResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The ID of the Route Filter.
+     * 
+     */
     public String routeFilterId() {
         return this.routeFilterId;
     }
@@ -130,7 +165,7 @@ public final class GetCircuitPeeringResult {
         return this.secondaryAzurePort;
     }
     /**
-     * @return The secondary peer address prefix.
+     * @return A subnet for the secondary link.
      * 
      */
     public String secondaryPeerAddressPrefix() {
@@ -161,6 +196,8 @@ public final class GetCircuitPeeringResult {
         private String gatewayManagerEtag;
         private String id;
         private Boolean ipv4Enabled;
+        private List<GetCircuitPeeringIpv6> ipv6s;
+        private List<GetCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfigs;
         private Integer peerAsn;
         private String peeringType;
         private String primaryAzurePort;
@@ -179,6 +216,8 @@ public final class GetCircuitPeeringResult {
     	      this.gatewayManagerEtag = defaults.gatewayManagerEtag;
     	      this.id = defaults.id;
     	      this.ipv4Enabled = defaults.ipv4Enabled;
+    	      this.ipv6s = defaults.ipv6s;
+    	      this.microsoftPeeringConfigs = defaults.microsoftPeeringConfigs;
     	      this.peerAsn = defaults.peerAsn;
     	      this.peeringType = defaults.peeringType;
     	      this.primaryAzurePort = defaults.primaryAzurePort;
@@ -230,6 +269,28 @@ public final class GetCircuitPeeringResult {
             }
             this.ipv4Enabled = ipv4Enabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6s(List<GetCircuitPeeringIpv6> ipv6s) {
+            if (ipv6s == null) {
+              throw new MissingRequiredPropertyException("GetCircuitPeeringResult", "ipv6s");
+            }
+            this.ipv6s = ipv6s;
+            return this;
+        }
+        public Builder ipv6s(GetCircuitPeeringIpv6... ipv6s) {
+            return ipv6s(List.of(ipv6s));
+        }
+        @CustomType.Setter
+        public Builder microsoftPeeringConfigs(List<GetCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfigs) {
+            if (microsoftPeeringConfigs == null) {
+              throw new MissingRequiredPropertyException("GetCircuitPeeringResult", "microsoftPeeringConfigs");
+            }
+            this.microsoftPeeringConfigs = microsoftPeeringConfigs;
+            return this;
+        }
+        public Builder microsoftPeeringConfigs(GetCircuitPeeringMicrosoftPeeringConfig... microsoftPeeringConfigs) {
+            return microsoftPeeringConfigs(List.of(microsoftPeeringConfigs));
         }
         @CustomType.Setter
         public Builder peerAsn(Integer peerAsn) {
@@ -318,6 +379,8 @@ public final class GetCircuitPeeringResult {
             _resultValue.gatewayManagerEtag = gatewayManagerEtag;
             _resultValue.id = id;
             _resultValue.ipv4Enabled = ipv4Enabled;
+            _resultValue.ipv6s = ipv6s;
+            _resultValue.microsoftPeeringConfigs = microsoftPeeringConfigs;
             _resultValue.peerAsn = peerAsn;
             _resultValue.peeringType = peeringType;
             _resultValue.primaryAzurePort = primaryAzurePort;

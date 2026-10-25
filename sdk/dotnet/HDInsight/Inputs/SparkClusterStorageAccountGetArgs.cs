@@ -20,6 +20,12 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
         [Input("storageAccountKey", required: true)]
         private Input<string>? _storageAccountKey;
 
@@ -37,18 +43,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
         }
 
         /// <summary>
-        /// The ID of the Storage Container. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When the `azure.storage.Container` resource is created with `StorageAccountName`, this can be obtained from the `Id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `StorageAccountId`, please use `azure.storage.getContainers` data source to get the `DataPlaneId` of the `azure.storage.Container` resource for this field.
+        /// The URL of the Storage Container. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageContainerId", required: true)]
-        public Input<string> StorageContainerId { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Storage Account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageResourceId")]
-        public Input<string>? StorageResourceId { get; set; }
+        [Input("storageContainerUrl", required: true)]
+        public Input<string> StorageContainerUrl { get; set; } = null!;
 
         public SparkClusterStorageAccountGetArgs()
         {

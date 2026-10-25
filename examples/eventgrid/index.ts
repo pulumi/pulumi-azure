@@ -37,7 +37,7 @@ azure.eventgrid.events.onGridBlobCreated("OnNewBlob", {
 
 // A queue to log events to
 const logQueue = new azure.storage.Queue("log", {
-    storageAccountName: storageAccount.name,
+    storageAccountId: storageAccount.id,
 });
 
 // Subscribe to deletion of any files from any container of this storage account and

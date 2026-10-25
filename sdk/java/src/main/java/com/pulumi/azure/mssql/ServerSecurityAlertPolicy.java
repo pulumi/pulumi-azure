@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -124,18 +124,18 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.disabledAlerts);
     }
     /**
-     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Defaults to `false`.
      * 
      */
-    @Export(name="emailAccountAdmins", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> emailAccountAdmins;
+    @Export(name="emailAccountAdminsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> emailAccountAdminsEnabled;
 
     /**
-     * @return Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Are the alerts sent to the account administrators? Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> emailAccountAdmins() {
-        return Codegen.optional(this.emailAccountAdmins);
+    public Output<Optional<Boolean>> emailAccountAdminsEnabled() {
+        return Codegen.optional(this.emailAccountAdminsEnabled);
     }
     /**
      * Specifies an array of email addresses to which the alert is sent.

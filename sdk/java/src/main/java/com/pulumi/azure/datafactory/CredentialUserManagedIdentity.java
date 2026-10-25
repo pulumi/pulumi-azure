@@ -150,7 +150,7 @@ public class CredentialUserManagedIdentity extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.description);
     }
     /**
-     * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 
@@ -159,7 +159,7 @@ public class CredentialUserManagedIdentity extends com.pulumi.resources.CustomRe
     private Output<String> identityId;
 
     /**
-     * @return The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+     * @return The Resource ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      * 

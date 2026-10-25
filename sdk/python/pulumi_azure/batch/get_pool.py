@@ -27,16 +27,13 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, data_disks=None, disk_encryptions=None, display_name=None, extensions=None, fixed_scales=None, id=None, inter_node_communication=None, license_type=None, max_tasks_per_node=None, metadata=None, mounts=None, name=None, network_configurations=None, node_agent_sku_id=None, node_placements=None, os_disk_placement=None, resource_group_name=None, start_tasks=None, storage_image_references=None, task_scheduling_policies=None, user_accounts=None, vm_size=None, windows=None):
+    def __init__(__self__, account_name=None, auto_scales=None, container_configurations=None, data_disks=None, disk_encryptions=None, display_name=None, extensions=None, fixed_scales=None, id=None, inter_node_communication=None, license_type=None, max_tasks_per_node=None, metadata=None, mounts=None, name=None, network_configurations=None, node_agent_sku_id=None, node_placements=None, os_disk_placement=None, resource_group_name=None, start_tasks=None, storage_image_references=None, task_scheduling_policies=None, user_accounts=None, vm_size=None, windows=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
         if auto_scales and not isinstance(auto_scales, list):
             raise TypeError("Expected argument 'auto_scales' to be a list")
         pulumi.set(__self__, "auto_scales", auto_scales)
-        if certificates and not isinstance(certificates, list):
-            raise TypeError("Expected argument 'certificates' to be a list")
-        pulumi.set(__self__, "certificates", certificates)
         if container_configurations and not isinstance(container_configurations, list):
             raise TypeError("Expected argument 'container_configurations' to be a list")
         pulumi.set(__self__, "container_configurations", container_configurations)
@@ -125,12 +122,6 @@ class GetPoolResult:
         A `auto_scale` block that describes the scale settings when using auto scale.
         """
         return pulumi.get(self, "auto_scales")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> Sequence['outputs.GetPoolCertificateResult']:
-        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="containerConfigurations")
@@ -321,7 +312,6 @@ class AwaitableGetPoolResult(GetPoolResult):
         return GetPoolResult(
             account_name=self.account_name,
             auto_scales=self.auto_scales,
-            certificates=self.certificates,
             container_configurations=self.container_configurations,
             data_disks=self.data_disks,
             disk_encryptions=self.disk_encryptions,
@@ -388,7 +378,6 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     return AwaitableGetPoolResult(
         account_name=pulumi.get(__ret__, 'account_name'),
         auto_scales=pulumi.get(__ret__, 'auto_scales'),
-        certificates=pulumi.get(__ret__, 'certificates'),
         container_configurations=pulumi.get(__ret__, 'container_configurations'),
         data_disks=pulumi.get(__ret__, 'data_disks'),
         disk_encryptions=pulumi.get(__ret__, 'disk_encryptions'),
@@ -452,7 +441,6 @@ def get_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetPoolResult(
         account_name=pulumi.get(__response__, 'account_name'),
         auto_scales=pulumi.get(__response__, 'auto_scales'),
-        certificates=pulumi.get(__response__, 'certificates'),
         container_configurations=pulumi.get(__response__, 'container_configurations'),
         data_disks=pulumi.get(__response__, 'data_disks'),
         disk_encryptions=pulumi.get(__response__, 'disk_encryptions'),

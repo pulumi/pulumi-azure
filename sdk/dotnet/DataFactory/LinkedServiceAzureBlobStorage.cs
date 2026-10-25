@@ -85,7 +85,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Output("connectionStringInsecure")]
         public Output<string?> ConnectionStringInsecure { get; private set; } = null!;
@@ -108,9 +108,6 @@ namespace Pulumi.Azure.DataFactory
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
-        [Output("keyVaultSasToken")]
-        public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken> KeyVaultSasToken { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -127,7 +124,7 @@ namespace Pulumi.Azure.DataFactory
         /// A `SasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
         /// </summary>
         [Output("sasTokenLinkedKeyVaultKey")]
-        public Output<Outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey> SasTokenLinkedKeyVaultKey { get; private set; } = null!;
+        public Output<Outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey?> SasTokenLinkedKeyVaultKey { get; private set; } = null!;
 
         /// <summary>
         /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
@@ -253,7 +250,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -275,9 +272,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
-
-        [Input("keyVaultSasToken")]
-        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>? KeyVaultSasToken { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -402,7 +396,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The connection string sent insecurely. Conflicts with `ConnectionString`, `SasUri` and `ServiceEndpoint`.
         /// 
-        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
+        /// &gt; **Note:** `ConnectionString` uses the Azure [SecureString](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `ConnectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `ConnectionString` property in the portal will show as `******` whilst `ConnectionStringInsecure` will be viewable in the portal.
         /// </summary>
         [Input("connectionStringInsecure")]
         public Input<string>? ConnectionStringInsecure { get; set; }
@@ -424,9 +418,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
-
-        [Input("keyVaultSasToken")]
-        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenGetArgs>? KeyVaultSasToken { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

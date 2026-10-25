@@ -120,14 +120,14 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     @Export(name="dnsSubscription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsSubscription;
 
     /**
-     * @return TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * @return The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     public Output<Optional<String>> dnsSubscription() {

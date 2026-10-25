@@ -29,11 +29,12 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
 
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
-               > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
-        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+               > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
                
                | Service                    | Sub Resource Type                         |
                |----------------------------|-------------------------------------------|
+               | Cognitive Services         | `account`                                 |
                | Machine Learning Workspace | `amlworkspace`                            |
                | Redis                      | `redisCache`                              |
                | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -56,7 +57,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
         """
         Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 
-        > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         """
         return pulumi.get(self, "service_resource_id")
 
@@ -68,10 +69,11 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
     @pulumi.getter(name="subResourceTarget")
     def sub_resource_target(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 
         | Service                    | Sub Resource Type                         |
         |----------------------------|-------------------------------------------|
+        | Cognitive Services         | `account`                                 |
         | Machine Learning Workspace | `amlworkspace`                            |
         | Redis                      | `redisCache`                              |
         | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -134,12 +136,13 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
-               > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+               > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         :param pulumi.Input[_builtins.bool] spark_enabled: Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
                
                | Service                    | Sub Resource Type                         |
                |----------------------------|-------------------------------------------|
+               | Cognitive Services         | `account`                                 |
                | Machine Learning Workspace | `amlworkspace`                            |
                | Redis                      | `redisCache`                              |
                | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -175,7 +178,7 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
         """
         Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 
-        > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         """
         return pulumi.get(self, "service_resource_id")
 
@@ -199,10 +202,11 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
     @pulumi.getter(name="subResourceTarget")
     def sub_resource_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 
         | Service                    | Sub Resource Type                         |
         |----------------------------|-------------------------------------------|
+        | Cognitive Services         | `account`                                 |
         | Machine Learning Workspace | `amlworkspace`                            |
         | Redis                      | `redisCache`                              |
         | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -317,12 +321,13 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
-               > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+               > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         :param pulumi.Input[_builtins.bool] spark_enabled: Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
                
                | Service                    | Sub Resource Type                         |
                |----------------------------|-------------------------------------------|
+               | Cognitive Services         | `account`                                 |
                | Machine Learning Workspace | `amlworkspace`                            |
                | Redis                      | `redisCache`                              |
                | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -473,12 +478,13 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
-               > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+               > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         :param pulumi.Input[_builtins.bool] spark_enabled: Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sub_resource_target: Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
                
                | Service                    | Sub Resource Type                         |
                |----------------------------|-------------------------------------------|
+               | Cognitive Services         | `account`                                 |
                | Machine Learning Workspace | `amlworkspace`                            |
                | Redis                      | `redisCache`                              |
                | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
@@ -510,7 +516,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
         """
         Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
 
-        > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+        > **Note:** Supported service resources: **Cognitive Account**, **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
         """
         return pulumi.get(self, "service_resource_id")
 
@@ -526,10 +532,11 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="subResourceTarget")
     def sub_resource_target(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`, `amlworkspace`, `blob`, `table`, `queue`, `file`, `web`, `dfs`, `redisCache`, and `account`. Changing this forces a new resource to be created.
 
         | Service                    | Sub Resource Type                         |
         |----------------------------|-------------------------------------------|
+        | Cognitive Services         | `account`                                 |
         | Machine Learning Workspace | `amlworkspace`                            |
         | Redis                      | `redisCache`                              |
         | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |

@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewaySslProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the client authentication mode. Possible values are `Strict` and `Passthrough`. Defaults to `Strict`.
+        /// </summary>
+        [Input("clientAuthenticationMode")]
+        public Input<string>? ClientAuthenticationMode { get; set; }
+
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         [Input("id")]
@@ -25,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// a `SslPolicy` block as defined below.
+        /// An `SslPolicy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslProfileSslPolicyGetArgs>? SslPolicy { get; set; }
@@ -34,7 +40,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _trustedClientCertificateNames;
 
         /// <summary>
-        /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+        /// The names of the Trusted Client Certificates that will be used to authenticate requests from clients.
         /// </summary>
         public InputList<string> TrustedClientCertificateNames
         {
@@ -42,17 +48,18 @@ namespace Pulumi.Azure.Network.Inputs
             set => _trustedClientCertificateNames = value;
         }
 
-        [Input("verifyClientCertIssuerDn")]
-        public Input<bool>? VerifyClientCertIssuerDn { get; set; }
-
         /// <summary>
         /// Should client certificate issuer DN be verified? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `VerifyClientCertificateIssuerDn` cannot be set to `True` when `ClientAuthenticationMode` is set to `Passthrough`.
         /// </summary>
         [Input("verifyClientCertificateIssuerDn")]
         public Input<bool>? VerifyClientCertificateIssuerDn { get; set; }
 
         /// <summary>
-        /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+        /// Specifies the method to check client certificate revocation status. The only possible value is `OCSP`.
+        /// 
+        /// &gt; **Note:** `VerifyClientCertificateRevocation` cannot be set to `OCSP` when `ClientAuthenticationMode` is set to `Passthrough`.
         /// </summary>
         [Input("verifyClientCertificateRevocation")]
         public Input<string>? VerifyClientCertificateRevocation { get; set; }

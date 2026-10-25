@@ -2,6 +2,7 @@ name: monitoring
 runtime: yaml
 
 resources:
+
   exampleResourceGroup:
     type: azure:core:ResourceGroup
     properties:
@@ -44,3 +45,26 @@ resources:
                 - '*'
       actions:
         - actionGroupId: ${main.id}
+
+  exampleWorkspace:
+    type: azure:operationalinsights:AnalyticsWorkspace
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: PerGB2018
+      retentionInDays: 30
+
+  # v7 replaces `metrics` with `enabledMetrics` and drops `enabledLogs[].retentionPolicy`.
+  blobDiagnostics:
+    type: azure:monitoring:DiagnosticSetting
+    properties:
+      targetResourceId: ${toMonitor.id}/blobServices/default
+      logAnalyticsWorkspaceId: ${exampleWorkspace.id}
+      enabledLogs:
+        - category: StorageRead
+          retentionPolicy:
+            enabled: false
+            days: 0
+      metrics:
+        - category: Transaction
+          enabled: true

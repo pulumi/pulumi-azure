@@ -27,16 +27,19 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, proxy_protocol_enabled=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, destination_ip_address=None, fqdns=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, proxy_protocol_enabled=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
         if auto_approval_subscription_ids and not isinstance(auto_approval_subscription_ids, list):
             raise TypeError("Expected argument 'auto_approval_subscription_ids' to be a list")
         pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
-        if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
-            raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
-        pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+        if destination_ip_address and not isinstance(destination_ip_address, str):
+            raise TypeError("Expected argument 'destination_ip_address' to be a str")
+        pulumi.set(__self__, "destination_ip_address", destination_ip_address)
+        if fqdns and not isinstance(fqdns, list):
+            raise TypeError("Expected argument 'fqdns' to be a list")
+        pulumi.set(__self__, "fqdns", fqdns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -82,13 +85,20 @@ class GetServiceResult:
         return pulumi.get(self, "auto_approval_subscription_ids")
 
     @_builtins.property
-    @pulumi.getter(name="enableProxyProtocol")
-    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> _builtins.bool:
+    @pulumi.getter(name="destinationIpAddress")
+    def destination_ip_address(self) -> _builtins.str:
         """
-        Does the Private Link Service support the Proxy Protocol?
+        The destination IP address of the Private Link Service.
         """
-        return pulumi.get(self, "enable_proxy_protocol")
+        return pulumi.get(self, "destination_ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[_builtins.str]:
+        """
+        List of FQDNs allowed for the Private Link Service.
+        """
+        return pulumi.get(self, "fqdns")
 
     @_builtins.property
     @pulumi.getter
@@ -165,7 +175,8 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             alias=self.alias,
             auto_approval_subscription_ids=self.auto_approval_subscription_ids,
-            enable_proxy_protocol=self.enable_proxy_protocol,
+            destination_ip_address=self.destination_ip_address,
+            fqdns=self.fqdns,
             id=self.id,
             load_balancer_frontend_ip_configuration_ids=self.load_balancer_frontend_ip_configuration_ids,
             location=self.location,
@@ -199,7 +210,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of the private link service.
@@ -214,7 +225,8 @@ def get_service(name: Optional[_builtins.str] = None,
     return AwaitableGetServiceResult(
         alias=pulumi.get(__ret__, 'alias'),
         auto_approval_subscription_ids=pulumi.get(__ret__, 'auto_approval_subscription_ids'),
-        enable_proxy_protocol=pulumi.get(__ret__, 'enable_proxy_protocol'),
+        destination_ip_address=pulumi.get(__ret__, 'destination_ip_address'),
+        fqdns=pulumi.get(__ret__, 'fqdns'),
         id=pulumi.get(__ret__, 'id'),
         load_balancer_frontend_ip_configuration_ids=pulumi.get(__ret__, 'load_balancer_frontend_ip_configuration_ids'),
         location=pulumi.get(__ret__, 'location'),
@@ -246,7 +258,7 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: The name of the private link service.
@@ -260,7 +272,8 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetServiceResult(
         alias=pulumi.get(__response__, 'alias'),
         auto_approval_subscription_ids=pulumi.get(__response__, 'auto_approval_subscription_ids'),
-        enable_proxy_protocol=pulumi.get(__response__, 'enable_proxy_protocol'),
+        destination_ip_address=pulumi.get(__response__, 'destination_ip_address'),
+        fqdns=pulumi.get(__response__, 'fqdns'),
         id=pulumi.get(__response__, 'id'),
         load_balancer_frontend_ip_configuration_ids=pulumi.get(__response__, 'load_balancer_frontend_ip_configuration_ids'),
         location=pulumi.get(__response__, 'location'),

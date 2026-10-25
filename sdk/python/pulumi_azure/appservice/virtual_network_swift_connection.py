@@ -136,6 +136,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -157,21 +158,21 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("example",
-            app_service_id=example_app_service.id,
+            app_service_id=example_app_service["id"],
             subnet_id=example_subnet.id)
         ```
 
@@ -180,6 +181,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -201,29 +203,29 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
         example_account = azure.storage.Account("example",
             name="functionsappexamplesa",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="example-function-app",
+        example_function_app = azurerm.FunctionApp("example",
+            name=example-function-app,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_app_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("example",
-            app_service_id=example_function_app.id,
+            app_service_id=example_function_app["id"],
             subnet_id=example_subnet.id)
         ```
 
@@ -285,6 +287,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -306,21 +309,21 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("example",
-            app_service_id=example_app_service.id,
+            app_service_id=example_app_service["id"],
             subnet_id=example_subnet.id)
         ```
 
@@ -329,6 +332,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -350,29 +354,29 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
         example_account = azure.storage.Account("example",
             name="functionsappexamplesa",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="example-function-app",
+        example_function_app = azurerm.FunctionApp("example",
+            name=example-function-app,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_app_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("example",
-            app_service_id=example_function_app.id,
+            app_service_id=example_function_app["id"],
             subnet_id=example_subnet.id)
         ```
 

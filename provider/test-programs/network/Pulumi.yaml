@@ -16,6 +16,7 @@ resources:
       location: ${exampleResourceGroup.location}
       resourceGroupName: ${exampleResourceGroup.name}
 
+  # `serviceEndpoints` changes from a list of strings to a list of objects in v7.
   exampleSubnet:
     type: azure:network:Subnet
     properties:
@@ -23,6 +24,24 @@ resources:
       virtualNetworkName: ${exampleVirtualNetwork.name}
       addressPrefixes:
         - 10.0.2.0/24
+      serviceEndpoints:
+        - Microsoft.Storage
+        - Microsoft.KeyVault
+
+  # The same change, on a subnet declared inline.
+  inlineVirtualNetwork:
+    type: azure:network:VirtualNetwork
+    properties:
+      addressSpaces:
+        - 10.1.0.0/16
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+      subnets:
+        - name: inline
+          addressPrefixes:
+            - 10.1.1.0/24
+          serviceEndpoints:
+            - Microsoft.Storage
 
   exampleNetworkInterface:
     type: azure:network:NetworkInterface
@@ -40,8 +59,8 @@ resources:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
       allocationMethod: Static
-      sku: basic
-      ipVersion: ipv4
+      sku: Standard
+      ipVersion: IPv4
       tags:
         environment: Production
 

@@ -16,13 +16,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineAutoBackup {
     /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-     * 
-     */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
-    private @Nullable Boolean encryptionEnabled;
-    /**
      * @return Encryption password to use. Setting a password will enable encryption.
      * 
      */
@@ -54,15 +47,6 @@ public final class VirtualMachineAutoBackup {
     private @Nullable Boolean systemDatabasesBackupEnabled;
 
     private VirtualMachineAutoBackup() {}
-    /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-     * 
-     */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
-    public Optional<Boolean> encryptionEnabled() {
-        return Optional.ofNullable(this.encryptionEnabled);
-    }
     /**
      * @return Encryption password to use. Setting a password will enable encryption.
      * 
@@ -115,7 +99,6 @@ public final class VirtualMachineAutoBackup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean encryptionEnabled;
         private @Nullable String encryptionPassword;
         private @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule;
         private Integer retentionPeriodInDays;
@@ -125,7 +108,6 @@ public final class VirtualMachineAutoBackup {
         public Builder() {}
         public Builder(VirtualMachineAutoBackup defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.encryptionEnabled = defaults.encryptionEnabled;
     	      this.encryptionPassword = defaults.encryptionPassword;
     	      this.manualSchedule = defaults.manualSchedule;
     	      this.retentionPeriodInDays = defaults.retentionPeriodInDays;
@@ -134,12 +116,6 @@ public final class VirtualMachineAutoBackup {
     	      this.systemDatabasesBackupEnabled = defaults.systemDatabasesBackupEnabled;
         }
 
-        @CustomType.Setter
-        public Builder encryptionEnabled(@Nullable Boolean encryptionEnabled) {
-
-            this.encryptionEnabled = encryptionEnabled;
-            return this;
-        }
         @CustomType.Setter
         public Builder encryptionPassword(@Nullable String encryptionPassword) {
 
@@ -184,7 +160,6 @@ public final class VirtualMachineAutoBackup {
         }
         public VirtualMachineAutoBackup build() {
             final var _resultValue = new VirtualMachineAutoBackup();
-            _resultValue.encryptionEnabled = encryptionEnabled;
             _resultValue.encryptionPassword = encryptionPassword;
             _resultValue.manualSchedule = manualSchedule;
             _resultValue.retentionPeriodInDays = retentionPeriodInDays;

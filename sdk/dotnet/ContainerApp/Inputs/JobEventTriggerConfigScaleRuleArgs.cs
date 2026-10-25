@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobEventTriggerConfigScaleRuleAuthenticationArgs>? _authentications;
 
         /// <summary>
-        /// A `Authentication` block as defined below.
+        /// One or more `Authentication` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobEventTriggerConfigScaleRuleAuthenticationArgs> Authentications
         {

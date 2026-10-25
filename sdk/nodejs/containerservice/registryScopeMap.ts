@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
+ * Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/azure/container-registry/container-registry-repository-scoped-permissions).
  *
  * ## Example Usage
  *
@@ -26,9 +26,11 @@ import * as utilities from "../utilities";
  *     georeplications: [
  *         {
  *             location: "East US",
+ *             globalEndpointRoutingEnabled: true,
  *         },
  *         {
  *             location: "West Europe",
+ *             globalEndpointRoutingEnabled: true,
  *         },
  *     ],
  * });

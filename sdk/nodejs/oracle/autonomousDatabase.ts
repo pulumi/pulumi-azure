@@ -182,6 +182,10 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      */
     declare public readonly nationalCharacterSet: pulumi.Output<string>;
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     */
+    declare public /*out*/ readonly ocid: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -227,6 +231,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
             resourceInputs["mtlsConnectionRequired"] = state?.mtlsConnectionRequired;
             resourceInputs["name"] = state?.name;
             resourceInputs["nationalCharacterSet"] = state?.nationalCharacterSet;
+            resourceInputs["ocid"] = state?.ocid;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["subnetId"] = state?.subnetId;
             resourceInputs["tags"] = state?.tags;
@@ -301,6 +306,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
+            resourceInputs["ocid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword"] };
@@ -388,6 +394,10 @@ export interface AutonomousDatabaseState {
      * The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
      */
     nationalCharacterSet?: pulumi.Input<string | undefined>;
+    /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+     */
+    ocid?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */

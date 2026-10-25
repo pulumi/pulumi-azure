@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getTable({
- *     name: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
+ * const exampleGetTable = example.then(example => azure.storage.getTable({
+ *     name: "example-table-name",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
@@ -26,7 +30,6 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("azure:storage/getTable:getTable", {
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -41,15 +44,7 @@ export interface GetTableArgs {
     /**
      * The ID of the Storage Account where the Table exists.
      */
-    storageAccountId?: string;
-    /**
-     * The name of the Storage Account where the Table exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageAccountName?: string;
+    storageAccountId: string;
 }
 
 /**
@@ -70,10 +65,6 @@ export interface GetTableResult {
      */
     readonly resourceManagerId: string;
     readonly storageAccountId: string;
-    /**
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    readonly storageAccountName: string;
 }
 /**
  * Use this data source to access information about an existing Storage Table.
@@ -84,10 +75,14 @@ export interface GetTableResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getTable({
- *     name: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
+ * const exampleGetTable = example.then(example => azure.storage.getTable({
+ *     name: "example-table-name",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
@@ -95,7 +90,6 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("azure:storage/getTable:getTable", {
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -110,13 +104,5 @@ export interface GetTableOutputArgs {
     /**
      * The ID of the Storage Account where the Table exists.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
-    /**
-     * The name of the Storage Account where the Table exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountId: pulumi.Input<string>;
 }

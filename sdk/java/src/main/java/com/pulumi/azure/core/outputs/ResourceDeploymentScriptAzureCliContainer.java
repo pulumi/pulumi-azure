@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceDeploymentScriptAzureCliContainer {
     /**
-     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
      * 
      */
     private @Nullable String containerGroupName;
 
     private ResourceDeploymentScriptAzureCliContainer() {}
     /**
-     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+     * @return Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
      * 
      */
     public Optional<String> containerGroupName() {

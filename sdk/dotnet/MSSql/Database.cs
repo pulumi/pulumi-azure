@@ -196,7 +196,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.MSSql
         /// &gt; **Note:** The default value for the `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Output("enclaveType")]
-        public Output<string> EnclaveType { get; private set; } = null!;
+        public Output<string?> EnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `True`.

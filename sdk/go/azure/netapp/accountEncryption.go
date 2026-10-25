@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a NetApp Account Encryption Resource.
 //
-// For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+// For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/azure/azure-netapp-files/configure-customer-managed-keys)
 //
 // ## Example Usage
 //
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +146,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -174,7 +174,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2026-01-01
+// * `Microsoft.NetApp` - 2026-05-01
 //
 // ## Import
 //
@@ -194,7 +194,7 @@ type AccountEncryption struct {
 	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringOutput `pulumi:"netappAccountId"`
-	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+	// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 	SystemAssignedIdentityPrincipalId pulumi.StringPtrOutput `pulumi:"systemAssignedIdentityPrincipalId"`
 	// The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
 	UserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"userAssignedIdentityId"`
@@ -244,7 +244,7 @@ type accountEncryptionState struct {
 	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId *string `pulumi:"netappAccountId"`
-	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+	// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 	SystemAssignedIdentityPrincipalId *string `pulumi:"systemAssignedIdentityPrincipalId"`
 	// The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -259,7 +259,7 @@ type AccountEncryptionState struct {
 	FederatedClientId pulumi.StringPtrInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringPtrInput
-	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+	// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 	SystemAssignedIdentityPrincipalId pulumi.StringPtrInput
 	// The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
 	UserAssignedIdentityId pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type accountEncryptionArgs struct {
 	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId string `pulumi:"netappAccountId"`
-	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+	// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 	SystemAssignedIdentityPrincipalId *string `pulumi:"systemAssignedIdentityPrincipalId"`
 	// The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -294,7 +294,7 @@ type AccountEncryptionArgs struct {
 	FederatedClientId pulumi.StringPtrInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringInput
-	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+	// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 	SystemAssignedIdentityPrincipalId pulumi.StringPtrInput
 	// The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
 	UserAssignedIdentityId pulumi.StringPtrInput
@@ -407,7 +407,7 @@ func (o AccountEncryptionOutput) NetappAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountEncryption) pulumi.StringOutput { return v.NetappAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
+// The ID of the System Assigned Managed Identity. Conflicts with `userAssignedIdentityId`.
 func (o AccountEncryptionOutput) SystemAssignedIdentityPrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) pulumi.StringPtrOutput { return v.SystemAssignedIdentityPrincipalId }).(pulumi.StringPtrOutput)
 }

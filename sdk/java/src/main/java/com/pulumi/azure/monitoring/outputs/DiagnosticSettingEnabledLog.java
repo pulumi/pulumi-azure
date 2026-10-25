@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.monitoring.outputs;
 
-import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledLogRetentionPolicy;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -28,13 +27,6 @@ public final class DiagnosticSettingEnabledLog {
      * 
      */
     private @Nullable String categoryGroup;
-    /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-     * 
-     */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-    private @Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
 
     private DiagnosticSettingEnabledLog() {}
     /**
@@ -57,15 +49,6 @@ public final class DiagnosticSettingEnabledLog {
     public Optional<String> categoryGroup() {
         return Optional.ofNullable(this.categoryGroup);
     }
-    /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
-     * 
-     */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
-    public Optional<DiagnosticSettingEnabledLogRetentionPolicy> retentionPolicy() {
-        return Optional.ofNullable(this.retentionPolicy);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -78,13 +61,11 @@ public final class DiagnosticSettingEnabledLog {
     public static final class Builder {
         private @Nullable String category;
         private @Nullable String categoryGroup;
-        private @Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
         public Builder() {}
         public Builder(DiagnosticSettingEnabledLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
     	      this.categoryGroup = defaults.categoryGroup;
-    	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
         @CustomType.Setter
@@ -99,17 +80,10 @@ public final class DiagnosticSettingEnabledLog {
             this.categoryGroup = categoryGroup;
             return this;
         }
-        @CustomType.Setter
-        public Builder retentionPolicy(@Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy) {
-
-            this.retentionPolicy = retentionPolicy;
-            return this;
-        }
         public DiagnosticSettingEnabledLog build() {
             final var _resultValue = new DiagnosticSettingEnabledLog();
             _resultValue.category = category;
             _resultValue.categoryGroup = categoryGroup;
-            _resultValue.retentionPolicy = retentionPolicy;
             return _resultValue;
         }
     }

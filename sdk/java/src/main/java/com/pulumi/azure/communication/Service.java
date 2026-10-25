@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Communication` - 2023-03-31
+ * * `Microsoft.Communication` - 2026-03-18
  * 
  * ## Import
  * 
@@ -84,14 +84,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataLocation", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> dataLocation;
+    private Output<String> dataLocation;
 
     /**
      * @return The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
      * 
      */
-    public Output<Optional<String>> dataLocation() {
-        return Codegen.optional(this.dataLocation);
+    public Output<String> dataLocation() {
+        return this.dataLocation;
     }
     /**
      * The hostname of the Communication Service

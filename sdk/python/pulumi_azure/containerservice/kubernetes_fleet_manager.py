@@ -36,8 +36,8 @@ class KubernetesFleetManagerArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if hub_profile is not None:
-            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
-            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""")
         if hub_profile is not None:
             pulumi.set(__self__, "hub_profile", hub_profile)
         if location is not None:
@@ -61,7 +61,7 @@ class KubernetesFleetManagerArgs:
 
     @_builtins.property
     @pulumi.getter(name="hubProfile")
-    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""")
     def hub_profile(self) -> pulumi.Input[Optional['KubernetesFleetManagerHubProfileArgs']]:
         return pulumi.get(self, "hub_profile")
 
@@ -123,8 +123,8 @@ class _KubernetesFleetManagerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
         """
         if hub_profile is not None:
-            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
-            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""")
         if hub_profile is not None:
             pulumi.set(__self__, "hub_profile", hub_profile)
         if location is not None:
@@ -138,7 +138,7 @@ class _KubernetesFleetManagerState:
 
     @_builtins.property
     @pulumi.getter(name="hubProfile")
-    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""")
     def hub_profile(self) -> pulumi.Input[Optional['KubernetesFleetManagerHubProfileArgs']]:
         return pulumi.get(self, "hub_profile")
 
@@ -372,7 +372,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="hubProfile")
-    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+    @_utilities.deprecated("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/azure/kubernetes-fleet/architectural-overview""")
     def hub_profile(self) -> pulumi.Output[Optional['outputs.KubernetesFleetManagerHubProfile']]:
         return pulumi.get(self, "hub_profile")
 

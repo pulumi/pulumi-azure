@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,6 +57,14 @@ export interface GetIpGroupResult {
      * A list of CIDRs or IP addresses.
      */
     readonly cidrs: string[];
+    /**
+     * A list of ID of Firewall.
+     */
+    readonly firewallIds: string[];
+    /**
+     * A list of ID of Firewall Policy`.
+     */
+    readonly firewallPolicyIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -93,7 +101,7 @@ export interface GetIpGroupResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

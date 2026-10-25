@@ -210,7 +210,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
+        /// &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `Name` property here. See the [official docs](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

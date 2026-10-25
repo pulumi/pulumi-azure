@@ -1,0 +1,75 @@
+name: loadbalancer
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  examplePublicIp:
+    type: azure:network:PublicIp
+    properties:
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+      allocationMethod: Static
+      sku: Standard
+
+  loadBalancer:
+    type: azure:lb:LoadBalancer
+    properties:
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+      sku: Standard
+      frontendIpConfigurations:
+        - name: PublicIPAddress
+          publicIpAddressId: ${examplePublicIp.id}
+
+  backendPool:
+    type: azure:lb:BackendAddressPool
+    properties:
+      loadbalancerId: ${loadBalancer.id}
+
+  exampleProbe:
+    type: azure:lb:Probe
+    properties:
+      loadbalancerId: ${loadBalancer.id}
+      port: 443
+
+  exampleRule:
+    type: azure:lb:Rule
+    properties:
+      loadbalancerId: ${loadBalancer.id}
+      protocol: Tcp
+      frontendPort: 443
+      backendPort: 443
+      frontendIpConfigurationName: PublicIPAddress
+      backendAddressPoolIds:
+        - ${backendPool.id}
+      probeId: ${exampleProbe.id}
+      disableOutboundSnat: true
+      floatingIpEnabled: false
+      tcpResetEnabled: true
+
+  exampleNatRule:
+    type: azure:lb:NatRule
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      loadbalancerId: ${loadBalancer.id}
+      protocol: Tcp
+      frontendPort: 3389
+      backendPort: 3389
+      frontendIpConfigurationName: PublicIPAddress
+      floatingIpEnabled: false
+      tcpResetEnabled: true
+
+  outboundRule:
+    type: azure:lb:OutboundRule
+    properties:
+      loadbalancerId: ${loadBalancer.id}
+      protocol: All
+      backendAddressPoolId: ${backendPool.id}
+      frontendIpConfigurations:
+        - name: PublicIPAddress
+      tcpResetEnabled: true

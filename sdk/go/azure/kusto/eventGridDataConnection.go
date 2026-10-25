@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,11 +21,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,7 +102,7 @@ import (
 //			exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
 //				Name:                pulumi.String("eventgrid-example"),
 //				Scope:               exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				EventhubEndpointId:  exampleEventHub.ID().ToIDOutput().ToStringOutput(),
+//				EventhubEndpointId:  exampleEventHub.ID(),
 //				EventDeliverySchema: pulumi.String("EventGridSchema"),
 //				IncludedEventTypes: pulumi.StringArray{
 //					pulumi.String("Microsoft.Storage.BlobCreated"),
@@ -168,9 +168,7 @@ type EventGridDataConnection struct {
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
-	EventgridEventSubscriptionId pulumi.StringOutput `pulumi:"eventgridEventSubscriptionId"`
-	// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-	EventgridResourceId pulumi.StringOutput `pulumi:"eventgridResourceId"`
+	EventgridEventSubscriptionId pulumi.StringPtrOutput `pulumi:"eventgridEventSubscriptionId"`
 	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringOutput `pulumi:"eventhubConsumerGroupName"`
 	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -178,9 +176,7 @@ type EventGridDataConnection struct {
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
-	ManagedIdentityId pulumi.StringOutput `pulumi:"managedIdentityId"`
-	// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-	ManagedIdentityResourceId pulumi.StringOutput `pulumi:"managedIdentityResourceId"`
+	ManagedIdentityId pulumi.StringPtrOutput `pulumi:"managedIdentityId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
@@ -255,8 +251,6 @@ type eventGridDataConnectionState struct {
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridEventSubscriptionId *string `pulumi:"eventgridEventSubscriptionId"`
-	// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-	EventgridResourceId *string `pulumi:"eventgridResourceId"`
 	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -265,8 +259,6 @@ type eventGridDataConnectionState struct {
 	Location *string `pulumi:"location"`
 	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityId *string `pulumi:"managedIdentityId"`
-	// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
@@ -294,8 +286,6 @@ type EventGridDataConnectionState struct {
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridEventSubscriptionId pulumi.StringPtrInput
-	// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-	EventgridResourceId pulumi.StringPtrInput
 	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -304,8 +294,6 @@ type EventGridDataConnectionState struct {
 	Location pulumi.StringPtrInput
 	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityId pulumi.StringPtrInput
-	// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-	ManagedIdentityResourceId pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
@@ -337,8 +325,6 @@ type eventGridDataConnectionArgs struct {
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridEventSubscriptionId *string `pulumi:"eventgridEventSubscriptionId"`
-	// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-	EventgridResourceId *string `pulumi:"eventgridResourceId"`
 	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName string `pulumi:"eventhubConsumerGroupName"`
 	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -347,8 +333,6 @@ type eventGridDataConnectionArgs struct {
 	Location *string `pulumi:"location"`
 	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityId *string `pulumi:"managedIdentityId"`
-	// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
@@ -377,8 +361,6 @@ type EventGridDataConnectionArgs struct {
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridEventSubscriptionId pulumi.StringPtrInput
-	// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-	EventgridResourceId pulumi.StringPtrInput
 	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringInput
 	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -387,8 +369,6 @@ type EventGridDataConnectionArgs struct {
 	Location pulumi.StringPtrInput
 	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityId pulumi.StringPtrInput
-	// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-	ManagedIdentityResourceId pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
@@ -516,13 +496,8 @@ func (o EventGridDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOut
 }
 
 // The resource ID of the event grid that is subscribed to the storage account events.
-func (o EventGridDataConnectionOutput) EventgridEventSubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.EventgridEventSubscriptionId }).(pulumi.StringOutput)
-}
-
-// Deprecated: `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-func (o EventGridDataConnectionOutput) EventgridResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.EventgridResourceId }).(pulumi.StringOutput)
+func (o EventGridDataConnectionOutput) EventgridEventSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.EventgridEventSubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -541,13 +516,8 @@ func (o EventGridDataConnectionOutput) Location() pulumi.StringOutput {
 }
 
 // Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
-func (o EventGridDataConnectionOutput) ManagedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.ManagedIdentityId }).(pulumi.StringOutput)
-}
-
-// Deprecated: `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-func (o EventGridDataConnectionOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+func (o EventGridDataConnectionOutput) ManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.ManagedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

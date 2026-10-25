@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/postgresql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,10 @@ import (
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Storage"),
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
 //				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
@@ -82,10 +84,9 @@ import (
 //				return err
 //			}
 //			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("exampleVnetZone.com"),
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				ResourceGroupName:  example.Name,
+//				Name:             pulumi.String("exampleVnetZone.com"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSubnet,
 //			}))
@@ -158,7 +159,7 @@ type FlexibleServer struct {
 
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
@@ -169,6 +170,8 @@ type FlexibleServer struct {
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationOutput `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	//
+	// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
@@ -216,34 +219,29 @@ type FlexibleServer struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
-	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	StorageIops    pulumi.IntOutput       `pulumi:"storageIops"`
+	// The max storage allowed for the PostgreSQL Flexible Server.
+	//
+	// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
 	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
-	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
+	StorageMb         pulumi.IntOutput `pulumi:"storageMb"`
+	StorageThroughput pulumi.IntOutput `pulumi:"storageThroughput"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
 	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	//
+	// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
-	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-	//
-	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-	//
-	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-	//
-	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-	Version pulumi.StringOutput `pulumi:"version"`
-	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-	//
-	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-	//
-	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-	Zone pulumi.StringPtrOutput `pulumi:"zone"`
+	// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	Version     pulumi.StringOutput    `pulumi:"version"`
+	Zone        pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewFlexibleServer registers a new resource with the given unique name, arguments, and options.
@@ -288,7 +286,7 @@ func GetFlexibleServer(ctx *pulumi.Context,
 type flexibleServerState struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
@@ -299,6 +297,8 @@ type flexibleServerState struct {
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	//
+	// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -346,40 +346,35 @@ type flexibleServerState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
-	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	StorageIops    *int    `pulumi:"storageIops"`
+	// The max storage allowed for the PostgreSQL Flexible Server.
+	//
+	// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
 	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
-	StorageMb *int `pulumi:"storageMb"`
+	StorageMb         *int `pulumi:"storageMb"`
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
 	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	//
+	// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 	StorageTier *string `pulumi:"storageTier"`
-	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-	//
-	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-	//
-	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-	//
-	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-	Version *string `pulumi:"version"`
-	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-	//
-	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-	//
-	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-	Zone *string `pulumi:"zone"`
+	// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+	StorageType *string           `pulumi:"storageType"`
+	Tags        map[string]string `pulumi:"tags"`
+	Version     *string           `pulumi:"version"`
+	Zone        *string           `pulumi:"zone"`
 }
 
 type FlexibleServerState struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
@@ -390,6 +385,8 @@ type FlexibleServerState struct {
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	//
+	// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
@@ -437,34 +434,29 @@ type FlexibleServerState struct {
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
-	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	StorageIops    pulumi.IntPtrInput
+	// The max storage allowed for the PostgreSQL Flexible Server.
+	//
+	// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
 	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
-	StorageMb pulumi.IntPtrInput
+	StorageMb         pulumi.IntPtrInput
+	StorageThroughput pulumi.IntPtrInput
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
 	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	//
+	// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 	StorageTier pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-	//
-	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-	//
-	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-	//
-	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-	Version pulumi.StringPtrInput
-	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-	//
-	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-	//
-	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-	Zone pulumi.StringPtrInput
+	// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	Version     pulumi.StringPtrInput
+	Zone        pulumi.StringPtrInput
 }
 
 func (FlexibleServerState) ElementType() reflect.Type {
@@ -474,7 +466,7 @@ func (FlexibleServerState) ElementType() reflect.Type {
 type flexibleServerArgs struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
@@ -485,6 +477,8 @@ type flexibleServerArgs struct {
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	//
+	// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -530,41 +524,36 @@ type flexibleServerArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
-	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	StorageIops    *int    `pulumi:"storageIops"`
+	// The max storage allowed for the PostgreSQL Flexible Server.
+	//
+	// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
 	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
-	StorageMb *int `pulumi:"storageMb"`
+	StorageMb         *int `pulumi:"storageMb"`
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
 	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	//
+	// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 	StorageTier *string `pulumi:"storageTier"`
-	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-	//
-	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-	//
-	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-	//
-	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-	Version *string `pulumi:"version"`
-	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-	//
-	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-	//
-	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-	Zone *string `pulumi:"zone"`
+	// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+	StorageType *string           `pulumi:"storageType"`
+	Tags        map[string]string `pulumi:"tags"`
+	Version     *string           `pulumi:"version"`
+	Zone        *string           `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a FlexibleServer resource.
 type FlexibleServerArgs struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
@@ -575,6 +564,8 @@ type FlexibleServerArgs struct {
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	//
+	// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
@@ -620,34 +611,29 @@ type FlexibleServerArgs struct {
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
-	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	StorageIops    pulumi.IntPtrInput
+	// The max storage allowed for the PostgreSQL Flexible Server.
+	//
+	// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 	//
 	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 	//
 	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
-	StorageMb pulumi.IntPtrInput
+	StorageMb         pulumi.IntPtrInput
+	StorageThroughput pulumi.IntPtrInput
 	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 	//
 	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	//
+	// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 	StorageTier pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-	//
-	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-	//
-	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-	//
-	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-	//
-	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
-	Version pulumi.StringPtrInput
-	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-	//
-	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-	//
-	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
-	Zone pulumi.StringPtrInput
+	// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	Version     pulumi.StringPtrInput
+	Zone        pulumi.StringPtrInput
 }
 
 func (FlexibleServerArgs) ElementType() reflect.Type {
@@ -739,7 +725,7 @@ func (o FlexibleServerOutput) ToFlexibleServerOutputWithContext(ctx context.Cont
 
 // The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 //
-// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 //
 // > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
@@ -762,6 +748,8 @@ func (o FlexibleServerOutput) Authentication() FlexibleServerAuthenticationOutpu
 }
 
 // Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+//
+// > **Note:** `autoGrowEnabled` is not supported when `storageType` is `PremiumV2_LRS`.
 func (o FlexibleServerOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolPtrOutput { return v.AutoGrowEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -869,7 +857,15 @@ func (o FlexibleServerOutput) SourceServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.SourceServerId }).(pulumi.StringPtrOutput)
 }
 
-// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+func (o FlexibleServerOutput) StorageIops() pulumi.IntOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.StorageIops }).(pulumi.IntOutput)
+}
+
+// The max storage allowed for the PostgreSQL Flexible Server.
+//
+// > **Note:** When `storageType` is `Premium_LRS`, possible values for `storageMb` are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+//
+// > **Note:** When `storageType` is `PremiumV2_LRS`, `storageMb` can be any multiple of `1024` between `32768` and `67108864` (i.e. between 32 GiB and 65536 GiB).
 //
 // > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
 //
@@ -878,36 +874,32 @@ func (o FlexibleServerOutput) StorageMb() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.StorageMb }).(pulumi.IntOutput)
 }
 
+func (o FlexibleServerOutput) StorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.StorageThroughput }).(pulumi.IntOutput)
+}
+
 // The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependent on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
 //
 // > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+//
+// > **Note:** `storageTier` is not supported when `storageType` is `PremiumV2_LRS`.
 func (o FlexibleServerOutput) StorageTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+// The type of storage used for the PostgreSQL Flexible Server. Possible values are `Premium_LRS` and `PremiumV2_LRS`. Defaults to `Premium_LRS`. Changing this forces a new resource to be created.
+func (o FlexibleServerOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
 func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16`, `17`, and `18`. Required when `createMode` is `Default`.
-//
-// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
-//
-// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
-//
-// > **Note:** Major version upgrades are not supported when `cluster` is specified.
-//
-// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
-//
-// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
-//
-// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 func (o FlexibleServerOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

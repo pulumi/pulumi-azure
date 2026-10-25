@@ -331,30 +331,18 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.keyVaultPassword);
     }
     /**
-     * @deprecated
-     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="msiWorkSpaceResourceId", refs={String.class}, tree="[0]")
-    private Output<String> msiWorkSpaceResourceId;
-
-    public Output<String> msiWorkSpaceResourceId() {
-        return this.msiWorkSpaceResourceId;
-    }
-    /**
      * Authenticate to ADB via managed service identity.
      * 
      */
     @Export(name="msiWorkspaceId", refs={String.class}, tree="[0]")
-    private Output<String> msiWorkspaceId;
+    private Output</* @Nullable */ String> msiWorkspaceId;
 
     /**
      * @return Authenticate to ADB via managed service identity.
      * 
      */
-    public Output<String> msiWorkspaceId() {
-        return this.msiWorkspaceId;
+    public Output<Optional<String>> msiWorkspaceId() {
+        return Codegen.optional(this.msiWorkspaceId);
     }
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

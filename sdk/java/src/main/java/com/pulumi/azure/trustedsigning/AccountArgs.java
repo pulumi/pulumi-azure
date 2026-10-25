@@ -18,14 +18,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccountArgs Empty = new AccountArgs();
 
     /**
-     * The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * @return The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -33,14 +33,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+     * @return The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+     * @return The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -63,14 +63,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+     * @return The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
      * 
      */
     public Output<String> skuName() {
@@ -78,14 +78,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the Trusted Signing Account.
+     * A mapping of tags which should be assigned to the Artifact Signing Account.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Trusted Signing Account.
+     * @return A mapping of tags which should be assigned to the Artifact Signing Account.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -121,7 +121,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+         * @param location The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+         * @param location The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+         * @param name The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+         * @param name The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+         * @param resourceGroupName The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+         * @param resourceGroupName The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+         * @param skuName The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+         * @param skuName The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Trusted Signing Account.
+         * @param tags A mapping of tags which should be assigned to the Artifact Signing Account.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Trusted Signing Account.
+         * @param tags A mapping of tags which should be assigned to the Artifact Signing Account.
          * 
          * @return builder
          * 

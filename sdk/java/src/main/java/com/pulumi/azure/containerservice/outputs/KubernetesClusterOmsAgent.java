@@ -30,6 +30,11 @@ public final class KubernetesClusterOmsAgent {
      * 
      */
     private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
+    /**
+     * @return Is Retina Flow Logs collection enabled?
+     * 
+     */
+    private @Nullable Boolean retinaFlowLogsEnabled;
 
     private KubernetesClusterOmsAgent() {}
     /**
@@ -53,6 +58,13 @@ public final class KubernetesClusterOmsAgent {
     public List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities() {
         return this.omsAgentIdentities == null ? List.of() : this.omsAgentIdentities;
     }
+    /**
+     * @return Is Retina Flow Logs collection enabled?
+     * 
+     */
+    public Optional<Boolean> retinaFlowLogsEnabled() {
+        return Optional.ofNullable(this.retinaFlowLogsEnabled);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,12 +78,14 @@ public final class KubernetesClusterOmsAgent {
         private String logAnalyticsWorkspaceId;
         private @Nullable Boolean msiAuthForMonitoringEnabled;
         private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
+        private @Nullable Boolean retinaFlowLogsEnabled;
         public Builder() {}
         public Builder(KubernetesClusterOmsAgent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
     	      this.msiAuthForMonitoringEnabled = defaults.msiAuthForMonitoringEnabled;
     	      this.omsAgentIdentities = defaults.omsAgentIdentities;
+    	      this.retinaFlowLogsEnabled = defaults.retinaFlowLogsEnabled;
         }
 
         @CustomType.Setter
@@ -97,11 +111,18 @@ public final class KubernetesClusterOmsAgent {
         public Builder omsAgentIdentities(KubernetesClusterOmsAgentOmsAgentIdentity... omsAgentIdentities) {
             return omsAgentIdentities(List.of(omsAgentIdentities));
         }
+        @CustomType.Setter
+        public Builder retinaFlowLogsEnabled(@Nullable Boolean retinaFlowLogsEnabled) {
+
+            this.retinaFlowLogsEnabled = retinaFlowLogsEnabled;
+            return this;
+        }
         public KubernetesClusterOmsAgent build() {
             final var _resultValue = new KubernetesClusterOmsAgent();
             _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             _resultValue.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             _resultValue.omsAgentIdentities = omsAgentIdentities;
+            _resultValue.retinaFlowLogsEnabled = retinaFlowLogsEnabled;
             return _resultValue;
         }
     }

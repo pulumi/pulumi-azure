@@ -73,15 +73,15 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
      * Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="type", required=true)
+    private Output<String> type;
 
     /**
      * @return Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     private AutomationActionArgs() {}
@@ -188,7 +188,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder type(@Nullable Output<String> type) {
+        public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
@@ -206,6 +206,9 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         public AutomationActionArgs build() {
             if ($.resourceId == null) {
                 throw new MissingRequiredPropertyException("AutomationActionArgs", "resourceId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AutomationActionArgs", "type");
             }
             return $;
         }

@@ -5,8 +5,11 @@ package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
@@ -14,7 +17,20 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
      * @return Connection String of the Diagnostic Storage Account.
      * 
      */
-    private String connectionString;
+    private @Nullable String connectionString;
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Connection String of the Diagnostic Storage Account.
+     * 
+     * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+     * 
+     */
+    private @Nullable String connectionStringWo;
+    /**
+     * @return An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+     * 
+     */
+    private @Nullable Integer connectionStringWoVersion;
     /**
      * @return Resource ID of the Diagnostic Storage Account.
      * 
@@ -26,8 +42,25 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
      * @return Connection String of the Diagnostic Storage Account.
      * 
      */
-    public String connectionString() {
-        return this.connectionString;
+    public Optional<String> connectionString() {
+        return Optional.ofNullable(this.connectionString);
+    }
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Connection String of the Diagnostic Storage Account.
+     * 
+     * &gt; **Note:** Exactly one of `connectionString` or `connectionStringWo` must be specified.
+     * 
+     */
+    public Optional<String> connectionStringWo() {
+        return Optional.ofNullable(this.connectionStringWo);
+    }
+    /**
+     * @return An integer value used to trigger an update for `connectionStringWo`. Possible values are integers greater than `1`.
+     * 
+     */
+    public Optional<Integer> connectionStringWoVersion() {
+        return Optional.ofNullable(this.connectionStringWoVersion);
     }
     /**
      * @return Resource ID of the Diagnostic Storage Account.
@@ -46,21 +79,35 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String connectionString;
+        private @Nullable String connectionString;
+        private @Nullable String connectionStringWo;
+        private @Nullable Integer connectionStringWoVersion;
         private String id;
         public Builder() {}
         public Builder(IotHubDeviceUpdateInstanceDiagnosticStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
+    	      this.connectionStringWo = defaults.connectionStringWo;
+    	      this.connectionStringWoVersion = defaults.connectionStringWoVersion;
     	      this.id = defaults.id;
         }
 
         @CustomType.Setter
-        public Builder connectionString(String connectionString) {
-            if (connectionString == null) {
-              throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceDiagnosticStorageAccount", "connectionString");
-            }
+        public Builder connectionString(@Nullable String connectionString) {
+
             this.connectionString = connectionString;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectionStringWo(@Nullable String connectionStringWo) {
+
+            this.connectionStringWo = connectionStringWo;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectionStringWoVersion(@Nullable Integer connectionStringWoVersion) {
+
+            this.connectionStringWoVersion = connectionStringWoVersion;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +121,8 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
         public IotHubDeviceUpdateInstanceDiagnosticStorageAccount build() {
             final var _resultValue = new IotHubDeviceUpdateInstanceDiagnosticStorageAccount();
             _resultValue.connectionString = connectionString;
+            _resultValue.connectionStringWo = connectionStringWo;
+            _resultValue.connectionStringWoVersion = connectionStringWoVersion;
             _resultValue.id = id;
             return _resultValue;
         }

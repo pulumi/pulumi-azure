@@ -24,9 +24,7 @@ export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("azure:storage/getBlob:getBlob", {
         "metadata": args.metadata,
         "name": args.name,
-        "storageAccountName": args.storageAccountName,
         "storageContainerId": args.storageContainerId,
-        "storageContainerName": args.storageContainerName,
     }, opts);
 }
 
@@ -43,25 +41,9 @@ export interface GetBlobArgs {
      */
     name: string;
     /**
-     * The name of the Storage Account where the Container exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageAccountName?: string;
-    /**
      * The ID of the Storage Container where the Blob exists.
      */
-    storageContainerId?: string;
-    /**
-     * The name of the Storage Container where the Blob exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageContainerName?: string;
+    storageContainerId: string;
 }
 
 /**
@@ -72,6 +54,10 @@ export interface GetBlobResult {
      * The access tier of the storage blob.
      */
     readonly accessTier: string;
+    /**
+     * The cache control directive that is set on the blob.
+     */
+    readonly cacheControl: string;
     /**
      * The MD5 sum of the blob contents.
      */
@@ -94,14 +80,10 @@ export interface GetBlobResult {
     readonly metadata: {[key: string]: string};
     readonly name: string;
     /**
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * The source URI used to copy the blob, if it was created from another blob.
      */
-    readonly storageAccountName: string;
+    readonly sourceUri: string;
     readonly storageContainerId: string;
-    /**
-     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    readonly storageContainerName: string;
     /**
      * The type of the storage blob
      */
@@ -131,9 +113,7 @@ export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOutpu
     return pulumi.runtime.invokeOutput("azure:storage/getBlob:getBlob", {
         "metadata": args.metadata,
         "name": args.name,
-        "storageAccountName": args.storageAccountName,
         "storageContainerId": args.storageContainerId,
-        "storageContainerName": args.storageContainerName,
     }, opts);
 }
 
@@ -150,23 +130,7 @@ export interface GetBlobOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Container exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
-    /**
      * The ID of the Storage Container where the Blob exists.
      */
-    storageContainerId?: pulumi.Input<string | undefined>;
-    /**
-     * The name of the Storage Container where the Blob exists.
-     *
-     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    storageContainerName?: pulumi.Input<string | undefined>;
+    storageContainerId: pulumi.Input<string>;
 }

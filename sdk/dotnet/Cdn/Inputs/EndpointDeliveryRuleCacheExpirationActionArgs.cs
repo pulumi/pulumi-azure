@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class EndpointDeliveryRuleCacheExpirationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        /// The behaviour of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
         /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;

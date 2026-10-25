@@ -205,6 +205,12 @@ namespace Pulumi.Azure.Oracle
         public Output<string> NationalCharacterSet { get; private set; } = null!;
 
         /// <summary>
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+        /// </summary>
+        [Output("ocid")]
+        public Output<string> Ocid { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -576,6 +582,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("nationalCharacterSet")]
         public Input<string>? NationalCharacterSet { get; set; }
+
+        /// <summary>
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+        /// </summary>
+        [Input("ocid")]
+        public Input<string>? Ocid { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.

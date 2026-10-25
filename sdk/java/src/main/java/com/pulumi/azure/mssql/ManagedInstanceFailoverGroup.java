@@ -104,8 +104,7 @@ import javax.annotation.Nullable;
  * 
  *         var primaryZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("primaryZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("primary-link")
- *             .resourceGroupName(primary.name())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(primaryVirtualNetwork.id())
  *             .build());
  * 
@@ -180,8 +179,7 @@ import javax.annotation.Nullable;
  * 
  *         var failoverZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("failoverZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("failover-link")
- *             .resourceGroupName(exampleZone.resourceGroupName())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(failoverVirtualNetwork.id())
  *             .build());
  * 
@@ -284,14 +282,14 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * &gt; **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
+ * &gt; **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
  * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 

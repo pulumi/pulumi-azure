@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Network
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2025-01-01
+        /// * `Microsoft.Network` - 2025-07-01
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
@@ -212,9 +212,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string RouteTableId;
         /// <summary>
-        /// A list of Service Endpoints within this subnet.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<string> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.GetSubnetServiceEndpointResult> ServiceEndpoints;
         public readonly string VirtualNetworkName;
 
         [OutputConstructor]
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Network
 
             string routeTableId,
 
-            ImmutableArray<string> serviceEndpoints,
+            ImmutableArray<Outputs.GetSubnetServiceEndpointResult> serviceEndpoints,
 
             string virtualNetworkName)
         {

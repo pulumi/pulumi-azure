@@ -29,7 +29,7 @@ public final class JobEventTriggerConfigScale {
      */
     private @Nullable Integer pollingIntervalInSeconds;
     /**
-     * @return A `rules` block as defined below.
+     * @return One or more `rules` blocks as defined below.
      * 
      */
     private @Nullable List<JobEventTriggerConfigScaleRule> rules;
@@ -57,7 +57,7 @@ public final class JobEventTriggerConfigScale {
         return Optional.ofNullable(this.pollingIntervalInSeconds);
     }
     /**
-     * @return A `rules` block as defined below.
+     * @return One or more `rules` blocks as defined below.
      * 
      */
     public List<JobEventTriggerConfigScaleRule> rules() {

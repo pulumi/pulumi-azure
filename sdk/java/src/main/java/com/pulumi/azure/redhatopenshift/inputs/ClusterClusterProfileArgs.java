@@ -78,14 +78,14 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The resource group that the cluster profile is attached to.
+     * The Resource Group that the cluster profile is attached to.
      * 
      */
     @Import(name="resourceGroupId")
     private @Nullable Output<String> resourceGroupId;
 
     /**
-     * @return The resource group that the cluster profile is attached to.
+     * @return The Resource Group that the cluster profile is attached to.
      * 
      */
     public Optional<Output<String>> resourceGroupId() {
@@ -221,7 +221,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupId The resource group that the cluster profile is attached to.
+         * @param resourceGroupId The Resource Group that the cluster profile is attached to.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupId The resource group that the cluster profile is attached to.
+         * @param resourceGroupId The Resource Group that the cluster profile is attached to.
          * 
          * @return builder
          * 

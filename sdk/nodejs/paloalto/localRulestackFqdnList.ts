@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
  *     name: "example",
- *     resourceGroupName: exampleAzurermResrouceGroup.name,
+ *     resourceGroupName: example.name,
  *     location: example.location,
  * });
  * const exampleLocalRulestackFqdnList = new azure.paloalto.LocalRulestackFqdnList("example", {

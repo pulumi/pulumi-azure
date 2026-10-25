@@ -18,7 +18,7 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
      */
     private String option;
     /**
-     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String placement;
@@ -32,7 +32,7 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
         return this.option;
     }
     /**
-     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+     * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> placement() {

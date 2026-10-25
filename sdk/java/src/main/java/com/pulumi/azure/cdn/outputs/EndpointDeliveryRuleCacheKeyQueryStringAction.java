@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointDeliveryRuleCacheKeyQueryStringAction {
     /**
-     * @return The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+     * @return The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
      */
     private String behavior;
@@ -25,7 +25,7 @@ public final class EndpointDeliveryRuleCacheKeyQueryStringAction {
 
     private EndpointDeliveryRuleCacheKeyQueryStringAction() {}
     /**
-     * @return The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+     * @return The behaviour of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
      */
     public String behavior() {

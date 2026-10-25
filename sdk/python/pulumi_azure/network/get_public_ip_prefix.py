@@ -26,13 +26,19 @@ class GetPublicIpPrefixResult:
     """
     A collection of values returned by getPublicIpPrefix.
     """
-    def __init__(__self__, id=None, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, sku_tier=None, tags=None, zones=None):
+    def __init__(__self__, custom_ip_prefix_id=None, id=None, ip_prefix=None, ip_version=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, sku_tier=None, tags=None, zones=None):
+        if custom_ip_prefix_id and not isinstance(custom_ip_prefix_id, str):
+            raise TypeError("Expected argument 'custom_ip_prefix_id' to be a str")
+        pulumi.set(__self__, "custom_ip_prefix_id", custom_ip_prefix_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if ip_prefix and not isinstance(ip_prefix, str):
             raise TypeError("Expected argument 'ip_prefix' to be a str")
         pulumi.set(__self__, "ip_prefix", ip_prefix)
+        if ip_version and not isinstance(ip_version, str):
+            raise TypeError("Expected argument 'ip_version' to be a str")
+        pulumi.set(__self__, "ip_version", ip_version)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,6 +65,14 @@ class GetPublicIpPrefixResult:
         pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
+    @pulumi.getter(name="customIpPrefixId")
+    def custom_ip_prefix_id(self) -> _builtins.str:
+        """
+        The Custom IP Prefix ID associated with the Public IP Prefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_id")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -73,6 +87,14 @@ class GetPublicIpPrefixResult:
         The Public IP address range, in CIDR notation.
         """
         return pulumi.get(self, "ip_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> _builtins.str:
+        """
+        The IP Version in use.
+        """
+        return pulumi.get(self, "ip_version")
 
     @_builtins.property
     @pulumi.getter
@@ -139,8 +161,10 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
         if False:
             yield self
         return GetPublicIpPrefixResult(
+            custom_ip_prefix_id=self.custom_ip_prefix_id,
             id=self.id,
             ip_prefix=self.ip_prefix,
+            ip_version=self.ip_version,
             location=self.location,
             name=self.name,
             prefix_length=self.prefix_length,
@@ -175,7 +199,7 @@ def get_public_ip_prefix(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the public IP prefix.
@@ -188,8 +212,10 @@ def get_public_ip_prefix(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts, typ=GetPublicIpPrefixResult).value
 
     return AwaitableGetPublicIpPrefixResult(
+        custom_ip_prefix_id=pulumi.get(__ret__, 'custom_ip_prefix_id'),
         id=pulumi.get(__ret__, 'id'),
         ip_prefix=pulumi.get(__ret__, 'ip_prefix'),
+        ip_version=pulumi.get(__ret__, 'ip_version'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         prefix_length=pulumi.get(__ret__, 'prefix_length'),
@@ -222,7 +248,7 @@ def get_public_ip_prefix_output(name: pulumi.Input[Optional[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2025-01-01
+    * `Microsoft.Network` - 2025-07-01
 
 
     :param _builtins.str name: Specifies the name of the public IP prefix.
@@ -234,8 +260,10 @@ def get_public_ip_prefix_output(name: pulumi.Input[Optional[_builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts, typ=GetPublicIpPrefixResult)
     return __ret__.apply(lambda __response__: GetPublicIpPrefixResult(
+        custom_ip_prefix_id=pulumi.get(__response__, 'custom_ip_prefix_id'),
         id=pulumi.get(__response__, 'id'),
         ip_prefix=pulumi.get(__response__, 'ip_prefix'),
+        ip_version=pulumi.get(__response__, 'ip_version'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         prefix_length=pulumi.get(__response__, 'prefix_length'),

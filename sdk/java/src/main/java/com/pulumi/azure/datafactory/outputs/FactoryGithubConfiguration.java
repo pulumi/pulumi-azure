@@ -24,7 +24,7 @@ public final class FactoryGithubConfiguration {
      */
     private String branchName;
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
      * 
      */
     private @Nullable String gitUrl;
@@ -62,7 +62,7 @@ public final class FactoryGithubConfiguration {
         return this.branchName;
     }
     /**
-     * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
+     * @return Specifies the GitHub Enterprise host name. For example: `https://github.&lt;mydomain&gt;.com`. Use `https://github.com` for open source repositories.
      * 
      */
     public Optional<String> gitUrl() {

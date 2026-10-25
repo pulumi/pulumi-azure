@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Management service Policys can be imported using the `resource id`, e.g.
+ * API Management service Policies can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1

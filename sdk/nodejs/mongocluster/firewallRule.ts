@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DocumentDB` - 2025-09-01
+ * * `Microsoft.DocumentDB` - 2026-06-01
  *
  * ## Import
  *

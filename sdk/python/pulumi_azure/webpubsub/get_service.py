@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -26,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, aad_auth_enabled=None, capacity=None, external_ip=None, hostname=None, id=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_network_access_enabled=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, sku=None, tags=None, tls_client_cert_enabled=None, version=None):
+    def __init__(__self__, aad_auth_enabled=None, capacity=None, external_ip=None, hostname=None, id=None, identities=None, live_traces=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_network_access_enabled=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, sku=None, tags=None, tls_client_cert_enabled=None, version=None):
         if aad_auth_enabled and not isinstance(aad_auth_enabled, bool):
             raise TypeError("Expected argument 'aad_auth_enabled' to be a bool")
         pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
@@ -42,6 +43,12 @@ class GetServiceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
+        if live_traces and not isinstance(live_traces, list):
+            raise TypeError("Expected argument 'live_traces' to be a list")
+        pulumi.set(__self__, "live_traces", live_traces)
         if local_auth_enabled and not isinstance(local_auth_enabled, bool):
             raise TypeError("Expected argument 'local_auth_enabled' to be a bool")
         pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
@@ -118,6 +125,22 @@ class GetServiceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
+        """
+        An `identity` block as documented below.
+        """
+        return pulumi.get(self, "identities")
+
+    @_builtins.property
+    @pulumi.getter(name="liveTraces")
+    def live_traces(self) -> Sequence['outputs.GetServiceLiveTraceResult']:
+        """
+        A `live_trace` block as documented below.
+        """
+        return pulumi.get(self, "live_traces")
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
@@ -227,6 +250,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             external_ip=self.external_ip,
             hostname=self.hostname,
             id=self.id,
+            identities=self.identities,
+            live_traces=self.live_traces,
             local_auth_enabled=self.local_auth_enabled,
             location=self.location,
             name=self.name,
@@ -283,6 +308,8 @@ def get_service(name: Optional[_builtins.str] = None,
         external_ip=pulumi.get(__ret__, 'external_ip'),
         hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        live_traces=pulumi.get(__ret__, 'live_traces'),
         local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -336,6 +363,8 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         external_ip=pulumi.get(__response__, 'external_ip'),
         hostname=pulumi.get(__response__, 'hostname'),
         id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        live_traces=pulumi.get(__response__, 'live_traces'),
         local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

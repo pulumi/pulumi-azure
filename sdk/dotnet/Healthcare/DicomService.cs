@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<bool?> DataPartitionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         /// </summary>
         [Output("encryptionKeyUrl")]
         public Output<string?> EncryptionKeyUrl { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<bool>? DataPartitionsEnabled { get; set; }
 
         /// <summary>
-        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         /// </summary>
         [Input("encryptionKeyUrl")]
         public Input<string>? EncryptionKeyUrl { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<bool>? DataPartitionsEnabled { get; set; }
 
         /// <summary>
-        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/azure/storage/common/customer-managed-keys-overview).
         /// </summary>
         [Input("encryptionKeyUrl")]
         public Input<string>? EncryptionKeyUrl { get; set; }

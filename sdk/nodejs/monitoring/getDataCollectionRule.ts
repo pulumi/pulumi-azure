@@ -83,15 +83,26 @@ export interface GetDataCollectionRuleResult {
      * An `identity` block as defined below.
      */
     readonly identities: outputs.monitoring.GetDataCollectionRuleIdentity[];
+    /**
+     * The immutable ID of the Data Collection Rule.
+     */
     readonly immutableId: string;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`, and `Direct`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. A rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      */
     readonly kind: string;
     /**
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
     readonly location: string;
+    /**
+     * The endpoint used for ingesting logs.
+     */
+    readonly logsIngestionEndpoint: string;
+    /**
+     * The endpoint used for ingesting metrics.
+     */
+    readonly metricsIngestionEndpoint: string;
     /**
      * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      */

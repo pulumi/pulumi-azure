@@ -61,14 +61,14 @@ public final class LocalRulestackState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     @Import(name="dnsSubscription")
     private @Nullable Output<String> dnsSubscription;
 
     /**
-     * @return TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+     * @return The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     public Optional<Output<String>> dnsSubscription() {
@@ -262,7 +262,7 @@ public final class LocalRulestackState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dnsSubscription TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+         * @param dnsSubscription The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class LocalRulestackState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dnsSubscription TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
+         * @param dnsSubscription The setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
          * 
          * @return builder
          * 

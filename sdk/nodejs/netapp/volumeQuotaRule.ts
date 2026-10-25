@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2026-01-01
+ * * `Microsoft.NetApp` - 2026-05-01
  *
  * ## Import
  *
@@ -160,7 +160,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
      *
      * > **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *
-     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
     declare public readonly quotaTarget: pulumi.Output<string | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface VolumeQuotaRuleState {
      *
      * > **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *
-     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
     quotaTarget?: pulumi.Input<string | undefined>;
     /**
@@ -269,7 +269,7 @@ export interface VolumeQuotaRuleArgs {
      *
      * > **Note:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *
-     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
     quotaTarget?: pulumi.Input<string | undefined>;
     /**

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,9 +64,21 @@ export interface GetNetworkInterfaceResult {
      */
     readonly appliedDnsServers: string[];
     /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs).
+     */
+    readonly auxiliaryMode: string;
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs).
+     */
+    readonly auxiliarySku: string;
+    /**
      * The list of DNS servers used by the specified Network Interface.
      */
     readonly dnsServers: string[];
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Network Interface should exist.
+     */
+    readonly edgeZone: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -75,6 +87,10 @@ export interface GetNetworkInterfaceResult {
      * The internal DNS name label of the specified Network Interface.
      */
     readonly internalDnsNameLabel: string;
+    /**
+     * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM.
+     */
+    readonly internalDomainNameSuffix: string;
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
@@ -138,7 +154,7 @@ export interface GetNetworkInterfaceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2025-01-01
+ * * `Microsoft.Network` - 2025-07-01
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -34,7 +34,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the stroage account that should be used for logging during replication.
+     * The ID of the storage account that should be used for logging during replication.
      * 
      * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
@@ -49,7 +49,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     private @Nullable Output<String> defaultLogStorageAccountId;
 
     /**
-     * @return The ID of the stroage account that should be used for logging during replication.
+     * @return The ID of the storage account that should be used for logging during replication.
      * 
      * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
@@ -194,14 +194,14 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+     * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      * 
      */
     @Import(name="physicalServerCredentialName")
     private @Nullable Output<String> physicalServerCredentialName;
 
     /**
-     * @return The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+     * @return The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      * 
      */
     public Optional<Output<String>> physicalServerCredentialName() {
@@ -463,7 +463,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultLogStorageAccountId The ID of the stroage account that should be used for logging during replication.
+         * @param defaultLogStorageAccountId The ID of the storage account that should be used for logging during replication.
          * 
          * &gt; **Note:** Only standard types of storage accounts are allowed.
          * 
@@ -482,7 +482,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultLogStorageAccountId The ID of the stroage account that should be used for logging during replication.
+         * @param defaultLogStorageAccountId The ID of the storage account that should be used for logging during replication.
          * 
          * &gt; **Note:** Only standard types of storage accounts are allowed.
          * 
@@ -693,7 +693,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param physicalServerCredentialName The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+         * @param physicalServerCredentialName The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class VmwareReplicatedVmState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param physicalServerCredentialName The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
+         * @param physicalServerCredentialName The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
          * 
          * @return builder
          * 

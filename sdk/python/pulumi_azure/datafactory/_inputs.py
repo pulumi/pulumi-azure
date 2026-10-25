@@ -167,8 +167,6 @@ __all__ = [
     'IntegrationRuntimeSsisVnetIntegrationArgsDict',
     'LinkedCustomServiceIntegrationRuntimeArgs',
     'LinkedCustomServiceIntegrationRuntimeArgsDict',
-    'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs',
-    'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict',
     'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs',
     'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict',
     'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs',
@@ -3545,7 +3543,7 @@ class FactoryGithubConfigurationArgsDict(TypedDict):
     """
     git_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+    Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
     """
     publishing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -3568,7 +3566,7 @@ class FactoryGithubConfigurationArgs:
         :param pulumi.Input[_builtins.str] branch_name: Specifies the branch of the repository to get code from.
         :param pulumi.Input[_builtins.str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[_builtins.str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
-        :param pulumi.Input[_builtins.str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+        :param pulumi.Input[_builtins.str] git_url: Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
         :param pulumi.Input[_builtins.bool] publishing_enabled: Is automated publishing enabled? Defaults to `true`.
                
                > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
@@ -3634,7 +3632,7 @@ class FactoryGithubConfigurationArgs:
     @pulumi.getter(name="gitUrl")
     def git_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+        Specifies the GitHub Enterprise host name. For example: `https://github.<mydomain>.com`. Use `https://github.com` for open source repositories.
         """
         return pulumi.get(self, "git_url")
 
@@ -6080,37 +6078,6 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
-
-
-class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict(TypedDict):
-    linked_service_name: pulumi.Input[_builtins.str]
-    secret_name: pulumi.Input[_builtins.str]
-
-@pulumi.input_type
-class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
-    def __init__(__self__, *,
-                 linked_service_name: pulumi.Input[_builtins.str],
-                 secret_name: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "linked_service_name")
-
-    @linked_service_name.setter
-    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "linked_service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "secret_name")
-
-    @secret_name.setter
-    def secret_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "secret_name", value)
 
 
 class LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict(TypedDict):

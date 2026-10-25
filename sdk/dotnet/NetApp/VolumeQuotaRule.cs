@@ -150,7 +150,7 @@ namespace Pulumi.Azure.NetApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetApp` - 2026-01-01
+    /// * `Microsoft.NetApp` - 2026-05-01
     /// 
     /// ## Import
     /// 
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `QuotaTarget ` must be used when `QuotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 
-        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         /// </summary>
         [Output("quotaTarget")]
         public Output<string?> QuotaTarget { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `QuotaTarget ` must be used when `QuotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 
-        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         /// </summary>
         [Input("quotaTarget")]
         public Input<string>? QuotaTarget { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; **Note:** `QuotaTarget ` must be used when `QuotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 
-        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+        /// &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         /// </summary>
         [Input("quotaTarget")]
         public Input<string>? QuotaTarget { get; set; }

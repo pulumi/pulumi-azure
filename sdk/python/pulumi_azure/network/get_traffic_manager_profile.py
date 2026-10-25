@@ -27,7 +27,7 @@ class GetTrafficManagerProfileResult:
     """
     A collection of values returned by getTrafficManagerProfile.
     """
-    def __init__(__self__, dns_configs=None, fqdn=None, id=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, traffic_view_enabled=None):
+    def __init__(__self__, dns_configs=None, fqdn=None, id=None, maximum_return=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, traffic_view_enabled=None):
         if dns_configs and not isinstance(dns_configs, list):
             raise TypeError("Expected argument 'dns_configs' to be a list")
         pulumi.set(__self__, "dns_configs", dns_configs)
@@ -37,6 +37,9 @@ class GetTrafficManagerProfileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if maximum_return and not isinstance(maximum_return, int):
+            raise TypeError("Expected argument 'maximum_return' to be a int")
+        pulumi.set(__self__, "maximum_return", maximum_return)
         if monitor_configs and not isinstance(monitor_configs, list):
             raise TypeError("Expected argument 'monitor_configs' to be a list")
         pulumi.set(__self__, "monitor_configs", monitor_configs)
@@ -82,6 +85,14 @@ class GetTrafficManagerProfileResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumReturn")
+    def maximum_return(self) -> _builtins.int:
+        """
+        The amount of endpoints to return for DNS queries to this Profile.
+        """
+        return pulumi.get(self, "maximum_return")
 
     @_builtins.property
     @pulumi.getter(name="monitorConfigs")
@@ -146,6 +157,7 @@ class AwaitableGetTrafficManagerProfileResult(GetTrafficManagerProfileResult):
             dns_configs=self.dns_configs,
             fqdn=self.fqdn,
             id=self.id,
+            maximum_return=self.maximum_return,
             monitor_configs=self.monitor_configs,
             name=self.name,
             profile_status=self.profile_status,
@@ -199,6 +211,7 @@ def get_traffic_manager_profile(name: Optional[_builtins.str] = None,
         dns_configs=pulumi.get(__ret__, 'dns_configs'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
         id=pulumi.get(__ret__, 'id'),
+        maximum_return=pulumi.get(__ret__, 'maximum_return'),
         monitor_configs=pulumi.get(__ret__, 'monitor_configs'),
         name=pulumi.get(__ret__, 'name'),
         profile_status=pulumi.get(__ret__, 'profile_status'),
@@ -249,6 +262,7 @@ def get_traffic_manager_profile_output(name: pulumi.Input[Optional[_builtins.str
         dns_configs=pulumi.get(__response__, 'dns_configs'),
         fqdn=pulumi.get(__response__, 'fqdn'),
         id=pulumi.get(__response__, 'id'),
+        maximum_return=pulumi.get(__response__, 'maximum_return'),
         monitor_configs=pulumi.get(__response__, 'monitor_configs'),
         name=pulumi.get(__response__, 'name'),
         profile_status=pulumi.get(__response__, 'profile_status'),

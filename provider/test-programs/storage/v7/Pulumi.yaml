@@ -1,0 +1,82 @@
+name: storage
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleAccount:
+    type: azure:storage:Account
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      accountTier: Standard
+      accountReplicationType: LRS
+      accountKind: StorageV2
+      tags:
+        environment: staging
+      # The default changed to `false`. Pinned to the value the v6 program relied on.
+      allowNestedItemsToBePublic: true
+
+  exampleStaticWebsite:
+    type: azure:storage:AccountStaticWebsite
+    properties:
+      storageAccountId: ${exampleAccount.id}
+      indexDocument: index.html
+      error404Document: 404.html
+
+  exampleQueueProperties:
+    type: azure:storage:AccountQueueProperties
+    properties:
+      storageAccountId: ${exampleAccount.id}
+      logging:
+        delete: true
+        read: true
+        write: true
+        version: "1.0"
+        retentionPolicyDays: 7
+
+  exampleContainer:
+    type: azure:storage:Container
+    properties:
+      storageAccountId: ${exampleAccount.id}
+      containerAccessType: private
+
+  exampleBlob:
+    type: azure:storage:Blob
+    properties:
+      storageContainerId: ${exampleContainer.id}
+      type: Block
+      source:
+        fn::stringAsset: foo
+
+  exampleQueue:
+    type: azure:storage:Queue
+    properties:
+      storageAccountId: ${exampleAccount.id}
+
+  exampleTable:
+    type: azure:storage:Table
+    properties:
+      storageAccountId: ${exampleAccount.id}
+
+  exampleshare:
+    type: azure:storage:Share
+    properties:
+      storageAccountId: ${exampleAccount.id}
+      quota: 50
+
+  exampleShareDirectory:
+    type: azure:storage:ShareDirectory
+    properties:
+      name: logs
+      storageShareUrl: ${exampleshare.url}
+
+  exampleShareFile:
+    type: azure:storage:ShareFile
+    properties:
+      name: readme.txt
+      storageShareUrl: ${exampleshare.url}

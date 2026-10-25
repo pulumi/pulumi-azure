@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +65,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2025-01-01
+// * `Microsoft.Network` - 2025-07-01
 //
 // ## Import
 //
@@ -99,7 +99,7 @@ type ExpressRouteCircuit struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation pulumi.StringPtrOutput `pulumi:"peeringLocation"`
-	// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+	// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 	RateLimitingEnabled pulumi.BoolPtrOutput `pulumi:"rateLimitingEnabled"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -181,7 +181,7 @@ type expressRouteCircuitState struct {
 	Name *string `pulumi:"name"`
 	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation *string `pulumi:"peeringLocation"`
-	// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+	// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 	RateLimitingEnabled *bool `pulumi:"rateLimitingEnabled"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -220,7 +220,7 @@ type ExpressRouteCircuitState struct {
 	Name pulumi.StringPtrInput
 	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation pulumi.StringPtrInput
-	// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+	// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 	RateLimitingEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -263,7 +263,7 @@ type expressRouteCircuitArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation *string `pulumi:"peeringLocation"`
-	// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+	// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 	RateLimitingEnabled *bool `pulumi:"rateLimitingEnabled"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -299,7 +299,7 @@ type ExpressRouteCircuitArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
 	PeeringLocation pulumi.StringPtrInput
-	// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+	// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 	RateLimitingEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -444,7 +444,7 @@ func (o ExpressRouteCircuitOutput) PeeringLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.PeeringLocation }).(pulumi.StringPtrOutput)
 }
 
-// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+// Enable [rate limiting](https://learn.microsoft.com/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
 func (o ExpressRouteCircuitOutput) RateLimitingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.RateLimitingEnabled }).(pulumi.BoolPtrOutput)
 }

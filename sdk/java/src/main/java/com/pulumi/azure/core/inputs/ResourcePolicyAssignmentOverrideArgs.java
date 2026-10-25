@@ -34,14 +34,14 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+     * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+     * @return Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
      * 
      */
     public Output<String> value() {
@@ -105,7 +105,7 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param value Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * @param value Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param value Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         * @param value Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/azure/governance/policy/concepts/effects).
          * 
          * @return builder
          * 

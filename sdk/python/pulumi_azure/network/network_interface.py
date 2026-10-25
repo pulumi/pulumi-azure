@@ -38,23 +38,19 @@ class NetworkInterfaceArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Whether accelerated networking is enabled. Defaults to `false`.
                
                > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
                
                > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-               
-               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
-        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-               
-               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
+        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[_builtins.str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Whether IP Forwarding is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -110,7 +106,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="acceleratedNetworkingEnabled")
     def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+        Whether accelerated networking is enabled. Defaults to `false`.
 
         > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 
@@ -126,9 +122,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="auxiliaryMode")
     def auxiliary_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-
-        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
         """
         return pulumi.get(self, "auxiliary_mode")
 
@@ -140,9 +134,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="auxiliarySku")
     def auxiliary_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-
-        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         """
         return pulumi.get(self, "auxiliary_sku")
 
@@ -192,7 +184,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="ipForwardingEnabled")
     def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should IP Forwarding be enabled? Defaults to `false`.
+        Whether IP Forwarding is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ip_forwarding_enabled")
 
@@ -261,18 +253,14 @@ class _NetworkInterfaceState:
         """
         Input properties used for looking up and filtering NetworkInterface resources.
 
-        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Whether accelerated networking is enabled. Defaults to `false`.
                
                > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
                
                > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
-        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-               
-               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
-        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-               
-               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
+        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -280,7 +268,7 @@ class _NetworkInterfaceState:
         :param pulumi.Input[_builtins.str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[_builtins.str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
-        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Whether IP Forwarding is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[_builtins.str] name: The name of the Network Interface. Changing this forces a new resource to be created.
@@ -331,7 +319,7 @@ class _NetworkInterfaceState:
     @pulumi.getter(name="acceleratedNetworkingEnabled")
     def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+        Whether accelerated networking is enabled. Defaults to `false`.
 
         > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 
@@ -359,9 +347,7 @@ class _NetworkInterfaceState:
     @pulumi.getter(name="auxiliaryMode")
     def auxiliary_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-
-        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
         """
         return pulumi.get(self, "auxiliary_mode")
 
@@ -373,9 +359,7 @@ class _NetworkInterfaceState:
     @pulumi.getter(name="auxiliarySku")
     def auxiliary_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-
-        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         """
         return pulumi.get(self, "auxiliary_sku")
 
@@ -449,7 +433,7 @@ class _NetworkInterfaceState:
     @pulumi.getter(name="ipForwardingEnabled")
     def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should IP Forwarding be enabled? Defaults to `false`.
+        Whether IP Forwarding is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ip_forwarding_enabled")
 
@@ -611,7 +595,7 @@ class NetworkInterface(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -624,24 +608,20 @@ class NetworkInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Whether accelerated networking is enabled. Defaults to `false`.
                
                > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
                
                > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-               
-               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
-        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-               
-               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
+        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[_builtins.str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict', 'outputs.NetworkInterfaceIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
-        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Whether IP Forwarding is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
@@ -691,7 +671,7 @@ class NetworkInterface(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2025-01-01
+        * `Microsoft.Network` - 2025-07-01
 
         ## Import
 
@@ -795,18 +775,14 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Whether accelerated networking is enabled. Defaults to `false`.
                
                > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
                
                > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
-        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-               
-               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
-        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-               
-               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
+        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -814,7 +790,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[_builtins.str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict', 'outputs.NetworkInterfaceIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
-        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Whether IP Forwarding is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[_builtins.str] name: The name of the Network Interface. Changing this forces a new resource to be created.
@@ -852,7 +828,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="acceleratedNetworkingEnabled")
     def accelerated_networking_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should Accelerated Networking be enabled? Defaults to `false`.
+        Whether accelerated networking is enabled. Defaults to `false`.
 
         > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 
@@ -872,9 +848,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="auxiliaryMode")
     def auxiliary_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
-
-        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, and `MaxConnections`.
         """
         return pulumi.get(self, "auxiliary_mode")
 
@@ -882,9 +856,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="auxiliarySku")
     def auxiliary_sku(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
-
-        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         """
         return pulumi.get(self, "auxiliary_sku")
 
@@ -934,7 +906,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="ipForwardingEnabled")
     def ip_forwarding_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should IP Forwarding be enabled? Defaults to `false`.
+        Whether IP Forwarding is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ip_forwarding_enabled")
 

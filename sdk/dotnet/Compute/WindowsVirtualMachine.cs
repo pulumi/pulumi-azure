@@ -231,9 +231,6 @@ namespace Pulumi.Azure.Compute
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        [Output("enableAutomaticUpdates")]
-        public Output<bool> EnableAutomaticUpdates { get; private set; } = null!;
-
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         /// </summary>
@@ -695,9 +692,6 @@ namespace Pulumi.Azure.Compute
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
-
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         /// </summary>
@@ -949,12 +943,6 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
-        /// </summary>
-        [Input("vmAgentPlatformUpdatesEnabled")]
-        public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
-
-        /// <summary>
         /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
@@ -1115,9 +1103,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?

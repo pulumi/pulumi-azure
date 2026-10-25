@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Resource Group Template Deployment.
  * 
- * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
+ * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behaviour can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
  * 
  * ## Example Usage
  * 

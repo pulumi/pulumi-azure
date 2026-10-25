@@ -14,141 +14,141 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleConditions
     {
         /// <summary>
-        /// A `ClientPortCondition` block as defined below.
+        /// One or more `ClientPort` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsClientPortCondition> ClientPortConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsClientPort> ClientPorts;
         /// <summary>
-        /// A `CookiesCondition` block as defined below.
+        /// One or more `DeviceType` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsCookiesCondition> CookiesConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsDeviceType> DeviceTypes;
         /// <summary>
-        /// A `HostNameCondition` block as defined below.
+        /// One or more `HostName` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHostNameCondition> HostNameConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHostName> HostNames;
         /// <summary>
-        /// A `HttpVersionCondition` block as defined below.
+        /// One or more `HttpVersion` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHttpVersionCondition> HttpVersionConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsHttpVersion> HttpVersions;
         /// <summary>
-        /// A `IsDeviceCondition` block as defined below.
+        /// One or more `PostArgument` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsIsDeviceCondition> IsDeviceConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsPostArgument> PostArguments;
         /// <summary>
-        /// A `PostArgsCondition` block as defined below.
+        /// One or more `QueryString` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsPostArgsCondition> PostArgsConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsQueryString> QueryStrings;
         /// <summary>
-        /// A `QueryStringCondition` block as defined below.
+        /// One or more `RemoteAddress` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsQueryStringCondition> QueryStringConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRemoteAddress> RemoteAddresses;
         /// <summary>
-        /// A `RemoteAddressCondition` block as defined below.
+        /// One or more `RequestBody` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRemoteAddressCondition> RemoteAddressConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestBody> RequestBodies;
         /// <summary>
-        /// A `RequestBodyCondition` block as defined below.
+        /// One or more `RequestCookies` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestBodyCondition> RequestBodyConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestCooky> RequestCookies;
         /// <summary>
-        /// A `RequestHeaderCondition` block as defined below.
+        /// One or more `RequestFileExtension` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestHeaderCondition> RequestHeaderConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestFileExtension> RequestFileExtensions;
         /// <summary>
-        /// A `RequestMethodCondition` block as defined below.
+        /// One or more `RequestFilename` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestMethodCondition> RequestMethodConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestFilename> RequestFilenames;
         /// <summary>
-        /// A `RequestSchemeCondition` block as defined below.
+        /// One or more `RequestHeader` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestSchemeCondition> RequestSchemeConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestHeader> RequestHeaders;
         /// <summary>
-        /// A `RequestUriCondition` block as defined below.
+        /// One or more `RequestMethod` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestUriCondition> RequestUriConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestMethod> RequestMethods;
         /// <summary>
-        /// A `ServerPortCondition` block as defined below.
+        /// One or more `RequestPath` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsServerPortCondition> ServerPortConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestPath> RequestPaths;
         /// <summary>
-        /// A `SocketAddressCondition` block as defined below.
+        /// One or more `RequestScheme` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSocketAddressCondition> SocketAddressConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestScheme> RequestSchemes;
         /// <summary>
-        /// A `SslProtocolCondition` block as defined below.
+        /// One or more `RequestUrl` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSslProtocolCondition> SslProtocolConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsRequestUrl> RequestUrls;
         /// <summary>
-        /// A `UrlFileExtensionCondition` block as defined below.
+        /// One or more `ServerPort` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFileExtensionCondition> UrlFileExtensionConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsServerPort> ServerPorts;
         /// <summary>
-        /// A `UrlFilenameCondition` block as defined below.
+        /// One or more `SocketAddress` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFilenameCondition> UrlFilenameConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSocketAddress> SocketAddresses;
         /// <summary>
-        /// A `UrlPathCondition` block as defined below.
+        /// One or more `SslProtocol` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsUrlPathCondition> UrlPathConditions;
+        public readonly ImmutableArray<Outputs.FrontdoorRuleConditionsSslProtocol> SslProtocols;
 
         [OutputConstructor]
         private FrontdoorRuleConditions(
-            ImmutableArray<Outputs.FrontdoorRuleConditionsClientPortCondition> clientPortConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsClientPort> clientPorts,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsCookiesCondition> cookiesConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsDeviceType> deviceTypes,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsHostNameCondition> hostNameConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsHostName> hostNames,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsHttpVersion> httpVersions,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsPostArgument> postArguments,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsPostArgsCondition> postArgsConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsQueryString> queryStrings,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsQueryStringCondition> queryStringConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRemoteAddress> remoteAddresses,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestBody> requestBodies,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestCooky> requestCookies,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestFileExtension> requestFileExtensions,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestFilename> requestFilenames,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestHeader> requestHeaders,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestUriCondition> requestUriConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestMethod> requestMethods,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsServerPortCondition> serverPortConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestPath> requestPaths,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestScheme> requestSchemes,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsRequestUrl> requestUrls,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsServerPort> serverPorts,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions,
+            ImmutableArray<Outputs.FrontdoorRuleConditionsSocketAddress> socketAddresses,
 
-            ImmutableArray<Outputs.FrontdoorRuleConditionsUrlPathCondition> urlPathConditions)
+            ImmutableArray<Outputs.FrontdoorRuleConditionsSslProtocol> sslProtocols)
         {
-            ClientPortConditions = clientPortConditions;
-            CookiesConditions = cookiesConditions;
-            HostNameConditions = hostNameConditions;
-            HttpVersionConditions = httpVersionConditions;
-            IsDeviceConditions = isDeviceConditions;
-            PostArgsConditions = postArgsConditions;
-            QueryStringConditions = queryStringConditions;
-            RemoteAddressConditions = remoteAddressConditions;
-            RequestBodyConditions = requestBodyConditions;
-            RequestHeaderConditions = requestHeaderConditions;
-            RequestMethodConditions = requestMethodConditions;
-            RequestSchemeConditions = requestSchemeConditions;
-            RequestUriConditions = requestUriConditions;
-            ServerPortConditions = serverPortConditions;
-            SocketAddressConditions = socketAddressConditions;
-            SslProtocolConditions = sslProtocolConditions;
-            UrlFileExtensionConditions = urlFileExtensionConditions;
-            UrlFilenameConditions = urlFilenameConditions;
-            UrlPathConditions = urlPathConditions;
+            ClientPorts = clientPorts;
+            DeviceTypes = deviceTypes;
+            HostNames = hostNames;
+            HttpVersions = httpVersions;
+            PostArguments = postArguments;
+            QueryStrings = queryStrings;
+            RemoteAddresses = remoteAddresses;
+            RequestBodies = requestBodies;
+            RequestCookies = requestCookies;
+            RequestFileExtensions = requestFileExtensions;
+            RequestFilenames = requestFilenames;
+            RequestHeaders = requestHeaders;
+            RequestMethods = requestMethods;
+            RequestPaths = requestPaths;
+            RequestSchemes = requestSchemes;
+            RequestUrls = requestUrls;
+            ServerPorts = serverPorts;
+            SocketAddresses = socketAddresses;
+            SslProtocols = sslProtocols;
         }
     }
 }

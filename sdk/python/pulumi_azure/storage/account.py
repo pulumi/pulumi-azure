@@ -49,21 +49,24 @@ class AccountArgs:
                  network_rules: pulumi.Input[Optional['AccountNetworkRulesArgs']] = None,
                  nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional['AccountQueuePropertiesArgs']] = None,
                  routing: pulumi.Input[Optional['AccountRoutingArgs']] = None,
                  sas_policy: pulumi.Input[Optional['AccountSasPolicyArgs']] = None,
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional['AccountStaticWebsiteArgs']] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+               
+               > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+               
+               > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         :param pulumi.Input[_builtins.str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
                
                > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
@@ -72,7 +75,7 @@ class AccountArgs:
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
-        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
@@ -102,7 +105,7 @@ class AccountArgs:
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -113,11 +116,8 @@ class AccountArgs:
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
-               
-               > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[_builtins.bool] sftp_enabled: Boolean, enable SFTP for the storage account
@@ -129,11 +129,6 @@ class AccountArgs:
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
-               
-               > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-               
-               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -192,15 +187,15 @@ class AccountArgs:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if provisioned_billing_model_version is not None:
             pulumi.set(__self__, "provisioned_billing_model_version", provisioned_billing_model_version)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if public_network_access_enabled is not None:
+            warnings.warn("""`public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
-        if queue_properties is not None:
-            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""queue_properties is deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-        if queue_properties is not None:
-            pulumi.set(__self__, "queue_properties", queue_properties)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if sas_policy is not None:
@@ -211,11 +206,6 @@ class AccountArgs:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
-        if static_website is not None:
-            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""static_website is deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-        if static_website is not None:
-            pulumi.set(__self__, "static_website", static_website)
         if table_encryption_key_type is not None:
             pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
@@ -225,7 +215,11 @@ class AccountArgs:
     @pulumi.getter(name="accountReplicationType")
     def account_replication_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+
+        > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+
+        > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         """
         return pulumi.get(self, "account_replication_type")
 
@@ -289,7 +283,7 @@ class AccountArgs:
     @pulumi.getter(name="allowNestedItemsToBePublic")
     def allow_nested_items_to_be_public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
 
         > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         """
@@ -517,7 +511,7 @@ class AccountArgs:
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 
@@ -580,11 +574,21 @@ class AccountArgs:
         pulumi.set(self, "provisioned_billing_model_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
+    @_utilities.deprecated("""`public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""")
     def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether the public network access is enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -602,21 +606,6 @@ class AccountArgs:
     @queue_encryption_key_type.setter
     def queue_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_encryption_key_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="queueProperties")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-    def queue_properties(self) -> pulumi.Input[Optional['AccountQueuePropertiesArgs']]:
-        """
-        A `queue_properties` block as defined below.
-
-        > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
-        """
-        return pulumi.get(self, "queue_properties")
-
-    @queue_properties.setter
-    def queue_properties(self, value: pulumi.Input[Optional['AccountQueuePropertiesArgs']]):
-        pulumi.set(self, "queue_properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -685,23 +674,6 @@ class AccountArgs:
         pulumi.set(self, "shared_access_key_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="staticWebsite")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-    def static_website(self) -> pulumi.Input[Optional['AccountStaticWebsiteArgs']]:
-        """
-        A `static_website` block as defined below.
-
-        > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-
-        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
-        """
-        return pulumi.get(self, "static_website")
-
-    @static_website.setter
-    def static_website(self, value: pulumi.Input[Optional['AccountStaticWebsiteArgs']]):
-        pulumi.set(self, "static_website", value)
-
-    @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
     def table_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -734,6 +706,8 @@ class _AccountState:
                  access_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  account_kind: pulumi.Input[Optional[_builtins.str]] = None,
                  account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_replication_type_migrating_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_replication_type_migration_in_progress: pulumi.Input[Optional[_builtins.bool]] = None,
                  account_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
@@ -794,9 +768,9 @@ class _AccountState:
                  primary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional['AccountQueuePropertiesArgs']] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing: pulumi.Input[Optional['AccountRoutingArgs']] = None,
                  sas_policy: pulumi.Input[Optional['AccountSasPolicyArgs']] = None,
@@ -839,7 +813,6 @@ class _AccountState:
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional['AccountStaticWebsiteArgs']] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -849,11 +822,17 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
-        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+               
+               > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+               
+               > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
+        :param pulumi.Input[_builtins.str] account_replication_type_migrating_to: The `account_replication_type` that the Storage Account is migrating to.
+        :param pulumi.Input[_builtins.bool] account_replication_type_migration_in_progress: Whether a replication type migration is in progress.
         :param pulumi.Input[_builtins.str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
                
                > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
-        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
@@ -883,7 +862,7 @@ class _AccountState:
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -930,11 +909,8 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] primary_web_microsoft_endpoint: The microsoft routing endpoint URL for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_host: The microsoft routing hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
-               
-               > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
@@ -983,11 +959,6 @@ class _AccountState:
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
-               
-               > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-               
-               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -999,6 +970,10 @@ class _AccountState:
             pulumi.set(__self__, "account_kind", account_kind)
         if account_replication_type is not None:
             pulumi.set(__self__, "account_replication_type", account_replication_type)
+        if account_replication_type_migrating_to is not None:
+            pulumi.set(__self__, "account_replication_type_migrating_to", account_replication_type_migrating_to)
+        if account_replication_type_migration_in_progress is not None:
+            pulumi.set(__self__, "account_replication_type_migration_in_progress", account_replication_type_migration_in_progress)
         if account_tier is not None:
             pulumi.set(__self__, "account_tier", account_tier)
         if allow_nested_items_to_be_public is not None:
@@ -1119,15 +1094,15 @@ class _AccountState:
             pulumi.set(__self__, "primary_web_microsoft_host", primary_web_microsoft_host)
         if provisioned_billing_model_version is not None:
             pulumi.set(__self__, "provisioned_billing_model_version", provisioned_billing_model_version)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if public_network_access_enabled is not None:
+            warnings.warn("""`public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
-        if queue_properties is not None:
-            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""queue_properties is deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-        if queue_properties is not None:
-            pulumi.set(__self__, "queue_properties", queue_properties)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if routing is not None:
@@ -1212,11 +1187,6 @@ class _AccountState:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
-        if static_website is not None:
-            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""static_website is deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-        if static_website is not None:
-            pulumi.set(__self__, "static_website", static_website)
         if table_encryption_key_type is not None:
             pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
@@ -1252,13 +1222,41 @@ class _AccountState:
     @pulumi.getter(name="accountReplicationType")
     def account_replication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+
+        > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+
+        > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         """
         return pulumi.get(self, "account_replication_type")
 
     @account_replication_type.setter
     def account_replication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_replication_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountReplicationTypeMigratingTo")
+    def account_replication_type_migrating_to(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The `account_replication_type` that the Storage Account is migrating to.
+        """
+        return pulumi.get(self, "account_replication_type_migrating_to")
+
+    @account_replication_type_migrating_to.setter
+    def account_replication_type_migrating_to(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_replication_type_migrating_to", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountReplicationTypeMigrationInProgress")
+    def account_replication_type_migration_in_progress(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether a replication type migration is in progress.
+        """
+        return pulumi.get(self, "account_replication_type_migration_in_progress")
+
+    @account_replication_type_migration_in_progress.setter
+    def account_replication_type_migration_in_progress(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "account_replication_type_migration_in_progress", value)
 
     @_builtins.property
     @pulumi.getter(name="accountTier")
@@ -1278,7 +1276,7 @@ class _AccountState:
     @pulumi.getter(name="allowNestedItemsToBePublic")
     def allow_nested_items_to_be_public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
 
         > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         """
@@ -1506,7 +1504,7 @@ class _AccountState:
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 
@@ -2001,11 +1999,21 @@ class _AccountState:
         pulumi.set(self, "provisioned_billing_model_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
+    @_utilities.deprecated("""`public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""")
     def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether the public network access is enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -2023,21 +2031,6 @@ class _AccountState:
     @queue_encryption_key_type.setter
     def queue_encryption_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_encryption_key_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="queueProperties")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-    def queue_properties(self) -> pulumi.Input[Optional['AccountQueuePropertiesArgs']]:
-        """
-        A `queue_properties` block as defined below.
-
-        > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
-        """
-        return pulumi.get(self, "queue_properties")
-
-    @queue_properties.setter
-    def queue_properties(self, value: pulumi.Input[Optional['AccountQueuePropertiesArgs']]):
-        pulumi.set(self, "queue_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -2550,23 +2543,6 @@ class _AccountState:
         pulumi.set(self, "shared_access_key_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="staticWebsite")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-    def static_website(self) -> pulumi.Input[Optional['AccountStaticWebsiteArgs']]:
-        """
-        A `static_website` block as defined below.
-
-        > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-
-        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
-        """
-        return pulumi.get(self, "static_website")
-
-    @static_website.setter
-    def static_website(self, value: pulumi.Input[Optional['AccountStaticWebsiteArgs']]):
-        pulumi.set(self, "static_website", value)
-
-    @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")
     def table_encryption_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2626,16 +2602,15 @@ class Account(pulumi.CustomResource):
                  network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']]] = None,
                  nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
                  sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -2682,8 +2657,12 @@ class Account(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ])
         example_account = azure.storage.Account("example",
             name="storageaccountname",
@@ -2723,11 +2702,15 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
-        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+               
+               > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+               
+               > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         :param pulumi.Input[_builtins.str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
                
                > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
-        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
@@ -2757,7 +2740,7 @@ class Account(pulumi.CustomResource):
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -2768,11 +2751,8 @@ class Account(pulumi.CustomResource):
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']] queue_properties: A `queue_properties` block as defined below.
-               
-               > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']] routing: A `routing` block as defined below.
         :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']] sas_policy: A `sas_policy` block as defined below.
@@ -2785,11 +2765,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']] static_website: A `static_website` block as defined below.
-               
-               > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-               
-               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -2844,8 +2819,12 @@ class Account(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ])
         example_account = azure.storage.Account("example",
             name="storageaccountname",
@@ -2921,16 +2900,15 @@ class Account(pulumi.CustomResource):
                  network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']]] = None,
                  nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
                  sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -2973,9 +2951,9 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
             __props__.__dict__["provisioned_billing_model_version"] = provisioned_billing_model_version
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
-            __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2984,9 +2962,10 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["sftp_enabled"] = sftp_enabled
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
-            __props__.__dict__["static_website"] = static_website
             __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["account_replication_type_migrating_to"] = None
+            __props__.__dict__["account_replication_type_migration_in_progress"] = None
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["primary_blob_connection_string"] = None
             __props__.__dict__["primary_blob_endpoint"] = None
@@ -3074,6 +3053,8 @@ class Account(pulumi.CustomResource):
             access_tier: pulumi.Input[Optional[_builtins.str]] = None,
             account_kind: pulumi.Input[Optional[_builtins.str]] = None,
             account_replication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            account_replication_type_migrating_to: pulumi.Input[Optional[_builtins.str]] = None,
+            account_replication_type_migration_in_progress: pulumi.Input[Optional[_builtins.bool]] = None,
             account_tier: pulumi.Input[Optional[_builtins.str]] = None,
             allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
             allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3134,9 +3115,9 @@ class Account(pulumi.CustomResource):
             primary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             primary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
             provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-            queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
             sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
@@ -3179,7 +3160,6 @@ class Account(pulumi.CustomResource):
             sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
             shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
             table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
@@ -3193,11 +3173,17 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
-        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        :param pulumi.Input[_builtins.str] account_replication_type: Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+               
+               > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+               
+               > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
+        :param pulumi.Input[_builtins.str] account_replication_type_migrating_to: The `account_replication_type` that the Storage Account is migrating to.
+        :param pulumi.Input[_builtins.bool] account_replication_type_migration_in_progress: Whether a replication type migration is in progress.
         :param pulumi.Input[_builtins.str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
                
                > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
-        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
@@ -3227,7 +3213,7 @@ class Account(pulumi.CustomResource):
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -3274,11 +3260,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] primary_web_microsoft_endpoint: The microsoft routing endpoint URL for web storage in the primary location.
         :param pulumi.Input[_builtins.str] primary_web_microsoft_host: The microsoft routing hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.str] public_network_access: The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']] queue_properties: A `queue_properties` block as defined below.
-               
-               > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']] routing: A `routing` block as defined below.
         :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']] sas_policy: A `sas_policy` block as defined below.
@@ -3327,11 +3310,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']] static_website: A `static_website` block as defined below.
-               
-               > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-               
-               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[_builtins.str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -3344,6 +3322,8 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["access_tier"] = access_tier
         __props__.__dict__["account_kind"] = account_kind
         __props__.__dict__["account_replication_type"] = account_replication_type
+        __props__.__dict__["account_replication_type_migrating_to"] = account_replication_type_migrating_to
+        __props__.__dict__["account_replication_type_migration_in_progress"] = account_replication_type_migration_in_progress
         __props__.__dict__["account_tier"] = account_tier
         __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
         __props__.__dict__["allowed_copy_scope"] = allowed_copy_scope
@@ -3404,9 +3384,9 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["primary_web_microsoft_endpoint"] = primary_web_microsoft_endpoint
         __props__.__dict__["primary_web_microsoft_host"] = primary_web_microsoft_host
         __props__.__dict__["provisioned_billing_model_version"] = provisioned_billing_model_version
+        __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
-        __props__.__dict__["queue_properties"] = queue_properties
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["routing"] = routing
         __props__.__dict__["sas_policy"] = sas_policy
@@ -3449,7 +3429,6 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["sftp_enabled"] = sftp_enabled
         __props__.__dict__["share_properties"] = share_properties
         __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
-        __props__.__dict__["static_website"] = static_website
         __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -3476,9 +3455,29 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="accountReplicationType")
     def account_replication_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        Defines the type of replication to use for this storage account. Possible values are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, and `RAGZRS`.
+
+        > **Note:** Changing `account_replication_type` between non-zonal (`LRS`, `GRS`, `RAGRS`) and zonal (`ZRS`, `GZRS`, `RAGZRS`) types forces a new resource to be created, except for the equivalent tier pairs (`LRS` <> `ZRS`, `GRS` <> `GZRS`, and `RAGRS` <> `RAGZRS`). For those pairs, the provider triggers a customer-initiated migration instead. This migration can take days to complete and the provider does not wait for it to finish. While a migration is in progress, plan time diffs on `account_replication_type` that match the type of the migration request will be suppressed.
+
+        > **Note:** For more information on `account_replication_type` migrations, including certain timing limitations, see [Change how a storage account is replicated](https://learn.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal)
         """
         return pulumi.get(self, "account_replication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="accountReplicationTypeMigratingTo")
+    def account_replication_type_migrating_to(self) -> pulumi.Output[_builtins.str]:
+        """
+        The `account_replication_type` that the Storage Account is migrating to.
+        """
+        return pulumi.get(self, "account_replication_type_migrating_to")
+
+    @_builtins.property
+    @pulumi.getter(name="accountReplicationTypeMigrationInProgress")
+    def account_replication_type_migration_in_progress(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether a replication type migration is in progress.
+        """
+        return pulumi.get(self, "account_replication_type_migration_in_progress")
 
     @_builtins.property
     @pulumi.getter(name="accountTier")
@@ -3494,7 +3493,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="allowNestedItemsToBePublic")
     def allow_nested_items_to_be_public(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
 
         > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         """
@@ -3650,7 +3649,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 
@@ -3981,11 +3980,17 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "provisioned_billing_model_version")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[_builtins.str]:
+        """
+        The public network access setting. Possible values are `Disabled`, `Enabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the public network access is enabled? Defaults to `true`.
-        """
+    @_utilities.deprecated("""`public_network_access_enabled` has been deprecated in favour of `public_network_access` and will be removed in v6.0 of the AzureRM provider""")
+    def public_network_access_enabled(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "public_network_access_enabled")
 
     @_builtins.property
@@ -3995,17 +4000,6 @@ class Account(pulumi.CustomResource):
         The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         """
         return pulumi.get(self, "queue_encryption_key_type")
-
-    @_builtins.property
-    @pulumi.getter(name="queueProperties")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
-    def queue_properties(self) -> pulumi.Output['outputs.AccountQueueProperties']:
-        """
-        A `queue_properties` block as defined below.
-
-        > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
-        """
-        return pulumi.get(self, "queue_properties")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -4348,19 +4342,6 @@ class Account(pulumi.CustomResource):
         > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
         """
         return pulumi.get(self, "shared_access_key_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="staticWebsite")
-    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
-    def static_website(self) -> pulumi.Output['outputs.AccountStaticWebsite']:
-        """
-        A `static_website` block as defined below.
-
-        > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
-
-        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
-        """
-        return pulumi.get(self, "static_website")
 
     @_builtins.property
     @pulumi.getter(name="tableEncryptionKeyType")

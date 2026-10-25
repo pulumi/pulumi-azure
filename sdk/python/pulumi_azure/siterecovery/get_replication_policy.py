@@ -127,7 +127,7 @@ def get_replication_policy(name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str name: Specifies the name of the Azure Site Recovery replication policy.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated Azure Site Recovery replication policy resides.
     """
     __args__ = dict()
@@ -171,7 +171,7 @@ def get_replication_policy_output(name: pulumi.Input[Optional[_builtins.str]] = 
 
 
     :param _builtins.str name: Specifies the name of the Azure Site Recovery replication policy.
-    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated witth.
+    :param _builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Azure Site Recovery replication policy is associated with.
     :param _builtins.str resource_group_name: The name of the resource group in which the associated Azure Site Recovery replication policy resides.
     """
     __args__ = dict()

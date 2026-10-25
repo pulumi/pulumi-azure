@@ -74,25 +74,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="minimumTlsVersion")
-    private @Nullable Output<String> minimumTlsVersion;
-
-    /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> minimumTlsVersion() {
-        return Optional.ofNullable(this.minimumTlsVersion);
-    }
-
-    /**
      * TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
      * 
      */
@@ -113,7 +94,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         this.cdnFrontdoorSecretId = $.cdnFrontdoorSecretId;
         this.certificateType = $.certificateType;
         this.cipherSuite = $.cipherSuite;
-        this.minimumTlsVersion = $.minimumTlsVersion;
         this.minimumVersion = $.minimumVersion;
     }
 
@@ -208,31 +188,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          */
         public Builder cipherSuite(FrontdoorCustomDomainTlsCipherSuiteArgs cipherSuite) {
             return cipherSuite(Output.of(cipherSuite));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
-            $.minimumTlsVersion = minimumTlsVersion;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-        public Builder minimumTlsVersion(String minimumTlsVersion) {
-            return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
         /**

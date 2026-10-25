@@ -147,7 +147,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *
@@ -216,7 +216,7 @@ export class Database extends pulumi.CustomResource {
      *
      * > **Note:** The default value for the `enclaveType` field is unset not `Default`.
      */
-    declare public readonly enclaveType: pulumi.Output<string>;
+    declare public readonly enclaveType: pulumi.Output<string | undefined>;
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      *

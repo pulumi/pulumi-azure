@@ -27,12 +27,32 @@ public final class GetProviderResult {
      */
     private String location;
     private String name;
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    private String openEnclavePolicyBase64;
     private String resourceGroupName;
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    private String sevSnpPolicyBase64;
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    private String sgxEnclavePolicyBase64;
     /**
      * @return A mapping of tags assigned to the Attestation Provider.
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    private String tpmPolicyBase64;
     /**
      * @return Trust model used for the Attestation Service.
      * 
@@ -64,8 +84,29 @@ public final class GetProviderResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    public String openEnclavePolicyBase64() {
+        return this.openEnclavePolicyBase64;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    public String sevSnpPolicyBase64() {
+        return this.sevSnpPolicyBase64;
+    }
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    public String sgxEnclavePolicyBase64() {
+        return this.sgxEnclavePolicyBase64;
     }
     /**
      * @return A mapping of tags assigned to the Attestation Provider.
@@ -73,6 +114,13 @@ public final class GetProviderResult {
      */
     public Map<String,String> tags() {
         return this.tags;
+    }
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
+     * 
+     */
+    public String tpmPolicyBase64() {
+        return this.tpmPolicyBase64;
     }
     /**
      * @return Trust model used for the Attestation Service.
@@ -95,8 +143,12 @@ public final class GetProviderResult {
         private String id;
         private String location;
         private String name;
+        private String openEnclavePolicyBase64;
         private String resourceGroupName;
+        private String sevSnpPolicyBase64;
+        private String sgxEnclavePolicyBase64;
         private Map<String,String> tags;
+        private String tpmPolicyBase64;
         private String trustModel;
         public Builder() {}
         public Builder(GetProviderResult defaults) {
@@ -105,8 +157,12 @@ public final class GetProviderResult {
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.openEnclavePolicyBase64 = defaults.openEnclavePolicyBase64;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.sevSnpPolicyBase64 = defaults.sevSnpPolicyBase64;
+    	      this.sgxEnclavePolicyBase64 = defaults.sgxEnclavePolicyBase64;
     	      this.tags = defaults.tags;
+    	      this.tpmPolicyBase64 = defaults.tpmPolicyBase64;
     	      this.trustModel = defaults.trustModel;
         }
 
@@ -143,6 +199,14 @@ public final class GetProviderResult {
             return this;
         }
         @CustomType.Setter
+        public Builder openEnclavePolicyBase64(String openEnclavePolicyBase64) {
+            if (openEnclavePolicyBase64 == null) {
+              throw new MissingRequiredPropertyException("GetProviderResult", "openEnclavePolicyBase64");
+            }
+            this.openEnclavePolicyBase64 = openEnclavePolicyBase64;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetProviderResult", "resourceGroupName");
@@ -151,11 +215,35 @@ public final class GetProviderResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sevSnpPolicyBase64(String sevSnpPolicyBase64) {
+            if (sevSnpPolicyBase64 == null) {
+              throw new MissingRequiredPropertyException("GetProviderResult", "sevSnpPolicyBase64");
+            }
+            this.sevSnpPolicyBase64 = sevSnpPolicyBase64;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sgxEnclavePolicyBase64(String sgxEnclavePolicyBase64) {
+            if (sgxEnclavePolicyBase64 == null) {
+              throw new MissingRequiredPropertyException("GetProviderResult", "sgxEnclavePolicyBase64");
+            }
+            this.sgxEnclavePolicyBase64 = sgxEnclavePolicyBase64;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetProviderResult", "tags");
             }
             this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tpmPolicyBase64(String tpmPolicyBase64) {
+            if (tpmPolicyBase64 == null) {
+              throw new MissingRequiredPropertyException("GetProviderResult", "tpmPolicyBase64");
+            }
+            this.tpmPolicyBase64 = tpmPolicyBase64;
             return this;
         }
         @CustomType.Setter
@@ -172,8 +260,12 @@ public final class GetProviderResult {
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.openEnclavePolicyBase64 = openEnclavePolicyBase64;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sevSnpPolicyBase64 = sevSnpPolicyBase64;
+            _resultValue.sgxEnclavePolicyBase64 = sgxEnclavePolicyBase64;
             _resultValue.tags = tags;
+            _resultValue.tpmPolicyBase64 = tpmPolicyBase64;
             _resultValue.trustModel = trustModel;
             return _resultValue;
         }
