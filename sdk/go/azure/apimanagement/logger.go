@@ -61,7 +61,7 @@ import (
 //				Name:              pulumi.String("example-logger"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
-//				ResourceId:        exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:        exampleInsights.ID(),
 //				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
 //					InstrumentationKey: exampleInsights.InstrumentationKey,
 //				},

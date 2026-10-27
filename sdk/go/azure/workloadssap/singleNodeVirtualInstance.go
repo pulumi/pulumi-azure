@@ -116,7 +116,7 @@ import (
 //				SapFqdn:                  pulumi.String("sap.bpaas.com"),
 //				SingleServerConfiguration: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationArgs{
 //					AppResourceGroupName: app.Name,
-//					SubnetId:             exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					SubnetId:             exampleSubnet.ID(),
 //					DatabaseType:         pulumi.String("HANA"),
 //					SecondaryIpEnabled:   pulumi.Bool(true),
 //					VirtualMachineConfiguration: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs{
@@ -191,7 +191,7 @@ import (
 //				Identity: &workloadssap.SingleNodeVirtualInstanceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

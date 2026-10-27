@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewAccountTableProperties(ctx, "example", &storage.AccountTablePropertiesArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				CorsRules: storage.AccountTablePropertiesCorsRuleArray{
 //					&storage.AccountTablePropertiesCorsRuleArgs{
 //						AllowedOrigins: pulumi.StringArray{

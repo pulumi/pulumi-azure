@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = arcmachine.NewAutomanageConfigurationAssignment(ctx, "example", &arcmachine.AutomanageConfigurationAssignmentArgs{
 //				ArcMachineId:    example.Id(),
-//				ConfigurationId: exampleConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationId: exampleConfiguration.ID(),
 //			})
 //			if err != nil {
 //				return err

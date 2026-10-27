@@ -62,7 +62,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("RemoteApp"),
-//				HostPoolId:        pooledbreadthfirst.ID().ToIDOutput().ToStringOutput(),
+//				HostPoolId:        pooledbreadthfirst.ID(),
 //				FriendlyName:      pulumi.String("TestAppGroup"),
 //				Description:       pulumi.String("Acceptance Test: An application group"),
 //			})
@@ -74,7 +74,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("Desktop"),
-//				HostPoolId:        personalautomatic.ID().ToIDOutput().ToStringOutput(),
+//				HostPoolId:        personalautomatic.ID(),
 //				FriendlyName:      pulumi.String("TestAppGroup"),
 //				Description:       pulumi.String("Acceptance Test: An application group"),
 //			})

@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = healthcare.NewDicomService(ctx, "test", &healthcare.DicomServiceArgs{
 //				Name:        pulumi.String("tfexDicom"),
-//				WorkspaceId: test.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: test.ID(),
 //				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.DicomServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

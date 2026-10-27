@@ -15,6 +15,40 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lb.GetLB(ctx, &lb.GetLBArgs{
+//				Name:              "example-lb",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetLBRule, err := lb.GetLBRule(ctx, &lb.GetLBRuleArgs{
+//				Name:              "first",
+//				ResourceGroupName: "example-resources",
+//				LoadbalancerId:    example.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("lbRuleId", exampleGetLBRule.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

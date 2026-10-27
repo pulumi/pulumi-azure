@@ -60,7 +60,7 @@ import (
 //			}
 //			example := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("Cloud"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
 //			}, nil)
 //			exampleVirtualMachineManagerCloud, err := systemcenter.NewVirtualMachineManagerCloud(ctx, "example", &systemcenter.VirtualMachineManagerCloudArgs{
 //				Name:              pulumi.String("example-scvmmc"),
@@ -76,7 +76,7 @@ import (
 //			}
 //			example2 := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("VirtualMachineTemplate"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
 //			}, nil)
 //			exampleVirtualMachineManagerVirtualMachineTemplate, err := systemcenter.NewVirtualMachineManagerVirtualMachineTemplate(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineTemplateArgs{
 //				Name:              pulumi.String("example-scvmmvmt"),
@@ -91,12 +91,12 @@ import (
 //				return err
 //			}
 //			_, err = systemcenter.NewVirtualMachineManagerVirtualMachineInstance(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineInstanceArgs{
-//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
+//				ScopedResourceId: exampleArcMachine.ID(),
 //				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
 //				Infrastructure: &systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{
-//					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID().ToIDOutput().ToStringOutput(),
-//					SystemCenterVirtualMachineManagerTemplateId:             exampleVirtualMachineManagerVirtualMachineTemplate.ID().ToIDOutput().ToStringOutput(),
-//					SystemCenterVirtualMachineManagerVirtualMachineServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
+//					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID(),
+//					SystemCenterVirtualMachineManagerTemplateId:             exampleVirtualMachineManagerVirtualMachineTemplate.ID(),
+//					SystemCenterVirtualMachineManagerVirtualMachineServerId: exampleVirtualMachineManagerServer.ID(),
 //				},
 //				OperatingSystem: &systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{
 //					ComputerName: pulumi.String("testComputer"),

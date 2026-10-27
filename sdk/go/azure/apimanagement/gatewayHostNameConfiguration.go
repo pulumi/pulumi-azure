@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleGateway, err := apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
 //				Name:            pulumi.String("example-gateway"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
 //					Name:     pulumi.String("example name"),
@@ -79,9 +79,9 @@ import (
 //			}
 //			_, err = apimanagement.NewGatewayHostNameConfiguration(ctx, "example", &apimanagement.GatewayHostNameConfigurationArgs{
 //				Name:                            pulumi.String("example-host-name-configuration"),
-//				ApiManagementId:                 exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId:                 exampleService.ID(),
 //				GatewayName:                     exampleGateway.Name,
-//				CertificateId:                   exampleCertificate.ID().ToIDOutput().ToStringOutput(),
+//				CertificateId:                   exampleCertificate.ID(),
 //				HostName:                        pulumi.String("example-host-name"),
 //				RequestClientCertificateEnabled: pulumi.Bool(true),
 //				Http2Enabled:                    pulumi.Bool(true),

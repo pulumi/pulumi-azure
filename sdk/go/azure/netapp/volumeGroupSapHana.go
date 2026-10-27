@@ -108,7 +108,7 @@ import (
 //				Name:                      pulumi.Sprintf("%v-avset", prefix),
 //				Location:                  exampleResourceGroup.Location,
 //				ResourceGroupName:         exampleResourceGroup.Name,
-//				ProximityPlacementGroupId: examplePlacementGroup.ID().ToIDOutput().ToStringOutput(),
+//				ProximityPlacementGroupId: examplePlacementGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -120,7 +120,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   example1.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   example1.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -136,10 +136,10 @@ import (
 //				AdminUsername:                 pulumi.String(adminUsername),
 //				AdminPassword:                 pulumi.Any(adminPassword),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
-//				ProximityPlacementGroupId:     examplePlacementGroup.ID().ToIDOutput().ToStringOutput(),
-//				AvailabilitySetId:             exampleAvailabilitySet.ID().ToIDOutput().ToStringOutput(),
+//				ProximityPlacementGroupId:     examplePlacementGroup.ID(),
+//				AvailabilitySetId:             exampleAvailabilitySet.ID(),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkInterface.ID(),
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
@@ -190,9 +190,9 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-1", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-1"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleSubnet.ID(),
+//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
 //						VolumeSpecName:            pulumi.String("data"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
 //						ThroughputInMibps:         pulumi.Float64(24),
@@ -218,9 +218,9 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-2", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-2"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleSubnet.ID(),
+//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
 //						VolumeSpecName:            pulumi.String("log"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
 //						ThroughputInMibps:         pulumi.Float64(24),
@@ -246,9 +246,9 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-3", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-3"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleSubnet.ID(),
+//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
 //						VolumeSpecName:            pulumi.String("shared"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
 //						ThroughputInMibps:         pulumi.Float64(24),
@@ -410,7 +410,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.Sprintf("%v-key", prefix),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -426,7 +426,7 @@ import (
 //				return err
 //			}
 //			exampleAccountEncryption, err := netapp.NewAccountEncryption(ctx, "example", &netapp.AccountEncryptionArgs{
-//				NetappAccountId:                   exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				NetappAccountId:                   exampleAccount.ID(),
 //				SystemAssignedIdentityPrincipalId: exampleAccount.Identity.PrincipalId(),
 //				EncryptionKey:                     exampleKey.VersionlessId,
 //			})
@@ -437,10 +437,10 @@ import (
 //				Name:              pulumi.Sprintf("%v-pe-kv", prefix),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				SubnetId:          examplePrivateEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          examplePrivateEndpoint.ID(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.Sprintf("%v-pe-sc-kv", prefix),
-//					PrivateConnectionResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//					PrivateConnectionResourceId: exampleKeyVault.ID(),
 //					IsManualConnection:          pulumi.Bool(false),
 //					SubresourceNames: pulumi.StringArray{
 //						pulumi.String("Vault"),
@@ -476,8 +476,8 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-data", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-data"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleDelegated.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
 //						Zone:                      pulumi.String("1"),
 //						VolumeSpecName:            pulumi.String("data"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
@@ -487,7 +487,7 @@ import (
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
-//						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -504,8 +504,8 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-log", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-log"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleDelegated.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
 //						Zone:                      pulumi.String("1"),
 //						VolumeSpecName:            pulumi.String("log"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
@@ -515,7 +515,7 @@ import (
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
-//						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -532,8 +532,8 @@ import (
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-shared", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-shared"),
 //						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID().ToIDOutput().ToStringOutput(),
-//						SubnetId:                  exampleDelegated.ID().ToIDOutput().ToStringOutput(),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
 //						Zone:                      pulumi.String("1"),
 //						VolumeSpecName:            pulumi.String("shared"),
 //						StorageQuotaInGb:          pulumi.Int(1024),
@@ -543,7 +543,7 @@ import (
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
-//						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),

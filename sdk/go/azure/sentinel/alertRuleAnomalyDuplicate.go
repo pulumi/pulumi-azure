@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId:               exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -59,7 +59,7 @@ import (
 //			}, nil)
 //			_, err = sentinel.NewAlertRuleAnomalyDuplicate(ctx, "example", &sentinel.AlertRuleAnomalyDuplicateArgs{
 //				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //				BuiltInRuleId:           example.Id(),
 //				Enabled:                 pulumi.Bool(true),
 //				Mode:                    pulumi.String("Flighting"),

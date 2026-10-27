@@ -111,6 +111,15 @@ def get_registry_cache_rule(container_registry_id: Optional[_builtins.str] = Non
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry(name="testacr",
+        container_registry_id="test")
+    pulumi.export("cacheRuleSourceRepo", example_azurerm_container_registry_cache_rule["sourceRepo"])
+    ```
+
     ## API Providers
 
     <!-- This section is generated, changes will be overwritten -->
@@ -142,6 +151,15 @@ def get_registry_cache_rule_output(container_registry_id: pulumi.Input[Optional[
     Use this data source to access information about an existing Container Registry Cache Rule.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry(name="testacr",
+        container_registry_id="test")
+    pulumi.export("cacheRuleSourceRepo", example_azurerm_container_registry_cache_rule["sourceRepo"])
+    ```
 
     ## API Providers
 

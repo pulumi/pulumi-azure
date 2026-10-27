@@ -122,7 +122,7 @@ import (
 //					Separator: pulumi.String("="),
 //					Input: pulumi.StringArray{
 //						pulumi.String("UserAssignedIdentity"),
-//						example.ID().ToIDOutput().ToStringOutput(),
+//						example.ID(),
 //					},
 //				}, nil).Result(),
 //				OfferType: pulumi.String("Standard"),
@@ -144,7 +144,7 @@ import (
 //				Identity: &cosmosdb.AccountIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						example.ID().ToIDOutput().ToStringOutput(),
+//						example.ID(),
 //					},
 //				},
 //			})

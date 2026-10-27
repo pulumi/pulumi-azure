@@ -90,7 +90,7 @@ import (
 //				Name:              pulumi.String("tf-test-appinsights"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {

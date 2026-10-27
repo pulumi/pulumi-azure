@@ -103,7 +103,7 @@ import (
 //				Identity: &blueprint.AssignmentIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				ResourceGroups: pulumi.String(`    {

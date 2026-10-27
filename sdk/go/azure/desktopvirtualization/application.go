@@ -62,7 +62,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("RemoteApp"),
-//				HostPoolId:        pooledbreadthfirst.ID().ToIDOutput().ToStringOutput(),
+//				HostPoolId:        pooledbreadthfirst.ID(),
 //				FriendlyName:      pulumi.String("TestAppGroup"),
 //				Description:       pulumi.String("Acceptance Test: An application group"),
 //			})
@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = desktopvirtualization.NewApplication(ctx, "chrome", &desktopvirtualization.ApplicationArgs{
 //				Name:                      pulumi.String("googlechrome"),
-//				ApplicationGroupId:        remoteapp.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationGroupId:        remoteapp.ID(),
 //				FriendlyName:              pulumi.String("Google Chrome"),
 //				Description:               pulumi.String("Chromium based web browser"),
 //				Path:                      pulumi.String("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"),

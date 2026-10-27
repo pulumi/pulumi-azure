@@ -52,7 +52,7 @@ import (
 //				Name:              pulumi.String("tfexfhir"),
 //				Location:          pulumi.String("east us"),
 //				ResourceGroupName: pulumi.String("tfex-resource_group"),
-//				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:       exampleWorkspace.ID(),
 //				Kind:              pulumi.String("fhir-R4"),
 //				Authentication: &healthcare.FhirServiceAuthenticationArgs{
 //					Authority: pulumi.String("https://login.microsoftonline.com/tenantId"),

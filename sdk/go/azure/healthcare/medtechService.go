@@ -73,7 +73,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
 //				Name:        pulumi.String("examplemed"),
-//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleWorkspace.ID(),
 //				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.MedtechServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

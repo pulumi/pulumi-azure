@@ -65,7 +65,7 @@ import (
 //			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
 //				SubscriptionId:     pulumi.String(example.Id),
-//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
+//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
 //			})
 //			if err != nil {
 //				return err

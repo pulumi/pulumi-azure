@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewBlobInventoryPolicy(ctx, "example", &storage.BlobInventoryPolicyArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				Rules: storage.BlobInventoryPolicyRuleArray{
 //					&storage.BlobInventoryPolicyRuleArgs{
 //						Name:                 pulumi.String("rule1"),

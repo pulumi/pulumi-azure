@@ -109,7 +109,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
@@ -121,7 +121,7 @@ import (
 //			_, err = webpubsub.NewCustomCertificate(ctx, "test", &webpubsub.CustomCertificateArgs{
 //				Name:                pulumi.String("example-cert"),
 //				WebPubsubId:         exampleWebPubsubService.Id,
-//				CustomCertificateId: exampleCertificate.ID().ToIDOutput().ToStringOutput(),
+//				CustomCertificateId: exampleCertificate.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAzurermKeyVaultAccessPolicy,
 //			}))

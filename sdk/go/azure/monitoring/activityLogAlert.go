@@ -66,17 +66,17 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				Scopes: pulumi.StringArray{
-//					example.ID().ToIDOutput().ToStringOutput(),
+//					example.ID(),
 //				},
 //				Description: pulumi.String("This alert will monitor a specific storage account updates."),
 //				Criteria: &monitoring.ActivityLogAlertCriteriaArgs{
-//					ResourceId:    toMonitor.ID().ToIDOutput().ToStringOutput(),
+//					ResourceId:    toMonitor.ID(),
 //					OperationName: pulumi.String("Microsoft.Storage/storageAccounts/write"),
 //					Category:      pulumi.String("Recommendation"),
 //				},
 //				Actions: monitoring.ActivityLogAlertActionArray{
 //					&monitoring.ActivityLogAlertActionArgs{
-//						ActionGroupId: main.ID().ToIDOutput().ToStringOutput(),
+//						ActionGroupId: main.ID(),
 //						WebhookProperties: pulumi.StringMap{
 //							"from": pulumi.String("source"),
 //						},

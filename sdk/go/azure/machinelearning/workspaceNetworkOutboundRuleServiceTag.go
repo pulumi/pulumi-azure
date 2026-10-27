@@ -77,9 +77,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				ManagedNetwork: &machinelearning.WorkspaceManagedNetworkArgs{
 //					IsolationMode: pulumi.String("AllowOnlyApprovedOutbound"),
 //				},
@@ -92,7 +92,7 @@ import (
 //			}
 //			_, err = machinelearning.NewWorkspaceNetworkOutboundRuleServiceTag(ctx, "example", &machinelearning.WorkspaceNetworkOutboundRuleServiceTagArgs{
 //				Name:        pulumi.String("example-outboundrule"),
-//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleWorkspace.ID(),
 //				ServiceTag:  pulumi.String("AppService"),
 //				Protocol:    pulumi.String("TCP"),
 //				PortRanges:  pulumi.String("443"),

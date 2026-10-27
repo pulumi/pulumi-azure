@@ -50,14 +50,14 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:        pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId: exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId: exampleNamespace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
 //				Name:    pulumi.String("tfex_servicebus_topic_sasPolicy"),
-//				TopicId: exampleTopic.ID().ToIDOutput().ToStringOutput(),
+//				TopicId: exampleTopic.ID(),
 //				Listen:  pulumi.Bool(true),
 //				Send:    pulumi.Bool(false),
 //				Manage:  pulumi.Bool(false),

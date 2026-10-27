@@ -109,10 +109,10 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleSubnet.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Static"),
 //						PrivateIpAddress:           pulumi.String("10.0.2.5"),
-//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          examplePublicIp.ID(),
 //					},
 //				},
 //			})
@@ -124,7 +124,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkInterface.ID(),
 //				},
 //			})
 //			if err != nil {

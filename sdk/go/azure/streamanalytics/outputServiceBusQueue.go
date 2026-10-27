@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
 //				Name:               pulumi.String("example-queue"),
-//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {

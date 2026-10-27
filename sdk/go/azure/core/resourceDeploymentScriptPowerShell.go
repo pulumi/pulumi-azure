@@ -65,7 +65,7 @@ import (
 //				Identity: &core.ResourceDeploymentScriptPowerShellIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

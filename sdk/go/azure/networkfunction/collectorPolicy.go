@@ -52,7 +52,7 @@ import (
 //				Name:               pulumi.String("example-erc"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
-//				ExpressRoutePortId: exampleExpressRoutePort.ID().ToIDOutput().ToStringOutput(),
+//				ExpressRoutePortId: exampleExpressRoutePort.ID(),
 //				BandwidthInGbps:    pulumi.Float64(1),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
@@ -91,14 +91,14 @@ import (
 //			}
 //			_, err = networkfunction.NewCollectorPolicy(ctx, "example", &networkfunction.CollectorPolicyArgs{
 //				Name:               pulumi.String("example-nfcp"),
-//				TrafficCollectorId: exampleAzureTrafficCollector.ID().ToIDOutput().ToStringOutput(),
+//				TrafficCollectorId: exampleAzureTrafficCollector.ID(),
 //				Location:           example.Location,
 //				IpfxEmission: &networkfunction.CollectorPolicyIpfxEmissionArgs{
 //					DestinationTypes: pulumi.String("AzureMonitor"),
 //				},
 //				IpfxIngestion: &networkfunction.CollectorPolicyIpfxIngestionArgs{
 //					SourceResourceIds: pulumi.StringArray{
-//						exampleExpressRouteCircuit.ID().ToIDOutput().ToStringOutput(),
+//						exampleExpressRouteCircuit.ID(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

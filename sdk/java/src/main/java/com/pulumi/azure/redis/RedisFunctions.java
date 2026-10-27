@@ -275,6 +275,41 @@ public final class RedisFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *             .name("default")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.get("id"))
+     *             .build());
+     * 
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.primaryAccessKey());
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.secondaryAccessKey());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -292,6 +327,41 @@ public final class RedisFunctions {
      * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *             .name("default")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.get("id"))
+     *             .build());
+     * 
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.primaryAccessKey());
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.secondaryAccessKey());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 
@@ -311,6 +381,41 @@ public final class RedisFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *             .name("default")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.get("id"))
+     *             .build());
+     * 
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.primaryAccessKey());
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.secondaryAccessKey());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -329,6 +434,41 @@ public final class RedisFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *             .name("default")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.get("id"))
+     *             .build());
+     * 
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.primaryAccessKey());
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.secondaryAccessKey());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -346,6 +486,41 @@ public final class RedisFunctions {
      * &gt; **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.RedisFunctions;
+     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
+     *             .name("default")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.get("id"))
+     *             .build());
+     * 
+     *         ctx.export("redisEnterpriseDatabasePrimaryKey", example.primaryAccessKey());
+     *         ctx.export("redisEnterpriseDatabaseSecondaryKey", example.secondaryAccessKey());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 

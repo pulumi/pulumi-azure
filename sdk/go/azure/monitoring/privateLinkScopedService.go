@@ -57,7 +57,7 @@ import (
 //				Name:              pulumi.String("example-amplsservice"),
 //				ResourceGroupName: example.Name,
 //				ScopeName:         examplePrivateLinkScope.Name,
-//				LinkedResourceId:  exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				LinkedResourceId:  exampleInsights.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -77,7 +77,7 @@ import (
 //				return err
 //			}
 //			example2, err := authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
-//				Scope:              exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleFlexibleServer.ID(),
 //				RoleDefinitionName: pulumi.String("PostgreSQL Flexible Server Long Term Retention Backup Role"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -86,7 +86,7 @@ import (
 //			}
 //			exampleBackupPolicyPostgresqlFlexibleServer, err := dataprotection.NewBackupPolicyPostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyPostgresqlFlexibleServerArgs{
 //				Name:    pulumi.String("example-dp"),
-//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				VaultId: exampleBackupVault.ID(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
@@ -108,9 +108,9 @@ import (
 //			_, err = dataprotection.NewBackupInstancePostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupInstancePostgresqlFlexibleServerArgs{
 //				Name:           pulumi.String("example-dbi"),
 //				Location:       example.Location,
-//				VaultId:        exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				ServerId:       exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
-//				BackupPolicyId: exampleBackupPolicyPostgresqlFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:        exampleBackupVault.ID(),
+//				ServerId:       exampleFlexibleServer.ID(),
+//				BackupPolicyId: exampleBackupPolicyPostgresqlFlexibleServer.ID(),
 //			})
 //			if err != nil {
 //				return err

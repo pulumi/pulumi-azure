@@ -18,7 +18,28 @@ namespace Pulumi.Azure.Redis
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
+        ///     {
+        ///         Name = "default",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
+        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -37,7 +58,28 @@ namespace Pulumi.Azure.Redis
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
+        ///     {
+        ///         Name = "default",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
+        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -56,7 +98,28 @@ namespace Pulumi.Azure.Redis
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
+        ///     {
+        ///         Name = "default",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
+        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 

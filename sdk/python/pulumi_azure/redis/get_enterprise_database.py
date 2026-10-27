@@ -131,6 +131,17 @@ def get_enterprise_database(cluster_id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.redis.get_enterprise_database(name="default",
+        resource_group_name=example_azurerm_resource_group["name"],
+        cluster_id=example_azurerm_redis_enterprise_cluster["id"])
+    pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
+    pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
+    ```
+
     ## API Providers
 
     <!-- This section is generated, changes will be overwritten -->
@@ -165,6 +176,17 @@ def get_enterprise_database_output(cluster_id: pulumi.Input[Optional[_builtins.s
     > **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.redis.get_enterprise_database(name="default",
+        resource_group_name=example_azurerm_resource_group["name"],
+        cluster_id=example_azurerm_redis_enterprise_cluster["id"])
+    pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
+    pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
+    ```
 
     ## API Providers
 

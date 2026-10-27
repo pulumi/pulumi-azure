@@ -62,7 +62,7 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -81,27 +81,27 @@ import (
 //			}
 //			example2, err := network.NewNetworkManagerNetworkGroup(ctx, "example2", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group2"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerConnectivityConfiguration(ctx, "example", &network.NetworkManagerConnectivityConfigurationArgs{
 //				Name:                 pulumi.String("example-connectivity-conf"),
-//				NetworkManagerId:     exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId:     exampleNetworkManager.ID(),
 //				ConnectivityTopology: pulumi.String("HubAndSpoke"),
 //				AppliesToGroups: network.NetworkManagerConnectivityConfigurationAppliesToGroupArray{
 //					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
 //						GroupConnectivity: pulumi.String("DirectlyConnected"),
-//						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
+//						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID(),
 //					},
 //					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
 //						GroupConnectivity: pulumi.String("DirectlyConnected"),
-//						NetworkGroupId:    example2.ID().ToIDOutput().ToStringOutput(),
+//						NetworkGroupId:    example2.ID(),
 //					},
 //				},
 //				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
-//					ResourceId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//					ResourceId:   exampleVirtualNetwork.ID(),
 //					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
 //				},
 //			})

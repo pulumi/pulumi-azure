@@ -53,7 +53,7 @@ import (
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						testUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						testUserAssignedIdentity.ID(),
 //					},
 //				},
 //			})
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = devcenter.NewGallery(ctx, "example", &devcenter.GalleryArgs{
 //				DevCenterId:     pulumi.Any(exampleAzurermDevCenter.Id),
-//				SharedGalleryId: exampleSharedImageGallery.ID().ToIDOutput().ToStringOutput(),
+//				SharedGalleryId: exampleSharedImageGallery.ID(),
 //				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {

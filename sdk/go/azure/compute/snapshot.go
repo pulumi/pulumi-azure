@@ -52,7 +52,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				CreateOption:      pulumi.String("Copy"),
-//				SourceUri:         exampleManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				SourceUri:         exampleManagedDisk.ID(),
 //			})
 //			if err != nil {
 //				return err

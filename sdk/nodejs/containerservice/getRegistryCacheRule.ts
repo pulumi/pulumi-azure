@@ -9,6 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getRegistry({
+ *     name: "testacr",
+ *     containerRegistryId: "test",
+ * });
+ * export const cacheRuleSourceRepo = exampleAzurermContainerRegistryCacheRule.sourceRepo;
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
@@ -65,6 +76,17 @@ export interface GetRegistryCacheRuleResult {
  * Use this data source to access information about an existing Container Registry Cache Rule.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getRegistry({
+ *     name: "testacr",
+ *     containerRegistryId: "test",
+ * });
+ * export const cacheRuleSourceRepo = exampleAzurermContainerRegistryCacheRule.sourceRepo;
+ * ```
  *
  * ## API Providers
  *

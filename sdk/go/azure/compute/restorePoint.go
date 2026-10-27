@@ -67,7 +67,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleSubnet.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -88,7 +88,7 @@ import (
 //				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkInterface.ID(),
 //				},
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
@@ -114,14 +114,14 @@ import (
 //				Name:                   pulumi.String("example-collection"),
 //				ResourceGroupName:      example.Name,
 //				Location:               exampleLinuxVirtualMachine.Location,
-//				SourceVirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				SourceVirtualMachineId: exampleLinuxVirtualMachine.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewRestorePoint(ctx, "example", &compute.RestorePointArgs{
 //				Name:                                   pulumi.String("example-restore-point"),
-//				VirtualMachineRestorePointCollectionId: exampleRestorePointCollection.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineRestorePointCollectionId: exampleRestorePointCollection.ID(),
 //			})
 //			if err != nil {
 //				return err

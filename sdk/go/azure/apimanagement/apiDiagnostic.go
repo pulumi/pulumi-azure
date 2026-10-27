@@ -91,7 +91,7 @@ import (
 //				ResourceGroupName:       example.Name,
 //				ApiManagementName:       exampleService.Name,
 //				ApiName:                 exampleApi.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementLoggerId:   exampleLogger.ID(),
 //				SamplingPercentage:      pulumi.Float64(5),
 //				AlwaysLogErrors:         pulumi.Bool(true),
 //				LogClientIp:             pulumi.Bool(true),

@@ -60,7 +60,7 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //				Description:      pulumi.String("example network group"),
 //			})
 //			if err != nil {
@@ -79,8 +79,8 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerStaticMember(ctx, "example", &network.NetworkManagerStaticMemberArgs{
 //				Name:                   pulumi.String("example-nmsm"),
-//				NetworkGroupId:         exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
-//				TargetVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				NetworkGroupId:         exampleNetworkManagerNetworkGroup.ID(),
+//				TargetVirtualNetworkId: exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err

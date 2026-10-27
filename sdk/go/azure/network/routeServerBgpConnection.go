@@ -76,8 +76,8 @@ import (
 //				ResourceGroupName:            example.Name,
 //				Location:                     example.Location,
 //				Sku:                          pulumi.String("Standard"),
-//				PublicIpAddressId:            examplePublicIp.ID().ToIDOutput().ToStringOutput(),
-//				SubnetId:                     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				PublicIpAddressId:            examplePublicIp.ID(),
+//				SubnetId:                     exampleSubnet.ID(),
 //				BranchToBranchTrafficEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -85,7 +85,7 @@ import (
 //			}
 //			_, err = network.NewRouteServerBgpConnection(ctx, "example", &network.RouteServerBgpConnectionArgs{
 //				Name:          pulumi.String("example-rs-bgpconnection"),
-//				RouteServerId: exampleRouteServer.ID().ToIDOutput().ToStringOutput(),
+//				RouteServerId: exampleRouteServer.ID(),
 //				PeerAsn:       pulumi.Int(65501),
 //				PeerIp:        pulumi.String("169.254.21.5"),
 //			})

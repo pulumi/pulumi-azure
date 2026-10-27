@@ -62,7 +62,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err

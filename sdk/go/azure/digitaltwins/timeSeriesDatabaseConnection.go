@@ -63,7 +63,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("exampleEventHub"),
-//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:      exampleEventHubNamespace.ID(),
 //				PartitionCount:   pulumi.Int(2),
 //				MessageRetention: pulumi.Int(7),
 //			})
@@ -101,7 +101,7 @@ import (
 //				return err
 //			}
 //			databaseContributor, err := authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
-//				Scope:              exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleDatabase.ID(),
 //				PrincipalId:        exampleInstance.Identity.PrincipalId(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //			})
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			eventhubDataOwner, err := authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
-//				Scope:              exampleEventHub.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleEventHub.ID(),
 //				PrincipalId:        exampleInstance.Identity.PrincipalId(),
 //				RoleDefinitionName: pulumi.String("Azure Event Hubs Data Owner"),
 //			})
@@ -131,14 +131,14 @@ import (
 //			}
 //			_, err = digitaltwins.NewTimeSeriesDatabaseConnection(ctx, "example", &digitaltwins.TimeSeriesDatabaseConnectionArgs{
 //				Name:                pulumi.String("example-connection"),
-//				DigitalTwinsId:      exampleInstance.ID().ToIDOutput().ToStringOutput(),
+//				DigitalTwinsId:      exampleInstance.ID(),
 //				EventhubName:        exampleEventHub.Name,
-//				EventhubNamespaceId: exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
+//				EventhubNamespaceId: exampleEventHubNamespace.ID(),
 //				EventhubNamespaceEndpointUri: exampleEventHubNamespace.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("sb://%v.servicebus.windows.net", name), nil
 //				}).(pulumi.StringOutput),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
-//				KustoClusterId:            exampleCluster.ID().ToIDOutput().ToStringOutput(),
+//				KustoClusterId:            exampleCluster.ID(),
 //				KustoClusterUri:           exampleCluster.Uri,
 //				KustoDatabaseName:         exampleDatabase.Name,
 //				KustoTableName:            pulumi.String("exampleTable"),

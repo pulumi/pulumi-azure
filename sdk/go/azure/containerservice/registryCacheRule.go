@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = containerservice.NewRegistryCacheRule(ctx, "cache_rule", &containerservice.RegistryCacheRuleArgs{
 //				Name:                pulumi.String("cacherule"),
-//				ContainerRegistryId: acr.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryId: acr.ID(),
 //				TargetRepo:          pulumi.String("target"),
 //				SourceRepo:          pulumi.String("docker.io/hello-world"),
 //				CredentialSetId: acr.ID().ApplyT(func(id pulumi.ID) (string, error) {

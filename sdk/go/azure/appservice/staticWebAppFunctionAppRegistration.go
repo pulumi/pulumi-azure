@@ -71,7 +71,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
@@ -80,8 +80,8 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewStaticWebAppFunctionAppRegistration(ctx, "example", &appservice.StaticWebAppFunctionAppRegistrationArgs{
-//				StaticWebAppId: exampleStaticWebApp.ID().ToIDOutput().ToStringOutput(),
-//				FunctionAppId:  exampleLinuxFunctionApp.ID().ToIDOutput().ToStringOutput(),
+//				StaticWebAppId: exampleStaticWebApp.ID(),
+//				FunctionAppId:  exampleLinuxFunctionApp.ID(),
 //			})
 //			if err != nil {
 //				return err

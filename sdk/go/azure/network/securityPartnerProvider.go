@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
+//				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressPrefix:     pulumi.String("10.0.2.0/24"),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //				Name:              pulumi.String("example-vpngw"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId:      exampleVirtualHub.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +67,7 @@ import (
 //				Name:                 pulumi.String("example-spp"),
 //				ResourceGroupName:    example.Name,
 //				Location:             example.Location,
-//				VirtualHubId:         exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId:         exampleVirtualHub.ID(),
 //				SecurityProviderName: pulumi.String("IBoss"),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Prod"),

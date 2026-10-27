@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewJobStorageAccount(ctx, "example", &streamanalytics.JobStorageAccountArgs{
-//				StreamAnalyticsJobId: exampleJob.ID().ToIDOutput().ToStringOutput(),
+//				StreamAnalyticsJobId: exampleJob.ID(),
 //				StorageAccountName:   exampleAccount.Name,
 //				AuthenticationMode:   pulumi.String("Msi"),
 //			})

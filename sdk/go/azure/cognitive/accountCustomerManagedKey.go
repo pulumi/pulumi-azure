@@ -62,7 +62,7 @@ import (
 //				Identity: &cognitive.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //			})
@@ -151,7 +151,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -167,8 +167,8 @@ import (
 //				return err
 //			}
 //			_, err = cognitive.NewAccountCustomerManagedKey(ctx, "example", &cognitive.AccountCustomerManagedKeyArgs{
-//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId:      exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				CognitiveAccountId: exampleAccount.ID(),
+//				KeyVaultKeyId:      exampleKey.ID(),
 //				IdentityClientId:   exampleUserAssignedIdentity.ClientId,
 //			})
 //			if err != nil {

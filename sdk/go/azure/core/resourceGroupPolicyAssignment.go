@@ -61,8 +61,8 @@ import (
 //			}
 //			_, err = core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("example"),
-//				ResourceGroupId:    example.ID().ToIDOutput().ToStringOutput(),
-//				PolicyDefinitionId: exampleDefinition.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupId:    example.ID(),
+//				PolicyDefinitionId: exampleDefinition.ID(),
 //				Parameters: pulumi.String(`    {
 //	      \"tagName\": {
 //	        \"value\": \"Business Unit\"

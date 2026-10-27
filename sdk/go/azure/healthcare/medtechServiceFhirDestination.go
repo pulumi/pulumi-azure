@@ -62,7 +62,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("example-eh"),
-//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:      exampleEventHubNamespace.ID(),
 //				PartitionCount:   pulumi.Int(1),
 //				MessageRetention: pulumi.Int(1),
 //			})
@@ -82,7 +82,7 @@ import (
 //				Name:              pulumi.String("examplefhir"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:       exampleWorkspace.ID(),
 //				Kind:              pulumi.String("fhir-R4"),
 //				Authentication: &healthcare.FhirServiceAuthenticationArgs{
 //					Authority: pulumi.String("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
@@ -102,7 +102,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleMedtechService, err := healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
 //				Name:                      pulumi.String("examplemt"),
-//				WorkspaceId:               exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:               exampleWorkspace.ID(),
 //				Location:                  example.Location,
 //				EventhubNamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:              exampleEventHub.Name,
@@ -144,8 +144,8 @@ import (
 //			_, err = healthcare.NewMedtechServiceFhirDestination(ctx, "example", &healthcare.MedtechServiceFhirDestinationArgs{
 //				Name:                              pulumi.String("examplemtdes"),
 //				Location:                          pulumi.String("east us"),
-//				MedtechServiceId:                  exampleMedtechService.ID().ToIDOutput().ToStringOutput(),
-//				DestinationFhirServiceId:          exampleFhirService.ID().ToIDOutput().ToStringOutput(),
+//				MedtechServiceId:                  exampleMedtechService.ID(),
+//				DestinationFhirServiceId:          exampleFhirService.ID(),
 //				DestinationIdentityResolutionType: pulumi.String("Create"),
 //				DestinationFhirMappingJson:        pulumi.String(json1),
 //			})

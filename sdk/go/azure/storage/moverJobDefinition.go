@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleMoverAgent, err := storage.NewMoverAgent(ctx, "example", &storage.MoverAgentArgs{
 //				Name:           pulumi.String("example-agent"),
-//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverId: exampleMover.ID(),
 //				ArcVirtualMachineId: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
 //				}).(pulumi.StringOutput),
@@ -78,8 +78,8 @@ import (
 //			}
 //			exampleMoverTargetEndpoint, err := storage.NewMoverTargetEndpoint(ctx, "example", &storage.MoverTargetEndpointArgs{
 //				Name:                 pulumi.String("example-smte"),
-//				StorageMoverId:       exampleMover.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:     exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverId:       exampleMover.ID(),
+//				StorageAccountId:     exampleAccount.ID(),
 //				StorageContainerName: exampleContainer.Name,
 //			})
 //			if err != nil {
@@ -87,7 +87,7 @@ import (
 //			}
 //			exampleMoverSourceEndpoint, err := storage.NewMoverSourceEndpoint(ctx, "example", &storage.MoverSourceEndpointArgs{
 //				Name:           pulumi.String("example-smse"),
-//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverId: exampleMover.ID(),
 //				Host:           pulumi.String("192.168.0.1"),
 //			})
 //			if err != nil {
@@ -95,14 +95,14 @@ import (
 //			}
 //			exampleMoverProject, err := storage.NewMoverProject(ctx, "example", &storage.MoverProjectArgs{
 //				Name:           pulumi.String("example-sp"),
-//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverId: exampleMover.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = storage.NewMoverJobDefinition(ctx, "example", &storage.MoverJobDefinitionArgs{
 //				Name:                  pulumi.String("example-sjd"),
-//				StorageMoverProjectId: exampleMoverProject.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverProjectId: exampleMoverProject.ID(),
 //				AgentName:             exampleMoverAgent.Name,
 //				CopyMode:              pulumi.String("Additive"),
 //				SourceName:            exampleMoverSourceEndpoint.Name,

@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
 //				Name:                pulumi.String("tfex_servicebus_queue"),
-//				NamespaceId:         exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:         exampleNamespace.ID(),
 //				PartitioningEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {

@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
 //			})
 //			if err != nil {
 //				return err

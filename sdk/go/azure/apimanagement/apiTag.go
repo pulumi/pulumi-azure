@@ -57,7 +57,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewApiTag(ctx, "example", &apimanagement.ApiTagArgs{
-//				ApiId: exampleApi.ID().ToIDOutput().ToStringOutput(),
+//				ApiId: exampleApi.ID(),
 //				Name:  exampleTag.Name,
 //			})
 //			if err != nil {

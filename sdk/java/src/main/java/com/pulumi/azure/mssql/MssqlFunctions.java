@@ -865,6 +865,39 @@ public final class MssqlFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.get("name"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -880,6 +913,39 @@ public final class MssqlFunctions {
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.get("name"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 
@@ -897,6 +963,39 @@ public final class MssqlFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.get("name"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -913,6 +1012,39 @@ public final class MssqlFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.get("name"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -928,6 +1060,39 @@ public final class MssqlFunctions {
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.get("name"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 

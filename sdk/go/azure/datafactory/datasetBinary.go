@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceSftp, err := datafactory.NewLinkedServiceSftp(ctx, "example", &datafactory.LinkedServiceSftpArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:      exampleFactory.ID(),
 //				AuthenticationType: pulumi.String("Basic"),
 //				Host:               pulumi.String("http://www.bing.com"),
 //				Port:               pulumi.Int(22),
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetBinary(ctx, "example", &datafactory.DatasetBinaryArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceSftp.Name,
 //				SftpServerLocation: &datafactory.DatasetBinarySftpServerLocationArgs{
 //					Path:     pulumi.String("/test/"),

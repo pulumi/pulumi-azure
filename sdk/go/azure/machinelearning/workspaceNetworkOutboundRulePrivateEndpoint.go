@@ -77,9 +77,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				ManagedNetwork: &machinelearning.WorkspaceManagedNetworkArgs{
 //					IsolationMode: pulumi.String("AllowOnlyApprovedOutbound"),
 //				},
@@ -102,8 +102,8 @@ import (
 //			}
 //			_, err = machinelearning.NewWorkspaceNetworkOutboundRulePrivateEndpoint(ctx, "example", &machinelearning.WorkspaceNetworkOutboundRulePrivateEndpointArgs{
 //				Name:              pulumi.String("example-outboundrule"),
-//				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				ServiceResourceId: example2.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:       exampleWorkspace.ID(),
+//				ServiceResourceId: example2.ID(),
 //				SubResourceTarget: pulumi.String("blob"),
 //			})
 //			if err != nil {

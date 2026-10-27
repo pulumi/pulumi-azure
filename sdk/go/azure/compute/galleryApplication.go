@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = compute.NewGalleryApplication(ctx, "example", &compute.GalleryApplicationArgs{
 //				Name:            pulumi.String("example-app"),
-//				GalleryId:       exampleSharedImageGallery.ID().ToIDOutput().ToStringOutput(),
+//				GalleryId:       exampleSharedImageGallery.ID(),
 //				Location:        example.Location,
 //				SupportedOsType: pulumi.String("Linux"),
 //			})

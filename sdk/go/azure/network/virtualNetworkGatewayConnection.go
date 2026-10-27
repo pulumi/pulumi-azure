@@ -95,9 +95,9 @@ import (
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          examplePublicIp.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleSubnet.ID(),
 //					},
 //				},
 //			})
@@ -109,8 +109,8 @@ import (
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				Type:                    pulumi.String("IPsec"),
-//				VirtualNetworkGatewayId: exampleVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
-//				LocalNetworkGatewayId:   onpremise.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkGatewayId: exampleVirtualNetworkGateway.ID(),
+//				LocalNetworkGatewayId:   onpremise.ID(),
 //				SharedKey:               pulumi.String("4-v3ry-53cr37-1p53c-5h4r3d-k3y"),
 //			})
 //			if err != nil {
@@ -187,9 +187,9 @@ import (
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          usPublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          usPublicIp.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   usGateway.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   usGateway.ID(),
 //					},
 //				},
 //			})
@@ -243,9 +243,9 @@ import (
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          europePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          europePublicIp.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   europeGateway.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   europeGateway.ID(),
 //					},
 //				},
 //			})
@@ -257,8 +257,8 @@ import (
 //				Location:                    us.Location,
 //				ResourceGroupName:           us.Name,
 //				Type:                        pulumi.String("Vnet2Vnet"),
-//				VirtualNetworkGatewayId:     usVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
-//				PeerVirtualNetworkGatewayId: europeVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkGatewayId:     usVirtualNetworkGateway.ID(),
+//				PeerVirtualNetworkGatewayId: europeVirtualNetworkGateway.ID(),
 //				SharedKey:                   pulumi.String("4-v3ry-53cr37-1p53c-5h4r3d-k3y"),
 //			})
 //			if err != nil {
@@ -269,8 +269,8 @@ import (
 //				Location:                    europe.Location,
 //				ResourceGroupName:           europe.Name,
 //				Type:                        pulumi.String("Vnet2Vnet"),
-//				VirtualNetworkGatewayId:     europeVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
-//				PeerVirtualNetworkGatewayId: usVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkGatewayId:     europeVirtualNetworkGateway.ID(),
+//				PeerVirtualNetworkGatewayId: usVirtualNetworkGateway.ID(),
 //				SharedKey:                   pulumi.String("4-v3ry-53cr37-1p53c-5h4r3d-k3y"),
 //			})
 //			if err != nil {

@@ -84,7 +84,7 @@ import (
 //			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
 //				Name:               pulumi.String("exampleVnetZone.com"),
 //				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
 //				ResourceGroupName:  example.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSubnet,
@@ -97,8 +97,8 @@ import (
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
 //				Version:                    pulumi.String("12"),
-//				DelegatedSubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				PrivateDnsZoneId:           exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				DelegatedSubnetId:          exampleSubnet.ID(),
+//				PrivateDnsZoneId:           exampleZone.ID(),
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				AdministratorLogin:         pulumi.String("psqladmin"),
 //				AdministratorPassword:      pulumi.String("H@Sh1CoR3!"),

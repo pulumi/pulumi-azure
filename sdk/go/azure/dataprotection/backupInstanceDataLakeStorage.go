@@ -51,14 +51,14 @@ import (
 //			}
 //			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
 //				Name:             pulumi.String("example-container"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := storage.NewContainer(ctx, "example2", &storage.ContainerArgs{
 //				Name:             pulumi.String("example-container2"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Backup Contributor"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -86,7 +86,7 @@ import (
 //			}
 //			exampleBackupPolicyDataLakeStorage, err := dataprotection.NewBackupPolicyDataLakeStorage(ctx, "example", &dataprotection.BackupPolicyDataLakeStorageArgs{
 //				Name:                        pulumi.String("example-backup-policy"),
-//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				DataProtectionBackupVaultId: exampleBackupVault.ID(),
 //				BackupSchedules: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
@@ -97,10 +97,10 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupInstanceDataLakeStorage(ctx, "example", &dataprotection.BackupInstanceDataLakeStorageArgs{
 //				Name:                          pulumi.String("example-data-protection-backup-instance-data-lake-storage"),
-//				DataProtectionBackupVaultId:   exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				DataProtectionBackupVaultId:   exampleBackupVault.ID(),
 //				Location:                      example.Location,
-//				StorageAccountId:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				BackupPolicyDataLakeStorageId: exampleBackupPolicyDataLakeStorage.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:              exampleAccount.ID(),
+//				BackupPolicyDataLakeStorageId: exampleBackupPolicyDataLakeStorage.ID(),
 //				StorageContainerNames: pulumi.StringArray{
 //					exampleContainer.Name,
 //					example2.Name,

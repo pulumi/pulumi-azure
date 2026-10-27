@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudApplicationInsightsApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs{
 //				Name:                      pulumi.String("example"),
-//				SpringCloudServiceId:      exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudServiceId:      exampleSpringCloudService.ID(),
 //				ConnectionString:          exampleInsights.InstrumentationKey,
 //				GloballyEnabled:           pulumi.Bool(true),
 //				RoleName:                  pulumi.String("test-role"),

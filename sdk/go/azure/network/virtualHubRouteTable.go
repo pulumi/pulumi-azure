@@ -67,8 +67,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -85,7 +85,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
+//				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressPrefix:     pulumi.String("10.0.2.0/24"),
 //			})
 //			if err != nil {
@@ -93,15 +93,15 @@ import (
 //			}
 //			exampleVirtualHubConnection, err := network.NewVirtualHubConnection(ctx, "example", &network.VirtualHubConnectionArgs{
 //				Name:                   pulumi.String("example-vhubconn"),
-//				VirtualHubId:           exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
-//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId:           exampleVirtualHub.ID(),
+//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewVirtualHubRouteTable(ctx, "example", &network.VirtualHubRouteTableArgs{
 //				Name:         pulumi.String("example-vhubroutetable"),
-//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId: exampleVirtualHub.ID(),
 //				Labels: pulumi.StringArray{
 //					pulumi.String("label1"),
 //				},
@@ -113,7 +113,7 @@ import (
 //							pulumi.String("10.0.0.0/16"),
 //						},
 //						NextHopType: pulumi.String("ResourceId"),
-//						NextHop:     exampleVirtualHubConnection.ID().ToIDOutput().ToStringOutput(),
+//						NextHop:     exampleVirtualHubConnection.ID(),
 //					},
 //				},
 //			})

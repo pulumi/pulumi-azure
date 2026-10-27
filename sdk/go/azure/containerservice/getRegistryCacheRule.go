@@ -15,6 +15,32 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := containerservice.LookupRegistry(ctx, &containerservice.LookupRegistryArgs{
+//				Name:                "testacr",
+//				ContainerRegistryId: "test",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("cacheRuleSourceRepo", pulumi.Any(exampleAzurermContainerRegistryCacheRule.SourceRepo))
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

@@ -62,7 +62,7 @@ import (
 //				Name:              pulumi.String("example-app"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -106,14 +106,14 @@ import (
 //				return err
 //			}
 //			exampleManagedCertificate, err := appservice.NewManagedCertificate(ctx, "example", &appservice.ManagedCertificateArgs{
-//				CustomHostnameBindingId: exampleCustomHostnameBinding.ID().ToIDOutput().ToStringOutput(),
+//				CustomHostnameBindingId: exampleCustomHostnameBinding.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewCertificateBinding(ctx, "example", &appservice.CertificateBindingArgs{
-//				HostnameBindingId: exampleCustomHostnameBinding.ID().ToIDOutput().ToStringOutput(),
-//				CertificateId:     exampleManagedCertificate.ID().ToIDOutput().ToStringOutput(),
+//				HostnameBindingId: exampleCustomHostnameBinding.ID(),
+//				CertificateId:     exampleManagedCertificate.ID(),
 //				SslState:          pulumi.String("SniEnabled"),
 //			})
 //			if err != nil {

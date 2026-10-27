@@ -70,7 +70,7 @@ import (
 //				},
 //				StorageAccounts: hdinsight.HadoopClusterStorageAccountArray{
 //					&hdinsight.HadoopClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
+//						StorageContainerId: exampleContainer.ID(),
 //						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
 //						IsDefault:          pulumi.Bool(true),
 //					},

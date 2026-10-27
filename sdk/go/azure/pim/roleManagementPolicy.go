@@ -40,10 +40,10 @@ import (
 //			}
 //			mgContributor := authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
 //				Name:  pulumi.String("Contributor"),
-//				Scope: example.ID().ToIDOutput().ToStringOutput(),
+//				Scope: example.ID(),
 //			}, nil)
 //			_, err = pim.NewRoleManagementPolicy(ctx, "example", &pim.RoleManagementPolicyArgs{
-//				Scope:            example.ID().ToIDOutput().ToStringOutput(),
+//				Scope:            example.ID(),
 //				RoleDefinitionId: mgContributor.Id(),
 //				EligibleAssignmentRules: &pim.RoleManagementPolicyEligibleAssignmentRulesArgs{
 //					ExpirationRequired: pulumi.Bool(false),

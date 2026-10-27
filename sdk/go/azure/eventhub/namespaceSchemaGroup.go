@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = eventhub.NewNamespaceSchemaGroup(ctx, "test", &eventhub.NamespaceSchemaGroupArgs{
 //				Name:                pulumi.String("example-schemaGroup"),
-//				NamespaceId:         test.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:         test.ID(),
 //				SchemaCompatibility: pulumi.String("Forward"),
 //				SchemaType:          pulumi.String("Avro"),
 //			})

@@ -53,7 +53,7 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerDatabase(ctx, "example", &postgresql.FlexibleServerDatabaseArgs{
 //				Name:      pulumi.String("exampledb"),
-//				ServerId:  exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:  exampleFlexibleServer.ID(),
 //				Collation: pulumi.String("en_US.utf8"),
 //				Charset:   pulumi.String("UTF8"),
 //			})

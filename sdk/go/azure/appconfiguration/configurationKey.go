@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
-//				Scope:              appconf.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
-//				ConfigurationStoreId: appconf.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationStoreId: appconf.ID(),
 //				Key:                  pulumi.String("appConfKey1"),
 //				Label:                pulumi.String("somelabel"),
 //				Value:                pulumi.String("a test"),
@@ -146,13 +146,13 @@ import (
 //			kvs, err := keyvault.NewSecret(ctx, "kvs", &keyvault.SecretArgs{
 //				Name:       pulumi.String("kvs"),
 //				Value:      pulumi.String("szechuan"),
-//				KeyVaultId: kv.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: kv.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
-//				Scope:              appconf.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
 //			})

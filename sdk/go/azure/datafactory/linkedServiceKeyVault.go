@@ -62,8 +62,8 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceKeyVault(ctx, "example", &datafactory.LinkedServiceKeyVaultArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:    exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
+//				KeyVaultId:    exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err

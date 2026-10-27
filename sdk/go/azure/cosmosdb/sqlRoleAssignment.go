@@ -65,7 +65,7 @@ import (
 //				AccountName:       exampleAccount.Name,
 //				Type:              pulumi.String("CustomRole"),
 //				AssignableScopes: pulumi.StringArray{
-//					exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//					exampleAccount.ID(),
 //				},
 //				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
 //					&cosmosdb.SqlRoleDefinitionPermissionArgs{
@@ -82,9 +82,9 @@ import (
 //				Name:              pulumi.String("736180af-7fbc-4c7f-9004-22735173c1c3"),
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
-//				RoleDefinitionId:  exampleSqlRoleDefinition.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
 //				PrincipalId:       pulumi.String(current.ObjectId),
-//				Scope:             exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Scope:             exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err

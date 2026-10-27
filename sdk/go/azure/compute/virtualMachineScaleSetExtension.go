@@ -80,7 +80,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
 //				Name:                     pulumi.String("example"),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
 //				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:                     pulumi.String("CustomScript"),
 //				TypeHandlerVersion:       pulumi.String("2.0"),

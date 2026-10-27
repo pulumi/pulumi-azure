@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewCustomDomain(ctx, "example", &apimanagement.CustomDomainArgs{
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				Gateways: apimanagement.CustomDomainGatewayArray{
 //					&apimanagement.CustomDomainGatewayArgs{
 //						HostName:   pulumi.String("api.example.com"),

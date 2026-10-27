@@ -78,7 +78,7 @@ import (
 //						exampleCNameRecord.ZoneName,
 //					},
 //				}, nil).Result(),
-//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID(),
 //			})
 //			if err != nil {
 //				return err

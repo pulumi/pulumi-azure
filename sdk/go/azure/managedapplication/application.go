@@ -75,7 +75,7 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   invokeSplit.Result[int(len(invokeSplit1.Result)-1)],
+//						RoleDefinitionId:   invokeSplit.Result[int(len([]string(invokeSplit1.Result))-1)],
 //					},
 //				},
 //			})
@@ -88,7 +88,7 @@ import (
 //				ResourceGroupName:        example.Name,
 //				Kind:                     pulumi.String("ServiceCatalog"),
 //				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
-//				ApplicationDefinitionId:  exampleDefinition.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationDefinitionId:  exampleDefinition.ID(),
 //				ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]map[string]string{

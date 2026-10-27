@@ -64,7 +64,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DomainJoinType:    pulumi.String("AzureADJoin"),
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          exampleSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err

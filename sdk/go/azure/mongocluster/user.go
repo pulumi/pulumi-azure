@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = mongocluster.NewUser(ctx, "example", &mongocluster.UserArgs{
 //				ObjectId:             pulumi.String(current.ObjectId),
-//				MongoClusterId:       exampleMongoCluster.ID().ToIDOutput().ToStringOutput(),
+//				MongoClusterId:       exampleMongoCluster.ID(),
 //				IdentityProviderType: pulumi.String("MicrosoftEntraID"),
 //				PrincipalType:        pulumi.String("servicePrincipal"),
 //				Roles: mongocluster.UserRoleArray{

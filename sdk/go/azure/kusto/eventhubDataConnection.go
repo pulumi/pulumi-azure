@@ -71,7 +71,7 @@ import (
 //			}
 //			eventhub2, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("my-eventhub"),
-//				NamespaceId:      eventhubNs.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:      eventhubNs.ID(),
 //				PartitionCount:   pulumi.Int(1),
 //				MessageRetention: pulumi.Int(1),
 //			})
@@ -93,7 +93,7 @@ import (
 //				Location:           example.Location,
 //				ClusterName:        cluster.Name,
 //				DatabaseName:       database.Name,
-//				EventhubId:         eventhub2.ID().ToIDOutput().ToStringOutput(),
+//				EventhubId:         eventhub2.ID(),
 //				ConsumerGroup:      consumerGroup.Name,
 //				TableName:          pulumi.String("my-table"),
 //				MappingRuleName:    pulumi.String("my-table-mapping"),

@@ -63,7 +63,7 @@ import (
 //				Location:                example.Location,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:           exampleServicePlan.ID(),
 //				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {

@@ -66,7 +66,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -74,7 +74,7 @@ import (
 //				return err
 //			}
 //			example2, err := authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
-//				Scope:              exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleFlexibleServer.ID(),
 //				RoleDefinitionName: pulumi.String("MySQL Backup And Export Operator"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -83,7 +83,7 @@ import (
 //			}
 //			exampleBackupPolicyMysqlFlexibleServer, err := dataprotection.NewBackupPolicyMysqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyMysqlFlexibleServerArgs{
 //				Name:    pulumi.String("example-dp"),
-//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				VaultId: exampleBackupVault.ID(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
@@ -105,9 +105,9 @@ import (
 //			_, err = dataprotection.NewBackupInstanceMysqlFlexibleServer(ctx, "example", &dataprotection.BackupInstanceMysqlFlexibleServerArgs{
 //				Name:           pulumi.String("example-dbi"),
 //				Location:       example.Location,
-//				VaultId:        exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				ServerId:       exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
-//				BackupPolicyId: exampleBackupPolicyMysqlFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:        exampleBackupVault.ID(),
+//				ServerId:       exampleFlexibleServer.ID(),
+//				BackupPolicyId: exampleBackupPolicyMysqlFlexibleServer.ID(),
 //			})
 //			if err != nil {
 //				return err

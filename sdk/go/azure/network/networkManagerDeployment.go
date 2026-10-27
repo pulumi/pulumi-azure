@@ -62,7 +62,7 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -81,16 +81,16 @@ import (
 //			}
 //			exampleNetworkManagerConnectivityConfiguration, err := network.NewNetworkManagerConnectivityConfiguration(ctx, "example", &network.NetworkManagerConnectivityConfigurationArgs{
 //				Name:                 pulumi.String("example-connectivity-conf"),
-//				NetworkManagerId:     exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId:     exampleNetworkManager.ID(),
 //				ConnectivityTopology: pulumi.String("HubAndSpoke"),
 //				AppliesToGroups: network.NetworkManagerConnectivityConfigurationAppliesToGroupArray{
 //					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
 //						GroupConnectivity: pulumi.String("None"),
-//						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
+//						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID(),
 //					},
 //				},
 //				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
-//					ResourceId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//					ResourceId:   exampleVirtualNetwork.ID(),
 //					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
 //				},
 //			})
@@ -98,11 +98,11 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerDeployment(ctx, "example", &network.NetworkManagerDeploymentArgs{
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //				Location:         pulumi.String("eastus"),
 //				ScopeAccess:      pulumi.String("Connectivity"),
 //				ConfigurationIds: pulumi.StringArray{
-//					exampleNetworkManagerConnectivityConfiguration.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkManagerConnectivityConfiguration.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -161,7 +161,7 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -180,16 +180,16 @@ import (
 //			}
 //			exampleNetworkManagerSecurityAdminConfiguration, err := network.NewNetworkManagerSecurityAdminConfiguration(ctx, "example", &network.NetworkManagerSecurityAdminConfigurationArgs{
 //				Name:             pulumi.String("example-nmsac"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkManagerAdminRuleCollection, err := network.NewNetworkManagerAdminRuleCollection(ctx, "example", &network.NetworkManagerAdminRuleCollectionArgs{
 //				Name:                         pulumi.String("example-nmarc"),
-//				SecurityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				SecurityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.ID(),
 //				NetworkGroupIds: pulumi.StringArray{
-//					exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkManagerNetworkGroup.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -197,7 +197,7 @@ import (
 //			}
 //			exampleNetworkManagerAdminRule, err := network.NewNetworkManagerAdminRule(ctx, "example", &network.NetworkManagerAdminRuleArgs{
 //				Name:                  pulumi.String("example-nmar"),
-//				AdminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.ID().ToIDOutput().ToStringOutput(),
+//				AdminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.ID(),
 //				Action:                pulumi.String("Deny"),
 //				Description:           pulumi.String("example"),
 //				Direction:             pulumi.String("Inbound"),
@@ -226,11 +226,11 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerDeployment(ctx, "example", &network.NetworkManagerDeploymentArgs{
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //				Location:         pulumi.String("eastus"),
 //				ScopeAccess:      pulumi.String("SecurityAdmin"),
 //				ConfigurationIds: pulumi.StringArray{
-//					exampleNetworkManagerSecurityAdminConfiguration.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkManagerSecurityAdminConfiguration.ID(),
 //				},
 //				Triggers: pulumi.StringMap{
 //					"source_port_ranges": std.JoinOutput(ctx, std.JoinOutputArgs{

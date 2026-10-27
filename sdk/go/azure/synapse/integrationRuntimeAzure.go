@@ -57,7 +57,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +66,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				Location:                        example.Location,
 //				ResourceGroupName:               example.Name,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
@@ -79,7 +79,7 @@ import (
 //			}
 //			_, err = synapse.NewFirewallRule(ctx, "example", &synapse.FirewallRuleArgs{
 //				Name:               pulumi.String("AllowAll"),
-//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				StartIpAddress:     pulumi.String("0.0.0.0"),
 //				EndIpAddress:       pulumi.String("255.255.255.255"),
 //			})
@@ -88,7 +88,7 @@ import (
 //			}
 //			_, err = synapse.NewIntegrationRuntimeAzure(ctx, "example", &synapse.IntegrationRuntimeAzureArgs{
 //				Name:               pulumi.String("example"),
-//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				Location:           example.Location,
 //			})
 //			if err != nil {

@@ -74,16 +74,16 @@ import (
 //				Name:              pulumi.String("example-resolver"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "example", &privatedns.ResolverOutboundEndpointArgs{
 //				Name:                 pulumi.String("example-endpoint"),
-//				PrivateDnsResolverId: exampleResolver.ID().ToIDOutput().ToStringOutput(),
+//				PrivateDnsResolverId: exampleResolver.ID(),
 //				Location:             exampleResolver.Location,
-//				SubnetId:             exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:             exampleSubnet.ID(),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
@@ -96,7 +96,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
-//					exampleResolverOutboundEndpoint.ID().ToIDOutput().ToStringOutput(),
+//					exampleResolverOutboundEndpoint.ID(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
@@ -107,8 +107,8 @@ import (
 //			}
 //			_, err = privatedns.NewResolverVirtualNetworkLink(ctx, "example", &privatedns.ResolverVirtualNetworkLinkArgs{
 //				Name:                   pulumi.String("example-link"),
-//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID().ToIDOutput().ToStringOutput(),
-//				VirtualNetworkId:       exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID(),
+//				VirtualNetworkId:       exampleVirtualNetwork.ID(),
 //				Metadata: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

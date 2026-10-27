@@ -96,7 +96,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //			})
@@ -117,7 +117,7 @@ import (
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:     pulumi.String("primaryIpConfiguration"),
 //						Primary:  pulumi.Bool(true),
-//						SubnetId: service.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId: service.ID(),
 //					},
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
@@ -133,11 +133,11 @@ import (
 //				Name:              pulumi.String("example-privatelink"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				SubnetId:          endpoint.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          endpoint.ID(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        exampleLinkService.Name,
 //					IsManualConnection:          pulumi.Bool(false),
-//					PrivateConnectionResourceId: exampleLinkService.ID().ToIDOutput().ToStringOutput(),
+//					PrivateConnectionResourceId: exampleLinkService.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -152,8 +152,8 @@ import (
 //				return err
 //			}
 //			_, err = privatelink.NewApplicationSecurityGroupAssociation(ctx, "example", &privatelink.ApplicationSecurityGroupAssociationArgs{
-//				PrivateEndpointId:          exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
-//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				PrivateEndpointId:          exampleEndpoint.ID(),
+//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err

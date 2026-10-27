@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = paloalto.NewLocalRulestackCertificate(ctx, "example", &paloalto.LocalRulestackCertificateArgs{
 //				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				RulestackId: exampleLocalRulestack.ID(),
 //				SelfSigned:  pulumi.Bool(true),
 //			})
 //			if err != nil {

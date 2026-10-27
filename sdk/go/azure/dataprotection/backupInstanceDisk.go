@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example1", &authorization.AssignmentArgs{
-//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
-//				Scope:              exampleManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleManagedDisk.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Backup Reader"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -80,7 +80,7 @@ import (
 //			}
 //			exampleBackupPolicyDisk, err := dataprotection.NewBackupPolicyDisk(ctx, "example", &dataprotection.BackupPolicyDiskArgs{
 //				Name:    pulumi.String("example-backup-policy"),
-//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				VaultId: exampleBackupVault.ID(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
 //				},
@@ -92,10 +92,10 @@ import (
 //			_, err = dataprotection.NewBackupInstanceDisk(ctx, "example", &dataprotection.BackupInstanceDiskArgs{
 //				Name:                      pulumi.String("example-backup-instance"),
 //				Location:                  exampleBackupVault.Location,
-//				VaultId:                   exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				DiskId:                    exampleManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:                   exampleBackupVault.ID(),
+//				DiskId:                    exampleManagedDisk.ID(),
 //				SnapshotResourceGroupName: example.Name,
-//				BackupPolicyId:            exampleBackupPolicyDisk.ID().ToIDOutput().ToStringOutput(),
+//				BackupPolicyId:            exampleBackupPolicyDisk.ID(),
 //			})
 //			if err != nil {
 //				return err

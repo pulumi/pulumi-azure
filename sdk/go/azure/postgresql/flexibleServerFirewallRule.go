@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerFirewallRule(ctx, "example", &postgresql.FlexibleServerFirewallRuleArgs{
 //				Name:           pulumi.String("example-fw"),
-//				ServerId:       exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:       exampleFlexibleServer.ID(),
 //				StartIpAddress: pulumi.String("122.122.0.0"),
 //				EndIpAddress:   pulumi.String("122.122.0.0"),
 //			})

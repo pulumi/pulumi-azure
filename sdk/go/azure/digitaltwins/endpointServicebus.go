@@ -56,14 +56,14 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:        pulumi.String("exampleservicebustopic"),
-//				NamespaceId: exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId: exampleNamespace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
 //				Name:    pulumi.String("example-rule"),
-//				TopicId: exampleTopic.ID().ToIDOutput().ToStringOutput(),
+//				TopicId: exampleTopic.ID(),
 //				Listen:  pulumi.Bool(false),
 //				Send:    pulumi.Bool(true),
 //				Manage:  pulumi.Bool(false),
@@ -73,7 +73,7 @@ import (
 //			}
 //			_, err = digitaltwins.NewEndpointServicebus(ctx, "example", &digitaltwins.EndpointServicebusArgs{
 //				Name:                                pulumi.String("example-EndpointSB"),
-//				DigitalTwinsId:                      exampleInstance.ID().ToIDOutput().ToStringOutput(),
+//				DigitalTwinsId:                      exampleInstance.ID(),
 //				ServicebusPrimaryConnectionString:   exampleTopicAuthorizationRule.PrimaryConnectionString,
 //				ServicebusSecondaryConnectionString: exampleTopicAuthorizationRule.SecondaryConnectionString,
 //			})

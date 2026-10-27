@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:               pulumi.String("example-topic"),
-//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {

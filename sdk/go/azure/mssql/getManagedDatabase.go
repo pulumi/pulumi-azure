@@ -15,6 +15,32 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mssql.LookupManagedDatabase(ctx, &mssql.LookupManagedDatabaseArgs{
+//				Name:                "example",
+//				ResourceGroupName:   exampleAzurermResourceGroup.Name,
+//				ManagedInstanceName: exampleAzurermMssqlManagedInstance.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

@@ -50,7 +50,7 @@ import (
 //				SolutionName:        pulumi.String("SecurityInsights"),
 //				Location:            exampleResourceGroup.Location,
 //				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
 //					Publisher: pulumi.String("Microsoft"),

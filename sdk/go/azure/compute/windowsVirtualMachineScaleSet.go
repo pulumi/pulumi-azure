@@ -98,7 +98,7 @@ import (
 //							&compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
+//								SubnetId: internal.ID(),
 //							},
 //						},
 //					},

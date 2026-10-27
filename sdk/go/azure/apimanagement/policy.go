@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewPolicy(ctx, "example", &apimanagement.PolicyArgs{
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				XmlContent:      pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {

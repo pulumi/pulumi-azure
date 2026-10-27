@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewFileUpload(ctx, "example", &iot.FileUploadArgs{
-//				IothubId:         exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
+//				IothubId:         exampleIoTHub.ID(),
 //				ConnectionString: exampleAccount.PrimaryBlobConnectionString,
 //				ContainerName:    exampleContainer.Name,
 //			})

@@ -85,7 +85,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   exampleSubnet.ID(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
@@ -97,7 +97,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				ManagedInstanceId: exampleManagedInstance.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -178,7 +178,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   exampleSubnet.ID(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
@@ -231,7 +231,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("byok"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -245,8 +245,8 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId:     exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				ManagedInstanceId: exampleManagedInstance.ID(),
+//				KeyVaultKeyId:     exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -799,6 +799,46 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("lbRuleId", exampleGetLBRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -814,6 +854,46 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("lbRuleId", exampleGetLBRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 
@@ -831,6 +911,46 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("lbRuleId", exampleGetLBRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -847,6 +967,46 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("lbRuleId", exampleGetLBRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -862,6 +1022,46 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.lb.LbFunctions;
+     * import com.pulumi.azure.lb.inputs.GetLBArgs;
+     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
+     *             .name("example-lb")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *             .name("first")
+     *             .resourceGroupName("example-resources")
+     *             .loadbalancerId(example.id())
+     *             .build());
+     * 
+     *         ctx.export("lbRuleId", exampleGetLBRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 

@@ -53,7 +53,7 @@ import (
 //				Name:                             pulumi.String("example-spsvmp"),
 //				ResourceGroupName:                example.Name,
 //				Location:                         pulumi.String("West Europe"),
-//				AttachedVirtualMachineScaleSetId: exampleOrchestratedVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
+//				AttachedVirtualMachineScaleSetId: exampleOrchestratedVirtualMachineScaleSet.ID(),
 //				VirtualMachineState:              pulumi.String("Running"),
 //				ElasticityProfile: &compute.ScaleSetStandbyPoolElasticityProfileArgs{
 //					MaxReadyCapacity: pulumi.Int(10),

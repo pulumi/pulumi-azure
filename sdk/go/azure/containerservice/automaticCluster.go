@@ -152,7 +152,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "network", &authorization.AssignmentArgs{
-//				Scope:              exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleVirtualNetwork.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
@@ -164,17 +164,17 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				HostedSystem: &containerservice.AutomaticClusterHostedSystemArgs{
-//					NodeSubnetId:       node.ID().ToIDOutput().ToStringOutput(),
-//					SystemNodeSubnetId: systemnode.ID().ToIDOutput().ToStringOutput(),
+//					NodeSubnetId:       node.ID(),
+//					SystemNodeSubnetId: systemnode.ID(),
 //				},
 //				Identity: &containerservice.AutomaticClusterIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				ApiServerAccess: &containerservice.AutomaticClusterApiServerAccessArgs{
-//					SubnetId: api.ID().ToIDOutput().ToStringOutput(),
+//					SubnetId: api.ID(),
 //				},
 //			})
 //			if err != nil {

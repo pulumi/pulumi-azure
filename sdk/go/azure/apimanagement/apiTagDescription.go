@@ -66,14 +66,14 @@ import (
 //				return err
 //			}
 //			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				Name:            pulumi.String("example-Tag"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewApiTagDescription(ctx, "example", &apimanagement.ApiTagDescriptionArgs{
-//				ApiTagId:                exampleTag.ID().ToIDOutput().ToStringOutput(),
+//				ApiTagId:                exampleTag.ID(),
 //				Description:             pulumi.String("This is an example description"),
 //				ExternalDocsUrl:         "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
 //				ExternalDocsDescription: "This is an example external docs description",

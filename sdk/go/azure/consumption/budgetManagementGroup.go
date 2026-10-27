@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = consumption.NewBudgetManagementGroup(ctx, "example", &consumption.BudgetManagementGroupArgs{
 //				Name:              pulumi.String("example"),
-//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				ManagementGroupId: example.ID(),
 //				Amount:            pulumi.Float64(1000),
 //				TimeGrain:         pulumi.String("Monthly"),
 //				TimePeriod: &consumption.BudgetManagementGroupTimePeriodArgs{

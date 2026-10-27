@@ -110,7 +110,7 @@ import (
 //				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
 //					&network.ApplicationGatewayGatewayIpConfigurationArgs{
 //						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: backend.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId: backend.ID(),
 //					},
 //				},
 //				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
@@ -122,7 +122,7 @@ import (
 //				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
 //					&network.ApplicationGatewayFrontendIpConfigurationArgs{
 //						Name:              pulumi.String(frontendIpConfigurationName),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
@@ -168,7 +168,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   frontend.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   frontend.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -177,7 +177,7 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "example", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
-//				NetworkInterfaceId:  exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				NetworkInterfaceId:  exampleNetworkInterface.ID(),
 //				IpConfigurationName: pulumi.String("testconfiguration1"),
 //				BackendAddressPoolId: network2.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (*string, error) {
 //					return backendAddressPools[0].Id, nil

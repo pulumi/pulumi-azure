@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			exampleProject, err := devcenter.NewProject(ctx, "example", &devcenter.ProjectArgs{
-//				DevCenterId:       exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
+//				DevCenterId:       exampleDevCenter.ID(),
 //				Location:          example.Location,
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
@@ -57,7 +57,7 @@ import (
 //				Name:               pulumi.String("example-manageddevopspools"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
-//				DevCenterProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				DevCenterProjectId: exampleProject.ID(),
 //				MaximumConcurrency: pulumi.Int(1),
 //				AzureDevopsOrganization: &devcenter.ManagedDevOpsPoolAzureDevopsOrganizationArgs{
 //					Organizations: devcenter.ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{

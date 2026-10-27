@@ -52,7 +52,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -81,11 +81,11 @@ import (
 //			}
 //			_, err = privatedns.NewResolverInboundEndpoint(ctx, "example", &privatedns.ResolverInboundEndpointArgs{
 //				Name:                 pulumi.String("example-drie"),
-//				PrivateDnsResolverId: exampleResolver.ID().ToIDOutput().ToStringOutput(),
+//				PrivateDnsResolverId: exampleResolver.ID(),
 //				Location:             exampleResolver.Location,
 //				IpConfigurations: &privatedns.ResolverInboundEndpointIpConfigurationsArgs{
 //					PrivateIpAllocationMethod: pulumi.String("Dynamic"),
-//					SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					SubnetId:                  exampleSubnet.ID(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

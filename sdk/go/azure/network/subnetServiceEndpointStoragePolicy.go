@@ -57,8 +57,8 @@ import (
 //						Description: pulumi.String("definition1"),
 //						Service:     pulumi.String("Microsoft.Storage"),
 //						ServiceResources: pulumi.StringArray{
-//							example.ID().ToIDOutput().ToStringOutput(),
-//							exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//							example.ID(),
+//							exampleAccount.ID(),
 //						},
 //					},
 //					&network.SubnetServiceEndpointStoragePolicyDefinitionArgs{

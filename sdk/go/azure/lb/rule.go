@@ -55,7 +55,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //			})
@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewRule(ctx, "example", &lb.RuleArgs{
-//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
 //				Name:                        pulumi.String("LBRule"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPort:                pulumi.Int(3389),

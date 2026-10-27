@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewManagedDiskSasToken(ctx, "test", &compute.ManagedDiskSasTokenArgs{
-//				ManagedDiskId:     testManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				ManagedDiskId:     testManagedDisk.ID(),
 //				DurationInSeconds: pulumi.Int(300),
 //				AccessLevel:       pulumi.String("Read"),
 //			})

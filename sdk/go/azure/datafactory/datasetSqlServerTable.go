@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceSqlServer, err := datafactory.NewLinkedServiceSqlServer(ctx, "example", &datafactory.LinkedServiceSqlServerArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
 //			})
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetSqlServerTable(ctx, "example", &datafactory.DatasetSqlServerTableArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceSqlServer.Name,
 //			})
 //			if err != nil {

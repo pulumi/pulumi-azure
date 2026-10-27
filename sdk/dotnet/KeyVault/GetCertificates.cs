@@ -33,7 +33,17 @@ namespace Pulumi.Azure.KeyVault
         ///     var exampleGetCertificate = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetCertificate.Invoke(new()
+        ///         {
+        ///             Name = __key.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -63,7 +73,17 @@ namespace Pulumi.Azure.KeyVault
         ///     var exampleGetCertificate = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetCertificate.Invoke(new()
+        ///         {
+        ///             Name = __key.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```
@@ -93,7 +113,17 @@ namespace Pulumi.Azure.KeyVault
         ///     var exampleGetCertificate = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetCertificate.Invoke(new()
+        ///         {
+        ///             Name = __key.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     }));
         /// 
         /// });
         /// ```

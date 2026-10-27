@@ -53,7 +53,7 @@ import (
 //				Identity: &cdn.FrontdoorProfileIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				LogScrubbingRules: cdn.FrontdoorProfileLogScrubbingRuleArray{

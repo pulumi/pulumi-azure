@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudNewRelicApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudNewRelicApplicationPerformanceMonitoringArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //				AppName:              pulumi.String("example-app-name"),
 //				LicenseKey:           pulumi.String("example-license-key"),
 //				AppServerPort:        pulumi.Int(8080),

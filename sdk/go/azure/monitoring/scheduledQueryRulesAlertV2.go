@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleInsights.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
@@ -77,7 +77,7 @@ import (
 //				Location:            example.Location,
 //				EvaluationFrequency: pulumi.String("PT10M"),
 //				WindowDuration:      pulumi.String("PT10M"),
-//				Scopes:              exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				Scopes:              exampleInsights.ID(),
 //				Severity:            pulumi.Int(4),
 //				Criterias: monitoring.ScheduledQueryRulesAlertV2CriteriaArray{
 //					&monitoring.ScheduledQueryRulesAlertV2CriteriaArgs{
@@ -111,7 +111,7 @@ import (
 //				SkipQueryValidation:           pulumi.Bool(true),
 //				Action: &monitoring.ScheduledQueryRulesAlertV2ActionArgs{
 //					ActionGroups: pulumi.StringArray{
-//						exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
+//						exampleActionGroup.ID(),
 //					},
 //					CustomProperties: pulumi.StringMap{
 //						"key":  pulumi.String("value"),
@@ -122,7 +122,7 @@ import (
 //				Identity: &monitoring.ScheduledQueryRulesAlertV2IdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

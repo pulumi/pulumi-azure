@@ -59,7 +59,7 @@ import (
 //				Name:              pulumi.String("example-hub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
+//				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressPrefix:     pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -69,7 +69,7 @@ import (
 //				Name:              pulumi.String("example-vpng"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId:      exampleVirtualHub.ID(),
 //			})
 //			if err != nil {
 //				return err

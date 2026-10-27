@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewIntegrationRuntimeRule(ctx, "example", &datafactory.IntegrationRuntimeRuleArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
 //				Location:      example.Location,
 //			})
 //			if err != nil {

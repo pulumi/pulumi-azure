@@ -59,14 +59,14 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_ = network.LookupNetworkManagerNetworkGroupOutput(ctx, network.GetNetworkManagerNetworkGroupOutputArgs{
 //				Name:             exampleNetworkManagerNetworkGroup.Name,
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			}, nil)
 //			return nil
 //		})

@@ -17,6 +17,34 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := redis.LookupEnterpriseDatabase(ctx, &redis.LookupEnterpriseDatabaseArgs{
+//				Name:              "default",
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
+//				ClusterId:         exampleAzurermRedisEnterpriseCluster.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("redisEnterpriseDatabasePrimaryKey", example.PrimaryAccessKey)
+//			ctx.Export("redisEnterpriseDatabaseSecondaryKey", example.SecondaryAccessKey)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

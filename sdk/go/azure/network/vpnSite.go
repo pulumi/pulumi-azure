@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("site1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
+//				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressCidrs: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/24"),
 //				},

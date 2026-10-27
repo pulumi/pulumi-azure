@@ -52,7 +52,7 @@ import (
 //				Name:                    pulumi.String("myEnvironment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //			}
 //			_, err = containerapp.NewEnvironmentStorage(ctx, "example", &containerapp.EnvironmentStorageArgs{
 //				Name:                      pulumi.String("mycontainerappstorage"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				AccountName:               exampleAccount.Name,
 //				ShareName:                 exampleShare.Name,
 //				AccessKey:                 exampleAccount.PrimaryAccessKey,

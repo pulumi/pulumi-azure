@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureFileStorage(ctx, "example", &datafactory.LinkedServiceAzureFileStorageArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: example.PrimaryConnectionString(),
 //			})
 //			if err != nil {

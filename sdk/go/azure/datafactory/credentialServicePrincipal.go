@@ -81,15 +81,15 @@ import (
 //			exampleSecret, err := keyvault.NewSecret(ctx, "example", &keyvault.SecretArgs{
 //				Name:       pulumi.String("example"),
 //				Value:      pulumi.String("example-secret"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "example", &datafactory.LinkedServiceKeyVaultArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:    exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
+//				KeyVaultId:    exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -97,7 +97,7 @@ import (
 //			_, err = datafactory.NewCredentialServicePrincipal(ctx, "example", &datafactory.CredentialServicePrincipalArgs{
 //				Name:               pulumi.String("example"),
 //				Description:        pulumi.String("example description"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:      exampleFactory.ID(),
 //				TenantId:           pulumi.String(current.TenantId),
 //				ServicePrincipalId: pulumi.String(current.ClientId),
 //				ServicePrincipalKey: &datafactory.CredentialServicePrincipalServicePrincipalKeyArgs{

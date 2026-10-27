@@ -54,7 +54,7 @@ import (
 //			}
 //			exampleLinkedServiceCosmosDb, err := datafactory.NewLinkedServiceCosmosDb(ctx, "example", &datafactory.LinkedServiceCosmosDbArgs{
 //				Name:            pulumi.String("example"),
-//				DataFactoryId:   exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:   exampleFactory.ID(),
 //				AccountEndpoint: pulumi.String(example.Endpoint),
 //				Database:        pulumi.String("foo"),
 //			})
@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetCosmosDBApi(ctx, "example", &datafactory.DatasetCosmosDBApiArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceCosmosDb.Name,
 //				CollectionName:    pulumi.String("bar"),
 //			})

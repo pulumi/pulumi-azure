@@ -91,7 +91,7 @@ import (
 //				Location:          example.Location,
 //				Name:              pulumi.String("example-linuxwebapp"),
 //				ResourceGroupName: example.Name,
-//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -99,8 +99,8 @@ import (
 //			}
 //			_, err = appservice.NewConnection(ctx, "example", &appservice.ConnectionArgs{
 //				Name:             pulumi.String("example-serviceconnector"),
-//				AppServiceId:     exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
-//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
+//				AppServiceId:     exampleLinuxWebApp.ID(),
+//				TargetResourceId: exampleSqlDatabase.ID(),
 //				Authentication: &appservice.ConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},

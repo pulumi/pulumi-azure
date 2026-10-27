@@ -136,6 +136,15 @@ def get_managed_database(managed_instance_id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_managed_database(name="example",
+        resource_group_name=example_azurerm_resource_group["name"],
+        managed_instance_name=example_azurerm_mssql_managed_instance["name"])
+    ```
+
     ## API Providers
 
     <!-- This section is generated, changes will be overwritten -->
@@ -169,6 +178,15 @@ def get_managed_database_output(managed_instance_id: pulumi.Input[Optional[_buil
     Use this data source to access information about an existing Azure SQL Azure Managed Database.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_managed_database(name="example",
+        resource_group_name=example_azurerm_resource_group["name"],
+        managed_instance_name=example_azurerm_mssql_managed_instance["name"])
+    ```
 
     ## API Providers
 

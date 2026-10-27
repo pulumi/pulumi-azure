@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewTagRule(ctx, "example", &newrelic.TagRuleArgs{
-//				MonitorId:                      exampleMonitor.ID().ToIDOutput().ToStringOutput(),
+//				MonitorId:                      exampleMonitor.ID(),
 //				AzureActiveDirectoryLogEnabled: pulumi.Bool(true),
 //				ActivityLogEnabled:             pulumi.Bool(true),
 //				MetricEnabled:                  pulumi.Bool(true),

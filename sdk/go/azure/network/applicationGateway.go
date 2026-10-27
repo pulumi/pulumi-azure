@@ -107,7 +107,7 @@ import (
 //				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
 //					&network.ApplicationGatewayGatewayIpConfigurationArgs{
 //						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId: exampleSubnet.ID(),
 //					},
 //				},
 //				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
@@ -119,7 +119,7 @@ import (
 //				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
 //					&network.ApplicationGatewayFrontendIpConfigurationArgs{
 //						Name:              pulumi.String(frontendIpConfigurationName),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
