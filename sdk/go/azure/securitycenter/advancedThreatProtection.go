@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = securitycenter.NewAdvancedThreatProtection(ctx, "example", &securitycenter.AdvancedThreatProtectionArgs{
-//				TargetResourceId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleAccount.ID(),
 //				Enabled:          pulumi.Bool(true),
 //			})
 //			if err != nil {

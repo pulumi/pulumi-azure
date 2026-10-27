@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewNotificationRecipientUser(ctx, "example", &apimanagement.NotificationRecipientUserArgs{
-//				ApiManagementId:  exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId:  exampleService.ID(),
 //				NotificationType: pulumi.String("AccountClosedPublisher"),
 //				UserId:           exampleUser.UserId,
 //			})

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryId: exampleRegistry.ID(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -126,7 +126,7 @@ import (
 //				return err
 //			}
 //			exampleUser, err := keyvault.NewSecret(ctx, "example_user", &keyvault.SecretArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Name:       pulumi.String("example-user-name"),
 //				Value:      pulumi.String("name"),
 //			})
@@ -134,7 +134,7 @@ import (
 //				return err
 //			}
 //			examplePassword, err := keyvault.NewSecret(ctx, "example_password", &keyvault.SecretArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Name:       pulumi.String("example-user-password"),
 //				Value:      pulumi.String("password"),
 //			})
@@ -152,7 +152,7 @@ import (
 //			}
 //			exampleRegistryCredentialSet, err := containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryId: exampleRegistry.ID(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -166,7 +166,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "read_secrets", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   exampleRegistryCredentialSet.Identity.TenantId(),
 //				ObjectId:   exampleRegistryCredentialSet.Identity.PrincipalId(),
 //				SecretPermissions: pulumi.StringArray{

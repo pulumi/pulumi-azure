@@ -75,15 +75,15 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DomainJoinType:    pulumi.String("AzureADJoin"),
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          exampleSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = devcenter.NewAttachedNetwork(ctx, "example", &devcenter.AttachedNetworkArgs{
 //				Name:                pulumi.String("example-dcet"),
-//				DevCenterId:         exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
-//				NetworkConnectionId: exampleNetworkConnection.ID().ToIDOutput().ToStringOutput(),
+//				DevCenterId:         exampleDevCenter.ID(),
+//				NetworkConnectionId: exampleNetworkConnection.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = paloalto.NewLocalRulestackFqdnList(ctx, "example", &paloalto.LocalRulestackFqdnListArgs{
 //				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				RulestackId: exampleLocalRulestack.ID(),
 //				FullyQualifiedDomainNames: pulumi.StringArray{
 //					pulumi.String("contoso.com"),
 //				},

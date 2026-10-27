@@ -63,7 +63,7 @@ import (
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: example_2.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:                   pulumi.String("peer2to1"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: example_1.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -188,7 +188,7 @@ import (
 // }).(pulumi.StringOutput),
 // ResourceGroupName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:47,39-54)[val0],
 // VirtualNetworkName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:48,39-51)[val0],
-// RemoteVirtualNetworkId: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:49,39-49)[int(1 - val0)].ToIDOutput().ToStringOutput(),
+// RemoteVirtualNetworkId: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:49,39-49)[int(1 - val0)],
 // AllowVirtualNetworkAccess: pulumi.Bool(true),
 // AllowForwardedTraffic: pulumi.Bool(true),
 // AllowGatewayTransit: pulumi.Bool(false),
@@ -252,7 +252,7 @@ import (
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: example_2.ID(),
 //				Triggers: pulumi.StringMap{
 //					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),
@@ -267,7 +267,7 @@ import (
 //				Name:                   pulumi.String("peer2to1"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: example_1.ID(),
 //				Triggers: pulumi.StringMap{
 //					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),

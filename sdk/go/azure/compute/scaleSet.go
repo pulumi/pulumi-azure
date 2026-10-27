@@ -83,7 +83,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //			})
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			bpepool, err := lb.NewBackendAddressPool(ctx, "bpepool", &lb.BackendAddressPoolArgs{
-//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				LoadbalancerId: exampleLoadBalancer.ID(),
 //				Name:           pulumi.String("BackEndAddressPool"),
 //			})
 //			if err != nil {
@@ -100,7 +100,7 @@ import (
 //			lbnatpool, err := lb.NewNatPool(ctx, "lbnatpool", &lb.NatPoolArgs{
 //				ResourceGroupName:           example.Name,
 //				Name:                        pulumi.String("ssh"),
-//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPortStart:           pulumi.Int(50000),
 //				FrontendPortEnd:             pulumi.Int(50119),
@@ -111,7 +111,7 @@ import (
 //				return err
 //			}
 //			exampleProbe, err := lb.NewProbe(ctx, "example", &lb.ProbeArgs{
-//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				LoadbalancerId: exampleLoadBalancer.ID(),
 //				Name:           pulumi.String("http-probe"),
 //				Protocol:       pulumi.String("Http"),
 //				RequestPath:    pulumi.String("/health"),
@@ -138,7 +138,7 @@ import (
 //					MaxUnhealthyUpgradedInstancePercent: pulumi.Int(5),
 //					PauseTimeBetweenBatches:             pulumi.String("PT0S"),
 //				},
-//				HealthProbeId: exampleProbe.ID().ToIDOutput().ToStringOutput(),
+//				HealthProbeId: exampleProbe.ID(),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.String("Standard_D4_v5"),
 //					Tier:     pulumi.String("Standard"),
@@ -185,12 +185,12 @@ import (
 //							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//								SubnetId: exampleSubnet.ID(),
 //								LoadBalancerBackendAddressPoolIds: pulumi.StringArray{
-//									bpepool.ID().ToIDOutput().ToStringOutput(),
+//									bpepool.ID(),
 //								},
 //								LoadBalancerInboundNatRulesIds: pulumi.StringArray{
-//									lbnatpool.ID().ToIDOutput().ToStringOutput(),
+//									lbnatpool.ID(),
 //								},
 //							},
 //						},
@@ -316,7 +316,7 @@ import (
 //							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//								SubnetId: exampleSubnet.ID(),
 //							},
 //						},
 //					},
@@ -372,7 +372,7 @@ import (
 //			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
 //				Name: pulumi.String("test"),
 //				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
-//					Id: example.ID().ToIDOutput().ToStringOutput(),
+//					Id: example.ID(),
 //				},
 //			})
 //			if err != nil {

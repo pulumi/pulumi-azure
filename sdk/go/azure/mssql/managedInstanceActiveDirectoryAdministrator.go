@@ -71,7 +71,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   exampleSubnet.ID(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("msadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "example", &mssql.ManagedInstanceActiveDirectoryAdministratorArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				ManagedInstanceId: exampleManagedInstance.ID(),
 //				LoginUsername:     pulumi.String("msadmin"),
 //				ObjectId:          admin.ObjectId,
 //				TenantId:          pulumi.String(current.TenantId),

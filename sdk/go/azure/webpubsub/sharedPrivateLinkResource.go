@@ -80,9 +80,9 @@ import (
 //			}
 //			_, err = webpubsub.NewSharedPrivateLinkResource(ctx, "example", &webpubsub.SharedPrivateLinkResourceArgs{
 //				Name:             pulumi.String("tfex-webpubsub-splr"),
-//				WebPubsubId:      exampleService.ID().ToIDOutput().ToStringOutput(),
+//				WebPubsubId:      exampleService.ID(),
 //				SubresourceName:  pulumi.String("vault"),
-//				TargetResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err

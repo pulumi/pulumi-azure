@@ -85,9 +85,9 @@ import (
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -126,7 +126,7 @@ import (
 //					Name:         pulumi.String("default"),
 //					NodeCount:    pulumi.Int(3),
 //					VmSize:       pulumi.String("Standard_D3_v2"),
-//					VnetSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					VnetSubnetId: exampleSubnet.ID(),
 //				},
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -139,9 +139,9 @@ import (
 //				Name:                       pulumi.String("example"),
 //				Location:                   example.Location,
 //				ClusterPurpose:             pulumi.String("FastProd"),
-//				KubernetesClusterId:        exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesClusterId:        exampleKubernetesCluster.ID(),
 //				Description:                pulumi.String("This is an example cluster used with Terraform"),
-//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
 //				Tags: pulumi.StringMap{
 //					"stage": pulumi.String("example"),
 //				},

@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "example", &datafactory.LinkedServiceAzureBlobStorageArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: example.PrimaryConnectionString(),
 //			})
 //			if err != nil {
@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetAzureBlob(ctx, "example", &datafactory.DatasetAzureBlobArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceAzureBlobStorage.Name,
 //				Path:              pulumi.String("foo"),
 //				Filename:          pulumi.String("bar.png"),

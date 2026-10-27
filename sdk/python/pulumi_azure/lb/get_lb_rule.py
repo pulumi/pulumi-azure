@@ -227,6 +227,18 @@ def get_lb_rule(loadbalancer_id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.lb.get_lb(name="example-lb",
+        resource_group_name="example-resources")
+    example_get_lb_rule = azure.lb.get_lb_rule(name="first",
+        resource_group_name="example-resources",
+        loadbalancer_id=example.id)
+    pulumi.export("lbRuleId", example_get_lb_rule.id)
+    ```
+
     ## API Providers
 
     <!-- This section is generated, changes will be overwritten -->
@@ -268,6 +280,18 @@ def get_lb_rule_output(loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = 
     Use this data source to access information about an existing Load Balancer Rule.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.lb.get_lb(name="example-lb",
+        resource_group_name="example-resources")
+    example_get_lb_rule = azure.lb.get_lb_rule(name="first",
+        resource_group_name="example-resources",
+        loadbalancer_id=example.id)
+    pulumi.export("lbRuleId", example_get_lb_rule.id)
+    ```
 
     ## API Providers
 

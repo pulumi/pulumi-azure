@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				DisplayName:     pulumi.String("my workspace"),
 //			})
 //			if err != nil {

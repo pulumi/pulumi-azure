@@ -16,7 +16,23 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MSSql.GetManagedDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ManagedInstanceName = exampleAzurermMssqlManagedInstance.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -33,7 +49,23 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MSSql.GetManagedDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ManagedInstanceName = exampleAzurermMssqlManagedInstance.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -50,7 +82,23 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MSSql.GetManagedDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ManagedInstanceName = exampleAzurermMssqlManagedInstance.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 

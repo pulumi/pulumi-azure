@@ -60,14 +60,14 @@ import (
 //				Name:                    pulumi.String("Example-Environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
 //				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				ResourceGroupName:         example.Name,
 //				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
@@ -118,7 +118,7 @@ import (
 //			}
 //			exampleEnvironmentCertificate, err := containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("myfriendlyname"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				CertificateBlob:           invokeFilebase64.Result,
 //				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
 //			})
@@ -137,8 +137,8 @@ import (
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
 //				Name:                                 pulumi.String(invokeTrimsuffix1.Result),
-//				ContainerAppId:                       exampleApp.ID().ToIDOutput().ToStringOutput(),
-//				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppId:                       exampleApp.ID(),
+//				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID(),
 //				CertificateBindingType:               pulumi.String("SniEnabled"),
 //			})
 //			if err != nil {

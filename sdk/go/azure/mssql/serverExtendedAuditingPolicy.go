@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "example", &mssql.ServerExtendedAuditingPolicyArgs{
-//				ServerId:                           exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:                           exampleServer.ID(),
 //				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
 //				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
@@ -191,7 +191,7 @@ import (
 //						pulumi.String("127.0.0.1"),
 //					},
 //					VirtualNetworkSubnetIds: pulumi.StringArray{
-//						exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						exampleSubnet.ID(),
 //					},
 //					Bypasses: pulumi.StringArray{
 //						pulumi.String("AzureServices"),
@@ -206,7 +206,7 @@ import (
 //			}
 //			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "example", &mssql.ServerExtendedAuditingPolicyArgs{
 //				StorageEndpoint:              exampleAccount.PrimaryBlobEndpoint,
-//				ServerId:                     exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:                     exampleServer.ID(),
 //				RetentionInDays:              pulumi.Int(6),
 //				LogMonitoringEnabled:         pulumi.Bool(false),
 //				StorageAccountSubscriptionId: pulumi.Any(primaryAzurermSubscription.SubscriptionId),

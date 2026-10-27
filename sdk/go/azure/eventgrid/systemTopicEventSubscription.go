@@ -61,7 +61,7 @@ import (
 //				Name:              pulumi.String("example-system-topic"),
 //				Location:          pulumi.String("Global"),
 //				ResourceGroupName: example.Name,
-//				SourceResourceId:  example.ID().ToIDOutput().ToStringOutput(),
+//				SourceResourceId:  example.ID(),
 //				TopicType:         pulumi.String("Microsoft.Resources.ResourceGroups"),
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //				SystemTopic:       exampleSystemTopic.Name,
 //				ResourceGroupName: example.Name,
 //				StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
-//					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//					StorageAccountId: exampleAccount.ID(),
 //					QueueName:        exampleQueue.Name,
 //				},
 //			})

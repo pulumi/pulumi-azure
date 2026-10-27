@@ -76,9 +76,9 @@ import (
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          examplePublicIp.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleSubnet.ID(),
 //					},
 //				},
 //			})

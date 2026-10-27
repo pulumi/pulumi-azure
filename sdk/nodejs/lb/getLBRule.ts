@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.lb.getLB({
+ *     name: "example-lb",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleGetLBRule = example.then(example => azure.lb.getLBRule({
+ *     name: "first",
+ *     resourceGroupName: "example-resources",
+ *     loadbalancerId: example.id,
+ * }));
+ * export const lbRuleId = exampleGetLBRule.then(exampleGetLBRule => exampleGetLBRule.id);
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
@@ -103,6 +119,22 @@ export interface GetLBRuleResult {
  * Use this data source to access information about an existing Load Balancer Rule.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.lb.getLB({
+ *     name: "example-lb",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleGetLBRule = example.then(example => azure.lb.getLBRule({
+ *     name: "first",
+ *     resourceGroupName: "example-resources",
+ *     loadbalancerId: example.id,
+ * }));
+ * export const lbRuleId = exampleGetLBRule.then(exampleGetLBRule => exampleGetLBRule.id);
+ * ```
  *
  * ## API Providers
  *

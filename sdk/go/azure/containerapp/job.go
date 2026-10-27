@@ -51,7 +51,7 @@ import (
 //				Name:                    pulumi.String("example-container-app-environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				Name:                      pulumi.String("example-container-app-job"),
 //				Location:                  example.Location,
 //				ResourceGroupName:         example.Name,
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				ReplicaTimeoutInSeconds:   pulumi.Int(10),
 //				ReplicaRetryLimit:         pulumi.Int(10),
 //				ManualTriggerConfig: &containerapp.JobManualTriggerConfigArgs{

@@ -70,7 +70,7 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				RecoveryVaultName: exampleVault.Name,
 //				SourceVmId:        example.Id(),
-//				BackupPolicyId:    examplePolicyVM.ID().ToIDOutput().ToStringOutput(),
+//				BackupPolicyId:    examplePolicyVM.ID(),
 //			})
 //			if err != nil {
 //				return err

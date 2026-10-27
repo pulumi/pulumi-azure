@@ -11,6 +11,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.redis.getEnterpriseDatabase({
+ *     name: "default",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
+ * });
+ * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
+ * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
@@ -79,6 +92,19 @@ export interface GetEnterpriseDatabaseResult {
  * > **Note:** This data source has been deprecated in favor of azurerm_managed_redis.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.redis.getEnterpriseDatabase({
+ *     name: "default",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
+ * });
+ * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
+ * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
+ * ```
  *
  * ## API Providers
  *

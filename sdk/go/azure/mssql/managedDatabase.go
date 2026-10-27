@@ -68,7 +68,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   exampleSubnet.ID(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("msadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
@@ -78,7 +78,7 @@ import (
 //			}
 //			_, err = mssql.NewManagedDatabase(ctx, "example", &mssql.ManagedDatabaseArgs{
 //				Name:              pulumi.String("example"),
-//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				ManagedInstanceId: exampleManagedInstance.ID(),
 //			})
 //			if err != nil {
 //				return err

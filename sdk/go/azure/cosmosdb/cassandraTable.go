@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewCassandraTable(ctx, "example", &cosmosdb.CassandraTableArgs{
 //				Name:                pulumi.String("testtable"),
-//				CassandraKeyspaceId: exampleCassandraKeyspace.ID().ToIDOutput().ToStringOutput(),
+//				CassandraKeyspaceId: exampleCassandraKeyspace.ID(),
 //				Schema: &cosmosdb.CassandraTableSchemaArgs{
 //					Columns: cosmosdb.CassandraTableSchemaColumnArray{
 //						&cosmosdb.CassandraTableSchemaColumnArgs{

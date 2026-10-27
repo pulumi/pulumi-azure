@@ -67,8 +67,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNatGatewayAssociation(ctx, "example", &network.SubnetNatGatewayAssociationArgs{
-//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				NatGatewayId: exampleNatGateway.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:     exampleSubnet.ID(),
+//				NatGatewayId: exampleNatGateway.ID(),
 //			})
 //			if err != nil {
 //				return err

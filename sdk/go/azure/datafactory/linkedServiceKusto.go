@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceKusto(ctx, "example", &datafactory.LinkedServiceKustoArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:      exampleFactory.ID(),
 //				KustoEndpoint:      exampleCluster.Uri,
 //				KustoDatabaseName:  exampleDatabase.Name,
 //				UseManagedIdentity: pulumi.Bool(true),

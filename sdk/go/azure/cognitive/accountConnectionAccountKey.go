@@ -66,13 +66,13 @@ import (
 //			}
 //			_, err = cognitive.NewAccountConnectionAccountKey(ctx, "example", &cognitive.AccountConnectionAccountKeyArgs{
 //				Name:               pulumi.String("example-connection"),
-//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				CognitiveAccountId: exampleAccount.ID(),
 //				Category:           pulumi.String("AzureStorageAccount"),
 //				Target:             exampleAccount2.PrimaryBlobEndpoint,
 //				AccountKey:         exampleAccount2.PrimaryAccessKey,
 //				Metadata: pulumi.StringMap{
 //					"ApiType":    pulumi.String("Azure"),
-//					"ResourceId": exampleAccount2.ID().ToIDOutput().ToStringOutput(),
+//					"ResourceId": exampleAccount2.ID(),
 //					"Location":   exampleAccount2.Location,
 //				},
 //			})

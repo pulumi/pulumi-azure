@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = paloalto.NewLocalRulestackPrefixList(ctx, "example", &paloalto.LocalRulestackPrefixListArgs{
 //				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				RulestackId: exampleLocalRulestack.ID(),
 //				PrefixLists: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
 //				},

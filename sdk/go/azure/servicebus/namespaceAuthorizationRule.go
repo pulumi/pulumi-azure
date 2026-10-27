@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = servicebus.NewNamespaceAuthorizationRule(ctx, "example", &servicebus.NamespaceAuthorizationRuleArgs{
 //				Name:        pulumi.String("examplerule"),
-//				NamespaceId: exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId: exampleNamespace.ID(),
 //				Listen:      pulumi.Bool(true),
 //				Send:        pulumi.Bool(true),
 //				Manage:      pulumi.Bool(false),

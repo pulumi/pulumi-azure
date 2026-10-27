@@ -69,15 +69,15 @@ import (
 //				Name:                  pulumi.String("exampletoken"),
 //				ContainerRegistryName: exampleRegistry.Name,
 //				ResourceGroupName:     exampleRegistry.ResourceGroupName,
-//				ScopeMapId:            exampleRegistryScopeMap.ID().ToIDOutput().ToStringOutput(),
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerservice.NewConnectedRegistry(ctx, "example", &containerservice.ConnectedRegistryArgs{
 //				Name:                pulumi.String("examplecr"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
-//				SyncTokenId:         exampleRegistryToken.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryId: exampleRegistry.ID(),
+//				SyncTokenId:         exampleRegistryToken.ID(),
 //			})
 //			if err != nil {
 //				return err

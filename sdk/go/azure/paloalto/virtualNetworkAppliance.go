@@ -49,7 +49,7 @@ import (
 //				Name:              pulumi.String("example-virtualhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
+//				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressPrefix:     pulumi.String("10.0.0.0/23"),
 //				Tags: pulumi.StringMap{
 //					"hubSaaSPreview": pulumi.String("true"),
@@ -60,7 +60,7 @@ import (
 //			}
 //			_, err = paloalto.NewVirtualNetworkAppliance(ctx, "example", &paloalto.VirtualNetworkApplianceArgs{
 //				Name:         pulumi.String("example-appliance"),
-//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VirtualHubId: exampleVirtualHub.ID(),
 //			})
 //			if err != nil {
 //				return err

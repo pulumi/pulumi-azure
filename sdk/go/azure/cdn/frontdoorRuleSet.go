@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorRuleSet(ctx, "example", &cdn.FrontdoorRuleSetArgs{
 //				Name:                  pulumi.String("ExampleRuleSet"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //			})
 //			if err != nil {
 //				return err

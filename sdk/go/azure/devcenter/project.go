@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = devcenter.NewProject(ctx, "example", &devcenter.ProjectArgs{
-//				DevCenterId:       example.ID().ToIDOutput().ToStringOutput(),
+//				DevCenterId:       example.ID(),
 //				Location:          exampleResourceGroup.Location,
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleResourceGroup.Name,

@@ -56,7 +56,7 @@ import (
 //			}
 //			exampleTarget, err := chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
 //				Location:         exampleResourceGroup.Location,
-//				TargetResourceId: example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: example.ID(),
 //				TargetType:       pulumi.String("example-value"),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = chaosstudio.NewCapability(ctx, "example", &chaosstudio.CapabilityArgs{
 //				CapabilityType:      pulumi.String("example-value"),
-//				ChaosStudioTargetId: exampleTarget.ID().ToIDOutput().ToStringOutput(),
+//				ChaosStudioTargetId: exampleTarget.ID(),
 //			})
 //			if err != nil {
 //				return err

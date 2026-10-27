@@ -70,7 +70,7 @@ import (
 //				Name:                    pulumi.String("test-azure-functions"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //			})
@@ -133,7 +133,7 @@ import (
 //				Name:                    pulumi.String("test-azure-functions"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //			})
@@ -197,7 +197,7 @@ import (
 //				Name:                    pulumi.String("test-azure-functions"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				OsType:                  pulumi.String("linux"),

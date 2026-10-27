@@ -59,7 +59,7 @@ import (
 //			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "example", &network.NetworkManagerSubscriptionConnectionArgs{
 //				Name:             pulumi.String("example-nsnmc"),
 //				SubscriptionId:   pulumi.String(current.Id),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //				Description:      pulumi.String("example"),
 //			})
 //			if err != nil {

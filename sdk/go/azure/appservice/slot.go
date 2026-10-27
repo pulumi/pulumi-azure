@@ -68,7 +68,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //				},
@@ -91,7 +91,7 @@ import (
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //				},
@@ -163,7 +163,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),
@@ -178,7 +178,7 @@ import (
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),

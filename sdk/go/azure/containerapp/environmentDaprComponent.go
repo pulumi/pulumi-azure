@@ -51,14 +51,14 @@ import (
 //				Name:                    pulumi.String("Example-Environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewEnvironmentDaprComponent(ctx, "example", &containerapp.EnvironmentDaprComponentArgs{
 //				Name:                      pulumi.String("example-component"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				ComponentType:             pulumi.String("state.azure.blobstorage"),
 //				Version:                   pulumi.String("v1"),
 //			})

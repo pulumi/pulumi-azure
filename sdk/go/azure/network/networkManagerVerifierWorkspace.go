@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerVerifierWorkspace(ctx, "example", &network.NetworkManagerVerifierWorkspaceArgs{
 //				Name:             pulumi.String("example"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //				Location:         example.Location,
 //				Description:      pulumi.String("This is an example verifier workspace"),
 //				Tags: pulumi.StringMap{

@@ -38,7 +38,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				PolicyType:        pulumi.String("Custom"),
 //				DisplayName:       pulumi.String("Example"),
-//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				ManagementGroupId: example.ID(),
 //				Parameters: pulumi.String(`   {
 //	       \"allowedLocations\": {
 //	           \"type\": \"Array\",

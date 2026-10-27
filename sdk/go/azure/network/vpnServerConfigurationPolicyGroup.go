@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = network.NewVpnServerConfigurationPolicyGroup(ctx, "example", &network.VpnServerConfigurationPolicyGroupArgs{
 //				Name:                     pulumi.String("example-VPNSCPG"),
-//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
 //				Policies: network.VpnServerConfigurationPolicyGroupPolicyArray{
 //					&network.VpnServerConfigurationPolicyGroupPolicyArgs{
 //						Name:  pulumi.String("policy1"),

@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //			_, err = storage.NewDataLakeGen2Path(ctx, "example", &storage.DataLakeGen2PathArgs{
 //				Path:             pulumi.String("example"),
 //				FilesystemName:   exampleDataLakeGen2Filesystem.Name,
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				Resource:         pulumi.String("directory"),
 //			})
 //			if err != nil {

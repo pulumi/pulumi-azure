@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				Properties: pulumi.StringMap{
 //					"hello": pulumi.String("aGVsbG8="),
 //				},

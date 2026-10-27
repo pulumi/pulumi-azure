@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			storage2, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleAccount.Identity.PrincipalId(),
 //				SecretPermissions: pulumi.StringArray{
@@ -85,7 +85,7 @@ import (
 //				return err
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				SecretPermissions: pulumi.StringArray{
@@ -114,7 +114,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("tfex-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -133,8 +133,8 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewCustomerManagedKey(ctx, "example", &storage.CustomerManagedKeyArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId:    exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
+//				KeyVaultKeyId:    exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
 //				Name:          pulumi.String("example-ss-group"),
-//				StorageSyncId: exampleSync.ID().ToIDOutput().ToStringOutput(),
+//				StorageSyncId: exampleSync.ID(),
 //			})
 //			if err != nil {
 //				return err

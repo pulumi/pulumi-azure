@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
 //				Name:        pulumi.String("example-rule"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				RulestackId: exampleLocalRulestack.ID(),
 //				Priority:    pulumi.Int(1000),
 //				Action:      pulumi.String("Allow"),
 //				Protocol:    pulumi.String("application-default"),

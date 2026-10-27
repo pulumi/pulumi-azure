@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = securitycenter.NewStorageDefender(ctx, "example", &securitycenter.StorageDefenderArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err

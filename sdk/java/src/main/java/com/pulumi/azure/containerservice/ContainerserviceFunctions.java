@@ -1767,6 +1767,39 @@ public final class ContainerserviceFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.get("sourceRepo"));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -1782,6 +1815,39 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.get("sourceRepo"));
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 
@@ -1799,6 +1865,39 @@ public final class ContainerserviceFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.get("sourceRepo"));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -1815,6 +1914,39 @@ public final class ContainerserviceFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.get("sourceRepo"));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ## API Providers
      * 
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -1830,6 +1962,39 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry Cache Rule.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.get("sourceRepo"));
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ## API Providers
      * 

@@ -115,8 +115,8 @@ import (
 //				return err
 //			}
 //			primarySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primary", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               primarySubnet.ID().ToIDOutput().ToStringOutput(),
-//				NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:               primarySubnet.ID(),
+//				NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -165,7 +165,7 @@ import (
 //				FilteredSyncEnabled: pulumi.Bool(false),
 //				InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
 //					Location: primaryVirtualNetwork.Location,
-//					SubnetId: primarySubnet.ID().ToIDOutput().ToStringOutput(),
+//					SubnetId: primarySubnet.ID(),
 //				},
 //				Notifications: &domainservices.ServiceNotificationsArgs{
 //					AdditionalRecipients: pulumi.StringArray{
@@ -274,8 +274,8 @@ import (
 //				return err
 //			}
 //			replicaSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "replica", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               aaddsReplica.ID().ToIDOutput().ToStringOutput(),
-//				NetworkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:               aaddsReplica.ID(),
+//				NetworkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -284,7 +284,7 @@ import (
 //				Name:                      pulumi.String("aadds-primary-replica"),
 //				ResourceGroupName:         primaryVirtualNetwork.ResourceGroupName,
 //				VirtualNetworkName:        primaryVirtualNetwork.Name,
-//				RemoteVirtualNetworkId:    replicaVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId:    replicaVirtualNetwork.ID(),
 //				AllowForwardedTraffic:     pulumi.Bool(true),
 //				AllowGatewayTransit:       pulumi.Bool(false),
 //				AllowVirtualNetworkAccess: pulumi.Bool(true),
@@ -297,7 +297,7 @@ import (
 //				Name:                      pulumi.String("aadds-replica-primary"),
 //				ResourceGroupName:         replicaVirtualNetwork.ResourceGroupName,
 //				VirtualNetworkName:        replicaVirtualNetwork.Name,
-//				RemoteVirtualNetworkId:    primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId:    primaryVirtualNetwork.ID(),
 //				AllowForwardedTraffic:     pulumi.Bool(true),
 //				AllowGatewayTransit:       pulumi.Bool(false),
 //				AllowVirtualNetworkAccess: pulumi.Bool(true),
@@ -307,16 +307,16 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVirtualNetworkDnsServers(ctx, "replica", &network.VirtualNetworkDnsServersArgs{
-//				VirtualNetworkId: replicaVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: replicaVirtualNetwork.ID(),
 //				DnsServers:       exampleService.InitialReplicaSet.DomainControllerIpAddresses(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = domainservices.NewReplicaSet(ctx, "replica", &domainservices.ReplicaSetArgs{
-//				DomainServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				DomainServiceId: exampleService.ID(),
 //				Location:        replica.Location,
-//				SubnetId:        aaddsReplica.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:        aaddsReplica.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				replicaSubnetNetworkSecurityGroupAssociation,
 //				primaryReplica,

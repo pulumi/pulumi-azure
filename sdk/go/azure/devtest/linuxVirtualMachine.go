@@ -74,7 +74,7 @@ import (
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
 //				SshKey:              pulumi.String(invokeFile.Result),
-//				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
 //				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
 //				StorageType:         pulumi.String("Premium"),
 //				Notes:               pulumi.String("Some notes about this Virtual Machine."),

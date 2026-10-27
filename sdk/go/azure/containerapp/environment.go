@@ -52,7 +52,7 @@ import (
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				LogsDestination:         pulumi.String("log-analytics"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err

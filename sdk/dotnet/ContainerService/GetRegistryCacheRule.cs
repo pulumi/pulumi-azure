@@ -16,7 +16,26 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
+        ///     {
+        ///         Name = "testacr",
+        ///         ContainerRegistryId = "test",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cacheRuleSourceRepo"] = exampleAzurermContainerRegistryCacheRule.SourceRepo,
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -33,7 +52,26 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
+        ///     {
+        ///         Name = "testacr",
+        ///         ContainerRegistryId = "test",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cacheRuleSourceRepo"] = exampleAzurermContainerRegistryCacheRule.SourceRepo,
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -50,7 +88,26 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
+        ///     {
+        ///         Name = "testacr",
+        ///         ContainerRegistryId = "test",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cacheRuleSourceRepo"] = exampleAzurermContainerRegistryCacheRule.SourceRepo,
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 

@@ -58,7 +58,7 @@ import (
 //				Name:              pulumi.String("example-app-service"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //					ScmType:                pulumi.String("LocalGit"),

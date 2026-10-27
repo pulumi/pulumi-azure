@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewPostgresqlNodeConfiguration(ctx, "example", &cosmosdb.PostgresqlNodeConfigurationArgs{
 //				Name:      pulumi.String("array_nulls"),
-//				ClusterId: examplePostgresqlCluster.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId: examplePostgresqlCluster.ID(),
 //				Value:     pulumi.String("on"),
 //			})
 //			if err != nil {

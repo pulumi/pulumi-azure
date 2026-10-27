@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = datashare.NewShare(ctx, "example", &datashare.ShareArgs{
 //				Name:        pulumi.String("example_dss"),
-//				AccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				AccountId:   exampleAccount.ID(),
 //				Kind:        pulumi.String("CopyBased"),
 //				Description: pulumi.String("example desc"),
 //				Terms:       pulumi.String("example terms"),

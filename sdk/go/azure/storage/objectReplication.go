@@ -88,8 +88,8 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewObjectReplication(ctx, "example", &storage.ObjectReplicationArgs{
-//				SourceStorageAccountId:      srcAccount.ID().ToIDOutput().ToStringOutput(),
-//				DestinationStorageAccountId: dstAccount.ID().ToIDOutput().ToStringOutput(),
+//				SourceStorageAccountId:      srcAccount.ID(),
+//				DestinationStorageAccountId: dstAccount.ID(),
 //				Rules: storage.ObjectReplicationRuleArray{
 //					&storage.ObjectReplicationRuleArgs{
 //						SourceContainerName:      srcContainer.Name,

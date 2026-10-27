@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = maps.NewCreator(ctx, "example", &maps.CreatorArgs{
 //				Name:          pulumi.String("example-maps-creator"),
-//				MapsAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				MapsAccountId: exampleAccount.ID(),
 //				Location:      example.Location,
 //				StorageUnits:  pulumi.Int(1),
 //				Tags: pulumi.StringMap{

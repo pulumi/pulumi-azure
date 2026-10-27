@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
 //				Name:                pulumi.String("example-flexcontainer"),
-//				StorageAccountId:    exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:    exampleAccount.ID(),
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -71,7 +71,7 @@ import (
 //				Name:                 pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:    example.Name,
 //				Location:             example.Location,
-//				ServicePlanId:        exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:        exampleServicePlan.ID(),
 //				StorageContainerType: pulumi.String("blobContainer"),
 //				StorageContainerEndpoint: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
 //					primaryBlobEndpoint := _args[0].(string)

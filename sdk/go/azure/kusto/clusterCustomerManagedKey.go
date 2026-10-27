@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			cluster, err := keyvault.NewAccessPolicy(ctx, "cluster", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleCluster.Identity.PrincipalId(),
 //				KeyPermissions: pulumi.StringArray{
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -99,7 +99,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("tfex-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -118,8 +118,8 @@ import (
 //				return err
 //			}
 //			_, err = kusto.NewClusterCustomerManagedKey(ctx, "example", &kusto.ClusterCustomerManagedKeyArgs{
-//				ClusterId:  exampleCluster.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId:  exampleCluster.ID(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyName:    exampleKey.Name,
 //				KeyVersion: exampleKey.Version,
 //			})

@@ -40,7 +40,7 @@ import (
 //				PolicyType:        pulumi.String("Custom"),
 //				Mode:              pulumi.String("All"),
 //				DisplayName:       pulumi.String("my-policy-definition"),
-//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				ManagementGroupId: example.ID(),
 //				PolicyRule: pulumi.String(` {
 //	    "if": {
 //	      "not": {
@@ -61,8 +61,8 @@ import (
 //			}
 //			_, err = management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("example-policy"),
-//				PolicyDefinitionId: exampleDefinition.ID().ToIDOutput().ToStringOutput(),
-//				ManagementGroupId:  example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				ManagementGroupId:  example.ID(),
 //			})
 //			if err != nil {
 //				return err

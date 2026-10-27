@@ -56,7 +56,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//				ManagementGroupId:  exampleGroup.ID(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
@@ -65,8 +65,8 @@ import (
 //			}
 //			_, err = management.NewGroupPolicyRemediation(ctx, "example", &management.GroupPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
-//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
-//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
+//				ManagementGroupId:  exampleGroup.ID(),
+//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
 //			})
 //			if err != nil {
 //				return err

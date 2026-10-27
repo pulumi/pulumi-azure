@@ -51,16 +51,16 @@ import (
 //			}
 //			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //				GatewayIds: pulumi.StringArray{
-//					exampleSpringCloudGateway.ID().ToIDOutput().ToStringOutput(),
+//					exampleSpringCloudGateway.ID(),
 //				},
 //				HttpsOnlyEnabled:           pulumi.Bool(false),
 //				PublicNetworkAccessEnabled: pulumi.Bool(true),

@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewClusterDeploymentSafeguard(ctx, "example", &containerservice.ClusterDeploymentSafeguardArgs{
-//				KubernetesClusterId: exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesClusterId: exampleKubernetesCluster.ID(),
 //				Level:               pulumi.String("Enforce"),
 //				ExcludedNamespaces: pulumi.StringArray{
 //					pulumi.String("my-app-namespace"),

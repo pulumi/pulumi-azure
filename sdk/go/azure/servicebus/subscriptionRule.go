@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:               pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {
@@ -60,7 +60,7 @@ import (
 //			}
 //			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
 //				Name:             pulumi.String("tfex_servicebus_subscription"),
-//				TopicId:          exampleTopic.ID().ToIDOutput().ToStringOutput(),
+//				TopicId:          exampleTopic.ID(),
 //				MaxDeliveryCount: pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
 //				Name:           pulumi.String("tfex_servicebus_rule"),
-//				SubscriptionId: exampleSubscription.ID().ToIDOutput().ToStringOutput(),
+//				SubscriptionId: exampleSubscription.ID(),
 //				FilterType:     pulumi.String("SqlFilter"),
 //				SqlFilter:      pulumi.String("colour = 'red'"),
 //			})
@@ -117,7 +117,7 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:               pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {
@@ -125,7 +125,7 @@ import (
 //			}
 //			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
 //				Name:             pulumi.String("tfex_servicebus_subscription"),
-//				TopicId:          exampleTopic.ID().ToIDOutput().ToStringOutput(),
+//				TopicId:          exampleTopic.ID(),
 //				MaxDeliveryCount: pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -133,7 +133,7 @@ import (
 //			}
 //			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
 //				Name:           pulumi.String("tfex_servicebus_rule"),
-//				SubscriptionId: exampleSubscription.ID().ToIDOutput().ToStringOutput(),
+//				SubscriptionId: exampleSubscription.ID(),
 //				FilterType:     pulumi.String("CorrelationFilter"),
 //				CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
 //					CorrelationId: pulumi.String("high"),

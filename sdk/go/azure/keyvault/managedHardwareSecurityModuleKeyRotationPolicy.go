@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewManagedHardwareSecurityModuleKeyRotationPolicy(ctx, "example", &keyvault.ManagedHardwareSecurityModuleKeyRotationPolicyArgs{
-//				ManagedHsmKeyId:  example.ID().ToIDOutput().ToStringOutput(),
+//				ManagedHsmKeyId:  example.ID(),
 //				ExpireAfter:      pulumi.String("P60D"),
 //				TimeBeforeExpiry: pulumi.String("P30D"),
 //			})

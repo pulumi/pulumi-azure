@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServerTransparentDataEncryption(ctx, "example", &mssql.ServerTransparentDataEncryptionArgs{
-//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -166,7 +166,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("byok"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -180,8 +180,8 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServerTransparentDataEncryption(ctx, "example", &mssql.ServerTransparentDataEncryptionArgs{
-//				ServerId:      exampleServer.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:      exampleServer.ID(),
+//				KeyVaultKeyId: exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

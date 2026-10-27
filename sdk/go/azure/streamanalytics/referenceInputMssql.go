@@ -54,7 +54,7 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:     pulumi.String("example-db"),
-//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -65,7 +65,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
@@ -109,7 +109,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
 //				Name:          pulumi.String("example-function-app-function"),
-//				FunctionAppId: exampleLinuxFunctionApp.ID().ToIDOutput().ToStringOutput(),
+//				FunctionAppId: exampleLinuxFunctionApp.ID(),
 //				Language:      pulumi.String("Python"),
 //				TestData:      pulumi.String(json0),
 //				ConfigJson:    pulumi.String(json1),
@@ -173,7 +173,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
@@ -223,7 +223,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
 //				Name:          pulumi.String("example-function-app-function"),
-//				FunctionAppId: exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
+//				FunctionAppId: exampleWindowsFunctionApp.ID(),
 //				Language:      pulumi.String("CSharp"),
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{

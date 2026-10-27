@@ -77,11 +77,11 @@ import (
 //				Name:              pulumi.String("example-privateendpoint"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          exampleSubnet.ID(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("psc-sig-test"),
 //					IsManualConnection:          pulumi.Bool(false),
-//					PrivateConnectionResourceId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//					PrivateConnectionResourceId: exampleService.ID(),
 //					SubresourceNames: pulumi.StringArray{
 //						pulumi.String("signalr"),
 //					},
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			_, err = signalr.NewServiceNetworkAcl(ctx, "example", &signalr.ServiceNetworkAclArgs{
-//				SignalrServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				SignalrServiceId: exampleService.ID(),
 //				DefaultAction:    pulumi.String("Deny"),
 //				PublicNetwork: &signalr.ServiceNetworkAclPublicNetworkArgs{
 //					AllowedRequestTypes: pulumi.StringArray{
@@ -100,7 +100,7 @@ import (
 //				},
 //				PrivateEndpoints: signalr.ServiceNetworkAclPrivateEndpointArray{
 //					&signalr.ServiceNetworkAclPrivateEndpointArgs{
-//						Id: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//						Id: exampleEndpoint.ID(),
 //						AllowedRequestTypes: pulumi.StringArray{
 //							pulumi.String("ServerConnection"),
 //						},

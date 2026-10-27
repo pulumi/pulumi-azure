@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureSearch(ctx, "test", &datafactory.LinkedServiceAzureSearchArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
 //				Url: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String(""),
 //					Input: pulumi.StringArray{

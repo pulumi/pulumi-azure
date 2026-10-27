@@ -60,23 +60,23 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-network-group"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkManagerRoutingConfiguration, err := network.NewNetworkManagerRoutingConfiguration(ctx, "example", &network.NetworkManagerRoutingConfigurationArgs{
 //				Name:             pulumi.String("example-routing-configuration"),
-//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkManagerRoutingRuleCollection, err := network.NewNetworkManagerRoutingRuleCollection(ctx, "example", &network.NetworkManagerRoutingRuleCollectionArgs{
 //				Name:                   pulumi.String("example-routing-rule-collection"),
-//				RoutingConfigurationId: exampleNetworkManagerRoutingConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				RoutingConfigurationId: exampleNetworkManagerRoutingConfiguration.ID(),
 //				NetworkGroupIds: pulumi.StringArray{
-//					exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkManagerNetworkGroup.ID(),
 //				},
 //				Description: pulumi.String("example routing rule collection"),
 //			})
@@ -85,7 +85,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerRoutingRule(ctx, "example", &network.NetworkManagerRoutingRuleArgs{
 //				Name:             pulumi.String("example-routing-rule"),
-//				RuleCollectionId: exampleNetworkManagerRoutingRuleCollection.ID().ToIDOutput().ToStringOutput(),
+//				RuleCollectionId: exampleNetworkManagerRoutingRuleCollection.ID(),
 //				Description:      pulumi.String("example routing rule"),
 //				Destination: &network.NetworkManagerRoutingRuleDestinationArgs{
 //					Type:    pulumi.String("AddressPrefix"),

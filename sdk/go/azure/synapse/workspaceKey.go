@@ -54,7 +54,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -76,7 +76,7 @@ import (
 //				return err
 //			}
 //			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -92,7 +92,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("workspaceEncryptionKey"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -109,7 +109,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				CustomerManagedKey: &synapse.WorkspaceCustomerManagedKeyArgs{
@@ -127,7 +127,7 @@ import (
 //				return err
 //			}
 //			workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspace_policy", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   exampleWorkspace.Identity.TenantId(),
 //				ObjectId:   exampleWorkspace.Identity.PrincipalId(),
 //				KeyPermissions: pulumi.StringArray{
@@ -141,7 +141,7 @@ import (
 //			}
 //			_, err = synapse.NewWorkspaceKey(ctx, "example", &synapse.WorkspaceKeyArgs{
 //				CustomerManagedKeyVersionlessId: exampleKey.VersionlessId,
-//				SynapseWorkspaceId:              exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId:              exampleWorkspace.ID(),
 //				Active:                          pulumi.Bool(true),
 //				CustomerManagedKeyName:          pulumi.String("enckey"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

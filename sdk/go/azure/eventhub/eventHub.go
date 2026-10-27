@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("acceptanceTestEventHub"),
-//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:      exampleEventHubNamespace.ID(),
 //				PartitionCount:   pulumi.Int(2),
 //				MessageRetention: pulumi.Int(1),
 //			})

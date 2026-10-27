@@ -50,7 +50,7 @@ import (
 //				Name:              pulumi.String("example-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -58,14 +58,14 @@ import (
 //			}
 //			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
 //				Name:         pulumi.String("example-slot"),
-//				AppServiceId: exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
+//				AppServiceId: exampleLinuxWebApp.ID(),
 //				SiteConfig:   &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSourceControlSlot(ctx, "example", &appservice.SourceControlSlotArgs{
-//				SlotId:  exampleLinuxWebAppSlot.ID().ToIDOutput().ToStringOutput(),
+//				SlotId:  exampleLinuxWebAppSlot.ID(),
 //				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
 //				Branch:  pulumi.String("master"),
 //			})

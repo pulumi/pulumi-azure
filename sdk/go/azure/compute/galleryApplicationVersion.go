@@ -47,7 +47,7 @@ import (
 //			}
 //			exampleGalleryApplication, err := compute.NewGalleryApplication(ctx, "example", &compute.GalleryApplicationArgs{
 //				Name:            pulumi.String("example-app"),
-//				GalleryId:       exampleSharedImageGallery.ID().ToIDOutput().ToStringOutput(),
+//				GalleryId:       exampleSharedImageGallery.ID(),
 //				Location:        example.Location,
 //				SupportedOsType: pulumi.String("Linux"),
 //			})
@@ -84,14 +84,14 @@ import (
 //			}
 //			_, err = compute.NewGalleryApplicationVersion(ctx, "example", &compute.GalleryApplicationVersionArgs{
 //				Name:                 pulumi.String("0.0.1"),
-//				GalleryApplicationId: exampleGalleryApplication.ID().ToIDOutput().ToStringOutput(),
+//				GalleryApplicationId: exampleGalleryApplication.ID(),
 //				Location:             exampleGalleryApplication.Location,
 //				ManageAction: &compute.GalleryApplicationVersionManageActionArgs{
 //					Install: pulumi.String("[install command]"),
 //					Remove:  pulumi.String("[remove command]"),
 //				},
 //				Source: &compute.GalleryApplicationVersionSourceArgs{
-//					MediaLink: exampleBlob.ID().ToIDOutput().ToStringOutput(),
+//					MediaLink: exampleBlob.ID(),
 //				},
 //				TargetRegions: compute.GalleryApplicationVersionTargetRegionArray{
 //					&compute.GalleryApplicationVersionTargetRegionArgs{

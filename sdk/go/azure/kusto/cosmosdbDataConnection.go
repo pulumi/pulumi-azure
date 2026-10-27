@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleResourceGroup.ID(),
 //				RoleDefinitionName: pulumi.String(builtin.Name),
 //				PrincipalId:        exampleCluster.Identity.PrincipalId(),
 //			})
@@ -121,7 +121,7 @@ import (
 //				AccountName:       exampleAccount.Name,
 //				RoleDefinitionId:  example.Id(),
 //				PrincipalId:       exampleCluster.Identity.PrincipalId(),
-//				Scope:             exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Scope:             exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -137,7 +137,7 @@ import (
 //			}
 //			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
 //				Name:       pulumi.String("create-table-script"),
-//				DatabaseId: exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				DatabaseId: exampleDatabase.ID(),
 //				ScriptContent: pulumi.String(`.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
 //
 // .create table TestTable ingestion json mapping \"TestMapping\"
@@ -157,9 +157,9 @@ import (
 //			_, err = kusto.NewCosmosdbDataConnection(ctx, "example", &kusto.CosmosdbDataConnectionArgs{
 //				Name:                pulumi.String("examplekcdcd"),
 //				Location:            exampleResourceGroup.Location,
-//				CosmosdbContainerId: exampleSqlContainer.ID().ToIDOutput().ToStringOutput(),
-//				KustoDatabaseId:     exampleDatabase.ID().ToIDOutput().ToStringOutput(),
-//				ManagedIdentityId:   exampleCluster.ID().ToIDOutput().ToStringOutput(),
+//				CosmosdbContainerId: exampleSqlContainer.ID(),
+//				KustoDatabaseId:     exampleDatabase.ID(),
+//				ManagedIdentityId:   exampleCluster.ID(),
 //				TableName:           pulumi.String("TestTable"),
 //				MappingRuleName:     pulumi.String("TestMapping"),
 //				RetrievalStartDate:  pulumi.String("2023-06-26T12:00:00.6554616Z"),

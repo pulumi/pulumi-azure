@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = appinsights.NewAnalyticsItem(ctx, "example", &appinsights.AnalyticsItemArgs{
 //				Name:                  pulumi.String("testquery"),
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
 //				Content:               pulumi.String("requests //simple example query"),
 //				Scope:                 pulumi.String("shared"),
 //				Type:                  pulumi.String("query"),

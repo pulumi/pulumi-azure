@@ -82,9 +82,9 @@ import (
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -119,8 +119,8 @@ import (
 //				Location:                   example.Location,
 //				VmPriority:                 pulumi.String("LowPriority"),
 //				VmSize:                     pulumi.String("Standard_DS2_v2"),
-//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				SubnetResourceId:           exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
+//				SubnetResourceId:           exampleSubnet.ID(),
 //				ScaleSettings: &machinelearning.ComputeClusterScaleSettingsArgs{
 //					MinNodeCount:                    pulumi.Int(0),
 //					MaxNodeCount:                    pulumi.Int(1),

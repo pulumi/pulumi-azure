@@ -60,7 +60,7 @@ import (
 //				Identity: &mysql.FlexibleServerIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //			})
@@ -68,8 +68,8 @@ import (
 //				return err
 //			}
 //			_, err = mysql.NewFlexibleServerActiveDirectoryAdministratory(ctx, "example", &mysql.FlexibleServerActiveDirectoryAdministratoryArgs{
-//				ServerId:   exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
-//				IdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:   exampleFlexibleServer.ID(),
+//				IdentityId: exampleUserAssignedIdentity.ID(),
 //				Login:      pulumi.String("sqladmin"),
 //				ObjectId:   pulumi.String(current.ClientId),
 //				TenantId:   pulumi.String(current.TenantId),

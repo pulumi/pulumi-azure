@@ -58,7 +58,7 @@ import (
 //				AzureActiveDirectory: &arckubernetes.ProvisionedClusterAzureActiveDirectoryArgs{
 //					AzureRbacEnabled: pulumi.Bool(true),
 //					AdminGroupObjectIds: pulumi.StringArray{
-//						exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//						exampleGroup.ID(),
 //					},
 //					TenantId: pulumi.String(current.TenantId),
 //				},

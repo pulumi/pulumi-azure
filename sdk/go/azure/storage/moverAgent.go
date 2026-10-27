@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = storage.NewMoverAgent(ctx, "example", &storage.MoverAgentArgs{
 //				Name:           pulumi.String("example-sa"),
-//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
+//				StorageMoverId: exampleMover.ID(),
 //				ArcVirtualMachineId: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
 //				}).(pulumi.StringOutput),

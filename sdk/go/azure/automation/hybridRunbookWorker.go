@@ -84,7 +84,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("vm-example"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleSubnet.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -111,7 +111,7 @@ import (
 //					StorageAccountType: pulumi.String("Standard_LRS"),
 //				},
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkInterface.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -121,7 +121,7 @@ import (
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				WorkerGroupName:       exampleHybridRunbookWorkerGroup.Name,
-//				VmResourceId:          exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				VmResourceId:          exampleLinuxVirtualMachine.ID(),
 //				WorkerId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {

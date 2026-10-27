@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Backup Contributor"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -71,7 +71,7 @@ import (
 //			}
 //			exampleBackupPolicyBlobStorage, err := dataprotection.NewBackupPolicyBlobStorage(ctx, "example", &dataprotection.BackupPolicyBlobStorageArgs{
 //				Name:                                pulumi.String("example-backup-policy"),
-//				VaultId:                             exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:                             exampleBackupVault.ID(),
 //				OperationalDefaultRetentionDuration: pulumi.String("P30D"),
 //			})
 //			if err != nil {
@@ -79,10 +79,10 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupInstanceBlogStorage(ctx, "example", &dataprotection.BackupInstanceBlogStorageArgs{
 //				Name:             pulumi.String("example-backup-instance"),
-//				VaultId:          exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:          exampleBackupVault.ID(),
 //				Location:         example.Location,
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				BackupPolicyId:   exampleBackupPolicyBlobStorage.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
+//				BackupPolicyId:   exampleBackupPolicyBlobStorage.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAssignment,
 //			}))

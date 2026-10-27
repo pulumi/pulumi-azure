@@ -50,7 +50,7 @@ import (
 //			}
 //			example := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("VirtualMachineTemplate"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
 //			}, nil)
 //			_, err = systemcenter.NewVirtualMachineManagerVirtualMachineTemplate(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineTemplateArgs{
 //				Name:              pulumi.String("example-scvmmvmtemplate"),

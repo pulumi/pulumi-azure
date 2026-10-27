@@ -60,7 +60,7 @@ import (
 //			}
 //			_, err = redis.NewEnterpriseDatabase(ctx, "example", &redis.EnterpriseDatabaseArgs{
 //				Name:             pulumi.String("default"),
-//				ClusterId:        exampleEnterpriseCluster.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId:        exampleEnterpriseCluster.ID(),
 //				ClientProtocol:   pulumi.String("Encrypted"),
 //				ClusteringPolicy: pulumi.String("EnterpriseCluster"),
 //				EvictionPolicy:   pulumi.String("NoEviction"),

@@ -103,8 +103,8 @@ import (
 //			}, nil)
 //			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
 //				Name:                          pulumi.String("example"),
-//				DatabaseId:                    exampleDatabase.ID().ToIDOutput().ToStringOutput(),
-//				Url:                           exampleBlob.ID().ToIDOutput().ToStringOutput(),
+//				DatabaseId:                    exampleDatabase.ID(),
+//				Url:                           exampleBlob.ID(),
 //				SasToken:                      example.Sas(),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),

@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = containerservice.NewFleetUpdateStrategy(ctx, "example", &containerservice.FleetUpdateStrategyArgs{
 //				Name:                     pulumi.String("example"),
-//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID(),
 //				Stages: containerservice.FleetUpdateStrategyStageArray{
 //					&containerservice.FleetUpdateStrategyStageArgs{
 //						Name: pulumi.String("example-stage-1"),

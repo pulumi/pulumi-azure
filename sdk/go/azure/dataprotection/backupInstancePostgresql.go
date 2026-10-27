@@ -150,7 +150,7 @@ import (
 //					exampleDatabaseName := _args[1].(string)
 //					return fmt.Sprintf("Server=%v.postgres.database.azure.com;Database=%v;Port=5432;User Id=psqladmin@%v;Password=H@Sh1CoR3!;Ssl Mode=Require;", exampleServerName, exampleDatabaseName, exampleServerName), nil
 //				}).(pulumi.StringOutput),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -168,7 +168,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				Scope:              exampleServer.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
@@ -178,9 +178,9 @@ import (
 //			_, err = dataprotection.NewBackupInstancePostgresql(ctx, "example", &dataprotection.BackupInstancePostgresqlArgs{
 //				Name:                               pulumi.String("example"),
 //				Location:                           example.Location,
-//				VaultId:                            exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				DatabaseId:                         exampleDatabase.ID().ToIDOutput().ToStringOutput(),
-//				BackupPolicyId:                     exampleBackupPolicyPostgresql.ID().ToIDOutput().ToStringOutput(),
+//				VaultId:                            exampleBackupVault.ID(),
+//				DatabaseId:                         exampleDatabase.ID(),
+//				BackupPolicyId:                     exampleBackupPolicyPostgresql.ID(),
 //				DatabaseCredentialKeyVaultSecretId: exampleSecret.VersionlessId,
 //			})
 //			if err != nil {

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = monitoring.NewAadDiagnosticSetting(ctx, "example", &monitoring.AadDiagnosticSettingArgs{
 //				Name:             pulumi.String("setting1"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				EnabledLogs: monitoring.AadDiagnosticSettingEnabledLogArray{
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("SignInLogs"),

@@ -82,9 +82,9 @@ import (
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -94,7 +94,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -103,7 +103,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				Identity: &synapse.WorkspaceIdentityArgs{
@@ -115,7 +115,7 @@ import (
 //			}
 //			exampleSparkPool, err := synapse.NewSparkPool(ctx, "example", &synapse.SparkPoolArgs{
 //				Name:               pulumi.String("example"),
-//				SynapseWorkspaceId: exampleWorkspace2.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId: exampleWorkspace2.ID(),
 //				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
 //				NodeSize:           pulumi.String("Small"),
 //				NodeCount:          pulumi.Int(3),
@@ -125,9 +125,9 @@ import (
 //			}
 //			_, err = machinelearning.NewSynapseSpark(ctx, "example", &machinelearning.SynapseSparkArgs{
 //				Name:                       pulumi.String("example"),
-//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
 //				Location:                   example.Location,
-//				SynapseSparkPoolId:         exampleSparkPool.ID().ToIDOutput().ToStringOutput(),
+//				SynapseSparkPoolId:         exampleSparkPool.ID(),
 //				Identity: &machinelearning.SynapseSparkIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

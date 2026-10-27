@@ -66,13 +66,13 @@ import (
 //				Name:                  pulumi.String("exampletoken"),
 //				ContainerRegistryName: exampleRegistry.Name,
 //				ResourceGroupName:     example.Name,
-//				ScopeMapId:            exampleRegistryScopeMap.ID().ToIDOutput().ToStringOutput(),
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerservice.NewTokenPassword(ctx, "example", &containerservice.TokenPasswordArgs{
-//				ContainerRegistryTokenId: exampleRegistryToken.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryTokenId: exampleRegistryToken.ID(),
 //				Password1: &containerservice.TokenPasswordPassword1Args{
 //					Expiry: pulumi.String("2023-03-22T17:57:36+08:00"),
 //				},

@@ -74,16 +74,16 @@ import (
 //				Name:              pulumi.String("example-resolver"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "example", &privatedns.ResolverOutboundEndpointArgs{
 //				Name:                 pulumi.String("example-endpoint"),
-//				PrivateDnsResolverId: exampleResolver.ID().ToIDOutput().ToStringOutput(),
+//				PrivateDnsResolverId: exampleResolver.ID(),
 //				Location:             exampleResolver.Location,
-//				SubnetId:             exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:             exampleSubnet.ID(),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
@@ -96,7 +96,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
-//					exampleResolverOutboundEndpoint.ID().ToIDOutput().ToStringOutput(),
+//					exampleResolverOutboundEndpoint.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -104,7 +104,7 @@ import (
 //			}
 //			_, err = privatedns.NewResolverForwardingRule(ctx, "example", &privatedns.ResolverForwardingRuleArgs{
 //				Name:                   pulumi.String("example-rule"),
-//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID().ToIDOutput().ToStringOutput(),
+//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID(),
 //				DomainName:             pulumi.String("onprem.local."),
 //				Enabled:                pulumi.Bool(true),
 //				TargetDnsServers: privatedns.ResolverForwardingRuleTargetDnsServerArray{

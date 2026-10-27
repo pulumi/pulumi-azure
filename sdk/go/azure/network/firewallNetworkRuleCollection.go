@@ -77,8 +77,8 @@ import (
 //				IpConfigurations: network.FirewallIpConfigurationArray{
 //					&network.FirewallIpConfigurationArgs{
 //						Name:              pulumi.String("configuration"),
-//						SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:          exampleSubnet.ID(),
+//						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //			})

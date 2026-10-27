@@ -79,9 +79,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -99,7 +99,7 @@ import (
 //			}
 //			_, err = machinelearning.NewDatastoreFileshare(ctx, "example", &machinelearning.DatastoreFileshareArgs{
 //				Name:               pulumi.String("example-datastore"),
-//				WorkspaceId:        exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:        exampleWorkspace.ID(),
 //				StorageFileshareId: exampleShare.ResourceManagerId,
 //				AccountKey:         exampleAccount.PrimaryAccessKey,
 //			})

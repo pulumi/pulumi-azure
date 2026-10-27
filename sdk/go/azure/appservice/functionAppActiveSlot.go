@@ -64,7 +64,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				StorageAccountName: exampleAccount.Name,
-//				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:      exampleServicePlan.ID(),
 //				SiteConfig:         &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //			}
 //			exampleWindowsFunctionAppSlot, err := appservice.NewWindowsFunctionAppSlot(ctx, "example", &appservice.WindowsFunctionAppSlotArgs{
 //				Name:               pulumi.String("example-windows-function-app-slot"),
-//				FunctionAppId:      exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
+//				FunctionAppId:      exampleWindowsFunctionApp.ID(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         &appservice.WindowsFunctionAppSlotSiteConfigArgs{},
 //			})
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewFunctionAppActiveSlot(ctx, "example", &appservice.FunctionAppActiveSlotArgs{
-//				SlotId: exampleWindowsFunctionAppSlot.ID().ToIDOutput().ToStringOutput(),
+//				SlotId: exampleWindowsFunctionAppSlot.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -138,7 +138,7 @@ import (
 //				Name:               pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
-//				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
+//				ServicePlanId:      exampleServicePlan.ID(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
@@ -155,7 +155,7 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewFunctionAppActiveSlot(ctx, "example", &appservice.FunctionAppActiveSlotArgs{
-//				SlotId: exampleLinuxFunctionAppSlot.ID().ToIDOutput().ToStringOutput(),
+//				SlotId: exampleLinuxFunctionAppSlot.ID(),
 //			})
 //			if err != nil {
 //				return err

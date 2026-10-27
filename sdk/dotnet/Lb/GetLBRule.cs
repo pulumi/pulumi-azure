@@ -16,7 +16,33 @@ namespace Pulumi.Azure.Lb
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
+        ///     {
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleGetLBRule = Azure.Lb.GetLBRule.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         ResourceGroupName = "example-resources",
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["lbRuleId"] = exampleGetLBRule.Apply(getLBRuleResult =&gt; getLBRuleResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -33,7 +59,33 @@ namespace Pulumi.Azure.Lb
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
+        ///     {
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleGetLBRule = Azure.Lb.GetLBRule.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         ResourceGroupName = "example-resources",
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["lbRuleId"] = exampleGetLBRule.Apply(getLBRuleResult =&gt; getLBRuleResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 
@@ -50,7 +102,33 @@ namespace Pulumi.Azure.Lb
         /// 
         /// ## Example Usage
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
         /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
+        ///     {
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleGetLBRule = Azure.Lb.GetLBRule.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         ResourceGroupName = "example-resources",
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["lbRuleId"] = exampleGetLBRule.Apply(getLBRuleResult =&gt; getLBRuleResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// 
         /// ## API Providers
         /// 

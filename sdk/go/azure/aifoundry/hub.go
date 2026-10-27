@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "test", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -86,8 +86,8 @@ import (
 //				Name:              pulumi.String("exampleaihub"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				StorageAccountId:  exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:        exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:  exampleAccount.ID(),
+//				KeyVaultId:        exampleKeyVault.ID(),
 //				Identity: &aifoundry.HubIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

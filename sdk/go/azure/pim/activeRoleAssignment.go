@@ -115,7 +115,7 @@ import (
 //				return err
 //			}
 //			_, err = pim.NewActiveRoleAssignment(ctx, "example", &pim.ActiveRoleAssignmentArgs{
-//				Scope:            exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//				Scope:            exampleGroup.ID(),
 //				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
 //				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.ActiveRoleAssignmentScheduleArgs{

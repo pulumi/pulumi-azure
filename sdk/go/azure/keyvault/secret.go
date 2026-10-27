@@ -72,7 +72,7 @@ import (
 //			_, err = keyvault.NewSecret(ctx, "example", &keyvault.SecretArgs{
 //				Name:       pulumi.String("secret-sauce"),
 //				Value:      pulumi.String("szechuan"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceWeb(ctx, "example", &datafactory.LinkedServiceWebArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:      exampleFactory.ID(),
 //				AuthenticationType: pulumi.String("Anonymous"),
 //				Url:                pulumi.String("http://www.bing.com"),
 //			})

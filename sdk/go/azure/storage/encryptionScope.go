@@ -53,7 +53,7 @@ import (
 //			}
 //			_, err = storage.NewEncryptionScope(ctx, "example", &storage.EncryptionScopeArgs{
 //				Name:             pulumi.String("microsoftmanaged"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				Source:           pulumi.String("Microsoft.Storage"),
 //			})
 //			if err != nil {

@@ -109,14 +109,14 @@ import (
 //				Name:              pulumi.String("example-app-service"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "example", &appservice.VirtualNetworkSwiftConnectionArgs{
-//				AppServiceId: exampleAppService.ID().ToIDOutput().ToStringOutput(),
-//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				AppServiceId: exampleAppService.ID(),
+//				SubnetId:     exampleSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -210,7 +210,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //			})
@@ -218,8 +218,8 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "example", &appservice.VirtualNetworkSwiftConnectionArgs{
-//				AppServiceId: exampleFunctionApp.ID().ToIDOutput().ToStringOutput(),
-//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				AppServiceId: exampleFunctionApp.ID(),
+//				SubnetId:     exampleSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err

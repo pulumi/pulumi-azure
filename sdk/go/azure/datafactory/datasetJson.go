@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "example", &datafactory.LinkedServiceWebArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:      exampleFactory.ID(),
 //				AuthenticationType: pulumi.String("Anonymous"),
 //				Url:                pulumi.String("https://www.bing.com"),
 //			})
@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example", &datafactory.DatasetJsonArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceWeb.Name,
 //				HttpServerLocation: &datafactory.DatasetJsonHttpServerLocationArgs{
 //					RelativeUrl: pulumi.String("/fizz/buzz/"),

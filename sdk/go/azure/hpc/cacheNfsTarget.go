@@ -70,7 +70,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				CacheSizeInGb:     pulumi.Int(3072),
-//				SubnetId:          exampleHpc.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          exampleHpc.ID(),
 //				SkuName:           pulumi.String("Standard_2G"),
 //			})
 //			if err != nil {
@@ -94,7 +94,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleVm.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   exampleVm.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -136,7 +136,7 @@ import (
 //				Size:              pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					exampleNetworkInterface.ID(),
 //				},
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{

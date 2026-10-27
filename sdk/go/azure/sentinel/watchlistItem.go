@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = sentinel.NewWatchlistItem(ctx, "example", &sentinel.WatchlistItemArgs{
 //				Name:        pulumi.String("0aac6fa5-223e-49cf-9bfd-3554dc9d2b76"),
-//				WatchlistId: exampleWatchlist.ID().ToIDOutput().ToStringOutput(),
+//				WatchlistId: exampleWatchlist.ID(),
 //				Properties: pulumi.StringMap{
 //					"k1": pulumi.String("v1"),
 //					"k2": pulumi.String("v2"),

@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleServer.Identity.PrincipalId(),
 //				KeyPermissions: pulumi.StringArray{
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -117,7 +117,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("tfex-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -136,8 +136,8 @@ import (
 //				return err
 //			}
 //			_, err = postgresql.NewServerKey(ctx, "example", &postgresql.ServerKeyArgs{
-//				ServerId:      exampleServer.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:      exampleServer.ID(),
+//				KeyVaultKeyId: exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

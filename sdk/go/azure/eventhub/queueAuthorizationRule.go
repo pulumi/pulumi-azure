@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
 //				Name:               pulumi.String("tfex_servicebus_queue"),
-//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = servicebus.NewQueueAuthorizationRule(ctx, "example", &servicebus.QueueAuthorizationRuleArgs{
 //				Name:    pulumi.String("examplerule"),
-//				QueueId: exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				QueueId: exampleQueue.ID(),
 //				Listen:  pulumi.Bool(true),
 //				Send:    pulumi.Bool(true),
 //				Manage:  pulumi.Bool(false),

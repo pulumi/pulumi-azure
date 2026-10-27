@@ -70,7 +70,7 @@ import (
 //				Name:               pulumi.String("primary-link"),
 //				ResourceGroupName:  primary.Name,
 //				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:   primaryVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -108,8 +108,8 @@ import (
 //				return err
 //			}
 //			primarySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primary", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               primarySubnet.ID().ToIDOutput().ToStringOutput(),
-//				NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:               primarySubnet.ID(),
+//				NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -123,8 +123,8 @@ import (
 //				return err
 //			}
 //			primarySubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "primary", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     primarySubnet.ID().ToIDOutput().ToStringOutput(),
-//				RouteTableId: primaryRouteTable.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:     primarySubnet.ID(),
+//				RouteTableId: primaryRouteTable.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   primarySubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   primarySubnet.ID(),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				Vcores:                     pulumi.Int(4),
 //				StorageSizeInGb:            pulumi.Int(32),
@@ -170,7 +170,7 @@ import (
 //				Name:               pulumi.String("failover-link"),
 //				ResourceGroupName:  exampleZone.ResourceGroupName,
 //				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:   failoverVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -208,8 +208,8 @@ import (
 //				return err
 //			}
 //			failoverSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "failover", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               failoverSubnet.ID().ToIDOutput().ToStringOutput(),
-//				NetworkSecurityGroupId: failoverNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:               failoverSubnet.ID(),
+//				NetworkSecurityGroupId: failoverNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -223,8 +223,8 @@ import (
 //				return err
 //			}
 //			failoverSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "failover", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     failoverSubnet.ID().ToIDOutput().ToStringOutput(),
-//				RouteTableId: failoverRouteTable.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:     failoverSubnet.ID(),
+//				RouteTableId: failoverRouteTable.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -236,11 +236,11 @@ import (
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   failoverSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                   failoverSubnet.ID(),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				Vcores:                     pulumi.Int(4),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				DnsZonePartnerId:           primaryManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				DnsZonePartnerId:           primaryManagedInstance.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				failoverSubnetNetworkSecurityGroupAssociation,
 //				failoverSubnetRouteTableAssociation,
@@ -251,8 +251,8 @@ import (
 //			_, err = mssql.NewManagedInstanceFailoverGroup(ctx, "example", &mssql.ManagedInstanceFailoverGroupArgs{
 //				Name:                     pulumi.String("example-failover-group"),
 //				Location:                 primaryManagedInstance.Location,
-//				ManagedInstanceId:        primaryManagedInstance.ID().ToIDOutput().ToStringOutput(),
-//				PartnerManagedInstanceId: failoverManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				ManagedInstanceId:        primaryManagedInstance.ID(),
+//				PartnerManagedInstanceId: failoverManagedInstance.ID(),
 //				SecondaryType:            pulumi.String("Geo"),
 //				ReadWriteEndpointFailoverPolicy: &mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
 //					Mode:         pulumi.String("Automatic"),
@@ -267,7 +267,7 @@ import (
 //			}
 //			_, err = network.NewVirtualNetworkPeering(ctx, "primary_to_failover", &network.VirtualNetworkPeeringArgs{
 //				Name:                   pulumi.String("primary-to-failover"),
-//				RemoteVirtualNetworkId: failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: failoverVirtualNetwork.ID(),
 //				ResourceGroupName:      primary.Name,
 //				VirtualNetworkName:     primaryVirtualNetwork.Name,
 //			})
@@ -287,7 +287,7 @@ import (
 //			}
 //			_, err = network.NewVirtualNetworkPeering(ctx, "failover_to_primary", &network.VirtualNetworkPeeringArgs{
 //				Name:                   pulumi.String("failover-to-primary"),
-//				RemoteVirtualNetworkId: primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: primaryVirtualNetwork.ID(),
 //				ResourceGroupName:      failover.Name,
 //				VirtualNetworkName:     failoverVirtualNetwork.Name,
 //			})

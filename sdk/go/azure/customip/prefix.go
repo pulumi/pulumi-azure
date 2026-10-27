@@ -100,7 +100,7 @@ import (
 //				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
 //				Location:               pulumi.Any(test.Location),
 //				ResourceGroupName:      pulumi.Any(test.Name),
-//				ParentCustomIpPrefixId: global.ID().ToIDOutput().ToStringOutput(),
+//				ParentCustomIpPrefixId: global.ID(),
 //				Cidr: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //					Input:   global.Cidr,
 //					Newbits: pulumi.Int(16),

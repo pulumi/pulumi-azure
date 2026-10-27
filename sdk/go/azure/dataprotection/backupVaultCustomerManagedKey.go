@@ -114,7 +114,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -130,8 +130,8 @@ import (
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupVaultCustomerManagedKey(ctx, "example", &dataprotection.BackupVaultCustomerManagedKeyArgs{
-//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId:               exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				DataProtectionBackupVaultId: exampleBackupVault.ID(),
+//				KeyVaultKeyId:               exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

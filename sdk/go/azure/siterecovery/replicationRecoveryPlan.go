@@ -86,9 +86,9 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("vm"),
-//						SubnetId:                   primarySubnet.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:                   primarySubnet.ID(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						PublicIpAddressId:          primaryPublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PublicIpAddressId:          primaryPublicIp.ID(),
 //					},
 //				},
 //			})
@@ -101,7 +101,7 @@ import (
 //				ResourceGroupName: primary.Name,
 //				VmSize:            pulumi.String("Standard_B1s"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//					vmNetworkInterface.ID(),
 //				},
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
@@ -189,8 +189,8 @@ import (
 //				RecoveryVaultName:                     vault.Name,
 //				RecoveryFabricName:                    primaryFabric.Name,
 //				RecoverySourceProtectionContainerName: primaryProtectionContainer.Name,
-//				RecoveryTargetProtectionContainerId:   secondaryProtectionContainer.ID().ToIDOutput().ToStringOutput(),
-//				RecoveryReplicationPolicyId:           policy.ID().ToIDOutput().ToStringOutput(),
+//				RecoveryTargetProtectionContainerId:   secondaryProtectionContainer.ID(),
+//				RecoveryReplicationPolicyId:           policy.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -212,8 +212,8 @@ import (
 //				RecoveryVaultName:        vault.Name,
 //				SourceRecoveryFabricName: primaryFabric.Name,
 //				TargetRecoveryFabricName: secondaryFabric.Name,
-//				SourceNetworkId:          primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				TargetNetworkId:          secondaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				SourceNetworkId:          primaryVirtualNetwork.ID(),
+//				TargetNetworkId:          secondaryVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -254,26 +254,26 @@ import (
 //				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
 //				SourceRecoveryFabricName:              primaryFabric.Name,
-//				SourceVmId:                            vm.ID().ToIDOutput().ToStringOutput(),
-//				RecoveryReplicationPolicyId:           policy.ID().ToIDOutput().ToStringOutput(),
+//				SourceVmId:                            vm.ID(),
+//				RecoveryReplicationPolicyId:           policy.ID(),
 //				SourceRecoveryProtectionContainerName: primaryProtectionContainer.Name,
-//				TargetResourceGroupId:                 secondary.ID().ToIDOutput().ToStringOutput(),
-//				TargetRecoveryFabricId:                secondaryFabric.ID().ToIDOutput().ToStringOutput(),
-//				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceGroupId:                 secondary.ID(),
+//				TargetRecoveryFabricId:                secondaryFabric.ID(),
+//				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID(),
 //				ManagedDisks: siterecovery.ReplicatedVMManagedDiskArray{
 //					&siterecovery.ReplicatedVMManagedDiskArgs{
 //						DiskId:                  vm.StorageOsDisk.ManagedDiskId(),
-//						StagingStorageAccountId: primaryAccount.ID().ToIDOutput().ToStringOutput(),
-//						TargetResourceGroupId:   secondary.ID().ToIDOutput().ToStringOutput(),
+//						StagingStorageAccountId: primaryAccount.ID(),
+//						TargetResourceGroupId:   secondary.ID(),
 //						TargetDiskType:          pulumi.String("Premium_LRS"),
 //						TargetReplicaDiskType:   pulumi.String("Premium_LRS"),
 //					},
 //				},
 //				NetworkInterfaces: siterecovery.ReplicatedVMNetworkInterfaceArray{
 //					&siterecovery.ReplicatedVMNetworkInterfaceArgs{
-//						SourceNetworkInterfaceId:  vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//						SourceNetworkInterfaceId:  vmNetworkInterface.ID(),
 //						TargetSubnetName:          secondarySubnet.Name,
-//						RecoveryPublicIpAddressId: secondaryPublicIp.ID().ToIDOutput().ToStringOutput(),
+//						RecoveryPublicIpAddressId: secondaryPublicIp.ID(),
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -285,15 +285,15 @@ import (
 //			}
 //			_, err = siterecovery.NewReplicationRecoveryPlan(ctx, "example", &siterecovery.ReplicationRecoveryPlanArgs{
 //				Name:                   pulumi.String("example-recover-plan"),
-//				RecoveryVaultId:        vault.ID().ToIDOutput().ToStringOutput(),
-//				SourceRecoveryFabricId: primaryFabric.ID().ToIDOutput().ToStringOutput(),
-//				TargetRecoveryFabricId: secondaryFabric.ID().ToIDOutput().ToStringOutput(),
+//				RecoveryVaultId:        vault.ID(),
+//				SourceRecoveryFabricId: primaryFabric.ID(),
+//				TargetRecoveryFabricId: secondaryFabric.ID(),
 //				ShutdownRecoveryGroup:  &siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs{},
 //				FailoverRecoveryGroup:  &siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs{},
 //				BootRecoveryGroups: siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArray{
 //					&siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs{
 //						ReplicatedProtectedItems: pulumi.StringArray{
-//							vm_replication.ID().ToIDOutput().ToStringOutput(),
+//							vm_replication.ID(),
 //						},
 //					},
 //				},

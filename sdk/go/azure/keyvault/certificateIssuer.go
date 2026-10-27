@@ -54,7 +54,7 @@ import (
 //			_, err = keyvault.NewCertificateIssuer(ctx, "example", &keyvault.CertificateIssuerArgs{
 //				Name:         pulumi.String("example-issuer"),
 //				OrgId:        pulumi.String("ExampleOrgName"),
-//				KeyVaultId:   exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:   exampleKeyVault.ID(),
 //				ProviderName: pulumi.String("DigiCert"),
 //				AccountId:    pulumi.String("0000"),
 //				Password:     pulumi.String("example-password"),

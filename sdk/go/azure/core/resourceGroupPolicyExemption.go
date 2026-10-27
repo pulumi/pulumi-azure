@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				ResourceGroupId:    exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupId:    exampleResourceGroup.ID(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
@@ -69,8 +69,8 @@ import (
 //			}
 //			_, err = core.NewResourceGroupPolicyExemption(ctx, "example", &core.ResourceGroupPolicyExemptionArgs{
 //				Name:               pulumi.String("exampleExemption"),
-//				ResourceGroupId:    exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
-//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})
 //			if err != nil {

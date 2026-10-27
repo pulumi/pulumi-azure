@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			example := pim.GetRoleAssignmentsOutput(ctx, pim.GetRoleAssignmentsOutputArgs{
-//				Scope: exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
+//				Scope: exampleResourceGroup.ID(),
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example pim.GetRoleAssignmentsResult) ([]pim.GetRoleAssignmentsRoleAssignment, error) {
 //				return example.RoleAssignments.([]pim.GetRoleAssignmentsRoleAssignment), nil

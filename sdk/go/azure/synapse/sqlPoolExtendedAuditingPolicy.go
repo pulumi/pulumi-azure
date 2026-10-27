@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				Identity: &synapse.WorkspaceIdentityArgs{
@@ -71,7 +71,7 @@ import (
 //			}
 //			exampleSqlPool, err := synapse.NewSqlPool(ctx, "example", &synapse.SqlPoolArgs{
 //				Name:               pulumi.String("examplesqlpool"),
-//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				SkuName:            pulumi.String("DW100c"),
 //				CreateMode:         pulumi.String("Default"),
 //			})
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = synapse.NewSqlPoolExtendedAuditingPolicy(ctx, "example", &synapse.SqlPoolExtendedAuditingPolicyArgs{
-//				SqlPoolId:                          exampleSqlPool.ID().ToIDOutput().ToStringOutput(),
+//				SqlPoolId:                          exampleSqlPool.ID(),
 //				StorageEndpoint:                    auditLogs.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            auditLogs.PrimaryAccessKey,
 //				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),

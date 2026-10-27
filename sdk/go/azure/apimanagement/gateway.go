@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
 //				Name:            pulumi.String("example-gateway"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
 //					Name:     pulumi.String("example name"),

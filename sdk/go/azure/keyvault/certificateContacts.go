@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				CertificatePermissions: pulumi.StringArray{
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewCertificateContacts(ctx, "example", &keyvault.CertificateContactsArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Contacts: keyvault.CertificateContactsContactArray{
 //					&keyvault.CertificateContactsContactArgs{
 //						Email: pulumi.String("example@example.com"),

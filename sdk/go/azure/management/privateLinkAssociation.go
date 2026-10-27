@@ -62,7 +62,7 @@ import (
 //			_, err = management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
 //				Name:                            exampleUuid.Result,
 //				ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-//				ResourceManagementPrivateLinkId: examplePrivateLink.ID().ToIDOutput().ToStringOutput(),
+//				ResourceManagementPrivateLinkId: examplePrivateLink.ID(),
 //				PublicNetworkAccessEnabled:      pulumi.Bool(true),
 //			})
 //			if err != nil {

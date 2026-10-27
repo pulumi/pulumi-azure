@@ -11,6 +11,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.mssql.getManagedDatabase({
+ *     name: "example",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     managedInstanceName: exampleAzurermMssqlManagedInstance.name,
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
@@ -75,6 +86,17 @@ export interface GetManagedDatabaseResult {
  * Use this data source to access information about an existing Azure SQL Azure Managed Database.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.mssql.getManagedDatabase({
+ *     name: "example",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     managedInstanceName: exampleAzurermMssqlManagedInstance.name,
+ * });
+ * ```
  *
  * ## API Providers
  *

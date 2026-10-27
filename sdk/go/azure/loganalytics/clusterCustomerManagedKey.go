@@ -91,7 +91,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("generated-certificate"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -107,8 +107,8 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewClusterCustomerManagedKey(ctx, "example", &loganalytics.ClusterCustomerManagedKeyArgs{
-//				LogAnalyticsClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultKeyId:         exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsClusterId: exampleCluster.ID(),
+//				KeyVaultKeyId:         exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

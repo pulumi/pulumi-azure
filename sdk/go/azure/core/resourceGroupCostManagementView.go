@@ -40,7 +40,7 @@ import (
 //				DisplayName:     pulumi.String("Cost View per Month"),
 //				ChartType:       pulumi.String("StackedColumn"),
 //				Accumulated:     pulumi.Bool(false),
-//				ResourceGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupId: example.ID(),
 //				ReportType:      pulumi.String("Usage"),
 //				Timeframe:       pulumi.String("MonthToDate"),
 //				Dataset: &core.ResourceGroupCostManagementViewDatasetArgs{

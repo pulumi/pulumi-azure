@@ -52,7 +52,7 @@ import (
 //				Name:                    pulumi.String("my-environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = containerapp.NewEnvironmentCustomDomain(ctx, "example", &containerapp.EnvironmentCustomDomainArgs{
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
 //				CertificatePassword:       pulumi.String("TestAcc"),
 //				DnsSuffix:                 pulumi.String("acceptancetest.contoso.com"),

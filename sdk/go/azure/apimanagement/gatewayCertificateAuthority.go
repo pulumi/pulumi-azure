@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleGateway, err := apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
 //				Name:            pulumi.String("example-gateway"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
 //					Name:     pulumi.String("example name"),
@@ -78,7 +78,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewGatewayCertificateAuthority(ctx, "example", &apimanagement.GatewayCertificateAuthorityArgs{
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId: exampleService.ID(),
 //				CertificateName: exampleCertificate.Name,
 //				GatewayName:     exampleGateway.Name,
 //				IsTrusted:       pulumi.Bool(true),

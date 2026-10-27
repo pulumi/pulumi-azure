@@ -65,7 +65,7 @@ import (
 //				Name:              pulumi.String("example-dms"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:          exampleSubnet.ID(),
 //				SkuName:           pulumi.String("Standard_1vCores"),
 //			})
 //			if err != nil {

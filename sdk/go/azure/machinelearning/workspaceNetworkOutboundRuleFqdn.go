@@ -77,9 +77,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
 //				ManagedNetwork: &machinelearning.WorkspaceManagedNetworkArgs{
 //					IsolationMode: pulumi.String("AllowOnlyApprovedOutbound"),
 //				},
@@ -92,7 +92,7 @@ import (
 //			}
 //			_, err = machinelearning.NewWorkspaceNetworkOutboundRuleFqdn(ctx, "example", &machinelearning.WorkspaceNetworkOutboundRuleFqdnArgs{
 //				Name:            pulumi.String("example-outboundrule"),
-//				WorkspaceId:     exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId:     exampleWorkspace.ID(),
 //				DestinationFqdn: pulumi.String("example.com"),
 //			})
 //			if err != nil {

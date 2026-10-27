@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = storage.NewLocalUser(ctx, "example", &storage.LocalUserArgs{
 //				Name:               pulumi.String("user1"),
-//				StorageAccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:   exampleAccount.ID(),
 //				SshKeyEnabled:      pulumi.Bool(true),
 //				SshPasswordEnabled: pulumi.Bool(true),
 //				HomeDirectory:      pulumi.String("example_path"),

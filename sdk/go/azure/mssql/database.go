@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:        pulumi.String("example-db"),
-//				ServerId:    exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:    exampleServer.ID(),
 //				Collation:   pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				LicenseType: pulumi.String("LicenseIncluded"),
 //				MaxSizeGb:   pulumi.Float64(2),
@@ -165,7 +165,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -180,7 +180,7 @@ import (
 //			}
 //			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:          pulumi.String("example-db"),
-//				ServerId:      exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:      exampleServer.ID(),
 //				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				LicenseType:   pulumi.String("LicenseIncluded"),
 //				MaxSizeGb:     pulumi.Float64(4),
@@ -194,10 +194,10 @@ import (
 //				Identity: &mssql.DatabaseIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
-//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
+//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID(),
 //			})
 //			if err != nil {
 //				return err

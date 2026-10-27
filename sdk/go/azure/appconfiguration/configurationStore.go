@@ -106,7 +106,7 @@ import (
 //				return err
 //			}
 //			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
 //				KeyPermissions: pulumi.StringArray{
@@ -122,7 +122,7 @@ import (
 //				return err
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -150,7 +150,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("exampleKVkey"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -180,11 +180,11 @@ import (
 //				Identity: &appconfiguration.ConfigurationStoreIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
 //				Encryption: &appconfiguration.ConfigurationStoreEncryptionArgs{
-//					KeyVaultKeyIdentifier: exampleKey.ID().ToIDOutput().ToStringOutput(),
+//					KeyVaultKeyIdentifier: exampleKey.ID(),
 //					IdentityClientId:      exampleUserAssignedIdentity.ClientId,
 //				},
 //				Replicas: appconfiguration.ConfigurationStoreReplicaArray{

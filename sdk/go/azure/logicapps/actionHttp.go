@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = logicapps.NewActionHttp(ctx, "example", &logicapps.ActionHttpArgs{
 //				Name:       pulumi.String("webhook"),
-//				LogicAppId: exampleWorkflow.ID().ToIDOutput().ToStringOutput(),
+//				LogicAppId: exampleWorkflow.ID(),
 //				Method:     pulumi.String("GET"),
 //				Uri:        pulumi.String("http://example.com/some-webhook"),
 //			})

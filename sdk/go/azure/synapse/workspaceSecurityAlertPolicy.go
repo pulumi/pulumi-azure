@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				AadAdmin: []map[string]string{
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			_, err = synapse.NewWorkspaceSecurityAlertPolicy(ctx, "example", &synapse.WorkspaceSecurityAlertPolicyArgs{
-//				SynapseWorkspaceId:      exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SynapseWorkspaceId:      exampleWorkspace.ID(),
 //				PolicyState:             pulumi.String("Enabled"),
 //				StorageEndpoint:         auditLogs.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey: auditLogs.PrimaryAccessKey,

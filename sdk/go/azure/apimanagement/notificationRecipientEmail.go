@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewNotificationRecipientEmail(ctx, "example", &apimanagement.NotificationRecipientEmailArgs{
-//				ApiManagementId:  exampleService.ID().ToIDOutput().ToStringOutput(),
+//				ApiManagementId:  exampleService.ID(),
 //				NotificationType: pulumi.String("AccountClosedPublisher"),
 //				Email:            pulumi.String("foo@bar.com"),
 //			})

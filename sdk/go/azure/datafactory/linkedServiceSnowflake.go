@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //			})
 //			if err != nil {
@@ -106,15 +106,15 @@ import (
 //			}
 //			exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "example", &datafactory.LinkedServiceKeyVaultArgs{
 //				Name:          pulumi.String("kvlink"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:    exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId: exampleFactory.ID(),
+//				KeyVaultId:    exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //				KeyVaultPassword: &datafactory.LinkedServiceSnowflakeKeyVaultPasswordArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,

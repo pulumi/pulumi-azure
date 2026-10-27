@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = iot.NewEndpointStorageContainer(ctx, "example", &iot.EndpointStorageContainerArgs{
 //				ResourceGroupName:       example.Name,
-//				IothubId:                exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
+//				IothubId:                exampleIoTHub.ID(),
 //				Name:                    pulumi.String("acctest"),
 //				ContainerName:           pulumi.String("acctestcont"),
 //				ConnectionString:        exampleAccount.PrimaryBlobConnectionString,

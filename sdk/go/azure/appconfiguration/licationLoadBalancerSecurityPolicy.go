@@ -67,9 +67,9 @@ import (
 //			}
 //			_, err = appconfiguration.NewLicationLoadBalancerSecurityPolicy(ctx, "example", &appconfiguration.LicationLoadBalancerSecurityPolicyArgs{
 //				Name:                           pulumi.String("example-albsp"),
-//				ApplicationLoadBalancerId:      exampleLicationLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationLoadBalancerId:      exampleLicationLoadBalancer.ID(),
 //				Location:                       example.Location,
-//				WebApplicationFirewallPolicyId: examplePolicy.ID().ToIDOutput().ToStringOutput(),
+//				WebApplicationFirewallPolicyId: examplePolicy.ID(),
 //			})
 //			if err != nil {
 //				return err

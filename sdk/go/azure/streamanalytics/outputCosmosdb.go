@@ -85,7 +85,7 @@ import (
 //				Name:                  pulumi.String("output-to-cosmosdb"),
 //				StreamAnalyticsJobId:  example.Id(),
 //				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
-//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
+//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
 //				ContainerName:         exampleSqlContainer.Name,
 //				DocumentId:            pulumi.String("exampledocumentid"),
 //			})

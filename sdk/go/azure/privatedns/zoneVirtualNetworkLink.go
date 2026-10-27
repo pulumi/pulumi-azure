@@ -59,7 +59,7 @@ import (
 //				Name:               pulumi.String("test"),
 //				ResourceGroupName:  example.Name,
 //				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err

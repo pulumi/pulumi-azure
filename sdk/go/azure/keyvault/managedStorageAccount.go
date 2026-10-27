@@ -84,8 +84,8 @@ import (
 //			}
 //			_, err = keyvault.NewManagedStorageAccount(ctx, "example", &keyvault.ManagedStorageAccountArgs{
 //				Name:                       pulumi.String("examplemanagedstorage"),
-//				KeyVaultId:                 exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:           exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:                 exampleKeyVault.ID(),
+//				StorageAccountId:           exampleAccount.ID(),
 //				StorageAccountKey:          pulumi.String("key1"),
 //				RegenerateKeyAutomatically: pulumi.Bool(false),
 //				RegenerationPeriod:         pulumi.String("P1D"),

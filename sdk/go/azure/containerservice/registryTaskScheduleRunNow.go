@@ -47,7 +47,7 @@ import (
 //			}
 //			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "example", &containerservice.RegistryTaskArgs{
 //				Name:                pulumi.String("example-task"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryId: exampleRegistry.ID(),
 //				Platform: &containerservice.RegistryTaskPlatformArgs{
 //					Os: pulumi.String("Linux"),
 //				},
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewRegistryTaskScheduleRunNow(ctx, "example", &containerservice.RegistryTaskScheduleRunNowArgs{
-//				ContainerRegistryTaskId: exampleRegistryTask.ID().ToIDOutput().ToStringOutput(),
+//				ContainerRegistryTaskId: exampleRegistryTask.ID(),
 //			})
 //			if err != nil {
 //				return err

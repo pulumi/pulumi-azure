@@ -80,7 +80,7 @@ import (
 //			_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
 //				TargetRedisCacheName:     example_primaryCache.Name,
 //				ResourceGroupName:        example_primaryCache.ResourceGroupName,
-//				LinkedRedisCacheId:       example_secondaryCache.ID().ToIDOutput().ToStringOutput(),
+//				LinkedRedisCacheId:       example_secondaryCache.ID(),
 //				LinkedRedisCacheLocation: example_secondaryCache.Location,
 //				ServerRole:               pulumi.String("Secondary"),
 //			})

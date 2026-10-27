@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewPostgresqlRole(ctx, "example", &cosmosdb.PostgresqlRoleArgs{
 //				Name:      pulumi.String("examplerole"),
-//				ClusterId: examplePostgresqlCluster.ID().ToIDOutput().ToStringOutput(),
+//				ClusterId: examplePostgresqlCluster.ID(),
 //				Password:  pulumi.String("H@Sh1CoR3!"),
 //			})
 //			if err != nil {

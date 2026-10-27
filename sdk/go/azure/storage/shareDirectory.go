@@ -49,7 +49,7 @@ import (
 //			}
 //			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
 //				Name:             pulumi.String("sharename"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID(),
 //				Quota:            pulumi.Int(50),
 //			})
 //			if err != nil {

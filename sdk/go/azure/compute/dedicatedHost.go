@@ -48,7 +48,7 @@ import (
 //			_, err = compute.NewDedicatedHost(ctx, "example", &compute.DedicatedHostArgs{
 //				Name:                 pulumi.String("example-host"),
 //				Location:             example.Location,
-//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID().ToIDOutput().ToStringOutput(),
+//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
 //				SkuName:              pulumi.String("DSv3-Type3"),
 //				PlatformFaultDomain:  pulumi.Int(1),
 //			})

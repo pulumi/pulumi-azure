@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = loganalytics.NewWorkspaceTableMicrosoft(ctx, "example", &loganalytics.WorkspaceTableMicrosoftArgs{
 //				Name:        pulumi.String("AppCenterError"),
-//				WorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
