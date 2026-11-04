@@ -743,6 +743,42 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return ManagedHardwareSecurityModule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hsm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_domain_encrypted_data: pulumi.Input[Optional[_builtins.str]] = None,
+            security_domain_key_vault_certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_domain_quorum: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminObjectIds"] = admin_object_ids
+        __props__["hsmUri"] = hsm_uri
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkAcls"] = network_acls
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["purgeProtectionEnabled"] = purge_protection_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["securityDomainEncryptedData"] = security_domain_encrypted_data
+        __props__["securityDomainKeyVaultCertificateIds"] = security_domain_key_vault_certificate_ids
+        __props__["securityDomainQuorum"] = security_domain_quorum
+        __props__["skuName"] = sku_name
+        __props__["softDeleteRetentionDays"] = soft_delete_retention_days
+        __props__["tags"] = tags
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminObjectIds")
     def admin_object_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

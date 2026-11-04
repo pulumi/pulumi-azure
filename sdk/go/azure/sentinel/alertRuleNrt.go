@@ -261,6 +261,12 @@ func (AlertRuleNrtState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleNrtState)(nil)).Elem()
 }
 
+// AlertRuleNrtExists checks whether an existing AlertRuleNrt resource with the given ID exists.
+func AlertRuleNrtExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleNrtState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleNrt:AlertRuleNrt", id, state, "", opts...)
+}
+
 type alertRuleNrtArgs struct {
 	// An `alertDetailsOverride` block as defined below.
 	AlertDetailsOverrides []AlertRuleNrtAlertDetailsOverride `pulumi:"alertDetailsOverrides"`

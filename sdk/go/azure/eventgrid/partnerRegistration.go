@@ -134,6 +134,12 @@ func (PartnerRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerRegistrationState)(nil)).Elem()
 }
 
+// PartnerRegistrationExists checks whether an existing PartnerRegistration resource with the given ID exists.
+func PartnerRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnerRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/partnerRegistration:PartnerRegistration", id, state, "", opts...)
+}
+
 type partnerRegistrationArgs struct {
 	// The name which should be used for this EventGrid Partner Registration. Changing this forces a new EventGrid Partner Registration to be created.
 	Name *string `pulumi:"name"`

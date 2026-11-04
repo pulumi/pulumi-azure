@@ -629,6 +629,30 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         __props__.__dict__["template_spec_version_id"] = template_spec_version_id
         return GroupTemplateDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            debug_level: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_content: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters_content: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_content: pulumi.Input[Optional[_builtins.str]] = None,
+            template_spec_version_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["debugLevel"] = debug_level
+        __props__["location"] = location
+        __props__["managementGroupId"] = management_group_id
+        __props__["name"] = name
+        __props__["outputContent"] = output_content
+        __props__["parametersContent"] = parameters_content
+        __props__["tags"] = tags
+        __props__["templateContent"] = template_content
+        __props__["templateSpecVersionId"] = template_spec_version_id
+        return pulumi.runtime.exists_resource(None, 'azure:management/groupTemplateDeployment:GroupTemplateDeployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="debugLevel")
     def debug_level(self) -> pulumi.Output[Optional[_builtins.str]]:

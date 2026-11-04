@@ -232,6 +232,12 @@ func (SubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionState)(nil)).Elem()
 }
 
+// SubscriptionExists checks whether an existing Subscription resource with the given ID exists.
+func SubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/subscription:Subscription", id, state, "", opts...)
+}
+
 type subscriptionArgs struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`

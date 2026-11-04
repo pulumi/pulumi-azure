@@ -268,6 +268,12 @@ func (PolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyState)(nil)).Elem()
 }
 
+// PolicyExists checks whether an existing Policy resource with the given ID exists.
+func PolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:waf/policy:Policy", id, state, "", opts...)
+}
+
 type policyArgs struct {
 	// One or more `customRules` blocks as defined below.
 	CustomRules []PolicyCustomRule `pulumi:"customRules"`

@@ -303,7 +303,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
         /// 
-        /// 
         /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 
         /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` must be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -609,7 +608,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
         /// 
-        /// 
         /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 
         /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` must be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -882,7 +880,6 @@ namespace Pulumi.Azure.Compute
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
-        /// 
         /// 
         /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 

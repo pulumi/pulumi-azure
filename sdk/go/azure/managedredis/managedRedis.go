@@ -323,6 +323,12 @@ func (ManagedRedisState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedRedisState)(nil)).Elem()
 }
 
+// ManagedRedisExists checks whether an existing ManagedRedis resource with the given ID exists.
+func ManagedRedisExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedRedisState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:managedredis/managedRedis:ManagedRedis", id, state, "", opts...)
+}
+
 type managedRedisArgs struct {
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *ManagedRedisCustomerManagedKey `pulumi:"customerManagedKey"`

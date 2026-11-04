@@ -201,6 +201,12 @@ func (BackupPolicyDataLakeStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyDataLakeStorageState)(nil)).Elem()
 }
 
+// BackupPolicyDataLakeStorageExists checks whether an existing BackupPolicyDataLakeStorage resource with the given ID exists.
+func BackupPolicyDataLakeStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyDataLakeStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage", id, state, "", opts...)
+}
+
 type backupPolicyDataLakeStorageArgs struct {
 	// Specifies a list of repeating time interval, also known as the backup schedule. It supports daily & weekly backup. It should follow [`ISO 8601` recurring time interval format](https://en.wikipedia.org/wiki/ISO_8601#Recurring_intervals), for example: `R/2021-05-23T02:30:00+00:00/P1W`. Changing this forces a new resource to be created.
 	BackupSchedules []string `pulumi:"backupSchedules"`

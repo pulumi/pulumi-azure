@@ -150,6 +150,12 @@ func (SyncState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncState)(nil)).Elem()
 }
 
+// SyncExists checks whether an existing Sync resource with the given ID exists.
+func SyncExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/sync:Sync", id, state, "", opts...)
+}
+
 type syncArgs struct {
 	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`

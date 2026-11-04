@@ -320,6 +320,12 @@ func (EnvironmentV3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentV3State)(nil)).Elem()
 }
 
+// EnvironmentV3Exists checks whether an existing EnvironmentV3 resource with the given ID exists.
+func EnvironmentV3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentV3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/environmentV3:EnvironmentV3", id, state, "", opts...)
+}
+
 type environmentV3Args struct {
 	// Should new Private Endpoint Connections be allowed. Defaults to `true`.
 	AllowNewPrivateEndpointConnections *bool `pulumi:"allowNewPrivateEndpointConnections"`

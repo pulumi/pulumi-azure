@@ -975,6 +975,48 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return BastionHost(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            copy_paste_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_copy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_configuration: pulumi.Input[Optional[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict', 'outputs.BastionHostIpConfiguration']]] = None,
+            ip_connect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_units: pulumi.Input[Optional[_builtins.int]] = None,
+            session_recording_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            shareable_link_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tunneling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["copyPasteEnabled"] = copy_paste_enabled
+        __props__["dnsName"] = dns_name
+        __props__["fileCopyEnabled"] = file_copy_enabled
+        __props__["ipConfiguration"] = ip_configuration
+        __props__["ipConnectEnabled"] = ip_connect_enabled
+        __props__["kerberosEnabled"] = kerberos_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateOnlyEnabled"] = private_only_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scaleUnits"] = scale_units
+        __props__["sessionRecordingEnabled"] = session_recording_enabled
+        __props__["shareableLinkEnabled"] = shareable_link_enabled
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["tunnelingEnabled"] = tunneling_enabled
+        __props__["virtualNetworkId"] = virtual_network_id
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:compute/bastionHost:BastionHost', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="copyPasteEnabled")
     def copy_paste_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

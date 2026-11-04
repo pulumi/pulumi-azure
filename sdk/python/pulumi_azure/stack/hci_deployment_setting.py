@@ -292,6 +292,20 @@ class HciDeploymentSetting(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return HciDeploymentSetting(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]]] = None,
+            stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arcResourceIds"] = arc_resource_ids
+        __props__["scaleUnits"] = scale_units
+        __props__["stackHciClusterId"] = stack_hci_cluster_id
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:stack/hciDeploymentSetting:HciDeploymentSetting', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="arcResourceIds")
     def arc_resource_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

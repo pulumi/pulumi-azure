@@ -191,6 +191,12 @@ func (DatasetSnowflakeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetSnowflakeState)(nil)).Elem()
 }
 
+// DatasetSnowflakeExists checks whether an existing DatasetSnowflake resource with the given ID exists.
+func DatasetSnowflakeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetSnowflakeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetSnowflake:DatasetSnowflake", id, state, "", opts...)
+}
+
 type datasetSnowflakeArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset Snowflake.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

@@ -421,6 +421,24 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         __props__.__dict__["self_signed"] = self_signed
         return LocalRulestackCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            self_signed: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auditComment"] = audit_comment
+        __props__["description"] = description
+        __props__["keyVaultCertificateId"] = key_vault_certificate_id
+        __props__["name"] = name
+        __props__["rulestackId"] = rulestack_id
+        __props__["selfSigned"] = self_signed
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/localRulestackCertificate:LocalRulestackCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="auditComment")
     def audit_comment(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -139,6 +139,12 @@ func (TagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagState)(nil)).Elem()
 }
 
+// TagExists checks whether an existing Tag resource with the given ID exists.
+func TagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/tag:Tag", id, state, "", opts...)
+}
+
 type tagArgs struct {
 	// The ID of the API Management. Changing this forces a new API Management Tag to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

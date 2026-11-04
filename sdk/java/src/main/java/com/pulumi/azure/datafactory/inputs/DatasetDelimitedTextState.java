@@ -177,14 +177,14 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The escape character. Defaults to `\`.
+     * The escape character. Defaults to `&#92;`.
      * 
      */
     @Import(name="escapeCharacter")
     private @Nullable Output<String> escapeCharacter;
 
     /**
-     * @return The escape character. Defaults to `\`.
+     * @return The escape character. Defaults to `&#92;`.
      * 
      */
     public Optional<Output<String>> escapeCharacter() {
@@ -316,14 +316,14 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
+     * The row delimiter. Defaults to any of the following values on read: `&#92;r&#92;n`, `&#92;r`, `&#92;n`, and `&#92;n` or `&#92;r&#92;n` on write by mapping data flow and Copy activity respectively.
      * 
      */
     @Import(name="rowDelimiter")
     private @Nullable Output<String> rowDelimiter;
 
     /**
-     * @return The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
+     * @return The row delimiter. Defaults to any of the following values on read: `&#92;r&#92;n`, `&#92;r`, `&#92;n`, and `&#92;n` or `&#92;r&#92;n` on write by mapping data flow and Copy activity respectively.
      * 
      */
     public Optional<Output<String>> rowDelimiter() {
@@ -614,7 +614,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param escapeCharacter The escape character. Defaults to `\`.
+         * @param escapeCharacter The escape character. Defaults to `&#92;`.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param escapeCharacter The escape character. Defaults to `\`.
+         * @param escapeCharacter The escape character. Defaults to `&#92;`.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param rowDelimiter The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
+         * @param rowDelimiter The row delimiter. Defaults to any of the following values on read: `&#92;r&#92;n`, `&#92;r`, `&#92;n`, and `&#92;n` or `&#92;r&#92;n` on write by mapping data flow and Copy activity respectively.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param rowDelimiter The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
+         * @param rowDelimiter The row delimiter. Defaults to any of the following values on read: `&#92;r&#92;n`, `&#92;r`, `&#92;n`, and `&#92;n` or `&#92;r&#92;n` on write by mapping data flow and Copy activity respectively.
          * 
          * @return builder
          * 

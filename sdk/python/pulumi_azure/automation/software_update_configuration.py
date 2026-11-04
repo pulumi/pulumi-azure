@@ -719,6 +719,38 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         __props__.__dict__["windows"] = windows
         return SoftwareUpdateConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.str]] = None,
+            error_code: pulumi.Input[Optional[_builtins.str]] = None,
+            error_message: pulumi.Input[Optional[_builtins.str]] = None,
+            linux: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict', 'outputs.SoftwareUpdateConfigurationLinux']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_azure_computer_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            post_task: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict', 'outputs.SoftwareUpdateConfigurationPostTask']]] = None,
+            pre_task: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict', 'outputs.SoftwareUpdateConfigurationPreTask']]] = None,
+            schedule: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict', 'outputs.SoftwareUpdateConfigurationSchedule']]] = None,
+            target: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict', 'outputs.SoftwareUpdateConfigurationTarget']]] = None,
+            virtual_machine_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            windows: pulumi.Input[Optional[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict', 'outputs.SoftwareUpdateConfigurationWindows']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountId"] = automation_account_id
+        __props__["duration"] = duration
+        __props__["errorCode"] = error_code
+        __props__["errorMessage"] = error_message
+        __props__["linux"] = linux
+        __props__["name"] = name
+        __props__["nonAzureComputerNames"] = non_azure_computer_names
+        __props__["postTask"] = post_task
+        __props__["preTask"] = pre_task
+        __props__["schedule"] = schedule
+        __props__["target"] = target
+        __props__["virtualMachineIds"] = virtual_machine_ids
+        __props__["windows"] = windows
+        return pulumi.runtime.exists_resource(None, 'azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountId")
     def automation_account_id(self) -> pulumi.Output[_builtins.str]:

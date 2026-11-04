@@ -868,6 +868,48 @@ class AutomaticCluster(pulumi.CustomResource):
         __props__.__dict__["web_app_routing_ingress"] = web_app_routing_ingress
         return AutomaticCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']]] = None,
+            current_kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']]] = None,
+            identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']]] = None,
+            kube_config_raw: pulumi.Input[Optional[_builtins.str]] = None,
+            kube_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomaticClusterKubeConfigArgs', 'AutomaticClusterKubeConfigArgsDict', 'outputs.AutomaticClusterKubeConfig']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oidc_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']]] = None,
+            private_fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiServerAccess"] = api_server_access
+        __props__["currentKubernetesVersion"] = current_kubernetes_version
+        __props__["fullyQualifiedDomainName"] = fully_qualified_domain_name
+        __props__["hostedSystem"] = hosted_system
+        __props__["identity"] = identity
+        __props__["kubeConfigRaw"] = kube_config_raw
+        __props__["kubeConfigs"] = kube_configs
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["nodeResourceGroupId"] = node_resource_group_id
+        __props__["oidcIssuerUrl"] = oidc_issuer_url
+        __props__["portalFullyQualifiedDomainName"] = portal_fully_qualified_domain_name
+        __props__["privateCluster"] = private_cluster
+        __props__["privateFullyQualifiedDomainName"] = private_fully_qualified_domain_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceMesh"] = service_mesh
+        __props__["tags"] = tags
+        __props__["webAppRoutingIngress"] = web_app_routing_ingress
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/automaticCluster:AutomaticCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiServerAccess")
     def api_server_access(self) -> pulumi.Output[Optional['outputs.AutomaticClusterApiServerAccess']]:

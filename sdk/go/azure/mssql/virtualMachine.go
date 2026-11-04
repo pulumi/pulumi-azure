@@ -231,6 +231,12 @@ func (VirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineState)(nil)).Elem()
 }
 
+// VirtualMachineExists checks whether an existing VirtualMachine resource with the given ID exists.
+func VirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/virtualMachine:VirtualMachine", id, state, "", opts...)
+}
+
 type virtualMachineArgs struct {
 	// An `assessment` block as defined below.
 	Assessment *VirtualMachineAssessment `pulumi:"assessment"`

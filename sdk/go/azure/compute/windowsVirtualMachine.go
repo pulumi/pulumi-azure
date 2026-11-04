@@ -667,6 +667,12 @@ func (WindowsVirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineState)(nil)).Elem()
 }
 
+// WindowsVirtualMachineExists checks whether an existing WindowsVirtualMachine resource with the given ID exists.
+func WindowsVirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsVirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/windowsVirtualMachine:WindowsVirtualMachine", id, state, "", opts...)
+}
+
 type windowsVirtualMachineArgs struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`

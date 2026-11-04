@@ -217,6 +217,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/application:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
 	ApplicationGroupId string `pulumi:"applicationGroupId"`

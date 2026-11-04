@@ -155,6 +155,12 @@ func (NamespaceSchemaGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceSchemaGroupState)(nil)).Elem()
 }
 
+// NamespaceSchemaGroupExists checks whether an existing NamespaceSchemaGroup resource with the given ID exists.
+func NamespaceSchemaGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceSchemaGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", id, state, "", opts...)
+}
+
 type namespaceSchemaGroupArgs struct {
 	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

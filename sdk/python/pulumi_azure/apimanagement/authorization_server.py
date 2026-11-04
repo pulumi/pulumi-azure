@@ -965,6 +965,50 @@ class AuthorizationServer(pulumi.CustomResource):
         __props__.__dict__["token_endpoint"] = token_endpoint
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            bearer_token_sending_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_registration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            default_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner_password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner_username: pulumi.Input[Optional[_builtins.str]] = None,
+            support_state: pulumi.Input[Optional[_builtins.bool]] = None,
+            token_body_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict', 'outputs.AuthorizationServerTokenBodyParameter']]]]] = None,
+            token_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["authorizationEndpoint"] = authorization_endpoint
+        __props__["authorizationMethods"] = authorization_methods
+        __props__["bearerTokenSendingMethods"] = bearer_token_sending_methods
+        __props__["clientAuthenticationMethods"] = client_authentication_methods
+        __props__["clientId"] = client_id
+        __props__["clientRegistrationEndpoint"] = client_registration_endpoint
+        __props__["clientSecret"] = client_secret
+        __props__["defaultScope"] = default_scope
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["grantTypes"] = grant_types
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["resourceOwnerPassword"] = resource_owner_password
+        __props__["resourceOwnerUsername"] = resource_owner_username
+        __props__["supportState"] = support_state
+        __props__["tokenBodyParameters"] = token_body_parameters
+        __props__["tokenEndpoint"] = token_endpoint
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/authorizationServer:AuthorizationServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

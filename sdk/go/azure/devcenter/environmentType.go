@@ -142,6 +142,12 @@ func (EnvironmentTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentTypeState)(nil)).Elem()
 }
 
+// EnvironmentTypeExists checks whether an existing EnvironmentType resource with the given ID exists.
+func EnvironmentTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/environmentType:EnvironmentType", id, state, "", opts...)
+}
+
 type environmentTypeArgs struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId string `pulumi:"devCenterId"`

@@ -212,6 +212,12 @@ func (AccountConnectionAccountManagedIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountConnectionAccountManagedIdentityState)(nil)).Elem()
 }
 
+// AccountConnectionAccountManagedIdentityExists checks whether an existing AccountConnectionAccountManagedIdentity resource with the given ID exists.
+func AccountConnectionAccountManagedIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountConnectionAccountManagedIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity", id, state, "", opts...)
+}
+
 type accountConnectionAccountManagedIdentityArgs struct {
 	// The category of the connection. Possible values are `AIServices`, `AzureKeyVault`, `AzureOpenAI`, and `AzureStorageAccount`. Changing this forces a new resource to be created.
 	//

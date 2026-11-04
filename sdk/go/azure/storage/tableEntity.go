@@ -157,6 +157,12 @@ func (TableEntityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableEntityState)(nil)).Elem()
 }
 
+// TableEntityExists checks whether an existing TableEntity resource with the given ID exists.
+func TableEntityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableEntityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/tableEntity:TableEntity", id, state, "", opts...)
+}
+
 type tableEntityArgs struct {
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity map[string]string `pulumi:"entity"`

@@ -498,6 +498,28 @@ class SavedSearch(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            function_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["displayName"] = display_name
+        __props__["functionAlias"] = function_alias
+        __props__["functionParameters"] = function_parameters
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/savedSearch:SavedSearch', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:

@@ -664,6 +664,30 @@ class Module(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Module(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["managementNetworkProfile"] = management_network_profile
+        __props__["name"] = name
+        __props__["networkProfile"] = network_profile
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["stampId"] = stamp_id
+        __props__["tags"] = tags
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:hsm/module:Module', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

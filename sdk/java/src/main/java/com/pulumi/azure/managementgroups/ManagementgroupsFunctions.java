@@ -59,11 +59,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static Output<GetManagementGroupResult> getManagementGroup() {
         return getManagementGroup(GetManagementGroupArgs.Empty, InvokeOptions.Empty);
     }
@@ -111,11 +110,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static CompletableFuture<GetManagementGroupResult> getManagementGroupPlain() {
         return getManagementGroupPlain(GetManagementGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
@@ -163,11 +161,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static Output<GetManagementGroupResult> getManagementGroup(GetManagementGroupArgs args) {
         return getManagementGroup(args, InvokeOptions.Empty);
     }
@@ -215,11 +212,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static CompletableFuture<GetManagementGroupResult> getManagementGroupPlain(GetManagementGroupPlainArgs args) {
         return getManagementGroupPlain(args, InvokeOptions.Empty);
     }
@@ -267,11 +263,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static Output<GetManagementGroupResult> getManagementGroup(GetManagementGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:managementgroups/getManagementGroup:getManagementGroup", TypeShape.of(GetManagementGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -319,11 +314,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static Output<GetManagementGroupResult> getManagementGroup(GetManagementGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:managementgroups/getManagementGroup:getManagementGroup", TypeShape.of(GetManagementGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -371,11 +365,10 @@ public final class ManagementgroupsFunctions {
      * 
      * * `Microsoft.Management` - 2020-05-01
      * 
-     * @deprecated
-     * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
+     * @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
      */
-    @Deprecated /* azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
+    @Deprecated
     public static CompletableFuture<GetManagementGroupResult> getManagementGroupPlain(GetManagementGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:managementgroups/getManagementGroup:getManagementGroup", TypeShape.of(GetManagementGroupResult.class), args, Utilities.withVersion(options));
     }

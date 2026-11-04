@@ -186,6 +186,12 @@ func (WorkspaceNetworkOutboundRuleFqdnState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceNetworkOutboundRuleFqdnState)(nil)).Elem()
 }
 
+// WorkspaceNetworkOutboundRuleFqdnExists checks whether an existing WorkspaceNetworkOutboundRuleFqdn resource with the given ID exists.
+func WorkspaceNetworkOutboundRuleFqdnExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceNetworkOutboundRuleFqdnState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn", id, state, "", opts...)
+}
+
 type workspaceNetworkOutboundRuleFqdnArgs struct {
 	// Specifies the fully qualified domain name to allow for outbound traffic.
 	DestinationFqdn string `pulumi:"destinationFqdn"`

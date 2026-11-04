@@ -38,11 +38,10 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String defaultLocalNetworkGatewayId;
     /**
-     * @deprecated
-     *  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
+     * @deprecated  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /*  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider */
+    @Deprecated
     private Boolean enableBgp;
     /**
      * @return The Generation of the Virtual Network Gateway.
@@ -133,11 +132,10 @@ public final class GetVirtualNetworkGatewayResult {
         return this.defaultLocalNetworkGatewayId;
     }
     /**
-     * @deprecated
-     *  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
+     * @deprecated  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /*  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider */
+    @Deprecated
     public Boolean enableBgp() {
         return this.enableBgp;
     }

@@ -209,6 +209,12 @@ func (AccountCostManagementExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountCostManagementExportState)(nil)).Elem()
 }
 
+// AccountCostManagementExportExists checks whether an existing AccountCostManagementExport resource with the given ID exists.
+func AccountCostManagementExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountCostManagementExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:billing/accountCostManagementExport:AccountCostManagementExport", id, state, "", opts...)
+}
+
 type accountCostManagementExportArgs struct {
 	// Is the cost management export active? Default is `true`.
 	Active *bool `pulumi:"active"`

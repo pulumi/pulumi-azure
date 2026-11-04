@@ -699,6 +699,34 @@ class Prefix(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Prefix(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            commissioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_advertising_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_custom_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            roa_validity_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wan_validation_signed_message: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidr"] = cidr
+        __props__["commissioningEnabled"] = commissioning_enabled
+        __props__["internetAdvertisingDisabled"] = internet_advertising_disabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["parentCustomIpPrefixId"] = parent_custom_ip_prefix_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["roaValidityEndDate"] = roa_validity_end_date
+        __props__["tags"] = tags
+        __props__["wanValidationSignedMessage"] = wan_validation_signed_message
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:customip/prefix:Prefix', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:

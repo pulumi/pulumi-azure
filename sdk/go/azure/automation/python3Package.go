@@ -181,6 +181,12 @@ func (Python3PackageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*python3PackageState)(nil)).Elem()
 }
 
+// Python3PackageExists checks whether an existing Python3Package resource with the given ID exists.
+func Python3PackageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Python3PackageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/python3Package:Python3Package", id, state, "", opts...)
+}
+
 type python3PackageArgs struct {
 	// The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

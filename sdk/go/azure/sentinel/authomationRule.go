@@ -220,6 +220,12 @@ func (AuthomationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authomationRuleState)(nil)).Elem()
 }
 
+// AuthomationRuleExists checks whether an existing AuthomationRule resource with the given ID exists.
+func AuthomationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthomationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/authomationRule:AuthomationRule", id, state, "", opts...)
+}
+
 type authomationRuleArgs struct {
 	// One or more `actionIncidentTask` blocks as defined below.
 	ActionIncidentTasks []AuthomationRuleActionIncidentTask `pulumi:"actionIncidentTasks"`

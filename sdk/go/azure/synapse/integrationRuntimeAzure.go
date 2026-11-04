@@ -196,6 +196,12 @@ func (IntegrationRuntimeAzureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeAzureState)(nil)).Elem()
 }
 
+// IntegrationRuntimeAzureExists checks whether an existing IntegrationRuntimeAzure resource with the given ID exists.
+func IntegrationRuntimeAzureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationRuntimeAzureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", id, state, "", opts...)
+}
+
 type integrationRuntimeAzureArgs struct {
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType *string `pulumi:"computeType"`

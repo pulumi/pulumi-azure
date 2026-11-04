@@ -365,11 +365,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kind);
     }
     /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> localAuthenticationDisabled;
 
@@ -397,11 +396,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedHsmKeyId;
 

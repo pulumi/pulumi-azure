@@ -227,6 +227,12 @@ func (OutputTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputTableState)(nil)).Elem()
 }
 
+// OutputTableExists checks whether an existing OutputTable resource with the given ID exists.
+func OutputTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputTable:OutputTable", id, state, "", opts...)
+}
+
 type outputTableArgs struct {
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize int `pulumi:"batchSize"`

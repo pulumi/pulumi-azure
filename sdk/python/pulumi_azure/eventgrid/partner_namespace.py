@@ -549,6 +549,32 @@ class PartnerNamespace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return PartnerNamespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_topic_routing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpoint"] = endpoint
+        __props__["inboundIpRules"] = inbound_ip_rules
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["partnerRegistrationId"] = partner_registration_id
+        __props__["partnerTopicRoutingMode"] = partner_topic_routing_mode
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/partnerNamespace:PartnerNamespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:

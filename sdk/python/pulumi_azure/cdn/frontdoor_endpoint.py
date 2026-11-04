@@ -355,6 +355,22 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return FrontdoorEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cdnFrontdoorProfileId"] = cdn_frontdoor_profile_id
+        __props__["enabled"] = enabled
+        __props__["hostName"] = host_name
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorEndpoint:FrontdoorEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[_builtins.str]:

@@ -20,20 +20,18 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
     public static final VirtualMachineAutoBackupArgs Empty = new VirtualMachineAutoBackupArgs();
 
     /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+     * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+    @Deprecated
     @Import(name="encryptionEnabled")
     private @Nullable Output<Boolean> encryptionEnabled;
 
     /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+     * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+    @Deprecated
     public Optional<Output<Boolean>> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }
@@ -161,11 +159,10 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         /**
          * @return builder
          * 
-         * @deprecated
-         * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+         * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
          * 
          */
-        @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+        @Deprecated
         public Builder encryptionEnabled(@Nullable Output<Boolean> encryptionEnabled) {
             $.encryptionEnabled = encryptionEnabled;
             return this;
@@ -174,11 +171,10 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         /**
          * @return builder
          * 
-         * @deprecated
-         * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+         * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
          * 
          */
-        @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+        @Deprecated
         public Builder encryptionEnabled(Boolean encryptionEnabled) {
             return encryptionEnabled(Output.of(encryptionEnabled));
         }

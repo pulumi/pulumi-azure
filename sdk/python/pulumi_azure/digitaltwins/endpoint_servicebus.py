@@ -404,6 +404,22 @@ class EndpointServicebus(pulumi.CustomResource):
         __props__.__dict__["servicebus_secondary_connection_string"] = servicebus_secondary_connection_string
         return EndpointServicebus(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dead_letter_storage_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            servicebus_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            servicebus_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deadLetterStorageSecret"] = dead_letter_storage_secret
+        __props__["digitalTwinsId"] = digital_twins_id
+        __props__["name"] = name
+        __props__["servicebusPrimaryConnectionString"] = servicebus_primary_connection_string
+        __props__["servicebusSecondaryConnectionString"] = servicebus_secondary_connection_string
+        return pulumi.runtime.exists_resource(None, 'azure:digitaltwins/endpointServicebus:EndpointServicebus', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deadLetterStorageSecret")
     def dead_letter_storage_secret(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -875,6 +875,38 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return Extension(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings_from_key_vault: pulumi.Input[Optional[Union['ExtensionProtectedSettingsFromKeyVaultArgs', 'ExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.ExtensionProtectedSettingsFromKeyVault']]] = None,
+            provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoUpgradeMinorVersion"] = auto_upgrade_minor_version
+        __props__["automaticUpgradeEnabled"] = automatic_upgrade_enabled
+        __props__["failureSuppressionEnabled"] = failure_suppression_enabled
+        __props__["name"] = name
+        __props__["protectedSettings"] = protected_settings
+        __props__["protectedSettingsFromKeyVault"] = protected_settings_from_key_vault
+        __props__["provisionAfterExtensions"] = provision_after_extensions
+        __props__["publisher"] = publisher
+        __props__["settings"] = settings
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["typeHandlerVersion"] = type_handler_version
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:compute/extension:Extension', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
     def auto_upgrade_minor_version(self) -> pulumi.Output[Optional[_builtins.bool]]:

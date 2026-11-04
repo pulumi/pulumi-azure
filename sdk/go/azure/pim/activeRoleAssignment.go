@@ -250,6 +250,12 @@ func (ActiveRoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeRoleAssignmentState)(nil)).Elem()
 }
 
+// ActiveRoleAssignmentExists checks whether an existing ActiveRoleAssignment resource with the given ID exists.
+func ActiveRoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActiveRoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:pim/activeRoleAssignment:ActiveRoleAssignment", id, state, "", opts...)
+}
+
 type activeRoleAssignmentArgs struct {
 	// The justification for the role assignment. Changing this forces a new resource to be created.
 	Justification *string `pulumi:"justification"`

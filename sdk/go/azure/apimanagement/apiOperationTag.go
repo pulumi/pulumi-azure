@@ -158,6 +158,12 @@ func (ApiOperationTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiOperationTagState)(nil)).Elem()
 }
 
+// ApiOperationTagExists checks whether an existing ApiOperationTag resource with the given ID exists.
+func ApiOperationTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiOperationTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiOperationTag:ApiOperationTag", id, state, "", opts...)
+}
+
 type apiOperationTagArgs struct {
 	// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
 	ApiOperationId string `pulumi:"apiOperationId"`

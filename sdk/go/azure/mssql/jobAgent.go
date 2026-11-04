@@ -167,6 +167,12 @@ func (JobAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobAgentState)(nil)).Elem()
 }
 
+// JobAgentExists checks whether an existing JobAgent resource with the given ID exists.
+func JobAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/jobAgent:JobAgent", id, state, "", opts...)
+}
+
 type jobAgentArgs struct {
 	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId string `pulumi:"databaseId"`

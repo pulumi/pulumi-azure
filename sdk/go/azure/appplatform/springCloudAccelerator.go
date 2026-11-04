@@ -128,6 +128,12 @@ func (SpringCloudAcceleratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudAcceleratorState)(nil)).Elem()
 }
 
+// SpringCloudAcceleratorExists checks whether an existing SpringCloudAccelerator resource with the given ID exists.
+func SpringCloudAcceleratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAcceleratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudAccelerator:SpringCloudAccelerator", id, state, "", opts...)
+}
+
 type springCloudAcceleratorArgs struct {
 	// The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`

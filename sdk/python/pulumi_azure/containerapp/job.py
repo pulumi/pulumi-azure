@@ -905,6 +905,46 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["workload_profile_name"] = workload_profile_name
         return Job(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            event_stream_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            event_trigger_config: pulumi.Input[Optional[Union['JobEventTriggerConfigArgs', 'JobEventTriggerConfigArgsDict', 'outputs.JobEventTriggerConfig']]] = None,
+            identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_trigger_config: pulumi.Input[Optional[Union['JobManualTriggerConfigArgs', 'JobManualTriggerConfigArgsDict', 'outputs.JobManualTriggerConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobRegistryArgs', 'JobRegistryArgsDict', 'outputs.JobRegistry']]]]] = None,
+            replica_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            replica_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_trigger_config: pulumi.Input[Optional[Union['JobScheduleTriggerConfigArgs', 'JobScheduleTriggerConfigArgsDict', 'outputs.JobScheduleTriggerConfig']]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobSecretArgs', 'JobSecretArgsDict', 'outputs.JobSecret']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[Union['JobTemplateArgs', 'JobTemplateArgsDict', 'outputs.JobTemplate']]] = None,
+            workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["eventStreamEndpoint"] = event_stream_endpoint
+        __props__["eventTriggerConfig"] = event_trigger_config
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["manualTriggerConfig"] = manual_trigger_config
+        __props__["name"] = name
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["registries"] = registries
+        __props__["replicaRetryLimit"] = replica_retry_limit
+        __props__["replicaTimeoutInSeconds"] = replica_timeout_in_seconds
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scheduleTriggerConfig"] = schedule_trigger_config
+        __props__["secrets"] = secrets
+        __props__["tags"] = tags
+        __props__["template"] = template
+        __props__["workloadProfileName"] = workload_profile_name
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/job:Job', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
     def container_app_environment_id(self) -> pulumi.Output[_builtins.str]:

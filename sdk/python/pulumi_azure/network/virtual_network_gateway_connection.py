@@ -1489,6 +1489,64 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["virtual_network_gateway_id"] = virtual_network_gateway_id
         return VirtualNetworkGatewayConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict', 'outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']]] = None,
+            dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
+            express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
+            ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipsec_policy: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionIpsecPolicyArgs', 'VirtualNetworkGatewayConnectionIpsecPolicyArgsDict', 'outputs.VirtualNetworkGatewayConnectionIpsecPolicy']]] = None,
+            local_azure_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_virtual_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
+            shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_selector_policy: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs', 'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgsDict', 'outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_policy_based_traffic_selectors: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizationKey"] = authorization_key
+        __props__["bgpEnabled"] = bgp_enabled
+        __props__["connectionMode"] = connection_mode
+        __props__["connectionProtocol"] = connection_protocol
+        __props__["customBgpAddresses"] = custom_bgp_addresses
+        __props__["dpdTimeoutSeconds"] = dpd_timeout_seconds
+        __props__["egressNatRuleIds"] = egress_nat_rule_ids
+        __props__["enableBgp"] = enable_bgp
+        __props__["expressRouteCircuitId"] = express_route_circuit_id
+        __props__["expressRouteGatewayBypass"] = express_route_gateway_bypass
+        __props__["ingressNatRuleIds"] = ingress_nat_rule_ids
+        __props__["ipsecPolicy"] = ipsec_policy
+        __props__["localAzureIpAddressEnabled"] = local_azure_ip_address_enabled
+        __props__["localNetworkGatewayId"] = local_network_gateway_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["peerVirtualNetworkGatewayId"] = peer_virtual_network_gateway_id
+        __props__["privateLinkFastPathEnabled"] = private_link_fast_path_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routingWeight"] = routing_weight
+        __props__["sharedKey"] = shared_key
+        __props__["tags"] = tags
+        __props__["trafficSelectorPolicy"] = traffic_selector_policy
+        __props__["type"] = type
+        __props__["usePolicyBasedTrafficSelectors"] = use_policy_based_traffic_selectors
+        __props__["virtualNetworkGatewayId"] = virtual_network_gateway_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
     def authorization_key(self) -> pulumi.Output[Optional[_builtins.str]]:

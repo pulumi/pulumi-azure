@@ -202,6 +202,12 @@ func (RegistryWebookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebookState)(nil)).Elem()
 }
 
+// RegistryWebookExists checks whether an existing RegistryWebook resource with the given ID exists.
+func RegistryWebookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryWebookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryWebook:RegistryWebook", id, state, "", opts...)
+}
+
 type registryWebookArgs struct {
 	// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
 	Actions []string `pulumi:"actions"`

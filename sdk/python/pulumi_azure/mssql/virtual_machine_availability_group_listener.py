@@ -561,6 +561,26 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         __props__.__dict__["sql_virtual_machine_group_id"] = sql_virtual_machine_group_id
         return VirtualMachineAvailabilityGroupListener(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_configuration: pulumi.Input[Optional[Union['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs', 'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgsDict', 'outputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration']]] = None,
+            multi_subnet_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs', 'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgsDict', 'outputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineAvailabilityGroupListenerReplicaArgs', 'VirtualMachineAvailabilityGroupListenerReplicaArgsDict', 'outputs.VirtualMachineAvailabilityGroupListenerReplica']]]]] = None,
+            sql_virtual_machine_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityGroupName"] = availability_group_name
+        __props__["loadBalancerConfiguration"] = load_balancer_configuration
+        __props__["multiSubnetIpConfigurations"] = multi_subnet_ip_configurations
+        __props__["name"] = name
+        __props__["port"] = port
+        __props__["replicas"] = replicas
+        __props__["sqlVirtualMachineGroupId"] = sql_virtual_machine_group_id
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityGroupName")
     def availability_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:

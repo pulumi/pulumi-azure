@@ -173,6 +173,12 @@ func (CacheAccessPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheAccessPolicyAssignmentState)(nil)).Elem()
 }
 
+// CacheAccessPolicyAssignmentExists checks whether an existing CacheAccessPolicyAssignment resource with the given ID exists.
+func CacheAccessPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheAccessPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment", id, state, "", opts...)
+}
+
 type cacheAccessPolicyAssignmentArgs struct {
 	// The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	AccessPolicyName string `pulumi:"accessPolicyName"`

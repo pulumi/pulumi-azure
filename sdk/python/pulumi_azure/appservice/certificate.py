@@ -706,6 +706,46 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hosting_environment_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            issue_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            pfx_blob: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServicePlanId"] = app_service_plan_id
+        __props__["expirationDate"] = expiration_date
+        __props__["friendlyName"] = friendly_name
+        __props__["hostNames"] = host_names
+        __props__["hostingEnvironmentProfileId"] = hosting_environment_profile_id
+        __props__["issueDate"] = issue_date
+        __props__["issuer"] = issuer
+        __props__["keyVaultId"] = key_vault_id
+        __props__["keyVaultSecretId"] = key_vault_secret_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["pfxBlob"] = pfx_blob
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subjectName"] = subject_name
+        __props__["tags"] = tags
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> pulumi.Output[Optional[_builtins.str]]:

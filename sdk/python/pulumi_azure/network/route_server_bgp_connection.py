@@ -381,6 +381,20 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         __props__.__dict__["route_server_id"] = route_server_id
         return RouteServerBgpConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            route_server_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["peerAsn"] = peer_asn
+        __props__["peerIp"] = peer_ip
+        __props__["routeServerId"] = route_server_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/routeServerBgpConnection:RouteServerBgpConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

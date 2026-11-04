@@ -1090,6 +1090,56 @@ class HBaseCluster(pulumi.CustomResource):
         __props__.__dict__["tls_min_version"] = tls_min_version
         return HBaseCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+            component_version: pulumi.Input[Optional[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict', 'outputs.HBaseClusterComponentVersion']]] = None,
+            compute_isolation: pulumi.Input[Optional[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict', 'outputs.HBaseClusterComputeIsolation']]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict', 'outputs.HBaseClusterDiskEncryption']]]]] = None,
+            extension: pulumi.Input[Optional[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict', 'outputs.HBaseClusterExtension']]] = None,
+            gateway: pulumi.Input[Optional[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict', 'outputs.HBaseClusterGateway']]] = None,
+            https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metastores: pulumi.Input[Optional[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict', 'outputs.HBaseClusterMetastores']]] = None,
+            monitor: pulumi.Input[Optional[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict', 'outputs.HBaseClusterMonitor']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict', 'outputs.HBaseClusterNetwork']]] = None,
+            private_link_configuration: pulumi.Input[Optional[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict', 'outputs.HBaseClusterPrivateLinkConfiguration']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict', 'outputs.HBaseClusterRoles']]] = None,
+            security_profile: pulumi.Input[Optional[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict', 'outputs.HBaseClusterSecurityProfile']]] = None,
+            ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_gen2: pulumi.Input[Optional[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict', 'outputs.HBaseClusterStorageAccountGen2']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict', 'outputs.HBaseClusterStorageAccount']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_min_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterVersion"] = cluster_version
+        __props__["componentVersion"] = component_version
+        __props__["computeIsolation"] = compute_isolation
+        __props__["diskEncryptions"] = disk_encryptions
+        __props__["extension"] = extension
+        __props__["gateway"] = gateway
+        __props__["httpsEndpoint"] = https_endpoint
+        __props__["location"] = location
+        __props__["metastores"] = metastores
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["network"] = network
+        __props__["privateLinkConfiguration"] = private_link_configuration
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["roles"] = roles
+        __props__["securityProfile"] = security_profile
+        __props__["sshEndpoint"] = ssh_endpoint
+        __props__["storageAccountGen2"] = storage_account_gen2
+        __props__["storageAccounts"] = storage_accounts
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        __props__["tlsMinVersion"] = tls_min_version
+        return pulumi.runtime.exists_resource(None, 'azure:hdinsight/hBaseCluster:HBaseCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> pulumi.Output[_builtins.str]:

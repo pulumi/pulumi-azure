@@ -751,6 +751,38 @@ class GremlinGraph(pulumi.CustomResource):
         __props__.__dict__["unique_keys"] = unique_keys
         return GremlinGraph(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['GremlinGraphAutoscaleSettingsArgs', 'GremlinGraphAutoscaleSettingsArgsDict', 'outputs.GremlinGraphAutoscaleSettings']]] = None,
+            conflict_resolution_policy: pulumi.Input[Optional[Union['GremlinGraphConflictResolutionPolicyArgs', 'GremlinGraphConflictResolutionPolicyArgsDict', 'outputs.GremlinGraphConflictResolutionPolicy']]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            index_policy: pulumi.Input[Optional[Union['GremlinGraphIndexPolicyArgs', 'GremlinGraphIndexPolicyArgsDict', 'outputs.GremlinGraphIndexPolicy']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GremlinGraphUniqueKeyArgs', 'GremlinGraphUniqueKeyArgsDict', 'outputs.GremlinGraphUniqueKey']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["analyticalStorageTtl"] = analytical_storage_ttl
+        __props__["autoscaleSettings"] = autoscale_settings
+        __props__["conflictResolutionPolicy"] = conflict_resolution_policy
+        __props__["databaseName"] = database_name
+        __props__["defaultTtl"] = default_ttl
+        __props__["indexPolicy"] = index_policy
+        __props__["name"] = name
+        __props__["partitionKeyPath"] = partition_key_path
+        __props__["partitionKeyVersion"] = partition_key_version
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["throughput"] = throughput
+        __props__["uniqueKeys"] = unique_keys
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/gremlinGraph:GremlinGraph', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

@@ -216,6 +216,12 @@ func (FileUploadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileUploadState)(nil)).Elem()
 }
 
+// FileUploadExists checks whether an existing FileUpload resource with the given ID exists.
+func FileUploadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileUploadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/fileUpload:FileUpload", id, state, "", opts...)
+}
+
 type fileUploadArgs struct {
 	// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

@@ -457,6 +457,26 @@ class VirtualMachineGroup(pulumi.CustomResource):
         __props__.__dict__["wsfc_domain_profile"] = wsfc_domain_profile
         return VirtualMachineGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sqlImageOffer"] = sql_image_offer
+        __props__["sqlImageSku"] = sql_image_sku
+        __props__["tags"] = tags
+        __props__["wsfcDomainProfile"] = wsfc_domain_profile
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/virtualMachineGroup:VirtualMachineGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

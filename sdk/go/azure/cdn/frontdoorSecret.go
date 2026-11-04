@@ -111,6 +111,12 @@ func (FrontdoorSecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorSecretState)(nil)).Elem()
 }
 
+// FrontdoorSecretExists checks whether an existing FrontdoorSecret resource with the given ID exists.
+func FrontdoorSecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorSecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorSecret:FrontdoorSecret", id, state, "", opts...)
+}
+
 type frontdoorSecretArgs struct {
 	// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

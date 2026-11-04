@@ -138,7 +138,7 @@ namespace Pulumi.Azure.MySql
     public partial class FlexibleServerFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `StartIpAddress` and `EndIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `StartIpAddress` and `EndIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `StartIpAddress` and `EndIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>

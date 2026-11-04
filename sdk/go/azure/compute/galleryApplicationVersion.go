@@ -251,6 +251,12 @@ func (GalleryApplicationVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryApplicationVersionState)(nil)).Elem()
 }
 
+// GalleryApplicationVersionExists checks whether an existing GalleryApplicationVersion resource with the given ID exists.
+func GalleryApplicationVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GalleryApplicationVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/galleryApplicationVersion:GalleryApplicationVersion", id, state, "", opts...)
+}
+
 type galleryApplicationVersionArgs struct {
 	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
 	ConfigFile *string `pulumi:"configFile"`

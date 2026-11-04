@@ -307,6 +307,12 @@ func (BastionHostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bastionHostState)(nil)).Elem()
 }
 
+// BastionHostExists checks whether an existing BastionHost resource with the given ID exists.
+func BastionHostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BastionHostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/bastionHost:BastionHost", id, state, "", opts...)
+}
+
 type bastionHostArgs struct {
 	// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
 	CopyPasteEnabled *bool `pulumi:"copyPasteEnabled"`

@@ -325,6 +325,12 @@ func (GroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupState)(nil)).Elem()
 }
 
+// GroupExists checks whether an existing Group resource with the given ID exists.
+func GroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/group:Group", id, state, "", opts...)
+}
+
 type groupArgs struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers []GroupContainer `pulumi:"containers"`

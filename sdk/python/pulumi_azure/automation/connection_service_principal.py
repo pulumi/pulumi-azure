@@ -506,6 +506,28 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return ConnectionServicePrincipal(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["automationAccountName"] = automation_account_name
+        __props__["certificateThumbprint"] = certificate_thumbprint
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subscriptionId"] = subscription_id
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:automation/connectionServicePrincipal:ConnectionServicePrincipal', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

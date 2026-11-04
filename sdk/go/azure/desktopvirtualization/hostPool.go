@@ -247,6 +247,12 @@ func (HostPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostPoolState)(nil)).Elem()
 }
 
+// HostPoolExists checks whether an existing HostPool resource with the given ID exists.
+func HostPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HostPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/hostPool:HostPool", id, state, "", opts...)
+}
+
 type hostPoolArgs struct {
 	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties *string `pulumi:"customRdpProperties"`

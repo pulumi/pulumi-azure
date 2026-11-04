@@ -177,6 +177,12 @@ func (SubnetServiceEndpointStoragePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetServiceEndpointStoragePolicyState)(nil)).Elem()
 }
 
+// SubnetServiceEndpointStoragePolicyExists checks whether an existing SubnetServiceEndpointStoragePolicy resource with the given ID exists.
+func SubnetServiceEndpointStoragePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetServiceEndpointStoragePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy", id, state, "", opts...)
+}
+
 type subnetServiceEndpointStoragePolicyArgs struct {
 	// A `definition` block as defined below
 	Definitions []SubnetServiceEndpointStoragePolicyDefinition `pulumi:"definitions"`

@@ -17,20 +17,18 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+     * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
      * 
      */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+    @Deprecated
     @Import(name="keySource")
     private @Nullable Output<String> keySource;
 
     /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+     * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
      * 
      */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+    @Deprecated
     public Optional<Output<String>> keySource() {
         return Optional.ofNullable(this.keySource);
     }
@@ -94,11 +92,10 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         /**
          * @return builder
          * 
-         * @deprecated
-         * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+         * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
          * 
          */
-        @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+        @Deprecated
         public Builder keySource(@Nullable Output<String> keySource) {
             $.keySource = keySource;
             return this;
@@ -107,11 +104,10 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         /**
          * @return builder
          * 
-         * @deprecated
-         * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+         * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
          * 
          */
-        @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+        @Deprecated
         public Builder keySource(String keySource) {
             return keySource(Output.of(keySource));
         }

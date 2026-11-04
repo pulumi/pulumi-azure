@@ -1119,6 +1119,58 @@ class MongoCluster(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return MongoCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict', 'outputs.MongoClusterConnectionString']]]]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
+            data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            source_location: pulumi.Input[Optional[_builtins.str]] = None,
+            source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorPassword"] = administrator_password
+        __props__["administratorUsername"] = administrator_username
+        __props__["authenticationMethods"] = authentication_methods
+        __props__["computeTier"] = compute_tier
+        __props__["connectionStrings"] = connection_strings
+        __props__["createMode"] = create_mode
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["dataApiModeEnabled"] = data_api_mode_enabled
+        __props__["highAvailabilityMode"] = high_availability_mode
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["previewFeatures"] = preview_features
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["restore"] = restore
+        __props__["shardCount"] = shard_count
+        __props__["sourceLocation"] = source_location
+        __props__["sourceServerId"] = source_server_id
+        __props__["storageSizeInGb"] = storage_size_in_gb
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/mongoCluster:MongoCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
     def administrator_password(self) -> pulumi.Output[Optional[_builtins.str]]:

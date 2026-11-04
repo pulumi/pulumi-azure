@@ -778,6 +778,42 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_option: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']]] = None,
+            incremental_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createOption"] = create_option
+        __props__["diskAccessId"] = disk_access_id
+        __props__["diskSizeGb"] = disk_size_gb
+        __props__["encryptionSettings"] = encryption_settings
+        __props__["incrementalEnabled"] = incremental_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkAccessPolicy"] = network_access_policy
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceResourceId"] = source_resource_id
+        __props__["sourceUri"] = source_uri
+        __props__["storageAccountId"] = storage_account_id
+        __props__["tags"] = tags
+        __props__["trustedLaunchEnabled"] = trusted_launch_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:compute/snapshot:Snapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Output[_builtins.str]:

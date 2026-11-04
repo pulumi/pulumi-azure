@@ -158,6 +158,12 @@ func (CustomProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customProviderState)(nil)).Elem()
 }
 
+// CustomProviderExists checks whether an existing CustomProvider resource with the given ID exists.
+func CustomProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/customProvider:CustomProvider", id, state, "", opts...)
+}
+
 type customProviderArgs struct {
 	// Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
 	Actions []CustomProviderAction `pulumi:"actions"`

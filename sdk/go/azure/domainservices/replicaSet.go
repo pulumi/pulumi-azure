@@ -431,6 +431,12 @@ func (ReplicaSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicaSetState)(nil)).Elem()
 }
 
+// ReplicaSetExists checks whether an existing ReplicaSet resource with the given ID exists.
+func ReplicaSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicaSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:domainservices/replicaSet:ReplicaSet", id, state, "", opts...)
+}
+
 type replicaSetArgs struct {
 	// The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
 	DomainServiceId string `pulumi:"domainServiceId"`

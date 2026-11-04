@@ -198,6 +198,12 @@ func (ChannelSlackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelSlackState)(nil)).Elem()
 }
 
+// ChannelSlackExists checks whether an existing ChannelSlack resource with the given ID exists.
+func ChannelSlackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelSlackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelSlack:ChannelSlack", id, state, "", opts...)
+}
+
 type channelSlackArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

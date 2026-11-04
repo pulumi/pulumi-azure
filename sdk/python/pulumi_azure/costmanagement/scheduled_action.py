@@ -728,6 +728,40 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["weeks_of_months"] = weeks_of_months
         return ScheduledAction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            day_of_month: pulumi.Input[Optional[_builtins.int]] = None,
+            days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address_sender: pulumi.Input[Optional[_builtins.str]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            hour_of_day: pulumi.Input[Optional[_builtins.int]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            view_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dayOfMonth"] = day_of_month
+        __props__["daysOfWeeks"] = days_of_weeks
+        __props__["displayName"] = display_name
+        __props__["emailAddressSender"] = email_address_sender
+        __props__["emailAddresses"] = email_addresses
+        __props__["emailSubject"] = email_subject
+        __props__["endDate"] = end_date
+        __props__["frequency"] = frequency
+        __props__["hourOfDay"] = hour_of_day
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["startDate"] = start_date
+        __props__["viewId"] = view_id
+        __props__["weeksOfMonths"] = weeks_of_months
+        return pulumi.runtime.exists_resource(None, 'azure:costmanagement/scheduledAction:ScheduledAction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> pulumi.Output[Optional[_builtins.int]]:

@@ -227,6 +227,12 @@ func (CertificateBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateBindingState)(nil)).Elem()
 }
 
+// CertificateBindingExists checks whether an existing CertificateBinding resource with the given ID exists.
+func CertificateBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/certificateBinding:CertificateBinding", id, state, "", opts...)
+}
+
 type certificateBindingArgs struct {
 	// The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
 	CertificateId string `pulumi:"certificateId"`

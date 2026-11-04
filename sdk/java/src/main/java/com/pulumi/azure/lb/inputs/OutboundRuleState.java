@@ -50,20 +50,18 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
@@ -235,11 +233,10 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
@@ -248,11 +245,10 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }

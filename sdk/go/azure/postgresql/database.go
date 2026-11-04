@@ -173,6 +173,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/database:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
 	Charset string `pulumi:"charset"`

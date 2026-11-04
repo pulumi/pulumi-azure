@@ -183,6 +183,12 @@ func (LinkedServiceOdbcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceOdbcState)(nil)).Elem()
 }
 
+// LinkedServiceOdbcExists checks whether an existing LinkedServiceOdbc resource with the given ID exists.
+func LinkedServiceOdbcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceOdbcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", id, state, "", opts...)
+}
+
 type linkedServiceOdbcArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service ODBC.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

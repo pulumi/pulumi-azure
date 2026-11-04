@@ -155,6 +155,12 @@ func (ManagementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupState)(nil)).Elem()
 }
 
+// ManagementGroupExists checks whether an existing ManagementGroup resource with the given ID exists.
+func ManagementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:managementgroups/managementGroup:ManagementGroup", id, state, "", opts...)
+}
+
 type managementGroupArgs struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`

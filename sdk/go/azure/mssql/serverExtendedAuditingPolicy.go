@@ -354,6 +354,12 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverExtendedAuditingPolicyState)(nil)).Elem()
 }
 
+// ServerExtendedAuditingPolicyExists checks whether an existing ServerExtendedAuditingPolicy resource with the given ID exists.
+func ServerExtendedAuditingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerExtendedAuditingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", id, state, "", opts...)
+}
+
 type serverExtendedAuditingPolicyArgs struct {
 	// A list of Actions-Groups and Actions to audit.
 	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`

@@ -205,6 +205,12 @@ func (DefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionState)(nil)).Elem()
 }
 
+// DefinitionExists checks whether an existing Definition resource with the given ID exists.
+func DefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:policy/definition:Definition", id, state, "", opts...)
+}
+
 type definitionArgs struct {
 	// The description of the policy definition.
 	Description *string `pulumi:"description"`

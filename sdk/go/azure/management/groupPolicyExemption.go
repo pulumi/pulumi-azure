@@ -182,6 +182,12 @@ func (GroupPolicyExemptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyExemptionState)(nil)).Elem()
 }
 
+// GroupPolicyExemptionExists checks whether an existing GroupPolicyExemption resource with the given ID exists.
+func GroupPolicyExemptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicyExemptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/groupPolicyExemption:GroupPolicyExemption", id, state, "", opts...)
+}
+
 type groupPolicyExemptionArgs struct {
 	// A description to use for this Policy Exemption.
 	Description *string `pulumi:"description"`

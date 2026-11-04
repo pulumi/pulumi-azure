@@ -1532,6 +1532,76 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["vnet_content_share_enabled"] = vnet_content_share_enabled
         return Standard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict', 'outputs.StandardSiteCredential']]]]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServicePlanId"] = app_service_plan_id
+        __props__["appSettings"] = app_settings
+        __props__["bundleVersion"] = bundle_version
+        __props__["clientAffinityEnabled"] = client_affinity_enabled
+        __props__["clientCertificateMode"] = client_certificate_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["defaultHostname"] = default_hostname
+        __props__["enabled"] = enabled
+        __props__["ftpPublishBasicAuthenticationEnabled"] = ftp_publish_basic_authentication_enabled
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scmPublishBasicAuthenticationEnabled"] = scm_publish_basic_authentication_enabled
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["storageAccountShareName"] = storage_account_share_name
+        __props__["storageKeyVaultSecretId"] = storage_key_vault_secret_id
+        __props__["tags"] = tags
+        __props__["useExtensionBundle"] = use_extension_bundle
+        __props__["version"] = version
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        __props__["vnetContentShareEnabled"] = vnet_content_share_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/standard:Standard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> pulumi.Output[_builtins.str]:

@@ -43,11 +43,10 @@ public final class GetShareResult {
      */
     private String rbacScopeId;
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     private String resourceManagerId;
     private @Nullable String storageAccountId;
     private @Nullable String storageAccountName;
@@ -92,11 +91,10 @@ public final class GetShareResult {
         return this.rbacScopeId;
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     public String resourceManagerId() {
         return this.resourceManagerId;
     }

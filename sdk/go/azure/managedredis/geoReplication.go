@@ -153,6 +153,12 @@ func (GeoReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*geoReplicationState)(nil)).Elem()
 }
 
+// GeoReplicationExists checks whether an existing GeoReplication resource with the given ID exists.
+func GeoReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GeoReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:managedredis/geoReplication:GeoReplication", id, state, "", opts...)
+}
+
 type geoReplicationArgs struct {
 	// A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geoReplicationGroupName` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
 	LinkedManagedRedisIds []string `pulumi:"linkedManagedRedisIds"`

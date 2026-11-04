@@ -178,6 +178,12 @@ func (NatGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayState)(nil)).Elem()
 }
 
+// NatGatewayExists checks whether an existing NatGateway resource with the given ID exists.
+func NatGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/natGateway:NatGateway", id, state, "", opts...)
+}
+
 type natGatewayArgs struct {
 	// The idle timeout which should be used in minutes. Defaults to `4`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`

@@ -142,6 +142,12 @@ func (SourceControlTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlTokenState)(nil)).Elem()
 }
 
+// SourceControlTokenExists checks whether an existing SourceControlToken resource with the given ID exists.
+func SourceControlTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceControlTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/sourceControlToken:SourceControlToken", id, state, "", opts...)
+}
+
 type sourceControlTokenArgs struct {
 	// The Access Token.
 	Token string `pulumi:"token"`

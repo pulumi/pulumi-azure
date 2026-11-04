@@ -300,6 +300,18 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return SpringCloudApiPortalCustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_api_portal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["springCloudApiPortalId"] = spring_cloud_api_portal_id
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

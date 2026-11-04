@@ -312,6 +312,12 @@ func (ApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiState)(nil)).Elem()
 }
 
+// ApiExists checks whether an existing Api resource with the given ID exists.
+func ApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/api:Api", id, state, "", opts...)
+}
+
 type apiArgs struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

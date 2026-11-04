@@ -252,11 +252,10 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
         return this.eventgridEventSubscriptionId;
     }
     /**
-     * @deprecated
-     * `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="eventgridResourceId", refs={String.class}, tree="[0]")
     private Output<String> eventgridResourceId;
 
@@ -320,11 +319,10 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
         return this.managedIdentityId;
     }
     /**
-     * @deprecated
-     * `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="managedIdentityResourceId", refs={String.class}, tree="[0]")
     private Output<String> managedIdentityResourceId;
 

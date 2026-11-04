@@ -352,6 +352,20 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementId"] = api_management_id
+        __props__["description"] = description
+        __props__["locationData"] = location_data
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/gateway:Gateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[_builtins.str]:

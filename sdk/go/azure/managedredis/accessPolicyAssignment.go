@@ -89,6 +89,12 @@ func (AccessPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyAssignmentState)(nil)).Elem()
 }
 
+// AccessPolicyAssignmentExists checks whether an existing AccessPolicyAssignment resource with the given ID exists.
+func AccessPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment", id, state, "", opts...)
+}
+
 type accessPolicyAssignmentArgs struct {
 	// The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
 	ManagedRedisId string `pulumi:"managedRedisId"`

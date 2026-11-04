@@ -197,6 +197,12 @@ func (AutomanageConfigurationAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automanageConfigurationAssignmentState)(nil)).Elem()
 }
 
+// AutomanageConfigurationAssignmentExists checks whether an existing AutomanageConfigurationAssignment resource with the given ID exists.
+func AutomanageConfigurationAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomanageConfigurationAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", id, state, "", opts...)
+}
+
 type automanageConfigurationAssignmentArgs struct {
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	ConfigurationId string `pulumi:"configurationId"`

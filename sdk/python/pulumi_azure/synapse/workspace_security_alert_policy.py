@@ -550,6 +550,28 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return WorkspaceSecurityAlertPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_state: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabledAlerts"] = disabled_alerts
+        __props__["emailAccountAdminsEnabled"] = email_account_admins_enabled
+        __props__["emailAddresses"] = email_addresses
+        __props__["policyState"] = policy_state
+        __props__["retentionDays"] = retention_days
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageEndpoint"] = storage_endpoint
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
     def disabled_alerts(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

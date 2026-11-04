@@ -446,6 +446,24 @@ class CustomHostnameBinding(pulumi.CustomResource):
         __props__.__dict__["virtual_ip"] = virtual_ip
         return CustomHostnameBinding(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_state: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_ip: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceName"] = app_service_name
+        __props__["hostname"] = hostname
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sslState"] = ssl_state
+        __props__["thumbprint"] = thumbprint
+        __props__["virtualIp"] = virtual_ip
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/customHostnameBinding:CustomHostnameBinding', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceName")
     def app_service_name(self) -> pulumi.Output[_builtins.str]:

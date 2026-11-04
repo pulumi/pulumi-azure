@@ -183,6 +183,12 @@ func (LinkedServiceOdataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceOdataState)(nil)).Elem()
 }
 
+// LinkedServiceOdataExists checks whether an existing LinkedServiceOdata resource with the given ID exists.
+func LinkedServiceOdataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceOdataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceOdata:LinkedServiceOdata", id, state, "", opts...)
+}
+
 type linkedServiceOdataArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service OData.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

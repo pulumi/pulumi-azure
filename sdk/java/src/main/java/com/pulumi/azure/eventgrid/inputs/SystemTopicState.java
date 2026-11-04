@@ -100,20 +100,18 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Import(name="sourceArmResourceId")
     private @Nullable Output<String> sourceArmResourceId;
 
     /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     public Optional<Output<String>> sourceArmResourceId() {
         return Optional.ofNullable(this.sourceArmResourceId);
     }
@@ -321,11 +319,10 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+         * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
+        @Deprecated
         public Builder sourceArmResourceId(@Nullable Output<String> sourceArmResourceId) {
             $.sourceArmResourceId = sourceArmResourceId;
             return this;
@@ -334,11 +331,10 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+         * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
+        @Deprecated
         public Builder sourceArmResourceId(String sourceArmResourceId) {
             return sourceArmResourceId(Output.of(sourceArmResourceId));
         }

@@ -174,6 +174,12 @@ func (CassandraKeyspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraKeyspaceState)(nil)).Elem()
 }
 
+// CassandraKeyspaceExists checks whether an existing CassandraKeyspace resource with the given ID exists.
+func CassandraKeyspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CassandraKeyspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/cassandraKeyspace:CassandraKeyspace", id, state, "", opts...)
+}
+
 type cassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

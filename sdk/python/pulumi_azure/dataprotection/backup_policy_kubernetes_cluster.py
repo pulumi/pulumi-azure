@@ -497,6 +497,26 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["vault_name"] = vault_name
         return BackupPolicyKubernetesCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupRepeatingTimeIntervals"] = backup_repeating_time_intervals
+        __props__["defaultRetentionRule"] = default_retention_rule
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionRules"] = retention_rules
+        __props__["timeZone"] = time_zone
+        __props__["vaultName"] = vault_name
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
     def backup_repeating_time_intervals(self) -> pulumi.Output[Sequence[_builtins.str]]:

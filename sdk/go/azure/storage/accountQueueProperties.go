@@ -184,6 +184,12 @@ func (AccountQueuePropertiesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountQueuePropertiesState)(nil)).Elem()
 }
 
+// AccountQueuePropertiesExists checks whether an existing AccountQueueProperties resource with the given ID exists.
+func AccountQueuePropertiesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountQueuePropertiesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/accountQueueProperties:AccountQueueProperties", id, state, "", opts...)
+}
+
 type accountQueuePropertiesArgs struct {
 	// A `corsRule` block as defined above.
 	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`

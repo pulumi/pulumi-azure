@@ -441,6 +441,20 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         __props__.__dict__["signalr_service_id"] = signalr_service_id
         return ServiceCustomCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_version: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateVersion"] = certificate_version
+        __props__["customCertificateId"] = custom_certificate_id
+        __props__["name"] = name
+        __props__["signalrServiceId"] = signalr_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:signalr/serviceCustomCertificate:ServiceCustomCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateVersion")
     def certificate_version(self) -> pulumi.Output[_builtins.str]:

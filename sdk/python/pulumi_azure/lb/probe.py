@@ -525,6 +525,30 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["request_path"] = request_path
         return Probe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            request_path: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["intervalInSeconds"] = interval_in_seconds
+        __props__["loadBalancerRules"] = load_balancer_rules
+        __props__["loadbalancerId"] = loadbalancer_id
+        __props__["name"] = name
+        __props__["numberOfProbes"] = number_of_probes
+        __props__["port"] = port
+        __props__["probeThreshold"] = probe_threshold
+        __props__["protocol"] = protocol
+        __props__["requestPath"] = request_path
+        return pulumi.runtime.exists_resource(None, 'azure:lb/probe:Probe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
     def interval_in_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:

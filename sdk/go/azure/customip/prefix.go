@@ -260,6 +260,12 @@ func (PrefixState) ElementType() reflect.Type {
 	return reflect.TypeOf((*prefixState)(nil)).Elem()
 }
 
+// PrefixExists checks whether an existing Prefix resource with the given ID exists.
+func PrefixExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrefixState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:customip/prefix:Prefix", id, state, "", opts...)
+}
+
 type prefixArgs struct {
 	// The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
 	Cidr string `pulumi:"cidr"`

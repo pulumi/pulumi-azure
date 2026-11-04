@@ -208,6 +208,12 @@ func (MongoCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoCollectionState)(nil)).Elem()
 }
 
+// MongoCollectionExists checks whether an existing MongoCollection resource with the given ID exists.
+func MongoCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MongoCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/mongoCollection:MongoCollection", id, state, "", opts...)
+}
+
 type mongoCollectionArgs struct {
 	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

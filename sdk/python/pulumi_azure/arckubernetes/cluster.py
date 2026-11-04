@@ -569,6 +569,38 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["total_node_count"] = total_node_count
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_public_key_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]] = None,
+            infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            offering: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            total_node_count: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentPublicKeyCertificate"] = agent_public_key_certificate
+        __props__["agentVersion"] = agent_version
+        __props__["distribution"] = distribution
+        __props__["identity"] = identity
+        __props__["infrastructure"] = infrastructure
+        __props__["kubernetesVersion"] = kubernetes_version
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["offering"] = offering
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["totalCoreCount"] = total_core_count
+        __props__["totalNodeCount"] = total_node_count
+        return pulumi.runtime.exists_resource(None, 'azure:arckubernetes/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentPublicKeyCertificate")
     def agent_public_key_certificate(self) -> pulumi.Output[_builtins.str]:

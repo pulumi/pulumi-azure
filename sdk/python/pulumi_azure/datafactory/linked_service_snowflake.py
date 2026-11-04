@@ -585,6 +585,30 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         return LinkedServiceSnowflake(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["connectionString"] = connection_string
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["integrationRuntimeName"] = integration_runtime_name
+        __props__["keyVaultPassword"] = key_vault_password
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

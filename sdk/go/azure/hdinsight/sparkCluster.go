@@ -329,6 +329,12 @@ func (SparkClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkClusterState)(nil)).Elem()
 }
 
+// SparkClusterExists checks whether an existing SparkCluster resource with the given ID exists.
+func SparkClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SparkClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hdinsight/sparkCluster:SparkCluster", id, state, "", opts...)
+}
+
 type sparkClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion string `pulumi:"clusterVersion"`

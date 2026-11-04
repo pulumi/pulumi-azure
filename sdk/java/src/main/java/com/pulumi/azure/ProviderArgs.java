@@ -178,20 +178,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+     * @deprecated This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
      * 
      */
-    @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
+    @Deprecated
     @Import(name="enhancedValidation", json=true)
     private @Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation;
 
     /**
-     * @deprecated
-     * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+     * @deprecated This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
      * 
      */
-    @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
+    @Deprecated
     public Optional<Output<ProviderEnhancedValidationArgs>> enhancedValidation() {
         return Optional.ofNullable(this.enhancedValidation);
     }
@@ -371,22 +369,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
-     * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
+     * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
+    @Deprecated
     @Import(name="skipProviderRegistration", json=true)
     private @Nullable Output<Boolean> skipProviderRegistration;
 
     /**
      * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
-     * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
+     * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
+    @Deprecated
     public Optional<Output<Boolean>> skipProviderRegistration() {
         return Optional.ofNullable(this.skipProviderRegistration);
     }
@@ -777,11 +773,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+         * @deprecated This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
          * 
          */
-        @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
+        @Deprecated
         public Builder enhancedValidation(@Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation) {
             $.enhancedValidation = enhancedValidation;
             return this;
@@ -790,11 +785,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+         * @deprecated This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
          * 
          */
-        @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
+        @Deprecated
         public Builder enhancedValidation(ProviderEnhancedValidationArgs enhancedValidation) {
             return enhancedValidation(Output.of(enhancedValidation));
         }
@@ -1054,11 +1048,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
+         * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
+        @Deprecated
         public Builder skipProviderRegistration(@Nullable Output<Boolean> skipProviderRegistration) {
             $.skipProviderRegistration = skipProviderRegistration;
             return this;
@@ -1069,11 +1062,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
+         * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
+        @Deprecated
         public Builder skipProviderRegistration(Boolean skipProviderRegistration) {
             return skipProviderRegistration(Output.of(skipProviderRegistration));
         }

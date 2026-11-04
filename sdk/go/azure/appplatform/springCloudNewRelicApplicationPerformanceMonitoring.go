@@ -216,6 +216,12 @@ func (SpringCloudNewRelicApplicationPerformanceMonitoringState) ElementType() re
 	return reflect.TypeOf((*springCloudNewRelicApplicationPerformanceMonitoringState)(nil)).Elem()
 }
 
+// SpringCloudNewRelicApplicationPerformanceMonitoringExists checks whether an existing SpringCloudNewRelicApplicationPerformanceMonitoring resource with the given ID exists.
+func SpringCloudNewRelicApplicationPerformanceMonitoringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudNewRelicApplicationPerformanceMonitoringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring", id, state, "", opts...)
+}
+
 type springCloudNewRelicApplicationPerformanceMonitoringArgs struct {
 	// Specifies whether enable the agent. Defaults to `true`.
 	AgentEnabled *bool `pulumi:"agentEnabled"`

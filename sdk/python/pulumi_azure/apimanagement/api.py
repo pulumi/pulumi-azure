@@ -1186,6 +1186,62 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["version_set_id"] = version_set_id
         return Api(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_type: pulumi.Input[Optional[_builtins.str]] = None,
+            contact: pulumi.Input[Optional[Union['ApiContactArgs', 'ApiContactArgsDict', 'outputs.ApiContact']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            import_: pulumi.Input[Optional[Union['ApiImportArgs', 'ApiImportArgsDict', 'outputs.ApiImport']]] = None,
+            is_current: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_online: pulumi.Input[Optional[_builtins.bool]] = None,
+            license: pulumi.Input[Optional[Union['ApiLicenseArgs', 'ApiLicenseArgsDict', 'outputs.ApiLicense']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth2_authorization: pulumi.Input[Optional[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict', 'outputs.ApiOauth2Authorization']]] = None,
+            openid_authentication: pulumi.Input[Optional[Union['ApiOpenidAuthenticationArgs', 'ApiOpenidAuthenticationArgsDict', 'outputs.ApiOpenidAuthentication']]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            revision: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_description: pulumi.Input[Optional[_builtins.str]] = None,
+            service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            source_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_key_parameter_names: pulumi.Input[Optional[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict', 'outputs.ApiSubscriptionKeyParameterNames']]] = None,
+            subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            terms_of_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            version_description: pulumi.Input[Optional[_builtins.str]] = None,
+            version_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["apiType"] = api_type
+        __props__["contact"] = contact
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["import"] = import_
+        __props__["isCurrent"] = is_current
+        __props__["isOnline"] = is_online
+        __props__["license"] = license
+        __props__["name"] = name
+        __props__["oauth2Authorization"] = oauth2_authorization
+        __props__["openidAuthentication"] = openid_authentication
+        __props__["path"] = path
+        __props__["protocols"] = protocols
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["revision"] = revision
+        __props__["revisionDescription"] = revision_description
+        __props__["serviceUrl"] = service_url
+        __props__["sourceApiId"] = source_api_id
+        __props__["subscriptionKeyParameterNames"] = subscription_key_parameter_names
+        __props__["subscriptionRequired"] = subscription_required
+        __props__["termsOfServiceUrl"] = terms_of_service_url
+        __props__["version"] = version
+        __props__["versionDescription"] = version_description
+        __props__["versionSetId"] = version_set_id
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/api:Api', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

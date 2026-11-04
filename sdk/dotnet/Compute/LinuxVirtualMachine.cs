@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Compute
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
-        /// &gt; **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
+        /// **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
         /// </summary>
         [Output("adminPassword")]
         public Output<string?> AdminPassword { get; private set; } = null!;
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.Compute
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
-        /// &gt; **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
+        /// **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -972,7 +972,7 @@ namespace Pulumi.Azure.Compute
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When an `AdminPassword` is specified `DisablePasswordAuthentication` must be set to `False`.
-        /// &gt; **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
+        /// **NOTE:** One of either `AdminPassword` or `AdminSshKey` must be specified.
         /// </summary>
         public Input<string>? AdminPassword
         {

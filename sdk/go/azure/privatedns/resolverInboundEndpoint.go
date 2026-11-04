@@ -194,6 +194,12 @@ func (ResolverInboundEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverInboundEndpointState)(nil)).Elem()
 }
 
+// ResolverInboundEndpointExists checks whether an existing ResolverInboundEndpoint resource with the given ID exists.
+func ResolverInboundEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverInboundEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", id, state, "", opts...)
+}
+
 type resolverInboundEndpointArgs struct {
 	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations ResolverInboundEndpointIpConfigurations `pulumi:"ipConfigurations"`

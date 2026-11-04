@@ -172,6 +172,12 @@ func (RoutingIntentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routingIntentState)(nil)).Elem()
 }
 
+// RoutingIntentExists checks whether an existing RoutingIntent resource with the given ID exists.
+func RoutingIntentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoutingIntentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/routingIntent:RoutingIntent", id, state, "", opts...)
+}
+
 type routingIntentArgs struct {
 	// The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

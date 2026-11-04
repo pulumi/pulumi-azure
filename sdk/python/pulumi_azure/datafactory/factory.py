@@ -676,6 +676,38 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["vsts_configuration"] = vsts_configuration
         return Factory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']]] = None,
+            global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]]] = None,
+            identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purview_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customerManagedKeyId"] = customer_managed_key_id
+        __props__["customerManagedKeyIdentityId"] = customer_managed_key_identity_id
+        __props__["githubConfiguration"] = github_configuration
+        __props__["globalParameters"] = global_parameters
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["managedVirtualNetworkEnabled"] = managed_virtual_network_enabled
+        __props__["name"] = name
+        __props__["publicNetworkEnabled"] = public_network_enabled
+        __props__["purviewId"] = purview_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["vstsConfiguration"] = vsts_configuration
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/factory:Factory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyId")
     def customer_managed_key_id(self) -> pulumi.Output[_builtins.str]:

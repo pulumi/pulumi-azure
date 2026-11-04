@@ -198,11 +198,10 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * @deprecated
-     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="keyVaultSasToken", refs={LinkedServiceAzureBlobStorageKeyVaultSasToken.class}, tree="[0]")
     private Output<LinkedServiceAzureBlobStorageKeyVaultSasToken> keyVaultSasToken;
 

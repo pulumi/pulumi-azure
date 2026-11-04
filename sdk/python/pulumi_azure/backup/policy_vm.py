@@ -805,6 +805,40 @@ class PolicyVM(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return PolicyVM(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict', 'outputs.PolicyVMBackup']]] = None,
+            consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict', 'outputs.PolicyVMInstantRestoreResourceGroup']]] = None,
+            instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_daily: pulumi.Input[Optional[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict', 'outputs.PolicyVMRetentionDaily']]] = None,
+            retention_monthly: pulumi.Input[Optional[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict', 'outputs.PolicyVMRetentionMonthly']]] = None,
+            retention_weekly: pulumi.Input[Optional[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict', 'outputs.PolicyVMRetentionWeekly']]] = None,
+            retention_yearly: pulumi.Input[Optional[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict', 'outputs.PolicyVMRetentionYearly']]] = None,
+            tiering_policy: pulumi.Input[Optional[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict', 'outputs.PolicyVMTieringPolicy']]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backup"] = backup
+        __props__["consistencyType"] = consistency_type
+        __props__["instantRestoreResourceGroup"] = instant_restore_resource_group
+        __props__["instantRestoreRetentionDays"] = instant_restore_retention_days
+        __props__["name"] = name
+        __props__["policyType"] = policy_type
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionDaily"] = retention_daily
+        __props__["retentionMonthly"] = retention_monthly
+        __props__["retentionWeekly"] = retention_weekly
+        __props__["retentionYearly"] = retention_yearly
+        __props__["tieringPolicy"] = tiering_policy
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'azure:backup/policyVM:PolicyVM', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def backup(self) -> pulumi.Output['outputs.PolicyVMBackup']:

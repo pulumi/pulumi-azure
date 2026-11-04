@@ -210,6 +210,12 @@ func (OutboundRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outboundRuleState)(nil)).Elem()
 }
 
+// OutboundRuleExists checks whether an existing OutboundRule resource with the given ID exists.
+func OutboundRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutboundRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/outboundRule:OutboundRule", id, state, "", opts...)
+}
+
 type outboundRuleArgs struct {
 	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`

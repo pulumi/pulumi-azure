@@ -995,6 +995,52 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["web_application_firewall"] = web_application_firewall
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]]] = None,
+            automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]]] = None,
+            frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']]] = None,
+            identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict', 'outputs.DeploymentLoggingStorageAccount']]]]] = None,
+            managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]]] = None,
+            nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoScaleProfiles"] = auto_scale_profiles
+        __props__["automaticUpgradeChannel"] = automatic_upgrade_channel
+        __props__["capacity"] = capacity
+        __props__["dataplaneApiEndpoint"] = dataplane_api_endpoint
+        __props__["diagnoseSupportEnabled"] = diagnose_support_enabled
+        __props__["email"] = email
+        __props__["frontendPrivates"] = frontend_privates
+        __props__["frontendPublic"] = frontend_public
+        __props__["identity"] = identity
+        __props__["ipAddress"] = ip_address
+        __props__["location"] = location
+        __props__["loggingStorageAccounts"] = logging_storage_accounts
+        __props__["managedResourceGroup"] = managed_resource_group
+        __props__["name"] = name
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["nginxVersion"] = nginx_version
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["webApplicationFirewall"] = web_application_firewall
+        return pulumi.runtime.exists_resource(None, 'azure:nginx/deployment:Deployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoScaleProfiles")
     def auto_scale_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentAutoScaleProfile']]]:

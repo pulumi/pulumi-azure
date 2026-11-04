@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCollectionRuleDataSourceLogFile {
     /**
-     * @return Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+     * @return Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
      * 
      */
     private List<String> filePatterns;
@@ -40,7 +40,7 @@ public final class GetDataCollectionRuleDataSourceLogFile {
 
     private GetDataCollectionRuleDataSourceLogFile() {}
     /**
-     * @return Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+     * @return Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
      * 
      */
     public List<String> filePatterns() {

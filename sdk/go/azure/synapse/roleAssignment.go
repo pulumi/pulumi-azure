@@ -212,6 +212,12 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAssignmentState)(nil)).Elem()
 }
 
+// RoleAssignmentExists checks whether an existing RoleAssignment resource with the given ID exists.
+func RoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/roleAssignment:RoleAssignment", id, state, "", opts...)
+}
+
 type roleAssignmentArgs struct {
 	// The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`

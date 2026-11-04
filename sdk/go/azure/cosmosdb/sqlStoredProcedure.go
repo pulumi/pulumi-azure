@@ -180,6 +180,12 @@ func (SqlStoredProcedureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlStoredProcedureState)(nil)).Elem()
 }
 
+// SqlStoredProcedureExists checks whether an existing SqlStoredProcedure resource with the given ID exists.
+func SqlStoredProcedureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlStoredProcedureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure", id, state, "", opts...)
+}
+
 type sqlStoredProcedureArgs struct {
 	// The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

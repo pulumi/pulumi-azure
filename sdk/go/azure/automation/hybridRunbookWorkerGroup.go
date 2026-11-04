@@ -147,6 +147,12 @@ func (HybridRunbookWorkerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridRunbookWorkerGroupState)(nil)).Elem()
 }
 
+// HybridRunbookWorkerGroupExists checks whether an existing HybridRunbookWorkerGroup resource with the given ID exists.
+func HybridRunbookWorkerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HybridRunbookWorkerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup", id, state, "", opts...)
+}
+
 type hybridRunbookWorkerGroupArgs struct {
 	// The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

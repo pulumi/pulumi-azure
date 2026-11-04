@@ -890,6 +890,48 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ResourceDeploymentScriptAzureCli(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cleanup_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            command_line: pulumi.Input[Optional[_builtins.str]] = None,
+            container: pulumi.Input[Optional[Union['ResourceDeploymentScriptAzureCliContainerArgs', 'ResourceDeploymentScriptAzureCliContainerArgsDict', 'outputs.ResourceDeploymentScriptAzureCliContainer']]] = None,
+            environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs', 'ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict', 'outputs.ResourceDeploymentScriptAzureCliEnvironmentVariable']]]]] = None,
+            force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ResourceDeploymentScriptAzureCliIdentityArgs', 'ResourceDeploymentScriptAzureCliIdentityArgsDict', 'outputs.ResourceDeploymentScriptAzureCliIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outputs: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_script_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_interval: pulumi.Input[Optional[_builtins.str]] = None,
+            script_content: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account: pulumi.Input[Optional[Union['ResourceDeploymentScriptAzureCliStorageAccountArgs', 'ResourceDeploymentScriptAzureCliStorageAccountArgsDict', 'outputs.ResourceDeploymentScriptAzureCliStorageAccount']]] = None,
+            supporting_script_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cleanupPreference"] = cleanup_preference
+        __props__["commandLine"] = command_line
+        __props__["container"] = container
+        __props__["environmentVariables"] = environment_variables
+        __props__["forceUpdateTag"] = force_update_tag
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["outputs"] = outputs
+        __props__["primaryScriptUri"] = primary_script_uri
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionInterval"] = retention_interval
+        __props__["scriptContent"] = script_content
+        __props__["storageAccount"] = storage_account
+        __props__["supportingScriptUris"] = supporting_script_uris
+        __props__["tags"] = tags
+        __props__["timeout"] = timeout
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cleanupPreference")
     def cleanup_preference(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -141,6 +141,12 @@ func (ResourceGuardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGuardState)(nil)).Elem()
 }
 
+// ResourceGuardExists checks whether an existing ResourceGuard resource with the given ID exists.
+func ResourceGuardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGuardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/resourceGuard:ResourceGuard", id, state, "", opts...)
+}
+
 type resourceGuardArgs struct {
 	// The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

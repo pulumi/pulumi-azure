@@ -943,6 +943,58 @@ class Socketio(pulumi.CustomResource):
         __props__.__dict__["tls_client_cert_enabled"] = tls_client_cert_enabled
         return Socketio(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']]] = None,
+            live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            public_port: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aadAuthEnabled"] = aad_auth_enabled
+        __props__["externalIp"] = external_ip
+        __props__["hostname"] = hostname
+        __props__["identity"] = identity
+        __props__["liveTraceConnectivityLogsEnabled"] = live_trace_connectivity_logs_enabled
+        __props__["liveTraceEnabled"] = live_trace_enabled
+        __props__["liveTraceHttpRequestLogsEnabled"] = live_trace_http_request_logs_enabled
+        __props__["liveTraceMessagingLogsEnabled"] = live_trace_messaging_logs_enabled
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["publicPort"] = public_port
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["serverPort"] = server_port
+        __props__["serviceMode"] = service_mode
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["tlsClientCertEnabled"] = tls_client_cert_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:webpubsub/socketio:Socketio', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aadAuthEnabled")
     def aad_auth_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -1153,6 +1153,64 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return IoTHub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict', 'outputs.IoTHubCloudToDevice']]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]]] = None,
+            enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict', 'outputs.IoTHubEnrichment']]]]] = None,
+            event_hub_events_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_events_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_events_path: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_operations_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_operations_path: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            event_hub_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']]] = None,
+            file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict', 'outputs.IoTHubRoute']]]]] = None,
+            shared_access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict', 'outputs.IoTHubSharedAccessPolicy']]]]] = None,
+            sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloudToDevice"] = cloud_to_device
+        __props__["endpoints"] = endpoints
+        __props__["enrichments"] = enrichments
+        __props__["eventHubEventsEndpoint"] = event_hub_events_endpoint
+        __props__["eventHubEventsNamespace"] = event_hub_events_namespace
+        __props__["eventHubEventsPath"] = event_hub_events_path
+        __props__["eventHubOperationsEndpoint"] = event_hub_operations_endpoint
+        __props__["eventHubOperationsPath"] = event_hub_operations_path
+        __props__["eventHubPartitionCount"] = event_hub_partition_count
+        __props__["eventHubRetentionInDays"] = event_hub_retention_in_days
+        __props__["fallbackRoute"] = fallback_route
+        __props__["fileUpload"] = file_upload
+        __props__["hostname"] = hostname
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["minTlsVersion"] = min_tls_version
+        __props__["name"] = name
+        __props__["networkRuleSets"] = network_rule_sets
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routes"] = routes
+        __props__["sharedAccessPolicies"] = shared_access_policies
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azure:iot/ioTHub:IoTHub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> pulumi.Output['outputs.IoTHubCloudToDevice']:

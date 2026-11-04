@@ -283,6 +283,12 @@ func (CustomDatasetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDatasetState)(nil)).Elem()
 }
 
+// CustomDatasetExists checks whether an existing CustomDataset resource with the given ID exists.
+func CustomDatasetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDatasetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/customDataset:CustomDataset", id, state, "", opts...)
+}
+
 type customDatasetArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

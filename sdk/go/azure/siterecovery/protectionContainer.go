@@ -168,6 +168,12 @@ func (ProtectionContainerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerState)(nil)).Elem()
 }
 
+// ProtectionContainerExists checks whether an existing ProtectionContainer resource with the given ID exists.
+func ProtectionContainerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionContainerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/protectionContainer:ProtectionContainer", id, state, "", opts...)
+}
+
 type protectionContainerArgs struct {
 	// The name of the protection container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

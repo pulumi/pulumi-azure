@@ -861,6 +861,46 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']]] = None,
+            pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_node_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountEndpoint"] = account_endpoint
+        __props__["allowedAuthenticationModes"] = allowed_authentication_modes
+        __props__["encryption"] = encryption
+        __props__["identity"] = identity
+        __props__["keyVaultReference"] = key_vault_reference
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkProfile"] = network_profile
+        __props__["poolAllocationMode"] = pool_allocation_mode
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["storageAccountAuthenticationMode"] = storage_account_authentication_mode
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountNodeIdentity"] = storage_account_node_identity
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:batch/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountEndpoint")
     def account_endpoint(self) -> pulumi.Output[_builtins.str]:

@@ -1584,6 +1584,88 @@ class WindowsWebApp(pulumi.CustomResource):
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return WindowsWebApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['WindowsWebAppAuthSettingsArgs', 'WindowsWebAppAuthSettingsArgsDict', 'outputs.WindowsWebAppAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppAuthSettingsV2Args', 'WindowsWebAppAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['WindowsWebAppBackupArgs', 'WindowsWebAppBackupArgsDict', 'outputs.WindowsWebAppBackup']]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppConnectionStringArgs', 'WindowsWebAppConnectionStringArgsDict', 'outputs.WindowsWebAppConnectionString']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WindowsWebAppIdentityArgs', 'WindowsWebAppIdentityArgsDict', 'outputs.WindowsWebAppIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['WindowsWebAppLogsArgs', 'WindowsWebAppLogsArgsDict', 'outputs.WindowsWebAppLogs']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['WindowsWebAppSiteConfigArgs', 'WindowsWebAppSiteConfigArgsDict', 'outputs.WindowsWebAppSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSiteCredentialArgs', 'WindowsWebAppSiteCredentialArgsDict', 'outputs.WindowsWebAppSiteCredential']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict', 'outputs.WindowsWebAppStickySettings']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict', 'outputs.WindowsWebAppStorageAccount']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["authSettingsV2"] = auth_settings_v2
+        __props__["backup"] = backup
+        __props__["clientAffinityEnabled"] = client_affinity_enabled
+        __props__["clientCertificateEnabled"] = client_certificate_enabled
+        __props__["clientCertificateExclusionPaths"] = client_certificate_exclusion_paths
+        __props__["clientCertificateMode"] = client_certificate_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["defaultHostname"] = default_hostname
+        __props__["enabled"] = enabled
+        __props__["ftpPublishBasicAuthenticationEnabled"] = ftp_publish_basic_authentication_enabled
+        __props__["hostingEnvironmentId"] = hosting_environment_id
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["logs"] = logs
+        __props__["name"] = name
+        __props__["outboundIpAddressLists"] = outbound_ip_address_lists
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddressLists"] = possible_outbound_ip_address_lists
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["servicePlanId"] = service_plan_id
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["stickySettings"] = sticky_settings
+        __props__["storageAccounts"] = storage_accounts
+        __props__["tags"] = tags
+        __props__["virtualNetworkBackupRestoreEnabled"] = virtual_network_backup_restore_enabled
+        __props__["virtualNetworkImagePullEnabled"] = virtual_network_image_pull_enabled
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        __props__["webdeployPublishBasicAuthenticationEnabled"] = webdeploy_publish_basic_authentication_enabled
+        __props__["zipDeployFile"] = zip_deploy_file
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/windowsWebApp:WindowsWebApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

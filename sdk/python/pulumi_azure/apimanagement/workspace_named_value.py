@@ -515,6 +515,26 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         __props__.__dict__["value_from_key_vault"] = value_from_key_vault
         return WorkspaceNamedValue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementWorkspaceId"] = api_management_workspace_id
+        __props__["displayName"] = display_name
+        __props__["name"] = name
+        __props__["secret"] = secret
+        __props__["tags"] = tags
+        __props__["value"] = value
+        __props__["valueFromKeyVault"] = value_from_key_vault
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
     def api_management_workspace_id(self) -> pulumi.Output[_builtins.str]:

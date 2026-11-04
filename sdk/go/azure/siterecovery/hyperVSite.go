@@ -133,6 +133,12 @@ func (HyperVSiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperVSiteState)(nil)).Elem()
 }
 
+// HyperVSiteExists checks whether an existing HyperVSite resource with the given ID exists.
+func HyperVSiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HyperVSiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/hyperVSite:HyperVSite", id, state, "", opts...)
+}
+
 type hyperVSiteArgs struct {
 	// The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
 	Name *string `pulumi:"name"`

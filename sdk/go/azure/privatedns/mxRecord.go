@@ -183,6 +183,12 @@ func (MxRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mxRecordState)(nil)).Elem()
 }
 
+// MxRecordExists checks whether an existing MxRecord resource with the given ID exists.
+func MxRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MxRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/mxRecord:MxRecord", id, state, "", opts...)
+}
+
 type mxRecordArgs struct {
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name *string `pulumi:"name"`

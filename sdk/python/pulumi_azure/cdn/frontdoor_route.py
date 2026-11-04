@@ -942,6 +942,40 @@ class FrontdoorRoute(pulumi.CustomResource):
         __props__.__dict__["supported_protocols"] = supported_protocols
         return FrontdoorRoute(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']]] = None,
+            cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_origin_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cdn_frontdoor_origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            forwarding_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            https_redirect_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            link_to_default_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            patterns_to_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cache"] = cache
+        __props__["cdnFrontdoorCustomDomainIds"] = cdn_frontdoor_custom_domain_ids
+        __props__["cdnFrontdoorEndpointId"] = cdn_frontdoor_endpoint_id
+        __props__["cdnFrontdoorOriginGroupId"] = cdn_frontdoor_origin_group_id
+        __props__["cdnFrontdoorOriginIds"] = cdn_frontdoor_origin_ids
+        __props__["cdnFrontdoorOriginPath"] = cdn_frontdoor_origin_path
+        __props__["cdnFrontdoorRuleSetIds"] = cdn_frontdoor_rule_set_ids
+        __props__["enabled"] = enabled
+        __props__["forwardingProtocol"] = forwarding_protocol
+        __props__["httpsRedirectEnabled"] = https_redirect_enabled
+        __props__["linkToDefaultDomain"] = link_to_default_domain
+        __props__["name"] = name
+        __props__["patternsToMatches"] = patterns_to_matches
+        __props__["supportedProtocols"] = supported_protocols
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorRoute:FrontdoorRoute', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cache(self) -> pulumi.Output[Optional['outputs.FrontdoorRouteCache']]:

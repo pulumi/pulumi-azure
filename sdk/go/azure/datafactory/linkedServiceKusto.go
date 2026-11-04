@@ -261,6 +261,12 @@ func (LinkedServiceKustoState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceKustoState)(nil)).Elem()
 }
 
+// LinkedServiceKustoExists checks whether an existing LinkedServiceKusto resource with the given ID exists.
+func LinkedServiceKustoExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceKustoState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", id, state, "", opts...)
+}
+
 type linkedServiceKustoArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

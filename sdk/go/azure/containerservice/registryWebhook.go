@@ -206,6 +206,12 @@ func (RegistryWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebhookState)(nil)).Elem()
 }
 
+// RegistryWebhookExists checks whether an existing RegistryWebhook resource with the given ID exists.
+func RegistryWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryWebhook:RegistryWebhook", id, state, "", opts...)
+}
+
 type registryWebhookArgs struct {
 	// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
 	Actions []string `pulumi:"actions"`

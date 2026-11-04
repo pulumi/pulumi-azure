@@ -195,11 +195,10 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoScale);
     }
     /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+    @Deprecated
     @Export(name="certificates", refs={List.class,PoolCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolCertificate>> certificates;
 

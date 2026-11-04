@@ -187,6 +187,12 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleState)(nil)).Elem()
 }
 
+// VirtualNetworkRuleExists checks whether an existing VirtualNetworkRule resource with the given ID exists.
+func VirtualNetworkRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/virtualNetworkRule:VirtualNetworkRule", id, state, "", opts...)
+}
+
 type virtualNetworkRuleArgs struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
 	//

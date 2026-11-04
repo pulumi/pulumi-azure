@@ -259,6 +259,12 @@ func (ChannelsRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelsRegistrationState)(nil)).Elem()
 }
 
+// ChannelsRegistrationExists checks whether an existing ChannelsRegistration resource with the given ID exists.
+func ChannelsRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelsRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelsRegistration:ChannelsRegistration", id, state, "", opts...)
+}
+
 type channelsRegistrationArgs struct {
 	// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
 	//

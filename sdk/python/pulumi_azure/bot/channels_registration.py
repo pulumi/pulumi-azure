@@ -948,6 +948,50 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ChannelsRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cmkKeyVaultUrl"] = cmk_key_vault_url
+        __props__["description"] = description
+        __props__["developerAppInsightsApiKey"] = developer_app_insights_api_key
+        __props__["developerAppInsightsApplicationId"] = developer_app_insights_application_id
+        __props__["developerAppInsightsKey"] = developer_app_insights_key
+        __props__["displayName"] = display_name
+        __props__["endpoint"] = endpoint
+        __props__["iconUrl"] = icon_url
+        __props__["location"] = location
+        __props__["microsoftAppId"] = microsoft_app_id
+        __props__["microsoftAppTenantId"] = microsoft_app_tenant_id
+        __props__["microsoftAppType"] = microsoft_app_type
+        __props__["microsoftAppUserAssignedIdentityId"] = microsoft_app_user_assigned_identity_id
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["streamingEndpointEnabled"] = streaming_endpoint_enabled
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelsRegistration:ChannelsRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cmkKeyVaultUrl")
     def cmk_key_vault_url(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -232,6 +232,12 @@ func (JobScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobScheduleState)(nil)).Elem()
 }
 
+// JobScheduleExists checks whether an existing JobSchedule resource with the given ID exists.
+func JobScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/jobSchedule:JobSchedule", id, state, "", opts...)
+}
+
 type jobScheduleArgs struct {
 	// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
 	//

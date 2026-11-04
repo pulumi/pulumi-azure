@@ -137,6 +137,12 @@ func (VaultResourceGuardAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultResourceGuardAssociationState)(nil)).Elem()
 }
 
+// VaultResourceGuardAssociationExists checks whether an existing VaultResourceGuardAssociation resource with the given ID exists.
+func VaultResourceGuardAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultResourceGuardAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", id, state, "", opts...)
+}
+
 type vaultResourceGuardAssociationArgs struct {
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId string `pulumi:"resourceGuardId"`

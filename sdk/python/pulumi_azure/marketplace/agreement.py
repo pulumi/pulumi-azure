@@ -310,6 +310,22 @@ class Agreement(pulumi.CustomResource):
         __props__.__dict__["publisher"] = publisher
         return Agreement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            license_text_link: pulumi.Input[Optional[_builtins.str]] = None,
+            offer: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_policy_link: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["licenseTextLink"] = license_text_link
+        __props__["offer"] = offer
+        __props__["plan"] = plan
+        __props__["privacyPolicyLink"] = privacy_policy_link
+        __props__["publisher"] = publisher
+        return pulumi.runtime.exists_resource(None, 'azure:marketplace/agreement:Agreement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="licenseTextLink")
     def license_text_link(self) -> pulumi.Output[_builtins.str]:

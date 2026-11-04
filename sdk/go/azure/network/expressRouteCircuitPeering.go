@@ -338,6 +338,12 @@ func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitPeeringState)(nil)).Elem()
 }
 
+// ExpressRouteCircuitPeeringExists checks whether an existing ExpressRouteCircuitPeering resource with the given ID exists.
+func ExpressRouteCircuitPeeringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteCircuitPeeringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", id, state, "", opts...)
+}
+
 type expressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`

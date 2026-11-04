@@ -1190,6 +1190,62 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["tls_min_version"] = tls_min_version
         return KafkaCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+            component_version: pulumi.Input[Optional[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict', 'outputs.KafkaClusterComponentVersion']]] = None,
+            compute_isolation: pulumi.Input[Optional[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict', 'outputs.KafkaClusterComputeIsolation']]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict', 'outputs.KafkaClusterDiskEncryption']]]]] = None,
+            encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extension: pulumi.Input[Optional[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict', 'outputs.KafkaClusterExtension']]] = None,
+            gateway: pulumi.Input[Optional[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict', 'outputs.KafkaClusterGateway']]] = None,
+            https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_rest_proxy_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metastores: pulumi.Input[Optional[Union['KafkaClusterMetastoresArgs', 'KafkaClusterMetastoresArgsDict', 'outputs.KafkaClusterMetastores']]] = None,
+            monitor: pulumi.Input[Optional[Union['KafkaClusterMonitorArgs', 'KafkaClusterMonitorArgsDict', 'outputs.KafkaClusterMonitor']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict', 'outputs.KafkaClusterNetwork']]] = None,
+            private_link_configuration: pulumi.Input[Optional[Union['KafkaClusterPrivateLinkConfigurationArgs', 'KafkaClusterPrivateLinkConfigurationArgsDict', 'outputs.KafkaClusterPrivateLinkConfiguration']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_proxy: pulumi.Input[Optional[Union['KafkaClusterRestProxyArgs', 'KafkaClusterRestProxyArgsDict', 'outputs.KafkaClusterRestProxy']]] = None,
+            roles: pulumi.Input[Optional[Union['KafkaClusterRolesArgs', 'KafkaClusterRolesArgsDict', 'outputs.KafkaClusterRoles']]] = None,
+            security_profile: pulumi.Input[Optional[Union['KafkaClusterSecurityProfileArgs', 'KafkaClusterSecurityProfileArgsDict', 'outputs.KafkaClusterSecurityProfile']]] = None,
+            ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_gen2: pulumi.Input[Optional[Union['KafkaClusterStorageAccountGen2Args', 'KafkaClusterStorageAccountGen2ArgsDict', 'outputs.KafkaClusterStorageAccountGen2']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KafkaClusterStorageAccountArgs', 'KafkaClusterStorageAccountArgsDict', 'outputs.KafkaClusterStorageAccount']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_min_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterVersion"] = cluster_version
+        __props__["componentVersion"] = component_version
+        __props__["computeIsolation"] = compute_isolation
+        __props__["diskEncryptions"] = disk_encryptions
+        __props__["encryptionInTransitEnabled"] = encryption_in_transit_enabled
+        __props__["extension"] = extension
+        __props__["gateway"] = gateway
+        __props__["httpsEndpoint"] = https_endpoint
+        __props__["kafkaRestProxyEndpoint"] = kafka_rest_proxy_endpoint
+        __props__["location"] = location
+        __props__["metastores"] = metastores
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["network"] = network
+        __props__["privateLinkConfiguration"] = private_link_configuration
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["restProxy"] = rest_proxy
+        __props__["roles"] = roles
+        __props__["securityProfile"] = security_profile
+        __props__["sshEndpoint"] = ssh_endpoint
+        __props__["storageAccountGen2"] = storage_account_gen2
+        __props__["storageAccounts"] = storage_accounts
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        __props__["tlsMinVersion"] = tls_min_version
+        return pulumi.runtime.exists_resource(None, 'azure:hdinsight/kafkaCluster:KafkaCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> pulumi.Output[_builtins.str]:

@@ -373,6 +373,12 @@ func (ServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceState)(nil)).Elem()
 }
 
+// ServiceExists checks whether an existing Service resource with the given ID exists.
+func ServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:search/service:Service", id, state, "", opts...)
+}
+
 type serviceArgs struct {
 	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	//

@@ -294,6 +294,12 @@ func (AlertRuleScheduledState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleScheduledState)(nil)).Elem()
 }
 
+// AlertRuleScheduledExists checks whether an existing AlertRuleScheduled resource with the given ID exists.
+func AlertRuleScheduledExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleScheduledState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", id, state, "", opts...)
+}
+
 type alertRuleScheduledArgs struct {
 	// An `alertDetailsOverride` block as defined below.
 	AlertDetailsOverrides []AlertRuleScheduledAlertDetailsOverride `pulumi:"alertDetailsOverrides"`

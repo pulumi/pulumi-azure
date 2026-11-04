@@ -295,6 +295,12 @@ func (TimeSeriesDatabaseConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*timeSeriesDatabaseConnectionState)(nil)).Elem()
 }
 
+// TimeSeriesDatabaseConnectionExists checks whether an existing TimeSeriesDatabaseConnection resource with the given ID exists.
+func TimeSeriesDatabaseConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TimeSeriesDatabaseConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection", id, state, "", opts...)
+}
+
 type timeSeriesDatabaseConnectionArgs struct {
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId string `pulumi:"digitalTwinsId"`

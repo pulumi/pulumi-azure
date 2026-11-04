@@ -21,7 +21,7 @@ public final class HadoopClusterRolesHeadNodeArgs extends com.pulumi.resources.R
     /**
      * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` &#92;).
      * 
      */
     @Import(name="password")
@@ -30,7 +30,7 @@ public final class HadoopClusterRolesHeadNodeArgs extends com.pulumi.resources.R
     /**
      * @return The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+     * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` &#92;).
      * 
      */
     public Optional<Output<String>> password() {
@@ -164,7 +164,7 @@ public final class HadoopClusterRolesHeadNodeArgs extends com.pulumi.resources.R
         /**
          * @param password The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+         * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` &#92;).
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class HadoopClusterRolesHeadNodeArgs extends com.pulumi.resources.R
         /**
          * @param password The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
+         * &gt; **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` &#92;).
          * 
          * @return builder
          * 

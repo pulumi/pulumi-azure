@@ -494,6 +494,30 @@ class AssessmentPolicy(pulumi.CustomResource):
         __props__.__dict__["user_impact"] = user_impact
         return AssessmentPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_impact: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["categories"] = categories
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["implementationEffort"] = implementation_effort
+        __props__["name"] = name
+        __props__["remediationDescription"] = remediation_description
+        __props__["severity"] = severity
+        __props__["threats"] = threats
+        __props__["userImpact"] = user_impact
+        return pulumi.runtime.exists_resource(None, 'azure:securitycenter/assessmentPolicy:AssessmentPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def categories(self) -> pulumi.Output[Sequence[_builtins.str]]:

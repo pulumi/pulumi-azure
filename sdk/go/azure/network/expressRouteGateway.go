@@ -182,6 +182,12 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteGatewayState)(nil)).Elem()
 }
 
+// ExpressRouteGatewayExists checks whether an existing ExpressRouteGateway resource with the given ID exists.
+func ExpressRouteGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteGateway:ExpressRouteGateway", id, state, "", opts...)
+}
+
 type expressRouteGatewayArgs struct {
 	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
 	AllowNonVirtualWanTraffic *bool `pulumi:"allowNonVirtualWanTraffic"`

@@ -284,6 +284,12 @@ func (ModuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleState)(nil)).Elem()
 }
 
+// ModuleExists checks whether an existing Module resource with the given ID exists.
+func ModuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hsm/module:Module", id, state, "", opts...)
+}
+
 type moduleArgs struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location *string `pulumi:"location"`

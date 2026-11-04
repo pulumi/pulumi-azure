@@ -144,6 +144,12 @@ func (LogAnalyticsWorkspaceOnboardingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logAnalyticsWorkspaceOnboardingState)(nil)).Elem()
 }
 
+// LogAnalyticsWorkspaceOnboardingExists checks whether an existing LogAnalyticsWorkspaceOnboarding resource with the given ID exists.
+func LogAnalyticsWorkspaceOnboardingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogAnalyticsWorkspaceOnboardingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", id, state, "", opts...)
+}
+
 type logAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	//

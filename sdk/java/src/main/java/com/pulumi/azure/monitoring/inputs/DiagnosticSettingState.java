@@ -138,20 +138,18 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="metrics")
     private @Nullable Output<List<DiagnosticSettingMetricArgs>> metrics;
 
     /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<List<DiagnosticSettingMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
@@ -443,11 +441,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder metrics(@Nullable Output<List<DiagnosticSettingMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
@@ -456,11 +453,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder metrics(List<DiagnosticSettingMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
@@ -468,11 +464,10 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder metrics(DiagnosticSettingMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }

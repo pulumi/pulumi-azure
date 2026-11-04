@@ -79,11 +79,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
  * ```
  * 
- * @deprecated
- * azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group
+ * @deprecated azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group
  * 
  */
-@Deprecated /* azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group */
+@Deprecated
 @ResourceType(type="azure:managementgroups/managementGroup:ManagementGroup")
 public class ManagementGroup extends com.pulumi.resources.CustomResource {
     /**

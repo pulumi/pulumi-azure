@@ -210,6 +210,12 @@ func (AlertProcessingRuleSuppressionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertProcessingRuleSuppressionState)(nil)).Elem()
 }
 
+// AlertProcessingRuleSuppressionExists checks whether an existing AlertProcessingRuleSuppression resource with the given ID exists.
+func AlertProcessingRuleSuppressionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertProcessingRuleSuppressionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", id, state, "", opts...)
+}
+
 type alertProcessingRuleSuppressionArgs struct {
 	// A `condition` block as defined below.
 	Condition *AlertProcessingRuleSuppressionCondition `pulumi:"condition"`

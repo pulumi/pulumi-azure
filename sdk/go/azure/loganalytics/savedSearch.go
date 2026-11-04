@@ -181,6 +181,12 @@ func (SavedSearchState) ElementType() reflect.Type {
 	return reflect.TypeOf((*savedSearchState)(nil)).Elem()
 }
 
+// SavedSearchExists checks whether an existing SavedSearch resource with the given ID exists.
+func SavedSearchExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SavedSearchState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/savedSearch:SavedSearch", id, state, "", opts...)
+}
+
 type savedSearchArgs struct {
 	// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
 	Category string `pulumi:"category"`

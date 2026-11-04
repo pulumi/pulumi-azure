@@ -35,20 +35,18 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableInternetSecurity")
     private @Nullable Output<Boolean> enableInternetSecurity;
 
     /**
-     * @deprecated
-     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableInternetSecurity() {
         return Optional.ofNullable(this.enableInternetSecurity);
     }
@@ -129,20 +127,18 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="privateLinkFastPathEnabled")
     private @Nullable Output<Boolean> privateLinkFastPathEnabled;
 
     /**
-     * @deprecated
-     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> privateLinkFastPathEnabled() {
         return Optional.ofNullable(this.privateLinkFastPathEnabled);
     }
@@ -234,11 +230,10 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableInternetSecurity(@Nullable Output<Boolean> enableInternetSecurity) {
             $.enableInternetSecurity = enableInternetSecurity;
             return this;
@@ -247,11 +242,10 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableInternetSecurity(Boolean enableInternetSecurity) {
             return enableInternetSecurity(Output.of(enableInternetSecurity));
         }
@@ -364,11 +358,10 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder privateLinkFastPathEnabled(@Nullable Output<Boolean> privateLinkFastPathEnabled) {
             $.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
             return this;
@@ -377,11 +370,10 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder privateLinkFastPathEnabled(Boolean privateLinkFastPathEnabled) {
             return privateLinkFastPathEnabled(Output.of(privateLinkFastPathEnabled));
         }

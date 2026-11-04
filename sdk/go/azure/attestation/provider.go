@@ -197,6 +197,12 @@ func (ProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerState)(nil)).Elem()
 }
 
+// ProviderExists checks whether an existing Provider resource with the given ID exists.
+func ProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:attestation/provider:Provider", id, state, "", opts...)
+}
+
 type providerArgs struct {
 	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

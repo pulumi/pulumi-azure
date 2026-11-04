@@ -749,6 +749,40 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']]] = None,
+            hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']]] = None,
+            identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']]] = None,
+            mgs_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["encryptionKey"] = encryption_key
+        __props__["hsmSetting"] = hsm_setting
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["mgsAddress"] = mgs_address
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rootSquash"] = root_squash
+        __props__["skuName"] = sku_name
+        __props__["storageCapacityInTb"] = storage_capacity_in_tb
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:managedlustre/fileSystem:FileSystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[Optional['outputs.FileSystemEncryptionKey']]:

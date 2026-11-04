@@ -157,6 +157,12 @@ func (ApplicationNetworkRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationNetworkRuleSetState)(nil)).Elem()
 }
 
+// ApplicationNetworkRuleSetExists checks whether an existing ApplicationNetworkRuleSet resource with the given ID exists.
+func ApplicationNetworkRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationNetworkRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", id, state, "", opts...)
+}
+
 type applicationNetworkRuleSetArgs struct {
 	// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
 	ApplyToDevice *bool `pulumi:"applyToDevice"`

@@ -274,6 +274,16 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         __props__.__dict__["configuration_id"] = configuration_id
         return AutomanageConfigurationAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arcMachineId"] = arc_machine_id
+        __props__["configurationId"] = configuration_id
+        return pulumi.runtime.exists_resource(None, 'azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="arcMachineId")
     def arc_machine_id(self) -> pulumi.Output[_builtins.str]:

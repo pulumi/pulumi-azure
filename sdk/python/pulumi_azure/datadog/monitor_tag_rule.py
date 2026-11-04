@@ -375,6 +375,20 @@ class MonitorTagRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return MonitorTagRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict', 'outputs.MonitorTagRuleLog']]]]] = None,
+            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict', 'outputs.MonitorTagRuleMetric']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["datadogMonitorId"] = datadog_monitor_id
+        __props__["logs"] = logs
+        __props__["metrics"] = metrics
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:datadog/monitorTagRule:MonitorTagRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
     def datadog_monitor_id(self) -> pulumi.Output[_builtins.str]:

@@ -242,6 +242,12 @@ func (AuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleState)(nil)).Elem()
 }
 
+// AuthorizationRuleExists checks whether an existing AuthorizationRule resource with the given ID exists.
+func AuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/authorizationRule:AuthorizationRule", id, state, "", opts...)
+}
+
 type authorizationRuleArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName string `pulumi:"eventhubName"`

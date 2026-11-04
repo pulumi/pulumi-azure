@@ -166,6 +166,12 @@ func (FleetMemberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetMemberState)(nil)).Elem()
 }
 
+// FleetMemberExists checks whether an existing FleetMember resource with the given ID exists.
+func FleetMemberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetMemberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/fleetMember:FleetMember", id, state, "", opts...)
+}
+
 type fleetMemberArgs struct {
 	// The group this member belongs to for multi-cluster update management.
 	Group *string `pulumi:"group"`

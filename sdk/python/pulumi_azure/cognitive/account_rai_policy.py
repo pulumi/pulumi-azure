@@ -431,6 +431,24 @@ class AccountRaiPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AccountRaiPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict', 'outputs.AccountRaiPolicyContentFilter']]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["basePolicyName"] = base_policy_name
+        __props__["cognitiveAccountId"] = cognitive_account_id
+        __props__["contentFilters"] = content_filters
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/accountRaiPolicy:AccountRaiPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="basePolicyName")
     def base_policy_name(self) -> pulumi.Output[_builtins.str]:

@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -62,17 +62,17 @@ import javax.annotation.Nullable;
  *             .mode("All")
  *             .displayName("my-policy-definition")
  *             .policyRule("""
- *  {
- *     "if": {
- *       "not": {
+ *  }{{@code
+ *     "if": }{{@code
+ *       "not": }{{@code
  *         "field": "location",
  *         "equals": "westeurope"
- *       }
- *     },
- *     "then": {
+ *       }}{@code
+ *     }}{@code ,
+ *     "then": }{{@code
  *       "effect": "Deny"
- *     }
- *   }
+ *     }}{@code
+ *   }}{@code
  *             """)
  *             .build());
  * 
@@ -81,19 +81,19 @@ import javax.annotation.Nullable;
  *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .parameters("""
- *     {
- *       \"tagName\": {
- *         \"value\": \"Business Unit\"
- *       },
- *       \"tagValue\": {
- *         \"value\": \"BU\"
- *       }
- *     }
+ *     }{{@code
+ *       }&#92;{@code "tagName}&#92;{@code ": }{{@code
+ *         }&#92;{@code "value}&#92;{@code ": }&#92;{@code "Business Unit}&#92;{@code "
+ *       }}{@code ,
+ *       }&#92;{@code "tagValue}&#92;{@code ": }{{@code
+ *         }&#92;{@code "value}&#92;{@code ": }&#92;{@code "BU}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

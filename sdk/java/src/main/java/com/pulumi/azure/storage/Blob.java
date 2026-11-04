@@ -274,11 +274,10 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
@@ -310,11 +309,10 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 

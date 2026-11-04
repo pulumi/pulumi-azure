@@ -302,6 +302,12 @@ func (ApiDiagnosticState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiDiagnosticState)(nil)).Elem()
 }
 
+// ApiDiagnosticExists checks whether an existing ApiDiagnostic resource with the given ID exists.
+func ApiDiagnosticExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiDiagnosticState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiDiagnostic:ApiDiagnostic", id, state, "", opts...)
+}
+
 type apiDiagnosticArgs struct {
 	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
 	AlwaysLogErrors *bool `pulumi:"alwaysLogErrors"`

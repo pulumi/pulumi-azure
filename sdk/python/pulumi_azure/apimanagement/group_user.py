@@ -328,6 +328,20 @@ class GroupUser(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return GroupUser(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["groupName"] = group_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/groupUser:GroupUser', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

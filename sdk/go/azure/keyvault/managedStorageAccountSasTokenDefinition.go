@@ -243,6 +243,12 @@ func (ManagedStorageAccountSasTokenDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedStorageAccountSasTokenDefinitionState)(nil)).Elem()
 }
 
+// ManagedStorageAccountSasTokenDefinitionExists checks whether an existing ManagedStorageAccountSasTokenDefinition resource with the given ID exists.
+func ManagedStorageAccountSasTokenDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedStorageAccountSasTokenDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", id, state, "", opts...)
+}
+
 type managedStorageAccountSasTokenDefinitionArgs struct {
 	// The ID of the Managed Storage Account.
 	ManagedStorageAccountId string `pulumi:"managedStorageAccountId"`

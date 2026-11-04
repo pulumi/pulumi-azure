@@ -163,6 +163,12 @@ func (ClusterDeploymentSafeguardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterDeploymentSafeguardState)(nil)).Elem()
 }
 
+// ClusterDeploymentSafeguardExists checks whether an existing ClusterDeploymentSafeguard resource with the given ID exists.
+func ClusterDeploymentSafeguardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterDeploymentSafeguardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard", id, state, "", opts...)
+}
+
 type clusterDeploymentSafeguardArgs struct {
 	// A list of Kubernetes namespace names that should be excluded from Deployment Safeguards enforcement. This allows certain namespaces to bypass the configured policies.
 	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`

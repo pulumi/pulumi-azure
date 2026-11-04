@@ -1273,6 +1273,56 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         __props__.__dict__["test_network_id"] = test_network_id
         return VmwareReplicatedVm(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]]] = None,
+            multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]]] = None,
+            physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+            target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            test_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applianceName"] = appliance_name
+        __props__["defaultLogStorageAccountId"] = default_log_storage_account_id
+        __props__["defaultRecoveryDiskType"] = default_recovery_disk_type
+        __props__["defaultTargetDiskEncryptionSetId"] = default_target_disk_encryption_set_id
+        __props__["licenseType"] = license_type
+        __props__["managedDisks"] = managed_disks
+        __props__["multiVmGroupName"] = multi_vm_group_name
+        __props__["name"] = name
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["physicalServerCredentialName"] = physical_server_credential_name
+        __props__["recoveryReplicationPolicyId"] = recovery_replication_policy_id
+        __props__["recoveryVaultId"] = recovery_vault_id
+        __props__["sourceVmName"] = source_vm_name
+        __props__["targetAvailabilitySetId"] = target_availability_set_id
+        __props__["targetBootDiagnosticsStorageAccountId"] = target_boot_diagnostics_storage_account_id
+        __props__["targetNetworkId"] = target_network_id
+        __props__["targetProximityPlacementGroupId"] = target_proximity_placement_group_id
+        __props__["targetResourceGroupId"] = target_resource_group_id
+        __props__["targetVmName"] = target_vm_name
+        __props__["targetVmSize"] = target_vm_size
+        __props__["targetZone"] = target_zone
+        __props__["testNetworkId"] = test_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applianceName")
     def appliance_name(self) -> pulumi.Output[_builtins.str]:

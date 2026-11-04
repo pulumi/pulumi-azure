@@ -143,6 +143,12 @@ func (ShareDirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareDirectoryState)(nil)).Elem()
 }
 
+// ShareDirectoryExists checks whether an existing ShareDirectory resource with the given ID exists.
+func ShareDirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShareDirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/shareDirectory:ShareDirectory", id, state, "", opts...)
+}
+
 type shareDirectoryArgs struct {
 	// A mapping of metadata to assign to this Directory.
 	Metadata map[string]string `pulumi:"metadata"`

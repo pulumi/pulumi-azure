@@ -143,6 +143,12 @@ func (DataConnectorMicrosoftThreatProtectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorMicrosoftThreatProtectionState)(nil)).Elem()
 }
 
+// DataConnectorMicrosoftThreatProtectionExists checks whether an existing DataConnectorMicrosoftThreatProtection resource with the given ID exists.
+func DataConnectorMicrosoftThreatProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorMicrosoftThreatProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection", id, state, "", opts...)
+}
+
 type dataConnectorMicrosoftThreatProtectionArgs struct {
 	// The ID of the Log Analytics Workspace that this Microsoft Threat Protection Data Connector resides in. Changing this forces a new Microsoft Threat Protection Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

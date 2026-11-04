@@ -205,6 +205,12 @@ func (LinkedCustomServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedCustomServiceState)(nil)).Elem()
 }
 
+// LinkedCustomServiceExists checks whether an existing LinkedCustomService resource with the given ID exists.
+func LinkedCustomServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedCustomServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedCustomService:LinkedCustomService", id, state, "", opts...)
+}
+
 type linkedCustomServiceArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

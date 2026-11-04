@@ -103,6 +103,17 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
         return new VirtualMachineManagerVirtualMachineInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing VirtualMachineManagerVirtualMachineInstance resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: VirtualMachineManagerVirtualMachineInstanceState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance';
 

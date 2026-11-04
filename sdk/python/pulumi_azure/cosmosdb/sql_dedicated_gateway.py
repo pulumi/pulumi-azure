@@ -312,6 +312,18 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         __props__.__dict__["instance_size"] = instance_size
         return SqlDedicatedGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cosmosdbAccountId"] = cosmosdb_account_id
+        __props__["instanceCount"] = instance_count
+        __props__["instanceSize"] = instance_size
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cosmosdbAccountId")
     def cosmosdb_account_id(self) -> pulumi.Output[_builtins.str]:

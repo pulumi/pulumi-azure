@@ -207,6 +207,12 @@ func (EventGridTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventGridTopicState)(nil)).Elem()
 }
 
+// EventGridTopicExists checks whether an existing EventGridTopic resource with the given ID exists.
+func EventGridTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventGridTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventGridTopic:EventGridTopic", id, state, "", opts...)
+}
+
 type eventGridTopicArgs struct {
 	// An `identity` block as defined below.
 	Identity *EventGridTopicIdentity `pulumi:"identity"`

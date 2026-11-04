@@ -167,6 +167,12 @@ func (IPGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipgroupState)(nil)).Elem()
 }
 
+// IPGroupExists checks whether an existing IPGroup resource with the given ID exists.
+func IPGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IPGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/iPGroup:IPGroup", id, state, "", opts...)
+}
+
 type ipgroupArgs struct {
 	// A list of CIDRs or IP addresses.
 	//

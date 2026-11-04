@@ -274,6 +274,12 @@ func (SpringCloudGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudGatewayState)(nil)).Elem()
 }
 
+// SpringCloudGatewayExists checks whether an existing SpringCloudGateway resource with the given ID exists.
+func SpringCloudGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudGateway:SpringCloudGateway", id, state, "", opts...)
+}
+
 type springCloudGatewayArgs struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`

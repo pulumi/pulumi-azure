@@ -194,6 +194,12 @@ func (ServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverState)(nil)).Elem()
 }
 
+// ServerExists checks whether an existing Server resource with the given ID exists.
+func ServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:fluidrelay/server:Server", id, state, "", opts...)
+}
+
 type serverArgs struct {
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *ServerCustomerManagedKey `pulumi:"customerManagedKey"`

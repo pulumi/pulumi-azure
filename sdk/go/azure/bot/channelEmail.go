@@ -182,6 +182,12 @@ func (ChannelEmailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelEmailState)(nil)).Elem()
 }
 
+// ChannelEmailExists checks whether an existing ChannelEmail resource with the given ID exists.
+func ChannelEmailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelEmailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelEmail:ChannelEmail", id, state, "", opts...)
+}
+
 type channelEmailArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

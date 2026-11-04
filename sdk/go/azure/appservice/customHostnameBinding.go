@@ -196,6 +196,12 @@ func (CustomHostnameBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customHostnameBindingState)(nil)).Elem()
 }
 
+// CustomHostnameBindingExists checks whether an existing CustomHostnameBinding resource with the given ID exists.
+func CustomHostnameBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomHostnameBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", id, state, "", opts...)
+}
+
 type customHostnameBindingArgs struct {
 	// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
 	AppServiceName string `pulumi:"appServiceName"`

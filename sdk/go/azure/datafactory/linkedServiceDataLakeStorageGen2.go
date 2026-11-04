@@ -229,6 +229,12 @@ func (LinkedServiceDataLakeStorageGen2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceDataLakeStorageGen2State)(nil)).Elem()
 }
 
+// LinkedServiceDataLakeStorageGen2Exists checks whether an existing LinkedServiceDataLakeStorageGen2 resource with the given ID exists.
+func LinkedServiceDataLakeStorageGen2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceDataLakeStorageGen2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", id, state, "", opts...)
+}
+
 type linkedServiceDataLakeStorageGen2Args struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

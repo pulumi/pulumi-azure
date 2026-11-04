@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var vnetName = "example-vnet";
  * 
  *         var example = new ResourceGroupTemplateDeployment("example", ResourceGroupTemplateDeploymentArgs.builder()
@@ -62,48 +62,48 @@ import javax.annotation.Nullable;
  *                     ))
  *                 )))
  *             .templateContent("""
- * {
- *     \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
- *     \"contentVersion\": \"1.0.0.0\",
- *     \"parameters\": {
- *         \"vnetName\": {
- *             \"type\": \"string\",
- *             \"metadata\": {
- *                 \"description\": \"Name of the VNET\"
- *             }
- *         }
- *     },
- *     \"variables\": {},
- *     \"resources\": [
- *         {
- *             \"type\": \"Microsoft.Network/virtualNetworks\",
- *             \"apiVersion\": \"2020-05-01\",
- *             \"name\": \"[parameters('vnetName')]\",
- *             \"location\": \"[resourceGroup().location]\",
- *             \"properties\": {
- *                 \"addressSpace\": {
- *                     \"addressPrefixes\": [
- *                         \"10.0.0.0/16\"
+ * }{{@code
+ *     }&#92;{@code "$schema}&#92;{@code ": }&#92;{@code "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#}&#92;{@code ",
+ *     }&#92;{@code "contentVersion}&#92;{@code ": }&#92;{@code "1.0.0.0}&#92;{@code ",
+ *     }&#92;{@code "parameters}&#92;{@code ": }{{@code
+ *         }&#92;{@code "vnetName}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code ",
+ *             }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Name of the VNET}&#92;{@code "
+ *             }}{@code
+ *         }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "variables}&#92;{@code ": }{}{@code ,
+ *     }&#92;{@code "resources}&#92;{@code ": [
+ *         }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Microsoft.Network/virtualNetworks}&#92;{@code ",
+ *             }&#92;{@code "apiVersion}&#92;{@code ": }&#92;{@code "2020-05-01}&#92;{@code ",
+ *             }&#92;{@code "name}&#92;{@code ": }&#92;{@code "[parameters('vnetName')]}&#92;{@code ",
+ *             }&#92;{@code "location}&#92;{@code ": }&#92;{@code "[resourceGroup().location]}&#92;{@code ",
+ *             }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "addressSpace}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "addressPrefixes}&#92;{@code ": [
+ *                         }&#92;{@code "10.0.0.0/16}&#92;{@code "
  *                     ]
- *                 }
- *             }
- *         }
+ *                 }}{@code
+ *             }}{@code
+ *         }}{@code
  *     ],
- *     \"outputs\": {
- *       \"exampleOutput\": {
- *         \"type\": \"string\",
- *         \"value\": \"someoutput\"
- *       }
- *     }
- * }
+ *     }&#92;{@code "outputs}&#92;{@code ": }{{@code
+ *       }&#92;{@code "exampleOutput}&#92;{@code ": }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code ",
+ *         }&#92;{@code "value}&#92;{@code ": }&#92;{@code "someoutput}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
  *         ctx.export("armExampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
  *             .input(example.outputContent())
  *             .build()).applyValue(_invoke -> _invoke.result().get("exampleOutput").get("value")));
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

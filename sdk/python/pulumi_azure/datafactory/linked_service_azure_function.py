@@ -574,6 +574,32 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return LinkedServiceAzureFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["integrationRuntimeName"] = integration_runtime_name
+        __props__["key"] = key
+        __props__["keyVaultKey"] = key_vault_key
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

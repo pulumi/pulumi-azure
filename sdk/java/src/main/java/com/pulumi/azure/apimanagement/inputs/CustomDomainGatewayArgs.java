@@ -108,22 +108,20 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -337,11 +335,10 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
@@ -352,11 +349,10 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

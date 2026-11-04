@@ -631,6 +631,32 @@ class SnapshotPolicy(pulumi.CustomResource):
         __props__.__dict__["weekly_schedule"] = weekly_schedule
         return SnapshotPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["dailySchedule"] = daily_schedule
+        __props__["enabled"] = enabled
+        __props__["hourlySchedule"] = hourly_schedule
+        __props__["location"] = location
+        __props__["monthlySchedule"] = monthly_schedule
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["weeklySchedule"] = weekly_schedule
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/snapshotPolicy:SnapshotPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

@@ -515,6 +515,22 @@ class CustomDomain(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_managed_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateBindingType"] = certificate_binding_type
+        __props__["containerAppEnvironmentCertificateId"] = container_app_environment_certificate_id
+        __props__["containerAppEnvironmentManagedCertificateId"] = container_app_environment_managed_certificate_id
+        __props__["containerAppId"] = container_app_id
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/customDomain:CustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> pulumi.Output[Optional[_builtins.str]]:

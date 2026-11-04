@@ -383,6 +383,18 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         __props__.__dict__["slot_id"] = slot_id
         return FunctionAppActiveSlot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            last_successful_swap: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None,
+            slot_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["lastSuccessfulSwap"] = last_successful_swap
+        __props__["overwriteNetworkConfig"] = overwrite_network_config
+        __props__["slotId"] = slot_id
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="lastSuccessfulSwap")
     def last_successful_swap(self) -> pulumi.Output[_builtins.str]:

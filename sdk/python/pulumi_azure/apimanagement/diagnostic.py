@@ -832,6 +832,40 @@ class Diagnostic(pulumi.CustomResource):
         __props__.__dict__["verbosity"] = verbosity
         return Diagnostic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            backend_request: pulumi.Input[Optional[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict', 'outputs.DiagnosticBackendRequest']]] = None,
+            backend_response: pulumi.Input[Optional[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict', 'outputs.DiagnosticBackendResponse']]] = None,
+            frontend_request: pulumi.Input[Optional[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict', 'outputs.DiagnosticFrontendRequest']]] = None,
+            frontend_response: pulumi.Input[Optional[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict', 'outputs.DiagnosticFrontendResponse']]] = None,
+            http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            verbosity: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alwaysLogErrors"] = always_log_errors
+        __props__["apiManagementLoggerId"] = api_management_logger_id
+        __props__["apiManagementName"] = api_management_name
+        __props__["backendRequest"] = backend_request
+        __props__["backendResponse"] = backend_response
+        __props__["frontendRequest"] = frontend_request
+        __props__["frontendResponse"] = frontend_response
+        __props__["httpCorrelationProtocol"] = http_correlation_protocol
+        __props__["identifier"] = identifier
+        __props__["logClientIp"] = log_client_ip
+        __props__["operationNameFormat"] = operation_name_format
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["samplingPercentage"] = sampling_percentage
+        __props__["verbosity"] = verbosity
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/diagnostic:Diagnostic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alwaysLogErrors")
     def always_log_errors(self) -> pulumi.Output[_builtins.bool]:

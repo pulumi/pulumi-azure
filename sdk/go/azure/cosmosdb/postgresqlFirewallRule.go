@@ -154,6 +154,12 @@ func (PostgresqlFirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresqlFirewallRuleState)(nil)).Elem()
 }
 
+// PostgresqlFirewallRuleExists checks whether an existing PostgresqlFirewallRule resource with the given ID exists.
+func PostgresqlFirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresqlFirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", id, state, "", opts...)
+}
+
 type postgresqlFirewallRuleArgs struct {
 	// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`

@@ -186,6 +186,12 @@ func (RedisCacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*redisCacheState)(nil)).Elem()
 }
 
+// RedisCacheExists checks whether an existing RedisCache resource with the given ID exists.
+func RedisCacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RedisCacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/redisCache:RedisCache", id, state, "", opts...)
+}
+
 type redisCacheArgs struct {
 	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

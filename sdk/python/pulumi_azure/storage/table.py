@@ -364,6 +364,22 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["storage_account_name"] = storage_account_name
         return Table(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acls"] = acls
+        __props__["name"] = name
+        __props__["resourceManagerId"] = resource_manager_id
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountName"] = storage_account_name
+        return pulumi.runtime.exists_resource(None, 'azure:storage/table:Table', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def acls(self) -> pulumi.Output[Optional[Sequence['outputs.TableAcl']]]:

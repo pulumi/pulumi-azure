@@ -998,6 +998,54 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return Insights(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            application_type: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+            instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["applicationType"] = application_type
+        __props__["connectionString"] = connection_string
+        __props__["dailyDataCapInGb"] = daily_data_cap_in_gb
+        __props__["dailyDataCapNotificationsDisabled"] = daily_data_cap_notifications_disabled
+        __props__["dailyDataCapNotificationsEnabled"] = daily_data_cap_notifications_enabled
+        __props__["disableIpMasking"] = disable_ip_masking
+        __props__["forceCustomerStorageForProfiler"] = force_customer_storage_for_profiler
+        __props__["instrumentationKey"] = instrumentation_key
+        __props__["internetIngestionEnabled"] = internet_ingestion_enabled
+        __props__["internetQueryEnabled"] = internet_query_enabled
+        __props__["ipMaskingEnabled"] = ip_masking_enabled
+        __props__["localAuthenticationDisabled"] = local_authentication_disabled
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionInDays"] = retention_in_days
+        __props__["samplingPercentage"] = sampling_percentage
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:appinsights/insights:Insights', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

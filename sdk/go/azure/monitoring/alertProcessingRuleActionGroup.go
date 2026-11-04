@@ -230,6 +230,12 @@ func (AlertProcessingRuleActionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertProcessingRuleActionGroupState)(nil)).Elem()
 }
 
+// AlertProcessingRuleActionGroupExists checks whether an existing AlertProcessingRuleActionGroup resource with the given ID exists.
+func AlertProcessingRuleActionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertProcessingRuleActionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", id, state, "", opts...)
+}
+
 type alertProcessingRuleActionGroupArgs struct {
 	// Specifies a list of Action Group IDs.
 	AddActionGroupIds []string `pulumi:"addActionGroupIds"`

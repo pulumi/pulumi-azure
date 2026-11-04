@@ -166,6 +166,12 @@ func (ConnectionTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionTypeState)(nil)).Elem()
 }
 
+// ConnectionTypeExists checks whether an existing ConnectionType resource with the given ID exists.
+func ConnectionTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/connectionType:ConnectionType", id, state, "", opts...)
+}
+
 type connectionTypeArgs struct {
 	// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

@@ -40,11 +40,10 @@ public final class CustomDomainGateway {
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable String keyVaultId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -105,11 +104,10 @@ public final class CustomDomainGateway {
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
      * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<String> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }

@@ -499,6 +499,12 @@ func (WindowsFunctionAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsFunctionAppState)(nil)).Elem()
 }
 
+// WindowsFunctionAppExists checks whether an existing WindowsFunctionApp resource with the given ID exists.
+func WindowsFunctionAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsFunctionAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/windowsFunctionApp:WindowsFunctionApp", id, state, "", opts...)
+}
+
 type windowsFunctionAppArgs struct {
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//

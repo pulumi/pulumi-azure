@@ -254,6 +254,12 @@ func (AlertPrometheusRuleGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPrometheusRuleGroupState)(nil)).Elem()
 }
 
+// AlertPrometheusRuleGroupExists checks whether an existing AlertPrometheusRuleGroup resource with the given ID exists.
+func AlertPrometheusRuleGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertPrometheusRuleGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup", id, state, "", opts...)
+}
+
 type alertPrometheusRuleGroupArgs struct {
 	// Specifies the name of the Managed Kubernetes Cluster.
 	ClusterName *string `pulumi:"clusterName"`

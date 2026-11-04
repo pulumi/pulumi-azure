@@ -690,6 +690,38 @@ class ConfigurationFeature(pulumi.CustomResource):
         __props__.__dict__["timewindow_filters"] = timewindow_filters
         return ConfigurationFeature(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict', 'outputs.ConfigurationFeatureCustomFilter']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict', 'outputs.ConfigurationFeatureTargetingFilter']]]]] = None,
+            timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict', 'outputs.ConfigurationFeatureTimewindowFilter']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationStoreId"] = configuration_store_id
+        __props__["customFilters"] = custom_filters
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["etag"] = etag
+        __props__["key"] = key
+        __props__["label"] = label
+        __props__["locked"] = locked
+        __props__["name"] = name
+        __props__["percentageFilterValue"] = percentage_filter_value
+        __props__["tags"] = tags
+        __props__["targetingFilters"] = targeting_filters
+        __props__["timewindowFilters"] = timewindow_filters
+        return pulumi.runtime.exists_resource(None, 'azure:appconfiguration/configurationFeature:ConfigurationFeature', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationStoreId")
     def configuration_store_id(self) -> pulumi.Output[_builtins.str]:

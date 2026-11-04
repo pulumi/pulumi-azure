@@ -187,6 +187,12 @@ func (IdentityProviderAadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderAadState)(nil)).Elem()
 }
 
+// IdentityProviderAadExists checks whether an existing IdentityProviderAad resource with the given ID exists.
+func IdentityProviderAadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderAadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderAad:IdentityProviderAad", id, state, "", opts...)
+}
+
 type identityProviderAadArgs struct {
 	// List of allowed AAD Tenants.
 	AllowedTenants []string `pulumi:"allowedTenants"`

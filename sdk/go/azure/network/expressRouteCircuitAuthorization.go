@@ -167,6 +167,12 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitAuthorizationState)(nil)).Elem()
 }
 
+// ExpressRouteCircuitAuthorizationExists checks whether an existing ExpressRouteCircuitAuthorization resource with the given ID exists.
+func ExpressRouteCircuitAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteCircuitAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", id, state, "", opts...)
+}
+
 type expressRouteCircuitAuthorizationArgs struct {
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`

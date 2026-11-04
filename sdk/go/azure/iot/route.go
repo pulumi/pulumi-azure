@@ -212,6 +212,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/route:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition *string `pulumi:"condition"`

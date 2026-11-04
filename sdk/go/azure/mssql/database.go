@@ -563,6 +563,12 @@ func (DatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseState)(nil)).Elem()
 }
 
+// DatabaseExists checks whether an existing Database resource with the given ID exists.
+func DatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/database:Database", id, state, "", opts...)
+}
+
 type databaseArgs struct {
 	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`

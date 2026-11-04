@@ -205,6 +205,12 @@ func (PublicIpPrefixState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIpPrefixState)(nil)).Elem()
 }
 
+// PublicIpPrefixExists checks whether an existing PublicIpPrefix resource with the given ID exists.
+func PublicIpPrefixExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicIpPrefixState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/publicIpPrefix:PublicIpPrefix", id, state, "", opts...)
+}
+
 type publicIpPrefixArgs struct {
 	// The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
 	//

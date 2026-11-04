@@ -158,6 +158,12 @@ func (SharedImageGalleryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageGalleryState)(nil)).Elem()
 }
 
+// SharedImageGalleryExists checks whether an existing SharedImageGallery resource with the given ID exists.
+func SharedImageGalleryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedImageGalleryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/sharedImageGallery:SharedImageGallery", id, state, "", opts...)
+}
+
 type sharedImageGalleryArgs struct {
 	// A description for this Shared Image Gallery.
 	Description *string `pulumi:"description"`

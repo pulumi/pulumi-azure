@@ -628,6 +628,38 @@ class CassandraDatacenter(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         return CassandraDatacenter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+            cassandra_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["availabilityZonesEnabled"] = availability_zones_enabled
+        __props__["backupStorageCustomerKeyUri"] = backup_storage_customer_key_uri
+        __props__["base64EncodedYamlFragment"] = base64_encoded_yaml_fragment
+        __props__["cassandraClusterId"] = cassandra_cluster_id
+        __props__["delegatedManagementSubnetId"] = delegated_management_subnet_id
+        __props__["diskCount"] = disk_count
+        __props__["diskSku"] = disk_sku
+        __props__["location"] = location
+        __props__["managedDiskCustomerKeyUri"] = managed_disk_customer_key_uri
+        __props__["name"] = name
+        __props__["nodeCount"] = node_count
+        __props__["seedNodeIpAddresses"] = seed_node_ip_addresses
+        __props__["skuName"] = sku_name
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/cassandraDatacenter:CassandraDatacenter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="availabilityZonesEnabled")
     def availability_zones_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

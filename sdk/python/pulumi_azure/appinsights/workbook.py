@@ -646,6 +646,34 @@ class Workbook(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Workbook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            data_json: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['WorkbookIdentityArgs', 'WorkbookIdentityArgsDict', 'outputs.WorkbookIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["dataJson"] = data_json
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceId"] = source_id
+        __props__["storageContainerId"] = storage_container_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:appinsights/workbook:Workbook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[Optional[_builtins.str]]:

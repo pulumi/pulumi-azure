@@ -143,6 +143,12 @@ func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionState) ElementType()
 	return reflect.TypeOf((*dataConnectorMicrosoftDefenderAdvancedThreatProtectionState)(nil)).Elem()
 }
 
+// DataConnectorMicrosoftDefenderAdvancedThreatProtectionExists checks whether an existing DataConnectorMicrosoftDefenderAdvancedThreatProtection resource with the given ID exists.
+func DataConnectorMicrosoftDefenderAdvancedThreatProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorMicrosoftDefenderAdvancedThreatProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection", id, state, "", opts...)
+}
+
 type dataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs struct {
 	// The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

@@ -224,6 +224,12 @@ func (OutputMssqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputMssqlState)(nil)).Elem()
 }
 
+// OutputMssqlExists checks whether an existing OutputMssql resource with the given ID exists.
+func OutputMssqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputMssqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputMssql:OutputMssql", id, state, "", opts...)
+}
+
 type outputMssqlArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

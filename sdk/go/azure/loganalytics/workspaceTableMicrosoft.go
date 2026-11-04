@@ -186,6 +186,12 @@ func (WorkspaceTableMicrosoftState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceTableMicrosoftState)(nil)).Elem()
 }
 
+// WorkspaceTableMicrosoftExists checks whether an existing WorkspaceTableMicrosoft resource with the given ID exists.
+func WorkspaceTableMicrosoftExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceTableMicrosoftState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/workspaceTableMicrosoft:WorkspaceTableMicrosoft", id, state, "", opts...)
+}
+
 type workspaceTableMicrosoftArgs struct {
 	// One or more `column` blocks as defined below.
 	Columns []WorkspaceTableMicrosoftColumn `pulumi:"columns"`

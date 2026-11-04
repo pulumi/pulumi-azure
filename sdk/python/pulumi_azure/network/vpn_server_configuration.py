@@ -609,6 +609,34 @@ class VpnServerConfiguration(pulumi.CustomResource):
         __props__.__dict__["vpn_protocols"] = vpn_protocols
         return VpnServerConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_active_directory_authentications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs', 'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict', 'outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]]]] = None,
+            client_revoked_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRevokedCertificateArgs', 'VpnServerConfigurationClientRevokedCertificateArgsDict', 'outputs.VpnServerConfigurationClientRevokedCertificate']]]]] = None,
+            client_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationClientRootCertificateArgs', 'VpnServerConfigurationClientRootCertificateArgsDict', 'outputs.VpnServerConfigurationClientRootCertificate']]]]] = None,
+            ipsec_policy: pulumi.Input[Optional[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict', 'outputs.VpnServerConfigurationIpsecPolicy']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            radius: pulumi.Input[Optional[Union['VpnServerConfigurationRadiusArgs', 'VpnServerConfigurationRadiusArgsDict', 'outputs.VpnServerConfigurationRadius']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpn_authentication_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpn_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureActiveDirectoryAuthentications"] = azure_active_directory_authentications
+        __props__["clientRevokedCertificates"] = client_revoked_certificates
+        __props__["clientRootCertificates"] = client_root_certificates
+        __props__["ipsecPolicy"] = ipsec_policy
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["radius"] = radius
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["vpnAuthenticationTypes"] = vpn_authentication_types
+        __props__["vpnProtocols"] = vpn_protocols
+        return pulumi.runtime.exists_resource(None, 'azure:network/vpnServerConfiguration:VpnServerConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectoryAuthentications")
     def azure_active_directory_authentications(self) -> pulumi.Output[Optional[Sequence['outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]]:

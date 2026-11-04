@@ -367,6 +367,20 @@ class JobStorageAccount(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         return JobStorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMode"] = authentication_mode
+        __props__["storageAccountKey"] = storage_account_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/jobStorageAccount:JobStorageAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[_builtins.str]:

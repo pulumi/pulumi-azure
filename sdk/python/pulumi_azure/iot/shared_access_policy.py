@@ -553,6 +553,34 @@ class SharedAccessPolicy(pulumi.CustomResource):
         __props__.__dict__["service_connect"] = service_connect
         return SharedAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+            iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_connect: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deviceConnect"] = device_connect
+        __props__["iothubName"] = iothub_name
+        __props__["name"] = name
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["primaryKey"] = primary_key
+        __props__["registryRead"] = registry_read
+        __props__["registryWrite"] = registry_write
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["secondaryKey"] = secondary_key
+        __props__["serviceConnect"] = service_connect
+        return pulumi.runtime.exists_resource(None, 'azure:iot/sharedAccessPolicy:SharedAccessPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deviceConnect")
     def device_connect(self) -> pulumi.Output[Optional[_builtins.bool]]:

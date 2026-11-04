@@ -206,6 +206,12 @@ func (DatabaseExtendedAuditingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseExtendedAuditingPolicyState)(nil)).Elem()
 }
 
+// DatabaseExtendedAuditingPolicyExists checks whether an existing DatabaseExtendedAuditingPolicy resource with the given ID exists.
+func DatabaseExtendedAuditingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseExtendedAuditingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy", id, state, "", opts...)
+}
+
 type databaseExtendedAuditingPolicyArgs struct {
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId string `pulumi:"databaseId"`

@@ -172,6 +172,12 @@ func (ApiTagDescriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiTagDescriptionState)(nil)).Elem()
 }
 
+// ApiTagDescriptionExists checks whether an existing ApiTagDescription resource with the given ID exists.
+func ApiTagDescriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiTagDescriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiTagDescription:ApiTagDescription", id, state, "", opts...)
+}
+
 type apiTagDescriptionArgs struct {
 	// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
 	ApiTagId string `pulumi:"apiTagId"`

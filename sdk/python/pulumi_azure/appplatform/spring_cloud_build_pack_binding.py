@@ -371,6 +371,20 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         __props__.__dict__["spring_cloud_builder_id"] = spring_cloud_builder_id
         return SpringCloudBuildPackBinding(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            binding_type: pulumi.Input[Optional[_builtins.str]] = None,
+            launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_builder_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bindingType"] = binding_type
+        __props__["launch"] = launch
+        __props__["name"] = name
+        __props__["springCloudBuilderId"] = spring_cloud_builder_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bindingType")
     def binding_type(self) -> pulumi.Output[Optional[_builtins.str]]:

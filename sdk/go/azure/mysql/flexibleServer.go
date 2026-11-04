@@ -411,6 +411,12 @@ func (FlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerState)(nil)).Elem()
 }
 
+// FlexibleServerExists checks whether an existing FlexibleServer resource with the given ID exists.
+func FlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mysql/flexibleServer:FlexibleServer", id, state, "", opts...)
+}
+
 type flexibleServerArgs struct {
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`

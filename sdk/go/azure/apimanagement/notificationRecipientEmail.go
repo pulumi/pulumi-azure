@@ -146,6 +146,12 @@ func (NotificationRecipientEmailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRecipientEmailState)(nil)).Elem()
 }
 
+// NotificationRecipientEmailExists checks whether an existing NotificationRecipientEmail resource with the given ID exists.
+func NotificationRecipientEmailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationRecipientEmailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail", id, state, "", opts...)
+}
+
 type notificationRecipientEmailArgs struct {
 	// The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

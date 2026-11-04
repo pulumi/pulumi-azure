@@ -150,6 +150,12 @@ func (IPGroupCIDRState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipgroupCIDRState)(nil)).Elem()
 }
 
+// IPGroupCIDRExists checks whether an existing IPGroupCIDR resource with the given ID exists.
+func IPGroupCIDRExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IPGroupCIDRState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/iPGroupCIDR:IPGroupCIDR", id, state, "", opts...)
+}
+
 type ipgroupCIDRArgs struct {
 	// The `CIDR` that should be added to the IP Group.
 	// Changing this forces a new IP Group CIDR to be created.

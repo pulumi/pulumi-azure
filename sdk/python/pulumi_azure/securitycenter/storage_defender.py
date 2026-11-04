@@ -407,6 +407,24 @@ class StorageDefender(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return StorageDefender(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+            malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["malwareScanningOnUploadCapGbPerMonth"] = malware_scanning_on_upload_cap_gb_per_month
+        __props__["malwareScanningOnUploadEnabled"] = malware_scanning_on_upload_enabled
+        __props__["overrideSubscriptionSettingsEnabled"] = override_subscription_settings_enabled
+        __props__["scanResultsEventGridTopicId"] = scan_results_event_grid_topic_id
+        __props__["sensitiveDataDiscoveryEnabled"] = sensitive_data_discovery_enabled
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:securitycenter/storageDefender:StorageDefender', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="malwareScanningOnUploadCapGbPerMonth")
     def malware_scanning_on_upload_cap_gb_per_month(self) -> pulumi.Output[Optional[_builtins.int]]:

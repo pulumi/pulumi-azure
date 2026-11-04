@@ -492,6 +492,26 @@ class TagRule(pulumi.CustomResource):
         __props__.__dict__["subscription_log_enabled"] = subscription_log_enabled
         return TagRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activity_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_active_directory_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleLogTagFilterArgs', 'TagRuleLogTagFilterArgsDict', 'outputs.TagRuleLogTagFilter']]]]] = None,
+            metric_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metric_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagRuleMetricTagFilterArgs', 'TagRuleMetricTagFilterArgsDict', 'outputs.TagRuleMetricTagFilter']]]]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activityLogEnabled"] = activity_log_enabled
+        __props__["azureActiveDirectoryLogEnabled"] = azure_active_directory_log_enabled
+        __props__["logTagFilters"] = log_tag_filters
+        __props__["metricEnabled"] = metric_enabled
+        __props__["metricTagFilters"] = metric_tag_filters
+        __props__["monitorId"] = monitor_id
+        __props__["subscriptionLogEnabled"] = subscription_log_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:newrelic/tagRule:TagRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activityLogEnabled")
     def activity_log_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

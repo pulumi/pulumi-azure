@@ -134,6 +134,12 @@ func (RegistryTaskScheduleRunNowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryTaskScheduleRunNowState)(nil)).Elem()
 }
 
+// RegistryTaskScheduleRunNowExists checks whether an existing RegistryTaskScheduleRunNow resource with the given ID exists.
+func RegistryTaskScheduleRunNowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryTaskScheduleRunNowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow", id, state, "", opts...)
+}
+
 type registryTaskScheduleRunNowArgs struct {
 	// The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
 	ContainerRegistryTaskId string `pulumi:"containerRegistryTaskId"`

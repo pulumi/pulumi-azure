@@ -156,6 +156,12 @@ func (SmartDetectionRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smartDetectionRuleState)(nil)).Elem()
 }
 
+// SmartDetectionRuleExists checks whether an existing SmartDetectionRule resource with the given ID exists.
+func SmartDetectionRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SmartDetectionRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/smartDetectionRule:SmartDetectionRule", id, state, "", opts...)
+}
+
 type smartDetectionRuleArgs struct {
 	// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
 	//

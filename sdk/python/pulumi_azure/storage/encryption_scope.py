@@ -385,6 +385,22 @@ class EncryptionScope(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return EncryptionScope(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            infrastructure_encryption_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["infrastructureEncryptionRequired"] = infrastructure_encryption_required
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        __props__["name"] = name
+        __props__["source"] = source
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/encryptionScope:EncryptionScope', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionRequired")
     def infrastructure_encryption_required(self) -> pulumi.Output[Optional[_builtins.bool]]:

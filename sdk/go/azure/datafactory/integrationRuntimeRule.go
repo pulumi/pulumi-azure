@@ -185,6 +185,12 @@ func (IntegrationRuntimeRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeRuleState)(nil)).Elem()
 }
 
+// IntegrationRuntimeRuleExists checks whether an existing IntegrationRuntimeRule resource with the given ID exists.
+func IntegrationRuntimeRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationRuntimeRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", id, state, "", opts...)
+}
+
 type integrationRuntimeRuleArgs struct {
 	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
 	CleanupEnabled *bool `pulumi:"cleanupEnabled"`

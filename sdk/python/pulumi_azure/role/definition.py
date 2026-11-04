@@ -491,6 +491,26 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return Definition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefinitionPermissionArgs', 'DefinitionPermissionArgsDict', 'outputs.DefinitionPermission']]]]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignableScopes"] = assignable_scopes
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["permissions"] = permissions
+        __props__["roleDefinitionId"] = role_definition_id
+        __props__["roleDefinitionResourceId"] = role_definition_resource_id
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'azure:role/definition:Definition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignableScopes")
     def assignable_scopes(self) -> pulumi.Output[Sequence[_builtins.str]]:

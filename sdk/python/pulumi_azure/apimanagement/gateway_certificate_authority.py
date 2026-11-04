@@ -373,6 +373,20 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["is_trusted"] = is_trusted
         return GatewayCertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_trusted: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementId"] = api_management_id
+        __props__["certificateName"] = certificate_name
+        __props__["gatewayName"] = gateway_name
+        __props__["isTrusted"] = is_trusted
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[_builtins.str]:

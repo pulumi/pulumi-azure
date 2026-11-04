@@ -182,6 +182,12 @@ func (PartnerNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerNamespaceState)(nil)).Elem()
 }
 
+// PartnerNamespaceExists checks whether an existing PartnerNamespace resource with the given ID exists.
+func PartnerNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnerNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/partnerNamespace:PartnerNamespace", id, state, "", opts...)
+}
+
 type partnerNamespaceArgs struct {
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []PartnerNamespaceInboundIpRule `pulumi:"inboundIpRules"`

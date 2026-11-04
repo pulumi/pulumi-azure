@@ -571,6 +571,32 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
         __props__.__dict__["server_version_is32_or_higher"] = server_version_is32_or_higher
         return LinkedServiceCosmosDbMongoApi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            server_version_is32_or_higher: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["connectionString"] = connection_string
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["database"] = database
+        __props__["description"] = description
+        __props__["integrationRuntimeName"] = integration_runtime_name
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["serverVersionIs32OrHigher"] = server_version_is32_or_higher
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

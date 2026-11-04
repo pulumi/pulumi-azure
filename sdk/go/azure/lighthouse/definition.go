@@ -172,6 +172,12 @@ func (DefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionState)(nil)).Elem()
 }
 
+// DefinitionExists checks whether an existing Definition resource with the given ID exists.
+func DefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lighthouse/definition:Definition", id, state, "", opts...)
+}
+
 type definitionArgs struct {
 	// An `authorization` block as defined below.
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`

@@ -448,6 +448,28 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         return NamespaceDisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliasAuthorizationRuleId"] = alias_authorization_rule_id
+        __props__["defaultPrimaryKey"] = default_primary_key
+        __props__["defaultSecondaryKey"] = default_secondary_key
+        __props__["name"] = name
+        __props__["partnerNamespaceId"] = partner_namespace_id
+        __props__["primaryConnectionStringAlias"] = primary_connection_string_alias
+        __props__["primaryNamespaceId"] = primary_namespace_id
+        __props__["secondaryConnectionStringAlias"] = secondary_connection_string_alias
+        return pulumi.runtime.exists_resource(None, 'azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aliasAuthorizationRuleId")
     def alias_authorization_rule_id(self) -> pulumi.Output[Optional[_builtins.str]]:

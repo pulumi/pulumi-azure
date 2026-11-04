@@ -510,6 +510,26 @@ class ManagedStorageAccount(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ManagedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            regenerate_key_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+            regeneration_period: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["keyVaultId"] = key_vault_id
+        __props__["name"] = name
+        __props__["regenerateKeyAutomatically"] = regenerate_key_automatically
+        __props__["regenerationPeriod"] = regeneration_period
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountKey"] = storage_account_key
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/managedStorageAccount:ManagedStorageAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[_builtins.str]:

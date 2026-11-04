@@ -443,6 +443,26 @@ class DedicatedHostGroup(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_placement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automaticPlacementEnabled"] = automatic_placement_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["platformFaultDomainCount"] = platform_fault_domain_count
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'azure:compute/dedicatedHostGroup:DedicatedHostGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automaticPlacementEnabled")
     def automatic_placement_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

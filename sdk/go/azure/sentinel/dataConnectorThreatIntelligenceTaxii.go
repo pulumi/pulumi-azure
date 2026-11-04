@@ -215,6 +215,12 @@ func (DataConnectorThreatIntelligenceTaxiiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorThreatIntelligenceTaxiiState)(nil)).Elem()
 }
 
+// DataConnectorThreatIntelligenceTaxiiExists checks whether an existing DataConnectorThreatIntelligenceTaxii resource with the given ID exists.
+func DataConnectorThreatIntelligenceTaxiiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorThreatIntelligenceTaxiiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii", id, state, "", opts...)
+}
+
 type dataConnectorThreatIntelligenceTaxiiArgs struct {
 	// The API root URI of the TAXII server.
 	ApiRootUrl string `pulumi:"apiRootUrl"`

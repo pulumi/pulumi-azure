@@ -508,6 +508,28 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return NetworkManagerIpamPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefixes"] = address_prefixes
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkManagerId"] = network_manager_id
+        __props__["parentPoolName"] = parent_pool_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerIpamPool:NetworkManagerIpamPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

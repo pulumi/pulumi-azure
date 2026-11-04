@@ -1320,6 +1320,68 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["trusted_launch_supported"] = trusted_launch_supported
         return SharedImage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            eula: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier: pulumi.Input[Optional[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict', 'outputs.SharedImageIdentifier']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            purchase_plan: pulumi.Input[Optional[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict', 'outputs.SharedImagePurchasePlan']]] = None,
+            release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceleratedNetworkSupportEnabled"] = accelerated_network_support_enabled
+        __props__["architecture"] = architecture
+        __props__["confidentialVmEnabled"] = confidential_vm_enabled
+        __props__["confidentialVmSupported"] = confidential_vm_supported
+        __props__["description"] = description
+        __props__["diskControllerTypeNvmeEnabled"] = disk_controller_type_nvme_enabled
+        __props__["diskTypesNotAlloweds"] = disk_types_not_alloweds
+        __props__["endOfLifeDate"] = end_of_life_date
+        __props__["eula"] = eula
+        __props__["galleryName"] = gallery_name
+        __props__["hibernationEnabled"] = hibernation_enabled
+        __props__["hyperVGeneration"] = hyper_v_generation
+        __props__["identifier"] = identifier
+        __props__["location"] = location
+        __props__["maxRecommendedMemoryInGb"] = max_recommended_memory_in_gb
+        __props__["maxRecommendedVcpuCount"] = max_recommended_vcpu_count
+        __props__["minRecommendedMemoryInGb"] = min_recommended_memory_in_gb
+        __props__["minRecommendedVcpuCount"] = min_recommended_vcpu_count
+        __props__["name"] = name
+        __props__["osType"] = os_type
+        __props__["privacyStatementUri"] = privacy_statement_uri
+        __props__["purchasePlan"] = purchase_plan
+        __props__["releaseNoteUri"] = release_note_uri
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["specialized"] = specialized
+        __props__["tags"] = tags
+        __props__["trustedLaunchEnabled"] = trusted_launch_enabled
+        __props__["trustedLaunchSupported"] = trusted_launch_supported
+        return pulumi.runtime.exists_resource(None, 'azure:compute/sharedImage:SharedImage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
     def accelerated_network_support_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

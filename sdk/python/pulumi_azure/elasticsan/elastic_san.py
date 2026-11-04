@@ -629,6 +629,38 @@ class ElasticSan(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return ElasticSan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            base_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            extended_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_iops: pulumi.Input[Optional[_builtins.int]] = None,
+            total_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+            total_size_in_tib: pulumi.Input[Optional[_builtins.int]] = None,
+            total_volume_size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["baseSizeInTib"] = base_size_in_tib
+        __props__["extendedSizeInTib"] = extended_size_in_tib
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["totalIops"] = total_iops
+        __props__["totalMbps"] = total_mbps
+        __props__["totalSizeInTib"] = total_size_in_tib
+        __props__["totalVolumeSizeInGib"] = total_volume_size_in_gib
+        __props__["volumeGroupCount"] = volume_group_count
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:elasticsan/elasticSan:ElasticSan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="baseSizeInTib")
     def base_size_in_tib(self) -> pulumi.Output[_builtins.int]:

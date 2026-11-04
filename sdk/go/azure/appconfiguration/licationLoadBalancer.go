@@ -141,6 +141,12 @@ func (LicationLoadBalancerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licationLoadBalancerState)(nil)).Elem()
 }
 
+// LicationLoadBalancerExists checks whether an existing LicationLoadBalancer resource with the given ID exists.
+func LicationLoadBalancerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicationLoadBalancerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer", id, state, "", opts...)
+}
+
 type licationLoadBalancerArgs struct {
 	// The Azure Region where the Application Gateway for Containers (ALB) should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

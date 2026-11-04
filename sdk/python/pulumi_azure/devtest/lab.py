@@ -449,6 +449,32 @@ class Lab(pulumi.CustomResource):
         __props__.__dict__["unique_identifier"] = unique_identifier
         return Lab(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            artifacts_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_premium_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            premium_data_disk_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["artifactsStorageAccountId"] = artifacts_storage_account_id
+        __props__["defaultPremiumStorageAccountId"] = default_premium_storage_account_id
+        __props__["defaultStorageAccountId"] = default_storage_account_id
+        __props__["keyVaultId"] = key_vault_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["premiumDataDiskStorageAccountId"] = premium_data_disk_storage_account_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["uniqueIdentifier"] = unique_identifier
+        return pulumi.runtime.exists_resource(None, 'azure:devtest/lab:Lab', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="artifactsStorageAccountId")
     def artifacts_storage_account_id(self) -> pulumi.Output[_builtins.str]:

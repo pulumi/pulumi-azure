@@ -157,6 +157,12 @@ func (ArcMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*arcMachineState)(nil)).Elem()
 }
 
+// ArcMachineExists checks whether an existing ArcMachine resource with the given ID exists.
+func ArcMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArcMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arcmachine/arcMachine:ArcMachine", id, state, "", opts...)
+}
+
 type arcMachineArgs struct {
 	// An `identity` block as defined below.
 	Identity *ArcMachineIdentity `pulumi:"identity"`

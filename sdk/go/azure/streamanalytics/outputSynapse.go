@@ -230,6 +230,12 @@ func (OutputSynapseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputSynapseState)(nil)).Elem()
 }
 
+// OutputSynapseExists checks whether an existing OutputSynapse resource with the given ID exists.
+func OutputSynapseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputSynapseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputSynapse:OutputSynapse", id, state, "", opts...)
+}
+
 type outputSynapseArgs struct {
 	// The name of the Azure SQL database. Changing this forces a new resource to be created.
 	Database string `pulumi:"database"`

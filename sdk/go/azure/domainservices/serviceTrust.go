@@ -161,6 +161,12 @@ func (ServiceTrustState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceTrustState)(nil)).Elem()
 }
 
+// ServiceTrustExists checks whether an existing ServiceTrust resource with the given ID exists.
+func ServiceTrustExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceTrustState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:domainservices/serviceTrust:ServiceTrust", id, state, "", opts...)
+}
+
 type serviceTrustArgs struct {
 	// The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
 	DomainServiceId string `pulumi:"domainServiceId"`

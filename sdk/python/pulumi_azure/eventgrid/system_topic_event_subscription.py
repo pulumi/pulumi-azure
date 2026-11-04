@@ -1096,6 +1096,56 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         __props__.__dict__["webhook_endpoint"] = webhook_endpoint
         return SystemTopicEventSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_filter: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionAdvancedFilterArgs', 'SystemTopicEventSubscriptionAdvancedFilterArgsDict', 'outputs.SystemTopicEventSubscriptionAdvancedFilter']]] = None,
+            advanced_filtering_on_arrays_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_function_endpoint: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionAzureFunctionEndpointArgs', 'SystemTopicEventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.SystemTopicEventSubscriptionAzureFunctionEndpoint']]] = None,
+            dead_letter_identity: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionDeadLetterIdentityArgs', 'SystemTopicEventSubscriptionDeadLetterIdentityArgsDict', 'outputs.SystemTopicEventSubscriptionDeadLetterIdentity']]] = None,
+            delivery_identity: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionDeliveryIdentityArgs', 'SystemTopicEventSubscriptionDeliveryIdentityArgsDict', 'outputs.SystemTopicEventSubscriptionDeliveryIdentity']]] = None,
+            delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SystemTopicEventSubscriptionDeliveryPropertyArgs', 'SystemTopicEventSubscriptionDeliveryPropertyArgsDict', 'outputs.SystemTopicEventSubscriptionDeliveryProperty']]]]] = None,
+            event_delivery_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            hybrid_connection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            included_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_policy: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionRetryPolicyArgs', 'SystemTopicEventSubscriptionRetryPolicyArgsDict', 'outputs.SystemTopicEventSubscriptionRetryPolicy']]] = None,
+            service_bus_queue_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_topic_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs', 'SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.SystemTopicEventSubscriptionStorageBlobDeadLetterDestination']]] = None,
+            storage_queue_endpoint: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionStorageQueueEndpointArgs', 'SystemTopicEventSubscriptionStorageQueueEndpointArgsDict', 'outputs.SystemTopicEventSubscriptionStorageQueueEndpoint']]] = None,
+            subject_filter: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionSubjectFilterArgs', 'SystemTopicEventSubscriptionSubjectFilterArgsDict', 'outputs.SystemTopicEventSubscriptionSubjectFilter']]] = None,
+            system_topic: pulumi.Input[Optional[_builtins.str]] = None,
+            webhook_endpoint: pulumi.Input[Optional[Union['SystemTopicEventSubscriptionWebhookEndpointArgs', 'SystemTopicEventSubscriptionWebhookEndpointArgsDict', 'outputs.SystemTopicEventSubscriptionWebhookEndpoint']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advancedFilter"] = advanced_filter
+        __props__["advancedFilteringOnArraysEnabled"] = advanced_filtering_on_arrays_enabled
+        __props__["azureFunctionEndpoint"] = azure_function_endpoint
+        __props__["deadLetterIdentity"] = dead_letter_identity
+        __props__["deliveryIdentity"] = delivery_identity
+        __props__["deliveryProperties"] = delivery_properties
+        __props__["eventDeliverySchema"] = event_delivery_schema
+        __props__["eventhubEndpointId"] = eventhub_endpoint_id
+        __props__["expirationTimeUtc"] = expiration_time_utc
+        __props__["hybridConnectionEndpointId"] = hybrid_connection_endpoint_id
+        __props__["includedEventTypes"] = included_event_types
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retryPolicy"] = retry_policy
+        __props__["serviceBusQueueEndpointId"] = service_bus_queue_endpoint_id
+        __props__["serviceBusTopicEndpointId"] = service_bus_topic_endpoint_id
+        __props__["storageBlobDeadLetterDestination"] = storage_blob_dead_letter_destination
+        __props__["storageQueueEndpoint"] = storage_queue_endpoint
+        __props__["subjectFilter"] = subject_filter
+        __props__["systemTopic"] = system_topic
+        __props__["webhookEndpoint"] = webhook_endpoint
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advancedFilter")
     def advanced_filter(self) -> pulumi.Output[Optional['outputs.SystemTopicEventSubscriptionAdvancedFilter']]:

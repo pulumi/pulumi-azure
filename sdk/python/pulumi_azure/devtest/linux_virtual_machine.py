@@ -977,6 +977,50 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
+            disallow_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineGalleryImageReferenceArgs', 'LinuxVirtualMachineGalleryImageReferenceArgsDict', 'outputs.LinuxVirtualMachineGalleryImageReference']]] = None,
+            inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineInboundNatRuleArgs', 'LinuxVirtualMachineInboundNatRuleArgsDict', 'outputs.LinuxVirtualMachineInboundNatRule']]]]] = None,
+            lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowClaim"] = allow_claim
+        __props__["disallowPublicIpAddress"] = disallow_public_ip_address
+        __props__["fqdn"] = fqdn
+        __props__["galleryImageReference"] = gallery_image_reference
+        __props__["inboundNatRules"] = inbound_nat_rules
+        __props__["labName"] = lab_name
+        __props__["labSubnetName"] = lab_subnet_name
+        __props__["labVirtualNetworkId"] = lab_virtual_network_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["notes"] = notes
+        __props__["password"] = password
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["size"] = size
+        __props__["sshKey"] = ssh_key
+        __props__["storageType"] = storage_type
+        __props__["tags"] = tags
+        __props__["uniqueIdentifier"] = unique_identifier
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azure:devtest/linuxVirtualMachine:LinuxVirtualMachine', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowClaim")
     def allow_claim(self) -> pulumi.Output[Optional[_builtins.bool]]:

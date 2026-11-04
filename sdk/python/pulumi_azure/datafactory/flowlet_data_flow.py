@@ -801,6 +801,32 @@ class FlowletDataFlow(pulumi.CustomResource):
         __props__.__dict__["transformations"] = transformations
         return FlowletDataFlow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]]] = None,
+            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["folder"] = folder
+        __props__["name"] = name
+        __props__["script"] = script
+        __props__["scriptLines"] = script_lines
+        __props__["sinks"] = sinks
+        __props__["sources"] = sources
+        __props__["transformations"] = transformations
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/flowletDataFlow:FlowletDataFlow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def annotations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

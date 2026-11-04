@@ -397,11 +397,10 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.egressNatRuleIds);
     }
     /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableBgp;
 

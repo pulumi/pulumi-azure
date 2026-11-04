@@ -642,6 +642,34 @@ class Watcher(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Watcher(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_frequency_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            script_name: pulumi.Input[Optional[_builtins.str]] = None,
+            script_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            script_run_on: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountId"] = automation_account_id
+        __props__["description"] = description
+        __props__["etag"] = etag
+        __props__["executionFrequencyInSeconds"] = execution_frequency_in_seconds
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["scriptName"] = script_name
+        __props__["scriptParameters"] = script_parameters
+        __props__["scriptRunOn"] = script_run_on
+        __props__["status"] = status
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/watcher:Watcher', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountId")
     def automation_account_id(self) -> pulumi.Output[_builtins.str]:

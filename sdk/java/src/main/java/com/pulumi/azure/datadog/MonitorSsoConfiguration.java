@@ -171,11 +171,10 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
         return this.singleSignOn;
     }
     /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="singleSignOnEnabled", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnEnabled;
 

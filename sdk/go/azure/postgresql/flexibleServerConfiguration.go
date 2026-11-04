@@ -202,6 +202,12 @@ func (FlexibleServerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerConfigurationState)(nil)).Elem()
 }
 
+// FlexibleServerConfigurationExists checks whether an existing FlexibleServerConfiguration resource with the given ID exists.
+func FlexibleServerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration", id, state, "", opts...)
+}
+
 type flexibleServerConfigurationArgs struct {
 	// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
 	//

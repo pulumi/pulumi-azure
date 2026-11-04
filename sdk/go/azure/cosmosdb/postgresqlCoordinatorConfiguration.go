@@ -146,6 +146,12 @@ func (PostgresqlCoordinatorConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresqlCoordinatorConfigurationState)(nil)).Elem()
 }
 
+// PostgresqlCoordinatorConfigurationExists checks whether an existing PostgresqlCoordinatorConfiguration resource with the given ID exists.
+func PostgresqlCoordinatorConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresqlCoordinatorConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", id, state, "", opts...)
+}
+
 type postgresqlCoordinatorConfigurationArgs struct {
 	// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`

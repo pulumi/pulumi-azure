@@ -133,6 +133,12 @@ func (AgreementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agreementState)(nil)).Elem()
 }
 
+// AgreementExists checks whether an existing Agreement resource with the given ID exists.
+func AgreementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgreementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:marketplace/agreement:Agreement", id, state, "", opts...)
+}
+
 type agreementArgs struct {
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`

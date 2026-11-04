@@ -433,6 +433,26 @@ class SharedImageGallery(pulumi.CustomResource):
         __props__.__dict__["unique_name"] = unique_name
         return SharedImageGallery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sharing: pulumi.Input[Optional[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict', 'outputs.SharedImageGallerySharing']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sharing"] = sharing
+        __props__["tags"] = tags
+        __props__["uniqueName"] = unique_name
+        return pulumi.runtime.exists_resource(None, 'azure:compute/sharedImageGallery:SharedImageGallery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

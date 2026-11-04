@@ -237,6 +237,12 @@ func (FirewallPolicyRuleCollectionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyRuleCollectionGroupState)(nil)).Elem()
 }
 
+// FirewallPolicyRuleCollectionGroupExists checks whether an existing FirewallPolicyRuleCollectionGroup resource with the given ID exists.
+func FirewallPolicyRuleCollectionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallPolicyRuleCollectionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup", id, state, "", opts...)
+}
+
 type firewallPolicyRuleCollectionGroupArgs struct {
 	// One or more `applicationRuleCollection` blocks as defined below.
 	ApplicationRuleCollections []FirewallPolicyRuleCollectionGroupApplicationRuleCollection `pulumi:"applicationRuleCollections"`

@@ -140,6 +140,12 @@ func (ScalingPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPlanState)(nil)).Elem()
 }
 
+// ScalingPlanExists checks whether an existing ScalingPlan resource with the given ID exists.
+func ScalingPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalingPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/scalingPlan:ScalingPlan", id, state, "", opts...)
+}
+
 type scalingPlanArgs struct {
 	// A description of the Scaling Plan.
 	Description *string `pulumi:"description"`

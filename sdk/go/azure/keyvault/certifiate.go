@@ -424,6 +424,12 @@ func (CertifiateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certifiateState)(nil)).Elem()
 }
 
+// CertifiateExists checks whether an existing Certifiate resource with the given ID exists.
+func CertifiateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertifiateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/certifiate:Certifiate", id, state, "", opts...)
+}
+
 type certifiateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate *CertifiateCertificate `pulumi:"certificate"`

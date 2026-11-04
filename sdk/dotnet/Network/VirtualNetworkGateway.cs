@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// </summary>
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Network
         public Output<int> MaximumScaleUnit { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// 
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// </summary>
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? MaximumScaleUnit { get; set; }
 
         /// <summary>
-        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// 
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// </summary>
@@ -644,7 +644,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? MaximumScaleUnit { get; set; }
 
         /// <summary>
-        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
         /// 
         /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
         /// 

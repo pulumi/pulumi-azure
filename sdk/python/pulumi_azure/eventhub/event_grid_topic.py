@@ -676,6 +676,40 @@ class EventGridTopic(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return EventGridTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['EventGridTopicIdentityArgs', 'EventGridTopicIdentityArgsDict', 'outputs.EventGridTopicIdentity']]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventGridTopicInboundIpRuleArgs', 'EventGridTopicInboundIpRuleArgsDict', 'outputs.EventGridTopicInboundIpRule']]]]] = None,
+            input_mapping_default_values: pulumi.Input[Optional[Union['EventGridTopicInputMappingDefaultValuesArgs', 'EventGridTopicInputMappingDefaultValuesArgsDict', 'outputs.EventGridTopicInputMappingDefaultValues']]] = None,
+            input_mapping_fields: pulumi.Input[Optional[Union['EventGridTopicInputMappingFieldsArgs', 'EventGridTopicInputMappingFieldsArgsDict', 'outputs.EventGridTopicInputMappingFields']]] = None,
+            input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpoint"] = endpoint
+        __props__["identity"] = identity
+        __props__["inboundIpRules"] = inbound_ip_rules
+        __props__["inputMappingDefaultValues"] = input_mapping_default_values
+        __props__["inputMappingFields"] = input_mapping_fields
+        __props__["inputSchema"] = input_schema
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/eventGridTopic:EventGridTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:

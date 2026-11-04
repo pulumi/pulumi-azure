@@ -661,6 +661,34 @@ class Share(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Share(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]]] = None,
+            enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota: pulumi.Input[Optional[_builtins.int]] = None,
+            rbac_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTier"] = access_tier
+        __props__["acls"] = acls
+        __props__["enabledProtocol"] = enabled_protocol
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["quota"] = quota
+        __props__["rbacScopeId"] = rbac_scope_id
+        __props__["resourceManagerId"] = resource_manager_id
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountName"] = storage_account_name
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:storage/share:Share', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[_builtins.str]:

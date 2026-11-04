@@ -221,6 +221,12 @@ func (StreamInputIotHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputIotHubState)(nil)).Elem()
 }
 
+// StreamInputIotHubExists checks whether an existing StreamInputIotHub resource with the given ID exists.
+func StreamInputIotHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamInputIotHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", id, state, "", opts...)
+}
+
 type streamInputIotHubArgs struct {
 	// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
 	Endpoint string `pulumi:"endpoint"`

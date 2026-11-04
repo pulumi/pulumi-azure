@@ -167,6 +167,12 @@ func (IdentityProviderTwitterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderTwitterState)(nil)).Elem()
 }
 
+// IdentityProviderTwitterExists checks whether an existing IdentityProviderTwitter resource with the given ID exists.
+func IdentityProviderTwitterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderTwitterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", id, state, "", opts...)
+}
+
 type identityProviderTwitterArgs struct {
 	// App Consumer API key for Twitter.
 	ApiKey string `pulumi:"apiKey"`

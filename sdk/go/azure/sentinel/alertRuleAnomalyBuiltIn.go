@@ -244,6 +244,12 @@ func (AlertRuleAnomalyBuiltInState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleAnomalyBuiltInState)(nil)).Elem()
 }
 
+// AlertRuleAnomalyBuiltInExists checks whether an existing AlertRuleAnomalyBuiltIn resource with the given ID exists.
+func AlertRuleAnomalyBuiltInExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleAnomalyBuiltInState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn", id, state, "", opts...)
+}
+
 type alertRuleAnomalyBuiltInArgs struct {
 	// The Display Name of the built-in Anomaly Alert Rule.
 	//

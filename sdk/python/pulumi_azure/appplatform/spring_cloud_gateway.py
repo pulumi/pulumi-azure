@@ -895,6 +895,46 @@ class SpringCloudGateway(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return SpringCloudGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_metadata: pulumi.Input[Optional[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict', 'outputs.SpringCloudGatewayApiMetadata']]] = None,
+            application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            application_performance_monitoring_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_authorization: pulumi.Input[Optional[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict', 'outputs.SpringCloudGatewayClientAuthorization']]] = None,
+            cors: pulumi.Input[Optional[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict', 'outputs.SpringCloudGatewayCors']]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            local_response_cache_per_instance: pulumi.Input[Optional[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict', 'outputs.SpringCloudGatewayLocalResponseCachePerInstance']]] = None,
+            local_response_cache_per_route: pulumi.Input[Optional[Union['SpringCloudGatewayLocalResponseCachePerRouteArgs', 'SpringCloudGatewayLocalResponseCachePerRouteArgsDict', 'outputs.SpringCloudGatewayLocalResponseCachePerRoute']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            quota: pulumi.Input[Optional[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict', 'outputs.SpringCloudGatewayQuota']]] = None,
+            sensitive_environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict', 'outputs.SpringCloudGatewaySso']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiMetadata"] = api_metadata
+        __props__["applicationPerformanceMonitoringIds"] = application_performance_monitoring_ids
+        __props__["applicationPerformanceMonitoringTypes"] = application_performance_monitoring_types
+        __props__["clientAuthorization"] = client_authorization
+        __props__["cors"] = cors
+        __props__["environmentVariables"] = environment_variables
+        __props__["httpsOnly"] = https_only
+        __props__["instanceCount"] = instance_count
+        __props__["localResponseCachePerInstance"] = local_response_cache_per_instance
+        __props__["localResponseCachePerRoute"] = local_response_cache_per_route
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["quota"] = quota
+        __props__["sensitiveEnvironmentVariables"] = sensitive_environment_variables
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        __props__["sso"] = sso
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudGateway:SpringCloudGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiMetadata")
     def api_metadata(self) -> pulumi.Output[Optional['outputs.SpringCloudGatewayApiMetadata']]:

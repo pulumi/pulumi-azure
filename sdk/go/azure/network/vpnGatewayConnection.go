@@ -219,6 +219,12 @@ func (VpnGatewayConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayConnectionState)(nil)).Elem()
 }
 
+// VpnGatewayConnectionExists checks whether an existing VpnGatewayConnection resource with the given ID exists.
+func VpnGatewayConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnGatewayConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/vpnGatewayConnection:VpnGatewayConnection", id, state, "", opts...)
+}
+
 type vpnGatewayConnectionArgs struct {
 	// Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`

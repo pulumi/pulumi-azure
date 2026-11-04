@@ -513,6 +513,22 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["nginx_deployment_id"] = nginx_deployment_id
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_virtual_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateVirtualPath"] = certificate_virtual_path
+        __props__["keyVaultSecretId"] = key_vault_secret_id
+        __props__["keyVirtualPath"] = key_virtual_path
+        __props__["name"] = name
+        __props__["nginxDeploymentId"] = nginx_deployment_id
+        return pulumi.runtime.exists_resource(None, 'azure:nginx/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> pulumi.Output[_builtins.str]:

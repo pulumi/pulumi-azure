@@ -172,6 +172,12 @@ func (RouteMapResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeMapResourceState)(nil)).Elem()
 }
 
+// RouteMapResourceExists checks whether an existing RouteMapResource resource with the given ID exists.
+func RouteMapResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteMapResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/routeMap:RouteMap", id, state, "", opts...)
+}
+
 type routeMapResourceArgs struct {
 	// The name which should be used for this Route Map. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

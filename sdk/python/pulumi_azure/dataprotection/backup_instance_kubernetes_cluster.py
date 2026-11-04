@@ -723,6 +723,28 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstanceKubernetesCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_datasource_parameters: pulumi.Input[Optional[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict', 'outputs.BackupInstanceKubernetesClusterBackupDatasourceParameters']]] = None,
+            backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupDatasourceParameters"] = backup_datasource_parameters
+        __props__["backupPolicyId"] = backup_policy_id
+        __props__["kubernetesClusterId"] = kubernetes_cluster_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["protectionState"] = protection_state
+        __props__["snapshotResourceGroupName"] = snapshot_resource_group_name
+        __props__["vaultId"] = vault_id
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupDatasourceParameters")
     def backup_datasource_parameters(self) -> pulumi.Output[Optional['outputs.BackupInstanceKubernetesClusterBackupDatasourceParameters']]:

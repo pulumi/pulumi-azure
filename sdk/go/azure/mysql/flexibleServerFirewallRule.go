@@ -260,6 +260,12 @@ func (FlexibleServerFirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerFirewallRuleState)(nil)).Elem()
 }
 
+// FlexibleServerFirewallRuleExists checks whether an existing FlexibleServerFirewallRule resource with the given ID exists.
+func FlexibleServerFirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerFirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule", id, state, "", opts...)
+}
+
 type flexibleServerFirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule.
 	//

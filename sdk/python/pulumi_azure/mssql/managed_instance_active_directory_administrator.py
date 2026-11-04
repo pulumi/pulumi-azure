@@ -439,6 +439,22 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return ManagedInstanceActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            login_username: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureadAuthenticationOnly"] = azuread_authentication_only
+        __props__["loginUsername"] = login_username
+        __props__["managedInstanceId"] = managed_instance_id
+        __props__["objectId"] = object_id
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -153,6 +153,12 @@ func (BackupVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupVaultState)(nil)).Elem()
 }
 
+// BackupVaultExists checks whether an existing BackupVault resource with the given ID exists.
+func BackupVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/backupVault:BackupVault", id, state, "", opts...)
+}
+
 type backupVaultArgs struct {
 	// The name of the NetApp account in which the NetApp Vault should be created under. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

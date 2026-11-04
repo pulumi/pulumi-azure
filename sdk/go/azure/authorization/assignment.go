@@ -489,6 +489,12 @@ func (AssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentState)(nil)).Elem()
 }
 
+// AssignmentExists checks whether an existing Assignment resource with the given ID exists.
+func AssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:authorization/assignment:Assignment", id, state, "", opts...)
+}
+
 type assignmentArgs struct {
 	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
 	Condition *string `pulumi:"condition"`

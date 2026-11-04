@@ -669,6 +669,36 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Definition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict', 'outputs.DefinitionAuthorization']]]]] = None,
+            create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+            main_template: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizations"] = authorizations
+        __props__["createUiDefinition"] = create_ui_definition
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["location"] = location
+        __props__["lockLevel"] = lock_level
+        __props__["mainTemplate"] = main_template
+        __props__["name"] = name
+        __props__["packageEnabled"] = package_enabled
+        __props__["packageFileUri"] = package_file_uri
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:managedapplication/definition:Definition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.DefinitionAuthorization']]]:

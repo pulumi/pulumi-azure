@@ -247,6 +247,12 @@ func (FileSystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileSystemState)(nil)).Elem()
 }
 
+// FileSystemExists checks whether an existing FileSystem resource with the given ID exists.
+func FileSystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileSystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:qumulo/fileSystem:FileSystem", id, state, "", opts...)
+}
+
 type fileSystemArgs struct {
 	// The initial administrator password of the Azure Native Qumulo Scalable File System. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`

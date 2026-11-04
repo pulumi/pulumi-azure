@@ -172,6 +172,12 @@ func (ServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceState)(nil)).Elem()
 }
 
+// ServiceExists checks whether an existing Service resource with the given ID exists.
+func ServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:communication/service:Service", id, state, "", opts...)
+}
+
 type serviceArgs struct {
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
 	DataLocation *string `pulumi:"dataLocation"`

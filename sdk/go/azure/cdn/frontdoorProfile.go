@@ -192,6 +192,12 @@ func (FrontdoorProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorProfileState)(nil)).Elem()
 }
 
+// FrontdoorProfileExists checks whether an existing FrontdoorProfile resource with the given ID exists.
+func FrontdoorProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorProfile:FrontdoorProfile", id, state, "", opts...)
+}
+
 type frontdoorProfileArgs struct {
 	// An `identity` block as defined below.
 	Identity *FrontdoorProfileIdentity `pulumi:"identity"`

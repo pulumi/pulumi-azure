@@ -202,6 +202,12 @@ func (NamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceDisasterRecoveryConfigState)(nil)).Elem()
 }
 
+// NamespaceDisasterRecoveryConfigExists checks whether an existing NamespaceDisasterRecoveryConfig resource with the given ID exists.
+func NamespaceDisasterRecoveryConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceDisasterRecoveryConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", id, state, "", opts...)
+}
+
 type namespaceDisasterRecoveryConfigArgs struct {
 	// The Shared access policies used to access the connection string for the alias.
 	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`

@@ -258,6 +258,12 @@ func (ElasticPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolState)(nil)).Elem()
 }
 
+// ElasticPoolExists checks whether an existing ElasticPool resource with the given ID exists.
+func ElasticPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ElasticPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/elasticPool:ElasticPool", id, state, "", opts...)
+}
+
 type elasticPoolArgs struct {
 	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//

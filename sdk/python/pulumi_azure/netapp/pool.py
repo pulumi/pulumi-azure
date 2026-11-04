@@ -697,6 +697,34 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cool_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_throughput_mibps: pulumi.Input[Optional[_builtins.int]] = None,
+            encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            qos_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_level: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["coolAccessEnabled"] = cool_access_enabled
+        __props__["customThroughputMibps"] = custom_throughput_mibps
+        __props__["encryptionType"] = encryption_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["qosType"] = qos_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceLevel"] = service_level
+        __props__["sizeInTb"] = size_in_tb
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/pool:Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

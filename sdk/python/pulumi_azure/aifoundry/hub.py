@@ -916,6 +916,48 @@ class Hub(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationInsightsId"] = application_insights_id
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["description"] = description
+        __props__["discoveryUrl"] = discovery_url
+        __props__["encryption"] = encryption
+        __props__["friendlyName"] = friendly_name
+        __props__["highBusinessImpactEnabled"] = high_business_impact_enabled
+        __props__["identity"] = identity
+        __props__["keyVaultId"] = key_vault_id
+        __props__["location"] = location
+        __props__["managedNetwork"] = managed_network
+        __props__["name"] = name
+        __props__["primaryUserAssignedIdentity"] = primary_user_assigned_identity
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storageAccountId"] = storage_account_id
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:aifoundry/hub:Hub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
     def application_insights_id(self) -> pulumi.Output[Optional[_builtins.str]]:

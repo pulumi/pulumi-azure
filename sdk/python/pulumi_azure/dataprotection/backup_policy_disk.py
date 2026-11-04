@@ -457,6 +457,24 @@ class BackupPolicyDisk(pulumi.CustomResource):
         __props__.__dict__["vault_id"] = vault_id
         return BackupPolicyDisk(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupRepeatingTimeIntervals"] = backup_repeating_time_intervals
+        __props__["defaultRetentionDuration"] = default_retention_duration
+        __props__["name"] = name
+        __props__["retentionRules"] = retention_rules
+        __props__["timeZone"] = time_zone
+        __props__["vaultId"] = vault_id
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupPolicyDisk:BackupPolicyDisk', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
     def backup_repeating_time_intervals(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -169,6 +169,12 @@ func (FrontdoorOriginGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorOriginGroupState)(nil)).Elem()
 }
 
+// FrontdoorOriginGroupExists checks whether an existing FrontdoorOriginGroup resource with the given ID exists.
+func FrontdoorOriginGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorOriginGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup", id, state, "", opts...)
+}
+
 type frontdoorOriginGroupArgs struct {
 	// The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

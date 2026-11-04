@@ -77,20 +77,18 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+    @Deprecated
     @Import(name="diagnoseSupportEnabled")
     private @Nullable Output<Boolean> diagnoseSupportEnabled;
 
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+    @Deprecated
     public Optional<Output<Boolean>> diagnoseSupportEnabled() {
         return Optional.ofNullable(this.diagnoseSupportEnabled);
     }
@@ -171,39 +169,35 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated
     @Import(name="loggingStorageAccounts")
     private @Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts;
 
     /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated
     public Optional<Output<List<DeploymentLoggingStorageAccountArgs>>> loggingStorageAccounts() {
         return Optional.ofNullable(this.loggingStorageAccounts);
     }
 
     /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="managedResourceGroup")
     private @Nullable Output<String> managedResourceGroup;
 
     /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<Output<String>> managedResourceGroup() {
         return Optional.ofNullable(this.managedResourceGroup);
     }
@@ -426,11 +420,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+         * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
          * 
          */
-        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+        @Deprecated
         public Builder diagnoseSupportEnabled(@Nullable Output<Boolean> diagnoseSupportEnabled) {
             $.diagnoseSupportEnabled = diagnoseSupportEnabled;
             return this;
@@ -439,11 +432,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+         * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
          * 
          */
-        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+        @Deprecated
         public Builder diagnoseSupportEnabled(Boolean diagnoseSupportEnabled) {
             return diagnoseSupportEnabled(Output.of(diagnoseSupportEnabled));
         }
@@ -566,11 +558,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated
         public Builder loggingStorageAccounts(@Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts) {
             $.loggingStorageAccounts = loggingStorageAccounts;
             return this;
@@ -579,11 +570,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated
         public Builder loggingStorageAccounts(List<DeploymentLoggingStorageAccountArgs> loggingStorageAccounts) {
             return loggingStorageAccounts(Output.of(loggingStorageAccounts));
         }
@@ -591,11 +581,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
          * 
          */
-        @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+        @Deprecated
         public Builder loggingStorageAccounts(DeploymentLoggingStorageAccountArgs... loggingStorageAccounts) {
             return loggingStorageAccounts(List.of(loggingStorageAccounts));
         }
@@ -603,11 +592,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder managedResourceGroup(@Nullable Output<String> managedResourceGroup) {
             $.managedResourceGroup = managedResourceGroup;
             return this;
@@ -616,11 +604,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder managedResourceGroup(String managedResourceGroup) {
             return managedResourceGroup(Output.of(managedResourceGroup));
         }

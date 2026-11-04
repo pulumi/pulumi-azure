@@ -191,6 +191,12 @@ func (SpringCloudCustomizedAcceleratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudCustomizedAcceleratorState)(nil)).Elem()
 }
 
+// SpringCloudCustomizedAcceleratorExists checks whether an existing SpringCloudCustomizedAccelerator resource with the given ID exists.
+func SpringCloudCustomizedAcceleratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudCustomizedAcceleratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator", id, state, "", opts...)
+}
+
 type springCloudCustomizedAcceleratorArgs struct {
 	// Specifies a list of accelerator tags.
 	AcceleratorTags []string `pulumi:"acceleratorTags"`

@@ -183,6 +183,12 @@ func (DataCollectionEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCollectionEndpointState)(nil)).Elem()
 }
 
+// DataCollectionEndpointExists checks whether an existing DataCollectionEndpoint resource with the given ID exists.
+func DataCollectionEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCollectionEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint", id, state, "", opts...)
+}
+
 type dataCollectionEndpointArgs struct {
 	// Specifies a description for the Data Collection Endpoint.
 	Description *string `pulumi:"description"`

@@ -567,6 +567,30 @@ class StreamInputIotHub(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         return StreamInputIotHub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']]] = None,
+            shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpoint"] = endpoint
+        __props__["eventhubConsumerGroupName"] = eventhub_consumer_group_name
+        __props__["iothubNamespace"] = iothub_namespace
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serialization"] = serialization
+        __props__["sharedAccessPolicyKey"] = shared_access_policy_key
+        __props__["sharedAccessPolicyName"] = shared_access_policy_name
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/streamInputIotHub:StreamInputIotHub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:

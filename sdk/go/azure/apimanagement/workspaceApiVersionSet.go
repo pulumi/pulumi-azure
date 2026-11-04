@@ -180,6 +180,12 @@ func (WorkspaceApiVersionSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceApiVersionSetState)(nil)).Elem()
 }
 
+// WorkspaceApiVersionSetExists checks whether an existing WorkspaceApiVersionSet resource with the given ID exists.
+func WorkspaceApiVersionSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceApiVersionSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet", id, state, "", opts...)
+}
+
 type workspaceApiVersionSetArgs struct {
 	// Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
 	ApiManagementWorkspaceId string `pulumi:"apiManagementWorkspaceId"`

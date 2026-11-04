@@ -210,6 +210,12 @@ func (ApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyState)(nil)).Elem()
 }
 
+// ApiKeyExists checks whether an existing ApiKey resource with the given ID exists.
+func ApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/apiKey:ApiKey", id, state, "", opts...)
+}
+
 type apiKeyArgs struct {
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`

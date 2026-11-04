@@ -457,6 +457,12 @@ func (EndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointState)(nil)).Elem()
 }
 
+// EndpointExists checks whether an existing Endpoint resource with the given ID exists.
+func EndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatelink/endpoint:Endpoint", id, state, "", opts...)
+}
+
 type endpointArgs struct {
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`

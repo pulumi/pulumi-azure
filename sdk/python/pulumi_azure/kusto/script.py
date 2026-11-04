@@ -614,6 +614,30 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Script(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            continue_on_errors_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_an_update_when_value_changed: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_permissions_action: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+            script_content: pulumi.Input[Optional[_builtins.str]] = None,
+            script_level: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["continueOnErrorsEnabled"] = continue_on_errors_enabled
+        __props__["databaseId"] = database_id
+        __props__["forceAnUpdateWhenValueChanged"] = force_an_update_when_value_changed
+        __props__["name"] = name
+        __props__["principalPermissionsAction"] = principal_permissions_action
+        __props__["sasToken"] = sas_token
+        __props__["scriptContent"] = script_content
+        __props__["scriptLevel"] = script_level
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/script:Script', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="continueOnErrorsEnabled")
     def continue_on_errors_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

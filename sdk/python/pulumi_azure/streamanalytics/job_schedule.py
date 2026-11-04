@@ -451,6 +451,20 @@ class JobSchedule(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            last_output_time: pulumi.Input[Optional[_builtins.str]] = None,
+            start_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["lastOutputTime"] = last_output_time
+        __props__["startMode"] = start_mode
+        __props__["startTime"] = start_time
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/jobSchedule:JobSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="lastOutputTime")
     def last_output_time(self) -> pulumi.Output[_builtins.str]:

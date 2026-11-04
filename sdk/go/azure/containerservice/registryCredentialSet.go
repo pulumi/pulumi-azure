@@ -282,6 +282,12 @@ func (RegistryCredentialSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryCredentialSetState)(nil)).Elem()
 }
 
+// RegistryCredentialSetExists checks whether an existing RegistryCredentialSet resource with the given ID exists.
+func RegistryCredentialSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryCredentialSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryCredentialSet:RegistryCredentialSet", id, state, "", opts...)
+}
+
 type registryCredentialSetArgs struct {
 	// A `authenticationCredentials` block as defined below.
 	AuthenticationCredentials RegistryCredentialSetAuthenticationCredentials `pulumi:"authenticationCredentials"`

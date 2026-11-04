@@ -1545,6 +1545,86 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebAppSlot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict', 'outputs.LinuxWebAppSlotSiteCredential']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appMetadata"] = app_metadata
+        __props__["appServiceId"] = app_service_id
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["authSettingsV2"] = auth_settings_v2
+        __props__["backup"] = backup
+        __props__["clientAffinityEnabled"] = client_affinity_enabled
+        __props__["clientCertificateEnabled"] = client_certificate_enabled
+        __props__["clientCertificateExclusionPaths"] = client_certificate_exclusion_paths
+        __props__["clientCertificateMode"] = client_certificate_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["defaultHostname"] = default_hostname
+        __props__["enabled"] = enabled
+        __props__["ftpPublishBasicAuthenticationEnabled"] = ftp_publish_basic_authentication_enabled
+        __props__["hostingEnvironmentId"] = hosting_environment_id
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["kind"] = kind
+        __props__["logs"] = logs
+        __props__["name"] = name
+        __props__["outboundIpAddressLists"] = outbound_ip_address_lists
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddressLists"] = possible_outbound_ip_address_lists
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["servicePlanId"] = service_plan_id
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["storageAccounts"] = storage_accounts
+        __props__["tags"] = tags
+        __props__["virtualNetworkBackupRestoreEnabled"] = virtual_network_backup_restore_enabled
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        __props__["vnetImagePullEnabled"] = vnet_image_pull_enabled
+        __props__["webdeployPublishBasicAuthenticationEnabled"] = webdeploy_publish_basic_authentication_enabled
+        __props__["zipDeployFile"] = zip_deploy_file
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/linuxWebAppSlot:LinuxWebAppSlot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appMetadata")
     def app_metadata(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

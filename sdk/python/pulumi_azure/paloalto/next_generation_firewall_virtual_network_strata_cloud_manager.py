@@ -714,6 +714,34 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         __props__.__dict__["tags"] = tags
         return NextGenerationFirewallVirtualNetworkStrataCloudManager(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]]] = None,
+            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']]] = None,
+            identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']]] = None,
+            plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            strata_cloud_manager_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationNats"] = destination_nats
+        __props__["dnsSettings"] = dns_settings
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["marketplaceOfferId"] = marketplace_offer_id
+        __props__["name"] = name
+        __props__["networkProfile"] = network_profile
+        __props__["planId"] = plan_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["strataCloudManagerTenantName"] = strata_cloud_manager_tenant_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationNats")
     def destination_nats(self) -> pulumi.Output[Optional[Sequence['outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]:

@@ -170,6 +170,12 @@ func (EmailServiceDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailServiceDomainState)(nil)).Elem()
 }
 
+// EmailServiceDomainExists checks whether an existing EmailServiceDomain resource with the given ID exists.
+func EmailServiceDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailServiceDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:communication/emailServiceDomain:EmailServiceDomain", id, state, "", opts...)
+}
+
 type emailServiceDomainArgs struct {
 	// Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
 	DomainManagement string `pulumi:"domainManagement"`

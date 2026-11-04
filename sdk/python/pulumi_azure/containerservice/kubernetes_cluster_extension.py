@@ -626,6 +626,36 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return KubernetesClusterExtension(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aks_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict', 'outputs.KubernetesClusterExtensionAksAssignedIdentity']]]]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']]] = None,
+            release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            release_train: pulumi.Input[Optional[_builtins.str]] = None,
+            target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aksAssignedIdentities"] = aks_assigned_identities
+        __props__["clusterId"] = cluster_id
+        __props__["configurationProtectedSettings"] = configuration_protected_settings
+        __props__["configurationSettings"] = configuration_settings
+        __props__["currentVersion"] = current_version
+        __props__["extensionType"] = extension_type
+        __props__["name"] = name
+        __props__["plan"] = plan
+        __props__["releaseNamespace"] = release_namespace
+        __props__["releaseTrain"] = release_train
+        __props__["targetNamespace"] = target_namespace
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aksAssignedIdentities")
     def aks_assigned_identities(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterExtensionAksAssignedIdentity']]:

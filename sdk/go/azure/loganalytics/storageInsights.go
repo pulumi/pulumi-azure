@@ -193,6 +193,12 @@ func (StorageInsightsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageInsightsState)(nil)).Elem()
 }
 
+// StorageInsightsExists checks whether an existing StorageInsights resource with the given ID exists.
+func StorageInsightsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageInsightsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/storageInsights:StorageInsights", id, state, "", opts...)
+}
+
 type storageInsightsArgs struct {
 	// The names of the blob containers that the workspace should read.
 	BlobContainerNames []string `pulumi:"blobContainerNames"`

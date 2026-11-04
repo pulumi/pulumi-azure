@@ -83,11 +83,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static Output<GetRoleDefinitionResult> getRoleDefinition() {
         return getRoleDefinition(GetRoleDefinitionArgs.Empty, InvokeOptions.Empty);
     }
@@ -159,11 +158,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain() {
         return getRoleDefinitionPlain(GetRoleDefinitionPlainArgs.Empty, InvokeOptions.Empty);
     }
@@ -235,11 +233,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args) {
         return getRoleDefinition(args, InvokeOptions.Empty);
     }
@@ -311,11 +308,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args) {
         return getRoleDefinitionPlain(args, InvokeOptions.Empty);
     }
@@ -387,11 +383,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:role/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
@@ -463,11 +458,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:role/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
@@ -539,11 +533,10 @@ public final class RoleFunctions {
      * 
      * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
-     * @deprecated
-     * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+     * @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
      * 
      */
-    @Deprecated /* azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
+    @Deprecated
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:role/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }

@@ -218,6 +218,12 @@ func (ElasticSanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticSanState)(nil)).Elem()
 }
 
+// ElasticSanExists checks whether an existing ElasticSan resource with the given ID exists.
+func ElasticSanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ElasticSanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:elasticsan/elasticSan:ElasticSan", id, state, "", opts...)
+}
+
 type elasticSanArgs struct {
 	// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 	//

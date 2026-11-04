@@ -994,6 +994,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`

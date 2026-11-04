@@ -179,6 +179,12 @@ func (LinkedServiceKeyVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceKeyVaultState)(nil)).Elem()
 }
 
+// LinkedServiceKeyVaultExists checks whether an existing LinkedServiceKeyVault resource with the given ID exists.
+func LinkedServiceKeyVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceKeyVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault", id, state, "", opts...)
+}
+
 type linkedServiceKeyVaultArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Key Vault.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

@@ -56,6 +56,17 @@ export class TriggerRecurrence extends pulumi.CustomResource {
         return new TriggerRecurrence(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing TriggerRecurrence resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:logicapps/triggerRecurrence:TriggerRecurrence';
 

@@ -606,6 +606,32 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationDefinitionId"] = application_definition_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["managedResourceGroupName"] = managed_resource_group_name
+        __props__["name"] = name
+        __props__["outputs"] = outputs
+        __props__["parameterValues"] = parameter_values
+        __props__["plan"] = plan
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:managedapplication/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationDefinitionId")
     def application_definition_id(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -61,11 +61,10 @@ public final class TrafficmanagerFunctions {
      * 
      * * `Microsoft.Network` - 2022-04-01
      * 
-     * @deprecated
-     * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
+     * @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
      */
-    @Deprecated /* azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
+    @Deprecated
     public static Output<GetGeographicalLocationResult> getGeographicalLocation(GetGeographicalLocationArgs args) {
         return getGeographicalLocation(args, InvokeOptions.Empty);
     }
@@ -115,11 +114,10 @@ public final class TrafficmanagerFunctions {
      * 
      * * `Microsoft.Network` - 2022-04-01
      * 
-     * @deprecated
-     * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
+     * @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
      */
-    @Deprecated /* azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
+    @Deprecated
     public static CompletableFuture<GetGeographicalLocationResult> getGeographicalLocationPlain(GetGeographicalLocationPlainArgs args) {
         return getGeographicalLocationPlain(args, InvokeOptions.Empty);
     }
@@ -169,11 +167,10 @@ public final class TrafficmanagerFunctions {
      * 
      * * `Microsoft.Network` - 2022-04-01
      * 
-     * @deprecated
-     * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
+     * @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
      */
-    @Deprecated /* azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
+    @Deprecated
     public static Output<GetGeographicalLocationResult> getGeographicalLocation(GetGeographicalLocationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", TypeShape.of(GetGeographicalLocationResult.class), args, Utilities.withVersion(options));
     }
@@ -223,11 +220,10 @@ public final class TrafficmanagerFunctions {
      * 
      * * `Microsoft.Network` - 2022-04-01
      * 
-     * @deprecated
-     * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
+     * @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
      */
-    @Deprecated /* azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
+    @Deprecated
     public static Output<GetGeographicalLocationResult> getGeographicalLocation(GetGeographicalLocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", TypeShape.of(GetGeographicalLocationResult.class), args, Utilities.withVersion(options));
     }
@@ -277,11 +273,10 @@ public final class TrafficmanagerFunctions {
      * 
      * * `Microsoft.Network` - 2022-04-01
      * 
-     * @deprecated
-     * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
+     * @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
      */
-    @Deprecated /* azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
+    @Deprecated
     public static CompletableFuture<GetGeographicalLocationResult> getGeographicalLocationPlain(GetGeographicalLocationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", TypeShape.of(GetGeographicalLocationResult.class), args, Utilities.withVersion(options));
     }

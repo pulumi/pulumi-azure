@@ -278,6 +278,12 @@ func (IotHubDataConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubDataConnectionState)(nil)).Elem()
 }
 
+// IotHubDataConnectionExists checks whether an existing IotHubDataConnection resource with the given ID exists.
+func IotHubDataConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IotHubDataConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/iotHubDataConnection:IotHubDataConnection", id, state, "", opts...)
+}
+
 type iotHubDataConnectionArgs struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`

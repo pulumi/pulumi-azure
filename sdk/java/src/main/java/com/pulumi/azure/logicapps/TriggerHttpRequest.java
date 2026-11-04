@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("workflow-resources")
  *             .location("West Europe")
@@ -60,19 +60,19 @@ import javax.annotation.Nullable;
  *             .name("some-http-trigger")
  *             .logicAppId(exampleWorkflow.id())
  *             .schema("""
- * {
- *     \"type\": \"object\",
- *     \"properties\": {
- *         \"hello\": {
- *             \"type\": \"string\"
- *         }
- *     }
- * }
+ * }{{@code
+ *     }&#92;{@code "type}&#92;{@code ": }&#92;{@code "object}&#92;{@code ",
+ *     }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *         }&#92;{@code "hello}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code "
+ *         }}{@code
+ *     }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

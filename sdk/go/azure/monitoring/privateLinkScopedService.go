@@ -159,6 +159,12 @@ func (PrivateLinkScopedServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopedServiceState)(nil)).Elem()
 }
 
+// PrivateLinkScopedServiceExists checks whether an existing PrivateLinkScopedService resource with the given ID exists.
+func PrivateLinkScopedServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkScopedServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/privateLinkScopedService:PrivateLinkScopedService", id, state, "", opts...)
+}
+
 type privateLinkScopedServiceArgs struct {
 	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId string `pulumi:"linkedResourceId"`

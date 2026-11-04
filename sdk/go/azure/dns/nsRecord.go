@@ -179,6 +179,12 @@ func (NsRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nsRecordState)(nil)).Elem()
 }
 
+// NsRecordExists checks whether an existing NsRecord resource with the given ID exists.
+func NsRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NsRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/nsRecord:NsRecord", id, state, "", opts...)
+}
+
 type nsRecordArgs struct {
 	// The name of the DNS NS Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

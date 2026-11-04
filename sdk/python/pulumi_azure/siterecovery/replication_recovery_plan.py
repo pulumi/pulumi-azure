@@ -802,6 +802,28 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
         return ReplicationRecoveryPlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']]] = None,
+            boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]]] = None,
+            failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']]] = None,
+            source_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureToAzureSettings"] = azure_to_azure_settings
+        __props__["bootRecoveryGroups"] = boot_recovery_groups
+        __props__["failoverRecoveryGroup"] = failover_recovery_group
+        __props__["name"] = name
+        __props__["recoveryVaultId"] = recovery_vault_id
+        __props__["shutdownRecoveryGroup"] = shutdown_recovery_group
+        __props__["sourceRecoveryFabricId"] = source_recovery_fabric_id
+        __props__["targetRecoveryFabricId"] = target_recovery_fabric_id
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureToAzureSettings")
     def azure_to_azure_settings(self) -> pulumi.Output[Optional['outputs.ReplicationRecoveryPlanAzureToAzureSettings']]:

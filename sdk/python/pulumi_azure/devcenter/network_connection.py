@@ -585,6 +585,32 @@ class NetworkConnection(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return NetworkConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_join_type: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_password: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_username: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainJoinType"] = domain_join_type
+        __props__["domainName"] = domain_name
+        __props__["domainPassword"] = domain_password
+        __props__["domainUsername"] = domain_username
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["organizationUnit"] = organization_unit
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/networkConnection:NetworkConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainJoinType")
     def domain_join_type(self) -> pulumi.Output[_builtins.str]:

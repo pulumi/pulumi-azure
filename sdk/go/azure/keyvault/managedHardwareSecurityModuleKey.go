@@ -231,6 +231,12 @@ func (ManagedHardwareSecurityModuleKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedHardwareSecurityModuleKeyState)(nil)).Elem()
 }
 
+// ManagedHardwareSecurityModuleKeyExists checks whether an existing ManagedHardwareSecurityModuleKey resource with the given ID exists.
+func ManagedHardwareSecurityModuleKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedHardwareSecurityModuleKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", id, state, "", opts...)
+}
+
 type managedHardwareSecurityModuleKeyArgs struct {
 	// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
 	Curve *string `pulumi:"curve"`

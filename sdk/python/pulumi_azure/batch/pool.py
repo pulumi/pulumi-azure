@@ -1465,6 +1465,72 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["windows"] = windows
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
+            container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]]] = None,
+            fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']]] = None,
+            identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']]] = None,
+            inter_node_communication: pulumi.Input[Optional[_builtins.str]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            max_tasks_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']]] = None,
+            node_agent_sku_id: pulumi.Input[Optional[_builtins.str]] = None,
+            node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]]] = None,
+            os_disk_placement: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']]] = None,
+            start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']]] = None,
+            stop_pending_resize_operation: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']]] = None,
+            target_node_communication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]]] = None,
+            user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]]] = None,
+            vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+            windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["autoScale"] = auto_scale
+        __props__["certificates"] = certificates
+        __props__["containerConfiguration"] = container_configuration
+        __props__["dataDisks"] = data_disks
+        __props__["diskEncryptions"] = disk_encryptions
+        __props__["displayName"] = display_name
+        __props__["extensions"] = extensions
+        __props__["fixedScale"] = fixed_scale
+        __props__["identity"] = identity
+        __props__["interNodeCommunication"] = inter_node_communication
+        __props__["licenseType"] = license_type
+        __props__["maxTasksPerNode"] = max_tasks_per_node
+        __props__["metadata"] = metadata
+        __props__["mounts"] = mounts
+        __props__["name"] = name
+        __props__["networkConfiguration"] = network_configuration
+        __props__["nodeAgentSkuId"] = node_agent_sku_id
+        __props__["nodePlacements"] = node_placements
+        __props__["osDiskPlacement"] = os_disk_placement
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["securityProfile"] = security_profile
+        __props__["startTask"] = start_task
+        __props__["stopPendingResizeOperation"] = stop_pending_resize_operation
+        __props__["storageImageReference"] = storage_image_reference
+        __props__["targetNodeCommunicationMode"] = target_node_communication_mode
+        __props__["taskSchedulingPolicies"] = task_scheduling_policies
+        __props__["userAccounts"] = user_accounts
+        __props__["vmSize"] = vm_size
+        __props__["windows"] = windows
+        return pulumi.runtime.exists_resource(None, 'azure:batch/pool:Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

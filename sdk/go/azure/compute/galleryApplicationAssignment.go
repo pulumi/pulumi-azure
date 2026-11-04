@@ -218,6 +218,12 @@ func (GalleryApplicationAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryApplicationAssignmentState)(nil)).Elem()
 }
 
+// GalleryApplicationAssignmentExists checks whether an existing GalleryApplicationAssignment resource with the given ID exists.
+func GalleryApplicationAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GalleryApplicationAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", id, state, "", opts...)
+}
+
 type galleryApplicationAssignmentArgs struct {
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
 	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`

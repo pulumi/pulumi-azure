@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .version("8.3")
  *             .retentionInterval("P1D")
- *             .commandLine("-name \"John Dole\"")
+ *             .commandLine("-name }&#92;{@code "John Dole}&#92;{@code "")
  *             .cleanupPreference("OnSuccess")
  *             .forceUpdateTag("1")
  *             .timeout("PT30M")

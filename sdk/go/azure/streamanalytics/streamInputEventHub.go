@@ -240,6 +240,12 @@ func (StreamInputEventHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputEventHubState)(nil)).Elem()
 }
 
+// StreamInputEventHubExists checks whether an existing StreamInputEventHub resource with the given ID exists.
+func StreamInputEventHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamInputEventHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", id, state, "", opts...)
+}
+
 type streamInputEventHubArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

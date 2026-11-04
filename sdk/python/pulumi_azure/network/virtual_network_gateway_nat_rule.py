@@ -564,6 +564,28 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         __props__.__dict__["virtual_network_gateway_id"] = virtual_network_gateway_id
         return VirtualNetworkGatewayNatRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict', 'outputs.VirtualNetworkGatewayNatRuleExternalMapping']]]]] = None,
+            internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleInternalMappingArgs', 'VirtualNetworkGatewayNatRuleInternalMappingArgsDict', 'outputs.VirtualNetworkGatewayNatRuleInternalMapping']]]]] = None,
+            ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["externalMappings"] = external_mappings
+        __props__["internalMappings"] = internal_mappings
+        __props__["ipConfigurationId"] = ip_configuration_id
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["type"] = type
+        __props__["virtualNetworkGatewayId"] = virtual_network_gateway_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkGatewayNatRuleExternalMapping']]:

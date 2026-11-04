@@ -291,11 +291,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:keyvault/certifiate:Certifiate example &#34;https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217&#34;
  * ```
  * 
- * @deprecated
- * azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
+ * @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
  * 
  */
-@Deprecated /* azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate */
+@Deprecated
 @ResourceType(type="azure:keyvault/certifiate:Certifiate")
 public class Certifiate extends com.pulumi.resources.CustomResource {
     /**

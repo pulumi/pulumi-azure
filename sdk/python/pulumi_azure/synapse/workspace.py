@@ -1178,6 +1178,54 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']]] = None,
+            azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            compute_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connectivity_endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']]] = None,
+            data_exfiltration_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']]] = None,
+            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
+            linking_allowed_for_aad_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purview_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_identity_control_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_data_lake_gen2_filesystem_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureDevopsRepo"] = azure_devops_repo
+        __props__["azureadAuthenticationOnly"] = azuread_authentication_only
+        __props__["computeSubnetId"] = compute_subnet_id
+        __props__["connectivityEndpoints"] = connectivity_endpoints
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["dataExfiltrationProtectionEnabled"] = data_exfiltration_protection_enabled
+        __props__["githubRepo"] = github_repo
+        __props__["identity"] = identity
+        __props__["linkingAllowedForAadTenantIds"] = linking_allowed_for_aad_tenant_ids
+        __props__["location"] = location
+        __props__["managedResourceGroupName"] = managed_resource_group_name
+        __props__["managedVirtualNetworkEnabled"] = managed_virtual_network_enabled
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["purviewId"] = purview_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sqlAdministratorLogin"] = sql_administrator_login
+        __props__["sqlAdministratorLoginPassword"] = sql_administrator_login_password
+        __props__["sqlIdentityControlEnabled"] = sql_identity_control_enabled
+        __props__["storageDataLakeGen2FilesystemId"] = storage_data_lake_gen2_filesystem_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureDevopsRepo")
     def azure_devops_repo(self) -> pulumi.Output[Optional['outputs.WorkspaceAzureDevopsRepo']]:

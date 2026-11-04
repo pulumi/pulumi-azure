@@ -206,6 +206,12 @@ func (AlertRuleMsSecurityIncidentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleMsSecurityIncidentState)(nil)).Elem()
 }
 
+// AlertRuleMsSecurityIncidentExists checks whether an existing AlertRuleMsSecurityIncident resource with the given ID exists.
+func AlertRuleMsSecurityIncidentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleMsSecurityIncidentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", id, state, "", opts...)
+}
+
 type alertRuleMsSecurityIncidentArgs struct {
 	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
 	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`

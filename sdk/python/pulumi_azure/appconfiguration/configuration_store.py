@@ -1089,6 +1089,50 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict', 'outputs.ConfigurationStorePrimaryReadKey']]]]] = None,
+            primary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict', 'outputs.ConfigurationStorePrimaryWriteKey']]]]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict', 'outputs.ConfigurationStoreSecondaryReadKey']]]]] = None,
+            secondary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict', 'outputs.ConfigurationStoreSecondaryWriteKey']]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataPlaneProxyAuthenticationMode"] = data_plane_proxy_authentication_mode
+        __props__["dataPlaneProxyPrivateLinkDelegationEnabled"] = data_plane_proxy_private_link_delegation_enabled
+        __props__["encryption"] = encryption
+        __props__["endpoint"] = endpoint
+        __props__["identity"] = identity
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryReadKeys"] = primary_read_keys
+        __props__["primaryWriteKeys"] = primary_write_keys
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["purgeProtectionEnabled"] = purge_protection_enabled
+        __props__["replicas"] = replicas
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryReadKeys"] = secondary_read_keys
+        __props__["secondaryWriteKeys"] = secondary_write_keys
+        __props__["sku"] = sku
+        __props__["softDeleteRetentionDays"] = soft_delete_retention_days
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:appconfiguration/configurationStore:ConfigurationStore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
     def data_plane_proxy_authentication_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

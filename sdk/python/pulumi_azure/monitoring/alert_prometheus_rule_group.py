@@ -681,6 +681,32 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AlertPrometheusRuleGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterName"] = cluster_name
+        __props__["description"] = description
+        __props__["interval"] = interval
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["ruleGroupEnabled"] = rule_group_enabled
+        __props__["rules"] = rules
+        __props__["scopes"] = scopes
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[_builtins.str]]:

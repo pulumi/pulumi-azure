@@ -149,6 +149,12 @@ func (ServiceEmailDomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEmailDomainAssociationState)(nil)).Elem()
 }
 
+// ServiceEmailDomainAssociationExists checks whether an existing ServiceEmailDomainAssociation resource with the given ID exists.
+func ServiceEmailDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEmailDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation", id, state, "", opts...)
+}
+
 type serviceEmailDomainAssociationArgs struct {
 	// The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
 	CommunicationServiceId string `pulumi:"communicationServiceId"`

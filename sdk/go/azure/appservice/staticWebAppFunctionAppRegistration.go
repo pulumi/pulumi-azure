@@ -180,6 +180,12 @@ func (StaticWebAppFunctionAppRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticWebAppFunctionAppRegistrationState)(nil)).Elem()
 }
 
+// StaticWebAppFunctionAppRegistrationExists checks whether an existing StaticWebAppFunctionAppRegistration resource with the given ID exists.
+func StaticWebAppFunctionAppRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticWebAppFunctionAppRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration", id, state, "", opts...)
+}
+
 type staticWebAppFunctionAppRegistrationArgs struct {
 	// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
 	//

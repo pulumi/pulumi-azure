@@ -333,6 +333,12 @@ func (FunctionAppSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppSlotState)(nil)).Elem()
 }
 
+// FunctionAppSlotExists checks whether an existing FunctionAppSlot resource with the given ID exists.
+func FunctionAppSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionAppSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/functionAppSlot:FunctionAppSlot", id, state, "", opts...)
+}
+
 type functionAppSlotArgs struct {
 	// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
 	AppServicePlanId string `pulumi:"appServicePlanId"`

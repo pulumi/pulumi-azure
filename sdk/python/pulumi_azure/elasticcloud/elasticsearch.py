@@ -631,6 +631,40 @@ class Elasticsearch(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Elasticsearch(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            elastic_cloud_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_sso_default_url: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_cloud_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            kibana_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            kibana_sso_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict', 'outputs.ElasticsearchLogs']]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["elasticCloudDeploymentId"] = elastic_cloud_deployment_id
+        __props__["elasticCloudEmailAddress"] = elastic_cloud_email_address
+        __props__["elasticCloudSsoDefaultUrl"] = elastic_cloud_sso_default_url
+        __props__["elasticCloudUserId"] = elastic_cloud_user_id
+        __props__["elasticsearchServiceUrl"] = elasticsearch_service_url
+        __props__["kibanaServiceUrl"] = kibana_service_url
+        __props__["kibanaSsoUri"] = kibana_sso_uri
+        __props__["location"] = location
+        __props__["logs"] = logs
+        __props__["monitoringEnabled"] = monitoring_enabled
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:elasticcloud/elasticsearch:Elasticsearch', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="elasticCloudDeploymentId")
     def elastic_cloud_deployment_id(self) -> pulumi.Output[_builtins.str]:

@@ -514,6 +514,28 @@ class Logger(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         return Logger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_insights: pulumi.Input[Optional[Union['LoggerApplicationInsightsArgs', 'LoggerApplicationInsightsArgsDict', 'outputs.LoggerApplicationInsights']]] = None,
+            buffered: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub: pulumi.Input[Optional[Union['LoggerEventhubArgs', 'LoggerEventhubArgsDict', 'outputs.LoggerEventhub']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["applicationInsights"] = application_insights
+        __props__["buffered"] = buffered
+        __props__["description"] = description
+        __props__["eventhub"] = eventhub
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["resourceId"] = resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/logger:Logger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

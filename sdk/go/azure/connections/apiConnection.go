@@ -177,6 +177,12 @@ func (ApiConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiConnectionState)(nil)).Elem()
 }
 
+// ApiConnectionExists checks whether an existing ApiConnection resource with the given ID exists.
+func ApiConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:connections/apiConnection:ApiConnection", id, state, "", opts...)
+}
+
 type apiConnectionArgs struct {
 	// A display name for this API Connection.
 	DisplayName *string `pulumi:"displayName"`

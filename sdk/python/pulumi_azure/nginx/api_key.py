@@ -429,6 +429,22 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["secret_text"] = secret_text
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            hint: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_text: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endDateTime"] = end_date_time
+        __props__["hint"] = hint
+        __props__["name"] = name
+        __props__["nginxDeploymentId"] = nginx_deployment_id
+        __props__["secretText"] = secret_text
+        return pulumi.runtime.exists_resource(None, 'azure:nginx/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> pulumi.Output[_builtins.str]:

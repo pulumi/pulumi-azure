@@ -192,6 +192,12 @@ func (FlexibleServerActiveDirectoryAdministratoryState) ElementType() reflect.Ty
 	return reflect.TypeOf((*flexibleServerActiveDirectoryAdministratoryState)(nil)).Elem()
 }
 
+// FlexibleServerActiveDirectoryAdministratoryExists checks whether an existing FlexibleServerActiveDirectoryAdministratory resource with the given ID exists.
+func FlexibleServerActiveDirectoryAdministratoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerActiveDirectoryAdministratoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", id, state, "", opts...)
+}
+
 type flexibleServerActiveDirectoryAdministratoryArgs struct {
 	// The resource ID of the identity used for AAD Authentication.
 	IdentityId string `pulumi:"identityId"`

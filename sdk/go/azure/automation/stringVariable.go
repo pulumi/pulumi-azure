@@ -153,6 +153,12 @@ func (StringVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stringVariableState)(nil)).Elem()
 }
 
+// StringVariableExists checks whether an existing StringVariable resource with the given ID exists.
+func StringVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StringVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/stringVariable:StringVariable", id, state, "", opts...)
+}
+
 type stringVariableArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

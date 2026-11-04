@@ -247,6 +247,16 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudAccelerator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudAccelerator:SpringCloudAccelerator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

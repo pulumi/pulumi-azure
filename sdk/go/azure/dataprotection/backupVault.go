@@ -209,6 +209,12 @@ func (BackupVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupVaultState)(nil)).Elem()
 }
 
+// BackupVaultExists checks whether an existing BackupVault resource with the given ID exists.
+func BackupVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupVault:BackupVault", id, state, "", opts...)
+}
+
 type backupVaultArgs struct {
 	// Whether to enable cross-region restore for the Backup Vault.
 	//

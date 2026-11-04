@@ -497,6 +497,28 @@ class LocalNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return LocalNetworkGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['LocalNetworkGatewayBgpSettingsArgs', 'LocalNetworkGatewayBgpSettingsArgsDict', 'outputs.LocalNetworkGatewayBgpSettings']]] = None,
+            gateway_address: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressSpaces"] = address_spaces
+        __props__["bgpSettings"] = bgp_settings
+        __props__["gatewayAddress"] = gateway_address
+        __props__["gatewayFqdn"] = gateway_fqdn
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/localNetworkGateway:LocalNetworkGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

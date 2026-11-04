@@ -49,20 +49,18 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="containerLogMaxLine")
     private @Nullable Output<Integer> containerLogMaxLine;
 
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Integer>> containerLogMaxLine() {
         return Optional.ofNullable(this.containerLogMaxLine);
     }
@@ -276,11 +274,10 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         /**
          * @return builder
          * 
-         * @deprecated
-         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder containerLogMaxLine(@Nullable Output<Integer> containerLogMaxLine) {
             $.containerLogMaxLine = containerLogMaxLine;
             return this;
@@ -289,11 +286,10 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         /**
          * @return builder
          * 
-         * @deprecated
-         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder containerLogMaxLine(Integer containerLogMaxLine) {
             return containerLogMaxLine(Output.of(containerLogMaxLine));
         }

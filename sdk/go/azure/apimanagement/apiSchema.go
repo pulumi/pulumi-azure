@@ -182,6 +182,12 @@ func (ApiSchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiSchemaState)(nil)).Elem()
 }
 
+// ApiSchemaExists checks whether an existing ApiSchema resource with the given ID exists.
+func ApiSchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiSchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiSchema:ApiSchema", id, state, "", opts...)
+}
+
 type apiSchemaArgs struct {
 	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

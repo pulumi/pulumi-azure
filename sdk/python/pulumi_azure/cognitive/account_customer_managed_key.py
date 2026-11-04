@@ -487,6 +487,18 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         return AccountCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cognitiveAccountId"] = cognitive_account_id
+        __props__["identityClientId"] = identity_client_id
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cognitiveAccountId")
     def cognitive_account_id(self) -> pulumi.Output[_builtins.str]:

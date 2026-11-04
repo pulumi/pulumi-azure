@@ -448,6 +448,12 @@ func (FrontdoorRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorRuleState)(nil)).Elem()
 }
 
+// FrontdoorRuleExists checks whether an existing FrontdoorRule resource with the given ID exists.
+func FrontdoorRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorRule:FrontdoorRule", id, state, "", opts...)
+}
+
 type frontdoorRuleArgs struct {
 	// An `actions` block as defined below.
 	Actions FrontdoorRuleActions `pulumi:"actions"`

@@ -56,20 +56,18 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
     }
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -169,11 +167,10 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
@@ -182,11 +179,10 @@ public final class ServerTransparentDataEncryptionArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

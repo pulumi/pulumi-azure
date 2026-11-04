@@ -482,6 +482,24 @@ class AccountConnectionCustomKeys(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return AccountConnectionCustomKeys(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_keys: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["cognitiveAccountId"] = cognitive_account_id
+        __props__["customKeys"] = custom_keys
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:

@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name("tfex-cosmosdb-account")
  *             .resourceGroupName("tfex-cosmosdb-account-rg")
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .automatic(true)
  *                 .indexingMode("consistent")
  *                 .includedPaths("/*")
- *                 .excludedPaths("/\"_etag\"/?")
+ *                 .excludedPaths("/}&#92;{@code "_etag}&#92;{@code "/?")
  *                 .build())
  *             .conflictResolutionPolicy(GremlinGraphConflictResolutionPolicyArgs.builder()
  *                 .mode("LastWriterWins")
@@ -89,8 +89,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -436,6 +436,12 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskEncryptionSetState)(nil)).Elem()
 }
 
+// DiskEncryptionSetExists checks whether an existing DiskEncryptionSet resource with the given ID exists.
+func DiskEncryptionSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiskEncryptionSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/diskEncryptionSet:DiskEncryptionSet", id, state, "", opts...)
+}
+
 type diskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//

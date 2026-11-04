@@ -189,6 +189,12 @@ func (RouteServerBgpConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerBgpConnectionState)(nil)).Elem()
 }
 
+// RouteServerBgpConnectionExists checks whether an existing RouteServerBgpConnection resource with the given ID exists.
+func RouteServerBgpConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerBgpConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/routeServerBgpConnection:RouteServerBgpConnection", id, state, "", opts...)
+}
+
 type routeServerBgpConnectionArgs struct {
 	// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

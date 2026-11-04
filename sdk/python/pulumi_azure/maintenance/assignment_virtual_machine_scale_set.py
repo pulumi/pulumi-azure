@@ -511,6 +511,18 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
         return AssignmentVirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["maintenanceConfigurationId"] = maintenance_configuration_id
+        __props__["virtualMachineScaleSetId"] = virtual_machine_scale_set_id
+        return pulumi.runtime.exists_resource(None, 'azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

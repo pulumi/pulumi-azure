@@ -599,6 +599,32 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            environment_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict', 'outputs.MonitorEnvironmentProperty']]]]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["environmentProperties"] = environment_properties
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["marketplaceSubscription"] = marketplace_subscription
+        __props__["monitoringEnabled"] = monitoring_enabled
+        __props__["name"] = name
+        __props__["plan"] = plan
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'azure:dynatrace/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="environmentProperties")
     def environment_properties(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorEnvironmentProperty']]]:

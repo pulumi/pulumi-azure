@@ -175,6 +175,12 @@ func (PtrRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ptrRecordState)(nil)).Elem()
 }
 
+// PtrRecordExists checks whether an existing PtrRecord resource with the given ID exists.
+func PtrRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PtrRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/ptrRecord:PtrRecord", id, state, "", opts...)
+}
+
 type ptrRecordArgs struct {
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

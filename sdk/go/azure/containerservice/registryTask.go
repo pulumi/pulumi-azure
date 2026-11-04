@@ -244,6 +244,12 @@ func (RegistryTaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryTaskState)(nil)).Elem()
 }
 
+// RegistryTaskExists checks whether an existing RegistryTask resource with the given ID exists.
+func RegistryTaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryTaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryTask:RegistryTask", id, state, "", opts...)
+}
+
 type registryTaskArgs struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName *string `pulumi:"agentPoolName"`

@@ -926,6 +926,26 @@ class VolumeGroupOracle(pulumi.CustomResource):
         __props__.__dict__["volumes"] = volumes
         return VolumeGroupOracle(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            group_description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict', 'outputs.VolumeGroupOracleVolume']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["applicationIdentifier"] = application_identifier
+        __props__["groupDescription"] = group_description
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["volumes"] = volumes
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/volumeGroupOracle:VolumeGroupOracle', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

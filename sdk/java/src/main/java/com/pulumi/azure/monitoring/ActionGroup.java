@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *                 .name("createorupdateticket")
  *                 .workspaceId(exampleAnalyticsWorkspace.workspaceId().applyValue(_workspaceId -> String.format("%s|%s", current.subscriptionId(),_workspaceId)))
  *                 .connectionId("53de6956-42b4-41ba-be3c-b154cdf17b13")
- *                 .ticketConfiguration("}{{@code \"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"}{}{@code \",\"CreateOneWIPerCI\":false}}{@code ")
+ *                 .ticketConfiguration("}{&#92;{@code "PayloadRevision}&#92;{@code ":0,}&#92;{@code "WorkItemType}&#92;{@code ":}&#92;{@code "Incident}&#92;{@code ",}&#92;{@code "UseTemplate}&#92;{@code ":false,}&#92;{@code "WorkItemData}&#92;{@code ":}&#92;{@code "}{}&#92;{@code ",}&#92;{@code "CreateOneWIPerCI}&#92;{@code ":false}}{@code ")
  *                 .region("southcentralus")
  *                 .build())
  *             .logicAppReceivers(ActionGroupLogicAppReceiverArgs.builder()

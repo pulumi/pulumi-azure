@@ -118,6 +118,12 @@ func (ResourceProviderFeatureRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceProviderFeatureRegistrationState)(nil)).Elem()
 }
 
+// ResourceProviderFeatureRegistrationExists checks whether an existing ResourceProviderFeatureRegistration resource with the given ID exists.
+func ResourceProviderFeatureRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceProviderFeatureRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceProviderFeatureRegistration:ResourceProviderFeatureRegistration", id, state, "", opts...)
+}
+
 type resourceProviderFeatureRegistrationArgs struct {
 	// Specifies the name of the feature to register. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

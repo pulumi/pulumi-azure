@@ -387,6 +387,24 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Device(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            device_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeviceDevicePropertyArgs', 'DeviceDevicePropertyArgsDict', 'outputs.DeviceDeviceProperty']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deviceProperties"] = device_properties
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:databoxedge/device:Device', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deviceProperties")
     def device_properties(self) -> pulumi.Output[Sequence['outputs.DeviceDeviceProperty']]:

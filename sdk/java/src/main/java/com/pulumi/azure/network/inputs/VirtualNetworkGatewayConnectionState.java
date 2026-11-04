@@ -134,20 +134,18 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableBgp")
     private @Nullable Output<Boolean> enableBgp;
 
     /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableBgp() {
         return Optional.ofNullable(this.enableBgp);
     }
@@ -645,11 +643,10 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBgp(@Nullable Output<Boolean> enableBgp) {
             $.enableBgp = enableBgp;
             return this;
@@ -658,11 +655,10 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBgp(Boolean enableBgp) {
             return enableBgp(Output.of(enableBgp));
         }

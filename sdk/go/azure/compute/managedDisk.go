@@ -539,6 +539,12 @@ func (ManagedDiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDiskState)(nil)).Elem()
 }
 
+// ManagedDiskExists checks whether an existing ManagedDisk resource with the given ID exists.
+func ManagedDiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedDiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/managedDisk:ManagedDisk", id, state, "", opts...)
+}
+
 type managedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	// * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).

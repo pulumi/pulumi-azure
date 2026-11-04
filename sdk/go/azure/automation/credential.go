@@ -175,6 +175,12 @@ func (CredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialState)(nil)).Elem()
 }
 
+// CredentialExists checks whether an existing Credential resource with the given ID exists.
+func CredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/credential:Credential", id, state, "", opts...)
+}
+
 type credentialArgs struct {
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

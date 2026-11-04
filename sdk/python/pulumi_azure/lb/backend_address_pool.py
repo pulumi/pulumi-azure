@@ -484,6 +484,30 @@ class BackendAddressPool(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return BackendAddressPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backendIpConfigurations"] = backend_ip_configurations
+        __props__["inboundNatRules"] = inbound_nat_rules
+        __props__["loadBalancingRules"] = load_balancing_rules
+        __props__["loadbalancerId"] = loadbalancer_id
+        __props__["name"] = name
+        __props__["outboundRules"] = outbound_rules
+        __props__["synchronousMode"] = synchronous_mode
+        __props__["tunnelInterfaces"] = tunnel_interfaces
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:lb/backendAddressPool:BackendAddressPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backendIpConfigurations")
     def backend_ip_configurations(self) -> pulumi.Output[Sequence[_builtins.str]]:

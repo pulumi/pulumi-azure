@@ -495,6 +495,28 @@ class ActionHttp(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return ActionHttp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["body"] = body
+        __props__["headers"] = headers
+        __props__["logicAppId"] = logic_app_id
+        __props__["method"] = method
+        __props__["name"] = name
+        __props__["queries"] = queries
+        __props__["runAfters"] = run_afters
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/actionHttp:ActionHttp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[_builtins.str]]:

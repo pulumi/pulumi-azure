@@ -128,6 +128,12 @@ func (AssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentState)(nil)).Elem()
 }
 
+// AssignmentExists checks whether an existing Assignment resource with the given ID exists.
+func AssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lighthouse/assignment:Assignment", id, state, "", opts...)
+}
+
 type assignmentArgs struct {
 	// A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
 	LighthouseDefinitionId string `pulumi:"lighthouseDefinitionId"`

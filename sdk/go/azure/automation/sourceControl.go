@@ -199,6 +199,12 @@ func (SourceControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlState)(nil)).Elem()
 }
 
+// SourceControlExists checks whether an existing SourceControl resource with the given ID exists.
+func SourceControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/sourceControl:SourceControl", id, state, "", opts...)
+}
+
 type sourceControlArgs struct {
 	// Whether auto async the Source Control.
 	AutomaticSync *bool `pulumi:"automaticSync"`

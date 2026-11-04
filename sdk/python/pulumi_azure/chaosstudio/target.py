@@ -313,6 +313,18 @@ class Target(pulumi.CustomResource):
         __props__.__dict__["target_type"] = target_type
         return Target(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetType"] = target_type
+        return pulumi.runtime.exists_resource(None, 'azure:chaosstudio/target:Target', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

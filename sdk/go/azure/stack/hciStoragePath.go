@@ -158,6 +158,12 @@ func (HciStoragePathState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciStoragePathState)(nil)).Elem()
 }
 
+// HciStoragePathExists checks whether an existing HciStoragePath resource with the given ID exists.
+func HciStoragePathExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciStoragePathState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciStoragePath:HciStoragePath", id, state, "", opts...)
+}
+
 type hciStoragePathArgs struct {
 	// The ID of Custom Location where the Azure Stack HCI Storage Path should exist. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

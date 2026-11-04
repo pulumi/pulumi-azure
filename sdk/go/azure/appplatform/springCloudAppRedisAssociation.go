@@ -173,6 +173,12 @@ func (SpringCloudAppRedisAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudAppRedisAssociationState)(nil)).Elem()
 }
 
+// SpringCloudAppRedisAssociationExists checks whether an existing SpringCloudAppRedisAssociation resource with the given ID exists.
+func SpringCloudAppRedisAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAppRedisAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation", id, state, "", opts...)
+}
+
 type springCloudAppRedisAssociationArgs struct {
 	// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

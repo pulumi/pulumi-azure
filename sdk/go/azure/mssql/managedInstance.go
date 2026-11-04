@@ -576,6 +576,12 @@ func (ManagedInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceState)(nil)).Elem()
 }
 
+// ManagedInstanceExists checks whether an existing ManagedInstance resource with the given ID exists.
+func ManagedInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstance:ManagedInstance", id, state, "", opts...)
+}
+
 type managedInstanceArgs struct {
 	// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`

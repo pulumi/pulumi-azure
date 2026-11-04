@@ -175,6 +175,12 @@ func (LinkedServiceMysqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceMysqlState)(nil)).Elem()
 }
 
+// LinkedServiceMysqlExists checks whether an existing LinkedServiceMysql resource with the given ID exists.
+func LinkedServiceMysqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceMysqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceMysql:LinkedServiceMysql", id, state, "", opts...)
+}
+
 type linkedServiceMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service MySQL.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

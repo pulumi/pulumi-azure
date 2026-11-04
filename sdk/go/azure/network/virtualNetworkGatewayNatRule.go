@@ -238,6 +238,12 @@ func (VirtualNetworkGatewayNatRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayNatRuleState)(nil)).Elem()
 }
 
+// VirtualNetworkGatewayNatRuleExists checks whether an existing VirtualNetworkGatewayNatRule resource with the given ID exists.
+func VirtualNetworkGatewayNatRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkGatewayNatRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule", id, state, "", opts...)
+}
+
 type virtualNetworkGatewayNatRuleArgs struct {
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings []VirtualNetworkGatewayNatRuleExternalMapping `pulumi:"externalMappings"`

@@ -644,6 +644,32 @@ class ExpressRouteConnection(pulumi.CustomResource):
         __props__.__dict__["routing_weight"] = routing_weight
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+            express_route_circuit_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            express_route_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']]] = None,
+            routing_weight: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizationKey"] = authorization_key
+        __props__["enableInternetSecurity"] = enable_internet_security
+        __props__["expressRouteCircuitPeeringId"] = express_route_circuit_peering_id
+        __props__["expressRouteGatewayBypassEnabled"] = express_route_gateway_bypass_enabled
+        __props__["expressRouteGatewayId"] = express_route_gateway_id
+        __props__["internetSecurityEnabled"] = internet_security_enabled
+        __props__["name"] = name
+        __props__["privateLinkFastPathEnabled"] = private_link_fast_path_enabled
+        __props__["routing"] = routing
+        __props__["routingWeight"] = routing_weight
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteConnection:ExpressRouteConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
     def authorization_key(self) -> pulumi.Output[Optional[_builtins.str]]:

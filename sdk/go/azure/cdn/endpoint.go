@@ -254,6 +254,12 @@ func (EndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointState)(nil)).Elem()
 }
 
+// EndpointExists checks whether an existing Endpoint resource with the given ID exists.
+func EndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/endpoint:Endpoint", id, state, "", opts...)
+}
+
 type endpointArgs struct {
 	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`

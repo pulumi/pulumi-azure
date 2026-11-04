@@ -914,6 +914,44 @@ class MetricAlert(pulumi.CustomResource):
         __props__.__dict__["window_size"] = window_size
         return MetricAlert(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict', 'outputs.MetricAlertAction']]]]] = None,
+            application_insights_web_test_location_availability_criteria: pulumi.Input[Optional[Union['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs', 'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgsDict', 'outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria']]] = None,
+            auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAlertCriteriaArgs', 'MetricAlertCriteriaArgsDict', 'outputs.MetricAlertCriteria']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_criteria: pulumi.Input[Optional[Union['MetricAlertDynamicCriteriaArgs', 'MetricAlertDynamicCriteriaArgsDict', 'outputs.MetricAlertDynamicCriteria']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            severity: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            window_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["applicationInsightsWebTestLocationAvailabilityCriteria"] = application_insights_web_test_location_availability_criteria
+        __props__["autoMitigate"] = auto_mitigate
+        __props__["criterias"] = criterias
+        __props__["description"] = description
+        __props__["dynamicCriteria"] = dynamic_criteria
+        __props__["enabled"] = enabled
+        __props__["frequency"] = frequency
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scopes"] = scopes
+        __props__["severity"] = severity
+        __props__["tags"] = tags
+        __props__["targetResourceLocation"] = target_resource_location
+        __props__["targetResourceType"] = target_resource_type
+        __props__["windowSize"] = window_size
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/metricAlert:MetricAlert', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.MetricAlertAction']]]:

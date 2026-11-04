@@ -145,6 +145,12 @@ func (AccountRaiBlocklistState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountRaiBlocklistState)(nil)).Elem()
 }
 
+// AccountRaiBlocklistExists checks whether an existing AccountRaiBlocklist resource with the given ID exists.
+func AccountRaiBlocklistExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountRaiBlocklistState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist", id, state, "", opts...)
+}
+
 type accountRaiBlocklistArgs struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`

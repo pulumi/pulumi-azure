@@ -253,6 +253,12 @@ func (SynapseSparkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*synapseSparkState)(nil)).Elem()
 }
 
+// SynapseSparkExists checks whether an existing SynapseSpark resource with the given ID exists.
+func SynapseSparkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SynapseSparkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/synapseSpark:SynapseSpark", id, state, "", opts...)
+}
+
 type synapseSparkArgs struct {
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description *string `pulumi:"description"`

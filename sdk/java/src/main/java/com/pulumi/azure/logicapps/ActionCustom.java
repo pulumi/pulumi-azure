@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("workflow-resources")
  *             .location("West Europe")
@@ -59,25 +59,25 @@ import javax.annotation.Nullable;
  *             .name("example-action")
  *             .logicAppId(exampleWorkflow.id())
  *             .body("""
- * {
- *     \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",
- *     \"inputs\": {
- *         \"variables\": [
- *             {
- *                 \"name\": \"ExpirationAgeInDays\",
- *                 \"type\": \"Integer\",
- *                 \"value\": -30
- *             }
+ * }{{@code
+ *     }&#92;{@code "description}&#92;{@code ": }&#92;{@code "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).}&#92;{@code ",
+ *     }&#92;{@code "inputs}&#92;{@code ": }{{@code
+ *         }&#92;{@code "variables}&#92;{@code ": [
+ *             }{{@code
+ *                 }&#92;{@code "name}&#92;{@code ": }&#92;{@code "ExpirationAgeInDays}&#92;{@code ",
+ *                 }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Integer}&#92;{@code ",
+ *                 }&#92;{@code "value}&#92;{@code ": -30
+ *             }}{@code
  *         ]
- *     },
- *     \"runAfter\": {},
- *     \"type\": \"InitializeVariable\"
- * }
+ *     }}{@code ,
+ *     }&#92;{@code "runAfter}&#92;{@code ": }{}{@code ,
+ *     }&#92;{@code "type}&#92;{@code ": }&#92;{@code "InitializeVariable}&#92;{@code "
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

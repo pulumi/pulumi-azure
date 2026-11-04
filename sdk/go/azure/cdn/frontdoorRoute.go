@@ -371,6 +371,12 @@ func (FrontdoorRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorRouteState)(nil)).Elem()
 }
 
+// FrontdoorRouteExists checks whether an existing FrontdoorRoute resource with the given ID exists.
+func FrontdoorRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorRoute:FrontdoorRoute", id, state, "", opts...)
+}
+
 type frontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	//

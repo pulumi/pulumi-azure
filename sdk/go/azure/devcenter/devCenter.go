@@ -180,6 +180,12 @@ func (DevCenterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*devCenterState)(nil)).Elem()
 }
 
+// DevCenterExists checks whether an existing DevCenter resource with the given ID exists.
+func DevCenterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DevCenterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/devCenter:DevCenter", id, state, "", opts...)
+}
+
 type devCenterArgs struct {
 	// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
 	Identity *DevCenterIdentity `pulumi:"identity"`

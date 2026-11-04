@@ -185,6 +185,12 @@ func (MxRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mxRecordState)(nil)).Elem()
 }
 
+// MxRecordExists checks whether an existing MxRecord resource with the given ID exists.
+func MxRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MxRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/mxRecord:MxRecord", id, state, "", opts...)
+}
+
 type mxRecordArgs struct {
 	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

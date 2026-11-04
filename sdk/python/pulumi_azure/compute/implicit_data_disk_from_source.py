@@ -673,6 +673,28 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
         __props__.__dict__["write_accelerator_enabled"] = write_accelerator_enabled
         return ImplicitDataDiskFromSource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            caching: pulumi.Input[Optional[_builtins.str]] = None,
+            create_option: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            lun: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["caching"] = caching
+        __props__["createOption"] = create_option
+        __props__["diskSizeGb"] = disk_size_gb
+        __props__["lun"] = lun
+        __props__["name"] = name
+        __props__["sourceResourceId"] = source_resource_id
+        __props__["virtualMachineId"] = virtual_machine_id
+        __props__["writeAcceleratorEnabled"] = write_accelerator_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def caching(self) -> pulumi.Output[Optional[_builtins.str]]:

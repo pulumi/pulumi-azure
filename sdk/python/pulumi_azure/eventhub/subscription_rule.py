@@ -539,6 +539,26 @@ class SubscriptionRule(pulumi.CustomResource):
         __props__.__dict__["subscription_id"] = subscription_id
         return SubscriptionRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            correlation_filter: pulumi.Input[Optional[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict', 'outputs.SubscriptionRuleCorrelationFilter']]] = None,
+            filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_filter_compatibility_level: pulumi.Input[Optional[_builtins.int]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["correlationFilter"] = correlation_filter
+        __props__["filterType"] = filter_type
+        __props__["name"] = name
+        __props__["sqlFilter"] = sql_filter
+        __props__["sqlFilterCompatibilityLevel"] = sql_filter_compatibility_level
+        __props__["subscriptionId"] = subscription_id
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/subscriptionRule:SubscriptionRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:

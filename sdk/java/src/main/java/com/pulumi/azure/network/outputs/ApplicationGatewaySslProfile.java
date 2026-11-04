@@ -36,11 +36,10 @@ public final class ApplicationGatewaySslProfile {
      */
     private @Nullable List<String> trustedClientCertificateNames;
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable Boolean verifyClientCertIssuerDn;
     /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
@@ -83,11 +82,10 @@ public final class ApplicationGatewaySslProfile {
         return this.trustedClientCertificateNames == null ? List.of() : this.trustedClientCertificateNames;
     }
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Boolean> verifyClientCertIssuerDn() {
         return Optional.ofNullable(this.verifyClientCertIssuerDn);
     }

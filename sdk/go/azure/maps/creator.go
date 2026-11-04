@@ -161,6 +161,12 @@ func (CreatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*creatorState)(nil)).Elem()
 }
 
+// CreatorExists checks whether an existing Creator resource with the given ID exists.
+func CreatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CreatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maps/creator:Creator", id, state, "", opts...)
+}
+
 type creatorArgs struct {
 	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

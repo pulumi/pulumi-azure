@@ -449,6 +449,24 @@ class ManagedDatabase(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            long_term_retention_policy: pulumi.Input[Optional[Union['ManagedDatabaseLongTermRetentionPolicyArgs', 'ManagedDatabaseLongTermRetentionPolicyArgsDict', 'outputs.ManagedDatabaseLongTermRetentionPolicy']]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            point_in_time_restore: pulumi.Input[Optional[Union['ManagedDatabasePointInTimeRestoreArgs', 'ManagedDatabasePointInTimeRestoreArgsDict', 'outputs.ManagedDatabasePointInTimeRestore']]] = None,
+            short_term_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["longTermRetentionPolicy"] = long_term_retention_policy
+        __props__["managedInstanceId"] = managed_instance_id
+        __props__["name"] = name
+        __props__["pointInTimeRestore"] = point_in_time_restore
+        __props__["shortTermRetentionDays"] = short_term_retention_days
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/managedDatabase:ManagedDatabase', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="longTermRetentionPolicy")
     def long_term_retention_policy(self) -> pulumi.Output['outputs.ManagedDatabaseLongTermRetentionPolicy']:

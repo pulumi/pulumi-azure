@@ -247,6 +247,12 @@ func (LinkedServiceSynapseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSynapseState)(nil)).Elem()
 }
 
+// LinkedServiceSynapseExists checks whether an existing LinkedServiceSynapse resource with the given ID exists.
+func LinkedServiceSynapseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceSynapseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse", id, state, "", opts...)
+}
+
 type linkedServiceSynapseArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
 	//

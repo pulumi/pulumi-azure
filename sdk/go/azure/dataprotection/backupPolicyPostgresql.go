@@ -219,6 +219,12 @@ func (BackupPolicyPostgresqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyPostgresqlState)(nil)).Elem()
 }
 
+// BackupPolicyPostgresqlExists checks whether an existing BackupPolicyPostgresql resource with the given ID exists.
+func BackupPolicyPostgresqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyPostgresqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql", id, state, "", opts...)
+}
+
 type backupPolicyPostgresqlArgs struct {
 	// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

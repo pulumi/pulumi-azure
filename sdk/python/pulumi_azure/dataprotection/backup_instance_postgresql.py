@@ -623,6 +623,26 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         __props__.__dict__["vault_id"] = vault_id
         return BackupInstancePostgresql(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database_credential_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupPolicyId"] = backup_policy_id
+        __props__["databaseCredentialKeyVaultSecretId"] = database_credential_key_vault_secret_id
+        __props__["databaseId"] = database_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["protectionState"] = protection_state
+        __props__["vaultId"] = vault_id
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> pulumi.Output[_builtins.str]:

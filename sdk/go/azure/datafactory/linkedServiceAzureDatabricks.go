@@ -322,6 +322,12 @@ func (LinkedServiceAzureDatabricksState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureDatabricksState)(nil)).Elem()
 }
 
+// LinkedServiceAzureDatabricksExists checks whether an existing LinkedServiceAzureDatabricks resource with the given ID exists.
+func LinkedServiceAzureDatabricksExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceAzureDatabricksState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", id, state, "", opts...)
+}
+
 type linkedServiceAzureDatabricksArgs struct {
 	// Authenticate to ADB via an access token.
 	AccessToken *string `pulumi:"accessToken"`

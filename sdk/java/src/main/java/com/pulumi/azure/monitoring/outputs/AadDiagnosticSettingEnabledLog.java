@@ -19,11 +19,10 @@ public final class AadDiagnosticSettingEnabledLog {
      */
     private String category;
     /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+     * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    @Deprecated
     private @Nullable AadDiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
 
     private AadDiagnosticSettingEnabledLog() {}
@@ -35,11 +34,10 @@ public final class AadDiagnosticSettingEnabledLog {
         return this.category;
     }
     /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+     * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    @Deprecated
     public Optional<AadDiagnosticSettingEnabledLogRetentionPolicy> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }

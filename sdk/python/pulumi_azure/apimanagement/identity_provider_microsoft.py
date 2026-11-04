@@ -344,6 +344,20 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return IdentityProviderMicrosoft(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

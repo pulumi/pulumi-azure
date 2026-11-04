@@ -178,6 +178,12 @@ func (JobStorageAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobStorageAccountState)(nil)).Elem()
 }
 
+// JobStorageAccountExists checks whether an existing JobStorageAccount resource with the given ID exists.
+func JobStorageAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobStorageAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/jobStorageAccount:JobStorageAccount", id, state, "", opts...)
+}
+
 type jobStorageAccountArgs struct {
 	// The authentication mode for the Stream Analytics Job's Storage Account. Possible values are `ConnectionString`, and `Msi`.
 	AuthenticationMode string  `pulumi:"authenticationMode"`

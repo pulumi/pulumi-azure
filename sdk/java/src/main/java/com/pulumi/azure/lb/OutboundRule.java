@@ -146,11 +146,10 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
         return this.backendAddressPoolId;
     }
     /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTcpReset;
 

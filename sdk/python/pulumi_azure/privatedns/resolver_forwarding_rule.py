@@ -491,6 +491,24 @@ class ResolverForwardingRule(pulumi.CustomResource):
         __props__.__dict__["target_dns_servers"] = target_dns_servers
         return ResolverForwardingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_forwarding_ruleset_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverForwardingRuleTargetDnsServerArgs', 'ResolverForwardingRuleTargetDnsServerArgsDict', 'outputs.ResolverForwardingRuleTargetDnsServer']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnsForwardingRulesetId"] = dns_forwarding_ruleset_id
+        __props__["domainName"] = domain_name
+        __props__["enabled"] = enabled
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["targetDnsServers"] = target_dns_servers
+        return pulumi.runtime.exists_resource(None, 'azure:privatedns/resolverForwardingRule:ResolverForwardingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnsForwardingRulesetId")
     def dns_forwarding_ruleset_id(self) -> pulumi.Output[_builtins.str]:

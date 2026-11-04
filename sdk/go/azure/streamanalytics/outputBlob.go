@@ -257,6 +257,12 @@ func (OutputBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputBlobState)(nil)).Elem()
 }
 
+// OutputBlobExists checks whether an existing OutputBlob resource with the given ID exists.
+func OutputBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputBlob:OutputBlob", id, state, "", opts...)
+}
+
 type outputBlobArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

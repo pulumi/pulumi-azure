@@ -273,6 +273,12 @@ func (ExperimentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*experimentState)(nil)).Elem()
 }
 
+// ExperimentExists checks whether an existing Experiment resource with the given ID exists.
+func ExperimentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExperimentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:chaosstudio/experiment:Experiment", id, state, "", opts...)
+}
+
 type experimentArgs struct {
 	// A `identity` block as defined below.
 	Identity *ExperimentIdentity `pulumi:"identity"`

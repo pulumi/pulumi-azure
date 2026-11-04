@@ -170,6 +170,12 @@ func (SpringCloudBuildPackBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudBuildPackBindingState)(nil)).Elem()
 }
 
+// SpringCloudBuildPackBindingExists checks whether an existing SpringCloudBuildPackBinding resource with the given ID exists.
+func SpringCloudBuildPackBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudBuildPackBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding", id, state, "", opts...)
+}
+
 type springCloudBuildPackBindingArgs struct {
 	// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	BindingType *string `pulumi:"bindingType"`

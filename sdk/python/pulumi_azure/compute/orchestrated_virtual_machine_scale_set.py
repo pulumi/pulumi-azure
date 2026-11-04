@@ -1872,6 +1872,90 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return OrchestratedVirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_capabilities: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities']]] = None,
+            automatic_instance_repair: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair']]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics']]] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetDataDisk']]]]] = None,
+            encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetExtension']]]]] = None,
+            extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetIdentity']]] = None,
+            instances: pulumi.Input[Optional[_builtins.int]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetNetworkInterface']]]]] = None,
+            os_disk: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetOsDisk']]] = None,
+            os_profile: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetOsProfile']]] = None,
+            plan: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPlan']]] = None,
+            platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_mix: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetPriorityMix']]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rolling_upgrade_policy: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']]] = None,
+            single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_profile: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetSkuProfile']]] = None,
+            source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_reference: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetSourceImageReference']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_notification: pulumi.Input[Optional[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict', 'outputs.OrchestratedVirtualMachineScaleSetTerminationNotification']]] = None,
+            unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+            upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalCapabilities"] = additional_capabilities
+        __props__["automaticInstanceRepair"] = automatic_instance_repair
+        __props__["bootDiagnostics"] = boot_diagnostics
+        __props__["capacityReservationGroupId"] = capacity_reservation_group_id
+        __props__["dataDisks"] = data_disks
+        __props__["encryptionAtHostEnabled"] = encryption_at_host_enabled
+        __props__["evictionPolicy"] = eviction_policy
+        __props__["extensionOperationsEnabled"] = extension_operations_enabled
+        __props__["extensions"] = extensions
+        __props__["extensionsTimeBudget"] = extensions_time_budget
+        __props__["identity"] = identity
+        __props__["instances"] = instances
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["maxBidPrice"] = max_bid_price
+        __props__["name"] = name
+        __props__["networkApiVersion"] = network_api_version
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["osDisk"] = os_disk
+        __props__["osProfile"] = os_profile
+        __props__["plan"] = plan
+        __props__["platformFaultDomainCount"] = platform_fault_domain_count
+        __props__["priority"] = priority
+        __props__["priorityMix"] = priority_mix
+        __props__["proximityPlacementGroupId"] = proximity_placement_group_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rollingUpgradePolicy"] = rolling_upgrade_policy
+        __props__["singlePlacementGroup"] = single_placement_group
+        __props__["skuName"] = sku_name
+        __props__["skuProfile"] = sku_profile
+        __props__["sourceImageId"] = source_image_id
+        __props__["sourceImageReference"] = source_image_reference
+        __props__["tags"] = tags
+        __props__["terminationNotification"] = termination_notification
+        __props__["uniqueId"] = unique_id
+        __props__["upgradeMode"] = upgrade_mode
+        __props__["userDataBase64"] = user_data_base64
+        __props__["zoneBalance"] = zone_balance
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> pulumi.Output[Optional['outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities']]:

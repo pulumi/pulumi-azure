@@ -379,6 +379,22 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         __props__.__dict__["replication_interval_in_seconds"] = replication_interval_in_seconds
         return HyperVReplicationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_consistent_snapshot_frequency_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationConsistentSnapshotFrequencyInHours"] = application_consistent_snapshot_frequency_in_hours
+        __props__["name"] = name
+        __props__["recoveryPointRetentionInHours"] = recovery_point_retention_in_hours
+        __props__["recoveryVaultId"] = recovery_vault_id
+        __props__["replicationIntervalInSeconds"] = replication_interval_in_seconds
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
     def application_consistent_snapshot_frequency_in_hours(self) -> pulumi.Output[_builtins.int]:

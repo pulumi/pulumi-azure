@@ -1386,6 +1386,64 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["vpn_type"] = vpn_type
         return VirtualNetworkGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_active: pulumi.Input[Optional[_builtins.bool]] = None,
+            bgp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['VirtualNetworkGatewayBgpSettingsArgs', 'VirtualNetworkGatewayBgpSettingsArgsDict', 'outputs.VirtualNetworkGatewayBgpSettings']]] = None,
+            custom_route: pulumi.Input[Optional[Union['VirtualNetworkGatewayCustomRouteArgs', 'VirtualNetworkGatewayCustomRouteArgsDict', 'outputs.VirtualNetworkGatewayCustomRoute']]] = None,
+            default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
+            generation: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict', 'outputs.VirtualNetworkGatewayIpConfiguration']]]]] = None,
+            ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict', 'outputs.VirtualNetworkGatewayPolicyGroup']]]]] = None,
+            private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            remote_vnet_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_wan_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            vpn_client_configuration: pulumi.Input[Optional[Union['VirtualNetworkGatewayVpnClientConfigurationArgs', 'VirtualNetworkGatewayVpnClientConfigurationArgsDict', 'outputs.VirtualNetworkGatewayVpnClientConfiguration']]] = None,
+            vpn_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activeActive"] = active_active
+        __props__["bgpEnabled"] = bgp_enabled
+        __props__["bgpRouteTranslationForNatEnabled"] = bgp_route_translation_for_nat_enabled
+        __props__["bgpSettings"] = bgp_settings
+        __props__["customRoute"] = custom_route
+        __props__["defaultLocalNetworkGatewayId"] = default_local_network_gateway_id
+        __props__["dnsForwardingEnabled"] = dns_forwarding_enabled
+        __props__["edgeZone"] = edge_zone
+        __props__["enableBgp"] = enable_bgp
+        __props__["generation"] = generation
+        __props__["ipConfigurations"] = ip_configurations
+        __props__["ipSecReplayProtectionEnabled"] = ip_sec_replay_protection_enabled
+        __props__["location"] = location
+        __props__["maximumScaleUnit"] = maximum_scale_unit
+        __props__["minimumScaleUnit"] = minimum_scale_unit
+        __props__["name"] = name
+        __props__["policyGroups"] = policy_groups
+        __props__["privateIpAddressEnabled"] = private_ip_address_enabled
+        __props__["remoteVnetTrafficEnabled"] = remote_vnet_traffic_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["virtualWanTrafficEnabled"] = virtual_wan_traffic_enabled
+        __props__["vpnClientConfiguration"] = vpn_client_configuration
+        __props__["vpnType"] = vpn_type
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualNetworkGateway:VirtualNetworkGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activeActive")
     def active_active(self) -> pulumi.Output[_builtins.bool]:

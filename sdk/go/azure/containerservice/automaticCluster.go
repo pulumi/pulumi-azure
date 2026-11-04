@@ -363,6 +363,12 @@ func (AutomaticClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automaticClusterState)(nil)).Elem()
 }
 
+// AutomaticClusterExists checks whether an existing AutomaticCluster resource with the given ID exists.
+func AutomaticClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomaticClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/automaticCluster:AutomaticCluster", id, state, "", opts...)
+}
+
 type automaticClusterArgs struct {
 	// An `apiServerAccess` block as defined below.
 	ApiServerAccess *AutomaticClusterApiServerAccess `pulumi:"apiServerAccess"`

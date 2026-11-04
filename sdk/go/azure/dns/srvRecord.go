@@ -183,6 +183,12 @@ func (SrvRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*srvRecordState)(nil)).Elem()
 }
 
+// SrvRecordExists checks whether an existing SrvRecord resource with the given ID exists.
+func SrvRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SrvRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/srvRecord:SrvRecord", id, state, "", opts...)
+}
+
 type srvRecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

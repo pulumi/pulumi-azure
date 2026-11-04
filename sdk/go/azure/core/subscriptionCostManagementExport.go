@@ -212,6 +212,12 @@ func (SubscriptionCostManagementExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionCostManagementExportState)(nil)).Elem()
 }
 
+// SubscriptionCostManagementExportExists checks whether an existing SubscriptionCostManagementExport resource with the given ID exists.
+func SubscriptionCostManagementExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionCostManagementExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", id, state, "", opts...)
+}
+
 type subscriptionCostManagementExportArgs struct {
 	// Is the cost management export active? Default is `true`.
 	Active *bool `pulumi:"active"`

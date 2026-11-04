@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var config = ctx.config();
  *         final var mdContent = config.get("mdContent").orElse("# Hello all :)");
  *         final var videoLink = config.get("videoLink").orElse("https://www.youtube.com/watch?v=......");
@@ -65,119 +65,119 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .tags(Map.of("source", "terraform"))
  *             .dashboardProperties("""
- * {
- *    \"lenses\": {
- *         \"0\": {
- *             \"order\": 0,
- *             \"parts\": {
- *                 \"0\": {
- *                     \"position\": {
- *                         \"x\": 0,
- *                         \"y\": 0,
- *                         \"rowSpan\": 2,
- *                         \"colSpan\": 3
- *                     },
- *                     \"metadata\": {
- *                         \"inputs\": [],
- *                         \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",
- *                         \"settings\": {
- *                             \"content\": {
- *                                 \"settings\": {
- *                                     \"content\": \"%s\",
- *                                     \"subtitle\": \"\",
- *                                     \"title\": \"\"
- *                                 }
- *                             }
- *                         }
- *                     }
- *                 },               
- *                 \"1\": {
- *                     \"position\": {
- *                         \"x\": 5,
- *                         \"y\": 0,
- *                         \"rowSpan\": 4,
- *                         \"colSpan\": 6
- *                     },
- *                     \"metadata\": {
- *                         \"inputs\": [],
- *                         \"type\": \"Extension/HubsExtension/PartType/VideoPart\",
- *                         \"settings\": {
- *                             \"content\": {
- *                                 \"settings\": {
- *                                     \"title\": \"Important Information\",
- *                                     \"subtitle\": \"\",
- *                                     \"src\": \"%s\",
- *                                     \"autoplay\": true
- *                                 }
- *                             }
- *                         }
- *                     }
- *                 },
- *                 \"2\": {
- *                     \"position\": {
- *                         \"x\": 0,
- *                         \"y\": 4,
- *                         \"rowSpan\": 4,
- *                         \"colSpan\": 6
- *                     },
- *                     \"metadata\": {
- *                         \"inputs\": [
- *                             {
- *                                 \"name\": \"ComponentId\",
- *                                 \"value\": \"/subscriptions/%s/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"
- *                             }
+ * }{{@code
+ *    }&#92;{@code "lenses}&#92;{@code ": }{{@code
+ *         }&#92;{@code "0}&#92;{@code ": }{{@code
+ *             }&#92;{@code "order}&#92;{@code ": 0,
+ *             }&#92;{@code "parts}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "0}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "position}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "x}&#92;{@code ": 0,
+ *                         }&#92;{@code "y}&#92;{@code ": 0,
+ *                         }&#92;{@code "rowSpan}&#92;{@code ": 2,
+ *                         }&#92;{@code "colSpan}&#92;{@code ": 3
+ *                     }}{@code ,
+ *                     }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "inputs}&#92;{@code ": [],
+ *                         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Extension/HubsExtension/PartType/MarkdownPart}&#92;{@code ",
+ *                         }&#92;{@code "settings}&#92;{@code ": }{{@code
+ *                             }&#92;{@code "content}&#92;{@code ": }{{@code
+ *                                 }&#92;{@code "settings}&#92;{@code ": }{{@code
+ *                                     }&#92;{@code "content}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *                                     }&#92;{@code "subtitle}&#92;{@code ": }&#92;{@code "}&#92;{@code ",
+ *                                     }&#92;{@code "title}&#92;{@code ": }&#92;{@code "}&#92;{@code "
+ *                                 }}{@code
+ *                             }}{@code
+ *                         }}{@code
+ *                     }}{@code
+ *                 }}{@code ,               
+ *                 }&#92;{@code "1}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "position}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "x}&#92;{@code ": 5,
+ *                         }&#92;{@code "y}&#92;{@code ": 0,
+ *                         }&#92;{@code "rowSpan}&#92;{@code ": 4,
+ *                         }&#92;{@code "colSpan}&#92;{@code ": 6
+ *                     }}{@code ,
+ *                     }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "inputs}&#92;{@code ": [],
+ *                         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Extension/HubsExtension/PartType/VideoPart}&#92;{@code ",
+ *                         }&#92;{@code "settings}&#92;{@code ": }{{@code
+ *                             }&#92;{@code "content}&#92;{@code ": }{{@code
+ *                                 }&#92;{@code "settings}&#92;{@code ": }{{@code
+ *                                     }&#92;{@code "title}&#92;{@code ": }&#92;{@code "Important Information}&#92;{@code ",
+ *                                     }&#92;{@code "subtitle}&#92;{@code ": }&#92;{@code "}&#92;{@code ",
+ *                                     }&#92;{@code "src}&#92;{@code ": }&#92;{@code "%s}&#92;{@code ",
+ *                                     }&#92;{@code "autoplay}&#92;{@code ": true
+ *                                 }}{@code
+ *                             }}{@code
+ *                         }}{@code
+ *                     }}{@code
+ *                 }}{@code ,
+ *                 }&#92;{@code "2}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "position}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "x}&#92;{@code ": 0,
+ *                         }&#92;{@code "y}&#92;{@code ": 4,
+ *                         }&#92;{@code "rowSpan}&#92;{@code ": 4,
+ *                         }&#92;{@code "colSpan}&#92;{@code ": 6
+ *                     }}{@code ,
+ *                     }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "inputs}&#92;{@code ": [
+ *                             }{{@code
+ *                                 }&#92;{@code "name}&#92;{@code ": }&#92;{@code "ComponentId}&#92;{@code ",
+ *                                 }&#92;{@code "value}&#92;{@code ": }&#92;{@code "/subscriptions/%s/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp}&#92;{@code "
+ *                             }}{@code
  *                         ],
- *                         \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",
- *                         \"settings\": {},
- *                         \"asset\": {
- *                             \"idInputName\": \"ComponentId\",
- *                             \"type\": \"ApplicationInsights\"
- *                         }
- *                     }
- *                 }              
- *             }
- *         }
- *     },
- *     \"metadata\": {
- *         \"model\": {
- *             \"timeRange\": {
- *                 \"value\": {
- *                     \"relative\": {
- *                         \"duration\": 24,
- *                         \"timeUnit\": 1
- *                     }
- *                 },
- *                 \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"
- *             },
- *             \"filterLocale\": {
- *                 \"value\": \"en-us\"
- *             },
- *             \"filters\": {
- *                 \"value\": {
- *                     \"MsPortalFx_TimeRange\": {
- *                         \"model\": {
- *                             \"format\": \"utc\",
- *                             \"granularity\": \"auto\",
- *                             \"relative\": \"24h\"
- *                         },
- *                         \"displayCache\": {
- *                             \"name\": \"UTC Time\",
- *                             \"value\": \"Past 24 hours\"
- *                         },
- *                         \"filteredPartIds\": [
- *                             \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"
+ *                         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Extension/AppInsightsExtension/PartType/AppMapGalPt}&#92;{@code ",
+ *                         }&#92;{@code "settings}&#92;{@code ": }{}{@code ,
+ *                         }&#92;{@code "asset}&#92;{@code ": }{{@code
+ *                             }&#92;{@code "idInputName}&#92;{@code ": }&#92;{@code "ComponentId}&#92;{@code ",
+ *                             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "ApplicationInsights}&#92;{@code "
+ *                         }}{@code
+ *                     }}{@code
+ *                 }}{@code               
+ *             }}{@code
+ *         }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *         }&#92;{@code "model}&#92;{@code ": }{{@code
+ *             }&#92;{@code "timeRange}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "value}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "relative}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "duration}&#92;{@code ": 24,
+ *                         }&#92;{@code "timeUnit}&#92;{@code ": 1
+ *                     }}{@code
+ *                 }}{@code ,
+ *                 }&#92;{@code "type}&#92;{@code ": }&#92;{@code "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange}&#92;{@code "
+ *             }}{@code ,
+ *             }&#92;{@code "filterLocale}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "value}&#92;{@code ": }&#92;{@code "en-us}&#92;{@code "
+ *             }}{@code ,
+ *             }&#92;{@code "filters}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "value}&#92;{@code ": }{{@code
+ *                     }&#92;{@code "MsPortalFx_TimeRange}&#92;{@code ": }{{@code
+ *                         }&#92;{@code "model}&#92;{@code ": }{{@code
+ *                             }&#92;{@code "format}&#92;{@code ": }&#92;{@code "utc}&#92;{@code ",
+ *                             }&#92;{@code "granularity}&#92;{@code ": }&#92;{@code "auto}&#92;{@code ",
+ *                             }&#92;{@code "relative}&#92;{@code ": }&#92;{@code "24h}&#92;{@code "
+ *                         }}{@code ,
+ *                         }&#92;{@code "displayCache}&#92;{@code ": }{{@code
+ *                             }&#92;{@code "name}&#92;{@code ": }&#92;{@code "UTC Time}&#92;{@code ",
+ *                             }&#92;{@code "value}&#92;{@code ": }&#92;{@code "Past 24 hours}&#92;{@code "
+ *                         }}{@code ,
+ *                         }&#92;{@code "filteredPartIds}&#92;{@code ": [
+ *                             }&#92;{@code "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7}&#92;{@code "
  *                         ]
- *                     }
- *                 }
- *             }
- *         }
- *     }
- * }
+ *                     }}{@code
+ *                 }}{@code
+ *             }}{@code
+ *         }}{@code
+ *     }}{@code
+ * }}{@code
  * ", mdContent,videoLink,current.subscriptionId()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

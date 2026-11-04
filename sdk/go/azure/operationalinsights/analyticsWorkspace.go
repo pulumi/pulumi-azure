@@ -262,6 +262,12 @@ func (AnalyticsWorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsWorkspaceState)(nil)).Elem()
 }
 
+// AnalyticsWorkspaceExists checks whether an existing AnalyticsWorkspace resource with the given ID exists.
+func AnalyticsWorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyticsWorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", id, state, "", opts...)
+}
+
 type analyticsWorkspaceArgs struct {
 	// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
 	AllowResourceOnlyPermissions *bool `pulumi:"allowResourceOnlyPermissions"`

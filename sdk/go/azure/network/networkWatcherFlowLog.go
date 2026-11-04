@@ -256,6 +256,12 @@ func (NetworkWatcherFlowLogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkWatcherFlowLogState)(nil)).Elem()
 }
 
+// NetworkWatcherFlowLogExists checks whether an existing NetworkWatcherFlowLog resource with the given ID exists.
+func NetworkWatcherFlowLogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkWatcherFlowLogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", id, state, "", opts...)
+}
+
 type networkWatcherFlowLogArgs struct {
 	// Should Network Flow Logging be Enabled?
 	Enabled bool `pulumi:"enabled"`

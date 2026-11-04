@@ -155,6 +155,12 @@ func (NetworkManagerRoutingConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerRoutingConfigurationState)(nil)).Elem()
 }
 
+// NetworkManagerRoutingConfigurationExists checks whether an existing NetworkManagerRoutingConfiguration resource with the given ID exists.
+func NetworkManagerRoutingConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerRoutingConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration", id, state, "", opts...)
+}
+
 type networkManagerRoutingConfigurationArgs struct {
 	// The description of the Network Manager Routing Configuration.
 	Description *string `pulumi:"description"`

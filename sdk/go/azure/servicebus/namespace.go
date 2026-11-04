@@ -254,6 +254,12 @@ func (NamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceState)(nil)).Elem()
 }
 
+// NamespaceExists checks whether an existing Namespace resource with the given ID exists.
+func NamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicebus/namespace:Namespace", id, state, "", opts...)
+}
+
 type namespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`

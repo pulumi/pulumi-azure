@@ -64,20 +64,18 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * @deprecated
-     * the `name` is deprecated and will be removed in v5.0 version of the provider.
+     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      * 
      */
-    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
+    @Deprecated
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @deprecated
-     * the `name` is deprecated and will be removed in v5.0 version of the provider.
+     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      * 
      */
-    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
+    @Deprecated
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -191,11 +189,10 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `name` is deprecated and will be removed in v5.0 version of the provider.
+         * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
          * 
          */
-        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
+        @Deprecated
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -204,11 +201,10 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `name` is deprecated and will be removed in v5.0 version of the provider.
+         * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
          * 
          */
-        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
+        @Deprecated
         public Builder name(String name) {
             return name(Output.of(name));
         }

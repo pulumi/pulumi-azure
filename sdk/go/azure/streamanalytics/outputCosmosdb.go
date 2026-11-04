@@ -223,6 +223,12 @@ func (OutputCosmosdbState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputCosmosdbState)(nil)).Elem()
 }
 
+// OutputCosmosdbExists checks whether an existing OutputCosmosdb resource with the given ID exists.
+func OutputCosmosdbExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputCosmosdbState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", id, state, "", opts...)
+}
+
 type outputCosmosdbArgs struct {
 	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

@@ -725,6 +725,36 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
+            ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountCreationSource"] = account_creation_source
+        __props__["accountId"] = account_id
+        __props__["identity"] = identity
+        __props__["ingestionKey"] = ingestion_key
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["orgCreationSource"] = org_creation_source
+        __props__["organizationId"] = organization_id
+        __props__["plan"] = plan
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["user"] = user
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'azure:newrelic/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountCreationSource")
     def account_creation_source(self) -> pulumi.Output[Optional[_builtins.str]]:

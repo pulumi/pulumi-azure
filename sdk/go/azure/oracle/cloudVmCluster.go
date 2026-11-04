@@ -299,6 +299,12 @@ func (CloudVmClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudVmClusterState)(nil)).Elem()
 }
 
+// CloudVmClusterExists checks whether an existing CloudVmCluster resource with the given ID exists.
+func CloudVmClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudVmClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/cloudVmCluster:CloudVmCluster", id, state, "", opts...)
+}
+
 type cloudVmClusterArgs struct {
 	// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
 	BackupSubnetCidr *string `pulumi:"backupSubnetCidr"`

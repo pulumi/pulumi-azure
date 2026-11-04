@@ -195,6 +195,12 @@ func (ResourcePolicyExemptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyExemptionState)(nil)).Elem()
 }
 
+// ResourcePolicyExemptionExists checks whether an existing ResourcePolicyExemption resource with the given ID exists.
+func ResourcePolicyExemptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyExemptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourcePolicyExemption:ResourcePolicyExemption", id, state, "", opts...)
+}
+
 type resourcePolicyExemptionArgs struct {
 	// A description to use for this Policy Exemption.
 	Description *string `pulumi:"description"`

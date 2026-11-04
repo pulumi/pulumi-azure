@@ -281,6 +281,12 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceState)(nil)).Elem()
 }
 
+// NetworkInterfaceExists checks whether an existing NetworkInterface resource with the given ID exists.
+func NetworkInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkInterface:NetworkInterface", id, state, "", opts...)
+}
+
 type networkInterfaceArgs struct {
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	//

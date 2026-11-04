@@ -228,6 +228,12 @@ func (CredentialServicePrincipalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialServicePrincipalState)(nil)).Elem()
 }
 
+// CredentialServicePrincipalExists checks whether an existing CredentialServicePrincipal resource with the given ID exists.
+func CredentialServicePrincipalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CredentialServicePrincipalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal", id, state, "", opts...)
+}
+
 type credentialServicePrincipalArgs struct {
 	// List of tags that can be used for describing the Data Factory Credential.
 	Annotations []string `pulumi:"annotations"`

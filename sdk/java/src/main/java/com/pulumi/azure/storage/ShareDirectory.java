@@ -119,11 +119,10 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Export(name="storageShareId", refs={String.class}, tree="[0]")
     private Output<String> storageShareId;
 

@@ -249,6 +249,12 @@ func (IntegrationRuntimeSsisState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeSsisState)(nil)).Elem()
 }
 
+// IntegrationRuntimeSsisExists checks whether an existing IntegrationRuntimeSsis resource with the given ID exists.
+func IntegrationRuntimeSsisExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationRuntimeSsisState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", id, state, "", opts...)
+}
+
 type integrationRuntimeSsisArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`

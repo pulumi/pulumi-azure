@@ -444,6 +444,12 @@ func (WindowsFunctionAppSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsFunctionAppSlotState)(nil)).Elem()
 }
 
+// WindowsFunctionAppSlotExists checks whether an existing WindowsFunctionAppSlot resource with the given ID exists.
+func WindowsFunctionAppSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsFunctionAppSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", id, state, "", opts...)
+}
+
 type windowsFunctionAppSlotArgs struct {
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`

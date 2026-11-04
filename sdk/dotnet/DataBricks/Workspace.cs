@@ -77,7 +77,7 @@ namespace Pulumi.Azure.DataBricks
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// Access Connector ID to use when default storage account firewall is enabled.
         /// 
         /// &gt; **Note:** The `AccessConnectorId` field is only required if `DefaultStorageFirewallEnabled` is set to `True`.
         /// </summary>
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.DataBricks
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// Access Connector ID to use when default storage account firewall is enabled.
         /// 
         /// &gt; **Note:** The `AccessConnectorId` field is only required if `DefaultStorageFirewallEnabled` is set to `True`.
         /// </summary>
@@ -441,7 +441,7 @@ namespace Pulumi.Azure.DataBricks
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access Connector ID to use when default storage account firewall is enabled. 
+        /// Access Connector ID to use when default storage account firewall is enabled.
         /// 
         /// &gt; **Note:** The `AccessConnectorId` field is only required if `DefaultStorageFirewallEnabled` is set to `True`.
         /// </summary>

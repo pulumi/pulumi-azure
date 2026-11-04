@@ -515,6 +515,26 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         __props__.__dict__["ticket"] = ticket
         return ActiveRoleAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            justification: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['ActiveRoleAssignmentScheduleArgs', 'ActiveRoleAssignmentScheduleArgsDict', 'outputs.ActiveRoleAssignmentSchedule']]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            ticket: pulumi.Input[Optional[Union['ActiveRoleAssignmentTicketArgs', 'ActiveRoleAssignmentTicketArgsDict', 'outputs.ActiveRoleAssignmentTicket']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["justification"] = justification
+        __props__["principalId"] = principal_id
+        __props__["principalType"] = principal_type
+        __props__["roleDefinitionId"] = role_definition_id
+        __props__["schedule"] = schedule
+        __props__["scope"] = scope
+        __props__["ticket"] = ticket
+        return pulumi.runtime.exists_resource(None, 'azure:pim/activeRoleAssignment:ActiveRoleAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def justification(self) -> pulumi.Output[_builtins.str]:

@@ -157,6 +157,12 @@ func (ContainerStorageAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerStorageAccountState)(nil)).Elem()
 }
 
+// ContainerStorageAccountExists checks whether an existing ContainerStorageAccount resource with the given ID exists.
+func ContainerStorageAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerStorageAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/containerStorageAccount:ContainerStorageAccount", id, state, "", opts...)
+}
+
 type containerStorageAccountArgs struct {
 	// The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`

@@ -384,6 +384,12 @@ func (AutonomousDatabaseCloneFromBackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autonomousDatabaseCloneFromBackupState)(nil)).Elem()
 }
 
+// AutonomousDatabaseCloneFromBackupExists checks whether an existing AutonomousDatabaseCloneFromBackup resource with the given ID exists.
+func AutonomousDatabaseCloneFromBackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutonomousDatabaseCloneFromBackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup", id, state, "", opts...)
+}
+
 type autonomousDatabaseCloneFromBackupArgs struct {
 	// The password for the SYS, SYSTEM, and PDB Admin users. The password must be at least 12 characters long, and contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin," regardless of casing. Changing this forces a new Autonomous Database Clone to be created.
 	AdminPassword string `pulumi:"adminPassword"`

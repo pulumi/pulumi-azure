@@ -181,6 +181,12 @@ func (EnvironmentCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentCustomDomainState)(nil)).Elem()
 }
 
+// EnvironmentCustomDomainExists checks whether an existing EnvironmentCustomDomain resource with the given ID exists.
+func EnvironmentCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", id, state, "", opts...)
+}
+
 type environmentCustomDomainArgs struct {
 	// The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
 	CertificateBlobBase64 string `pulumi:"certificateBlobBase64"`

@@ -560,6 +560,30 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return EnvironmentDaprComponent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            component_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["componentType"] = component_type
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["ignoreErrors"] = ignore_errors
+        __props__["initTimeout"] = init_timeout
+        __props__["metadatas"] = metadatas
+        __props__["name"] = name
+        __props__["scopes"] = scopes
+        __props__["secrets"] = secrets
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="componentType")
     def component_type(self) -> pulumi.Output[_builtins.str]:

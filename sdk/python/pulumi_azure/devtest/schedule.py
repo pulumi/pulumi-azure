@@ -679,6 +679,36 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["weekly_recurrence"] = weekly_recurrence
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']]] = None,
+            hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']]] = None,
+            lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            task_type: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dailyRecurrence"] = daily_recurrence
+        __props__["hourlyRecurrence"] = hourly_recurrence
+        __props__["labName"] = lab_name
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["notificationSettings"] = notification_settings
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["taskType"] = task_type
+        __props__["timeZoneId"] = time_zone_id
+        __props__["weeklyRecurrence"] = weekly_recurrence
+        return pulumi.runtime.exists_resource(None, 'azure:devtest/schedule:Schedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dailyRecurrence")
     def daily_recurrence(self) -> pulumi.Output[Optional['outputs.ScheduleDailyRecurrence']]:

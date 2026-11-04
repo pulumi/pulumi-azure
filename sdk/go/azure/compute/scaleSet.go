@@ -640,6 +640,12 @@ func (ScaleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scaleSetState)(nil)).Elem()
 }
 
+// ScaleSetExists checks whether an existing ScaleSet resource with the given ID exists.
+func ScaleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScaleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/scaleSet:ScaleSet", id, state, "", opts...)
+}
+
 type scaleSetArgs struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade *bool `pulumi:"automaticOsUpgrade"`

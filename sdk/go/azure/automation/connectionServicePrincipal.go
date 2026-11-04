@@ -198,6 +198,12 @@ func (ConnectionServicePrincipalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionServicePrincipalState)(nil)).Elem()
 }
 
+// ConnectionServicePrincipalExists checks whether an existing ConnectionServicePrincipal resource with the given ID exists.
+func ConnectionServicePrincipalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionServicePrincipalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", id, state, "", opts...)
+}
+
 type connectionServicePrincipalArgs struct {
 	// The (Client) ID of the Service Principal.
 	ApplicationId string `pulumi:"applicationId"`

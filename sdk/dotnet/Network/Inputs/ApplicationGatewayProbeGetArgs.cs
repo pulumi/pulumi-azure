@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+        /// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
         /// 
         /// &gt; **Note:** Exactly one of `Host` or `PickHostNameFromBackendHttpSettings` must be set when `Protocol` is `Http` or `Https`. Neither can be set when `Protocol` is `Tcp` or `Tls`.
         /// </summary>

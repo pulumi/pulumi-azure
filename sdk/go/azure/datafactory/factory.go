@@ -189,6 +189,12 @@ func (FactoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*factoryState)(nil)).Elem()
 }
 
+// FactoryExists checks whether an existing Factory resource with the given ID exists.
+func FactoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FactoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/factory:Factory", id, state, "", opts...)
+}
+
 type factoryArgs struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`

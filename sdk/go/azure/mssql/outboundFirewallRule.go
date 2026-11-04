@@ -134,6 +134,12 @@ func (OutboundFirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outboundFirewallRuleState)(nil)).Elem()
 }
 
+// OutboundFirewallRuleExists checks whether an existing OutboundFirewallRule resource with the given ID exists.
+func OutboundFirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutboundFirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/outboundFirewallRule:OutboundFirewallRule", id, state, "", opts...)
+}
+
 type outboundFirewallRuleArgs struct {
 	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

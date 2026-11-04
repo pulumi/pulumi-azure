@@ -136,6 +136,12 @@ func (ContactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactState)(nil)).Elem()
 }
 
+// ContactExists checks whether an existing Contact resource with the given ID exists.
+func ContactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/contact:Contact", id, state, "", opts...)
+}
+
 type contactArgs struct {
 	// Whether to send security alerts notifications to the security contact.
 	AlertNotifications bool `pulumi:"alertNotifications"`

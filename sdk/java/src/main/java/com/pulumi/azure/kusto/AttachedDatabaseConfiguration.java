@@ -175,11 +175,10 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.clusterName;
     }
     /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> clusterResourceId;
 

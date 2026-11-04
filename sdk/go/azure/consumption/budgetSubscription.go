@@ -238,6 +238,12 @@ func (BudgetSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetSubscriptionState)(nil)).Elem()
 }
 
+// BudgetSubscriptionExists checks whether an existing BudgetSubscription resource with the given ID exists.
+func BudgetSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:consumption/budgetSubscription:BudgetSubscription", id, state, "", opts...)
+}
+
 type budgetSubscriptionArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`

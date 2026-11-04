@@ -150,6 +150,12 @@ func (FleetUpdateStrategyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetUpdateStrategyState)(nil)).Elem()
 }
 
+// FleetUpdateStrategyExists checks whether an existing FleetUpdateStrategy resource with the given ID exists.
+func FleetUpdateStrategyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetUpdateStrategyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy", id, state, "", opts...)
+}
+
 type fleetUpdateStrategyArgs struct {
 	// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
 	KubernetesFleetManagerId string `pulumi:"kubernetesFleetManagerId"`

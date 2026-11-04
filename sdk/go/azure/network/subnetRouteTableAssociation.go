@@ -169,6 +169,12 @@ func (SubnetRouteTableAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetRouteTableAssociationState)(nil)).Elem()
 }
 
+// SubnetRouteTableAssociationExists checks whether an existing SubnetRouteTableAssociation resource with the given ID exists.
+func SubnetRouteTableAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetRouteTableAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", id, state, "", opts...)
+}
+
 type subnetRouteTableAssociationArgs struct {
 	// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
 	//

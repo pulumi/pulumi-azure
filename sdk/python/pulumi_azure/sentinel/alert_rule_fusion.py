@@ -373,6 +373,22 @@ class AlertRuleFusion(pulumi.CustomResource):
         __props__.__dict__["sources"] = sources
         return AlertRuleFusion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict', 'outputs.AlertRuleFusionSource']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertRuleTemplateGuid"] = alert_rule_template_guid
+        __props__["enabled"] = enabled
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["sources"] = sources
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/alertRuleFusion:AlertRuleFusion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
     def alert_rule_template_guid(self) -> pulumi.Output[_builtins.str]:

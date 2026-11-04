@@ -294,6 +294,16 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         __props__.__dict__["network_interface_id"] = network_interface_id
         return NetworkInterfaceApplicationSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationSecurityGroupId"] = application_security_group_id
+        __props__["networkInterfaceId"] = network_interface_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationSecurityGroupId")
     def application_security_group_id(self) -> pulumi.Output[_builtins.str]:

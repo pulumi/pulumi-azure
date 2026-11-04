@@ -306,6 +306,12 @@ func (VirtualNetworkSwiftConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkSwiftConnectionState)(nil)).Elem()
 }
 
+// VirtualNetworkSwiftConnectionExists checks whether an existing VirtualNetworkSwiftConnection resource with the given ID exists.
+func VirtualNetworkSwiftConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkSwiftConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", id, state, "", opts...)
+}
+
 type virtualNetworkSwiftConnectionArgs struct {
 	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`

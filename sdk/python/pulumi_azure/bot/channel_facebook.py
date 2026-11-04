@@ -425,6 +425,24 @@ class ChannelFacebook(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelFacebook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["facebookApplicationId"] = facebook_application_id
+        __props__["facebookApplicationSecret"] = facebook_application_secret
+        __props__["location"] = location
+        __props__["pages"] = pages
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelFacebook:ChannelFacebook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

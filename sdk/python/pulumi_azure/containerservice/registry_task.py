@@ -893,6 +893,48 @@ class RegistryTask(pulumi.CustomResource):
         __props__.__dict__["timer_triggers"] = timer_triggers
         return RegistryTask(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_setting: pulumi.Input[Optional[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict', 'outputs.RegistryTaskAgentSetting']]] = None,
+            base_image_trigger: pulumi.Input[Optional[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict', 'outputs.RegistryTaskBaseImageTrigger']]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_step: pulumi.Input[Optional[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict', 'outputs.RegistryTaskDockerStep']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encoded_step: pulumi.Input[Optional[Union['RegistryTaskEncodedStepArgs', 'RegistryTaskEncodedStepArgsDict', 'outputs.RegistryTaskEncodedStep']]] = None,
+            file_step: pulumi.Input[Optional[Union['RegistryTaskFileStepArgs', 'RegistryTaskFileStepArgsDict', 'outputs.RegistryTaskFileStep']]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryTaskIdentityArgs', 'RegistryTaskIdentityArgsDict', 'outputs.RegistryTaskIdentity']]] = None,
+            is_system_task: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_template: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[Union['RegistryTaskPlatformArgs', 'RegistryTaskPlatformArgsDict', 'outputs.RegistryTaskPlatform']]] = None,
+            registry_credential: pulumi.Input[Optional[Union['RegistryTaskRegistryCredentialArgs', 'RegistryTaskRegistryCredentialArgsDict', 'outputs.RegistryTaskRegistryCredential']]] = None,
+            source_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryTaskSourceTriggerArgs', 'RegistryTaskSourceTriggerArgsDict', 'outputs.RegistryTaskSourceTrigger']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            timer_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryTaskTimerTriggerArgs', 'RegistryTaskTimerTriggerArgsDict', 'outputs.RegistryTaskTimerTrigger']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentPoolName"] = agent_pool_name
+        __props__["agentSetting"] = agent_setting
+        __props__["baseImageTrigger"] = base_image_trigger
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["dockerStep"] = docker_step
+        __props__["enabled"] = enabled
+        __props__["encodedStep"] = encoded_step
+        __props__["fileStep"] = file_step
+        __props__["identity"] = identity
+        __props__["isSystemTask"] = is_system_task
+        __props__["logTemplate"] = log_template
+        __props__["name"] = name
+        __props__["platform"] = platform
+        __props__["registryCredential"] = registry_credential
+        __props__["sourceTriggers"] = source_triggers
+        __props__["tags"] = tags
+        __props__["timeoutInSeconds"] = timeout_in_seconds
+        __props__["timerTriggers"] = timer_triggers
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/registryTask:RegistryTask', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> pulumi.Output[Optional[_builtins.str]]:

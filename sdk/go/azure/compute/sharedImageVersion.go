@@ -263,6 +263,12 @@ func (SharedImageVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageVersionState)(nil)).Elem()
 }
 
+// SharedImageVersionExists checks whether an existing SharedImageVersion resource with the given ID exists.
+func SharedImageVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedImageVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/sharedImageVersion:SharedImageVersion", id, state, "", opts...)
+}
+
 type sharedImageVersionArgs struct {
 	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
 	//

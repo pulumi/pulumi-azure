@@ -195,6 +195,12 @@ func (ClusterCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterCustomerManagedKeyState)(nil)).Elem()
 }
 
+// ClusterCustomerManagedKeyExists checks whether an existing ClusterCustomerManagedKey resource with the given ID exists.
+func ClusterCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey", id, state, "", opts...)
+}
+
 type clusterCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault Key to use for encryption.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`

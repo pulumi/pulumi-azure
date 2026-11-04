@@ -286,6 +286,12 @@ func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetExtensionState)(nil)).Elem()
 }
 
+// VirtualMachineScaleSetExtensionExists checks whether an existing VirtualMachineScaleSetExtension resource with the given ID exists.
+func VirtualMachineScaleSetExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineScaleSetExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", id, state, "", opts...)
+}
+
 type virtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`

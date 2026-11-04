@@ -61,39 +61,35 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
     }
 
     /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="parentId")
     private @Nullable Output<String> parentId;
 
     /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<String>> parentId() {
         return Optional.ofNullable(this.parentId);
     }
 
     /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+    @Deprecated
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+    @Deprecated
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -224,11 +220,10 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder parentId(@Nullable Output<String> parentId) {
             $.parentId = parentId;
             return this;
@@ -237,11 +232,10 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }
@@ -249,11 +243,10 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
+         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
          * 
          */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+        @Deprecated
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
@@ -262,11 +255,10 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
+         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
          * 
          */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+        @Deprecated
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

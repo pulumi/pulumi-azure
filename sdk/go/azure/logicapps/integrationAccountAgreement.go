@@ -248,6 +248,12 @@ func (IntegrationAccountAgreementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountAgreementState)(nil)).Elem()
 }
 
+// IntegrationAccountAgreementExists checks whether an existing IntegrationAccountAgreement resource with the given ID exists.
+func IntegrationAccountAgreementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountAgreementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", id, state, "", opts...)
+}
+
 type integrationAccountAgreementArgs struct {
 	// The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
 	AgreementType string `pulumi:"agreementType"`

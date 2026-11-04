@@ -206,6 +206,12 @@ func (EndpointCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointCustomDomainState)(nil)).Elem()
 }
 
+// EndpointCustomDomainExists checks whether an existing EndpointCustomDomain resource with the given ID exists.
+func EndpointCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/endpointCustomDomain:EndpointCustomDomain", id, state, "", opts...)
+}
+
 type endpointCustomDomainArgs struct {
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId string `pulumi:"cdnEndpointId"`

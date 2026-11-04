@@ -317,6 +317,12 @@ func (HadoopClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hadoopClusterState)(nil)).Elem()
 }
 
+// HadoopClusterExists checks whether an existing HadoopCluster resource with the given ID exists.
+func HadoopClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HadoopClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hdinsight/hadoopCluster:HadoopCluster", id, state, "", opts...)
+}
+
 type hadoopClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion string `pulumi:"clusterVersion"`

@@ -124,6 +124,12 @@ func (SpringCloudApplicationLiveViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudApplicationLiveViewState)(nil)).Elem()
 }
 
+// SpringCloudApplicationLiveViewExists checks whether an existing SpringCloudApplicationLiveView resource with the given ID exists.
+func SpringCloudApplicationLiveViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudApplicationLiveViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", id, state, "", opts...)
+}
+
 type springCloudApplicationLiveViewArgs struct {
 	// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`

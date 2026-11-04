@@ -510,6 +510,28 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelDirectLineSpeech(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_service_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            cognitive_service_location: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_speech_model_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_voice_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["cognitiveAccountId"] = cognitive_account_id
+        __props__["cognitiveServiceAccessKey"] = cognitive_service_access_key
+        __props__["cognitiveServiceLocation"] = cognitive_service_location
+        __props__["customSpeechModelId"] = custom_speech_model_id
+        __props__["customVoiceDeploymentId"] = custom_voice_deployment_id
+        __props__["location"] = location
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

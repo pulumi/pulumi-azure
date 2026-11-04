@@ -163,6 +163,12 @@ func (IdentityProviderFacebookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderFacebookState)(nil)).Elem()
 }
 
+// IdentityProviderFacebookExists checks whether an existing IdentityProviderFacebook resource with the given ID exists.
+func IdentityProviderFacebookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderFacebookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", id, state, "", opts...)
+}
+
 type identityProviderFacebookArgs struct {
 	// The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

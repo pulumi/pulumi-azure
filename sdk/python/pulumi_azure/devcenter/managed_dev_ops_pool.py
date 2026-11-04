@@ -701,6 +701,36 @@ class ManagedDevOpsPool(pulumi.CustomResource):
         __props__.__dict__["work_folder"] = work_folder
         return ManagedDevOpsPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_devops_organization: pulumi.Input[Optional[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict', 'outputs.ManagedDevOpsPoolAzureDevopsOrganization']]] = None,
+            dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict', 'outputs.ManagedDevOpsPoolIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stateful_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict', 'outputs.ManagedDevOpsPoolStatefulAgent']]] = None,
+            stateless_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict', 'outputs.ManagedDevOpsPoolStatelessAgent']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_scale_set_fabric: pulumi.Input[Optional[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict', 'outputs.ManagedDevOpsPoolVirtualMachineScaleSetFabric']]] = None,
+            work_folder: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureDevopsOrganization"] = azure_devops_organization
+        __props__["devCenterProjectId"] = dev_center_project_id
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["maximumConcurrency"] = maximum_concurrency
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["statefulAgent"] = stateful_agent
+        __props__["statelessAgent"] = stateless_agent
+        __props__["tags"] = tags
+        __props__["virtualMachineScaleSetFabric"] = virtual_machine_scale_set_fabric
+        __props__["workFolder"] = work_folder
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/managedDevOpsPool:ManagedDevOpsPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureDevopsOrganization")
     def azure_devops_organization(self) -> pulumi.Output['outputs.ManagedDevOpsPoolAzureDevopsOrganization']:

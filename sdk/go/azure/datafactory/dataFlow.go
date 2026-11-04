@@ -358,6 +358,12 @@ func (DataFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataFlowState)(nil)).Elem()
 }
 
+// DataFlowExists checks whether an existing DataFlow resource with the given ID exists.
+func DataFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/dataFlow:DataFlow", id, state, "", opts...)
+}
+
 type dataFlowArgs struct {
 	// List of tags that can be used for describing the Data Factory Data Flow.
 	Annotations []string `pulumi:"annotations"`

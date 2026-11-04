@@ -292,6 +292,12 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyState)(nil)).Elem()
 }
 
+// FirewallPolicyExists checks whether an existing FirewallPolicy resource with the given ID exists.
+func FirewallPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:frontdoor/firewallPolicy:FirewallPolicy", id, state, "", opts...)
+}
+
 type firewallPolicyArgs struct {
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`

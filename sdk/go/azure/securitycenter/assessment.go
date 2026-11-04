@@ -215,6 +215,12 @@ func (AssessmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentState)(nil)).Elem()
 }
 
+// AssessmentExists checks whether an existing Assessment resource with the given ID exists.
+func AssessmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/assessment:Assessment", id, state, "", opts...)
+}
+
 type assessmentArgs struct {
 	// A map of additional data to associate with the assessment.
 	AdditionalData map[string]string `pulumi:"additionalData"`

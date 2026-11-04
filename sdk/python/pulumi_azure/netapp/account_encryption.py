@@ -562,6 +562,24 @@ class AccountEncryption(pulumi.CustomResource):
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return AccountEncryption(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cross_tenant_key_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            netapp_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            system_assigned_identity_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["crossTenantKeyVaultResourceId"] = cross_tenant_key_vault_resource_id
+        __props__["encryptionKey"] = encryption_key
+        __props__["federatedClientId"] = federated_client_id
+        __props__["netappAccountId"] = netapp_account_id
+        __props__["systemAssignedIdentityPrincipalId"] = system_assigned_identity_principal_id
+        __props__["userAssignedIdentityId"] = user_assigned_identity_id
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/accountEncryption:AccountEncryption', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="crossTenantKeyVaultResourceId")
     def cross_tenant_key_vault_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:

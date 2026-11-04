@@ -246,6 +246,12 @@ func (ScriptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scriptState)(nil)).Elem()
 }
 
+// ScriptExists checks whether an existing Script resource with the given ID exists.
+func ScriptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScriptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/script:Script", id, state, "", opts...)
+}
+
 type scriptArgs struct {
 	// Flag that indicates whether to continue if one of the command fails.
 	ContinueOnErrorsEnabled *bool `pulumi:"continueOnErrorsEnabled"`

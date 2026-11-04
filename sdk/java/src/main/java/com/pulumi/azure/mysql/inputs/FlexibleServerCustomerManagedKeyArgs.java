@@ -67,22 +67,20 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     /**
      * The ID of the Managed HSM Key.
      * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
      * @return The ID of the Managed HSM Key.
      * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -202,11 +200,10 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
@@ -217,11 +214,10 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

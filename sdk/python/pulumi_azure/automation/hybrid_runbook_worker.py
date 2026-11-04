@@ -564,6 +564,32 @@ class HybridRunbookWorker(pulumi.CustomResource):
         __props__.__dict__["worker_type"] = worker_type
         return HybridRunbookWorker(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            last_seen_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_name: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["ip"] = ip
+        __props__["lastSeenDateTime"] = last_seen_date_time
+        __props__["registrationDateTime"] = registration_date_time
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["vmResourceId"] = vm_resource_id
+        __props__["workerGroupName"] = worker_group_name
+        __props__["workerId"] = worker_id
+        __props__["workerName"] = worker_name
+        __props__["workerType"] = worker_type
+        return pulumi.runtime.exists_resource(None, 'azure:automation/hybridRunbookWorker:HybridRunbookWorker', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

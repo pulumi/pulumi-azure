@@ -661,6 +661,36 @@ class NatPool(pulumi.CustomResource):
         __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return NatPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+            floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_port_end: pulumi.Input[Optional[_builtins.int]] = None,
+            frontend_port_start: pulumi.Input[Optional[_builtins.int]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backendPort"] = backend_port
+        __props__["floatingIpEnabled"] = floating_ip_enabled
+        __props__["frontendIpConfigurationId"] = frontend_ip_configuration_id
+        __props__["frontendIpConfigurationName"] = frontend_ip_configuration_name
+        __props__["frontendPortEnd"] = frontend_port_end
+        __props__["frontendPortStart"] = frontend_port_start
+        __props__["idleTimeoutInMinutes"] = idle_timeout_in_minutes
+        __props__["loadbalancerId"] = loadbalancer_id
+        __props__["name"] = name
+        __props__["protocol"] = protocol
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tcpResetEnabled"] = tcp_reset_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:lb/natPool:NatPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backendPort")
     def backend_port(self) -> pulumi.Output[_builtins.int]:

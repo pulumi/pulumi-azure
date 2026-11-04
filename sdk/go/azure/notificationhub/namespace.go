@@ -179,6 +179,12 @@ func (NamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceState)(nil)).Elem()
 }
 
+// NamespaceExists checks whether an existing Namespace resource with the given ID exists.
+func NamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:notificationhub/namespace:Namespace", id, state, "", opts...)
+}
+
 type namespaceArgs struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
 	Enabled *bool `pulumi:"enabled"`

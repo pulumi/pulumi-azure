@@ -164,11 +164,10 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.authorizationKey);
     }
     /**
-     * @deprecated
-     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="enableInternetSecurity", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableInternetSecurity;
 
@@ -246,11 +245,10 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * @deprecated
-     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="privateLinkFastPathEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateLinkFastPathEnabled;
 

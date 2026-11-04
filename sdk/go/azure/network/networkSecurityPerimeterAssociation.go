@@ -175,6 +175,12 @@ func (NetworkSecurityPerimeterAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityPerimeterAssociationState)(nil)).Elem()
 }
 
+// NetworkSecurityPerimeterAssociationExists checks whether an existing NetworkSecurityPerimeterAssociation resource with the given ID exists.
+func NetworkSecurityPerimeterAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityPerimeterAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation", id, state, "", opts...)
+}
+
 type networkSecurityPerimeterAssociationArgs struct {
 	// Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
 	AccessMode string `pulumi:"accessMode"`

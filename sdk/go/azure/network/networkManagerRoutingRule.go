@@ -201,6 +201,12 @@ func (NetworkManagerRoutingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerRoutingRuleState)(nil)).Elem()
 }
 
+// NetworkManagerRoutingRuleExists checks whether an existing NetworkManagerRoutingRule resource with the given ID exists.
+func NetworkManagerRoutingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerRoutingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule", id, state, "", opts...)
+}
+
 type networkManagerRoutingRuleArgs struct {
 	// A description for the routing rule.
 	Description *string `pulumi:"description"`

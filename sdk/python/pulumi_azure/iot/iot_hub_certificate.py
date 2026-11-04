@@ -386,6 +386,22 @@ class IotHubCertificate(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return IotHubCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+            iot_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_verified: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateContent"] = certificate_content
+        __props__["iotDpsName"] = iot_dps_name
+        __props__["isVerified"] = is_verified
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:iot/iotHubCertificate:IotHubCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateContent")
     def certificate_content(self) -> pulumi.Output[_builtins.str]:

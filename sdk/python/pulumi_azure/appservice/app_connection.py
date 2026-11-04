@@ -522,6 +522,26 @@ class AppConnection(pulumi.CustomResource):
         __props__.__dict__["vnet_solution"] = vnet_solution
         return AppConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']]] = None,
+            client_type: pulumi.Input[Optional[_builtins.str]] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict', 'outputs.AppConnectionSecretStore']]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_solution: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authentication"] = authentication
+        __props__["clientType"] = client_type
+        __props__["functionAppId"] = function_app_id
+        __props__["name"] = name
+        __props__["secretStore"] = secret_store
+        __props__["targetResourceId"] = target_resource_id
+        __props__["vnetSolution"] = vnet_solution
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/appConnection:AppConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> pulumi.Output['outputs.AppConnectionAuthentication']:

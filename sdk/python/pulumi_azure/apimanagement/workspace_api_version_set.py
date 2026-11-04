@@ -468,6 +468,26 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
         __props__.__dict__["versioning_scheme"] = versioning_scheme
         return WorkspaceApiVersionSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+            versioning_scheme: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementWorkspaceId"] = api_management_workspace_id
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["name"] = name
+        __props__["versionHeaderName"] = version_header_name
+        __props__["versionQueryName"] = version_query_name
+        __props__["versioningScheme"] = versioning_scheme
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
     def api_management_workspace_id(self) -> pulumi.Output[_builtins.str]:

@@ -204,11 +204,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.languageExtension;
     }
     /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
     private Output<List<ClusterLanguageExtension>> languageExtensions;
 
@@ -402,11 +401,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.uri;
     }
     /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+    @Deprecated
     @Export(name="virtualNetworkConfiguration", refs={ClusterVirtualNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterVirtualNetworkConfiguration> virtualNetworkConfiguration;
 

@@ -185,6 +185,12 @@ func (CertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateState)(nil)).Elem()
 }
 
+// CertificateExists checks whether an existing Certificate resource with the given ID exists.
+func CertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/certificate:Certificate", id, state, "", opts...)
+}
+
 type certificateArgs struct {
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

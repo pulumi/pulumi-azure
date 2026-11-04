@@ -196,6 +196,12 @@ func (DatasetKustoDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetKustoDatabaseState)(nil)).Elem()
 }
 
+// DatasetKustoDatabaseExists checks whether an existing DatasetKustoDatabase resource with the given ID exists.
+func DatasetKustoDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetKustoDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datashare/datasetKustoDatabase:DatasetKustoDatabase", id, state, "", opts...)
+}
+
 type datasetKustoDatabaseArgs struct {
 	// The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
 	KustoDatabaseId string `pulumi:"kustoDatabaseId"`

@@ -315,6 +315,12 @@ func (LinuxVirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxVirtualMachineState)(nil)).Elem()
 }
 
+// LinuxVirtualMachineExists checks whether an existing LinuxVirtualMachine resource with the given ID exists.
+func LinuxVirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxVirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", id, state, "", opts...)
+}
+
 type linuxVirtualMachineArgs struct {
 	// Can this Virtual Machine be claimed by users? Defaults to `true`.
 	AllowClaim *bool `pulumi:"allowClaim"`

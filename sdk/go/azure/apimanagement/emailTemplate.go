@@ -200,6 +200,12 @@ func (EmailTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailTemplateState)(nil)).Elem()
 }
 
+// EmailTemplateExists checks whether an existing EmailTemplate resource with the given ID exists.
+func EmailTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/emailTemplate:EmailTemplate", id, state, "", opts...)
+}
+
 type emailTemplateArgs struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

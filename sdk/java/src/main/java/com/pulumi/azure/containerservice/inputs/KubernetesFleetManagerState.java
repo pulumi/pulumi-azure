@@ -18,20 +18,18 @@ public final class KubernetesFleetManagerState extends com.pulumi.resources.Reso
     public static final KubernetesFleetManagerState Empty = new KubernetesFleetManagerState();
 
     /**
-     * @deprecated
-     * The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      * 
      */
-    @Deprecated /* The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview */
+    @Deprecated
     @Import(name="hubProfile")
     private @Nullable Output<KubernetesFleetManagerHubProfileArgs> hubProfile;
 
     /**
-     * @deprecated
-     * The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      * 
      */
-    @Deprecated /* The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview */
+    @Deprecated
     public Optional<Output<KubernetesFleetManagerHubProfileArgs>> hubProfile() {
         return Optional.ofNullable(this.hubProfile);
     }
@@ -127,11 +125,10 @@ public final class KubernetesFleetManagerState extends com.pulumi.resources.Reso
         /**
          * @return builder
          * 
-         * @deprecated
-         * The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+         * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
          * 
          */
-        @Deprecated /* The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview */
+        @Deprecated
         public Builder hubProfile(@Nullable Output<KubernetesFleetManagerHubProfileArgs> hubProfile) {
             $.hubProfile = hubProfile;
             return this;
@@ -140,11 +137,10 @@ public final class KubernetesFleetManagerState extends com.pulumi.resources.Reso
         /**
          * @return builder
          * 
-         * @deprecated
-         * The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+         * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
          * 
          */
-        @Deprecated /* The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview */
+        @Deprecated
         public Builder hubProfile(KubernetesFleetManagerHubProfileArgs hubProfile) {
             return hubProfile(Output.of(hubProfile));
         }

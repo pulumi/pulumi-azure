@@ -67,11 +67,10 @@ public final class GetSubscriptionResult {
     private Integer maxDeliveryCount;
     private String name;
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     private @Nullable String namespaceName;
     /**
      * @return Whether this ServiceBus Subscription supports session.
@@ -79,19 +78,17 @@ public final class GetSubscriptionResult {
      */
     private Boolean requiresSession;
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     private @Nullable String resourceGroupName;
     private @Nullable String topicId;
     /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     private @Nullable String topicName;
 
     private GetSubscriptionResult() {}
@@ -172,11 +169,10 @@ public final class GetSubscriptionResult {
         return this.name;
     }
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -188,11 +184,10 @@ public final class GetSubscriptionResult {
         return this.requiresSession;
     }
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -200,11 +195,10 @@ public final class GetSubscriptionResult {
         return Optional.ofNullable(this.topicId);
     }
     /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> topicName() {
         return Optional.ofNullable(this.topicName);
     }

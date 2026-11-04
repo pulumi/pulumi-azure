@@ -156,6 +156,12 @@ func (FabricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fabricState)(nil)).Elem()
 }
 
+// FabricExists checks whether an existing Fabric resource with the given ID exists.
+func FabricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FabricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/fabric:Fabric", id, state, "", opts...)
+}
+
 type fabricArgs struct {
 	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

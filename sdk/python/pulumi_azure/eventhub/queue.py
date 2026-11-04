@@ -945,6 +945,52 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return Queue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+            batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
+            express_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+            max_message_size_in_kilobytes: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partitioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
+            requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoDeleteOnIdle"] = auto_delete_on_idle
+        __props__["batchedOperationsEnabled"] = batched_operations_enabled
+        __props__["deadLetteringOnMessageExpiration"] = dead_lettering_on_message_expiration
+        __props__["defaultMessageTtl"] = default_message_ttl
+        __props__["duplicateDetectionHistoryTimeWindow"] = duplicate_detection_history_time_window
+        __props__["expressEnabled"] = express_enabled
+        __props__["forwardDeadLetteredMessagesTo"] = forward_dead_lettered_messages_to
+        __props__["forwardTo"] = forward_to
+        __props__["lockDuration"] = lock_duration
+        __props__["maxDeliveryCount"] = max_delivery_count
+        __props__["maxMessageSizeInKilobytes"] = max_message_size_in_kilobytes
+        __props__["maxSizeInMegabytes"] = max_size_in_megabytes
+        __props__["name"] = name
+        __props__["namespaceId"] = namespace_id
+        __props__["namespaceName"] = namespace_name
+        __props__["partitioningEnabled"] = partitioning_enabled
+        __props__["requiresDuplicateDetection"] = requires_duplicate_detection
+        __props__["requiresSession"] = requires_session
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/queue:Queue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> pulumi.Output[_builtins.str]:

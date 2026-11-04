@@ -221,6 +221,12 @@ func (BackupInstanceMysqlFlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstanceMysqlFlexibleServerState)(nil)).Elem()
 }
 
+// BackupInstanceMysqlFlexibleServerExists checks whether an existing BackupInstanceMysqlFlexibleServer resource with the given ID exists.
+func BackupInstanceMysqlFlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstanceMysqlFlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer", id, state, "", opts...)
+}
+
 type backupInstanceMysqlFlexibleServerArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

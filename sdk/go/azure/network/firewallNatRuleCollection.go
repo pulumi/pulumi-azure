@@ -230,6 +230,12 @@ func (FirewallNatRuleCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallNatRuleCollectionState)(nil)).Elem()
 }
 
+// FirewallNatRuleCollectionExists checks whether an existing FirewallNatRuleCollection resource with the given ID exists.
+func FirewallNatRuleCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallNatRuleCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", id, state, "", opts...)
+}
+
 type firewallNatRuleCollectionArgs struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
 	Action string `pulumi:"action"`

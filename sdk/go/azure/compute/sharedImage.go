@@ -320,6 +320,12 @@ func (SharedImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageState)(nil)).Elem()
 }
 
+// SharedImageExists checks whether an existing SharedImage resource with the given ID exists.
+func SharedImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/sharedImage:SharedImage", id, state, "", opts...)
+}
+
 type sharedImageArgs struct {
 	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`

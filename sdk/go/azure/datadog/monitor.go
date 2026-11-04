@@ -237,6 +237,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datadog/monitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// A `datadogOrganization` block as defined below.
 	DatadogOrganization MonitorDatadogOrganization `pulumi:"datadogOrganization"`

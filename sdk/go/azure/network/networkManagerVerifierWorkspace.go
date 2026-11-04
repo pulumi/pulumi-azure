@@ -166,6 +166,12 @@ func (NetworkManagerVerifierWorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerVerifierWorkspaceState)(nil)).Elem()
 }
 
+// NetworkManagerVerifierWorkspaceExists checks whether an existing NetworkManagerVerifierWorkspace resource with the given ID exists.
+func NetworkManagerVerifierWorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerVerifierWorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace", id, state, "", opts...)
+}
+
 type networkManagerVerifierWorkspaceArgs struct {
 	// The Description of the Network Manager Verifier Workspace.
 	Description *string `pulumi:"description"`

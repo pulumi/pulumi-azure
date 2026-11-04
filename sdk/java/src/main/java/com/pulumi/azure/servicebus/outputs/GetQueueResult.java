@@ -80,11 +80,10 @@ public final class GetQueueResult {
     private String name;
     private @Nullable String namespaceId;
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     private @Nullable String namespaceName;
     /**
      * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
@@ -102,11 +101,10 @@ public final class GetQueueResult {
      */
     private Boolean requiresSession;
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     private @Nullable String resourceGroupName;
     /**
      * @return The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
@@ -215,11 +213,10 @@ public final class GetQueueResult {
         return Optional.ofNullable(this.namespaceId);
     }
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -245,11 +242,10 @@ public final class GetQueueResult {
         return this.requiresSession;
     }
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }

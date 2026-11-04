@@ -243,6 +243,12 @@ func (AutomationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationState)(nil)).Elem()
 }
 
+// AutomationExists checks whether an existing Automation resource with the given ID exists.
+func AutomationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/automation:Automation", id, state, "", opts...)
+}
+
 type automationArgs struct {
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions []AutomationAction `pulumi:"actions"`

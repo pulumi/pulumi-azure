@@ -965,6 +965,50 @@ class LocalRulestackRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return LocalRulestackRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+            category: pulumi.Input[Optional[Union['LocalRulestackRuleCategoryArgs', 'LocalRulestackRuleCategoryArgsDict', 'outputs.LocalRulestackRuleCategory']]] = None,
+            decryption_rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['LocalRulestackRuleDestinationArgs', 'LocalRulestackRuleDestinationArgsDict', 'outputs.LocalRulestackRuleDestination']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            inspection_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            negate_destination: pulumi.Input[Optional[_builtins.bool]] = None,
+            negate_source: pulumi.Input[Optional[_builtins.bool]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['LocalRulestackRuleSourceArgs', 'LocalRulestackRuleSourceArgsDict', 'outputs.LocalRulestackRuleSource']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["applications"] = applications
+        __props__["auditComment"] = audit_comment
+        __props__["category"] = category
+        __props__["decryptionRuleType"] = decryption_rule_type
+        __props__["description"] = description
+        __props__["destination"] = destination
+        __props__["enabled"] = enabled
+        __props__["inspectionCertificateId"] = inspection_certificate_id
+        __props__["loggingEnabled"] = logging_enabled
+        __props__["name"] = name
+        __props__["negateDestination"] = negate_destination
+        __props__["negateSource"] = negate_source
+        __props__["priority"] = priority
+        __props__["protocol"] = protocol
+        __props__["protocolPorts"] = protocol_ports
+        __props__["rulestackId"] = rulestack_id
+        __props__["source"] = source
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/localRulestackRule:LocalRulestackRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

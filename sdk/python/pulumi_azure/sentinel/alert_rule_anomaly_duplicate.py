@@ -749,6 +749,50 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         __props__.__dict__["threshold_observations"] = threshold_observations
         return AlertRuleAnomalyDuplicate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            anomaly_settings_version: pulumi.Input[Optional[_builtins.int]] = None,
+            anomaly_version: pulumi.Input[Optional[_builtins.str]] = None,
+            built_in_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateMultiSelectObservationArgs', 'AlertRuleAnomalyDuplicateMultiSelectObservationArgsDict', 'outputs.AlertRuleAnomalyDuplicateMultiSelectObservation']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            prioritized_exclude_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs', 'AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict', 'outputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation']]]]] = None,
+            required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs', 'AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict', 'outputs.AlertRuleAnomalyDuplicateRequiredDataConnector']]]]] = None,
+            settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            single_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateSingleSelectObservationArgs', 'AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict', 'outputs.AlertRuleAnomalyDuplicateSingleSelectObservation']]]]] = None,
+            tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            threshold_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateThresholdObservationArgs', 'AlertRuleAnomalyDuplicateThresholdObservationArgsDict', 'outputs.AlertRuleAnomalyDuplicateThresholdObservation']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["anomalySettingsVersion"] = anomaly_settings_version
+        __props__["anomalyVersion"] = anomaly_version
+        __props__["builtInRuleId"] = built_in_rule_id
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["enabled"] = enabled
+        __props__["frequency"] = frequency
+        __props__["isDefaultSettings"] = is_default_settings
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["mode"] = mode
+        __props__["multiSelectObservations"] = multi_select_observations
+        __props__["name"] = name
+        __props__["prioritizedExcludeObservations"] = prioritized_exclude_observations
+        __props__["requiredDataConnectors"] = required_data_connectors
+        __props__["settingsDefinitionId"] = settings_definition_id
+        __props__["singleSelectObservations"] = single_select_observations
+        __props__["tactics"] = tactics
+        __props__["techniques"] = techniques
+        __props__["thresholdObservations"] = threshold_observations
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="anomalySettingsVersion")
     def anomaly_settings_version(self) -> pulumi.Output[_builtins.int]:

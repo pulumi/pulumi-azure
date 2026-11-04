@@ -457,6 +457,22 @@ class RoleAssignment(pulumi.CustomResource):
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_spark_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["principalId"] = principal_id
+        __props__["principalType"] = principal_type
+        __props__["roleName"] = role_name
+        __props__["synapseSparkPoolId"] = synapse_spark_pool_id
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/roleAssignment:RoleAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[_builtins.str]:

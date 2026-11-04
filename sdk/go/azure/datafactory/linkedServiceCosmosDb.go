@@ -205,6 +205,12 @@ func (LinkedServiceCosmosDbState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceCosmosDbState)(nil)).Elem()
 }
 
+// LinkedServiceCosmosDbExists checks whether an existing LinkedServiceCosmosDb resource with the given ID exists.
+func LinkedServiceCosmosDbExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceCosmosDbState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb", id, state, "", opts...)
+}
+
 type linkedServiceCosmosDbArgs struct {
 	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`

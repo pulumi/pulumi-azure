@@ -1192,6 +1192,64 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["workspace_url"] = workspace_url
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_parameters: pulumi.Input[Optional[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict', 'outputs.WorkspaceCustomParameters']]] = None,
+            customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_storage_firewall_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enhanced_security_compliance: pulumi.Input[Optional[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict', 'outputs.WorkspaceEnhancedSecurityCompliance']]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            load_balancer_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_cmk_rotation_to_latest_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_disk_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceManagedDiskIdentityArgs', 'WorkspaceManagedDiskIdentityArgsDict', 'outputs.WorkspaceManagedDiskIdentity']]]]] = None,
+            managed_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_services_cmk_key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_services_cmk_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_rules_required: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceStorageAccountIdentityArgs', 'WorkspaceStorageAccountIdentityArgsDict', 'outputs.WorkspaceStorageAccountIdentity']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessConnectorId"] = access_connector_id
+        __props__["customParameters"] = custom_parameters
+        __props__["customerManagedKeyEnabled"] = customer_managed_key_enabled
+        __props__["defaultStorageFirewallEnabled"] = default_storage_firewall_enabled
+        __props__["diskEncryptionSetId"] = disk_encryption_set_id
+        __props__["enhancedSecurityCompliance"] = enhanced_security_compliance
+        __props__["infrastructureEncryptionEnabled"] = infrastructure_encryption_enabled
+        __props__["loadBalancerBackendAddressPoolId"] = load_balancer_backend_address_pool_id
+        __props__["location"] = location
+        __props__["managedDiskCmkKeyVaultId"] = managed_disk_cmk_key_vault_id
+        __props__["managedDiskCmkKeyVaultKeyId"] = managed_disk_cmk_key_vault_key_id
+        __props__["managedDiskCmkRotationToLatestVersionEnabled"] = managed_disk_cmk_rotation_to_latest_version_enabled
+        __props__["managedDiskIdentities"] = managed_disk_identities
+        __props__["managedResourceGroupId"] = managed_resource_group_id
+        __props__["managedResourceGroupName"] = managed_resource_group_name
+        __props__["managedServicesCmkKeyVaultId"] = managed_services_cmk_key_vault_id
+        __props__["managedServicesCmkKeyVaultKeyId"] = managed_services_cmk_key_vault_key_id
+        __props__["name"] = name
+        __props__["networkSecurityGroupRulesRequired"] = network_security_group_rules_required
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["storageAccountIdentities"] = storage_account_identities
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        __props__["workspaceUrl"] = workspace_url
+        return pulumi.runtime.exists_resource(None, 'azure:databricks/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessConnectorId")
     def access_connector_id(self) -> pulumi.Output[Optional[_builtins.str]]:

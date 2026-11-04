@@ -52,6 +52,17 @@ export class DataConnectorDynamics365 extends pulumi.CustomResource {
         return new DataConnectorDynamics365(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing DataConnectorDynamics365 resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: DataConnectorDynamics365State, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365';
 

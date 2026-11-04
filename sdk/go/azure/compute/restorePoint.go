@@ -217,6 +217,12 @@ func (RestorePointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restorePointState)(nil)).Elem()
 }
 
+// RestorePointExists checks whether an existing RestorePoint resource with the given ID exists.
+func RestorePointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestorePointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/restorePoint:RestorePoint", id, state, "", opts...)
+}
+
 type restorePointArgs struct {
 	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled *bool `pulumi:"crashConsistencyModeEnabled"`

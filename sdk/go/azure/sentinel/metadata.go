@@ -282,6 +282,12 @@ func (MetadataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metadataState)(nil)).Elem()
 }
 
+// MetadataExists checks whether an existing Metadata resource with the given ID exists.
+func MetadataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetadataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/metadata:Metadata", id, state, "", opts...)
+}
+
 type metadataArgs struct {
 	// An `author` blocks as defined below.
 	Author *MetadataAuthor `pulumi:"author"`

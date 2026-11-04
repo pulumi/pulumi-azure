@@ -151,6 +151,12 @@ func (DeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceState)(nil)).Elem()
 }
 
+// DeviceExists checks whether an existing Device resource with the given ID exists.
+func DeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:databoxedge/device:Device", id, state, "", opts...)
+}
+
 type deviceArgs struct {
 	// The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
 	Location *string `pulumi:"location"`

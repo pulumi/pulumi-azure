@@ -491,6 +491,32 @@ class ManagedCertificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return ManagedCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_hostname_binding_id: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            issue_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["canonicalName"] = canonical_name
+        __props__["customHostnameBindingId"] = custom_hostname_binding_id
+        __props__["expirationDate"] = expiration_date
+        __props__["friendlyName"] = friendly_name
+        __props__["hostNames"] = host_names
+        __props__["issueDate"] = issue_date
+        __props__["issuer"] = issuer
+        __props__["subjectName"] = subject_name
+        __props__["tags"] = tags
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/managedCertificate:ManagedCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="canonicalName")
     def canonical_name(self) -> pulumi.Output[_builtins.str]:

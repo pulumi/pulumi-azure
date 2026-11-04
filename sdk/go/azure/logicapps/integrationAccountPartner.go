@@ -162,6 +162,12 @@ func (IntegrationAccountPartnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountPartnerState)(nil)).Elem()
 }
 
+// IntegrationAccountPartnerExists checks whether an existing IntegrationAccountPartner resource with the given ID exists.
+func IntegrationAccountPartnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountPartnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", id, state, "", opts...)
+}
+
 type integrationAccountPartnerArgs struct {
 	// A `businessIdentity` block as documented below.
 	BusinessIdentities []IntegrationAccountPartnerBusinessIdentity `pulumi:"businessIdentities"`

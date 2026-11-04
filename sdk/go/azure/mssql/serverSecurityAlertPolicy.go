@@ -228,6 +228,12 @@ func (ServerSecurityAlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverSecurityAlertPolicyState)(nil)).Elem()
 }
 
+// ServerSecurityAlertPolicyExists checks whether an existing ServerSecurityAlertPolicy resource with the given ID exists.
+func ServerSecurityAlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerSecurityAlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", id, state, "", opts...)
+}
+
 type serverSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`

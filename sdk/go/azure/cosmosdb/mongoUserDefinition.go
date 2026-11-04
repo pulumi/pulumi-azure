@@ -189,6 +189,12 @@ func (MongoUserDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoUserDefinitionState)(nil)).Elem()
 }
 
+// MongoUserDefinitionExists checks whether an existing MongoUserDefinition resource with the given ID exists.
+func MongoUserDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MongoUserDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/mongoUserDefinition:MongoUserDefinition", id, state, "", opts...)
+}
+
 type mongoUserDefinitionArgs struct {
 	// The resource ID of the Mongo DB. Changing this forces a new resource to be created.
 	CosmosMongoDatabaseId string `pulumi:"cosmosMongoDatabaseId"`

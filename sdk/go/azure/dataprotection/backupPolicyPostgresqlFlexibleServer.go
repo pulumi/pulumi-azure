@@ -232,6 +232,12 @@ func (BackupPolicyPostgresqlFlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyPostgresqlFlexibleServerState)(nil)).Elem()
 }
 
+// BackupPolicyPostgresqlFlexibleServerExists checks whether an existing BackupPolicyPostgresqlFlexibleServer resource with the given ID exists.
+func BackupPolicyPostgresqlFlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyPostgresqlFlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", id, state, "", opts...)
+}
+
 type backupPolicyPostgresqlFlexibleServerArgs struct {
 	// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

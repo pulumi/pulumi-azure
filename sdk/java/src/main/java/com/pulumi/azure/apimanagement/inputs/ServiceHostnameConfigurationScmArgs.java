@@ -131,20 +131,18 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
     }
 
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -406,11 +404,10 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
@@ -419,11 +416,10 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

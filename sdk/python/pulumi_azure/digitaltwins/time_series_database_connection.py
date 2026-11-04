@@ -691,6 +691,32 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return TimeSeriesDatabaseConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_namespace_endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_cluster_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["digitalTwinsId"] = digital_twins_id
+        __props__["eventhubConsumerGroupName"] = eventhub_consumer_group_name
+        __props__["eventhubName"] = eventhub_name
+        __props__["eventhubNamespaceEndpointUri"] = eventhub_namespace_endpoint_uri
+        __props__["eventhubNamespaceId"] = eventhub_namespace_id
+        __props__["kustoClusterId"] = kusto_cluster_id
+        __props__["kustoClusterUri"] = kusto_cluster_uri
+        __props__["kustoDatabaseName"] = kusto_database_name
+        __props__["kustoTableName"] = kusto_table_name
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="digitalTwinsId")
     def digital_twins_id(self) -> pulumi.Output[_builtins.str]:

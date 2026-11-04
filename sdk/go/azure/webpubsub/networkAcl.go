@@ -205,6 +205,12 @@ func (NetworkAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclState)(nil)).Elem()
 }
 
+// NetworkAclExists checks whether an existing NetworkAcl resource with the given ID exists.
+func NetworkAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/networkAcl:NetworkAcl", id, state, "", opts...)
+}
+
 type networkAclArgs struct {
 	// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 	DefaultAction *string `pulumi:"defaultAction"`

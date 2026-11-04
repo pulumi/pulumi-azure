@@ -208,6 +208,12 @@ func (EnvironmentStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentStorageState)(nil)).Elem()
 }
 
+// EnvironmentStorageExists checks whether an existing EnvironmentStorage resource with the given ID exists.
+func EnvironmentStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/environmentStorage:EnvironmentStorage", id, state, "", opts...)
+}
+
 type environmentStorageArgs struct {
 	// The Storage Account Access Key.
 	AccessKey *string `pulumi:"accessKey"`

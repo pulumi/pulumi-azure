@@ -291,6 +291,12 @@ func (CosmosdbDataConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cosmosdbDataConnectionState)(nil)).Elem()
 }
 
+// CosmosdbDataConnectionExists checks whether an existing CosmosdbDataConnection resource with the given ID exists.
+func CosmosdbDataConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CosmosdbDataConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection", id, state, "", opts...)
+}
+
 type cosmosdbDataConnectionArgs struct {
 	// The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
 	CosmosdbContainerId string `pulumi:"cosmosdbContainerId"`

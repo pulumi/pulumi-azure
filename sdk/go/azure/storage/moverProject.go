@@ -137,6 +137,12 @@ func (MoverProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moverProjectState)(nil)).Elem()
 }
 
+// MoverProjectExists checks whether an existing MoverProject resource with the given ID exists.
+func MoverProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MoverProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/moverProject:MoverProject", id, state, "", opts...)
+}
+
 type moverProjectArgs struct {
 	// Specifies a description for this Storage Mover Project.
 	Description *string `pulumi:"description"`

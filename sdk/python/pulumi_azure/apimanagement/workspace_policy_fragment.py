@@ -395,6 +395,22 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
         __props__.__dict__["xml_format"] = xml_format
         return WorkspacePolicyFragment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_format: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementWorkspaceId"] = api_management_workspace_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["xmlContent"] = xml_content
+        __props__["xmlFormat"] = xml_format
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
     def api_management_workspace_id(self) -> pulumi.Output[_builtins.str]:

@@ -308,6 +308,12 @@ func (FrontdoorBatchRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorBatchRuleSetState)(nil)).Elem()
 }
 
+// FrontdoorBatchRuleSetExists checks whether an existing FrontdoorBatchRuleSet resource with the given ID exists.
+func FrontdoorBatchRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorBatchRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet", id, state, "", opts...)
+}
+
 type frontdoorBatchRuleSetArgs struct {
 	// The resource ID of the Front Door Profile where this Front Door Batch Rule Set should be created. Changing this forces a new resource to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

@@ -248,6 +248,12 @@ func (FunctionAppHybridConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppHybridConnectionState)(nil)).Elem()
 }
 
+// FunctionAppHybridConnectionExists checks whether an existing FunctionAppHybridConnection resource with the given ID exists.
+func FunctionAppHybridConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionAppHybridConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection", id, state, "", opts...)
+}
+
 type functionAppHybridConnectionArgs struct {
 	// The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`

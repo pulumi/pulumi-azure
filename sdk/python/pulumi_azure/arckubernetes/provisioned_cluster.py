@@ -650,6 +650,42 @@ class ProvisionedCluster(pulumi.CustomResource):
         __props__.__dict__["total_node_count"] = total_node_count
         return ProvisionedCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']]] = None,
+            distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']]] = None,
+            infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            offering: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            total_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            total_node_count: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentVersion"] = agent_version
+        __props__["arcAgentAutoUpgradeEnabled"] = arc_agent_auto_upgrade_enabled
+        __props__["arcAgentDesiredVersion"] = arc_agent_desired_version
+        __props__["azureActiveDirectory"] = azure_active_directory
+        __props__["distribution"] = distribution
+        __props__["identity"] = identity
+        __props__["infrastructure"] = infrastructure
+        __props__["kubernetesVersion"] = kubernetes_version
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["offering"] = offering
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["totalCoreCount"] = total_core_count
+        __props__["totalNodeCount"] = total_node_count
+        return pulumi.runtime.exists_resource(None, 'azure:arckubernetes/provisionedCluster:ProvisionedCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:

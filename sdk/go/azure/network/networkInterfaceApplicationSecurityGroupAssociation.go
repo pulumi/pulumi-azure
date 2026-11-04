@@ -172,6 +172,12 @@ func (NetworkInterfaceApplicationSecurityGroupAssociationState) ElementType() re
 	return reflect.TypeOf((*networkInterfaceApplicationSecurityGroupAssociationState)(nil)).Elem()
 }
 
+// NetworkInterfaceApplicationSecurityGroupAssociationExists checks whether an existing NetworkInterfaceApplicationSecurityGroupAssociation resource with the given ID exists.
+func NetworkInterfaceApplicationSecurityGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceApplicationSecurityGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", id, state, "", opts...)
+}
+
 type networkInterfaceApplicationSecurityGroupAssociationArgs struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId string `pulumi:"applicationSecurityGroupId"`

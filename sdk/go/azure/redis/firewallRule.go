@@ -179,6 +179,12 @@ func (FirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallRuleState)(nil)).Elem()
 }
 
+// FirewallRuleExists checks whether an existing FirewallRule resource with the given ID exists.
+func FirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/firewallRule:FirewallRule", id, state, "", opts...)
+}
+
 type firewallRuleArgs struct {
 	// The highest IP address included in the range.
 	EndIp string `pulumi:"endIp"`

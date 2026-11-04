@@ -176,6 +176,12 @@ func (NetworkManagerAdminRuleCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerAdminRuleCollectionState)(nil)).Elem()
 }
 
+// NetworkManagerAdminRuleCollectionExists checks whether an existing NetworkManagerAdminRuleCollection resource with the given ID exists.
+func NetworkManagerAdminRuleCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerAdminRuleCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection", id, state, "", opts...)
+}
+
 type networkManagerAdminRuleCollectionArgs struct {
 	// A description of the Network Manager Admin Rule Collection.
 	Description *string `pulumi:"description"`

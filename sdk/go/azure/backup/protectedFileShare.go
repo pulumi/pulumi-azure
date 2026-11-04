@@ -208,6 +208,12 @@ func (ProtectedFileShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedFileShareState)(nil)).Elem()
 }
 
+// ProtectedFileShareExists checks whether an existing ProtectedFileShare resource with the given ID exists.
+func ProtectedFileShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectedFileShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/protectedFileShare:ProtectedFileShare", id, state, "", opts...)
+}
+
 type protectedFileShareArgs struct {
 	// Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

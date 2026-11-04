@@ -200,11 +200,10 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dailyDataCapInGb);
     }
     /**
-     * @deprecated
-     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="dailyDataCapNotificationsDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> dailyDataCapNotificationsDisabled;
 
@@ -226,11 +225,10 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return this.dailyDataCapNotificationsEnabled;
     }
     /**
-     * @deprecated
-     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="disableIpMasking", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableIpMasking;
 
@@ -308,11 +306,10 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return this.ipMaskingEnabled;
     }
     /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> localAuthenticationDisabled;
 

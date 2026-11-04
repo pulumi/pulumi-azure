@@ -671,6 +671,36 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudNewRelicApplicationPerformanceMonitoring(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            app_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            license_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentEnabled"] = agent_enabled
+        __props__["appName"] = app_name
+        __props__["appServerPort"] = app_server_port
+        __props__["auditModeEnabled"] = audit_mode_enabled
+        __props__["autoAppNamingEnabled"] = auto_app_naming_enabled
+        __props__["autoTransactionNamingEnabled"] = auto_transaction_naming_enabled
+        __props__["customTracingEnabled"] = custom_tracing_enabled
+        __props__["globallyEnabled"] = globally_enabled
+        __props__["labels"] = labels
+        __props__["licenseKey"] = license_key
+        __props__["name"] = name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentEnabled")
     def agent_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

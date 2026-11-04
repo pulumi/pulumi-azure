@@ -564,6 +564,38 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']]] = None,
+            frs_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            orderer_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["frsTenantId"] = frs_tenant_id
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["ordererEndpoints"] = orderer_endpoints
+        __props__["primaryKey"] = primary_key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryKey"] = secondary_key
+        __props__["serviceEndpoints"] = service_endpoints
+        __props__["storageEndpoints"] = storage_endpoints
+        __props__["storageSku"] = storage_sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:fluidrelay/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional['outputs.ServerCustomerManagedKey']]:

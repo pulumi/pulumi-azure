@@ -343,6 +343,20 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["parent_organization_id"] = parent_organization_id
         return Organization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_organization_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["iotcentralApplicationId"] = iotcentral_application_id
+        __props__["organizationId"] = organization_id
+        __props__["parentOrganizationId"] = parent_organization_id
+        return pulumi.runtime.exists_resource(None, 'azure:iotcentral/organization:Organization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

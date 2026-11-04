@@ -814,6 +814,42 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         __props__.__dict__["trigger_dependencies"] = trigger_dependencies
         return TriggerTumblingWindow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delay: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline: pulumi.Input[Optional[Union['TriggerTumblingWindowPipelineArgs', 'TriggerTumblingWindowPipelineArgsDict', 'outputs.TriggerTumblingWindowPipeline']]] = None,
+            retry: pulumi.Input[Optional[Union['TriggerTumblingWindowRetryArgs', 'TriggerTumblingWindowRetryArgsDict', 'outputs.TriggerTumblingWindowRetry']]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            trigger_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTumblingWindowTriggerDependencyArgs', 'TriggerTumblingWindowTriggerDependencyArgsDict', 'outputs.TriggerTumblingWindowTriggerDependency']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activated"] = activated
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["delay"] = delay
+        __props__["description"] = description
+        __props__["endTime"] = end_time
+        __props__["frequency"] = frequency
+        __props__["interval"] = interval
+        __props__["maxConcurrency"] = max_concurrency
+        __props__["name"] = name
+        __props__["pipeline"] = pipeline
+        __props__["retry"] = retry
+        __props__["startTime"] = start_time
+        __props__["triggerDependencies"] = trigger_dependencies
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def activated(self) -> pulumi.Output[Optional[_builtins.bool]]:

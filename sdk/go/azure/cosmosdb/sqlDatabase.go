@@ -156,6 +156,12 @@ func (SqlDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDatabaseState)(nil)).Elem()
 }
 
+// SqlDatabaseExists checks whether an existing SqlDatabase resource with the given ID exists.
+func SqlDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlDatabase:SqlDatabase", id, state, "", opts...)
+}
+
 type sqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

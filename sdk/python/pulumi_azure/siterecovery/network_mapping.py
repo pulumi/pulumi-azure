@@ -511,6 +511,26 @@ class NetworkMapping(pulumi.CustomResource):
         __props__.__dict__["target_recovery_fabric_name"] = target_recovery_fabric_name
         return NetworkMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceNetworkId"] = source_network_id
+        __props__["sourceRecoveryFabricName"] = source_recovery_fabric_name
+        __props__["targetNetworkId"] = target_network_id
+        __props__["targetRecoveryFabricName"] = target_recovery_fabric_name
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/networkMapping:NetworkMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

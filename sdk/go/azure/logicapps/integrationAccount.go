@@ -154,6 +154,12 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountState)(nil)).Elem()
 }
 
+// IntegrationAccountExists checks whether an existing IntegrationAccount resource with the given ID exists.
+func IntegrationAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccount:IntegrationAccount", id, state, "", opts...)
+}
+
 type integrationAccountArgs struct {
 	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
 	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`

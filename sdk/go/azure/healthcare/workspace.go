@@ -130,6 +130,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:healthcare/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
 	Location *string `pulumi:"location"`

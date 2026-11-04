@@ -607,6 +607,32 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["datadogOrganization"] = datadog_organization
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["marketplaceSubscriptionStatus"] = marketplace_subscription_status
+        __props__["monitoringEnabled"] = monitoring_enabled
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'azure:datadog/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="datadogOrganization")
     def datadog_organization(self) -> pulumi.Output['outputs.MonitorDatadogOrganization']:

@@ -153,6 +153,12 @@ func (DateTimeVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dateTimeVariableState)(nil)).Elem()
 }
 
+// DateTimeVariableExists checks whether an existing DateTimeVariable resource with the given ID exists.
+func DateTimeVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DateTimeVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/dateTimeVariable:DateTimeVariable", id, state, "", opts...)
+}
+
 type dateTimeVariableArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

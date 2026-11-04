@@ -683,6 +683,36 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         __props__.__dict__["signup_policy"] = signup_policy
         return IdentityProviderAadb2c(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            authority: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_library: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_editing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            signup_policy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedTenant"] = allowed_tenant
+        __props__["apiManagementName"] = api_management_name
+        __props__["authority"] = authority
+        __props__["clientId"] = client_id
+        __props__["clientLibrary"] = client_library
+        __props__["clientSecret"] = client_secret
+        __props__["passwordResetPolicy"] = password_reset_policy
+        __props__["profileEditingPolicy"] = profile_editing_policy
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["signinPolicy"] = signin_policy
+        __props__["signinTenant"] = signin_tenant
+        __props__["signupPolicy"] = signup_policy
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedTenant")
     def allowed_tenant(self) -> pulumi.Output[_builtins.str]:

@@ -585,6 +585,36 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["worker_profile"] = worker_profile
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_server_profile: pulumi.Input[Optional[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict', 'outputs.ClusterApiServerProfile']]] = None,
+            cluster_profile: pulumi.Input[Optional[Union['ClusterClusterProfileArgs', 'ClusterClusterProfileArgsDict', 'outputs.ClusterClusterProfile']]] = None,
+            console_url: pulumi.Input[Optional[_builtins.str]] = None,
+            ingress_profile: pulumi.Input[Optional[Union['ClusterIngressProfileArgs', 'ClusterIngressProfileArgsDict', 'outputs.ClusterIngressProfile']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            main_profile: pulumi.Input[Optional[Union['ClusterMainProfileArgs', 'ClusterMainProfileArgsDict', 'outputs.ClusterMainProfile']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['ClusterNetworkProfileArgs', 'ClusterNetworkProfileArgsDict', 'outputs.ClusterNetworkProfile']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[Union['ClusterServicePrincipalArgs', 'ClusterServicePrincipalArgsDict', 'outputs.ClusterServicePrincipal']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            worker_profile: pulumi.Input[Optional[Union['ClusterWorkerProfileArgs', 'ClusterWorkerProfileArgsDict', 'outputs.ClusterWorkerProfile']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiServerProfile"] = api_server_profile
+        __props__["clusterProfile"] = cluster_profile
+        __props__["consoleUrl"] = console_url
+        __props__["ingressProfile"] = ingress_profile
+        __props__["location"] = location
+        __props__["mainProfile"] = main_profile
+        __props__["name"] = name
+        __props__["networkProfile"] = network_profile
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["servicePrincipal"] = service_principal
+        __props__["tags"] = tags
+        __props__["workerProfile"] = worker_profile
+        return pulumi.runtime.exists_resource(None, 'azure:redhatopenshift/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiServerProfile")
     def api_server_profile(self) -> pulumi.Output['outputs.ClusterApiServerProfile']:

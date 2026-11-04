@@ -755,6 +755,50 @@ class CertificateOrder(pulumi.CustomResource):
         __props__.__dict__["validity_in_years"] = validity_in_years
         return CertificateOrder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_certificate_not_renewable_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateOrderCertificateArgs', 'CertificateOrderCertificateArgsDict', 'outputs.CertificateOrderCertificate']]]]] = None,
+            csr: pulumi.Input[Optional[_builtins.str]] = None,
+            distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_verification_token: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+            intermediate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            is_private_key_external: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            root_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            signed_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validity_in_years: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceCertificateNotRenewableReasons"] = app_service_certificate_not_renewable_reasons
+        __props__["autoRenew"] = auto_renew
+        __props__["certificates"] = certificates
+        __props__["csr"] = csr
+        __props__["distinguishedName"] = distinguished_name
+        __props__["domainVerificationToken"] = domain_verification_token
+        __props__["expirationTime"] = expiration_time
+        __props__["intermediateThumbprint"] = intermediate_thumbprint
+        __props__["isPrivateKeyExternal"] = is_private_key_external
+        __props__["keySize"] = key_size
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["productType"] = product_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rootThumbprint"] = root_thumbprint
+        __props__["signedCertificateThumbprint"] = signed_certificate_thumbprint
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["validityInYears"] = validity_in_years
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/certificateOrder:CertificateOrder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
     def app_service_certificate_not_renewable_reasons(self) -> pulumi.Output[Sequence[_builtins.str]]:

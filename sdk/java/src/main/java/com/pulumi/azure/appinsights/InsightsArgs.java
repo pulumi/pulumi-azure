@@ -51,20 +51,18 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="dailyDataCapNotificationsDisabled")
     private @Nullable Output<Boolean> dailyDataCapNotificationsDisabled;
 
     /**
-     * @deprecated
-     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> dailyDataCapNotificationsDisabled() {
         return Optional.ofNullable(this.dailyDataCapNotificationsDisabled);
     }
@@ -85,20 +83,18 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="disableIpMasking")
     private @Nullable Output<Boolean> disableIpMasking;
 
     /**
-     * @deprecated
-     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> disableIpMasking() {
         return Optional.ofNullable(this.disableIpMasking);
     }
@@ -164,20 +160,18 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="localAuthenticationDisabled")
     private @Nullable Output<Boolean> localAuthenticationDisabled;
 
     /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> localAuthenticationDisabled() {
         return Optional.ofNullable(this.localAuthenticationDisabled);
     }
@@ -392,11 +386,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder dailyDataCapNotificationsDisabled(@Nullable Output<Boolean> dailyDataCapNotificationsDisabled) {
             $.dailyDataCapNotificationsDisabled = dailyDataCapNotificationsDisabled;
             return this;
@@ -405,11 +398,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder dailyDataCapNotificationsDisabled(Boolean dailyDataCapNotificationsDisabled) {
             return dailyDataCapNotificationsDisabled(Output.of(dailyDataCapNotificationsDisabled));
         }
@@ -438,11 +430,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder disableIpMasking(@Nullable Output<Boolean> disableIpMasking) {
             $.disableIpMasking = disableIpMasking;
             return this;
@@ -451,11 +442,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder disableIpMasking(Boolean disableIpMasking) {
             return disableIpMasking(Output.of(disableIpMasking));
         }
@@ -547,11 +537,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
             $.localAuthenticationDisabled = localAuthenticationDisabled;
             return this;
@@ -560,11 +549,10 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
             return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
         }

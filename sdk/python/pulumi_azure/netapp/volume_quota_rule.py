@@ -563,6 +563,24 @@ class VolumeQuotaRule(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = volume_id
         return VolumeQuotaRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_size_in_kib: pulumi.Input[Optional[_builtins.int]] = None,
+            quota_target: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_type: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["quotaSizeInKib"] = quota_size_in_kib
+        __props__["quotaTarget"] = quota_target
+        __props__["quotaType"] = quota_type
+        __props__["volumeId"] = volume_id
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/volumeQuotaRule:VolumeQuotaRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

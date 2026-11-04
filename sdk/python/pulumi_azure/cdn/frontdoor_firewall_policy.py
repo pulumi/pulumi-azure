@@ -1080,6 +1080,44 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return FrontdoorFirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']]] = None,
+            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            request_body_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["captchaCookieExpirationInMinutes"] = captcha_cookie_expiration_in_minutes
+        __props__["customBlockResponseBody"] = custom_block_response_body
+        __props__["customBlockResponseStatusCode"] = custom_block_response_status_code
+        __props__["customRules"] = custom_rules
+        __props__["enabled"] = enabled
+        __props__["frontendEndpointIds"] = frontend_endpoint_ids
+        __props__["jsChallengeCookieExpirationInMinutes"] = js_challenge_cookie_expiration_in_minutes
+        __props__["logScrubbing"] = log_scrubbing
+        __props__["managedRules"] = managed_rules
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["redirectUrl"] = redirect_url
+        __props__["requestBodyCheckEnabled"] = request_body_check_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="captchaCookieExpirationInMinutes")
     def captcha_cookie_expiration_in_minutes(self) -> pulumi.Output[_builtins.int]:

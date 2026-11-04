@@ -602,6 +602,30 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AlertProcessingRuleActionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            add_action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addActionGroupIds"] = add_action_group_ids
+        __props__["condition"] = condition
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["schedule"] = schedule
+        __props__["scopes"] = scopes
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addActionGroupIds")
     def add_action_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

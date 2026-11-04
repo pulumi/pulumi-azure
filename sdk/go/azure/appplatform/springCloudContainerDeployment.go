@@ -216,6 +216,12 @@ func (SpringCloudContainerDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudContainerDeploymentState)(nil)).Elem()
 }
 
+// SpringCloudContainerDeploymentExists checks whether an existing SpringCloudContainerDeployment resource with the given ID exists.
+func SpringCloudContainerDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudContainerDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", id, state, "", opts...)
+}
+
 type springCloudContainerDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson *string `pulumi:"addonJson"`

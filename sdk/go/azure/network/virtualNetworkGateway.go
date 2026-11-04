@@ -403,6 +403,12 @@ func (VirtualNetworkGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayState)(nil)).Elem()
 }
 
+// VirtualNetworkGatewayExists checks whether an existing VirtualNetworkGateway resource with the given ID exists.
+func VirtualNetworkGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", id, state, "", opts...)
+}
+
 type virtualNetworkGatewayArgs struct {
 	// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
 	ActiveActive *bool `pulumi:"activeActive"`

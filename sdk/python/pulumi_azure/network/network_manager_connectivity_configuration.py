@@ -694,6 +694,34 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         __props__.__dict__["peering_enforcement_enabled"] = peering_enforcement_enabled
         return NetworkManagerConnectivityConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]]] = None,
+            connected_group_address_overlap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            connected_group_private_endpoints_scale: pulumi.Input[Optional[_builtins.str]] = None,
+            connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            peering_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appliesToGroups"] = applies_to_groups
+        __props__["connectedGroupAddressOverlapEnabled"] = connected_group_address_overlap_enabled
+        __props__["connectedGroupPrivateEndpointsScale"] = connected_group_private_endpoints_scale
+        __props__["connectivityTopology"] = connectivity_topology
+        __props__["deleteExistingPeeringEnabled"] = delete_existing_peering_enabled
+        __props__["description"] = description
+        __props__["globalMeshEnabled"] = global_mesh_enabled
+        __props__["hub"] = hub
+        __props__["name"] = name
+        __props__["networkManagerId"] = network_manager_id
+        __props__["peeringEnforcementEnabled"] = peering_enforcement_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appliesToGroups")
     def applies_to_groups(self) -> pulumi.Output[Sequence['outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]:

@@ -175,6 +175,12 @@ func (DirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*directoryState)(nil)).Elem()
 }
 
+// DirectoryExists checks whether an existing Directory resource with the given ID exists.
+func DirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:aadb2c/directory:Directory", id, state, "", opts...)
+}
+
 type directoryArgs struct {
 	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	CountryCode *string `pulumi:"countryCode"`

@@ -378,6 +378,22 @@ class LinkedStorageAccount(pulumi.CustomResource):
         __props__.__dict__["workspace_resource_id"] = workspace_resource_id
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataSourceType"] = data_source_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storageAccountIds"] = storage_account_ids
+        __props__["workspaceId"] = workspace_id
+        __props__["workspaceResourceId"] = workspace_resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/linkedStorageAccount:LinkedStorageAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> pulumi.Output[_builtins.str]:

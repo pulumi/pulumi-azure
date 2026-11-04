@@ -409,6 +409,12 @@ func (ServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverState)(nil)).Elem()
 }
 
+// ServerExists checks whether an existing Server resource with the given ID exists.
+func ServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/server:Server", id, state, "", opts...)
+}
+
 type serverArgs struct {
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`

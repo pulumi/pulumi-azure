@@ -266,6 +266,12 @@ func (NetworkSecurityRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityRuleState)(nil)).Elem()
 }
 
+// NetworkSecurityRuleExists checks whether an existing NetworkSecurityRule resource with the given ID exists.
+func NetworkSecurityRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityRule:NetworkSecurityRule", id, state, "", opts...)
+}
+
 type networkSecurityRuleArgs struct {
 	// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
 	Access string `pulumi:"access"`

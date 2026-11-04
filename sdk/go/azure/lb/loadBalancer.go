@@ -211,6 +211,12 @@ func (LoadBalancerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerState)(nil)).Elem()
 }
 
+// LoadBalancerExists checks whether an existing LoadBalancer resource with the given ID exists.
+func LoadBalancerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/loadBalancer:LoadBalancer", id, state, "", opts...)
+}
+
 type loadBalancerArgs struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone *string `pulumi:"edgeZone"`

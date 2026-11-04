@@ -233,6 +233,12 @@ func (AccountNetworkRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountNetworkRulesState)(nil)).Elem()
 }
 
+// AccountNetworkRulesExists checks whether an existing AccountNetworkRules resource with the given ID exists.
+func AccountNetworkRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountNetworkRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/accountNetworkRules:AccountNetworkRules", id, state, "", opts...)
+}
+
 type accountNetworkRulesArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//

@@ -215,6 +215,12 @@ func (LinkedServiceAzureFileStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureFileStorageState)(nil)).Elem()
 }
 
+// LinkedServiceAzureFileStorageExists checks whether an existing LinkedServiceAzureFileStorage resource with the given ID exists.
+func LinkedServiceAzureFileStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceAzureFileStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage", id, state, "", opts...)
+}
+
 type linkedServiceAzureFileStorageArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

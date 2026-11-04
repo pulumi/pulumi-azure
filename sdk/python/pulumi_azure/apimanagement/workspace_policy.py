@@ -326,6 +326,18 @@ class WorkspacePolicy(pulumi.CustomResource):
         __props__.__dict__["xml_link"] = xml_link
         return WorkspacePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_link: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementWorkspaceId"] = api_management_workspace_id
+        __props__["xmlContent"] = xml_content
+        __props__["xmlLink"] = xml_link
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/workspacePolicy:WorkspacePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
     def api_management_workspace_id(self) -> pulumi.Output[_builtins.str]:

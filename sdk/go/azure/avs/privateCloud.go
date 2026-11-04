@@ -261,6 +261,12 @@ func (PrivateCloudState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateCloudState)(nil)).Elem()
 }
 
+// PrivateCloudExists checks whether an existing PrivateCloud resource with the given ID exists.
+func PrivateCloudExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateCloudState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:avs/privateCloud:PrivateCloud", id, state, "", opts...)
+}
+
 type privateCloudArgs struct {
 	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.

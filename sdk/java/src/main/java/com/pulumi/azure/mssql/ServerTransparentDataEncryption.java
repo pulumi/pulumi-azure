@@ -260,11 +260,10 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
         return Codegen.optional(this.keyVaultKeyId);
     }
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedHsmKeyId;
 

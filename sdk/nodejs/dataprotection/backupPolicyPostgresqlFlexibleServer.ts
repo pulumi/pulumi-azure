@@ -113,6 +113,17 @@ export class BackupPolicyPostgresqlFlexibleServer extends pulumi.CustomResource 
         return new BackupPolicyPostgresqlFlexibleServer(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing BackupPolicyPostgresqlFlexibleServer resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: BackupPolicyPostgresqlFlexibleServerState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer';
 

@@ -860,6 +860,52 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return EventHubNamespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoInflateEnabled"] = auto_inflate_enabled
+        __props__["capacity"] = capacity
+        __props__["dedicatedClusterId"] = dedicated_cluster_id
+        __props__["defaultPrimaryConnectionString"] = default_primary_connection_string
+        __props__["defaultPrimaryConnectionStringAlias"] = default_primary_connection_string_alias
+        __props__["defaultPrimaryKey"] = default_primary_key
+        __props__["defaultSecondaryConnectionString"] = default_secondary_connection_string
+        __props__["defaultSecondaryConnectionStringAlias"] = default_secondary_connection_string_alias
+        __props__["defaultSecondaryKey"] = default_secondary_key
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["maximumThroughputUnits"] = maximum_throughput_units
+        __props__["minimumTlsVersion"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["networkRulesets"] = network_rulesets
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/eventHubNamespace:EventHubNamespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoInflateEnabled")
     def auto_inflate_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

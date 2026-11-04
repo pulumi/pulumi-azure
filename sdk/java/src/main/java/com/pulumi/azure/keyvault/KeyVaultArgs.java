@@ -43,39 +43,35 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      * 
      */
-    @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+    @Deprecated
     @Import(name="contacts")
     private @Nullable Output<List<KeyVaultContactArgs>> contacts;
 
     /**
-     * @deprecated
-     * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      * 
      */
-    @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+    @Deprecated
     public Optional<Output<List<KeyVaultContactArgs>>> contacts() {
         return Optional.ofNullable(this.contacts);
     }
 
     /**
-     * @deprecated
-     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
+    @Deprecated
     @Import(name="enableRbacAuthorization")
     private @Nullable Output<Boolean> enableRbacAuthorization;
 
     /**
-     * @deprecated
-     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableRbacAuthorization() {
         return Optional.ofNullable(this.enableRbacAuthorization);
     }
@@ -382,11 +378,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+         * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+        @Deprecated
         public Builder contacts(@Nullable Output<List<KeyVaultContactArgs>> contacts) {
             $.contacts = contacts;
             return this;
@@ -395,11 +390,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+         * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+        @Deprecated
         public Builder contacts(List<KeyVaultContactArgs> contacts) {
             return contacts(Output.of(contacts));
         }
@@ -407,11 +401,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+         * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+        @Deprecated
         public Builder contacts(KeyVaultContactArgs... contacts) {
             return contacts(List.of(contacts));
         }
@@ -419,11 +412,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
+         * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
          * 
          */
-        @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
+        @Deprecated
         public Builder enableRbacAuthorization(@Nullable Output<Boolean> enableRbacAuthorization) {
             $.enableRbacAuthorization = enableRbacAuthorization;
             return this;
@@ -432,11 +424,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
+         * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
          * 
          */
-        @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
+        @Deprecated
         public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
             return enableRbacAuthorization(Output.of(enableRbacAuthorization));
         }

@@ -129,6 +129,17 @@ export class InferenceCluster extends pulumi.CustomResource {
         return new InferenceCluster(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing InferenceCluster resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: InferenceClusterState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:machinelearning/inferenceCluster:InferenceCluster", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:machinelearning/inferenceCluster:InferenceCluster';
 

@@ -528,6 +528,28 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = volume_id
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
+            target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_portal_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            target_portal_port: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createSource"] = create_source
+        __props__["name"] = name
+        __props__["sizeInGib"] = size_in_gib
+        __props__["targetIqn"] = target_iqn
+        __props__["targetPortalHostname"] = target_portal_hostname
+        __props__["targetPortalPort"] = target_portal_port
+        __props__["volumeGroupId"] = volume_group_id
+        __props__["volumeId"] = volume_id
+        return pulumi.runtime.exists_resource(None, 'azure:elasticsan/volume:Volume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createSource")
     def create_source(self) -> pulumi.Output[Optional['outputs.VolumeCreateSource']]:

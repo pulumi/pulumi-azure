@@ -431,6 +431,22 @@ class EndpointCustomDomain(pulumi.CustomResource):
         __props__.__dict__["user_managed_https"] = user_managed_https
         return EndpointCustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cdnEndpointId"] = cdn_endpoint_id
+        __props__["cdnManagedHttps"] = cdn_managed_https
+        __props__["hostName"] = host_name
+        __props__["name"] = name
+        __props__["userManagedHttps"] = user_managed_https
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/endpointCustomDomain:EndpointCustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cdnEndpointId")
     def cdn_endpoint_id(self) -> pulumi.Output[_builtins.str]:

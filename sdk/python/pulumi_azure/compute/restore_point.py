@@ -413,6 +413,20 @@ class RestorePoint(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_restore_point_collection_id"] = virtual_machine_restore_point_collection_id
         return RestorePoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            crash_consistency_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            excluded_disks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_restore_point_collection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["crashConsistencyModeEnabled"] = crash_consistency_mode_enabled
+        __props__["excludedDisks"] = excluded_disks
+        __props__["name"] = name
+        __props__["virtualMachineRestorePointCollectionId"] = virtual_machine_restore_point_collection_id
+        return pulumi.runtime.exists_resource(None, 'azure:compute/restorePoint:RestorePoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="crashConsistencyModeEnabled")
     def crash_consistency_mode_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

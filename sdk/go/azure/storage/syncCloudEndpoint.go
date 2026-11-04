@@ -193,6 +193,12 @@ func (SyncCloudEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncCloudEndpointState)(nil)).Elem()
 }
 
+// SyncCloudEndpointExists checks whether an existing SyncCloudEndpoint resource with the given ID exists.
+func SyncCloudEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncCloudEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/syncCloudEndpoint:SyncCloudEndpoint", id, state, "", opts...)
+}
+
 type syncCloudEndpointArgs struct {
 	// The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
 	FileShareName string `pulumi:"fileShareName"`

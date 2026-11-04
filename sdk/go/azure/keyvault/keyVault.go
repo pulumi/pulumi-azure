@@ -280,6 +280,12 @@ func (KeyVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyVaultState)(nil)).Elem()
 }
 
+// KeyVaultExists checks whether an existing KeyVault resource with the given ID exists.
+func KeyVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/keyVault:KeyVault", id, state, "", opts...)
+}
+
 type keyVaultArgs struct {
 	// A list of up to 1024 objects describing access policies, as described below.
 	//

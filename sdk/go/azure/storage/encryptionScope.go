@@ -159,6 +159,12 @@ func (EncryptionScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionScopeState)(nil)).Elem()
 }
 
+// EncryptionScopeExists checks whether an existing EncryptionScope resource with the given ID exists.
+func EncryptionScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EncryptionScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/encryptionScope:EncryptionScope", id, state, "", opts...)
+}
+
 type encryptionScopeArgs struct {
 	// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
 	InfrastructureEncryptionRequired *bool `pulumi:"infrastructureEncryptionRequired"`

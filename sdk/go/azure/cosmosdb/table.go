@@ -156,6 +156,12 @@ func (TableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableState)(nil)).Elem()
 }
 
+// TableExists checks whether an existing Table resource with the given ID exists.
+func TableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/table:Table", id, state, "", opts...)
+}
+
 type tableArgs struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

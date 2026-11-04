@@ -200,6 +200,12 @@ func (GrafanaManagedPrivateEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grafanaManagedPrivateEndpointState)(nil)).Elem()
 }
 
+// GrafanaManagedPrivateEndpointExists checks whether an existing GrafanaManagedPrivateEndpoint resource with the given ID exists.
+func GrafanaManagedPrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrafanaManagedPrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint", id, state, "", opts...)
+}
+
 type grafanaManagedPrivateEndpointArgs struct {
 	// The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
 	GrafanaId string `pulumi:"grafanaId"`

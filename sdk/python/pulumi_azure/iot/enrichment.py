@@ -438,6 +438,22 @@ class Enrichment(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return Enrichment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpointNames"] = endpoint_names
+        __props__["iothubName"] = iothub_name
+        __props__["key"] = key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'azure:iot/enrichment:Enrichment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="endpointNames")
     def endpoint_names(self) -> pulumi.Output[Sequence[_builtins.str]]:

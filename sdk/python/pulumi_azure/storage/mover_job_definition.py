@@ -597,6 +597,30 @@ class MoverJobDefinition(pulumi.CustomResource):
         __props__.__dict__["target_sub_path"] = target_sub_path
         return MoverJobDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mover_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_sub_path: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentName"] = agent_name
+        __props__["copyMode"] = copy_mode
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["sourceName"] = source_name
+        __props__["sourceSubPath"] = source_sub_path
+        __props__["storageMoverProjectId"] = storage_mover_project_id
+        __props__["targetName"] = target_name
+        __props__["targetSubPath"] = target_sub_path
+        return pulumi.runtime.exists_resource(None, 'azure:storage/moverJobDefinition:MoverJobDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -230,6 +230,12 @@ func (HubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubState)(nil)).Elem()
 }
 
+// HubExists checks whether an existing Hub resource with the given ID exists.
+func HubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/hub:Hub", id, state, "", opts...)
+}
+
 type hubArgs struct {
 	// Is anonymous connections are allowed for this hub? Defaults to `false`.
 	// Possible values are `true`, `false`.

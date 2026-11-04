@@ -117,6 +117,12 @@ func (ZipBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zipBlobState)(nil)).Elem()
 }
 
+// ZipBlobExists checks whether an existing ZipBlob resource with the given ID exists.
+func ZipBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZipBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/zipBlob:ZipBlob", id, state, "", opts...)
+}
+
 type zipBlobArgs struct {
 	AccessTier      *string           `pulumi:"accessTier"`
 	CacheControl    *string           `pulumi:"cacheControl"`

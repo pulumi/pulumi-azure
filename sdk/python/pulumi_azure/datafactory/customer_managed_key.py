@@ -419,6 +419,18 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customerManagedKeyId"] = customer_managed_key_id
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["userAssignedIdentityId"] = user_assigned_identity_id
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/customerManagedKey:CustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyId")
     def customer_managed_key_id(self) -> pulumi.Output[_builtins.str]:

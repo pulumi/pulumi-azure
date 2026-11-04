@@ -433,6 +433,24 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         __props__.__dict__["sso"] = sso
         return SpringCloudDevToolPortal(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict', 'outputs.SpringCloudDevToolPortalSso']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationAcceleratorEnabled"] = application_accelerator_enabled
+        __props__["applicationLiveViewEnabled"] = application_live_view_enabled
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        __props__["sso"] = sso
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationAcceleratorEnabled")
     def application_accelerator_enabled(self) -> pulumi.Output[_builtins.bool]:

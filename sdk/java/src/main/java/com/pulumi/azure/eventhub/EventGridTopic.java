@@ -84,11 +84,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
  * ```
  * 
- * @deprecated
- * azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
+ * @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
  * 
  */
-@Deprecated /* azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic */
+@Deprecated
 @ResourceType(type="azure:eventhub/eventGridTopic:EventGridTopic")
 public class EventGridTopic extends com.pulumi.resources.CustomResource {
     /**

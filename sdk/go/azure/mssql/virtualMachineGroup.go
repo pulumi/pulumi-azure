@@ -168,6 +168,12 @@ func (VirtualMachineGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineGroupState)(nil)).Elem()
 }
 
+// VirtualMachineGroupExists checks whether an existing VirtualMachineGroup resource with the given ID exists.
+func VirtualMachineGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/virtualMachineGroup:VirtualMachineGroup", id, state, "", opts...)
+}
+
 type virtualMachineGroupArgs struct {
 	// The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

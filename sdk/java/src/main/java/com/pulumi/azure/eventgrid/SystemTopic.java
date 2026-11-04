@@ -169,11 +169,10 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Export(name="sourceArmResourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceArmResourceId;
 

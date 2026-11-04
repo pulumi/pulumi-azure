@@ -986,6 +986,48 @@ class EventGridDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return EventGridDataConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blob_storage_event_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            data_format: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_event_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_first_record: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blobStorageEventType"] = blob_storage_event_type
+        __props__["clusterName"] = cluster_name
+        __props__["dataFormat"] = data_format
+        __props__["databaseName"] = database_name
+        __props__["databaseRoutingType"] = database_routing_type
+        __props__["eventgridEventSubscriptionId"] = eventgrid_event_subscription_id
+        __props__["eventgridResourceId"] = eventgrid_resource_id
+        __props__["eventhubConsumerGroupName"] = eventhub_consumer_group_name
+        __props__["eventhubId"] = eventhub_id
+        __props__["location"] = location
+        __props__["managedIdentityId"] = managed_identity_id
+        __props__["managedIdentityResourceId"] = managed_identity_resource_id
+        __props__["mappingRuleName"] = mapping_rule_name
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skipFirstRecord"] = skip_first_record
+        __props__["storageAccountId"] = storage_account_id
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/eventGridDataConnection:EventGridDataConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blobStorageEventType")
     def blob_storage_event_type(self) -> pulumi.Output[Optional[_builtins.str]]:

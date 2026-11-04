@@ -170,6 +170,12 @@ func (IntegrationAccountSchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountSchemaState)(nil)).Elem()
 }
 
+// IntegrationAccountSchemaExists checks whether an existing IntegrationAccountSchema resource with the given ID exists.
+func IntegrationAccountSchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountSchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema", id, state, "", opts...)
+}
+
 type integrationAccountSchemaArgs struct {
 	// The content of the Logic App Integration Account Schema.
 	Content string `pulumi:"content"`

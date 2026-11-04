@@ -241,6 +241,12 @@ func (LinkedServiceSnowflakeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSnowflakeState)(nil)).Elem()
 }
 
+// LinkedServiceSnowflakeExists checks whether an existing LinkedServiceSnowflake resource with the given ID exists.
+func LinkedServiceSnowflakeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceSnowflakeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake", id, state, "", opts...)
+}
+
 type linkedServiceSnowflakeArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

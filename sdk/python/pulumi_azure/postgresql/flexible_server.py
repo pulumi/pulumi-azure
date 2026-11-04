@@ -1581,6 +1581,70 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return FlexibleServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']]] = None,
+            auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
+            delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorLogin"] = administrator_login
+        __props__["administratorPassword"] = administrator_password
+        __props__["administratorPasswordWoVersion"] = administrator_password_wo_version
+        __props__["authentication"] = authentication
+        __props__["autoGrowEnabled"] = auto_grow_enabled
+        __props__["backupRetentionDays"] = backup_retention_days
+        __props__["cluster"] = cluster
+        __props__["createMode"] = create_mode
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["delegatedSubnetId"] = delegated_subnet_id
+        __props__["fqdn"] = fqdn
+        __props__["geoRedundantBackupEnabled"] = geo_redundant_backup_enabled
+        __props__["highAvailability"] = high_availability
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["name"] = name
+        __props__["pointInTimeRestoreTimeInUtc"] = point_in_time_restore_time_in_utc
+        __props__["privateDnsZoneId"] = private_dns_zone_id
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["replicationRole"] = replication_role
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["sourceServerId"] = source_server_id
+        __props__["storageMb"] = storage_mb
+        __props__["storageTier"] = storage_tier
+        __props__["tags"] = tags
+        __props__["version"] = version
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'azure:postgresql/flexibleServer:FlexibleServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[_builtins.str]:

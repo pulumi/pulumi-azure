@@ -201,6 +201,12 @@ func (SqlPoolExtendedAuditingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolExtendedAuditingPolicyState)(nil)).Elem()
 }
 
+// SqlPoolExtendedAuditingPolicyExists checks whether an existing SqlPoolExtendedAuditingPolicy resource with the given ID exists.
+func SqlPoolExtendedAuditingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlPoolExtendedAuditingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", id, state, "", opts...)
+}
+
 type sqlPoolExtendedAuditingPolicyArgs struct {
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`

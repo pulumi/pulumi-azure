@@ -174,6 +174,12 @@ func (LicationLoadBalancerSecurityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licationLoadBalancerSecurityPolicyState)(nil)).Elem()
 }
 
+// LicationLoadBalancerSecurityPolicyExists checks whether an existing LicationLoadBalancerSecurityPolicy resource with the given ID exists.
+func LicationLoadBalancerSecurityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicationLoadBalancerSecurityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy", id, state, "", opts...)
+}
+
 type licationLoadBalancerSecurityPolicyArgs struct {
 	// The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
 	ApplicationLoadBalancerId string `pulumi:"applicationLoadBalancerId"`

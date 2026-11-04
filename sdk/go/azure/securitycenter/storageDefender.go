@@ -156,6 +156,12 @@ func (StorageDefenderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageDefenderState)(nil)).Elem()
 }
 
+// StorageDefenderExists checks whether an existing StorageDefender resource with the given ID exists.
+func StorageDefenderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageDefenderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/storageDefender:StorageDefender", id, state, "", opts...)
+}
+
 type storageDefenderArgs struct {
 	// The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
 	MalwareScanningOnUploadCapGbPerMonth *int `pulumi:"malwareScanningOnUploadCapGbPerMonth"`

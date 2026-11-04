@@ -231,6 +231,12 @@ func (DpsSharedAccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dpsSharedAccessPolicyState)(nil)).Elem()
 }
 
+// DpsSharedAccessPolicyExists checks whether an existing DpsSharedAccessPolicy resource with the given ID exists.
+func DpsSharedAccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DpsSharedAccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy", id, state, "", opts...)
+}
+
 type dpsSharedAccessPolicyArgs struct {
 	// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
 	//

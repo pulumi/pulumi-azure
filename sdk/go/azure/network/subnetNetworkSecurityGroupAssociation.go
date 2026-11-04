@@ -168,6 +168,12 @@ func (SubnetNetworkSecurityGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNetworkSecurityGroupAssociationState)(nil)).Elem()
 }
 
+// SubnetNetworkSecurityGroupAssociationExists checks whether an existing SubnetNetworkSecurityGroupAssociation resource with the given ID exists.
+func SubnetNetworkSecurityGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetNetworkSecurityGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", id, state, "", opts...)
+}
+
 type subnetNetworkSecurityGroupAssociationArgs struct {
 	// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`

@@ -371,6 +371,22 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         __props__.__dict__["rulestack_id"] = rulestack_id
         return LocalRulestackPrefixList(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rulestack_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auditComment"] = audit_comment
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["prefixLists"] = prefix_lists
+        __props__["rulestackId"] = rulestack_id
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="auditComment")
     def audit_comment(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -42,11 +42,10 @@ public final class GetDeploymentResult {
      */
     private String dataplaneApiEndpoint;
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+    @Deprecated
     private Boolean diagnoseSupportEnabled;
     /**
      * @return Preferred email associated with the NGINX Deployment.
@@ -84,18 +83,16 @@ public final class GetDeploymentResult {
      */
     private String location;
     /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
     /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     private String managedResourceGroup;
     /**
      * @return Name of the autoscaling profile.
@@ -159,11 +156,10 @@ public final class GetDeploymentResult {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+    @Deprecated
     public Boolean diagnoseSupportEnabled() {
         return this.diagnoseSupportEnabled;
     }
@@ -217,20 +213,18 @@ public final class GetDeploymentResult {
         return this.location;
     }
     /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     public List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts() {
         return this.loggingStorageAccounts;
     }
     /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     public String managedResourceGroup() {
         return this.managedResourceGroup;
     }

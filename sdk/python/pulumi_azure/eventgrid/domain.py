@@ -746,6 +746,44 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_create_topic_with_first_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_delete_topic_with_last_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['DomainIdentityArgs', 'DomainIdentityArgsDict', 'outputs.DomainIdentity']]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainInboundIpRuleArgs', 'DomainInboundIpRuleArgsDict', 'outputs.DomainInboundIpRule']]]]] = None,
+            input_mapping_default_values: pulumi.Input[Optional[Union['DomainInputMappingDefaultValuesArgs', 'DomainInputMappingDefaultValuesArgsDict', 'outputs.DomainInputMappingDefaultValues']]] = None,
+            input_mapping_fields: pulumi.Input[Optional[Union['DomainInputMappingFieldsArgs', 'DomainInputMappingFieldsArgsDict', 'outputs.DomainInputMappingFields']]] = None,
+            input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoCreateTopicWithFirstSubscription"] = auto_create_topic_with_first_subscription
+        __props__["autoDeleteTopicWithLastSubscription"] = auto_delete_topic_with_last_subscription
+        __props__["endpoint"] = endpoint
+        __props__["identity"] = identity
+        __props__["inboundIpRules"] = inbound_ip_rules
+        __props__["inputMappingDefaultValues"] = input_mapping_default_values
+        __props__["inputMappingFields"] = input_mapping_fields
+        __props__["inputSchema"] = input_schema
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
     def auto_create_topic_with_first_subscription(self) -> pulumi.Output[Optional[_builtins.bool]]:

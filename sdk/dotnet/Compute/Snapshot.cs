@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Compute
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// 
         /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>

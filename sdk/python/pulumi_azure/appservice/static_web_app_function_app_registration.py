@@ -320,6 +320,16 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         __props__.__dict__["static_web_app_id"] = static_web_app_id
         return StaticWebAppFunctionAppRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            static_web_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["functionAppId"] = function_app_id
+        __props__["staticWebAppId"] = static_web_app_id
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="functionAppId")
     def function_app_id(self) -> pulumi.Output[_builtins.str]:

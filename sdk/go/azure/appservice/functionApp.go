@@ -474,6 +474,12 @@ func (FunctionAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppState)(nil)).Elem()
 }
 
+// FunctionAppExists checks whether an existing FunctionApp resource with the given ID exists.
+func FunctionAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/functionApp:FunctionApp", id, state, "", opts...)
+}
+
 type functionAppArgs struct {
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId string `pulumi:"appServicePlanId"`

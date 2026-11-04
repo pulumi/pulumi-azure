@@ -211,11 +211,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
@@ -224,11 +223,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
@@ -253,11 +251,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="storageContainerName")
     private @Nullable Output<String> storageContainerName;
 
@@ -266,11 +263,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<String>> storageContainerName() {
         return Optional.ofNullable(this.storageContainerName);
     }
@@ -612,11 +608,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
@@ -629,11 +624,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
@@ -666,11 +660,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder storageContainerName(@Nullable Output<String> storageContainerName) {
             $.storageContainerName = storageContainerName;
             return this;
@@ -683,11 +676,10 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder storageContainerName(String storageContainerName) {
             return storageContainerName(Output.of(storageContainerName));
         }

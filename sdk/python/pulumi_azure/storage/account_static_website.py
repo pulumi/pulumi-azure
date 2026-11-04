@@ -288,6 +288,18 @@ class AccountStaticWebsite(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return AccountStaticWebsite(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+            index_document: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["error404Document"] = error404_document
+        __props__["indexDocument"] = index_document
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/accountStaticWebsite:AccountStaticWebsite', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="error404Document")
     def error404_document(self) -> pulumi.Output[Optional[_builtins.str]]:

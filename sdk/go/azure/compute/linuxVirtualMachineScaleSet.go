@@ -658,6 +658,12 @@ func (LinuxVirtualMachineScaleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxVirtualMachineScaleSetState)(nil)).Elem()
 }
 
+// LinuxVirtualMachineScaleSetExists checks whether an existing LinuxVirtualMachineScaleSet resource with the given ID exists.
+func LinuxVirtualMachineScaleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxVirtualMachineScaleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet", id, state, "", opts...)
+}
+
 type linuxVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *LinuxVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`

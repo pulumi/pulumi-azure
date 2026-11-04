@@ -33,20 +33,18 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+     * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated
     @Import(name="retentionPolicy")
     private @Nullable Output<DiagnosticSettingMetricRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+     * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated
     public Optional<Output<DiagnosticSettingMetricRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
@@ -98,11 +96,10 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         /**
          * @return builder
          * 
-         * @deprecated
-         * `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
          * 
          */
-        @Deprecated /* `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+        @Deprecated
         public Builder retentionPolicy(@Nullable Output<DiagnosticSettingMetricRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
@@ -111,11 +108,10 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         /**
          * @return builder
          * 
-         * @deprecated
-         * `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
          * 
          */
-        @Deprecated /* `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+        @Deprecated
         public Builder retentionPolicy(DiagnosticSettingMetricRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }

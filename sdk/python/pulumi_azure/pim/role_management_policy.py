@@ -484,6 +484,28 @@ class RoleManagementPolicy(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return RoleManagementPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']]] = None,
+            active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationRules"] = activation_rules
+        __props__["activeAssignmentRules"] = active_assignment_rules
+        __props__["description"] = description
+        __props__["eligibleAssignmentRules"] = eligible_assignment_rules
+        __props__["name"] = name
+        __props__["notificationRules"] = notification_rules
+        __props__["roleDefinitionId"] = role_definition_id
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'azure:pim/roleManagementPolicy:RoleManagementPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationRules")
     def activation_rules(self) -> pulumi.Output['outputs.RoleManagementPolicyActivationRules']:

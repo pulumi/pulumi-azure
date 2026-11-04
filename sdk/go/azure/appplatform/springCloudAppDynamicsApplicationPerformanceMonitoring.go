@@ -225,6 +225,12 @@ func (SpringCloudAppDynamicsApplicationPerformanceMonitoringState) ElementType()
 	return reflect.TypeOf((*springCloudAppDynamicsApplicationPerformanceMonitoringState)(nil)).Elem()
 }
 
+// SpringCloudAppDynamicsApplicationPerformanceMonitoringExists checks whether an existing SpringCloudAppDynamicsApplicationPerformanceMonitoring resource with the given ID exists.
+func SpringCloudAppDynamicsApplicationPerformanceMonitoringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAppDynamicsApplicationPerformanceMonitoringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring", id, state, "", opts...)
+}
+
 type springCloudAppDynamicsApplicationPerformanceMonitoringArgs struct {
 	// Specifies the account access key used to authenticate with the Controller.
 	AgentAccountAccessKey string `pulumi:"agentAccountAccessKey"`

@@ -191,6 +191,12 @@ func (ResolverOutboundEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverOutboundEndpointState)(nil)).Elem()
 }
 
+// ResolverOutboundEndpointExists checks whether an existing ResolverOutboundEndpoint resource with the given ID exists.
+func ResolverOutboundEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverOutboundEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint", id, state, "", opts...)
+}
+
 type resolverOutboundEndpointArgs struct {
 	// Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
 	Location *string `pulumi:"location"`

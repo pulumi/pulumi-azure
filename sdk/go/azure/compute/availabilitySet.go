@@ -174,6 +174,12 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilitySetState)(nil)).Elem()
 }
 
+// AvailabilitySetExists checks whether an existing AvailabilitySet resource with the given ID exists.
+func AvailabilitySetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AvailabilitySetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/availabilitySet:AvailabilitySet", id, state, "", opts...)
+}
+
 type availabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

@@ -184,6 +184,12 @@ func (QueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueState)(nil)).Elem()
 }
 
+// QueueExists checks whether an existing Queue resource with the given ID exists.
+func QueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/queue:Queue", id, state, "", opts...)
+}
+
 type queueArgs struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
 	Metadata map[string]string `pulumi:"metadata"`

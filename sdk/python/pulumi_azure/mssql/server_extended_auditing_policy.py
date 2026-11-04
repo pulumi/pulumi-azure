@@ -751,6 +751,32 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_endpoint"] = storage_endpoint
         return ServerExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auditActionsAndGroups"] = audit_actions_and_groups
+        __props__["enabled"] = enabled
+        __props__["logMonitoringEnabled"] = log_monitoring_enabled
+        __props__["predicateExpression"] = predicate_expression
+        __props__["retentionInDays"] = retention_in_days
+        __props__["serverId"] = server_id
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountAccessKeyIsSecondary"] = storage_account_access_key_is_secondary
+        __props__["storageAccountSubscriptionId"] = storage_account_subscription_id
+        __props__["storageEndpoint"] = storage_endpoint
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="auditActionsAndGroups")
     def audit_actions_and_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:

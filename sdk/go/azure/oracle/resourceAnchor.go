@@ -140,6 +140,12 @@ func (ResourceAnchorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAnchorState)(nil)).Elem()
 }
 
+// ResourceAnchorExists checks whether an existing ResourceAnchor resource with the given ID exists.
+func ResourceAnchorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceAnchorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/resourceAnchor:ResourceAnchor", id, state, "", opts...)
+}
+
 type resourceAnchorArgs struct {
 	// The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
 	Name *string `pulumi:"name"`

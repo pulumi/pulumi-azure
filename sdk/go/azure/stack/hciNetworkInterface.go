@@ -209,6 +209,12 @@ func (HciNetworkInterfaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciNetworkInterfaceState)(nil)).Elem()
 }
 
+// HciNetworkInterfaceExists checks whether an existing HciNetworkInterface resource with the given ID exists.
+func HciNetworkInterfaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciNetworkInterfaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciNetworkInterface:HciNetworkInterface", id, state, "", opts...)
+}
+
 type hciNetworkInterfaceArgs struct {
 	// The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

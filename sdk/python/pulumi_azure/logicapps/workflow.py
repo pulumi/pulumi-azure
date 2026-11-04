@@ -788,6 +788,48 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["workflow_version"] = workflow_version
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_control: pulumi.Input[Optional[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict', 'outputs.WorkflowAccessControl']]] = None,
+            access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connector_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WorkflowIdentityArgs', 'WorkflowIdentityArgsDict', 'outputs.WorkflowIdentity']]] = None,
+            integration_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_integration_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workflow_endpoint_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workflow_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workflow_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workflow_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            workflow_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessControl"] = access_control
+        __props__["accessEndpoint"] = access_endpoint
+        __props__["connectorEndpointIpAddresses"] = connector_endpoint_ip_addresses
+        __props__["connectorOutboundIpAddresses"] = connector_outbound_ip_addresses
+        __props__["enabled"] = enabled
+        __props__["identity"] = identity
+        __props__["integrationServiceEnvironmentId"] = integration_service_environment_id
+        __props__["location"] = location
+        __props__["logicAppIntegrationAccountId"] = logic_app_integration_account_id
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["workflowEndpointIpAddresses"] = workflow_endpoint_ip_addresses
+        __props__["workflowOutboundIpAddresses"] = workflow_outbound_ip_addresses
+        __props__["workflowParameters"] = workflow_parameters
+        __props__["workflowSchema"] = workflow_schema
+        __props__["workflowVersion"] = workflow_version
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/workflow:Workflow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessControl")
     def access_control(self) -> pulumi.Output[Optional['outputs.WorkflowAccessControl']]:

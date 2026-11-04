@@ -346,6 +346,12 @@ func (FlowletDataFlowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowletDataFlowState)(nil)).Elem()
 }
 
+// FlowletDataFlowExists checks whether an existing FlowletDataFlow resource with the given ID exists.
+func FlowletDataFlowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlowletDataFlowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/flowletDataFlow:FlowletDataFlow", id, state, "", opts...)
+}
+
 type flowletDataFlowArgs struct {
 	// List of tags that can be used for describing the Data Factory Flowlet Data Flow.
 	Annotations []string `pulumi:"annotations"`

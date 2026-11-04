@@ -638,6 +638,34 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowTracing"] = allow_tracing
+        __props__["apiId"] = api_id
+        __props__["apiManagementName"] = api_management_name
+        __props__["displayName"] = display_name
+        __props__["primaryKey"] = primary_key
+        __props__["productId"] = product_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryKey"] = secondary_key
+        __props__["state"] = state
+        __props__["subscriptionId"] = subscription_id
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/subscription:Subscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowTracing")
     def allow_tracing(self) -> pulumi.Output[Optional[_builtins.bool]]:

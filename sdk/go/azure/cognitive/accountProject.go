@@ -193,6 +193,12 @@ func (AccountProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountProjectState)(nil)).Elem()
 }
 
+// AccountProjectExists checks whether an existing AccountProject resource with the given ID exists.
+func AccountProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountProject:AccountProject", id, state, "", opts...)
+}
+
 type accountProjectArgs struct {
 	// The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`

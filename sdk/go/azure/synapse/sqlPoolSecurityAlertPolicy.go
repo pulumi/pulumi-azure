@@ -231,6 +231,12 @@ func (SqlPoolSecurityAlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolSecurityAlertPolicyState)(nil)).Elem()
 }
 
+// SqlPoolSecurityAlertPolicyExists checks whether an existing SqlPoolSecurityAlertPolicy resource with the given ID exists.
+func SqlPoolSecurityAlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlPoolSecurityAlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy", id, state, "", opts...)
+}
+
 type sqlPoolSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`

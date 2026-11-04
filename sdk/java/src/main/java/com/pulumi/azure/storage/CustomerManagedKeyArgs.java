@@ -32,39 +32,35 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @deprecated
-     * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyName() {
         return Optional.ofNullable(this.keyName);
     }
 
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -85,58 +81,52 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyVaultUri")
     private @Nullable Output<String> keyVaultUri;
 
     /**
-     * @deprecated
-     * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyVaultUri() {
         return Optional.ofNullable(this.keyVaultUri);
     }
 
     /**
-     * @deprecated
-     * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="keyVersion")
     private @Nullable Output<String> keyVersion;
 
     /**
-     * @deprecated
-     * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> keyVersion() {
         return Optional.ofNullable(this.keyVersion);
     }
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -227,11 +217,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyName(@Nullable Output<String> keyName) {
             $.keyName = keyName;
             return this;
@@ -240,11 +229,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyName(String keyName) {
             return keyName(Output.of(keyName));
         }
@@ -252,11 +240,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
@@ -265,11 +252,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }
@@ -298,11 +284,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultUri(@Nullable Output<String> keyVaultUri) {
             $.keyVaultUri = keyVaultUri;
             return this;
@@ -311,11 +296,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVaultUri(String keyVaultUri) {
             return keyVaultUri(Output.of(keyVaultUri));
         }
@@ -323,11 +307,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVersion(@Nullable Output<String> keyVersion) {
             $.keyVersion = keyVersion;
             return this;
@@ -336,11 +319,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder keyVersion(String keyVersion) {
             return keyVersion(Output.of(keyVersion));
         }
@@ -348,11 +330,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
@@ -361,11 +342,10 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

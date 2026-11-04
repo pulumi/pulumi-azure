@@ -163,6 +163,12 @@ func (FlexibleDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleDatabaseState)(nil)).Elem()
 }
 
+// FlexibleDatabaseExists checks whether an existing FlexibleDatabase resource with the given ID exists.
+func FlexibleDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mysql/flexibleDatabase:FlexibleDatabase", id, state, "", opts...)
+}
+
 type flexibleDatabaseArgs struct {
 	// Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
 	Charset string `pulumi:"charset"`

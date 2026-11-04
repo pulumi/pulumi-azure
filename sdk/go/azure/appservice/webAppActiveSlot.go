@@ -221,6 +221,12 @@ func (WebAppActiveSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppActiveSlotState)(nil)).Elem()
 }
 
+// WebAppActiveSlotExists checks whether an existing WebAppActiveSlot resource with the given ID exists.
+func WebAppActiveSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppActiveSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/webAppActiveSlot:WebAppActiveSlot", id, state, "", opts...)
+}
+
 type webAppActiveSlotArgs struct {
 	// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
 	OverwriteNetworkConfig *bool `pulumi:"overwriteNetworkConfig"`

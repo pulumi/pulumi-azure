@@ -498,6 +498,28 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         __props__.__dict__["resource_count"] = resource_count
         return GroupPolicyRemediation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            failure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            location_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+            policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_count: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["failurePercentage"] = failure_percentage
+        __props__["locationFilters"] = location_filters
+        __props__["managementGroupId"] = management_group_id
+        __props__["name"] = name
+        __props__["parallelDeployments"] = parallel_deployments
+        __props__["policyAssignmentId"] = policy_assignment_id
+        __props__["policyDefinitionReferenceId"] = policy_definition_reference_id
+        __props__["resourceCount"] = resource_count
+        return pulumi.runtime.exists_resource(None, 'azure:management/groupPolicyRemediation:GroupPolicyRemediation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> pulumi.Output[Optional[_builtins.float]]:

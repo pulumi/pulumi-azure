@@ -547,6 +547,24 @@ class Experiment(pulumi.CustomResource):
         __props__.__dict__["steps"] = steps
         return Experiment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["selectors"] = selectors
+        __props__["steps"] = steps
+        return pulumi.runtime.exists_resource(None, 'azure:chaosstudio/experiment:Experiment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ExperimentIdentity']]:

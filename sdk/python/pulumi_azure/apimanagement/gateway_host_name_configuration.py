@@ -579,6 +579,30 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         __props__.__dict__["tls11_enabled"] = tls11_enabled
         return GatewayHostNameConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementId"] = api_management_id
+        __props__["certificateId"] = certificate_id
+        __props__["gatewayName"] = gateway_name
+        __props__["hostName"] = host_name
+        __props__["http2Enabled"] = http2_enabled
+        __props__["name"] = name
+        __props__["requestClientCertificateEnabled"] = request_client_certificate_enabled
+        __props__["tls10Enabled"] = tls10_enabled
+        __props__["tls11Enabled"] = tls11_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[_builtins.str]:

@@ -366,6 +366,16 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         __props__.__dict__["private_endpoint_id"] = private_endpoint_id
         return ApplicationSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationSecurityGroupId"] = application_security_group_id
+        __props__["privateEndpointId"] = private_endpoint_id
+        return pulumi.runtime.exists_resource(None, 'azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationSecurityGroupId")
     def application_security_group_id(self) -> pulumi.Output[_builtins.str]:

@@ -1090,6 +1090,60 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_stop_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_ingestion_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]] = None,
+            language_extension: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict', 'outputs.ClusterLanguageExtension']]]]] = None,
+            language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict', 'outputs.ClusterLanguageExtension']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optimized_auto_scale: pulumi.Input[Optional[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict', 'outputs.ClusterOptimizedAutoScale']]] = None,
+            outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_ip_type: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ClusterSkuArgs', 'ClusterSkuArgsDict', 'outputs.ClusterSku']]] = None,
+            streaming_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_configuration: pulumi.Input[Optional[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict', 'outputs.ClusterVirtualNetworkConfiguration']]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedFqdns"] = allowed_fqdns
+        __props__["allowedIpRanges"] = allowed_ip_ranges
+        __props__["autoStopEnabled"] = auto_stop_enabled
+        __props__["dataIngestionUri"] = data_ingestion_uri
+        __props__["diskEncryptionEnabled"] = disk_encryption_enabled
+        __props__["doubleEncryptionEnabled"] = double_encryption_enabled
+        __props__["identity"] = identity
+        __props__["languageExtension"] = language_extension
+        __props__["languageExtensions"] = language_extensions
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["optimizedAutoScale"] = optimized_auto_scale
+        __props__["outboundNetworkAccessRestricted"] = outbound_network_access_restricted
+        __props__["publicIpType"] = public_ip_type
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["purgeEnabled"] = purge_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["streamingIngestionEnabled"] = streaming_ingestion_enabled
+        __props__["tags"] = tags
+        __props__["trustedExternalTenants"] = trusted_external_tenants
+        __props__["uri"] = uri
+        __props__["virtualNetworkConfiguration"] = virtual_network_configuration
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedFqdns")
     def allowed_fqdns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

@@ -227,6 +227,12 @@ func (TriggerCustomEventState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerCustomEventState)(nil)).Elem()
 }
 
+// TriggerCustomEventExists checks whether an existing TriggerCustomEvent resource with the given ID exists.
+func TriggerCustomEventExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerCustomEventState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/triggerCustomEvent:TriggerCustomEvent", id, state, "", opts...)
+}
+
 type triggerCustomEventArgs struct {
 	// Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
 	Activated *bool `pulumi:"activated"`

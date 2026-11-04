@@ -172,6 +172,12 @@ func (LoadTestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadTestState)(nil)).Elem()
 }
 
+// LoadTestExists checks whether an existing LoadTest resource with the given ID exists.
+func LoadTestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadTestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loadtest/loadTest:LoadTest", id, state, "", opts...)
+}
+
 type loadTestArgs struct {
 	// Description of the resource.
 	Description *string `pulumi:"description"`

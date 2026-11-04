@@ -308,6 +308,12 @@ func (NetappVolumeAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*netappVolumeAttachmentState)(nil)).Elem()
 }
 
+// NetappVolumeAttachmentExists checks whether an existing NetappVolumeAttachment resource with the given ID exists.
+func NetappVolumeAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetappVolumeAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", id, state, "", opts...)
+}
+
 type netappVolumeAttachmentArgs struct {
 	// The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
 	Name *string `pulumi:"name"`

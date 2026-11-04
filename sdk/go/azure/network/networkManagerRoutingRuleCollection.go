@@ -183,6 +183,12 @@ func (NetworkManagerRoutingRuleCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerRoutingRuleCollectionState)(nil)).Elem()
 }
 
+// NetworkManagerRoutingRuleCollectionExists checks whether an existing NetworkManagerRoutingRuleCollection resource with the given ID exists.
+func NetworkManagerRoutingRuleCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerRoutingRuleCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection", id, state, "", opts...)
+}
+
 type networkManagerRoutingRuleCollectionArgs struct {
 	// Whether to enable the BGP route propagation. Defaults to `false`.
 	BgpRoutePropagationEnabled *bool `pulumi:"bgpRoutePropagationEnabled"`

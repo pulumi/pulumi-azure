@@ -225,6 +225,12 @@ func (CustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerManagedKeyState)(nil)).Elem()
 }
 
+// CustomerManagedKeyExists checks whether an existing CustomerManagedKey resource with the given ID exists.
+func CustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/customerManagedKey:CustomerManagedKey", id, state, "", opts...)
+}
+
 type customerManagedKeyArgs struct {
 	// The ID the of the Customer Managed Key to associate with the Data Factory.
 	CustomerManagedKeyId string `pulumi:"customerManagedKeyId"`

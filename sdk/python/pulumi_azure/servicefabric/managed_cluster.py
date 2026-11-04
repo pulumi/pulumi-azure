@@ -914,6 +914,48 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']]] = None,
+            backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
+            lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authentication"] = authentication
+        __props__["backupServiceEnabled"] = backup_service_enabled
+        __props__["clientConnectionPort"] = client_connection_port
+        __props__["customFabricSettings"] = custom_fabric_settings
+        __props__["dnsName"] = dns_name
+        __props__["dnsServiceEnabled"] = dns_service_enabled
+        __props__["httpGatewayPort"] = http_gateway_port
+        __props__["lbRules"] = lb_rules
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["nodeTypes"] = node_types
+        __props__["password"] = password
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["upgradeWave"] = upgrade_wave
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azure:servicefabric/managedCluster:ManagedCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> pulumi.Output[Optional['outputs.ManagedClusterAuthentication']]:

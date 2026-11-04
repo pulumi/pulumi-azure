@@ -174,6 +174,12 @@ func (NetworkSecurityPerimeterAccessRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityPerimeterAccessRuleState)(nil)).Elem()
 }
 
+// NetworkSecurityPerimeterAccessRuleExists checks whether an existing NetworkSecurityPerimeterAccessRule resource with the given ID exists.
+func NetworkSecurityPerimeterAccessRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityPerimeterAccessRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule", id, state, "", opts...)
+}
+
 type networkSecurityPerimeterAccessRuleArgs struct {
 	// Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `serviceTags`, `subscriptionIds`.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`

@@ -159,6 +159,12 @@ func (AlertRuleFusionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleFusionState)(nil)).Elem()
 }
 
+// AlertRuleFusionExists checks whether an existing AlertRuleFusion resource with the given ID exists.
+func AlertRuleFusionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleFusionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleFusion:AlertRuleFusion", id, state, "", opts...)
+}
+
 type alertRuleFusionArgs struct {
 	// The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	AlertRuleTemplateGuid string `pulumi:"alertRuleTemplateGuid"`

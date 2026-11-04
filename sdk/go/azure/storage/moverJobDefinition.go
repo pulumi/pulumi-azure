@@ -244,6 +244,12 @@ func (MoverJobDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moverJobDefinitionState)(nil)).Elem()
 }
 
+// MoverJobDefinitionExists checks whether an existing MoverJobDefinition resource with the given ID exists.
+func MoverJobDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MoverJobDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/moverJobDefinition:MoverJobDefinition", id, state, "", opts...)
+}
+
 type moverJobDefinitionArgs struct {
 	// Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
 	AgentName *string `pulumi:"agentName"`

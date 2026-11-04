@@ -1068,6 +1068,54 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_failure_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_encryption_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            hosting_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            query_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceQueryKeyArgs', 'ServiceQueryKeyArgsDict', 'outputs.ServiceQueryKey']]]]] = None,
+            replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            semantic_search_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedIps"] = allowed_ips
+        __props__["authenticationFailureMode"] = authentication_failure_mode
+        __props__["customerManagedKeyEncryptionComplianceStatus"] = customer_managed_key_encryption_compliance_status
+        __props__["customerManagedKeyEnforcementEnabled"] = customer_managed_key_enforcement_enabled
+        __props__["endpoint"] = endpoint
+        __props__["hostingMode"] = hosting_mode
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkRuleBypassOption"] = network_rule_bypass_option
+        __props__["partitionCount"] = partition_count
+        __props__["primaryKey"] = primary_key
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["queryKeys"] = query_keys
+        __props__["replicaCount"] = replica_count
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryKey"] = secondary_key
+        __props__["semanticSearchSku"] = semantic_search_sku
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:search/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedIps")
     def allowed_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

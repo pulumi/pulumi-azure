@@ -494,6 +494,30 @@ class AnalyticsItem(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return AnalyticsItem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            time_created: pulumi.Input[Optional[_builtins.str]] = None,
+            time_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationInsightsId"] = application_insights_id
+        __props__["content"] = content
+        __props__["functionAlias"] = function_alias
+        __props__["name"] = name
+        __props__["scope"] = scope
+        __props__["timeCreated"] = time_created
+        __props__["timeModified"] = time_modified
+        __props__["type"] = type
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:appinsights/analyticsItem:AnalyticsItem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
     def application_insights_id(self) -> pulumi.Output[_builtins.str]:

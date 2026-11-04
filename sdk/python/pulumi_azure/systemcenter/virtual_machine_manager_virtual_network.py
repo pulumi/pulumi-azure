@@ -427,6 +427,24 @@ class VirtualMachineManagerVirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return VirtualMachineManagerVirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            system_center_virtual_machine_manager_server_inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customLocationId"] = custom_location_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["systemCenterVirtualMachineManagerServerInventoryItemId"] = system_center_virtual_machine_manager_server_inventory_item_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customLocationId")
     def custom_location_id(self) -> pulumi.Output[_builtins.str]:

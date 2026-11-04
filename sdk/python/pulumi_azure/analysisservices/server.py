@@ -620,6 +620,34 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminUsers"] = admin_users
+        __props__["backupBlobContainerUri"] = backup_blob_container_uri
+        __props__["ipv4FirewallRules"] = ipv4_firewall_rules
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["powerBiServiceEnabled"] = power_bi_service_enabled
+        __props__["querypoolConnectionMode"] = querypool_connection_mode
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverFullName"] = server_full_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:analysisservices/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminUsers")
     def admin_users(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

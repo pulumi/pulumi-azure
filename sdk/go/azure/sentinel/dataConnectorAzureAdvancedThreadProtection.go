@@ -145,6 +145,12 @@ func (DataConnectorAzureAdvancedThreadProtectionState) ElementType() reflect.Typ
 	return reflect.TypeOf((*dataConnectorAzureAdvancedThreadProtectionState)(nil)).Elem()
 }
 
+// DataConnectorAzureAdvancedThreadProtectionExists checks whether an existing DataConnectorAzureAdvancedThreadProtection resource with the given ID exists.
+func DataConnectorAzureAdvancedThreadProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorAzureAdvancedThreadProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection", id, state, "", opts...)
+}
+
 type dataConnectorAzureAdvancedThreadProtectionArgs struct {
 	// The ID of the Log Analytics Workspace that this Azure Advanced Threat Protection Data Connector resides in. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

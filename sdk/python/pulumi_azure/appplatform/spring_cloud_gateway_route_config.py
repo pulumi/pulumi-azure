@@ -587,6 +587,30 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         __props__.__dict__["sso_validation_enabled"] = sso_validation_enabled
         return SpringCloudGatewayRouteConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_api: pulumi.Input[Optional[Union['SpringCloudGatewayRouteConfigOpenApiArgs', 'SpringCloudGatewayRouteConfigOpenApiArgsDict', 'outputs.SpringCloudGatewayRouteConfigOpenApi']]] = None,
+            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudGatewayRouteConfigRouteArgs', 'SpringCloudGatewayRouteConfigRouteArgsDict', 'outputs.SpringCloudGatewayRouteConfigRoute']]]]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_validation_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["filters"] = filters
+        __props__["name"] = name
+        __props__["openApi"] = open_api
+        __props__["predicates"] = predicates
+        __props__["protocol"] = protocol
+        __props__["routes"] = routes
+        __props__["springCloudAppId"] = spring_cloud_app_id
+        __props__["springCloudGatewayId"] = spring_cloud_gateway_id
+        __props__["ssoValidationEnabled"] = sso_validation_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

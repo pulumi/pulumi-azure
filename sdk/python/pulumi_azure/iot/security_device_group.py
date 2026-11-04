@@ -357,6 +357,20 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         __props__.__dict__["range_rules"] = range_rules
         return SecurityDeviceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_rule: pulumi.Input[Optional[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict', 'outputs.SecurityDeviceGroupAllowRule']]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            range_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict', 'outputs.SecurityDeviceGroupRangeRule']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowRule"] = allow_rule
+        __props__["iothubId"] = iothub_id
+        __props__["name"] = name
+        __props__["rangeRules"] = range_rules
+        return pulumi.runtime.exists_resource(None, 'azure:iot/securityDeviceGroup:SecurityDeviceGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowRule")
     def allow_rule(self) -> pulumi.Output[Optional['outputs.SecurityDeviceGroupAllowRule']]:

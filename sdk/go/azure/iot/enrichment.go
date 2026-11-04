@@ -212,6 +212,12 @@ func (EnrichmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enrichmentState)(nil)).Elem()
 }
 
+// EnrichmentExists checks whether an existing Enrichment resource with the given ID exists.
+func EnrichmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnrichmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/enrichment:Enrichment", id, state, "", opts...)
+}
+
 type enrichmentArgs struct {
 	// The list of endpoints which will be enriched.
 	EndpointNames []string `pulumi:"endpointNames"`

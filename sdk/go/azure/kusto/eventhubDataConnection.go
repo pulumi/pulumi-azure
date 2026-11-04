@@ -272,6 +272,12 @@ func (EventhubDataConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubDataConnectionState)(nil)).Elem()
 }
 
+// EventhubDataConnectionExists checks whether an existing EventhubDataConnection resource with the given ID exists.
+func EventhubDataConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventhubDataConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", id, state, "", opts...)
+}
+
 type eventhubDataConnectionArgs struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`

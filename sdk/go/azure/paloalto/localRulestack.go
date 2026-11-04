@@ -171,6 +171,12 @@ func (LocalRulestackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRulestackState)(nil)).Elem()
 }
 
+// LocalRulestackExists checks whether an existing LocalRulestack resource with the given ID exists.
+func LocalRulestackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestack:LocalRulestack", id, state, "", opts...)
+}
+
 type localRulestackArgs struct {
 	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile *string `pulumi:"antiSpywareProfile"`

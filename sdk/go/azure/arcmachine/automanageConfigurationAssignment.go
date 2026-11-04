@@ -149,6 +149,12 @@ func (AutomanageConfigurationAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automanageConfigurationAssignmentState)(nil)).Elem()
 }
 
+// AutomanageConfigurationAssignmentExists checks whether an existing AutomanageConfigurationAssignment resource with the given ID exists.
+func AutomanageConfigurationAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomanageConfigurationAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment", id, state, "", opts...)
+}
+
 type automanageConfigurationAssignmentArgs struct {
 	// The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
 	ArcMachineId string `pulumi:"arcMachineId"`

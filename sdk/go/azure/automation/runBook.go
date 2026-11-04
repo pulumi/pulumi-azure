@@ -241,6 +241,12 @@ func (RunBookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runBookState)(nil)).Elem()
 }
 
+// RunBookExists checks whether an existing RunBook resource with the given ID exists.
+func RunBookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RunBookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/runBook:RunBook", id, state, "", opts...)
+}
+
 type runBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

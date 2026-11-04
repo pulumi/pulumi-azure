@@ -183,6 +183,12 @@ func (DatasetSqlServerTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetSqlServerTableState)(nil)).Elem()
 }
 
+// DatasetSqlServerTableExists checks whether an existing DatasetSqlServerTable resource with the given ID exists.
+func DatasetSqlServerTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetSqlServerTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", id, state, "", opts...)
+}
+
 type datasetSqlServerTableArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

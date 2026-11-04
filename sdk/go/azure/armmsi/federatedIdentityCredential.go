@@ -170,6 +170,12 @@ func (FederatedIdentityCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedIdentityCredentialState)(nil)).Elem()
 }
 
+// FederatedIdentityCredentialExists checks whether an existing FederatedIdentityCredential resource with the given ID exists.
+func FederatedIdentityCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedIdentityCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", id, state, "", opts...)
+}
+
 type federatedIdentityCredentialArgs struct {
 	// Specifies the audience for this Federated Identity Credential.
 	Audience string `pulumi:"audience"`

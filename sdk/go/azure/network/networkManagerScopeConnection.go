@@ -185,6 +185,12 @@ func (NetworkManagerScopeConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerScopeConnectionState)(nil)).Elem()
 }
 
+// NetworkManagerScopeConnectionExists checks whether an existing NetworkManagerScopeConnection resource with the given ID exists.
+func NetworkManagerScopeConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerScopeConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection", id, state, "", opts...)
+}
+
 type networkManagerScopeConnectionArgs struct {
 	// A description of the Network Manager Scope Connection.
 	Description *string `pulumi:"description"`

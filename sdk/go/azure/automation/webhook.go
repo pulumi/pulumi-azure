@@ -212,6 +212,12 @@ func (WebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookState)(nil)).Elem()
 }
 
+// WebhookExists checks whether an existing Webhook resource with the given ID exists.
+func WebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/webhook:Webhook", id, state, "", opts...)
+}
+
 type webhookArgs struct {
 	// The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

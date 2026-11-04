@@ -417,6 +417,24 @@ class ChannelSms(pulumi.CustomResource):
         __props__.__dict__["sms_channel_auth_token"] = sms_channel_auth_token
         return ChannelSms(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_channel_account_security_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_channel_auth_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["location"] = location
+        __props__["phoneNumber"] = phone_number
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["smsChannelAccountSecurityId"] = sms_channel_account_security_id
+        __props__["smsChannelAuthToken"] = sms_channel_auth_token
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelSms:ChannelSms', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

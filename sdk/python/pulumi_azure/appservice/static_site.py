@@ -517,6 +517,32 @@ class StaticSite(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return StaticSite(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            default_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_size: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["appSettings"] = app_settings
+        __props__["defaultHostName"] = default_host_name
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuSize"] = sku_size
+        __props__["skuTier"] = sku_tier
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/staticSite:StaticSite', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

@@ -421,6 +421,24 @@ class DataConnectorOffice365(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return DataConnectorOffice365(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            exchange_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sharepoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            teams_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["exchangeEnabled"] = exchange_enabled
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["sharepointEnabled"] = sharepoint_enabled
+        __props__["teamsEnabled"] = teams_enabled
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/dataConnectorOffice365:DataConnectorOffice365', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="exchangeEnabled")
     def exchange_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

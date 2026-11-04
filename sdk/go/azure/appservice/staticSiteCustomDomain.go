@@ -225,6 +225,12 @@ func (StaticSiteCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticSiteCustomDomainState)(nil)).Elem()
 }
 
+// StaticSiteCustomDomainExists checks whether an existing StaticSiteCustomDomain resource with the given ID exists.
+func StaticSiteCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticSiteCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain", id, state, "", opts...)
+}
+
 type staticSiteCustomDomainArgs struct {
 	// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
 	DomainName string `pulumi:"domainName"`

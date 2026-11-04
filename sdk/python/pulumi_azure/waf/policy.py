@@ -651,6 +651,30 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict', 'outputs.PolicyCustomRule']]]]] = None,
+            http_listener_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_rules: pulumi.Input[Optional[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict', 'outputs.PolicyManagedRules']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path_based_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_settings: pulumi.Input[Optional[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict', 'outputs.PolicyPolicySettings']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customRules"] = custom_rules
+        __props__["httpListenerIds"] = http_listener_ids
+        __props__["location"] = location
+        __props__["managedRules"] = managed_rules
+        __props__["name"] = name
+        __props__["pathBasedRuleIds"] = path_based_rule_ids
+        __props__["policySettings"] = policy_settings
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:waf/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyCustomRule']]]:

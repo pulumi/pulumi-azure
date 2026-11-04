@@ -205,6 +205,12 @@ func (EnvironmentDaprComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentDaprComponentState)(nil)).Elem()
 }
 
+// EnvironmentDaprComponentExists checks whether an existing EnvironmentDaprComponent resource with the given ID exists.
+func EnvironmentDaprComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentDaprComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent", id, state, "", opts...)
+}
+
 type environmentDaprComponentArgs struct {
 	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType string `pulumi:"componentType"`

@@ -200,6 +200,12 @@ func (BackupPolicyKubernetesClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyKubernetesClusterState)(nil)).Elem()
 }
 
+// BackupPolicyKubernetesClusterExists checks whether an existing BackupPolicyKubernetesCluster resource with the given ID exists.
+func BackupPolicyKubernetesClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyKubernetesClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster", id, state, "", opts...)
+}
+
 type backupPolicyKubernetesClusterArgs struct {
 	// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

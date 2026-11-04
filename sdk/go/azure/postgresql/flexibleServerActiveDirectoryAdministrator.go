@@ -119,6 +119,12 @@ func (FlexibleServerActiveDirectoryAdministratorState) ElementType() reflect.Typ
 	return reflect.TypeOf((*flexibleServerActiveDirectoryAdministratorState)(nil)).Elem()
 }
 
+// FlexibleServerActiveDirectoryAdministratorExists checks whether an existing FlexibleServerActiveDirectoryAdministrator resource with the given ID exists.
+func FlexibleServerActiveDirectoryAdministratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerActiveDirectoryAdministratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", id, state, "", opts...)
+}
+
 type flexibleServerActiveDirectoryAdministratorArgs struct {
 	// The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
 	ObjectId string `pulumi:"objectId"`

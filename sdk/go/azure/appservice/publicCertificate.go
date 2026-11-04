@@ -189,6 +189,12 @@ func (PublicCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicCertificateState)(nil)).Elem()
 }
 
+// PublicCertificateExists checks whether an existing PublicCertificate resource with the given ID exists.
+func PublicCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/publicCertificate:PublicCertificate", id, state, "", opts...)
+}
+
 type publicCertificateArgs struct {
 	// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
 	AppServiceName string `pulumi:"appServiceName"`

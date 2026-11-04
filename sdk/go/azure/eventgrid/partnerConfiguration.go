@@ -144,6 +144,12 @@ func (PartnerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*partnerConfigurationState)(nil)).Elem()
 }
 
+// PartnerConfigurationExists checks whether an existing PartnerConfiguration resource with the given ID exists.
+func PartnerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PartnerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/partnerConfiguration:PartnerConfiguration", id, state, "", opts...)
+}
+
 type partnerConfigurationArgs struct {
 	// Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
 	DefaultMaximumExpirationTimeInDays *int `pulumi:"defaultMaximumExpirationTimeInDays"`

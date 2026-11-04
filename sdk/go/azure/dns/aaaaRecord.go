@@ -240,6 +240,12 @@ func (AaaaRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aaaaRecordState)(nil)).Elem()
 }
 
+// AaaaRecordExists checks whether an existing AaaaRecord resource with the given ID exists.
+func AaaaRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AaaaRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/aaaaRecord:AaaaRecord", id, state, "", opts...)
+}
+
 type aaaaRecordArgs struct {
 	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

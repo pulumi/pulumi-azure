@@ -433,6 +433,24 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Profile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_network_interface: pulumi.Input[Optional[Union['ProfileContainerNetworkInterfaceArgs', 'ProfileContainerNetworkInterfaceArgsDict', 'outputs.ProfileContainerNetworkInterface']]] = None,
+            container_network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerNetworkInterface"] = container_network_interface
+        __props__["containerNetworkInterfaceIds"] = container_network_interface_ids
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/profile:Profile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerNetworkInterface")
     def container_network_interface(self) -> pulumi.Output['outputs.ProfileContainerNetworkInterface']:

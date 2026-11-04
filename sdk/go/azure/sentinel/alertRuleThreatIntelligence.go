@@ -166,6 +166,12 @@ func (AlertRuleThreatIntelligenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleThreatIntelligenceState)(nil)).Elem()
 }
 
+// AlertRuleThreatIntelligenceExists checks whether an existing AlertRuleThreatIntelligence resource with the given ID exists.
+func AlertRuleThreatIntelligenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleThreatIntelligenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence", id, state, "", opts...)
+}
+
 type alertRuleThreatIntelligenceArgs struct {
 	// The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
 	AlertRuleTemplateGuid string `pulumi:"alertRuleTemplateGuid"`

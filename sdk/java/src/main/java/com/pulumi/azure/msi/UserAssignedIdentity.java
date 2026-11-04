@@ -81,11 +81,10 @@ import javax.annotation.Nullable;
  * * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`.
  * * Where `{userAssignedIdentityName}` is the name of the User Assigned Identity. For example `userAssignedIdentityValue`.
  * 
- * @deprecated
- * azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
+ * @deprecated azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
  * 
  */
-@Deprecated /* azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity */
+@Deprecated
 @ResourceType(type="azure:msi/userAssignedIdentity:UserAssignedIdentity")
 public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
     /**

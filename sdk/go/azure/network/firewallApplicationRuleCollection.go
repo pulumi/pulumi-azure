@@ -227,6 +227,12 @@ func (FirewallApplicationRuleCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallApplicationRuleCollectionState)(nil)).Elem()
 }
 
+// FirewallApplicationRuleCollectionExists checks whether an existing FirewallApplicationRuleCollection resource with the given ID exists.
+func FirewallApplicationRuleCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallApplicationRuleCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection", id, state, "", opts...)
+}
+
 type firewallApplicationRuleCollectionArgs struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
 	Action string `pulumi:"action"`

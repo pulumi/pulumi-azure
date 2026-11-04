@@ -858,6 +858,36 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return SingleNodeVirtualInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_location: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            sap_product: pulumi.Input[Optional[_builtins.str]] = None,
+            single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appLocation"] = app_location
+        __props__["environment"] = environment
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["managedResourceGroupName"] = managed_resource_group_name
+        __props__["managedResourcesNetworkAccessType"] = managed_resources_network_access_type
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sapFqdn"] = sap_fqdn
+        __props__["sapProduct"] = sap_product
+        __props__["singleServerConfiguration"] = single_server_configuration
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appLocation")
     def app_location(self) -> pulumi.Output[_builtins.str]:

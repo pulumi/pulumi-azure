@@ -256,6 +256,12 @@ func (PolicyVMState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyVMState)(nil)).Elem()
 }
 
+// PolicyVMExists checks whether an existing PolicyVM resource with the given ID exists.
+func PolicyVMExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyVMState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/policyVM:PolicyVM", id, state, "", opts...)
+}
+
 type policyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackup `pulumi:"backup"`

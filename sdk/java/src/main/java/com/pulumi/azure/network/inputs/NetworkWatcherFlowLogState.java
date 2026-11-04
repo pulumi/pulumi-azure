@@ -66,20 +66,18 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="networkSecurityGroupId")
     private @Nullable Output<String> networkSecurityGroupId;
 
     /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<Output<String>> networkSecurityGroupId() {
         return Optional.ofNullable(this.networkSecurityGroupId);
     }
@@ -309,11 +307,10 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+         * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
             $.networkSecurityGroupId = networkSecurityGroupId;
             return this;
@@ -322,11 +319,10 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         /**
          * @return builder
          * 
-         * @deprecated
-         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+         * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }

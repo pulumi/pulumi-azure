@@ -240,6 +240,12 @@ func (WorkbookTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workbookTemplateState)(nil)).Elem()
 }
 
+// WorkbookTemplateExists checks whether an existing WorkbookTemplate resource with the given ID exists.
+func WorkbookTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkbookTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/workbookTemplate:WorkbookTemplate", id, state, "", opts...)
+}
+
 type workbookTemplateArgs struct {
 	// Information about the author of the workbook template.
 	Author *string `pulumi:"author"`

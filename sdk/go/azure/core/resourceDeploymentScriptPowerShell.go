@@ -256,6 +256,12 @@ func (ResourceDeploymentScriptPowerShellState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDeploymentScriptPowerShellState)(nil)).Elem()
 }
 
+// ResourceDeploymentScriptPowerShellExists checks whether an existing ResourceDeploymentScriptPowerShell resource with the given ID exists.
+func ResourceDeploymentScriptPowerShellExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceDeploymentScriptPowerShellState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", id, state, "", opts...)
+}
+
 type resourceDeploymentScriptPowerShellArgs struct {
 	// Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
 	CleanupPreference *string `pulumi:"cleanupPreference"`

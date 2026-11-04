@@ -105,6 +105,12 @@ func (HciDeploymentSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciDeploymentSettingState)(nil)).Elem()
 }
 
+// HciDeploymentSettingExists checks whether an existing HciDeploymentSetting resource with the given ID exists.
+func HciDeploymentSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciDeploymentSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciDeploymentSetting:HciDeploymentSetting", id, state, "", opts...)
+}
+
 type hciDeploymentSettingArgs struct {
 	// Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
 	ArcResourceIds []string `pulumi:"arcResourceIds"`

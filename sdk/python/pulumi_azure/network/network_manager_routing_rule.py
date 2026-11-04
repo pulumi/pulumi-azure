@@ -424,6 +424,22 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
         __props__.__dict__["rule_collection_id"] = rule_collection_id
         return NetworkManagerRoutingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']]] = None,
+            rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["destination"] = destination
+        __props__["name"] = name
+        __props__["nextHop"] = next_hop
+        __props__["ruleCollectionId"] = rule_collection_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

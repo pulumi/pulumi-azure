@@ -33,7 +33,6 @@ namespace Pulumi.Azure.ContainerApp
         /// });
         /// ```
         /// 
-        /// 
         /// ## API Providers
         /// 
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -68,7 +67,6 @@ namespace Pulumi.Azure.ContainerApp
         /// });
         /// ```
         /// 
-        /// 
         /// ## API Providers
         /// 
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -102,7 +100,6 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// });
         /// ```
-        /// 
         /// 
         /// ## API Providers
         /// 

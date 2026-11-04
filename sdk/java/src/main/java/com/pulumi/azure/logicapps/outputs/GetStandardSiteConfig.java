@@ -87,11 +87,10 @@ public final class GetStandardSiteConfig {
      */
     private Integer preWarmedInstanceCount;
     /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     private Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
@@ -239,11 +238,10 @@ public final class GetStandardSiteConfig {
         return this.preWarmedInstanceCount;
     }
     /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }

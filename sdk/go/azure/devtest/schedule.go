@@ -218,6 +218,12 @@ func (ScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleState)(nil)).Elem()
 }
 
+// ScheduleExists checks whether an existing Schedule resource with the given ID exists.
+func ScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devtest/schedule:Schedule", id, state, "", opts...)
+}
+
 type scheduleArgs struct {
 	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
 	DailyRecurrence *ScheduleDailyRecurrence `pulumi:"dailyRecurrence"`

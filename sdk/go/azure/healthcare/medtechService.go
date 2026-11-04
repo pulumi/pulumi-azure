@@ -219,6 +219,12 @@ func (MedtechServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*medtechServiceState)(nil)).Elem()
 }
 
+// MedtechServiceExists checks whether an existing MedtechService resource with the given ID exists.
+func MedtechServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MedtechServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:healthcare/medtechService:MedtechService", id, state, "", opts...)
+}
+
 type medtechServiceArgs struct {
 	// Specifies the Device Mappings of the Med Tech Service.
 	DeviceMappingJson string `pulumi:"deviceMappingJson"`

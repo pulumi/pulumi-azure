@@ -780,6 +780,40 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["resource_selectors"] = resource_selectors
         return ResourceGroupPolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ResourceGroupPolicyAssignmentIdentityArgs', 'ResourceGroupPolicyAssignmentIdentityArgsDict', 'outputs.ResourceGroupPolicyAssignmentIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupPolicyAssignmentNonComplianceMessageArgs', 'ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.ResourceGroupPolicyAssignmentNonComplianceMessage']]]]] = None,
+            not_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupPolicyAssignmentOverrideArgs', 'ResourceGroupPolicyAssignmentOverrideArgsDict', 'outputs.ResourceGroupPolicyAssignmentOverride']]]]] = None,
+            parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupPolicyAssignmentResourceSelectorArgs', 'ResourceGroupPolicyAssignmentResourceSelectorArgsDict', 'outputs.ResourceGroupPolicyAssignmentResourceSelector']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["enforce"] = enforce
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["nonComplianceMessages"] = non_compliance_messages
+        __props__["notScopes"] = not_scopes
+        __props__["overrides"] = overrides
+        __props__["parameters"] = parameters
+        __props__["policyDefinitionId"] = policy_definition_id
+        __props__["resourceGroupId"] = resource_group_id
+        __props__["resourceSelectors"] = resource_selectors
+        return pulumi.runtime.exists_resource(None, 'azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

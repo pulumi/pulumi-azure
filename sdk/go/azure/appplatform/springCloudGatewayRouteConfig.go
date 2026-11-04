@@ -217,6 +217,12 @@ func (SpringCloudGatewayRouteConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudGatewayRouteConfigState)(nil)).Elem()
 }
 
+// SpringCloudGatewayRouteConfigExists checks whether an existing SpringCloudGatewayRouteConfig resource with the given ID exists.
+func SpringCloudGatewayRouteConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudGatewayRouteConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", id, state, "", opts...)
+}
+
 type springCloudGatewayRouteConfigArgs struct {
 	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
 	Filters []string `pulumi:"filters"`

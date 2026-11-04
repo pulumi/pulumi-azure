@@ -238,6 +238,12 @@ func (ReferenceInputBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceInputBlobState)(nil)).Elem()
 }
 
+// ReferenceInputBlobExists checks whether an existing ReferenceInputBlob resource with the given ID exists.
+func ReferenceInputBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReferenceInputBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob", id, state, "", opts...)
+}
+
 type referenceInputBlobArgs struct {
 	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

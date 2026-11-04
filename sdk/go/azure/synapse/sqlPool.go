@@ -211,6 +211,12 @@ func (SqlPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolState)(nil)).Elem()
 }
 
+// SqlPoolExists checks whether an existing SqlPool resource with the given ID exists.
+func SqlPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sqlPool:SqlPool", id, state, "", opts...)
+}
+
 type sqlPoolArgs struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
 	Collation *string `pulumi:"collation"`

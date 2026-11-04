@@ -358,6 +358,20 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
         __props__.__dict__["dns_suffix"] = dns_suffix
         return EnvironmentCustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_suffix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateBlobBase64"] = certificate_blob_base64
+        __props__["certificatePassword"] = certificate_password
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["dnsSuffix"] = dns_suffix
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
     def certificate_blob_base64(self) -> pulumi.Output[_builtins.str]:

@@ -347,6 +347,12 @@ func (NetworkManagerDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerDeploymentState)(nil)).Elem()
 }
 
+// NetworkManagerDeploymentExists checks whether an existing NetworkManagerDeployment resource with the given ID exists.
+func NetworkManagerDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerDeployment:NetworkManagerDeployment", id, state, "", opts...)
+}
+
 type networkManagerDeploymentArgs struct {
 	// A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
 	ConfigurationIds []string `pulumi:"configurationIds"`

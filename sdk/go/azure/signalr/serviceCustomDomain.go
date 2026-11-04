@@ -235,6 +235,12 @@ func (ServiceCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceCustomDomainState)(nil)).Elem()
 }
 
+// ServiceCustomDomainExists checks whether an existing ServiceCustomDomain resource with the given ID exists.
+func ServiceCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:signalr/serviceCustomDomain:ServiceCustomDomain", id, state, "", opts...)
+}
+
 type serviceCustomDomainArgs struct {
 	// Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 	//

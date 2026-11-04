@@ -188,11 +188,10 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destinationIpAddress);
     }
     /**
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="enableProxyProtocol", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableProxyProtocol;
 

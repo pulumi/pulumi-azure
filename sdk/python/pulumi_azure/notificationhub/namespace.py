@@ -544,6 +544,32 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            servicebus_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["namespaceType"] = namespace_type
+        __props__["replicationRegion"] = replication_region
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["servicebusEndpoint"] = servicebus_endpoint
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        __props__["zoneRedundancyEnabled"] = zone_redundancy_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:notificationhub/namespace:Namespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

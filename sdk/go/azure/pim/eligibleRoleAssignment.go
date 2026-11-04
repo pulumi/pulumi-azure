@@ -268,6 +268,12 @@ func (EligibleRoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eligibleRoleAssignmentState)(nil)).Elem()
 }
 
+// EligibleRoleAssignmentExists checks whether an existing EligibleRoleAssignment resource with the given ID exists.
+func EligibleRoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EligibleRoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", id, state, "", opts...)
+}
+
 type eligibleRoleAssignmentArgs struct {
 	// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
 	Condition *string `pulumi:"condition"`

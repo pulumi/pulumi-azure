@@ -39,11 +39,10 @@ public final class GetPoolResult {
      */
     private List<GetPoolAutoScale> autoScales;
     /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+    @Deprecated
     private List<GetPoolCertificate> certificates;
     /**
      * @return The container configuration used in the pool&#39;s VMs.
@@ -166,11 +165,10 @@ public final class GetPoolResult {
         return this.autoScales;
     }
     /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+    @Deprecated
     public List<GetPoolCertificate> certificates() {
         return this.certificates;
     }

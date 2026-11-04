@@ -236,6 +236,12 @@ func (ResourcePolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourcePolicyAssignmentState)(nil)).Elem()
 }
 
+// ResourcePolicyAssignmentExists checks whether an existing ResourcePolicyAssignment resource with the given ID exists.
+func ResourcePolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourcePolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourcePolicyAssignment:ResourcePolicyAssignment", id, state, "", opts...)
+}
+
 type resourcePolicyAssignmentArgs struct {
 	// A description which should be used for this Policy Assignment.
 	Description *string `pulumi:"description"`

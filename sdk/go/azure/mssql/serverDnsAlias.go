@@ -139,6 +139,12 @@ func (ServerDnsAliasState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverDnsAliasState)(nil)).Elem()
 }
 
+// ServerDnsAliasExists checks whether an existing ServerDnsAlias resource with the given ID exists.
+func ServerDnsAliasExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerDnsAliasState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/serverDnsAlias:ServerDnsAlias", id, state, "", opts...)
+}
+
 type serverDnsAliasArgs struct {
 	// The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
 	MssqlServerId string `pulumi:"mssqlServerId"`

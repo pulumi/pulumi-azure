@@ -1079,11 +1079,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.EventHub` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
+     * @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
+    @Deprecated
     public static Output<GetEventhubNamespaceResult> getEventhubNamespace(GetEventhubNamespaceArgs args) {
         return getEventhubNamespace(args, InvokeOptions.Empty);
     }
@@ -1132,11 +1131,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.EventHub` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
+     * @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
+    @Deprecated
     public static CompletableFuture<GetEventhubNamespaceResult> getEventhubNamespacePlain(GetEventhubNamespacePlainArgs args) {
         return getEventhubNamespacePlain(args, InvokeOptions.Empty);
     }
@@ -1185,11 +1183,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.EventHub` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
+     * @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
+    @Deprecated
     public static Output<GetEventhubNamespaceResult> getEventhubNamespace(GetEventhubNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", TypeShape.of(GetEventhubNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -1238,11 +1235,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.EventHub` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
+     * @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
+    @Deprecated
     public static Output<GetEventhubNamespaceResult> getEventhubNamespace(GetEventhubNamespaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", TypeShape.of(GetEventhubNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -1291,11 +1287,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.EventHub` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
+     * @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
+    @Deprecated
     public static CompletableFuture<GetEventhubNamespaceResult> getEventhubNamespacePlain(GetEventhubNamespacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventhub/getEventhubNamespace:getEventhubNamespace", TypeShape.of(GetEventhubNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -2274,11 +2269,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.ServiceBus` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
+     * @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
+    @Deprecated
     public static Output<GetServiceBusNamespaceResult> getServiceBusNamespace(GetServiceBusNamespaceArgs args) {
         return getServiceBusNamespace(args, InvokeOptions.Empty);
     }
@@ -2327,11 +2321,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.ServiceBus` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
+     * @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
+    @Deprecated
     public static CompletableFuture<GetServiceBusNamespaceResult> getServiceBusNamespacePlain(GetServiceBusNamespacePlainArgs args) {
         return getServiceBusNamespacePlain(args, InvokeOptions.Empty);
     }
@@ -2380,11 +2373,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.ServiceBus` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
+     * @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
+    @Deprecated
     public static Output<GetServiceBusNamespaceResult> getServiceBusNamespace(GetServiceBusNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", TypeShape.of(GetServiceBusNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -2433,11 +2425,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.ServiceBus` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
+     * @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
+    @Deprecated
     public static Output<GetServiceBusNamespaceResult> getServiceBusNamespace(GetServiceBusNamespaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", TypeShape.of(GetServiceBusNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -2486,11 +2477,10 @@ public final class EventhubFunctions {
      * 
      * * `Microsoft.ServiceBus` - 2024-01-01
      * 
-     * @deprecated
-     * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
+     * @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
      */
-    @Deprecated /* azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
+    @Deprecated
     public static CompletableFuture<GetServiceBusNamespaceResult> getServiceBusNamespacePlain(GetServiceBusNamespacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", TypeShape.of(GetServiceBusNamespaceResult.class), args, Utilities.withVersion(options));
     }

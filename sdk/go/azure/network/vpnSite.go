@@ -198,6 +198,12 @@ func (VpnSiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnSiteState)(nil)).Elem()
 }
 
+// VpnSiteExists checks whether an existing VpnSite resource with the given ID exists.
+func VpnSiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnSiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/vpnSite:VpnSite", id, state, "", opts...)
+}
+
 type vpnSiteArgs struct {
 	// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
 	//

@@ -173,6 +173,12 @@ func (VirtualMachineManagerVirtualMachineTemplateState) ElementType() reflect.Ty
 	return reflect.TypeOf((*virtualMachineManagerVirtualMachineTemplateState)(nil)).Elem()
 }
 
+// VirtualMachineManagerVirtualMachineTemplateExists checks whether an existing VirtualMachineManagerVirtualMachineTemplate resource with the given ID exists.
+func VirtualMachineManagerVirtualMachineTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineManagerVirtualMachineTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", id, state, "", opts...)
+}
+
 type virtualMachineManagerVirtualMachineTemplateArgs struct {
 	// The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

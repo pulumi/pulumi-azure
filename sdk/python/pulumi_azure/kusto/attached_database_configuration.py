@@ -708,6 +708,36 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__.__dict__["sharing"] = sharing
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attached_database_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name_override: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            default_principal_modification_kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sharing: pulumi.Input[Optional[Union['AttachedDatabaseConfigurationSharingArgs', 'AttachedDatabaseConfigurationSharingArgsDict', 'outputs.AttachedDatabaseConfigurationSharing']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attachedDatabaseNames"] = attached_database_names
+        __props__["clusterId"] = cluster_id
+        __props__["clusterName"] = cluster_name
+        __props__["clusterResourceId"] = cluster_resource_id
+        __props__["databaseName"] = database_name
+        __props__["databaseNameOverride"] = database_name_override
+        __props__["databaseNamePrefix"] = database_name_prefix
+        __props__["defaultPrincipalModificationKind"] = default_principal_modification_kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sharing"] = sharing
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="attachedDatabaseNames")
     def attached_database_names(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -402,6 +402,20 @@ class NetworkAcl(pulumi.CustomResource):
         __props__.__dict__["web_pubsub_id"] = web_pubsub_id
         return NetworkAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAclPrivateEndpointArgs', 'NetworkAclPrivateEndpointArgsDict', 'outputs.NetworkAclPrivateEndpoint']]]]] = None,
+            public_network: pulumi.Input[Optional[Union['NetworkAclPublicNetworkArgs', 'NetworkAclPublicNetworkArgsDict', 'outputs.NetworkAclPublicNetwork']]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultAction"] = default_action
+        __props__["privateEndpoints"] = private_endpoints
+        __props__["publicNetwork"] = public_network
+        __props__["webPubsubId"] = web_pubsub_id
+        return pulumi.runtime.exists_resource(None, 'azure:webpubsub/networkAcl:NetworkAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output[Optional[_builtins.str]]:

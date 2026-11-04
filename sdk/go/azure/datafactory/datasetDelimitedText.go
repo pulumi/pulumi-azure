@@ -274,6 +274,12 @@ func (DatasetDelimitedTextState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetDelimitedTextState)(nil)).Elem()
 }
 
+// DatasetDelimitedTextExists checks whether an existing DatasetDelimitedText resource with the given ID exists.
+func DatasetDelimitedTextExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetDelimitedTextState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", id, state, "", opts...)
+}
+
 type datasetDelimitedTextArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

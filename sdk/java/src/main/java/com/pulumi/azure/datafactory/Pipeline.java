@@ -87,34 +87,34 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new Pipeline("test", PipelineArgs.builder()
  *             .name("example")
  *             .dataFactoryId(testAzurermDataFactory.get("id"))
  *             .variables(Map.of("bob", "item1"))
  *             .activitiesJson("""
  * [
- *     {
- *         \"name\": \"Append variable1\",
- *         \"type\": \"AppendVariable\",
- *         \"dependsOn\": [],
- *         \"userProperties\": [],
- *         \"typeProperties\": {
- *           \"variableName\": \"bob\",
- *           \"value\": \"something\"
- *         }
- *     }
+ *     }{{@code
+ *         }&#92;{@code "name}&#92;{@code ": }&#92;{@code "Append variable1}&#92;{@code ",
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "AppendVariable}&#92;{@code ",
+ *         }&#92;{@code "dependsOn}&#92;{@code ": [],
+ *         }&#92;{@code "userProperties}&#92;{@code ": [],
+ *         }&#92;{@code "typeProperties}&#92;{@code ": }{{@code
+ *           }&#92;{@code "variableName}&#92;{@code ": }&#92;{@code "bob}&#92;{@code ",
+ *           }&#92;{@code "value}&#92;{@code ": }&#92;{@code "something}&#92;{@code "
+ *         }}{@code
+ *     }}{@code
  * ]
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

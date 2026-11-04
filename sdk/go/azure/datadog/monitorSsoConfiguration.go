@@ -171,6 +171,12 @@ func (MonitorSsoConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorSsoConfigurationState)(nil)).Elem()
 }
 
+// MonitorSsoConfigurationExists checks whether an existing MonitorSsoConfiguration resource with the given ID exists.
+func MonitorSsoConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorSsoConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", id, state, "", opts...)
+}
+
 type monitorSsoConfigurationArgs struct {
 	// The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
 	DatadogMonitorId string `pulumi:"datadogMonitorId"`

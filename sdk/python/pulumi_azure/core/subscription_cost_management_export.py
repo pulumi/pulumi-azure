@@ -567,6 +567,30 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
         __props__.__dict__["subscription_id"] = subscription_id
         return SubscriptionCostManagementExport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            export_data_options: pulumi.Input[Optional[Union['SubscriptionCostManagementExportExportDataOptionsArgs', 'SubscriptionCostManagementExportExportDataOptionsArgsDict', 'outputs.SubscriptionCostManagementExportExportDataOptions']]] = None,
+            export_data_storage_location: pulumi.Input[Optional[Union['SubscriptionCostManagementExportExportDataStorageLocationArgs', 'SubscriptionCostManagementExportExportDataStorageLocationArgsDict', 'outputs.SubscriptionCostManagementExportExportDataStorageLocation']]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["exportDataOptions"] = export_data_options
+        __props__["exportDataStorageLocation"] = export_data_storage_location
+        __props__["fileFormat"] = file_format
+        __props__["name"] = name
+        __props__["recurrencePeriodEndDate"] = recurrence_period_end_date
+        __props__["recurrencePeriodStartDate"] = recurrence_period_start_date
+        __props__["recurrenceType"] = recurrence_type
+        __props__["subscriptionId"] = subscription_id
+        return pulumi.runtime.exists_resource(None, 'azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

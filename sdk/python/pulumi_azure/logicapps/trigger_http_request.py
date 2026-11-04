@@ -421,6 +421,24 @@ class TriggerHttpRequest(pulumi.CustomResource):
         __props__.__dict__["schema"] = schema
         return TriggerHttpRequest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["callbackUrl"] = callback_url
+        __props__["logicAppId"] = logic_app_id
+        __props__["method"] = method
+        __props__["name"] = name
+        __props__["relativePath"] = relative_path
+        __props__["schema"] = schema
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/triggerHttpRequest:TriggerHttpRequest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> pulumi.Output[_builtins.str]:

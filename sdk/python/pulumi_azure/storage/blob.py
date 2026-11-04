@@ -883,6 +883,46 @@ class Blob(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Blob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+            content_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            source: pulumi.Input[Optional[Union[pulumi.Asset, pulumi.Archive]]] = None,
+            source_content: pulumi.Input[Optional[_builtins.str]] = None,
+            source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTier"] = access_tier
+        __props__["cacheControl"] = cache_control
+        __props__["contentMd5"] = content_md5
+        __props__["contentType"] = content_type
+        __props__["encryptionScope"] = encryption_scope
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["parallelism"] = parallelism
+        __props__["size"] = size
+        __props__["source"] = source
+        __props__["sourceContent"] = source_content
+        __props__["sourceUri"] = source_uri
+        __props__["storageAccountName"] = storage_account_name
+        __props__["storageContainerId"] = storage_container_id
+        __props__["storageContainerName"] = storage_container_name
+        __props__["type"] = type
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:storage/blob:Blob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[_builtins.str]:

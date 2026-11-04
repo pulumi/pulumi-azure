@@ -618,6 +618,38 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["send"] = send
         return EventHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            listen: pulumi.Input[Optional[_builtins.bool]] = None,
+            manage: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventhubName"] = eventhub_name
+        __props__["listen"] = listen
+        __props__["manage"] = manage
+        __props__["name"] = name
+        __props__["namespaceName"] = namespace_name
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["primaryConnectionStringAlias"] = primary_connection_string_alias
+        __props__["primaryKey"] = primary_key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["secondaryConnectionStringAlias"] = secondary_connection_string_alias
+        __props__["secondaryKey"] = secondary_key
+        __props__["send"] = send
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventhubName")
     def eventhub_name(self) -> pulumi.Output[_builtins.str]:

@@ -682,6 +682,12 @@ func (VolumeGroupSapHanaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeGroupSapHanaState)(nil)).Elem()
 }
 
+// VolumeGroupSapHanaExists checks whether an existing VolumeGroupSapHana resource with the given ID exists.
+func VolumeGroupSapHanaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeGroupSapHanaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana", id, state, "", opts...)
+}
+
 type volumeGroupSapHanaArgs struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName string `pulumi:"accountName"`

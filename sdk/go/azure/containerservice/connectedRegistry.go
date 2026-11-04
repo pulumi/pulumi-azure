@@ -230,6 +230,12 @@ func (ConnectedRegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectedRegistryState)(nil)).Elem()
 }
 
+// ConnectedRegistryExists checks whether an existing ConnectedRegistry resource with the given ID exists.
+func ConnectedRegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectedRegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/connectedRegistry:ConnectedRegistry", id, state, "", opts...)
+}
+
 type connectedRegistryArgs struct {
 	// Should the log auditing be enabled?
 	AuditLogEnabled *bool `pulumi:"auditLogEnabled"`

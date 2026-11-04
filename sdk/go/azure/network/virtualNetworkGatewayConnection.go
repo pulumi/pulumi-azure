@@ -537,6 +537,12 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayConnectionState)(nil)).Elem()
 }
 
+// VirtualNetworkGatewayConnectionExists checks whether an existing VirtualNetworkGatewayConnection resource with the given ID exists.
+func VirtualNetworkGatewayConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkGatewayConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", id, state, "", opts...)
+}
+
 type virtualNetworkGatewayConnectionArgs struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`

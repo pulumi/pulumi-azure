@@ -413,6 +413,12 @@ func (ManagedInstanceSecurityAlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceSecurityAlertPolicyState)(nil)).Elem()
 }
 
+// ManagedInstanceSecurityAlertPolicyExists checks whether an existing ManagedInstanceSecurityAlertPolicy resource with the given ID exists.
+func ManagedInstanceSecurityAlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceSecurityAlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", id, state, "", opts...)
+}
+
 type managedInstanceSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`

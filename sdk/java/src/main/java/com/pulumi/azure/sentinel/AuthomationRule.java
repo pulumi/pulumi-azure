@@ -101,11 +101,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:sentinel/authomationRule:AuthomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/automationRules/rule1
  * ```
  * 
- * @deprecated
- * azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule
+ * @deprecated azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule
  * 
  */
-@Deprecated /* azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule */
+@Deprecated
 @ResourceType(type="azure:sentinel/authomationRule:AuthomationRule")
 public class AuthomationRule extends com.pulumi.resources.CustomResource {
     /**

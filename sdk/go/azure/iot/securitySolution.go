@@ -216,6 +216,12 @@ func (SecuritySolutionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securitySolutionState)(nil)).Elem()
 }
 
+// SecuritySolutionExists checks whether an existing SecuritySolution resource with the given ID exists.
+func SecuritySolutionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecuritySolutionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/securitySolution:SecuritySolution", id, state, "", opts...)
+}
+
 type securitySolutionArgs struct {
 	// A `additionalWorkspace` block as defined below.
 	AdditionalWorkspaces []SecuritySolutionAdditionalWorkspace `pulumi:"additionalWorkspaces"`

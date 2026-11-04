@@ -197,6 +197,12 @@ func (IotHubDpsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubDpsState)(nil)).Elem()
 }
 
+// IotHubDpsExists checks whether an existing IotHubDps resource with the given ID exists.
+func IotHubDpsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IotHubDpsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/iotHubDps:IotHubDps", id, state, "", opts...)
+}
+
 type iotHubDpsArgs struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`

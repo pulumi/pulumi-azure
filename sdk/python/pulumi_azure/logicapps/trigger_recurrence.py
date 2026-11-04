@@ -456,6 +456,26 @@ class TriggerRecurrence(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return TriggerRecurrence(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict', 'outputs.TriggerRecurrenceSchedule']]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["frequency"] = frequency
+        __props__["interval"] = interval
+        __props__["logicAppId"] = logic_app_id
+        __props__["name"] = name
+        __props__["schedule"] = schedule
+        __props__["startTime"] = start_time
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/triggerRecurrence:TriggerRecurrence', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def frequency(self) -> pulumi.Output[_builtins.str]:

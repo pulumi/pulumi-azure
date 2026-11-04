@@ -386,6 +386,20 @@ class MongoRoleDefinition(pulumi.CustomResource):
         __props__.__dict__["role_name"] = role_name
         return MongoRoleDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoRoleDefinitionPrivilegeArgs', 'MongoRoleDefinitionPrivilegeArgsDict', 'outputs.MongoRoleDefinitionPrivilege']]]]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cosmosMongoDatabaseId"] = cosmos_mongo_database_id
+        __props__["inheritedRoleNames"] = inherited_role_names
+        __props__["privileges"] = privileges
+        __props__["roleName"] = role_name
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cosmosMongoDatabaseId")
     def cosmos_mongo_database_id(self) -> pulumi.Output[_builtins.str]:

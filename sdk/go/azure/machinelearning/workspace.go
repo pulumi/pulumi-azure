@@ -462,6 +462,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`

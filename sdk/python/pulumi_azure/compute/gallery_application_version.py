@@ -712,6 +712,36 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         __props__.__dict__["target_regions"] = target_regions
         return GalleryApplicationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_file: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_health_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_file: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configFile"] = config_file
+        __props__["enableHealthCheck"] = enable_health_check
+        __props__["endOfLifeDate"] = end_of_life_date
+        __props__["excludeFromLatest"] = exclude_from_latest
+        __props__["galleryApplicationId"] = gallery_application_id
+        __props__["location"] = location
+        __props__["manageAction"] = manage_action
+        __props__["name"] = name
+        __props__["packageFile"] = package_file
+        __props__["source"] = source
+        __props__["tags"] = tags
+        __props__["targetRegions"] = target_regions
+        return pulumi.runtime.exists_resource(None, 'azure:compute/galleryApplicationVersion:GalleryApplicationVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configFile")
     def config_file(self) -> pulumi.Output[Optional[_builtins.str]]:

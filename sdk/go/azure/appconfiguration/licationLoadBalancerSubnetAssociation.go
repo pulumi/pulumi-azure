@@ -186,6 +186,12 @@ func (LicationLoadBalancerSubnetAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licationLoadBalancerSubnetAssociationState)(nil)).Elem()
 }
 
+// LicationLoadBalancerSubnetAssociationExists checks whether an existing LicationLoadBalancerSubnetAssociation resource with the given ID exists.
+func LicationLoadBalancerSubnetAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicationLoadBalancerSubnetAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation", id, state, "", opts...)
+}
+
 type licationLoadBalancerSubnetAssociationArgs struct {
 	// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
 	ApplicationLoadBalancerId string `pulumi:"applicationLoadBalancerId"`

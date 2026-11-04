@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("tf-test")
  *             .location("West Europe")
@@ -76,9 +76,9 @@ import javax.annotation.Nullable;
  *                 "us-tx-sn1-azr",
  *                 "us-il-ch1-azr")
  *             .configuration("""
- * <WebTest Name=\"WebTest1\" Id=\"ABD48585-0831-40CB-9069-682EA6BB3583\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"0\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\">
+ * <WebTest Name=}&#92;{@code "WebTest1}&#92;{@code " Id=}&#92;{@code "ABD48585-0831-40CB-9069-682EA6BB3583}&#92;{@code " Enabled=}&#92;{@code "True}&#92;{@code " CssProjectStructure=}&#92;{@code "}&#92;{@code " CssIteration=}&#92;{@code "}&#92;{@code " Timeout=}&#92;{@code "0}&#92;{@code " WorkItemIds=}&#92;{@code "}&#92;{@code " xmlns=}&#92;{@code "http://microsoft.com/schemas/VisualStudio/TeamTest/2010}&#92;{@code " Description=}&#92;{@code "}&#92;{@code " CredentialUserName=}&#92;{@code "}&#92;{@code " CredentialPassword=}&#92;{@code "}&#92;{@code " PreAuthenticate=}&#92;{@code "True}&#92;{@code " Proxy=}&#92;{@code "default}&#92;{@code " StopOnError=}&#92;{@code "False}&#92;{@code " RecordedResultFile=}&#92;{@code "}&#92;{@code " ResultsLocale=}&#92;{@code "}&#92;{@code ">
  *   <Items>
- *     <Request Method=\"GET\" Guid=\"a5f10126-e4cd-570d-961c-cea43999a200\" Version=\"1.1\" Url=\"http://microsoft.com\" ThinkTime=\"0\" Timeout=\"300\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />
+ *     <Request Method=}&#92;{@code "GET}&#92;{@code " Guid=}&#92;{@code "a5f10126-e4cd-570d-961c-cea43999a200}&#92;{@code " Version=}&#92;{@code "1.1}&#92;{@code " Url=}&#92;{@code "http://microsoft.com}&#92;{@code " ThinkTime=}&#92;{@code "0}&#92;{@code " Timeout=}&#92;{@code "300}&#92;{@code " ParseDependentRequests=}&#92;{@code "True}&#92;{@code " FollowRedirects=}&#92;{@code "True}&#92;{@code " RecordResult=}&#92;{@code "True}&#92;{@code " Cache=}&#92;{@code "False}&#92;{@code " ResponseTimeGoal=}&#92;{@code "0}&#92;{@code " Encoding=}&#92;{@code "utf-8}&#92;{@code " ExpectedHttpStatusCode=}&#92;{@code "200}&#92;{@code " ExpectedResponseUrl=}&#92;{@code "}&#92;{@code " ReportingName=}&#92;{@code "}&#92;{@code " IgnoreHttpStatusCode=}&#92;{@code "False}&#92;{@code " />
  *   </Items>
  * </WebTest>
  *             """)
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  * 
  *         ctx.export("webtestId", exampleWebTest.id());
  *         ctx.export("webtestsSyntheticId", exampleWebTest.syntheticMonitorId());
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

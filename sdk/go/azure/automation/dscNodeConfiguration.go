@@ -192,6 +192,12 @@ func (DscNodeConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscNodeConfigurationState)(nil)).Elem()
 }
 
+// DscNodeConfigurationExists checks whether an existing DscNodeConfiguration resource with the given ID exists.
+func DscNodeConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DscNodeConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/dscNodeConfiguration:DscNodeConfiguration", id, state, "", opts...)
+}
+
 type dscNodeConfigurationArgs struct {
 	// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

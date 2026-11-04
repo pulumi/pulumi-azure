@@ -157,6 +157,12 @@ func (FlexibleServerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerConfigurationState)(nil)).Elem()
 }
 
+// FlexibleServerConfigurationExists checks whether an existing FlexibleServerConfiguration resource with the given ID exists.
+func FlexibleServerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration", id, state, "", opts...)
+}
+
 type flexibleServerConfigurationArgs struct {
 	// Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

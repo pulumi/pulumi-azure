@@ -564,6 +564,30 @@ class OutboundRule(pulumi.CustomResource):
         __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return OutboundRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict', 'outputs.OutboundRuleFrontendIpConfiguration']]]]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocatedOutboundPorts"] = allocated_outbound_ports
+        __props__["backendAddressPoolId"] = backend_address_pool_id
+        __props__["enableTcpReset"] = enable_tcp_reset
+        __props__["frontendIpConfigurations"] = frontend_ip_configurations
+        __props__["idleTimeoutInMinutes"] = idle_timeout_in_minutes
+        __props__["loadbalancerId"] = loadbalancer_id
+        __props__["name"] = name
+        __props__["protocol"] = protocol
+        __props__["tcpResetEnabled"] = tcp_reset_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:lb/outboundRule:OutboundRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
     def allocated_outbound_ports(self) -> pulumi.Output[Optional[_builtins.int]]:

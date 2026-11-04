@@ -950,6 +950,50 @@ class AlertRuleNrt(pulumi.CustomResource):
         __props__.__dict__["techniques"] = techniques
         return AlertRuleNrt(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]]] = None,
+            alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]]] = None,
+            event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']]] = None,
+            incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertDetailsOverrides"] = alert_details_overrides
+        __props__["alertRuleTemplateGuid"] = alert_rule_template_guid
+        __props__["alertRuleTemplateVersion"] = alert_rule_template_version
+        __props__["customDetails"] = custom_details
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["enabled"] = enabled
+        __props__["entityMappings"] = entity_mappings
+        __props__["eventGrouping"] = event_grouping
+        __props__["incident"] = incident
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["sentinelEntityMappings"] = sentinel_entity_mappings
+        __props__["severity"] = severity
+        __props__["suppressionDuration"] = suppression_duration
+        __props__["suppressionEnabled"] = suppression_enabled
+        __props__["tactics"] = tactics
+        __props__["techniques"] = techniques
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/alertRuleNrt:AlertRuleNrt', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertDetailsOverrides")
     def alert_details_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.AlertRuleNrtAlertDetailsOverride']]]:

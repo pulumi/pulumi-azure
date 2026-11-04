@@ -668,6 +668,36 @@ class DatasetBinary(pulumi.CustomResource):
         __props__.__dict__["sftp_server_location"] = sftp_server_location
         return DatasetBinary(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict', 'outputs.DatasetBinaryAzureBlobStorageLocation']]] = None,
+            compression: pulumi.Input[Optional[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict', 'outputs.DatasetBinaryCompression']]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            http_server_location: pulumi.Input[Optional[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict', 'outputs.DatasetBinaryHttpServerLocation']]] = None,
+            linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            sftp_server_location: pulumi.Input[Optional[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict', 'outputs.DatasetBinarySftpServerLocation']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["azureBlobStorageLocation"] = azure_blob_storage_location
+        __props__["compression"] = compression
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["folder"] = folder
+        __props__["httpServerLocation"] = http_server_location
+        __props__["linkedServiceName"] = linked_service_name
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["sftpServerLocation"] = sftp_server_location
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/datasetBinary:DatasetBinary', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

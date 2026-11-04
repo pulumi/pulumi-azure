@@ -30,11 +30,10 @@ public final class GetTableResult {
     private String resourceManagerId;
     private String storageAccountId;
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private String storageAccountName;
 
     private GetTableResult() {}
@@ -66,11 +65,10 @@ public final class GetTableResult {
         return this.storageAccountId;
     }
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public String storageAccountName() {
         return this.storageAccountName;
     }

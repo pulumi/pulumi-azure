@@ -169,6 +169,12 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNetworkGatewayState)(nil)).Elem()
 }
 
+// LocalNetworkGatewayExists checks whether an existing LocalNetworkGateway resource with the given ID exists.
+func LocalNetworkGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalNetworkGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/localNetworkGateway:LocalNetworkGateway", id, state, "", opts...)
+}
+
 type localNetworkGatewayArgs struct {
 	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces []string `pulumi:"addressSpaces"`

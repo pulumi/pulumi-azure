@@ -272,6 +272,12 @@ func (NatRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natRuleState)(nil)).Elem()
 }
 
+// NatRuleExists checks whether an existing NatRule resource with the given ID exists.
+func NatRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/natRule:NatRule", id, state, "", opts...)
+}
+
 type natRuleArgs struct {
 	// Specifies a reference to backendAddressPool resource.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`

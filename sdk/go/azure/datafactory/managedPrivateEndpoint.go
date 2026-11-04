@@ -178,6 +178,12 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrivateEndpointState)(nil)).Elem()
 }
 
+// ManagedPrivateEndpointExists checks whether an existing ManagedPrivateEndpoint resource with the given ID exists.
+func ManagedPrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint", id, state, "", opts...)
+}
+
 type managedPrivateEndpointArgs struct {
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId string `pulumi:"dataFactoryId"`

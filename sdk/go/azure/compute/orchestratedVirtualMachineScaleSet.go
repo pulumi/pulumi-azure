@@ -456,6 +456,12 @@ func (OrchestratedVirtualMachineScaleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orchestratedVirtualMachineScaleSetState)(nil)).Elem()
 }
 
+// OrchestratedVirtualMachineScaleSetExists checks whether an existing OrchestratedVirtualMachineScaleSet resource with the given ID exists.
+func OrchestratedVirtualMachineScaleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrchestratedVirtualMachineScaleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", id, state, "", opts...)
+}
+
 type orchestratedVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *OrchestratedVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`

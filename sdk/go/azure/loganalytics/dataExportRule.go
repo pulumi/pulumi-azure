@@ -189,6 +189,12 @@ func (DataExportRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataExportRuleState)(nil)).Elem()
 }
 
+// DataExportRuleExists checks whether an existing DataExportRule resource with the given ID exists.
+func DataExportRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataExportRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/dataExportRule:DataExportRule", id, state, "", opts...)
+}
+
 type dataExportRuleArgs struct {
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId string `pulumi:"destinationResourceId"`

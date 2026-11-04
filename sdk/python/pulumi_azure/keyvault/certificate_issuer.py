@@ -453,6 +453,26 @@ class CertificateIssuer(pulumi.CustomResource):
         __props__.__dict__["provider_name"] = provider_name
         return CertificateIssuer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountId"] = account_id
+        __props__["admins"] = admins
+        __props__["keyVaultId"] = key_vault_id
+        __props__["name"] = name
+        __props__["orgId"] = org_id
+        __props__["password"] = password
+        __props__["providerName"] = provider_name
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/certificateIssuer:CertificateIssuer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:

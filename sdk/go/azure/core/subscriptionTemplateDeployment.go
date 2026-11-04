@@ -157,6 +157,12 @@ func (SubscriptionTemplateDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionTemplateDeploymentState)(nil)).Elem()
 }
 
+// SubscriptionTemplateDeploymentExists checks whether an existing SubscriptionTemplateDeployment resource with the given ID exists.
+func SubscriptionTemplateDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionTemplateDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", id, state, "", opts...)
+}
+
 type subscriptionTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`

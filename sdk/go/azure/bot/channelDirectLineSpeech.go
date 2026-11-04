@@ -195,6 +195,12 @@ func (ChannelDirectLineSpeechState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelDirectLineSpeechState)(nil)).Elem()
 }
 
+// ChannelDirectLineSpeechExists checks whether an existing ChannelDirectLineSpeech resource with the given ID exists.
+func ChannelDirectLineSpeechExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelDirectLineSpeechState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech", id, state, "", opts...)
+}
+
 type channelDirectLineSpeechArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

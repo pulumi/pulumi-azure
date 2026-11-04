@@ -174,6 +174,12 @@ func (WorkspacePolicyFragmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspacePolicyFragmentState)(nil)).Elem()
 }
 
+// WorkspacePolicyFragmentExists checks whether an existing WorkspacePolicyFragment resource with the given ID exists.
+func WorkspacePolicyFragmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspacePolicyFragmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment", id, state, "", opts...)
+}
+
 type workspacePolicyFragmentArgs struct {
 	// Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
 	ApiManagementWorkspaceId string `pulumi:"apiManagementWorkspaceId"`

@@ -233,6 +233,12 @@ func (CertificateOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateOrderState)(nil)).Elem()
 }
 
+// CertificateOrderExists checks whether an existing CertificateOrder resource with the given ID exists.
+func CertificateOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/certificateOrder:CertificateOrder", id, state, "", opts...)
+}
+
 type certificateOrderArgs struct {
 	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew *bool `pulumi:"autoRenew"`

@@ -557,6 +557,32 @@ class LocalRulestack(pulumi.CustomResource):
         __props__.__dict__["vulnerability_profile"] = vulnerability_profile
         return LocalRulestack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+            file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["antiSpywareProfile"] = anti_spyware_profile
+        __props__["antiVirusProfile"] = anti_virus_profile
+        __props__["description"] = description
+        __props__["dnsSubscription"] = dns_subscription
+        __props__["fileBlockingProfile"] = file_blocking_profile
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["urlFilteringProfile"] = url_filtering_profile
+        __props__["vulnerabilityProfile"] = vulnerability_profile
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/localRulestack:LocalRulestack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="antiSpywareProfile")
     def anti_spyware_profile(self) -> pulumi.Output[Optional[_builtins.str]]:

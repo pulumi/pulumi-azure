@@ -175,6 +175,12 @@ func (TxtRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*txtRecordState)(nil)).Elem()
 }
 
+// TxtRecordExists checks whether an existing TxtRecord resource with the given ID exists.
+func TxtRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TxtRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/txtRecord:TxtRecord", id, state, "", opts...)
+}
+
 type txtRecordArgs struct {
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

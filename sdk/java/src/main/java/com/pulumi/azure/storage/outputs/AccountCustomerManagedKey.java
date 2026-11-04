@@ -18,11 +18,10 @@ public final class AccountCustomerManagedKey {
      */
     private @Nullable String keyVaultKeyId;
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable String managedHsmKeyId;
     /**
      * @return The ID of a user assigned identity.
@@ -41,11 +40,10 @@ public final class AccountCustomerManagedKey {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<String> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }

@@ -196,6 +196,12 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendAddressPoolState)(nil)).Elem()
 }
 
+// BackendAddressPoolExists checks whether an existing BackendAddressPool resource with the given ID exists.
+func BackendAddressPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackendAddressPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/backendAddressPool:BackendAddressPool", id, state, "", opts...)
+}
+
 type backendAddressPoolArgs struct {
 	// The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`

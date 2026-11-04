@@ -429,6 +429,12 @@ func (ManagedInstanceFailoverGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceFailoverGroupState)(nil)).Elem()
 }
 
+// ManagedInstanceFailoverGroupExists checks whether an existing ManagedInstanceFailoverGroup resource with the given ID exists.
+func ManagedInstanceFailoverGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceFailoverGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup", id, state, "", opts...)
+}
+
 type managedInstanceFailoverGroupArgs struct {
 	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

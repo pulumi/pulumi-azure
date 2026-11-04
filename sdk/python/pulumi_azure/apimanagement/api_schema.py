@@ -493,6 +493,28 @@ class ApiSchema(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return ApiSchema(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_name: pulumi.Input[Optional[_builtins.str]] = None,
+            components: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            definitions: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["apiName"] = api_name
+        __props__["components"] = components
+        __props__["contentType"] = content_type
+        __props__["definitions"] = definitions
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["schemaId"] = schema_id
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/apiSchema:ApiSchema', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

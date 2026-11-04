@@ -226,6 +226,12 @@ func (StandardWebTestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*standardWebTestState)(nil)).Elem()
 }
 
+// StandardWebTestExists checks whether an existing StandardWebTest resource with the given ID exists.
+func StandardWebTestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StandardWebTestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/standardWebTest:StandardWebTest", id, state, "", opts...)
+}
+
 type standardWebTestArgs struct {
 	// The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`

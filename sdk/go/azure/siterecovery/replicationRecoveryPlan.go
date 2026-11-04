@@ -431,6 +431,12 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationRecoveryPlanState)(nil)).Elem()
 }
 
+// ReplicationRecoveryPlanExists checks whether an existing ReplicationRecoveryPlan resource with the given ID exists.
+func ReplicationRecoveryPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationRecoveryPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", id, state, "", opts...)
+}
+
 type replicationRecoveryPlanArgs struct {
 	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings *ReplicationRecoveryPlanAzureToAzureSettings `pulumi:"azureToAzureSettings"`

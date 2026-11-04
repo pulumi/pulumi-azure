@@ -483,6 +483,30 @@ class CustomLocation(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return CustomLocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']]] = None,
+            cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authentication"] = authentication
+        __props__["clusterExtensionIds"] = cluster_extension_ids
+        __props__["displayName"] = display_name
+        __props__["hostResourceId"] = host_resource_id
+        __props__["hostType"] = host_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["namespace"] = namespace
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:extendedlocation/customLocation:CustomLocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> pulumi.Output[Optional['outputs.CustomLocationAuthentication']]:

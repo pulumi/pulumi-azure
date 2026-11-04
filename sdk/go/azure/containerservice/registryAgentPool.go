@@ -172,6 +172,12 @@ func (RegistryAgentPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryAgentPoolState)(nil)).Elem()
 }
 
+// RegistryAgentPoolExists checks whether an existing RegistryAgentPool resource with the given ID exists.
+func RegistryAgentPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryAgentPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryAgentPool:RegistryAgentPool", id, state, "", opts...)
+}
+
 type registryAgentPoolArgs struct {
 	// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
 	ContainerRegistryName string `pulumi:"containerRegistryName"`

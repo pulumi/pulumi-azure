@@ -185,6 +185,12 @@ func (SpringCloudBuildDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudBuildDeploymentState)(nil)).Elem()
 }
 
+// SpringCloudBuildDeploymentExists checks whether an existing SpringCloudBuildDeployment resource with the given ID exists.
+func SpringCloudBuildDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudBuildDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", id, state, "", opts...)
+}
+
 type springCloudBuildDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson *string `pulumi:"addonJson"`

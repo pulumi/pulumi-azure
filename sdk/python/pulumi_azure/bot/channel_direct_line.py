@@ -377,6 +377,24 @@ class ChannelDirectLine(pulumi.CustomResource):
         __props__.__dict__["sites"] = sites
         return ChannelDirectLine(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_key1: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_key2: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["extensionKey1"] = extension_key1
+        __props__["extensionKey2"] = extension_key2
+        __props__["location"] = location
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sites"] = sites
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelDirectLine:ChannelDirectLine', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

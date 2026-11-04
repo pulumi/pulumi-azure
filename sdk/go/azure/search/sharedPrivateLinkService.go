@@ -181,6 +181,12 @@ func (SharedPrivateLinkServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedPrivateLinkServiceState)(nil)).Elem()
 }
 
+// SharedPrivateLinkServiceExists checks whether an existing SharedPrivateLinkService resource with the given ID exists.
+func SharedPrivateLinkServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedPrivateLinkServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:search/sharedPrivateLinkService:SharedPrivateLinkService", id, state, "", opts...)
+}
+
 type sharedPrivateLinkServiceArgs struct {
 	// Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

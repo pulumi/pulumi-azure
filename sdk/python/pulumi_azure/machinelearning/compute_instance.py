@@ -774,6 +774,36 @@ class ComputeInstance(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_size"] = virtual_machine_size
         return ComputeInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']]] = None,
+            subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignToUser"] = assign_to_user
+        __props__["authorizationType"] = authorization_type
+        __props__["description"] = description
+        __props__["identity"] = identity
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["machineLearningWorkspaceId"] = machine_learning_workspace_id
+        __props__["name"] = name
+        __props__["nodePublicIpEnabled"] = node_public_ip_enabled
+        __props__["ssh"] = ssh
+        __props__["subnetResourceId"] = subnet_resource_id
+        __props__["tags"] = tags
+        __props__["virtualMachineSize"] = virtual_machine_size
+        return pulumi.runtime.exists_resource(None, 'azure:machinelearning/computeInstance:ComputeInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignToUser")
     def assign_to_user(self) -> pulumi.Output[Optional['outputs.ComputeInstanceAssignToUser']]:

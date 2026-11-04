@@ -171,6 +171,12 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkState)(nil)).Elem()
 }
 
+// VirtualNetworkExists checks whether an existing VirtualNetwork resource with the given ID exists.
+func VirtualNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devtest/virtualNetwork:VirtualNetwork", id, state, "", opts...)
+}
+
 type virtualNetworkArgs struct {
 	// A description for the Virtual Network.
 	Description *string `pulumi:"description"`

@@ -217,6 +217,12 @@ func (ScheduledActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionState)(nil)).Elem()
 }
 
+// ScheduledActionExists checks whether an existing ScheduledAction resource with the given ID exists.
+func ScheduledActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:costmanagement/scheduledAction:ScheduledAction", id, state, "", opts...)
+}
+
 type scheduledActionArgs struct {
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth *int `pulumi:"dayOfMonth"`

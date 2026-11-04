@@ -652,6 +652,34 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return BackupVault(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            datastore_type: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict', 'outputs.BackupVaultIdentity']]] = None,
+            immutability: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_duration_in_days: pulumi.Input[Optional[_builtins.float]] = None,
+            soft_delete: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["crossRegionRestoreEnabled"] = cross_region_restore_enabled
+        __props__["datastoreType"] = datastore_type
+        __props__["identity"] = identity
+        __props__["immutability"] = immutability
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["redundancy"] = redundancy
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionDurationInDays"] = retention_duration_in_days
+        __props__["softDelete"] = soft_delete
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupVault:BackupVault', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
     def cross_region_restore_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

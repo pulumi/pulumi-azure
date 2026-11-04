@@ -215,6 +215,12 @@ func (TopicAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicAuthorizationRuleState)(nil)).Elem()
 }
 
+// TopicAuthorizationRuleExists checks whether an existing TopicAuthorizationRule resource with the given ID exists.
+func TopicAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", id, state, "", opts...)
+}
+
 type topicAuthorizationRuleArgs struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`

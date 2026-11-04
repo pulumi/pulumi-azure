@@ -232,6 +232,12 @@ func (OutputServiceBusQueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServiceBusQueueState)(nil)).Elem()
 }
 
+// OutputServiceBusQueueExists checks whether an existing OutputServiceBusQueue resource with the given ID exists.
+func OutputServiceBusQueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputServiceBusQueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", id, state, "", opts...)
+}
+
 type outputServiceBusQueueArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`

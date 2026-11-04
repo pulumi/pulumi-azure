@@ -185,6 +185,12 @@ func (NetworkManagerStaticMemberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerStaticMemberState)(nil)).Elem()
 }
 
+// NetworkManagerStaticMemberExists checks whether an existing NetworkManagerStaticMember resource with the given ID exists.
+func NetworkManagerStaticMemberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerStaticMemberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerStaticMember:NetworkManagerStaticMember", id, state, "", opts...)
+}
+
 type networkManagerStaticMemberArgs struct {
 	// Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
 	Name *string `pulumi:"name"`

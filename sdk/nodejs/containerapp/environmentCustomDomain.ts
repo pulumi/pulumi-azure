@@ -72,6 +72,17 @@ export class EnvironmentCustomDomain extends pulumi.CustomResource {
         return new EnvironmentCustomDomain(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing EnvironmentCustomDomain resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: EnvironmentCustomDomainState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain';
 

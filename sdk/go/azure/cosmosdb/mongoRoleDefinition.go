@@ -178,6 +178,12 @@ func (MongoRoleDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoRoleDefinitionState)(nil)).Elem()
 }
 
+// MongoRoleDefinitionExists checks whether an existing MongoRoleDefinition resource with the given ID exists.
+func MongoRoleDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MongoRoleDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition", id, state, "", opts...)
+}
+
 type mongoRoleDefinitionArgs struct {
 	// The resource ID of the Mongo DB. Changing this forces a new resource to be created.
 	CosmosMongoDatabaseId string `pulumi:"cosmosMongoDatabaseId"`

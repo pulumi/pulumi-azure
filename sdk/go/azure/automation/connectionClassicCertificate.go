@@ -181,6 +181,12 @@ func (ConnectionClassicCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionClassicCertificateState)(nil)).Elem()
 }
 
+// ConnectionClassicCertificateExists checks whether an existing ConnectionClassicCertificate resource with the given ID exists.
+func ConnectionClassicCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionClassicCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", id, state, "", opts...)
+}
+
 type connectionClassicCertificateArgs struct {
 	// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

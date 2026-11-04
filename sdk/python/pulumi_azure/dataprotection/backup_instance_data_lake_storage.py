@@ -500,6 +500,26 @@ class BackupInstanceDataLakeStorage(pulumi.CustomResource):
         __props__.__dict__["storage_container_names"] = storage_container_names
         return BackupInstanceDataLakeStorage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_policy_data_lake_storage_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupPolicyDataLakeStorageId"] = backup_policy_data_lake_storage_id
+        __props__["dataProtectionBackupVaultId"] = data_protection_backup_vault_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["protectionState"] = protection_state
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageContainerNames"] = storage_container_names
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupPolicyDataLakeStorageId")
     def backup_policy_data_lake_storage_id(self) -> pulumi.Output[_builtins.str]:

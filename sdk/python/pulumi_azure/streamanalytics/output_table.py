@@ -600,6 +600,32 @@ class OutputTable(pulumi.CustomResource):
         __props__.__dict__["table"] = table
         return OutputTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            columns_to_removes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            row_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["batchSize"] = batch_size
+        __props__["columnsToRemoves"] = columns_to_removes
+        __props__["name"] = name
+        __props__["partitionKey"] = partition_key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rowKey"] = row_key
+        __props__["storageAccountKey"] = storage_account_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        __props__["table"] = table
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputTable:OutputTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Output[_builtins.int]:

@@ -160,6 +160,12 @@ func (IntegrationAccountCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountCertificateState)(nil)).Elem()
 }
 
+// IntegrationAccountCertificateExists checks whether an existing IntegrationAccountCertificate resource with the given ID exists.
+func IntegrationAccountCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", id, state, "", opts...)
+}
+
 type integrationAccountCertificateArgs struct {
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`

@@ -605,6 +605,34 @@ class ClusterExtension(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ClusterExtension(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict', 'outputs.ClusterExtensionIdentity']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            release_train: pulumi.Input[Optional[_builtins.str]] = None,
+            target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterId"] = cluster_id
+        __props__["configurationProtectedSettings"] = configuration_protected_settings
+        __props__["configurationSettings"] = configuration_settings
+        __props__["currentVersion"] = current_version
+        __props__["extensionType"] = extension_type
+        __props__["identity"] = identity
+        __props__["name"] = name
+        __props__["releaseNamespace"] = release_namespace
+        __props__["releaseTrain"] = release_train
+        __props__["targetNamespace"] = target_namespace
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:arckubernetes/clusterExtension:ClusterExtension', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:

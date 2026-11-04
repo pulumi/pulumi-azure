@@ -747,6 +747,34 @@ class CustomDataset(pulumi.CustomResource):
         __props__.__dict__["type_properties_json"] = type_properties_json
         return CustomDataset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            schema_json: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_properties_json: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["folder"] = folder
+        __props__["linkedService"] = linked_service
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["schemaJson"] = schema_json
+        __props__["type"] = type
+        __props__["typePropertiesJson"] = type_properties_json
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/customDataset:CustomDataset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

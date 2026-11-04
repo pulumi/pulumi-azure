@@ -115,6 +115,12 @@ func (SpringCloudCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudCertificateState)(nil)).Elem()
 }
 
+// SpringCloudCertificateExists checks whether an existing SpringCloudCertificate resource with the given ID exists.
+func SpringCloudCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudCertificate:SpringCloudCertificate", id, state, "", opts...)
+}
+
 type springCloudCertificateArgs struct {
 	// The content of uploaded certificate. Changing this forces a new resource to be created.
 	CertificateContent *string `pulumi:"certificateContent"`

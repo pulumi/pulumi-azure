@@ -216,6 +216,12 @@ func (QueueAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueAuthorizationRuleState)(nil)).Elem()
 }
 
+// QueueAuthorizationRuleExists checks whether an existing QueueAuthorizationRule resource with the given ID exists.
+func QueueAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueueAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", id, state, "", opts...)
+}
+
 type queueAuthorizationRuleArgs struct {
 	// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`

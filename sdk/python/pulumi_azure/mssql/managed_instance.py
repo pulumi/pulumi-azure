@@ -1671,6 +1671,70 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["zone_redundant_enabled"] = zone_redundant_enabled
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']]] = None,
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            database_format: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+            public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vcores: pulumi.Input[Optional[_builtins.int]] = None,
+            zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorLogin"] = administrator_login
+        __props__["administratorLoginPassword"] = administrator_login_password
+        __props__["azureActiveDirectoryAdministrator"] = azure_active_directory_administrator
+        __props__["collation"] = collation
+        __props__["databaseFormat"] = database_format
+        __props__["dnsZone"] = dns_zone
+        __props__["dnsZonePartnerId"] = dns_zone_partner_id
+        __props__["fqdn"] = fqdn
+        __props__["generalPurposeV2Enabled"] = general_purpose_v2_enabled
+        __props__["hybridSecondaryUsage"] = hybrid_secondary_usage
+        __props__["identity"] = identity
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["maintenanceConfigurationName"] = maintenance_configuration_name
+        __props__["minimumTlsVersion"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["proxyOverride"] = proxy_override
+        __props__["publicDataEndpointEnabled"] = public_data_endpoint_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["servicePrincipalType"] = service_principal_type
+        __props__["skuName"] = sku_name
+        __props__["storageAccountType"] = storage_account_type
+        __props__["storageIops"] = storage_iops
+        __props__["storageSizeInGb"] = storage_size_in_gb
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["timezoneId"] = timezone_id
+        __props__["vcores"] = vcores
+        __props__["zoneRedundantEnabled"] = zone_redundant_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/managedInstance:ManagedInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[_builtins.str]:

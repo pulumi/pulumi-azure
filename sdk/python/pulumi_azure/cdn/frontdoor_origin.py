@@ -934,6 +934,34 @@ class FrontdoorOrigin(pulumi.CustomResource):
         __props__.__dict__["weight"] = weight
         return FrontdoorOrigin(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            http_port: pulumi.Input[Optional[_builtins.int]] = None,
+            https_port: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            private_link: pulumi.Input[Optional[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict', 'outputs.FrontdoorOriginPrivateLink']]] = None,
+            weight: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cdnFrontdoorOriginGroupId"] = cdn_frontdoor_origin_group_id
+        __props__["certificateNameCheckEnabled"] = certificate_name_check_enabled
+        __props__["enabled"] = enabled
+        __props__["hostName"] = host_name
+        __props__["httpPort"] = http_port
+        __props__["httpsPort"] = https_port
+        __props__["name"] = name
+        __props__["originHostHeader"] = origin_host_header
+        __props__["priority"] = priority
+        __props__["privateLink"] = private_link
+        __props__["weight"] = weight
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorOrigin:FrontdoorOrigin', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
     def cdn_frontdoor_origin_group_id(self) -> pulumi.Output[_builtins.str]:

@@ -154,6 +154,12 @@ func (LocalRulestackPrefixListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRulestackPrefixListState)(nil)).Elem()
 }
 
+// LocalRulestackPrefixListExists checks whether an existing LocalRulestackPrefixList resource with the given ID exists.
+func LocalRulestackPrefixListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackPrefixListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", id, state, "", opts...)
+}
+
 type localRulestackPrefixListArgs struct {
 	// The comment for Audit purposes.
 	AuditComment *string `pulumi:"auditComment"`

@@ -26,11 +26,10 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes;
     /**
-     * @deprecated
-     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
      * 
      */
-    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+    @Deprecated
     private @Nullable List<String> vmSizes;
 
     private OrchestratedVirtualMachineScaleSetSkuProfile() {}
@@ -51,11 +50,10 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
         return this.virtualMachineSizes == null ? List.of() : this.virtualMachineSizes;
     }
     /**
-     * @deprecated
-     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
      * 
      */
-    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+    @Deprecated
     public List<String> vmSizes() {
         return this.vmSizes == null ? List.of() : this.vmSizes;
     }

@@ -544,6 +544,28 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         __props__.__dict__["workload_group_id"] = workload_group_id
         return SqlPoolWorkloadClassifier(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            importance: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            member_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["context"] = context
+        __props__["endTime"] = end_time
+        __props__["importance"] = importance
+        __props__["label"] = label
+        __props__["memberName"] = member_name
+        __props__["name"] = name
+        __props__["startTime"] = start_time
+        __props__["workloadGroupId"] = workload_group_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def context(self) -> pulumi.Output[Optional[_builtins.str]]:

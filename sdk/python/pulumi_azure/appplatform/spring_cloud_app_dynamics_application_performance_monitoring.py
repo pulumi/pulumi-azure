@@ -676,6 +676,36 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudAppDynamicsApplicationPerformanceMonitoring(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_node_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_tier_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_unique_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+            controller_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            controller_port: pulumi.Input[Optional[_builtins.int]] = None,
+            controller_ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentAccountAccessKey"] = agent_account_access_key
+        __props__["agentAccountName"] = agent_account_name
+        __props__["agentApplicationName"] = agent_application_name
+        __props__["agentNodeName"] = agent_node_name
+        __props__["agentTierName"] = agent_tier_name
+        __props__["agentUniqueHostId"] = agent_unique_host_id
+        __props__["controllerHostName"] = controller_host_name
+        __props__["controllerPort"] = controller_port
+        __props__["controllerSslEnabled"] = controller_ssl_enabled
+        __props__["globallyEnabled"] = globally_enabled
+        __props__["name"] = name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentAccountAccessKey")
     def agent_account_access_key(self) -> pulumi.Output[_builtins.str]:

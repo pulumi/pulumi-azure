@@ -297,6 +297,12 @@ func (CustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDomainState)(nil)).Elem()
 }
 
+// CustomDomainExists checks whether an existing CustomDomain resource with the given ID exists.
+func CustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/customDomain:CustomDomain", id, state, "", opts...)
+}
+
 type customDomainArgs struct {
 	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
 	//

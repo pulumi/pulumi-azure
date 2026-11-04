@@ -447,6 +447,22 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return GalleryApplicationAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_application_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            tag: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationBlobUri"] = configuration_blob_uri
+        __props__["galleryApplicationVersionId"] = gallery_application_version_id
+        __props__["order"] = order
+        __props__["tag"] = tag
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationBlobUri")
     def configuration_blob_uri(self) -> pulumi.Output[Optional[_builtins.str]]:

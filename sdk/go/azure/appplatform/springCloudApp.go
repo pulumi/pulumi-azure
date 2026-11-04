@@ -204,6 +204,12 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudAppState)(nil)).Elem()
 }
 
+// SpringCloudAppExists checks whether an existing SpringCloudApp resource with the given ID exists.
+func SpringCloudAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudApp:SpringCloudApp", id, state, "", opts...)
+}
+
 type springCloudAppArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Service.
 	AddonJson *string `pulumi:"addonJson"`

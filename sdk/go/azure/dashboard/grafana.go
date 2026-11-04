@@ -234,6 +234,12 @@ func (GrafanaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grafanaState)(nil)).Elem()
 }
 
+// GrafanaExists checks whether an existing Grafana resource with the given ID exists.
+func GrafanaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrafanaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dashboard/grafana:Grafana", id, state, "", opts...)
+}
+
 type grafanaArgs struct {
 	// Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
 	ApiKeyEnabled *bool `pulumi:"apiKeyEnabled"`

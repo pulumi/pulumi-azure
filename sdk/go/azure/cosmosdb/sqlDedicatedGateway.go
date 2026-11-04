@@ -154,6 +154,12 @@ func (SqlDedicatedGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDedicatedGatewayState)(nil)).Elem()
 }
 
+// SqlDedicatedGatewayExists checks whether an existing SqlDedicatedGateway resource with the given ID exists.
+func SqlDedicatedGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlDedicatedGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", id, state, "", opts...)
+}
+
 type sqlDedicatedGatewayArgs struct {
 	// The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
 	CosmosdbAccountId string `pulumi:"cosmosdbAccountId"`

@@ -146,6 +146,12 @@ func (GetHostPoolRegistrationInfoState) ElementType() reflect.Type {
 	return reflect.TypeOf((*getHostPoolRegistrationInfoState)(nil)).Elem()
 }
 
+// GetHostPoolRegistrationInfoExists checks whether an existing GetHostPoolRegistrationInfo resource with the given ID exists.
+func GetHostPoolRegistrationInfoExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GetHostPoolRegistrationInfoState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo", id, state, "", opts...)
+}
+
 type getHostPoolRegistrationInfoArgs struct {
 	// A valid `RFC3339Time` for the expiration of the token..
 	ExpirationDate string `pulumi:"expirationDate"`

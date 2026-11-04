@@ -608,6 +608,34 @@ class ShareFile(pulumi.CustomResource):
         __props__.__dict__["storage_share_url"] = storage_share_url
         return ShareFile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+            content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            content_length: pulumi.Input[Optional[_builtins.int]] = None,
+            content_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_share_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contentDisposition"] = content_disposition
+        __props__["contentEncoding"] = content_encoding
+        __props__["contentLength"] = content_length
+        __props__["contentMd5"] = content_md5
+        __props__["contentType"] = content_type
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["source"] = source
+        __props__["storageShareId"] = storage_share_id
+        __props__["storageShareUrl"] = storage_share_url
+        return pulumi.runtime.exists_resource(None, 'azure:storage/shareFile:ShareFile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> pulumi.Output[Optional[_builtins.str]]:

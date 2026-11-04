@@ -272,6 +272,12 @@ func (SocketioState) ElementType() reflect.Type {
 	return reflect.TypeOf((*socketioState)(nil)).Elem()
 }
 
+// SocketioExists checks whether an existing Socketio resource with the given ID exists.
+func SocketioExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SocketioState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/socketio:Socketio", id, state, "", opts...)
+}
+
 type socketioArgs struct {
 	// Whether Azure Active Directory authentication is enabled. Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`

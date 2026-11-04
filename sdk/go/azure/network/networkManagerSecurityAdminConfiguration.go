@@ -165,6 +165,12 @@ func (NetworkManagerSecurityAdminConfigurationState) ElementType() reflect.Type 
 	return reflect.TypeOf((*networkManagerSecurityAdminConfigurationState)(nil)).Elem()
 }
 
+// NetworkManagerSecurityAdminConfigurationExists checks whether an existing NetworkManagerSecurityAdminConfiguration resource with the given ID exists.
+func NetworkManagerSecurityAdminConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerSecurityAdminConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration", id, state, "", opts...)
+}
+
 type networkManagerSecurityAdminConfigurationArgs struct {
 	// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
 	ApplyOnNetworkIntentPolicyBasedServices *string `pulumi:"applyOnNetworkIntentPolicyBasedServices"`

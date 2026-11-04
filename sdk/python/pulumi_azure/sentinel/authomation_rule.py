@@ -679,6 +679,36 @@ class AuthomationRule(pulumi.CustomResource):
         __props__.__dict__["triggers_when"] = triggers_when
         return AuthomationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict', 'outputs.AuthomationRuleActionIncidentTask']]]]] = None,
+            action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict', 'outputs.AuthomationRuleActionIncident']]]]] = None,
+            action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict', 'outputs.AuthomationRuleActionPlaybook']]]]] = None,
+            condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers_when: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionIncidentTasks"] = action_incident_tasks
+        __props__["actionIncidents"] = action_incidents
+        __props__["actionPlaybooks"] = action_playbooks
+        __props__["conditionJson"] = condition_json
+        __props__["displayName"] = display_name
+        __props__["enabled"] = enabled
+        __props__["expiration"] = expiration
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["order"] = order
+        __props__["triggersOn"] = triggers_on
+        __props__["triggersWhen"] = triggers_when
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/authomationRule:AuthomationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionIncidentTasks")
     def action_incident_tasks(self) -> pulumi.Output[Optional[Sequence['outputs.AuthomationRuleActionIncidentTask']]]:

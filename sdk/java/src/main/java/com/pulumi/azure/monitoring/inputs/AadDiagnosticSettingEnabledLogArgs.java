@@ -33,20 +33,18 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
     }
 
     /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+     * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    @Deprecated
     @Import(name="retentionPolicy")
     private @Nullable Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @deprecated
-     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+     * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    @Deprecated
     public Optional<Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
@@ -100,11 +98,10 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+         * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
          * 
          */
-        @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+        @Deprecated
         public Builder retentionPolicy(@Nullable Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
@@ -113,11 +110,10 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+         * @deprecated Azure does not support retention for new Azure Active Directory Diagnostic Settings
          * 
          */
-        @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+        @Deprecated
         public Builder retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }

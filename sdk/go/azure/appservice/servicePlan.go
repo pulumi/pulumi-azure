@@ -239,6 +239,12 @@ func (ServicePlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicePlanState)(nil)).Elem()
 }
 
+// ServicePlanExists checks whether an existing ServicePlan resource with the given ID exists.
+func ServicePlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicePlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/servicePlan:ServicePlan", id, state, "", opts...)
+}
+
 type servicePlanArgs struct {
 	// The ID of the App Service Environment to create this Service Plan in.
 	//

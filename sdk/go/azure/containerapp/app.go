@@ -273,6 +273,12 @@ func (AppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appState)(nil)).Elem()
 }
 
+// AppExists checks whether an existing App resource with the given ID exists.
+func AppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/app:App", id, state, "", opts...)
+}
+
 type appArgs struct {
 	// The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`

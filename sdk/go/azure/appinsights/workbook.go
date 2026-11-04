@@ -216,6 +216,12 @@ func (WorkbookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workbookState)(nil)).Elem()
 }
 
+// WorkbookExists checks whether an existing Workbook resource with the given ID exists.
+func WorkbookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkbookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/workbook:Workbook", id, state, "", opts...)
+}
+
 type workbookArgs struct {
 	// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
 	Category *string `pulumi:"category"`

@@ -391,6 +391,22 @@ class ReplicationPolicy(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ReplicationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationConsistentSnapshotFrequencyInMinutes"] = application_consistent_snapshot_frequency_in_minutes
+        __props__["name"] = name
+        __props__["recoveryPointRetentionInMinutes"] = recovery_point_retention_in_minutes
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/replicationPolicy:ReplicationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
     def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Output[_builtins.int]:

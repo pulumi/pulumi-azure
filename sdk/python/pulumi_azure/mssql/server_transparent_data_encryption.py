@@ -547,6 +547,20 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         return ServerTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoRotationEnabled"] = auto_rotation_enabled
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        __props__["managedHsmKeyId"] = managed_hsm_key_id
+        __props__["serverId"] = server_id
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoRotationEnabled")
     def auto_rotation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

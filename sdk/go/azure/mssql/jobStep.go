@@ -285,6 +285,12 @@ func (JobStepState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobStepState)(nil)).Elem()
 }
 
+// JobStepExists checks whether an existing JobStep resource with the given ID exists.
+func JobStepExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobStepState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/jobStep:JobStep", id, state, "", opts...)
+}
+
 type jobStepArgs struct {
 	// The initial retry interval in seconds. Defaults to `1`.
 	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`

@@ -454,6 +454,16 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return VirtualNetworkSwiftConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceId"] = app_service_id
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceId")
     def app_service_id(self) -> pulumi.Output[_builtins.str]:

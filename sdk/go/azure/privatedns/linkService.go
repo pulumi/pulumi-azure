@@ -277,6 +277,12 @@ func (LinkServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkServiceState)(nil)).Elem()
 }
 
+// LinkServiceExists checks whether an existing LinkService resource with the given ID exists.
+func LinkServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/linkService:LinkService", id, state, "", opts...)
+}
+
 type linkServiceArgs struct {
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`

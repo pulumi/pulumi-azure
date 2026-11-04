@@ -334,6 +334,18 @@ class JobTargetGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return JobTargetGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["jobAgentId"] = job_agent_id
+        __props__["jobTargets"] = job_targets
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/jobTargetGroup:JobTargetGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="jobAgentId")
     def job_agent_id(self) -> pulumi.Output[_builtins.str]:

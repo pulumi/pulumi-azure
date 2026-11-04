@@ -468,6 +468,24 @@ class JobSchedule(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.str]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["endTime"] = end_time
+        __props__["interval"] = interval
+        __props__["jobId"] = job_id
+        __props__["startTime"] = start_time
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/jobSchedule:JobSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:

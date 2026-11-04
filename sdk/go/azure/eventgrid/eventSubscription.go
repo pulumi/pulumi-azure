@@ -279,6 +279,12 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionState)(nil)).Elem()
 }
 
+// EventSubscriptionExists checks whether an existing EventSubscription resource with the given ID exists.
+func EventSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/eventSubscription:EventSubscription", id, state, "", opts...)
+}
+
 type eventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`

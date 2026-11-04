@@ -193,6 +193,12 @@ func (ManagementPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementPolicyState)(nil)).Elem()
 }
 
+// ManagementPolicyExists checks whether an existing ManagementPolicy resource with the given ID exists.
+func ManagementPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagementPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/managementPolicy:ManagementPolicy", id, state, "", opts...)
+}
+
 type managementPolicyArgs struct {
 	// A `rule` block as documented below.
 	Rules []ManagementPolicyRule `pulumi:"rules"`

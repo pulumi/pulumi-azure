@@ -220,6 +220,12 @@ func (SmartDetectorAlertRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*smartDetectorAlertRuleState)(nil)).Elem()
 }
 
+// SmartDetectorAlertRuleExists checks whether an existing SmartDetectorAlertRule resource with the given ID exists.
+func SmartDetectorAlertRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SmartDetectorAlertRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", id, state, "", opts...)
+}
+
 type smartDetectorAlertRuleArgs struct {
 	// An `actionGroup` block as defined below.
 	ActionGroup SmartDetectorAlertRuleActionGroup `pulumi:"actionGroup"`

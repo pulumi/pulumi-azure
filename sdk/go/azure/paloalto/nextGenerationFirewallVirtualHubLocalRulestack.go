@@ -225,6 +225,12 @@ func (NextGenerationFirewallVirtualHubLocalRulestackState) ElementType() reflect
 	return reflect.TypeOf((*nextGenerationFirewallVirtualHubLocalRulestackState)(nil)).Elem()
 }
 
+// NextGenerationFirewallVirtualHubLocalRulestackExists checks whether an existing NextGenerationFirewallVirtualHubLocalRulestack resource with the given ID exists.
+func NextGenerationFirewallVirtualHubLocalRulestackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NextGenerationFirewallVirtualHubLocalRulestackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack", id, state, "", opts...)
+}
+
 type nextGenerationFirewallVirtualHubLocalRulestackArgs struct {
 	// One or more `destinationNat` blocks as defined below.
 	DestinationNats []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`

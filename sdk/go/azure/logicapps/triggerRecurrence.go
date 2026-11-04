@@ -169,6 +169,12 @@ func (TriggerRecurrenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerRecurrenceState)(nil)).Elem()
 }
 
+// TriggerRecurrenceExists checks whether an existing TriggerRecurrence resource with the given ID exists.
+func TriggerRecurrenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerRecurrenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", id, state, "", opts...)
+}
+
 type triggerRecurrenceArgs struct {
 	// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
 	Frequency string `pulumi:"frequency"`

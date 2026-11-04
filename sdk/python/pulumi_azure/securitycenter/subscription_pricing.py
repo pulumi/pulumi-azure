@@ -381,6 +381,20 @@ class SubscriptionPricing(pulumi.CustomResource):
         __props__.__dict__["tier"] = tier
         return SubscriptionPricing(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict', 'outputs.SubscriptionPricingExtension']]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subplan: pulumi.Input[Optional[_builtins.str]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["extensions"] = extensions
+        __props__["resourceType"] = resource_type
+        __props__["subplan"] = subplan
+        __props__["tier"] = tier
+        return pulumi.runtime.exists_resource(None, 'azure:securitycenter/subscriptionPricing:SubscriptionPricing', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def extensions(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriptionPricingExtension']]]:

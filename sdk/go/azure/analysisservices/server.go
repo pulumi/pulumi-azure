@@ -210,6 +210,12 @@ func (ServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverState)(nil)).Elem()
 }
 
+// ServerExists checks whether an existing Server resource with the given ID exists.
+func ServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:analysisservices/server:Server", id, state, "", opts...)
+}
+
 type serverArgs struct {
 	// List of email addresses of admin users.
 	AdminUsers []string `pulumi:"adminUsers"`

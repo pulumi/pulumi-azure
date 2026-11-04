@@ -204,6 +204,12 @@ func (VpnGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayState)(nil)).Elem()
 }
 
+// VpnGatewayExists checks whether an existing VpnGateway resource with the given ID exists.
+func VpnGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/vpnGateway:VpnGateway", id, state, "", opts...)
+}
+
 type vpnGatewayArgs struct {
 	// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled *bool `pulumi:"bgpRouteTranslationForNatEnabled"`

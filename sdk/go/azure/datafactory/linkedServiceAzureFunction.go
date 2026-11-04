@@ -198,6 +198,12 @@ func (LinkedServiceAzureFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureFunctionState)(nil)).Elem()
 }
 
+// LinkedServiceAzureFunctionExists checks whether an existing LinkedServiceAzureFunction resource with the given ID exists.
+func LinkedServiceAzureFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceAzureFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", id, state, "", opts...)
+}
+
 type linkedServiceAzureFunctionArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

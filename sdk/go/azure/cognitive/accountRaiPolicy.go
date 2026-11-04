@@ -172,6 +172,12 @@ func (AccountRaiPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountRaiPolicyState)(nil)).Elem()
 }
 
+// AccountRaiPolicyExists checks whether an existing AccountRaiPolicy resource with the given ID exists.
+func AccountRaiPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountRaiPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountRaiPolicy:AccountRaiPolicy", id, state, "", opts...)
+}
+
 type accountRaiPolicyArgs struct {
 	// The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
 	BasePolicyName string `pulumi:"basePolicyName"`

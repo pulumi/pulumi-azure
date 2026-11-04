@@ -225,6 +225,12 @@ func (WebAppHybridConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppHybridConnectionState)(nil)).Elem()
 }
 
+// WebAppHybridConnectionExists checks whether an existing WebAppHybridConnection resource with the given ID exists.
+func WebAppHybridConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppHybridConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/webAppHybridConnection:WebAppHybridConnection", id, state, "", opts...)
+}
+
 type webAppHybridConnectionArgs struct {
 	// The hostname of the endpoint.
 	Hostname string `pulumi:"hostname"`

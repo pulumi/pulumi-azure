@@ -166,6 +166,12 @@ func (SecurityDeviceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityDeviceGroupState)(nil)).Elem()
 }
 
+// SecurityDeviceGroupExists checks whether an existing SecurityDeviceGroup resource with the given ID exists.
+func SecurityDeviceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityDeviceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/securityDeviceGroup:SecurityDeviceGroup", id, state, "", opts...)
+}
+
 type securityDeviceGroupArgs struct {
 	// an `allowRule` blocks as defined below.
 	AllowRule *SecurityDeviceGroupAllowRule `pulumi:"allowRule"`

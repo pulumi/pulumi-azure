@@ -126,11 +126,10 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * The Resource Manager ID of this Storage Queue.
      * 
-     * @deprecated
-     * the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * @deprecated the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
@@ -164,11 +163,10 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountName;
 

@@ -157,6 +157,12 @@ func (ApiReleaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiReleaseState)(nil)).Elem()
 }
 
+// ApiReleaseExists checks whether an existing ApiRelease resource with the given ID exists.
+func ApiReleaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiReleaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiRelease:ApiRelease", id, state, "", opts...)
+}
+
 type apiReleaseArgs struct {
 	// The ID of the API Management API. Changing this forces a new API Management API Release to be created.
 	ApiId string `pulumi:"apiId"`

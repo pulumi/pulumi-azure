@@ -933,6 +933,26 @@ class FrontdoorRule(pulumi.CustomResource):
         __props__.__dict__["order"] = order
         return FrontdoorRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict', 'outputs.FrontdoorRuleActions']]] = None,
+            behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict', 'outputs.FrontdoorRuleConditions']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["behaviorOnMatch"] = behavior_on_match
+        __props__["cdnFrontdoorRuleSetId"] = cdn_frontdoor_rule_set_id
+        __props__["cdnFrontdoorRuleSetName"] = cdn_frontdoor_rule_set_name
+        __props__["conditions"] = conditions
+        __props__["name"] = name
+        __props__["order"] = order
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorRule:FrontdoorRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output['outputs.FrontdoorRuleActions']:

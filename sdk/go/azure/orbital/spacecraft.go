@@ -191,6 +191,12 @@ func (SpacecraftState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spacecraftState)(nil)).Elem()
 }
 
+// SpacecraftExists checks whether an existing Spacecraft resource with the given ID exists.
+func SpacecraftExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpacecraftState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:orbital/spacecraft:Spacecraft", id, state, "", opts...)
+}
+
 type spacecraftArgs struct {
 	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links []SpacecraftLink `pulumi:"links"`

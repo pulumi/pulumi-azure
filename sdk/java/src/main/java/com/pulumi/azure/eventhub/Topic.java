@@ -88,11 +88,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:eventhub/topic:Topic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1
  * ```
  * 
- * @deprecated
- * azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
+ * @deprecated azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
  * 
  */
-@Deprecated /* azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic */
+@Deprecated
 @ResourceType(type="azure:eventhub/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
     /**

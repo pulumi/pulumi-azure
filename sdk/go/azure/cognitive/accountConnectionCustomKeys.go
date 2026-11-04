@@ -209,6 +209,12 @@ func (AccountConnectionCustomKeysState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountConnectionCustomKeysState)(nil)).Elem()
 }
 
+// AccountConnectionCustomKeysExists checks whether an existing AccountConnectionCustomKeys resource with the given ID exists.
+func AccountConnectionCustomKeysExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountConnectionCustomKeysState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys", id, state, "", opts...)
+}
+
 type accountConnectionCustomKeysArgs struct {
 	// The category of the connection. Possible values are `CustomKeys`, `RemoteA2A`, and `RemoteTool`. Changing this forces a new resource to be created.
 	Category string `pulumi:"category"`

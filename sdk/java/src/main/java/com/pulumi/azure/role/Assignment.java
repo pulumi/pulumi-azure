@@ -341,11 +341,10 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** for cross tenant scenarios, the format of `resource id` is composed of Azure resource ID and tenantId. for example:
  * 
- * @deprecated
- * azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
+ * @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
  * 
  */
-@Deprecated /* azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
+@Deprecated
 @ResourceType(type="azure:role/assignment:Assignment")
 public class Assignment extends com.pulumi.resources.CustomResource {
     /**

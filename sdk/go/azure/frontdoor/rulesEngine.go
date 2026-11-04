@@ -243,6 +243,12 @@ func (RulesEngineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesEngineState)(nil)).Elem()
 }
 
+// RulesEngineExists checks whether an existing RulesEngine resource with the given ID exists.
+func RulesEngineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RulesEngineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:frontdoor/rulesEngine:RulesEngine", id, state, "", opts...)
+}
+
 type rulesEngineArgs struct {
 	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

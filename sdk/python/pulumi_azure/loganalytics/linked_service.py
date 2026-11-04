@@ -394,6 +394,22 @@ class LinkedService(pulumi.CustomResource):
         __props__.__dict__["write_access_id"] = write_access_id
         return LinkedService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            write_access_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["readAccessId"] = read_access_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["workspaceId"] = workspace_id
+        __props__["writeAccessId"] = write_access_id
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/linkedService:LinkedService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

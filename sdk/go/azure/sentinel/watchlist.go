@@ -176,6 +176,12 @@ func (WatchlistState) ElementType() reflect.Type {
 	return reflect.TypeOf((*watchlistState)(nil)).Elem()
 }
 
+// WatchlistExists checks whether an existing Watchlist resource with the given ID exists.
+func WatchlistExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WatchlistState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/watchlist:Watchlist", id, state, "", opts...)
+}
+
 type watchlistArgs struct {
 	// The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DefaultDuration *string `pulumi:"defaultDuration"`

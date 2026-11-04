@@ -552,6 +552,28 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AlertProcessingRuleSuppression(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["condition"] = condition
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["schedule"] = schedule
+        __props__["scopes"] = scopes
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional['outputs.AlertProcessingRuleSuppressionCondition']]:

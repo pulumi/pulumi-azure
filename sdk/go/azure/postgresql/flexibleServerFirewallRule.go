@@ -155,6 +155,12 @@ func (FlexibleServerFirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerFirewallRuleState)(nil)).Elem()
 }
 
+// FlexibleServerFirewallRuleExists checks whether an existing FlexibleServerFirewallRule resource with the given ID exists.
+func FlexibleServerFirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerFirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule", id, state, "", opts...)
+}
+
 type flexibleServerFirewallRuleArgs struct {
 	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress string `pulumi:"endIpAddress"`

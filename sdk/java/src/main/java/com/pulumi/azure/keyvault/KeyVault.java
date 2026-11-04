@@ -126,11 +126,10 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return this.accessPolicies;
     }
     /**
-     * @deprecated
-     * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      * 
      */
-    @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
+    @Deprecated
     @Export(name="contacts", refs={List.class,KeyVaultContact.class}, tree="[0,1]")
     private Output<List<KeyVaultContact>> contacts;
 
@@ -138,11 +137,10 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return this.contacts;
     }
     /**
-     * @deprecated
-     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
+    @Deprecated
     @Export(name="enableRbacAuthorization", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableRbacAuthorization;
 

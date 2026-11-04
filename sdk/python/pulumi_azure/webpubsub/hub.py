@@ -498,6 +498,22 @@ class Hub(pulumi.CustomResource):
         __props__.__dict__["web_pubsub_id"] = web_pubsub_id
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]]] = None,
+            event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["anonymousConnectionsEnabled"] = anonymous_connections_enabled
+        __props__["eventHandlers"] = event_handlers
+        __props__["eventListeners"] = event_listeners
+        __props__["name"] = name
+        __props__["webPubsubId"] = web_pubsub_id
+        return pulumi.runtime.exists_resource(None, 'azure:webpubsub/hub:Hub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="anonymousConnectionsEnabled")
     def anonymous_connections_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

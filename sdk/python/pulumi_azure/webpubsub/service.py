@@ -849,6 +849,54 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            external_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+            live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_port: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aadAuthEnabled"] = aad_auth_enabled
+        __props__["capacity"] = capacity
+        __props__["externalIp"] = external_ip
+        __props__["hostname"] = hostname
+        __props__["identity"] = identity
+        __props__["liveTrace"] = live_trace
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["publicPort"] = public_port
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["serverPort"] = server_port
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["tlsClientCertEnabled"] = tls_client_cert_enabled
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:webpubsub/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aadAuthEnabled")
     def aad_auth_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

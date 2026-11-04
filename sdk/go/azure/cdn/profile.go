@@ -150,6 +150,12 @@ func (ProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileState)(nil)).Elem()
 }
 
+// ProfileExists checks whether an existing Profile resource with the given ID exists.
+func ProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/profile:Profile", id, state, "", opts...)
+}
+
 type profileArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

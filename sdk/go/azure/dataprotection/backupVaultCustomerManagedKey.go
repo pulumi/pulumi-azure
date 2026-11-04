@@ -218,6 +218,12 @@ func (BackupVaultCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupVaultCustomerManagedKeyState)(nil)).Elem()
 }
 
+// BackupVaultCustomerManagedKeyExists checks whether an existing BackupVaultCustomerManagedKey resource with the given ID exists.
+func BackupVaultCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupVaultCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey", id, state, "", opts...)
+}
+
 type backupVaultCustomerManagedKeyArgs struct {
 	// The ID of the Backup Vault. Changing this forces a new resource to be created.
 	DataProtectionBackupVaultId string `pulumi:"dataProtectionBackupVaultId"`

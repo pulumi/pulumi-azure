@@ -171,6 +171,12 @@ func (WorkspaceTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceTableState)(nil)).Elem()
 }
 
+// WorkspaceTableExists checks whether an existing WorkspaceTable resource with the given ID exists.
+func WorkspaceTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/workspaceTable:WorkspaceTable", id, state, "", opts...)
+}
+
 type workspaceTableArgs struct {
 	// Specifies the name of a table in a Log Analytics Workspace.
 	Name *string `pulumi:"name"`

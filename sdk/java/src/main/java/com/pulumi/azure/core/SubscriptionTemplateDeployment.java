@@ -36,36 +36,36 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new SubscriptionTemplateDeployment("example", SubscriptionTemplateDeploymentArgs.builder()
  *             .name("example-deployment")
  *             .location("West Europe")
  *             .templateContent("""
- *  {
- *    \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
- *    \"contentVersion\": \"1.0.0.0\",
- *    \"parameters\": {},
- *    \"variables\": {},
- *    \"resources\": [
- *      {
- *        \"type\": \"Microsoft.Resources/resourceGroups\",
- *        \"apiVersion\": \"2018-05-01\",
- *        \"location\": \"West Europe\",
- *        \"name\": \"some-resource-group\",
- *        \"properties\": {}
- *      }
+ *  }{{@code
+ *    }&#92;{@code "$schema}&#92;{@code ": }&#92;{@code "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#}&#92;{@code ",
+ *    }&#92;{@code "contentVersion}&#92;{@code ": }&#92;{@code "1.0.0.0}&#92;{@code ",
+ *    }&#92;{@code "parameters}&#92;{@code ": }{}{@code ,
+ *    }&#92;{@code "variables}&#92;{@code ": }{}{@code ,
+ *    }&#92;{@code "resources}&#92;{@code ": [
+ *      }{{@code
+ *        }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Microsoft.Resources/resourceGroups}&#92;{@code ",
+ *        }&#92;{@code "apiVersion}&#92;{@code ": }&#92;{@code "2018-05-01}&#92;{@code ",
+ *        }&#92;{@code "location}&#92;{@code ": }&#92;{@code "West Europe}&#92;{@code ",
+ *        }&#92;{@code "name}&#92;{@code ": }&#92;{@code "some-resource-group}&#92;{@code ",
+ *        }&#92;{@code "properties}&#92;{@code ": }{}{@code
+ *      }}{@code
  *    ]
- *  }
+ *  }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

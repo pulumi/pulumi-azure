@@ -151,6 +151,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// Specifies the ID of the API Management Service in which the API Management Workspace should be created. Changing this forces a new resource to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

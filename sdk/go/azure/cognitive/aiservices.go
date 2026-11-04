@@ -253,6 +253,12 @@ func (AIServicesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aiservicesState)(nil)).Elem()
 }
 
+// AIServicesExists checks whether an existing AIServices resource with the given ID exists.
+func AIServicesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AIServicesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/aIServices:AIServices", id, state, "", opts...)
+}
+
 type aiservicesArgs struct {
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	//

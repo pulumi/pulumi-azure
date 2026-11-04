@@ -113,6 +113,12 @@ func (CustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customDomainState)(nil)).Elem()
 }
 
+// CustomDomainExists checks whether an existing CustomDomain resource with the given ID exists.
+func CustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/customDomain:CustomDomain", id, state, "", opts...)
+}
+
 type customDomainArgs struct {
 	// Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 	//

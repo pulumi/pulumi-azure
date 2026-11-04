@@ -282,6 +282,16 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
         return SpringCloudActiveDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deploymentName"] = deployment_name
+        __props__["springCloudAppId"] = spring_cloud_app_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deploymentName")
     def deployment_name(self) -> pulumi.Output[_builtins.str]:

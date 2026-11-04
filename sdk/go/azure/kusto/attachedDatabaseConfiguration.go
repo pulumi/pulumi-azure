@@ -266,6 +266,12 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachedDatabaseConfigurationState)(nil)).Elem()
 }
 
+// AttachedDatabaseConfigurationExists checks whether an existing AttachedDatabaseConfiguration resource with the given ID exists.
+func AttachedDatabaseConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachedDatabaseConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", id, state, "", opts...)
+}
+
 type attachedDatabaseConfigurationArgs struct {
 	// The resource id of the cluster where the databases you would like to attach reside.
 	ClusterId *string `pulumi:"clusterId"`

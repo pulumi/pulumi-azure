@@ -141,6 +141,12 @@ func (SpringCloudGatewayCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudGatewayCustomDomainState)(nil)).Elem()
 }
 
+// SpringCloudGatewayCustomDomainExists checks whether an existing SpringCloudGatewayCustomDomain resource with the given ID exists.
+func SpringCloudGatewayCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudGatewayCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", id, state, "", opts...)
+}
+
 type springCloudGatewayCustomDomainArgs struct {
 	// The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
 	Name *string `pulumi:"name"`

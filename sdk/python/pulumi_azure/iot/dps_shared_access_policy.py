@@ -630,6 +630,36 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         __props__.__dict__["service_config"] = service_config
         return DpsSharedAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enrollment_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            enrollment_write: pulumi.Input[Optional[_builtins.bool]] = None,
+            iothub_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            registration_write: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_config: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enrollmentRead"] = enrollment_read
+        __props__["enrollmentWrite"] = enrollment_write
+        __props__["iothubDpsName"] = iothub_dps_name
+        __props__["name"] = name
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["primaryKey"] = primary_key
+        __props__["registrationRead"] = registration_read
+        __props__["registrationWrite"] = registration_write
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["secondaryKey"] = secondary_key
+        __props__["serviceConfig"] = service_config
+        return pulumi.runtime.exists_resource(None, 'azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enrollmentRead")
     def enrollment_read(self) -> pulumi.Output[Optional[_builtins.bool]]:

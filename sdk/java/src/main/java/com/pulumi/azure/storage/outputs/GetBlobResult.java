@@ -43,19 +43,17 @@ public final class GetBlobResult {
     private Map<String,String> metadata;
     private String name;
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private String storageAccountName;
     private String storageContainerId;
     /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private String storageContainerName;
     /**
      * @return The type of the storage blob
@@ -115,11 +113,10 @@ public final class GetBlobResult {
         return this.name;
     }
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public String storageAccountName() {
         return this.storageAccountName;
     }
@@ -127,11 +124,10 @@ public final class GetBlobResult {
         return this.storageContainerId;
     }
     /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public String storageContainerName() {
         return this.storageContainerName;
     }

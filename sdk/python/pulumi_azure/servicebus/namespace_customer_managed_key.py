@@ -435,6 +435,18 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["namespace_id"] = namespace_id
         return NamespaceCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["infrastructureEncryptionEnabled"] = infrastructure_encryption_enabled
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        __props__["namespaceId"] = namespace_id
+        return pulumi.runtime.exists_resource(None, 'azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
     def infrastructure_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -301,6 +301,12 @@ func (BackupInstancePostgresqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstancePostgresqlState)(nil)).Elem()
 }
 
+// BackupInstancePostgresqlExists checks whether an existing BackupInstancePostgresql resource with the given ID exists.
+func BackupInstancePostgresqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstancePostgresqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", id, state, "", opts...)
+}
+
 type backupInstancePostgresqlArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

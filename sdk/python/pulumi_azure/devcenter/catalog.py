@@ -401,6 +401,22 @@ class Catalog(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return Catalog(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']]] = None,
+            catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']]] = None,
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogAdogit"] = catalog_adogit
+        __props__["catalogGithub"] = catalog_github
+        __props__["devCenterId"] = dev_center_id
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/catalog:Catalog', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogAdogit")
     def catalog_adogit(self) -> pulumi.Output[Optional['outputs.CatalogCatalogAdogit']]:

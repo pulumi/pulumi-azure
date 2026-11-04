@@ -336,6 +336,12 @@ func (KafkaClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaClusterState)(nil)).Elem()
 }
 
+// KafkaClusterExists checks whether an existing KafkaCluster resource with the given ID exists.
+func KafkaClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KafkaClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hdinsight/kafkaCluster:KafkaCluster", id, state, "", opts...)
+}
+
 type kafkaClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion string `pulumi:"clusterVersion"`

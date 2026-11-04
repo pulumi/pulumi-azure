@@ -94,7 +94,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The table retention in days, between `4` and `730`. 
+        /// The table retention in days, between `4` and `730`.
         /// 
         /// &gt; **Note:** `RetentionInDays` must be less than or equal to `TotalRetentionInDays`.
         /// </summary>
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The table retention in days, between `4` and `730`. 
+        /// The table retention in days, between `4` and `730`.
         /// 
         /// &gt; **Note:** `RetentionInDays` must be less than or equal to `TotalRetentionInDays`.
         /// </summary>
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The table retention in days, between `4` and `730`. 
+        /// The table retention in days, between `4` and `730`.
         /// 
         /// &gt; **Note:** `RetentionInDays` must be less than or equal to `TotalRetentionInDays`.
         /// </summary>

@@ -379,6 +379,12 @@ func (ScheduledQueryRulesAlertV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRulesAlertV2State)(nil)).Elem()
 }
 
+// ScheduledQueryRulesAlertV2Exists checks whether an existing ScheduledQueryRulesAlertV2 resource with the given ID exists.
+func ScheduledQueryRulesAlertV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledQueryRulesAlertV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", id, state, "", opts...)
+}
+
 type scheduledQueryRulesAlertV2Args struct {
 	// An `action` block as defined below.
 	Action *ScheduledQueryRulesAlertV2Action `pulumi:"action"`

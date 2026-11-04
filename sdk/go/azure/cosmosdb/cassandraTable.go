@@ -216,6 +216,12 @@ func (CassandraTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraTableState)(nil)).Elem()
 }
 
+// CassandraTableExists checks whether an existing CassandraTable resource with the given ID exists.
+func CassandraTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CassandraTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/cassandraTable:CassandraTable", id, state, "", opts...)
+}
+
 type cassandraTableArgs struct {
 	// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
 	//

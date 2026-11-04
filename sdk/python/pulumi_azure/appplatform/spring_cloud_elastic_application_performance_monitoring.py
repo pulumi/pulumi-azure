@@ -434,6 +434,24 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudElasticApplicationPerformanceMonitoring(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationPackages"] = application_packages
+        __props__["globallyEnabled"] = globally_enabled
+        __props__["name"] = name
+        __props__["serverUrl"] = server_url
+        __props__["serviceName"] = service_name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationPackages")
     def application_packages(self) -> pulumi.Output[Sequence[_builtins.str]]:

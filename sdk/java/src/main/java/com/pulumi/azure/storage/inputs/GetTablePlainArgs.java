@@ -50,11 +50,10 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="storageAccountName")
     private @Nullable String storageAccountName;
 
@@ -63,11 +62,10 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<String> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
@@ -127,11 +125,10 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder storageAccountName(@Nullable String storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;

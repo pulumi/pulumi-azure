@@ -238,6 +238,12 @@ func (VirtualNetworkPeeringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkPeeringState)(nil)).Elem()
 }
 
+// VirtualNetworkPeeringExists checks whether an existing VirtualNetworkPeering resource with the given ID exists.
+func VirtualNetworkPeeringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkPeeringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:databricks/virtualNetworkPeering:VirtualNetworkPeering", id, state, "", opts...)
+}
+
 type virtualNetworkPeeringArgs struct {
 	// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`

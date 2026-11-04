@@ -229,6 +229,12 @@ func (RouteServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeServerState)(nil)).Elem()
 }
 
+// RouteServerExists checks whether an existing RouteServer resource with the given ID exists.
+func RouteServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/routeServer:RouteServer", id, state, "", opts...)
+}
+
 type routeServerArgs struct {
 	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled *bool `pulumi:"branchToBranchTrafficEnabled"`

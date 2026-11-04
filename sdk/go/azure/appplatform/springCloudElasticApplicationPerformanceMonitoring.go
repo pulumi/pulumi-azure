@@ -175,6 +175,12 @@ func (SpringCloudElasticApplicationPerformanceMonitoringState) ElementType() ref
 	return reflect.TypeOf((*springCloudElasticApplicationPerformanceMonitoringState)(nil)).Elem()
 }
 
+// SpringCloudElasticApplicationPerformanceMonitoringExists checks whether an existing SpringCloudElasticApplicationPerformanceMonitoring resource with the given ID exists.
+func SpringCloudElasticApplicationPerformanceMonitoringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudElasticApplicationPerformanceMonitoringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring", id, state, "", opts...)
+}
+
 type springCloudElasticApplicationPerformanceMonitoringArgs struct {
 	// Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
 	ApplicationPackages []string `pulumi:"applicationPackages"`

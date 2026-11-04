@@ -171,6 +171,12 @@ func (EnterpriseClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseClusterState)(nil)).Elem()
 }
 
+// EnterpriseClusterExists checks whether an existing EnterpriseCluster resource with the given ID exists.
+func EnterpriseClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/enterpriseCluster:EnterpriseCluster", id, state, "", opts...)
+}
+
 type enterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`

@@ -217,6 +217,12 @@ func (TopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicState)(nil)).Elem()
 }
 
+// TopicExists checks whether an existing Topic resource with the given ID exists.
+func TopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/topic:Topic", id, state, "", opts...)
+}
+
 type topicArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`

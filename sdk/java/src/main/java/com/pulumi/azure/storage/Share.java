@@ -222,11 +222,10 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The Resource Manager ID of this File Share.
      * 
-     * @deprecated
-     * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+     * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
+    @Deprecated
     @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
@@ -260,11 +259,10 @@ public class Share extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
+    @Deprecated
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountName;
 

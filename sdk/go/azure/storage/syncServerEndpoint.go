@@ -235,6 +235,12 @@ func (SyncServerEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncServerEndpointState)(nil)).Elem()
 }
 
+// SyncServerEndpointExists checks whether an existing SyncServerEndpoint resource with the given ID exists.
+func SyncServerEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncServerEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/syncServerEndpoint:SyncServerEndpoint", id, state, "", opts...)
+}
+
 type syncServerEndpointArgs struct {
 	// Is Cloud Tiering Enabled? Defaults to `false`.
 	CloudTieringEnabled *bool `pulumi:"cloudTieringEnabled"`

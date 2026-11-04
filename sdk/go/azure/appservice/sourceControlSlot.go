@@ -205,6 +205,12 @@ func (SourceControlSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlSlotState)(nil)).Elem()
 }
 
+// SourceControlSlotExists checks whether an existing SourceControlSlot resource with the given ID exists.
+func SourceControlSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceControlSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/sourceControlSlot:SourceControlSlot", id, state, "", opts...)
+}
+
 type sourceControlSlotArgs struct {
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`

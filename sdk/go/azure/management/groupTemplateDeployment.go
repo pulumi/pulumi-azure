@@ -294,6 +294,12 @@ func (GroupTemplateDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupTemplateDeploymentState)(nil)).Elem()
 }
 
+// GroupTemplateDeploymentExists checks whether an existing GroupTemplateDeployment resource with the given ID exists.
+func GroupTemplateDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupTemplateDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/groupTemplateDeployment:GroupTemplateDeployment", id, state, "", opts...)
+}
+
 type groupTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`

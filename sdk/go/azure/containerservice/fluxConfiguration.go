@@ -219,6 +219,12 @@ func (FluxConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fluxConfigurationState)(nil)).Elem()
 }
 
+// FluxConfigurationExists checks whether an existing FluxConfiguration resource with the given ID exists.
+func FluxConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FluxConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/fluxConfiguration:FluxConfiguration", id, state, "", opts...)
+}
+
 type fluxConfigurationArgs struct {
 	// An `blobStorage` block as defined below.
 	BlobStorage *FluxConfigurationBlobStorage `pulumi:"blobStorage"`

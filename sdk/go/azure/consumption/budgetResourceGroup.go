@@ -228,6 +228,12 @@ func (BudgetResourceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetResourceGroupState)(nil)).Elem()
 }
 
+// BudgetResourceGroupExists checks whether an existing BudgetResourceGroup resource with the given ID exists.
+func BudgetResourceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BudgetResourceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:consumption/budgetResourceGroup:BudgetResourceGroup", id, state, "", opts...)
+}
+
 type budgetResourceGroupArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`

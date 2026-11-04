@@ -599,6 +599,32 @@ class FileUpload(pulumi.CustomResource):
         __props__.__dict__["sas_ttl"] = sas_ttl
         return FileUpload(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+            notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sas_ttl: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationType"] = authentication_type
+        __props__["connectionString"] = connection_string
+        __props__["containerName"] = container_name
+        __props__["defaultTtl"] = default_ttl
+        __props__["identityId"] = identity_id
+        __props__["iothubId"] = iothub_id
+        __props__["lockDuration"] = lock_duration
+        __props__["maxDeliveryCount"] = max_delivery_count
+        __props__["notificationsEnabled"] = notifications_enabled
+        __props__["sasTtl"] = sas_ttl
+        return pulumi.runtime.exists_resource(None, 'azure:iot/fileUpload:FileUpload', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[Optional[_builtins.str]]:

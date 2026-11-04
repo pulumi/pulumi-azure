@@ -222,6 +222,12 @@ func (WorkspaceSqlAadAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceSqlAadAdminState)(nil)).Elem()
 }
 
+// WorkspaceSqlAadAdminExists checks whether an existing WorkspaceSqlAadAdmin resource with the given ID exists.
+func WorkspaceSqlAadAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceSqlAadAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin", id, state, "", opts...)
+}
+
 type workspaceSqlAadAdminArgs struct {
 	// The login name of the Azure AD SQL Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`

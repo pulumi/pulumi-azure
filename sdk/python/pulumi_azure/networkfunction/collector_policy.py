@@ -489,6 +489,24 @@ class CollectorPolicy(pulumi.CustomResource):
         __props__.__dict__["traffic_collector_id"] = traffic_collector_id
         return CollectorPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']]] = None,
+            ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_collector_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ipfxEmission"] = ipfx_emission
+        __props__["ipfxIngestion"] = ipfx_ingestion
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["tags"] = tags
+        __props__["trafficCollectorId"] = traffic_collector_id
+        return pulumi.runtime.exists_resource(None, 'azure:networkfunction/collectorPolicy:CollectorPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ipfxEmission")
     def ipfx_emission(self) -> pulumi.Output['outputs.CollectorPolicyIpfxEmission']:

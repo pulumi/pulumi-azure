@@ -203,6 +203,12 @@ func (SourceControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceControlState)(nil)).Elem()
 }
 
+// SourceControlExists checks whether an existing SourceControl resource with the given ID exists.
+func SourceControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SourceControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/sourceControl:SourceControl", id, state, "", opts...)
+}
+
 type sourceControlArgs struct {
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//

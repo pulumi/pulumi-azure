@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  *             .severity("High")
  *             .query("""
  * AzureActivity |
- *   where OperationName == \"Create or Update Virtual Machine\" or OperationName ==\"Create Deployment\" |
- *   where ActivityStatus == \"Succeeded\" |
+ *   where OperationName == }&#92;{@code "Create or Update Virtual Machine}&#92;{@code " or OperationName ==}&#92;{@code "Create Deployment}&#92;{@code " |
+ *   where ActivityStatus == }&#92;{@code "Succeeded}&#92;{@code " |
  *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

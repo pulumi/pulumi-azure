@@ -978,6 +978,46 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         __props__.__dict__["trigger"] = trigger
         return ScheduledQueryRulesAlert(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertActionArgs', 'ScheduledQueryRulesAlertActionArgsDict', 'outputs.ScheduledQueryRulesAlertAction']]] = None,
+            authorized_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            query_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            severity: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throttling: pulumi.Input[Optional[_builtins.int]] = None,
+            time_window: pulumi.Input[Optional[_builtins.int]] = None,
+            trigger: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertTriggerArgs', 'ScheduledQueryRulesAlertTriggerArgsDict', 'outputs.ScheduledQueryRulesAlertTrigger']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["authorizedResourceIds"] = authorized_resource_ids
+        __props__["autoMitigationEnabled"] = auto_mitigation_enabled
+        __props__["dataSourceId"] = data_source_id
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["frequency"] = frequency
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["queryType"] = query_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["severity"] = severity
+        __props__["tags"] = tags
+        __props__["throttling"] = throttling
+        __props__["timeWindow"] = time_window
+        __props__["trigger"] = trigger
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.ScheduledQueryRulesAlertAction']:

@@ -444,6 +444,26 @@ class AnomalyAlert(pulumi.CustomResource):
         __props__.__dict__["subscription_id"] = subscription_id
         return AnomalyAlert(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_subject: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["emailAddresses"] = email_addresses
+        __props__["emailSubject"] = email_subject
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["notificationEmail"] = notification_email
+        __props__["subscriptionId"] = subscription_id
+        return pulumi.runtime.exists_resource(None, 'azure:costmanagement/anomalyAlert:AnomalyAlert', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

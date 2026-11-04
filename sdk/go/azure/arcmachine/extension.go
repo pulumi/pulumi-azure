@@ -214,6 +214,12 @@ func (ExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionState)(nil)).Elem()
 }
 
+// ExtensionExists checks whether an existing Extension resource with the given ID exists.
+func ExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arcmachine/extension:Extension", id, state, "", opts...)
+}
+
 type extensionArgs struct {
 	// The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
 	ArcMachineId string `pulumi:"arcMachineId"`

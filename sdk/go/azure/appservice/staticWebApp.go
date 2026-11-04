@@ -231,6 +231,12 @@ func (StaticWebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticWebAppState)(nil)).Elem()
 }
 
+// StaticWebAppExists checks whether an existing StaticWebApp resource with the given ID exists.
+func StaticWebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticWebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/staticWebApp:StaticWebApp", id, state, "", opts...)
+}
+
 type staticWebAppArgs struct {
 	// A key-value pair of App Settings.
 	//

@@ -153,6 +153,12 @@ func (ModuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleState)(nil)).Elem()
 }
 
+// ModuleExists checks whether an existing Module resource with the given ID exists.
+func ModuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ModuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/module:Module", id, state, "", opts...)
+}
+
 type moduleArgs struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

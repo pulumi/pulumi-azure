@@ -123,6 +123,12 @@ func (LocalRulestackOutboundTrustCertificateAssociationState) ElementType() refl
 	return reflect.TypeOf((*localRulestackOutboundTrustCertificateAssociationState)(nil)).Elem()
 }
 
+// LocalRulestackOutboundTrustCertificateAssociationExists checks whether an existing LocalRulestackOutboundTrustCertificateAssociation resource with the given ID exists.
+func LocalRulestackOutboundTrustCertificateAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackOutboundTrustCertificateAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation", id, state, "", opts...)
+}
+
 type localRulestackOutboundTrustCertificateAssociationArgs struct {
 	// The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
 	CertificateId string `pulumi:"certificateId"`

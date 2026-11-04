@@ -642,6 +642,26 @@ class VolumeGroup(pulumi.CustomResource):
         __props__.__dict__["protocol_type"] = protocol_type
         return VolumeGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            elastic_san_id: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict', 'outputs.VolumeGroupEncryption']]] = None,
+            encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict', 'outputs.VolumeGroupIdentity']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict', 'outputs.VolumeGroupNetworkRule']]]]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["elasticSanId"] = elastic_san_id
+        __props__["encryption"] = encryption
+        __props__["encryptionType"] = encryption_type
+        __props__["identity"] = identity
+        __props__["name"] = name
+        __props__["networkRules"] = network_rules
+        __props__["protocolType"] = protocol_type
+        return pulumi.runtime.exists_resource(None, 'azure:elasticsan/volumeGroup:VolumeGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="elasticSanId")
     def elastic_san_id(self) -> pulumi.Output[_builtins.str]:

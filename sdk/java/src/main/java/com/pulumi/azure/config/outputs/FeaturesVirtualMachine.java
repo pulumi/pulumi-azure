@@ -14,11 +14,10 @@ public final class FeaturesVirtualMachine {
     private @Nullable Boolean deleteOsDiskOnDeletion;
     private @Nullable Boolean detachImplicitDataDiskOnDeletion;
     /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+    @Deprecated
     private @Nullable Boolean gracefulShutdown;
     private @Nullable Boolean skipShutdownAndForceDelete;
 
@@ -30,11 +29,10 @@ public final class FeaturesVirtualMachine {
         return Optional.ofNullable(this.detachImplicitDataDiskOnDeletion);
     }
     /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+    @Deprecated
     public Optional<Boolean> gracefulShutdown() {
         return Optional.ofNullable(this.gracefulShutdown);
     }

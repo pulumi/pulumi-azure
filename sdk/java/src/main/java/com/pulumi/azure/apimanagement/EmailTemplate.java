@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * <!DOCTYPE html >
  * <html>
  * <head>
- *   <meta charset=\"UTF-8\" />
+ *   <meta charset=}&#92;{@code "UTF-8}&#92;{@code " />
  *   <title>Customized Letter Title</title>
  * </head>
  * <body>
- *   <p style=\"font-size:12pt;font-family:'Segoe UI'\">Dear $DevFirstName $DevLastName,</p>
+ *   <p style=}&#92;{@code "font-size:12pt;font-family:'Segoe UI'}&#92;{@code ">Dear $DevFirstName $DevLastName,</p>
  * </body>
  * </html>
  *             """)

@@ -225,6 +225,12 @@ func (DatasetParquetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetParquetState)(nil)).Elem()
 }
 
+// DatasetParquetExists checks whether an existing DatasetParquet resource with the given ID exists.
+func DatasetParquetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetParquetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetParquet:DatasetParquet", id, state, "", opts...)
+}
+
 type datasetParquetArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

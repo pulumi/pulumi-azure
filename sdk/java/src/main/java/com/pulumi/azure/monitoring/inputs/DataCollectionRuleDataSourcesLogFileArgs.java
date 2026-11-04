@@ -19,14 +19,14 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
     public static final DataCollectionRuleDataSourcesLogFileArgs Empty = new DataCollectionRuleDataSourcesLogFileArgs();
 
     /**
-     * Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+     * Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
      * 
      */
     @Import(name="filePatterns", required=true)
     private Output<List<String>> filePatterns;
 
     /**
-     * @return Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+     * @return Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
      * 
      */
     public Output<List<String>> filePatterns() {
@@ -122,7 +122,7 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         /**
-         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         /**
-         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         /**
-         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+         * @param filePatterns Specifies a list of file patterns where the log files are located. For example, `C:&#92;&#92;JavaLogs&#92;&#92;*.log`.
          * 
          * @return builder
          * 

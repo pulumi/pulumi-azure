@@ -511,6 +511,12 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGatewayState)(nil)).Elem()
 }
 
+// ApplicationGatewayExists checks whether an existing ApplicationGateway resource with the given ID exists.
+func ApplicationGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/applicationGateway:ApplicationGateway", id, state, "", opts...)
+}
+
 type applicationGatewayArgs struct {
 	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`

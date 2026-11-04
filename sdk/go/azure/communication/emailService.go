@@ -138,6 +138,12 @@ func (EmailServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailServiceState)(nil)).Elem()
 }
 
+// EmailServiceExists checks whether an existing EmailService resource with the given ID exists.
+func EmailServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:communication/emailService:EmailService", id, state, "", opts...)
+}
+
 type emailServiceArgs struct {
 	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation string `pulumi:"dataLocation"`

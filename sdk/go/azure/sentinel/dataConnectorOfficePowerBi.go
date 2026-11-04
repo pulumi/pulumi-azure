@@ -143,6 +143,12 @@ func (DataConnectorOfficePowerBiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorOfficePowerBiState)(nil)).Elem()
 }
 
+// DataConnectorOfficePowerBiExists checks whether an existing DataConnectorOfficePowerBi resource with the given ID exists.
+func DataConnectorOfficePowerBiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorOfficePowerBiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi", id, state, "", opts...)
+}
+
 type dataConnectorOfficePowerBiArgs struct {
 	// The ID of the Log Analytics Workspace that this Office Power BI Data Connector resides in. Changing this forces a new Office Power BI Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

@@ -454,6 +454,24 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         __props__.__dict__["web_pubsub_id"] = web_pubsub_id
         return SharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["requestMessage"] = request_message
+        __props__["status"] = status
+        __props__["subresourceName"] = subresource_name
+        __props__["targetResourceId"] = target_resource_id
+        __props__["webPubsubId"] = web_pubsub_id
+        return pulumi.runtime.exists_resource(None, 'azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

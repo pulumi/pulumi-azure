@@ -95,11 +95,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:eventhub/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
  * ```
  * 
- * @deprecated
- * azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
+ * @deprecated azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
  * 
  */
-@Deprecated /* azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription */
+@Deprecated
 @ResourceType(type="azure:eventhub/subscription:Subscription")
 public class Subscription extends com.pulumi.resources.CustomResource {
     /**

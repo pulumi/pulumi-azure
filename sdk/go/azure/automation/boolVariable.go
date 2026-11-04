@@ -153,6 +153,12 @@ func (BoolVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*boolVariableState)(nil)).Elem()
 }
 
+// BoolVariableExists checks whether an existing BoolVariable resource with the given ID exists.
+func BoolVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BoolVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/boolVariable:BoolVariable", id, state, "", opts...)
+}
+
 type boolVariableArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

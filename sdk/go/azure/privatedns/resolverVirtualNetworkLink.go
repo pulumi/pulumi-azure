@@ -210,6 +210,12 @@ func (ResolverVirtualNetworkLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverVirtualNetworkLinkState)(nil)).Elem()
 }
 
+// ResolverVirtualNetworkLinkExists checks whether an existing ResolverVirtualNetworkLink resource with the given ID exists.
+func ResolverVirtualNetworkLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverVirtualNetworkLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink", id, state, "", opts...)
+}
+
 type resolverVirtualNetworkLinkArgs struct {
 	// Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
 	DnsForwardingRulesetId string `pulumi:"dnsForwardingRulesetId"`

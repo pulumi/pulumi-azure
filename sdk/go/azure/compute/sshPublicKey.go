@@ -144,6 +144,12 @@ func (SshPublicKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshPublicKeyState)(nil)).Elem()
 }
 
+// SshPublicKeyExists checks whether an existing SshPublicKey resource with the given ID exists.
+func SshPublicKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshPublicKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/sshPublicKey:SshPublicKey", id, state, "", opts...)
+}
+
 type sshPublicKeyArgs struct {
 	// The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
 	Location *string `pulumi:"location"`

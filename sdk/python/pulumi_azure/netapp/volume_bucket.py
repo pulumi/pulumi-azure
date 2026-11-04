@@ -694,6 +694,34 @@ class VolumeBucket(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = volume_id
         return VolumeBucket(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']]] = None,
+            key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            server_certificate_common_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_certificate_expiry_date: pulumi.Input[Optional[_builtins.str]] = None,
+            server_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fileSystemCifsUsername"] = file_system_cifs_username
+        __props__["fileSystemNfsUser"] = file_system_nfs_user
+        __props__["keyVault"] = key_vault
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["permissions"] = permissions
+        __props__["serverCertificateCommonName"] = server_certificate_common_name
+        __props__["serverCertificateExpiryDate"] = server_certificate_expiry_date
+        __props__["serverIpAddress"] = server_ip_address
+        __props__["status"] = status
+        __props__["volumeId"] = volume_id
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/volumeBucket:VolumeBucket', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fileSystemCifsUsername")
     def file_system_cifs_username(self) -> pulumi.Output[Optional[_builtins.str]]:

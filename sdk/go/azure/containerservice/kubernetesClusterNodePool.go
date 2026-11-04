@@ -472,6 +472,12 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterNodePoolState)(nil)).Elem()
 }
 
+// KubernetesClusterNodePoolExists checks whether an existing KubernetesClusterNodePool resource with the given ID exists.
+func KubernetesClusterNodePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesClusterNodePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", id, state, "", opts...)
+}
+
 type kubernetesClusterNodePoolArgs struct {
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`

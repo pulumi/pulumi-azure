@@ -410,6 +410,26 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         __props__.__dict__["self_contained_interactive_authoring_enabled"] = self_contained_interactive_authoring_enabled
         return IntegrationRuntimeSelfHosted(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]]] = None,
+            secondary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["primaryAuthorizationKey"] = primary_authorization_key
+        __props__["rbacAuthorizations"] = rbac_authorizations
+        __props__["secondaryAuthorizationKey"] = secondary_authorization_key
+        __props__["selfContainedInteractiveAuthoringEnabled"] = self_contained_interactive_authoring_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> pulumi.Output[_builtins.str]:

@@ -443,6 +443,26 @@ class ChannelTeams(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelTeams(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["callingEnabled"] = calling_enabled
+        __props__["callingWebHook"] = calling_web_hook
+        __props__["deploymentEnvironment"] = deployment_environment
+        __props__["enableCalling"] = enable_calling
+        __props__["location"] = location
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelTeams:ChannelTeams', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

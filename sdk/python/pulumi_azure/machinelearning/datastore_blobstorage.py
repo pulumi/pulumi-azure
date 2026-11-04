@@ -617,6 +617,30 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return DatastoreBlobstorage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_data_auth_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountKey"] = account_key
+        __props__["description"] = description
+        __props__["isDefault"] = is_default
+        __props__["name"] = name
+        __props__["serviceDataAuthIdentity"] = service_data_auth_identity
+        __props__["sharedAccessSignature"] = shared_access_signature
+        __props__["storageContainerId"] = storage_container_id
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -207,6 +207,12 @@ func (ManagedStorageAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedStorageAccountState)(nil)).Elem()
 }
 
+// ManagedStorageAccountExists checks whether an existing ManagedStorageAccount resource with the given ID exists.
+func ManagedStorageAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedStorageAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedStorageAccount:ManagedStorageAccount", id, state, "", opts...)
+}
+
 type managedStorageAccountArgs struct {
 	// The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`

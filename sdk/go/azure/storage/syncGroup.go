@@ -130,6 +130,12 @@ func (SyncGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syncGroupState)(nil)).Elem()
 }
 
+// SyncGroupExists checks whether an existing SyncGroup resource with the given ID exists.
+func SyncGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyncGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/syncGroup:SyncGroup", id, state, "", opts...)
+}
+
 type syncGroupArgs struct {
 	// The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
 	Name *string `pulumi:"name"`

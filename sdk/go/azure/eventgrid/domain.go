@@ -221,6 +221,12 @@ func (DomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainState)(nil)).Elem()
 }
 
+// DomainExists checks whether an existing Domain resource with the given ID exists.
+func DomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/domain:Domain", id, state, "", opts...)
+}
+
 type domainArgs struct {
 	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
 	AutoCreateTopicWithFirstSubscription *bool `pulumi:"autoCreateTopicWithFirstSubscription"`

@@ -163,6 +163,12 @@ func (IdentityProviderGoogleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderGoogleState)(nil)).Elem()
 }
 
+// IdentityProviderGoogleExists checks whether an existing IdentityProviderGoogle resource with the given ID exists.
+func IdentityProviderGoogleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderGoogleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle", id, state, "", opts...)
+}
+
 type identityProviderGoogleArgs struct {
 	// The Name of the API Management Service where this Google Identity Provider should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

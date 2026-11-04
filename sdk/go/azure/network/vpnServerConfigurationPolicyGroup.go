@@ -170,6 +170,12 @@ func (VpnServerConfigurationPolicyGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnServerConfigurationPolicyGroupState)(nil)).Elem()
 }
 
+// VpnServerConfigurationPolicyGroupExists checks whether an existing VpnServerConfigurationPolicyGroup resource with the given ID exists.
+func VpnServerConfigurationPolicyGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnServerConfigurationPolicyGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", id, state, "", opts...)
+}
+
 type vpnServerConfigurationPolicyGroupArgs struct {
 	// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
 	IsDefault *bool `pulumi:"isDefault"`

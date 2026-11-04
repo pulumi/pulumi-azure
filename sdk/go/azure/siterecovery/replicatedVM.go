@@ -518,6 +518,12 @@ func (ReplicatedVMState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicatedVMState)(nil)).Elem()
 }
 
+// ReplicatedVMExists checks whether an existing ReplicatedVM resource with the given ID exists.
+func ReplicatedVMExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicatedVMState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/replicatedVM:ReplicatedVM", id, state, "", opts...)
+}
+
 type replicatedVMArgs struct {
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`

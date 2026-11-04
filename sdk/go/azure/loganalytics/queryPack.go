@@ -135,6 +135,12 @@ func (QueryPackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryPackState)(nil)).Elem()
 }
 
+// QueryPackExists checks whether an existing QueryPack resource with the given ID exists.
+func QueryPackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryPackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/queryPack:QueryPack", id, state, "", opts...)
+}
+
 type queryPackArgs struct {
 	// The Azure Region where the Log Analytics Query Pack should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

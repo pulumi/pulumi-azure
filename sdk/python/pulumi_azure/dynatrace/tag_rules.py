@@ -401,6 +401,20 @@ class TagRules(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return TagRules(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']]] = None,
+            metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["logRule"] = log_rule
+        __props__["metricRule"] = metric_rule
+        __props__["monitorId"] = monitor_id
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:dynatrace/tagRules:TagRules', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="logRule")
     def log_rule(self) -> pulumi.Output[Optional['outputs.TagRulesLogRule']]:

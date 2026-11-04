@@ -199,6 +199,12 @@ func (DatasetCosmosDBApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetCosmosDBApiState)(nil)).Elem()
 }
 
+// DatasetCosmosDBApiExists checks whether an existing DatasetCosmosDBApi resource with the given ID exists.
+func DatasetCosmosDBApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetCosmosDBApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi", id, state, "", opts...)
+}
+
 type datasetCosmosDBApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

@@ -176,6 +176,12 @@ func (DedicatedHostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostState)(nil)).Elem()
 }
 
+// DedicatedHostExists checks whether an existing DedicatedHost resource with the given ID exists.
+func DedicatedHostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DedicatedHostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/dedicatedHost:DedicatedHost", id, state, "", opts...)
+}
+
 type dedicatedHostArgs struct {
 	// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
 	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`

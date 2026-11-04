@@ -147,6 +147,12 @@ func (AutonomousDatabaseBackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autonomousDatabaseBackupState)(nil)).Elem()
 }
 
+// AutonomousDatabaseBackupExists checks whether an existing AutonomousDatabaseBackup resource with the given ID exists.
+func AutonomousDatabaseBackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutonomousDatabaseBackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup", id, state, "", opts...)
+}
+
 type autonomousDatabaseBackupArgs struct {
 	// The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
 	AutonomousDatabaseId string `pulumi:"autonomousDatabaseId"`

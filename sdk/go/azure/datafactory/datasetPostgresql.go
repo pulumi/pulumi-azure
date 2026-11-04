@@ -183,6 +183,12 @@ func (DatasetPostgresqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetPostgresqlState)(nil)).Elem()
 }
 
+// DatasetPostgresqlExists checks whether an existing DatasetPostgresql resource with the given ID exists.
+func DatasetPostgresqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetPostgresqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetPostgresql:DatasetPostgresql", id, state, "", opts...)
+}
+
 type datasetPostgresqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

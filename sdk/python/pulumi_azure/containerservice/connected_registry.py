@@ -702,6 +702,36 @@ class ConnectedRegistry(pulumi.CustomResource):
         __props__.__dict__["sync_window"] = sync_window
         return ConnectedRegistry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            audit_log_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_token_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]]] = None,
+            parent_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_window: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auditLogEnabled"] = audit_log_enabled
+        __props__["clientTokenIds"] = client_token_ids
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["logLevel"] = log_level
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["notifications"] = notifications
+        __props__["parentRegistryId"] = parent_registry_id
+        __props__["syncMessageTtl"] = sync_message_ttl
+        __props__["syncSchedule"] = sync_schedule
+        __props__["syncTokenId"] = sync_token_id
+        __props__["syncWindow"] = sync_window
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/connectedRegistry:ConnectedRegistry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="auditLogEnabled")
     def audit_log_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

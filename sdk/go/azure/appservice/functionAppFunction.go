@@ -397,6 +397,12 @@ func (FunctionAppFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppFunctionState)(nil)).Elem()
 }
 
+// FunctionAppFunctionExists checks whether an existing FunctionAppFunction resource with the given ID exists.
+func FunctionAppFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionAppFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/functionAppFunction:FunctionAppFunction", id, state, "", opts...)
+}
+
 type functionAppFunctionArgs struct {
 	// The config for this Function in JSON format.
 	ConfigJson string `pulumi:"configJson"`

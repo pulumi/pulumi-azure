@@ -307,6 +307,12 @@ func (InsightsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*insightsState)(nil)).Elem()
 }
 
+// InsightsExists checks whether an existing Insights resource with the given ID exists.
+func InsightsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InsightsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/insights:Insights", id, state, "", opts...)
+}
+
 type insightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType string `pulumi:"applicationType"`

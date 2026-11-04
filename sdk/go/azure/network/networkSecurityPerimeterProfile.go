@@ -130,6 +130,12 @@ func (NetworkSecurityPerimeterProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityPerimeterProfileState)(nil)).Elem()
 }
 
+// NetworkSecurityPerimeterProfileExists checks whether an existing NetworkSecurityPerimeterProfile resource with the given ID exists.
+func NetworkSecurityPerimeterProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityPerimeterProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile", id, state, "", opts...)
+}
+
 type networkSecurityPerimeterProfileArgs struct {
 	// The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
 	Name *string `pulumi:"name"`

@@ -193,6 +193,12 @@ func (ApiVersionSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiVersionSetState)(nil)).Elem()
 }
 
+// ApiVersionSetExists checks whether an existing ApiVersionSet resource with the given ID exists.
+func ApiVersionSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiVersionSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/apiVersionSet:ApiVersionSet", id, state, "", opts...)
+}
+
 type apiVersionSetArgs struct {
 	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

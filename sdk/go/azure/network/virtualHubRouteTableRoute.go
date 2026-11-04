@@ -239,6 +239,12 @@ func (VirtualHubRouteTableRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubRouteTableRouteState)(nil)).Elem()
 }
 
+// VirtualHubRouteTableRouteExists checks whether an existing VirtualHubRouteTableRoute resource with the given ID exists.
+func VirtualHubRouteTableRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHubRouteTableRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute", id, state, "", opts...)
+}
+
 type virtualHubRouteTableRouteArgs struct {
 	// A list of destination addresses for this route.
 	Destinations []string `pulumi:"destinations"`

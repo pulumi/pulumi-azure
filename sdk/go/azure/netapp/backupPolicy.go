@@ -184,6 +184,12 @@ func (BackupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyState)(nil)).Elem()
 }
 
+// BackupPolicyExists checks whether an existing BackupPolicy resource with the given ID exists.
+func BackupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/backupPolicy:BackupPolicy", id, state, "", opts...)
+}
+
 type backupPolicyArgs struct {
 	// The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

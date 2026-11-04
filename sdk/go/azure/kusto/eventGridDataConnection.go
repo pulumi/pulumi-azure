@@ -324,6 +324,12 @@ func (EventGridDataConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventGridDataConnectionState)(nil)).Elem()
 }
 
+// EventGridDataConnectionExists checks whether an existing EventGridDataConnection resource with the given ID exists.
+func EventGridDataConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventGridDataConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/eventGridDataConnection:EventGridDataConnection", id, state, "", opts...)
+}
+
 type eventGridDataConnectionArgs struct {
 	// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
 	BlobStorageEventType *string `pulumi:"blobStorageEventType"`

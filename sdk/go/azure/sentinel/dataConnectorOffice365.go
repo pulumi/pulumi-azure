@@ -167,6 +167,12 @@ func (DataConnectorOffice365State) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorOffice365State)(nil)).Elem()
 }
 
+// DataConnectorOffice365Exists checks whether an existing DataConnectorOffice365 resource with the given ID exists.
+func DataConnectorOffice365Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorOffice365State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365", id, state, "", opts...)
+}
+
 type dataConnectorOffice365Args struct {
 	// Should the Exchange data connector be enabled? Defaults to `true`.
 	ExchangeEnabled *bool `pulumi:"exchangeEnabled"`

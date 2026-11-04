@@ -175,6 +175,12 @@ func (EndpointEventGridState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointEventGridState)(nil)).Elem()
 }
 
+// EndpointEventGridExists checks whether an existing EndpointEventGrid resource with the given ID exists.
+func EndpointEventGridExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointEventGridState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", id, state, "", opts...)
+}
+
 type endpointEventGridArgs struct {
 	// The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
 	DeadLetterStorageSecret *string `pulumi:"deadLetterStorageSecret"`

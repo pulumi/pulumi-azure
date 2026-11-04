@@ -46,39 +46,35 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="namespaceName")
     private @Nullable String namespaceName;
 
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="resourceGroupName")
     private @Nullable String resourceGroupName;
 
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -135,11 +131,10 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+         * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder namespaceName(@Nullable String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -148,11 +143,10 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+         * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;

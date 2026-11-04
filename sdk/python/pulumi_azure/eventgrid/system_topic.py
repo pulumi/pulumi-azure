@@ -561,6 +561,32 @@ class SystemTopic(pulumi.CustomResource):
         __props__.__dict__["topic_type"] = topic_type
         return SystemTopic(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_arm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            topic_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["metricArmResourceId"] = metric_arm_resource_id
+        __props__["metricResourceId"] = metric_resource_id
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceArmResourceId"] = source_arm_resource_id
+        __props__["sourceResourceId"] = source_resource_id
+        __props__["tags"] = tags
+        __props__["topicType"] = topic_type
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/systemTopic:SystemTopic', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.SystemTopicIdentity']]:

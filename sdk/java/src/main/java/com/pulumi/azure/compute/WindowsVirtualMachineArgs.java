@@ -290,20 +290,18 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
+    @Deprecated
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
@@ -862,22 +860,20 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
+    @Deprecated
     @Import(name="vmAgentPlatformUpdatesEnabled")
     private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
      * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
+    @Deprecated
     public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
         return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
     }
@@ -1369,11 +1365,10 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
+         * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
+        @Deprecated
         public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
             $.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
@@ -1382,11 +1377,10 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
+         * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
+        @Deprecated
         public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
             return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
@@ -2177,11 +2171,10 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
          * 
          */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
+        @Deprecated
         public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
             $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
             return this;
@@ -2192,11 +2185,10 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
          * 
          */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
+        @Deprecated
         public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
             return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }

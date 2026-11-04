@@ -173,6 +173,12 @@ func (VirtualMachineManagerCloudState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineManagerCloudState)(nil)).Elem()
 }
 
+// VirtualMachineManagerCloudExists checks whether an existing VirtualMachineManagerCloud resource with the given ID exists.
+func VirtualMachineManagerCloudExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineManagerCloudState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud", id, state, "", opts...)
+}
+
 type virtualMachineManagerCloudArgs struct {
 	// The ID of the Custom Location for the System Center Virtual Machine Manager Cloud. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

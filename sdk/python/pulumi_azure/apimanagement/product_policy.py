@@ -376,6 +376,22 @@ class ProductPolicy(pulumi.CustomResource):
         __props__.__dict__["xml_link"] = xml_link
         return ProductPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_link: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["productId"] = product_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["xmlContent"] = xml_content
+        __props__["xmlLink"] = xml_link
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/productPolicy:ProductPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

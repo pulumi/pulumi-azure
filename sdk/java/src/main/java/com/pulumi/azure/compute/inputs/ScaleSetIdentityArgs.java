@@ -39,12 +39,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
      *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
@@ -62,13 +62,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .publisher("Microsoft.ManagedIdentity")
      *                 .type("ManagedIdentityExtensionForLinux")
      *                 .typeHandlerVersion("1.0")
-     *                 .settings("{\"port\": 50342}")
+     *                 .settings("}{&#92;{@code "port}&#92;{@code ": 50342}}{@code ")
      *                 .build())
      *             .build());
      * 
      *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -98,12 +98,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
      *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
@@ -121,13 +121,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .publisher("Microsoft.ManagedIdentity")
      *                 .type("ManagedIdentityExtensionForLinux")
      *                 .typeHandlerVersion("1.0")
-     *                 .settings("{\"port\": 50342}")
+     *                 .settings("}{&#92;{@code "port}&#92;{@code ": 50342}}{@code ")
      *                 .build())
      *             .build());
      * 
      *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -214,12 +214,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import java.nio.file.Files;
          * import java.nio.file.Paths;
          * 
-         * public class App {
-         *     public static void main(String[] args) {
+         * public class App }{{@code
+         *     public static void main(String[] args) }{{@code
          *         Pulumi.run(App::stack);
-         *     }
+         *     }}{@code
          * 
-         *     public static void stack(Context ctx) {
+         *     public static void stack(Context ctx) }{{@code
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
@@ -237,13 +237,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .publisher("Microsoft.ManagedIdentity")
          *                 .type("ManagedIdentityExtensionForLinux")
          *                 .typeHandlerVersion("1.0")
-         *                 .settings("{\"port\": 50342}")
+         *                 .settings("}{&#92;{@code "port}&#92;{@code ": 50342}}{@code ")
          *                 .build())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
-         *     }
-         * }
+         *     }}{@code
+         * }}{@code
          * }
          * </pre>
          * 
@@ -277,12 +277,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import java.nio.file.Files;
          * import java.nio.file.Paths;
          * 
-         * public class App {
-         *     public static void main(String[] args) {
+         * public class App }{{@code
+         *     public static void main(String[] args) }{{@code
          *         Pulumi.run(App::stack);
-         *     }
+         *     }}{@code
          * 
-         *     public static void stack(Context ctx) {
+         *     public static void stack(Context ctx) }{{@code
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
@@ -300,13 +300,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .publisher("Microsoft.ManagedIdentity")
          *                 .type("ManagedIdentityExtensionForLinux")
          *                 .typeHandlerVersion("1.0")
-         *                 .settings("{\"port\": 50342}")
+         *                 .settings("}{&#92;{@code "port}&#92;{@code ": 50342}}{@code ")
          *                 .build())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
-         *     }
-         * }
+         *     }}{@code
+         * }}{@code
          * }
          * </pre>
          * 
@@ -339,12 +339,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import java.nio.file.Files;
          * import java.nio.file.Paths;
          * 
-         * public class App {
-         *     public static void main(String[] args) {
+         * public class App }{{@code
+         *     public static void main(String[] args) }{{@code
          *         Pulumi.run(App::stack);
-         *     }
+         *     }}{@code
          * 
-         *     public static void stack(Context ctx) {
+         *     public static void stack(Context ctx) }{{@code
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
          *             .name("vm-scaleset")
          *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
@@ -362,13 +362,13 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .publisher("Microsoft.ManagedIdentity")
          *                 .type("ManagedIdentityExtensionForLinux")
          *                 .typeHandlerVersion("1.0")
-         *                 .settings("{\"port\": 50342}")
+         *                 .settings("}{&#92;{@code "port}&#92;{@code ": 50342}}{@code ")
          *                 .build())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
-         *     }
-         * }
+         *     }}{@code
+         * }}{@code
          * }
          * </pre>
          * 

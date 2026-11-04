@@ -144,20 +144,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="languageExtensions")
     private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
 
     /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
         return Optional.ofNullable(this.languageExtensions);
     }
@@ -362,20 +360,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+    @Deprecated
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+     * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+    @Deprecated
     public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
         return Optional.ofNullable(this.virtualNetworkConfiguration);
     }
@@ -643,11 +639,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder languageExtensions(@Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions) {
             $.languageExtensions = languageExtensions;
             return this;
@@ -656,11 +651,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder languageExtensions(List<ClusterLanguageExtensionArgs> languageExtensions) {
             return languageExtensions(Output.of(languageExtensions));
         }
@@ -668,11 +662,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder languageExtensions(ClusterLanguageExtensionArgs... languageExtensions) {
             return languageExtensions(List.of(languageExtensions));
         }
@@ -969,11 +962,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
          * 
          */
-        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+        @Deprecated
         public Builder virtualNetworkConfiguration(@Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration) {
             $.virtualNetworkConfiguration = virtualNetworkConfiguration;
             return this;
@@ -982,11 +974,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
          * 
          */
-        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+        @Deprecated
         public Builder virtualNetworkConfiguration(ClusterVirtualNetworkConfigurationArgs virtualNetworkConfiguration) {
             return virtualNetworkConfiguration(Output.of(virtualNetworkConfiguration));
         }
