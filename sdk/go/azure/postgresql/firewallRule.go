@@ -215,6 +215,12 @@ func (FirewallRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallRuleState)(nil)).Elem()
 }
 
+// FirewallRuleExists checks whether an existing FirewallRule resource with the given ID exists.
+func FirewallRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/firewallRule:FirewallRule", id, state, "", opts...)
+}
+
 type firewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	//

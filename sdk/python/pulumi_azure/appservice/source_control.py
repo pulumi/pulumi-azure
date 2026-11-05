@@ -569,6 +569,32 @@ class SourceControl(pulumi.CustomResource):
         __props__.__dict__["uses_github_action"] = uses_github_action
         return SourceControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']]] = None,
+            repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scm_type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+            uses_github_action: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["branch"] = branch
+        __props__["githubActionConfiguration"] = github_action_configuration
+        __props__["repoUrl"] = repo_url
+        __props__["rollbackEnabled"] = rollback_enabled
+        __props__["scmType"] = scm_type
+        __props__["useLocalGit"] = use_local_git
+        __props__["useManualIntegration"] = use_manual_integration
+        __props__["useMercurial"] = use_mercurial
+        __props__["usesGithubAction"] = uses_github_action
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/sourceControl:SourceControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

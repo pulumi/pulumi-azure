@@ -392,6 +392,12 @@ func (BackupInstanceKubernetesClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstanceKubernetesClusterState)(nil)).Elem()
 }
 
+// BackupInstanceKubernetesClusterExists checks whether an existing BackupInstanceKubernetesCluster resource with the given ID exists.
+func BackupInstanceKubernetesClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstanceKubernetesClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster", id, state, "", opts...)
+}
+
 type backupInstanceKubernetesClusterArgs struct {
 	// A `backupDatasourceParameters` block as defined below. Changing this forces a new resource to be created.
 	BackupDatasourceParameters *BackupInstanceKubernetesClusterBackupDatasourceParameters `pulumi:"backupDatasourceParameters"`

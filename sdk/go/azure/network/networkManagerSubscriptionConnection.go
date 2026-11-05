@@ -165,6 +165,12 @@ func (NetworkManagerSubscriptionConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerSubscriptionConnectionState)(nil)).Elem()
 }
 
+// NetworkManagerSubscriptionConnectionExists checks whether an existing NetworkManagerSubscriptionConnection resource with the given ID exists.
+func NetworkManagerSubscriptionConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerSubscriptionConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection", id, state, "", opts...)
+}
+
 type networkManagerSubscriptionConnectionArgs struct {
 	// A description of the Network Manager Subscription Connection.
 	Description *string `pulumi:"description"`

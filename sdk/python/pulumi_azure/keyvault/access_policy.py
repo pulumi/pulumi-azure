@@ -477,6 +477,28 @@ class AccessPolicy(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["certificatePermissions"] = certificate_permissions
+        __props__["keyPermissions"] = key_permissions
+        __props__["keyVaultId"] = key_vault_id
+        __props__["objectId"] = object_id
+        __props__["secretPermissions"] = secret_permissions
+        __props__["storagePermissions"] = storage_permissions
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/accessPolicy:AccessPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[Optional[_builtins.str]]:

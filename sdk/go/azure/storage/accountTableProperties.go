@@ -184,6 +184,12 @@ func (AccountTablePropertiesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountTablePropertiesState)(nil)).Elem()
 }
 
+// AccountTablePropertiesExists checks whether an existing AccountTableProperties resource with the given ID exists.
+func AccountTablePropertiesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountTablePropertiesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/accountTableProperties:AccountTableProperties", id, state, "", opts...)
+}
+
 type accountTablePropertiesArgs struct {
 	// A `corsRule` block as defined below.
 	CorsRules []AccountTablePropertiesCorsRule `pulumi:"corsRules"`

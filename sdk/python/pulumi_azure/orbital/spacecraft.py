@@ -521,6 +521,28 @@ class Spacecraft(pulumi.CustomResource):
         __props__.__dict__["two_line_elements"] = two_line_elements
         return Spacecraft(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            norad_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            title_line: pulumi.Input[Optional[_builtins.str]] = None,
+            two_line_elements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["links"] = links
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["noradId"] = norad_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["titleLine"] = title_line
+        __props__["twoLineElements"] = two_line_elements
+        return pulumi.runtime.exists_resource(None, 'azure:orbital/spacecraft:Spacecraft', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def links(self) -> pulumi.Output[Sequence['outputs.SpacecraftLink']]:

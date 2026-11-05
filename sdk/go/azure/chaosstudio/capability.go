@@ -161,6 +161,12 @@ func (CapabilityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capabilityState)(nil)).Elem()
 }
 
+// CapabilityExists checks whether an existing Capability resource with the given ID exists.
+func CapabilityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapabilityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:chaosstudio/capability:Capability", id, state, "", opts...)
+}
+
 type capabilityArgs struct {
 	// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
 	CapabilityType string `pulumi:"capabilityType"`

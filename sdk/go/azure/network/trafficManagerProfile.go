@@ -235,6 +235,12 @@ func (TrafficManagerProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerProfileState)(nil)).Elem()
 }
 
+// TrafficManagerProfileExists checks whether an existing TrafficManagerProfile resource with the given ID exists.
+func TrafficManagerProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficManagerProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/trafficManagerProfile:TrafficManagerProfile", id, state, "", opts...)
+}
+
 type trafficManagerProfileArgs struct {
 	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig TrafficManagerProfileDnsConfig `pulumi:"dnsConfig"`

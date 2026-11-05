@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var example = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
@@ -108,18 +108,18 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .resourceGroups("""
- *     {
- *       \"ResourceGroup\": {
- *         \"name\": \"exampleRG-bp\"
- *       }
- *     }
+ *     }{{@code
+ *       }&#92;{@code "ResourceGroup}&#92;{@code ": }{{@code
+ *         }&#92;{@code "name}&#92;{@code ": }&#92;{@code "exampleRG-bp}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *             """)
  *             .parameterValues("""
- *     {
- *       \"allowedlocationsforresourcegroups_listOfAllowedLocations\": {
- *         \"value\": [\"westus\", \"westus2\", \"eastus\", \"centralus\", \"centraluseuap\", \"southcentralus\", \"northcentralus\", \"westcentralus\", \"eastus2\", \"eastus2euap\", \"brazilsouth\", \"brazilus\", \"northeurope\", \"westeurope\", \"eastasia\", \"southeastasia\", \"japanwest\", \"japaneast\", \"koreacentral\", \"koreasouth\", \"indiasouth\", \"indiawest\", \"indiacentral\", \"australiaeast\", \"australiasoutheast\", \"canadacentral\", \"canadaeast\", \"uknorth\", \"uksouth2\", \"uksouth\", \"ukwest\", \"francecentral\", \"francesouth\", \"australiacentral\", \"australiacentral2\", \"uaecentral\", \"uaenorth\", \"southafricanorth\", \"southafricawest\", \"switzerlandnorth\", \"switzerlandwest\", \"germanynorth\", \"germanywestcentral\", \"norwayeast\", \"norwaywest\"]
- *       }
- *     }
+ *     }{{@code
+ *       }&#92;{@code "allowedlocationsforresourcegroups_listOfAllowedLocations}&#92;{@code ": }{{@code
+ *         }&#92;{@code "value}&#92;{@code ": [}&#92;{@code "westus}&#92;{@code ", }&#92;{@code "westus2}&#92;{@code ", }&#92;{@code "eastus}&#92;{@code ", }&#92;{@code "centralus}&#92;{@code ", }&#92;{@code "centraluseuap}&#92;{@code ", }&#92;{@code "southcentralus}&#92;{@code ", }&#92;{@code "northcentralus}&#92;{@code ", }&#92;{@code "westcentralus}&#92;{@code ", }&#92;{@code "eastus2}&#92;{@code ", }&#92;{@code "eastus2euap}&#92;{@code ", }&#92;{@code "brazilsouth}&#92;{@code ", }&#92;{@code "brazilus}&#92;{@code ", }&#92;{@code "northeurope}&#92;{@code ", }&#92;{@code "westeurope}&#92;{@code ", }&#92;{@code "eastasia}&#92;{@code ", }&#92;{@code "southeastasia}&#92;{@code ", }&#92;{@code "japanwest}&#92;{@code ", }&#92;{@code "japaneast}&#92;{@code ", }&#92;{@code "koreacentral}&#92;{@code ", }&#92;{@code "koreasouth}&#92;{@code ", }&#92;{@code "indiasouth}&#92;{@code ", }&#92;{@code "indiawest}&#92;{@code ", }&#92;{@code "indiacentral}&#92;{@code ", }&#92;{@code "australiaeast}&#92;{@code ", }&#92;{@code "australiasoutheast}&#92;{@code ", }&#92;{@code "canadacentral}&#92;{@code ", }&#92;{@code "canadaeast}&#92;{@code ", }&#92;{@code "uknorth}&#92;{@code ", }&#92;{@code "uksouth2}&#92;{@code ", }&#92;{@code "uksouth}&#92;{@code ", }&#92;{@code "ukwest}&#92;{@code ", }&#92;{@code "francecentral}&#92;{@code ", }&#92;{@code "francesouth}&#92;{@code ", }&#92;{@code "australiacentral}&#92;{@code ", }&#92;{@code "australiacentral2}&#92;{@code ", }&#92;{@code "uaecentral}&#92;{@code ", }&#92;{@code "uaenorth}&#92;{@code ", }&#92;{@code "southafricanorth}&#92;{@code ", }&#92;{@code "southafricawest}&#92;{@code ", }&#92;{@code "switzerlandnorth}&#92;{@code ", }&#92;{@code "switzerlandwest}&#92;{@code ", }&#92;{@code "germanynorth}&#92;{@code ", }&#92;{@code "germanywestcentral}&#92;{@code ", }&#92;{@code "norwayeast}&#92;{@code ", }&#92;{@code "norwaywest}&#92;{@code "]
+ *       }}{@code
+ *     }}{@code
  *             """)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -127,8 +127,8 @@ import javax.annotation.Nullable;
  *                     owner)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

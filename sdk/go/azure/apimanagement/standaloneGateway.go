@@ -199,6 +199,12 @@ func (StandaloneGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*standaloneGatewayState)(nil)).Elem()
 }
 
+// StandaloneGatewayExists checks whether an existing StandaloneGateway resource with the given ID exists.
+func StandaloneGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StandaloneGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/standaloneGateway:StandaloneGateway", id, state, "", opts...)
+}
+
 type standaloneGatewayArgs struct {
 	// Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
 	BackendSubnetId *string `pulumi:"backendSubnetId"`

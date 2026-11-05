@@ -215,6 +215,12 @@ func (FrontdoorSecurityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorSecurityPolicyState)(nil)).Elem()
 }
 
+// FrontdoorSecurityPolicyExists checks whether an existing FrontdoorSecurityPolicy resource with the given ID exists.
+func FrontdoorSecurityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorSecurityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy", id, state, "", opts...)
+}
+
 type frontdoorSecurityPolicyArgs struct {
 	// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

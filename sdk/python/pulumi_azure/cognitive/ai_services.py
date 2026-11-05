@@ -842,6 +842,46 @@ class AIServices(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AIServices(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']]] = None,
+            outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customSubdomainName"] = custom_subdomain_name
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["endpoint"] = endpoint
+        __props__["fqdns"] = fqdns
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkAcls"] = network_acls
+        __props__["outboundNetworkAccessRestricted"] = outbound_network_access_restricted
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["skuName"] = sku_name
+        __props__["storages"] = storages
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/aIServices:AIServices', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customSubdomainName")
     def custom_subdomain_name(self) -> pulumi.Output[Optional[_builtins.str]]:

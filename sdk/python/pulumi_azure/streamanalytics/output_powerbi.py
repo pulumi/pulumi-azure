@@ -489,6 +489,28 @@ class OutputPowerbi(pulumi.CustomResource):
         __props__.__dict__["token_user_principal_name"] = token_user_principal_name
         return OutputPowerbi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dataset: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None,
+            token_user_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            token_user_principal_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataset"] = dataset
+        __props__["groupId"] = group_id
+        __props__["groupName"] = group_name
+        __props__["name"] = name
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        __props__["table"] = table
+        __props__["tokenUserDisplayName"] = token_user_display_name
+        __props__["tokenUserPrincipalName"] = token_user_principal_name
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputPowerbi:OutputPowerbi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def dataset(self) -> pulumi.Output[_builtins.str]:

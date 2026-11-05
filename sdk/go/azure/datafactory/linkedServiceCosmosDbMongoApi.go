@@ -188,6 +188,12 @@ func (LinkedServiceCosmosDbMongoApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceCosmosDbMongoApiState)(nil)).Elem()
 }
 
+// LinkedServiceCosmosDbMongoApiExists checks whether an existing LinkedServiceCosmosDbMongoApi resource with the given ID exists.
+func LinkedServiceCosmosDbMongoApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceCosmosDbMongoApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", id, state, "", opts...)
+}
+
 type linkedServiceCosmosDbMongoApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

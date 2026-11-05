@@ -69,39 +69,35 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Import(name="enableFloatingIp")
     private @Nullable Output<Boolean> enableFloatingIp;
 
     /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> enableFloatingIp() {
         return Optional.ofNullable(this.enableFloatingIp);
     }
 
     /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
@@ -386,11 +382,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableFloatingIp(@Nullable Output<Boolean> enableFloatingIp) {
             $.enableFloatingIp = enableFloatingIp;
             return this;
@@ -399,11 +394,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
             return enableFloatingIp(Output.of(enableFloatingIp));
         }
@@ -411,11 +405,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
@@ -424,11 +417,10 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+         * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }

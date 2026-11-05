@@ -229,6 +229,12 @@ func (ResolverForwardingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverForwardingRuleState)(nil)).Elem()
 }
 
+// ResolverForwardingRuleExists checks whether an existing ResolverForwardingRule resource with the given ID exists.
+func ResolverForwardingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverForwardingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/resolverForwardingRule:ResolverForwardingRule", id, state, "", opts...)
+}
+
 type resolverForwardingRuleArgs struct {
 	// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
 	DnsForwardingRulesetId string `pulumi:"dnsForwardingRulesetId"`

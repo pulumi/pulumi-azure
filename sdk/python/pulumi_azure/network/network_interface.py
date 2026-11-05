@@ -848,6 +848,48 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            applied_dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            internal_dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+            internal_domain_name_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict', 'outputs.NetworkInterfaceIpConfiguration']]]]] = None,
+            ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceleratedNetworkingEnabled"] = accelerated_networking_enabled
+        __props__["appliedDnsServers"] = applied_dns_servers
+        __props__["auxiliaryMode"] = auxiliary_mode
+        __props__["auxiliarySku"] = auxiliary_sku
+        __props__["dnsServers"] = dns_servers
+        __props__["edgeZone"] = edge_zone
+        __props__["internalDnsNameLabel"] = internal_dns_name_label
+        __props__["internalDomainNameSuffix"] = internal_domain_name_suffix
+        __props__["ipConfigurations"] = ip_configurations
+        __props__["ipForwardingEnabled"] = ip_forwarding_enabled
+        __props__["location"] = location
+        __props__["macAddress"] = mac_address
+        __props__["name"] = name
+        __props__["privateIpAddress"] = private_ip_address
+        __props__["privateIpAddresses"] = private_ip_addresses
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkInterface:NetworkInterface', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkingEnabled")
     def accelerated_networking_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -524,6 +524,26 @@ class VpnGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["vpn_links"] = vpn_links
         return VpnGatewayConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_vpn_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+            routing: pulumi.Input[Optional[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict', 'outputs.VpnGatewayConnectionRouting']]] = None,
+            traffic_selector_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict', 'outputs.VpnGatewayConnectionTrafficSelectorPolicy']]]]] = None,
+            vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict', 'outputs.VpnGatewayConnectionVpnLink']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["internetSecurityEnabled"] = internet_security_enabled
+        __props__["name"] = name
+        __props__["remoteVpnSiteId"] = remote_vpn_site_id
+        __props__["routing"] = routing
+        __props__["trafficSelectorPolicies"] = traffic_selector_policies
+        __props__["vpnGatewayId"] = vpn_gateway_id
+        __props__["vpnLinks"] = vpn_links
+        return pulumi.runtime.exists_resource(None, 'azure:network/vpnGatewayConnection:VpnGatewayConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

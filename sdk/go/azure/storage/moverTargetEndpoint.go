@@ -176,6 +176,12 @@ func (MoverTargetEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moverTargetEndpointState)(nil)).Elem()
 }
 
+// MoverTargetEndpointExists checks whether an existing MoverTargetEndpoint resource with the given ID exists.
+func MoverTargetEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MoverTargetEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/moverTargetEndpoint:MoverTargetEndpoint", id, state, "", opts...)
+}
+
 type moverTargetEndpointArgs struct {
 	// Specifies a description for the Storage Mover Target Endpoint.
 	Description *string `pulumi:"description"`

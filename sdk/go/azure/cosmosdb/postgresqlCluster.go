@@ -287,6 +287,12 @@ func (PostgresqlClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresqlClusterState)(nil)).Elem()
 }
 
+// PostgresqlClusterExists checks whether an existing PostgresqlCluster resource with the given ID exists.
+func PostgresqlClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresqlClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", id, state, "", opts...)
+}
+
 type postgresqlClusterArgs struct {
 	// The password of the administrator login. This is required when `sourceResourceId` is not set.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`

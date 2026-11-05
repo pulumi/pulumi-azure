@@ -495,6 +495,28 @@ class DedicatedHost(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return DedicatedHost(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_replace_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+            dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoReplaceOnFailure"] = auto_replace_on_failure
+        __props__["dedicatedHostGroupId"] = dedicated_host_group_id
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["platformFaultDomain"] = platform_fault_domain
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:compute/dedicatedHost:DedicatedHost', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoReplaceOnFailure")
     def auto_replace_on_failure(self) -> pulumi.Output[Optional[_builtins.bool]]:

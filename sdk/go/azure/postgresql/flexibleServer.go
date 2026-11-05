@@ -471,6 +471,12 @@ func (FlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerState)(nil)).Elem()
 }
 
+// FlexibleServerExists checks whether an existing FlexibleServer resource with the given ID exists.
+func FlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServer:FlexibleServer", id, state, "", opts...)
+}
+
 type flexibleServerArgs struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//

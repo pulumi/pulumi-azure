@@ -261,6 +261,12 @@ func (ServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceState)(nil)).Elem()
 }
 
+// ServiceExists checks whether an existing Service resource with the given ID exists.
+func ServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/service:Service", id, state, "", opts...)
+}
+
 type serviceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`

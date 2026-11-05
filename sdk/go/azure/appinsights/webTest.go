@@ -240,6 +240,12 @@ func (WebTestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webTestState)(nil)).Elem()
 }
 
+// WebTestExists checks whether an existing WebTest resource with the given ID exists.
+func WebTestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebTestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/webTest:WebTest", id, state, "", opts...)
+}
+
 type webTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`

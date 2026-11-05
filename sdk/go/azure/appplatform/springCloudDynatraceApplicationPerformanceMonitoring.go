@@ -208,6 +208,12 @@ func (SpringCloudDynatraceApplicationPerformanceMonitoringState) ElementType() r
 	return reflect.TypeOf((*springCloudDynatraceApplicationPerformanceMonitoringState)(nil)).Elem()
 }
 
+// SpringCloudDynatraceApplicationPerformanceMonitoringExists checks whether an existing SpringCloudDynatraceApplicationPerformanceMonitoring resource with the given ID exists.
+func SpringCloudDynatraceApplicationPerformanceMonitoringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudDynatraceApplicationPerformanceMonitoringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring", id, state, "", opts...)
+}
+
 type springCloudDynatraceApplicationPerformanceMonitoringArgs struct {
 	// Specifies the API token of the Dynatrace environment.
 	ApiToken *string `pulumi:"apiToken"`

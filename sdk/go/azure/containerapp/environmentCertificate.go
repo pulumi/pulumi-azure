@@ -361,6 +361,12 @@ func (EnvironmentCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentCertificateState)(nil)).Elem()
 }
 
+// EnvironmentCertificateExists checks whether an existing EnvironmentCertificate resource with the given ID exists.
+func EnvironmentCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/environmentCertificate:EnvironmentCertificate", id, state, "", opts...)
+}
+
 type environmentCertificateArgs struct {
 	// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
 	//

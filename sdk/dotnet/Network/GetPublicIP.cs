@@ -40,7 +40,6 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// 
         /// ### Retrieve The Dynamic Public IP Of A New VM)
         /// 
         /// ```csharp
@@ -173,7 +172,6 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// 
         /// ### Retrieve The Dynamic Public IP Of A New VM)
         /// 
         /// ```csharp
@@ -305,7 +303,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// 
         /// 
         /// ### Retrieve The Dynamic Public IP Of A New VM)
         /// 

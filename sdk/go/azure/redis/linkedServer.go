@@ -208,6 +208,12 @@ func (LinkedServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServerState)(nil)).Elem()
 }
 
+// LinkedServerExists checks whether an existing LinkedServer resource with the given ID exists.
+func LinkedServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/linkedServer:LinkedServer", id, state, "", opts...)
+}
+
 type linkedServerArgs struct {
 	// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
 	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`

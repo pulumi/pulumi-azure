@@ -174,6 +174,12 @@ func (LabState) ElementType() reflect.Type {
 	return reflect.TypeOf((*labState)(nil)).Elem()
 }
 
+// LabExists checks whether an existing Lab resource with the given ID exists.
+func LabExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LabState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devtest/lab:Lab", id, state, "", opts...)
+}
+
 type labArgs struct {
 	// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

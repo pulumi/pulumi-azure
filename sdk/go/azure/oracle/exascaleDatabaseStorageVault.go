@@ -193,6 +193,12 @@ func (ExascaleDatabaseStorageVaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*exascaleDatabaseStorageVaultState)(nil)).Elem()
 }
 
+// ExascaleDatabaseStorageVaultExists checks whether an existing ExascaleDatabaseStorageVault resource with the given ID exists.
+func ExascaleDatabaseStorageVaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExascaleDatabaseStorageVaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault", id, state, "", opts...)
+}
+
 type exascaleDatabaseStorageVaultArgs struct {
 	// The size of additional Flash Cache in percentage of High Capacity database storage. Changing this forces a new Exadata Database Storage Vault to be created.
 	AdditionalFlashCachePercentage int `pulumi:"additionalFlashCachePercentage"`

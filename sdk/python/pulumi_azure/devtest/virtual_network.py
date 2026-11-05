@@ -446,6 +446,26 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["unique_identifier"] = unique_identifier
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            unique_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["labName"] = lab_name
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnet"] = subnet
+        __props__["tags"] = tags
+        __props__["uniqueIdentifier"] = unique_identifier
+        return pulumi.runtime.exists_resource(None, 'azure:devtest/virtualNetwork:VirtualNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

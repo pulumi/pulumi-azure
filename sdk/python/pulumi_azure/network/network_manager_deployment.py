@@ -576,6 +576,22 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         __props__.__dict__["triggers"] = triggers
         return NetworkManagerDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_access: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationIds"] = configuration_ids
+        __props__["location"] = location
+        __props__["networkManagerId"] = network_manager_id
+        __props__["scopeAccess"] = scope_access
+        __props__["triggers"] = triggers
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerDeployment:NetworkManagerDeployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationIds")
     def configuration_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

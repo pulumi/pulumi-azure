@@ -151,6 +151,12 @@ func (ChannelAlexaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelAlexaState)(nil)).Elem()
 }
 
+// ChannelAlexaExists checks whether an existing ChannelAlexa resource with the given ID exists.
+func ChannelAlexaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelAlexaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelAlexa:ChannelAlexa", id, state, "", opts...)
+}
+
 type channelAlexaArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

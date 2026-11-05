@@ -182,6 +182,12 @@ func (DevBoxDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*devBoxDefinitionState)(nil)).Elem()
 }
 
+// DevBoxDefinitionExists checks whether an existing DevBoxDefinition resource with the given ID exists.
+func DevBoxDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DevBoxDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/devBoxDefinition:DevBoxDefinition", id, state, "", opts...)
+}
+
 type devBoxDefinitionArgs struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId string `pulumi:"devCenterId"`

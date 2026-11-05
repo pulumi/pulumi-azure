@@ -156,6 +156,12 @@ func (TriggerCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerCustomState)(nil)).Elem()
 }
 
+// TriggerCustomExists checks whether an existing TriggerCustom resource with the given ID exists.
+func TriggerCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/triggerCustom:TriggerCustom", id, state, "", opts...)
+}
+
 type triggerCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
 	Body string `pulumi:"body"`

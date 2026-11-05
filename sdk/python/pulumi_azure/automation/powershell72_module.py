@@ -340,6 +340,20 @@ class Powershell72Module(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Powershell72Module(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountId"] = automation_account_id
+        __props__["moduleLink"] = module_link
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/powershell72Module:Powershell72Module', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountId")
     def automation_account_id(self) -> pulumi.Output[_builtins.str]:

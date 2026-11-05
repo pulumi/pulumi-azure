@@ -426,6 +426,22 @@ class AccountTableProperties(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return AccountTableProperties(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountTablePropertiesCorsRuleArgs', 'AccountTablePropertiesCorsRuleArgsDict', 'outputs.AccountTablePropertiesCorsRule']]]]] = None,
+            hour_metrics: pulumi.Input[Optional[Union['AccountTablePropertiesHourMetricsArgs', 'AccountTablePropertiesHourMetricsArgsDict', 'outputs.AccountTablePropertiesHourMetrics']]] = None,
+            logging: pulumi.Input[Optional[Union['AccountTablePropertiesLoggingArgs', 'AccountTablePropertiesLoggingArgsDict', 'outputs.AccountTablePropertiesLogging']]] = None,
+            minute_metrics: pulumi.Input[Optional[Union['AccountTablePropertiesMinuteMetricsArgs', 'AccountTablePropertiesMinuteMetricsArgsDict', 'outputs.AccountTablePropertiesMinuteMetrics']]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["corsRules"] = cors_rules
+        __props__["hourMetrics"] = hour_metrics
+        __props__["logging"] = logging
+        __props__["minuteMetrics"] = minute_metrics
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/accountTableProperties:AccountTableProperties', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AccountTablePropertiesCorsRule']]]:

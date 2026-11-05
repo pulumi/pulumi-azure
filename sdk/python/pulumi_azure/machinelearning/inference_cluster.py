@@ -667,6 +667,30 @@ class InferenceCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return InferenceCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_purpose: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['InferenceClusterIdentityArgs', 'InferenceClusterIdentityArgsDict', 'outputs.InferenceClusterIdentity']]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl: pulumi.Input[Optional[Union['InferenceClusterSslArgs', 'InferenceClusterSslArgsDict', 'outputs.InferenceClusterSsl']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterPurpose"] = cluster_purpose
+        __props__["description"] = description
+        __props__["identity"] = identity
+        __props__["kubernetesClusterId"] = kubernetes_cluster_id
+        __props__["location"] = location
+        __props__["machineLearningWorkspaceId"] = machine_learning_workspace_id
+        __props__["name"] = name
+        __props__["ssl"] = ssl
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:machinelearning/inferenceCluster:InferenceCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterPurpose")
     def cluster_purpose(self) -> pulumi.Output[Optional[_builtins.str]]:

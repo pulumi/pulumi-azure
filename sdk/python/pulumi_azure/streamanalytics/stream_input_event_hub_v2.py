@@ -620,6 +620,32 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         return StreamInputEventHubV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['StreamInputEventHubV2SerializationArgs', 'StreamInputEventHubV2SerializationArgsDict', 'outputs.StreamInputEventHubV2Serialization']]] = None,
+            servicebus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMode"] = authentication_mode
+        __props__["eventhubConsumerGroupName"] = eventhub_consumer_group_name
+        __props__["eventhubName"] = eventhub_name
+        __props__["name"] = name
+        __props__["partitionKey"] = partition_key
+        __props__["serialization"] = serialization
+        __props__["servicebusNamespace"] = servicebus_namespace
+        __props__["sharedAccessPolicyKey"] = shared_access_policy_key
+        __props__["sharedAccessPolicyName"] = shared_access_policy_name
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

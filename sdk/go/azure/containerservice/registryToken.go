@@ -178,6 +178,12 @@ func (RegistryTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryTokenState)(nil)).Elem()
 }
 
+// RegistryTokenExists checks whether an existing RegistryToken resource with the given ID exists.
+func RegistryTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryToken:RegistryToken", id, state, "", opts...)
+}
+
 type registryTokenArgs struct {
 	// The name of the Container Registry. Changing this forces a new resource to be created.
 	ContainerRegistryName string `pulumi:"containerRegistryName"`

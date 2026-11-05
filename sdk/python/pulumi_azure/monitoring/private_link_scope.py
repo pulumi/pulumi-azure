@@ -364,6 +364,22 @@ class PrivateLinkScope(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return PrivateLinkScope(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ingestion_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ingestionAccessMode"] = ingestion_access_mode
+        __props__["name"] = name
+        __props__["queryAccessMode"] = query_access_mode
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/privateLinkScope:PrivateLinkScope', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ingestionAccessMode")
     def ingestion_access_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

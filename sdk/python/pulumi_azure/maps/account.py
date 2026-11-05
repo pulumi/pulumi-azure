@@ -603,6 +603,36 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["x_ms_client_id"] = x_ms_client_id
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']]] = None,
+            data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            x_ms_client_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cors"] = cors
+        __props__["dataStores"] = data_stores
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        __props__["xMsClientId"] = x_ms_client_id
+        return pulumi.runtime.exists_resource(None, 'azure:maps/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cors(self) -> pulumi.Output[Optional['outputs.AccountCors']]:

@@ -1810,6 +1810,94 @@ class AppFlexConsumption(pulumi.CustomResource):
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return AppFlexConsumption(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']]] = None,
+            instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict', 'outputs.AppFlexConsumptionSiteCredential']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']]] = None,
+            storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alwaysReadies"] = always_readies
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["authSettingsV2"] = auth_settings_v2
+        __props__["clientCertificateEnabled"] = client_certificate_enabled
+        __props__["clientCertificateExclusionPaths"] = client_certificate_exclusion_paths
+        __props__["clientCertificateMode"] = client_certificate_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["defaultHostname"] = default_hostname
+        __props__["enabled"] = enabled
+        __props__["hostingEnvironmentId"] = hosting_environment_id
+        __props__["httpConcurrency"] = http_concurrency
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["instanceMemoryInMb"] = instance_memory_in_mb
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["maximumInstanceCount"] = maximum_instance_count
+        __props__["name"] = name
+        __props__["outboundIpAddressLists"] = outbound_ip_address_lists
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddressLists"] = possible_outbound_ip_address_lists
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["runtimeName"] = runtime_name
+        __props__["runtimeVersion"] = runtime_version
+        __props__["servicePlanId"] = service_plan_id
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["stickySettings"] = sticky_settings
+        __props__["storageAccessKey"] = storage_access_key
+        __props__["storageAuthenticationType"] = storage_authentication_type
+        __props__["storageContainerEndpoint"] = storage_container_endpoint
+        __props__["storageContainerType"] = storage_container_type
+        __props__["storageUserAssignedIdentityId"] = storage_user_assigned_identity_id
+        __props__["tags"] = tags
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        __props__["webdeployPublishBasicAuthenticationEnabled"] = webdeploy_publish_basic_authentication_enabled
+        __props__["zipDeployFile"] = zip_deploy_file
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/appFlexConsumption:AppFlexConsumption', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alwaysReadies")
     def always_readies(self) -> pulumi.Output[Optional[Sequence['outputs.AppFlexConsumptionAlwaysReady']]]:

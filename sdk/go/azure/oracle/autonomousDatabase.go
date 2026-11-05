@@ -338,6 +338,12 @@ func (AutonomousDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autonomousDatabaseState)(nil)).Elem()
 }
 
+// AutonomousDatabaseExists checks whether an existing AutonomousDatabase resource with the given ID exists.
+func AutonomousDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutonomousDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/autonomousDatabase:AutonomousDatabase", id, state, "", opts...)
+}
+
 type autonomousDatabaseArgs struct {
 	// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
 	AdminPassword string `pulumi:"adminPassword"`

@@ -154,6 +154,12 @@ func (ExpressRouteAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteAuthorizationState)(nil)).Elem()
 }
 
+// ExpressRouteAuthorizationExists checks whether an existing ExpressRouteAuthorization resource with the given ID exists.
+func ExpressRouteAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", id, state, "", opts...)
+}
+
 type expressRouteAuthorizationArgs struct {
 	// The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
 	Name *string `pulumi:"name"`

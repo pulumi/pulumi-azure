@@ -324,6 +324,12 @@ func (ActionGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionGroupState)(nil)).Elem()
 }
 
+// ActionGroupExists checks whether an existing ActionGroup resource with the given ID exists.
+func ActionGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/actionGroup:ActionGroup", id, state, "", opts...)
+}
+
 type actionGroupArgs struct {
 	// One or more `armRoleReceiver` blocks as defined below.
 	ArmRoleReceivers []ActionGroupArmRoleReceiver `pulumi:"armRoleReceivers"`

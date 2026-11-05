@@ -336,6 +336,20 @@ class TableEntity(pulumi.CustomResource):
         __props__.__dict__["storage_table_id"] = storage_table_id
         return TableEntity(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            entity: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            row_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["entity"] = entity
+        __props__["partitionKey"] = partition_key
+        __props__["rowKey"] = row_key
+        __props__["storageTableId"] = storage_table_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/tableEntity:TableEntity', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def entity(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

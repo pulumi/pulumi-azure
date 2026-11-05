@@ -201,6 +201,12 @@ func (QueryPackQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryPackQueryState)(nil)).Elem()
 }
 
+// QueryPackQueryExists checks whether an existing QueryPackQuery resource with the given ID exists.
+func QueryPackQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *QueryPackQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:operationalinsights/queryPackQuery:QueryPackQuery", id, state, "", opts...)
+}
+
 type queryPackQueryArgs struct {
 	// The additional properties that can be set for the Log Analytics Query Pack Query.
 	AdditionalSettingsJson *string `pulumi:"additionalSettingsJson"`

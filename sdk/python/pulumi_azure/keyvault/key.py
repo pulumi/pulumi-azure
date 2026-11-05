@@ -914,6 +914,54 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["y"] = y
         return Key(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            curve: pulumi.Input[Optional[_builtins.str]] = None,
+            e: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            n: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            x: pulumi.Input[Optional[_builtins.str]] = None,
+            y: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["curve"] = curve
+        __props__["e"] = e
+        __props__["expirationDate"] = expiration_date
+        __props__["keyOpts"] = key_opts
+        __props__["keySize"] = key_size
+        __props__["keyType"] = key_type
+        __props__["keyVaultId"] = key_vault_id
+        __props__["n"] = n
+        __props__["name"] = name
+        __props__["notBeforeDate"] = not_before_date
+        __props__["publicKeyOpenssh"] = public_key_openssh
+        __props__["publicKeyPem"] = public_key_pem
+        __props__["releasePolicy"] = release_policy
+        __props__["resourceId"] = resource_id
+        __props__["resourceVersionlessId"] = resource_versionless_id
+        __props__["rotationPolicy"] = rotation_policy
+        __props__["tags"] = tags
+        __props__["version"] = version
+        __props__["versionlessId"] = versionless_id
+        __props__["x"] = x
+        __props__["y"] = y
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/key:Key', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def curve(self) -> pulumi.Output[_builtins.str]:

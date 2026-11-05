@@ -520,6 +520,30 @@ class RuntimeEnvironmentPackage(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return RuntimeEnvironmentPackage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_runtime_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            content_version: pulumi.Input[Optional[_builtins.str]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationRuntimeEnvironmentId"] = automation_runtime_environment_id
+        __props__["contentUri"] = content_uri
+        __props__["contentVersion"] = content_version
+        __props__["default"] = default
+        __props__["hashAlgorithm"] = hash_algorithm
+        __props__["hashValue"] = hash_value
+        __props__["name"] = name
+        __props__["sizeInBytes"] = size_in_bytes
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:automation/runtimeEnvironmentPackage:RuntimeEnvironmentPackage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationRuntimeEnvironmentId")
     def automation_runtime_environment_id(self) -> pulumi.Output[_builtins.str]:

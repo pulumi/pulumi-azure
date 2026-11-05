@@ -849,6 +849,42 @@ class SharedImageVersion(pulumi.CustomResource):
         __props__.__dict__["target_regions"] = target_regions
         return SharedImageVersion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_of_replicated_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+            image_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_disk_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedImageVersionTargetRegionArgs', 'SharedImageVersionTargetRegionArgsDict', 'outputs.SharedImageVersionTargetRegion']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blobUri"] = blob_uri
+        __props__["deletionOfReplicatedLocationsEnabled"] = deletion_of_replicated_locations_enabled
+        __props__["endOfLifeDate"] = end_of_life_date
+        __props__["excludeFromLatest"] = exclude_from_latest
+        __props__["galleryName"] = gallery_name
+        __props__["imageName"] = image_name
+        __props__["location"] = location
+        __props__["managedImageId"] = managed_image_id
+        __props__["name"] = name
+        __props__["osDiskSnapshotId"] = os_disk_snapshot_id
+        __props__["replicationMode"] = replication_mode
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storageAccountId"] = storage_account_id
+        __props__["tags"] = tags
+        __props__["targetRegions"] = target_regions
+        return pulumi.runtime.exists_resource(None, 'azure:compute/sharedImageVersion:SharedImageVersion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blobUri")
     def blob_uri(self) -> pulumi.Output[Optional[_builtins.str]]:

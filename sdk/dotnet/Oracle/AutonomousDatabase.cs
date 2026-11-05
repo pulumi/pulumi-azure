@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Oracle
     public partial class AutonomousDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        /// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         /// </summary>
         [Output("adminPassword")]
         public Output<string> AdminPassword { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Oracle
         /// The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
         /// 
         /// &gt; **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
+        /// **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Output("dbWorkload")]
         public Output<string> DbWorkload { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Oracle
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        /// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Oracle
         /// The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
         /// 
         /// &gt; **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
+        /// **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Input("dbWorkload", required: true)]
         public Input<string> DbWorkload { get; set; } = null!;
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.Oracle
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        /// The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.Oracle
         /// The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
         /// 
         /// &gt; **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        /// &gt; **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
+        /// **Note:** When Provisioning Database with `APEX` workload `MtlsConnectionRequired` must be set to `True`.
         /// </summary>
         [Input("dbWorkload")]
         public Input<string>? DbWorkload { get; set; }

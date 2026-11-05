@@ -482,6 +482,26 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         return VnpGatewayNatRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            external_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict', 'outputs.VnpGatewayNatRuleExternalMapping']]]]] = None,
+            internal_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict', 'outputs.VnpGatewayNatRuleInternalMapping']]]]] = None,
+            ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["externalMappings"] = external_mappings
+        __props__["internalMappings"] = internal_mappings
+        __props__["ipConfigurationId"] = ip_configuration_id
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["type"] = type
+        __props__["vpnGatewayId"] = vpn_gateway_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/vnpGatewayNatRule:VnpGatewayNatRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.VnpGatewayNatRuleExternalMapping']]]:

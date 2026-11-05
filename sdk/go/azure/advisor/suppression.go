@@ -146,6 +146,12 @@ func (SuppressionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*suppressionState)(nil)).Elem()
 }
 
+// SuppressionExists checks whether an existing Suppression resource with the given ID exists.
+func SuppressionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SuppressionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:advisor/suppression:Suppression", id, state, "", opts...)
+}
+
 type suppressionArgs struct {
 	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
 	Name *string `pulumi:"name"`

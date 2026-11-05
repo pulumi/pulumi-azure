@@ -289,6 +289,12 @@ func (EndpointCosmosdbAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointCosmosdbAccountState)(nil)).Elem()
 }
 
+// EndpointCosmosdbAccountExists checks whether an existing EndpointCosmosdbAccount resource with the given ID exists.
+func EndpointCosmosdbAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointCosmosdbAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount", id, state, "", opts...)
+}
+
 type endpointCosmosdbAccountArgs struct {
 	// The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

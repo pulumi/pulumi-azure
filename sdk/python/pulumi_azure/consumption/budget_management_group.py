@@ -564,6 +564,28 @@ class BudgetManagementGroup(pulumi.CustomResource):
         __props__.__dict__["time_period"] = time_period
         return BudgetManagementGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            amount: pulumi.Input[Optional[_builtins.float]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[Union['BudgetManagementGroupFilterArgs', 'BudgetManagementGroupFilterArgsDict', 'outputs.BudgetManagementGroupFilter']]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetManagementGroupNotificationArgs', 'BudgetManagementGroupNotificationArgsDict', 'outputs.BudgetManagementGroupNotification']]]]] = None,
+            time_grain: pulumi.Input[Optional[_builtins.str]] = None,
+            time_period: pulumi.Input[Optional[Union['BudgetManagementGroupTimePeriodArgs', 'BudgetManagementGroupTimePeriodArgsDict', 'outputs.BudgetManagementGroupTimePeriod']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["amount"] = amount
+        __props__["etag"] = etag
+        __props__["filter"] = filter
+        __props__["managementGroupId"] = management_group_id
+        __props__["name"] = name
+        __props__["notifications"] = notifications
+        __props__["timeGrain"] = time_grain
+        __props__["timePeriod"] = time_period
+        return pulumi.runtime.exists_resource(None, 'azure:consumption/budgetManagementGroup:BudgetManagementGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def amount(self) -> pulumi.Output[_builtins.float]:

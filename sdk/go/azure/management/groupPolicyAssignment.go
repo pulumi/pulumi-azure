@@ -227,6 +227,12 @@ func (GroupPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyAssignmentState)(nil)).Elem()
 }
 
+// GroupPolicyAssignmentExists checks whether an existing GroupPolicyAssignment resource with the given ID exists.
+func GroupPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/groupPolicyAssignment:GroupPolicyAssignment", id, state, "", opts...)
+}
+
 type groupPolicyAssignmentArgs struct {
 	// A description which should be used for this Policy Assignment.
 	Description *string `pulumi:"description"`

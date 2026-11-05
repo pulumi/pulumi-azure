@@ -181,6 +181,12 @@ func (FlexibleServerVirtualEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerVirtualEndpointState)(nil)).Elem()
 }
 
+// FlexibleServerVirtualEndpointExists checks whether an existing FlexibleServerVirtualEndpoint resource with the given ID exists.
+func FlexibleServerVirtualEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerVirtualEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint", id, state, "", opts...)
+}
+
 type flexibleServerVirtualEndpointArgs struct {
 	// The name of the Virtual Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

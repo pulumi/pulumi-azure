@@ -565,6 +565,30 @@ class AccountCostManagementExport(pulumi.CustomResource):
         __props__.__dict__["recurrence_type"] = recurrence_type
         return AccountCostManagementExport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']]] = None,
+            export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["billingAccountId"] = billing_account_id
+        __props__["exportDataOptions"] = export_data_options
+        __props__["exportDataStorageLocation"] = export_data_storage_location
+        __props__["fileFormat"] = file_format
+        __props__["name"] = name
+        __props__["recurrencePeriodEndDate"] = recurrence_period_end_date
+        __props__["recurrencePeriodStartDate"] = recurrence_period_start_date
+        __props__["recurrenceType"] = recurrence_type
+        return pulumi.runtime.exists_resource(None, 'azure:billing/accountCostManagementExport:AccountCostManagementExport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

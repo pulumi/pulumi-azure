@@ -379,6 +379,22 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capacityReservationGroupId"] = capacity_reservation_group_id
+        __props__["name"] = name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'azure:compute/capacityReservation:CapacityReservation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> pulumi.Output[_builtins.str]:

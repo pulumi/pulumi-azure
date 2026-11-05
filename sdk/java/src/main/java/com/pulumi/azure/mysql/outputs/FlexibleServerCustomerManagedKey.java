@@ -31,11 +31,10 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The ID of the Managed HSM Key.
      * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable String managedHsmKeyId;
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
@@ -70,11 +69,10 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The ID of the Managed HSM Key.
      * 
-     * @deprecated
-     * The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<String> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }

@@ -719,6 +719,40 @@ class TriggerSchedule(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return TriggerSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerSchedulePipelineArgs', 'TriggerSchedulePipelineArgsDict', 'outputs.TriggerSchedulePipeline']]]]] = None,
+            schedule: pulumi.Input[Optional[Union['TriggerScheduleScheduleArgs', 'TriggerScheduleScheduleArgsDict', 'outputs.TriggerScheduleSchedule']]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activated"] = activated
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["endTime"] = end_time
+        __props__["frequency"] = frequency
+        __props__["interval"] = interval
+        __props__["name"] = name
+        __props__["pipelineName"] = pipeline_name
+        __props__["pipelineParameters"] = pipeline_parameters
+        __props__["pipelines"] = pipelines
+        __props__["schedule"] = schedule
+        __props__["startTime"] = start_time
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/triggerSchedule:TriggerSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def activated(self) -> pulumi.Output[Optional[_builtins.bool]]:

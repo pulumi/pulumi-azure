@@ -520,6 +520,24 @@ class AccountNetworkRules(pulumi.CustomResource):
         __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         return AccountNetworkRules(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict', 'outputs.AccountNetworkRulesPrivateLinkAccessRule']]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bypasses"] = bypasses
+        __props__["defaultAction"] = default_action
+        __props__["ipRules"] = ip_rules
+        __props__["privateLinkAccessRules"] = private_link_access_rules
+        __props__["storageAccountId"] = storage_account_id
+        __props__["virtualNetworkSubnetIds"] = virtual_network_subnet_ids
+        return pulumi.runtime.exists_resource(None, 'azure:storage/accountNetworkRules:AccountNetworkRules', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bypasses(self) -> pulumi.Output[Sequence[_builtins.str]]:

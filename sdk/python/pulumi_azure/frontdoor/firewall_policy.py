@@ -785,6 +785,36 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customBlockResponseBody"] = custom_block_response_body
+        __props__["customBlockResponseStatusCode"] = custom_block_response_status_code
+        __props__["customRules"] = custom_rules
+        __props__["enabled"] = enabled
+        __props__["frontendEndpointIds"] = frontend_endpoint_ids
+        __props__["location"] = location
+        __props__["managedRules"] = managed_rules
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["redirectUrl"] = redirect_url
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:frontdoor/firewallPolicy:FirewallPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
     def custom_block_response_body(self) -> pulumi.Output[Optional[_builtins.str]]:

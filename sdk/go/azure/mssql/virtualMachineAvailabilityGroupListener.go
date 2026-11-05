@@ -128,6 +128,12 @@ func (VirtualMachineAvailabilityGroupListenerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineAvailabilityGroupListenerState)(nil)).Elem()
 }
 
+// VirtualMachineAvailabilityGroupListenerExists checks whether an existing VirtualMachineAvailabilityGroupListener resource with the given ID exists.
+func VirtualMachineAvailabilityGroupListenerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineAvailabilityGroupListenerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener", id, state, "", opts...)
+}
+
 type virtualMachineAvailabilityGroupListenerArgs struct {
 	// The name of the Availability Group. Changing this forces a new resource to be created.
 	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`

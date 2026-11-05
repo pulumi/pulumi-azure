@@ -1724,6 +1724,94 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         return WindowsFunctionAppSlot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['WindowsFunctionAppSlotAuthSettingsArgs', 'WindowsFunctionAppSlotAuthSettingsArgsDict', 'outputs.WindowsFunctionAppSlotAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['WindowsFunctionAppSlotAuthSettingsV2Args', 'WindowsFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsFunctionAppSlotAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['WindowsFunctionAppSlotBackupArgs', 'WindowsFunctionAppSlotBackupArgsDict', 'outputs.WindowsFunctionAppSlotBackup']]] = None,
+            builtin_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsFunctionAppSlotConnectionStringArgs', 'WindowsFunctionAppSlotConnectionStringArgsDict', 'outputs.WindowsFunctionAppSlotConnectionString']]]]] = None,
+            content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WindowsFunctionAppSlotIdentityArgs', 'WindowsFunctionAppSlotIdentityArgsDict', 'outputs.WindowsFunctionAppSlotIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['WindowsFunctionAppSlotSiteConfigArgs', 'WindowsFunctionAppSlotSiteConfigArgsDict', 'outputs.WindowsFunctionAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsFunctionAppSlotSiteCredentialArgs', 'WindowsFunctionAppSlotSiteCredentialArgsDict', 'outputs.WindowsFunctionAppSlotSiteCredential']]]]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsFunctionAppSlotStorageAccountArgs', 'WindowsFunctionAppSlotStorageAccountArgsDict', 'outputs.WindowsFunctionAppSlotStorageAccount']]]]] = None,
+            storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_uses_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["authSettingsV2"] = auth_settings_v2
+        __props__["backup"] = backup
+        __props__["builtinLoggingEnabled"] = builtin_logging_enabled
+        __props__["clientCertificateEnabled"] = client_certificate_enabled
+        __props__["clientCertificateExclusionPaths"] = client_certificate_exclusion_paths
+        __props__["clientCertificateMode"] = client_certificate_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["contentShareForceDisabled"] = content_share_force_disabled
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["dailyMemoryTimeQuota"] = daily_memory_time_quota
+        __props__["defaultHostname"] = default_hostname
+        __props__["enabled"] = enabled
+        __props__["ftpPublishBasicAuthenticationEnabled"] = ftp_publish_basic_authentication_enabled
+        __props__["functionAppId"] = function_app_id
+        __props__["functionsExtensionVersion"] = functions_extension_version
+        __props__["hostingEnvironmentId"] = hosting_environment_id
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["kind"] = kind
+        __props__["name"] = name
+        __props__["outboundIpAddressLists"] = outbound_ip_address_lists
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddressLists"] = possible_outbound_ip_address_lists
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["servicePlanId"] = service_plan_id
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["storageAccounts"] = storage_accounts
+        __props__["storageKeyVaultSecretId"] = storage_key_vault_secret_id
+        __props__["storageUsesManagedIdentity"] = storage_uses_managed_identity
+        __props__["tags"] = tags
+        __props__["virtualNetworkBackupRestoreEnabled"] = virtual_network_backup_restore_enabled
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        __props__["vnetImagePullEnabled"] = vnet_image_pull_enabled
+        __props__["webdeployPublishBasicAuthenticationEnabled"] = webdeploy_publish_basic_authentication_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

@@ -224,6 +224,12 @@ func (BackupInstanceDiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstanceDiskState)(nil)).Elem()
 }
 
+// BackupInstanceDiskExists checks whether an existing BackupInstanceDisk resource with the given ID exists.
+func BackupInstanceDiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstanceDiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", id, state, "", opts...)
+}
+
 type backupInstanceDiskArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

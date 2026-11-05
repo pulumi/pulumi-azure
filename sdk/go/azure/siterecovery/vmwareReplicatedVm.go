@@ -414,6 +414,12 @@ func (VmwareReplicatedVmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vmwareReplicatedVmState)(nil)).Elem()
 }
 
+// VmwareReplicatedVmExists checks whether an existing VmwareReplicatedVm resource with the given ID exists.
+func VmwareReplicatedVmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VmwareReplicatedVmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm", id, state, "", opts...)
+}
+
 type vmwareReplicatedVmArgs struct {
 	// The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
 	ApplianceName string `pulumi:"applianceName"`

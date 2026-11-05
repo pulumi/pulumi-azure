@@ -169,6 +169,12 @@ func (GalleryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryState)(nil)).Elem()
 }
 
+// GalleryExists checks whether an existing Gallery resource with the given ID exists.
+func GalleryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GalleryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/gallery:Gallery", id, state, "", opts...)
+}
+
 type galleryArgs struct {
 	// Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
 	DevCenterId string `pulumi:"devCenterId"`

@@ -184,6 +184,12 @@ func (ScaleSetStandbyPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scaleSetStandbyPoolState)(nil)).Elem()
 }
 
+// ScaleSetStandbyPoolExists checks whether an existing ScaleSetStandbyPool resource with the given ID exists.
+func ScaleSetStandbyPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScaleSetStandbyPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool", id, state, "", opts...)
+}
+
 type scaleSetStandbyPoolArgs struct {
 	// Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
 	AttachedVirtualMachineScaleSetId string `pulumi:"attachedVirtualMachineScaleSetId"`

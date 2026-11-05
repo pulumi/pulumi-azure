@@ -1690,6 +1690,68 @@ class ScaleSet(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return ScaleSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_os_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['ScaleSetBootDiagnosticsArgs', 'ScaleSetBootDiagnosticsArgsDict', 'outputs.ScaleSetBootDiagnostics']]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetExtensionArgs', 'ScaleSetExtensionArgsDict', 'outputs.ScaleSetExtension']]]]] = None,
+            health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ScaleSetIdentityArgs', 'ScaleSetIdentityArgsDict', 'outputs.ScaleSetIdentity']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetNetworkProfileArgs', 'ScaleSetNetworkProfileArgsDict', 'outputs.ScaleSetNetworkProfile']]]]] = None,
+            os_profile: pulumi.Input[Optional[Union['ScaleSetOsProfileArgs', 'ScaleSetOsProfileArgsDict', 'outputs.ScaleSetOsProfile']]] = None,
+            os_profile_linux_config: pulumi.Input[Optional[Union['ScaleSetOsProfileLinuxConfigArgs', 'ScaleSetOsProfileLinuxConfigArgsDict', 'outputs.ScaleSetOsProfileLinuxConfig']]] = None,
+            os_profile_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetOsProfileSecretArgs', 'ScaleSetOsProfileSecretArgsDict', 'outputs.ScaleSetOsProfileSecret']]]]] = None,
+            os_profile_windows_config: pulumi.Input[Optional[Union['ScaleSetOsProfileWindowsConfigArgs', 'ScaleSetOsProfileWindowsConfigArgsDict', 'outputs.ScaleSetOsProfileWindowsConfig']]] = None,
+            overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+            plan: pulumi.Input[Optional[Union['ScaleSetPlanArgs', 'ScaleSetPlanArgsDict', 'outputs.ScaleSetPlan']]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rolling_upgrade_policy: pulumi.Input[Optional[Union['ScaleSetRollingUpgradePolicyArgs', 'ScaleSetRollingUpgradePolicyArgsDict', 'outputs.ScaleSetRollingUpgradePolicy']]] = None,
+            single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku: pulumi.Input[Optional[Union['ScaleSetSkuArgs', 'ScaleSetSkuArgsDict', 'outputs.ScaleSetSku']]] = None,
+            storage_profile_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScaleSetStorageProfileDataDiskArgs', 'ScaleSetStorageProfileDataDiskArgsDict', 'outputs.ScaleSetStorageProfileDataDisk']]]]] = None,
+            storage_profile_image_reference: pulumi.Input[Optional[Union['ScaleSetStorageProfileImageReferenceArgs', 'ScaleSetStorageProfileImageReferenceArgsDict', 'outputs.ScaleSetStorageProfileImageReference']]] = None,
+            storage_profile_os_disk: pulumi.Input[Optional[Union['ScaleSetStorageProfileOsDiskArgs', 'ScaleSetStorageProfileOsDiskArgsDict', 'outputs.ScaleSetStorageProfileOsDisk']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_policy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automaticOsUpgrade"] = automatic_os_upgrade
+        __props__["bootDiagnostics"] = boot_diagnostics
+        __props__["evictionPolicy"] = eviction_policy
+        __props__["extensions"] = extensions
+        __props__["healthProbeId"] = health_probe_id
+        __props__["identity"] = identity
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkProfiles"] = network_profiles
+        __props__["osProfile"] = os_profile
+        __props__["osProfileLinuxConfig"] = os_profile_linux_config
+        __props__["osProfileSecrets"] = os_profile_secrets
+        __props__["osProfileWindowsConfig"] = os_profile_windows_config
+        __props__["overprovision"] = overprovision
+        __props__["plan"] = plan
+        __props__["priority"] = priority
+        __props__["proximityPlacementGroupId"] = proximity_placement_group_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rollingUpgradePolicy"] = rolling_upgrade_policy
+        __props__["singlePlacementGroup"] = single_placement_group
+        __props__["sku"] = sku
+        __props__["storageProfileDataDisks"] = storage_profile_data_disks
+        __props__["storageProfileImageReference"] = storage_profile_image_reference
+        __props__["storageProfileOsDisk"] = storage_profile_os_disk
+        __props__["tags"] = tags
+        __props__["upgradePolicyMode"] = upgrade_policy_mode
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:compute/scaleSet:ScaleSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automaticOsUpgrade")
     def automatic_os_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:

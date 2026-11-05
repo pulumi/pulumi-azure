@@ -154,6 +154,12 @@ func (AlertRuleMachineLearningBehaviorAnalyticsState) ElementType() reflect.Type
 	return reflect.TypeOf((*alertRuleMachineLearningBehaviorAnalyticsState)(nil)).Elem()
 }
 
+// AlertRuleMachineLearningBehaviorAnalyticsExists checks whether an existing AlertRuleMachineLearningBehaviorAnalytics resource with the given ID exists.
+func AlertRuleMachineLearningBehaviorAnalyticsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleMachineLearningBehaviorAnalyticsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics", id, state, "", opts...)
+}
+
 type alertRuleMachineLearningBehaviorAnalyticsArgs struct {
 	// The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
 	AlertRuleTemplateGuid string `pulumi:"alertRuleTemplateGuid"`

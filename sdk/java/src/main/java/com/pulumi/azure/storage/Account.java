@@ -1126,11 +1126,10 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
      * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="queueProperties", refs={AccountQueueProperties.class}, tree="[0]")
     private Output<AccountQueueProperties> queueProperties;
 
@@ -1750,11 +1749,10 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="staticWebsite", refs={AccountStaticWebsite.class}, tree="[0]")
     private Output<AccountStaticWebsite> staticWebsite;
 

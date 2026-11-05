@@ -443,6 +443,12 @@ func (RegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryState)(nil)).Elem()
 }
 
+// RegistryExists checks whether an existing Registry resource with the given ID exists.
+func RegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registry:Registry", id, state, "", opts...)
+}
+
 type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`

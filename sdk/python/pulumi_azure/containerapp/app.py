@@ -833,6 +833,48 @@ class App(pulumi.CustomResource):
         __props__.__dict__["workload_profile_name"] = workload_profile_name
         return App(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dapr: pulumi.Input[Optional[Union['AppDaprArgs', 'AppDaprArgsDict', 'outputs.AppDapr']]] = None,
+            identity: pulumi.Input[Optional[Union['AppIdentityArgs', 'AppIdentityArgsDict', 'outputs.AppIdentity']]] = None,
+            ingress: pulumi.Input[Optional[Union['AppIngressArgs', 'AppIngressArgsDict', 'outputs.AppIngress']]] = None,
+            latest_revision_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_revision_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_inactive_revisions: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict', 'outputs.AppRegistry']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSecretArgs', 'AppSecretArgsDict', 'outputs.AppSecret']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template: pulumi.Input[Optional[Union['AppTemplateArgs', 'AppTemplateArgsDict', 'outputs.AppTemplate']]] = None,
+            workload_profile_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["dapr"] = dapr
+        __props__["identity"] = identity
+        __props__["ingress"] = ingress
+        __props__["latestRevisionFqdn"] = latest_revision_fqdn
+        __props__["latestRevisionName"] = latest_revision_name
+        __props__["location"] = location
+        __props__["maxInactiveRevisions"] = max_inactive_revisions
+        __props__["name"] = name
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["registries"] = registries
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["revisionMode"] = revision_mode
+        __props__["secrets"] = secrets
+        __props__["tags"] = tags
+        __props__["template"] = template
+        __props__["workloadProfileName"] = workload_profile_name
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/app:App', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
     def container_app_environment_id(self) -> pulumi.Output[_builtins.str]:

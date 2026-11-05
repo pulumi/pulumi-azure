@@ -615,6 +615,32 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         __props__.__dict__["timeframe"] = timeframe
         return ResourceGroupCostManagementView(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
+            chart_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]]] = None,
+            report_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeframe: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accumulated"] = accumulated
+        __props__["chartType"] = chart_type
+        __props__["dataset"] = dataset
+        __props__["displayName"] = display_name
+        __props__["kpis"] = kpis
+        __props__["name"] = name
+        __props__["pivots"] = pivots
+        __props__["reportType"] = report_type
+        __props__["resourceGroupId"] = resource_group_id
+        __props__["timeframe"] = timeframe
+        return pulumi.runtime.exists_resource(None, 'azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def accumulated(self) -> pulumi.Output[_builtins.bool]:

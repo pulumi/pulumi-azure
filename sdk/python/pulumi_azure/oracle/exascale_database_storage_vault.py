@@ -579,6 +579,32 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return ExascaleDatabaseStorageVault(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_flash_cache_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_capacity_database_storage: pulumi.Input[Optional[Union['ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs', 'ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgsDict', 'outputs.ExascaleDatabaseStorageVaultHighCapacityDatabaseStorage']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalFlashCachePercentage"] = additional_flash_cache_percentage
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["highCapacityDatabaseStorage"] = high_capacity_database_storage
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["timeZone"] = time_zone
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalFlashCachePercentage")
     def additional_flash_cache_percentage(self) -> pulumi.Output[_builtins.int]:

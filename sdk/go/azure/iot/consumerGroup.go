@@ -150,6 +150,12 @@ func (ConsumerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*consumerGroupState)(nil)).Elem()
 }
 
+// ConsumerGroupExists checks whether an existing ConsumerGroup resource with the given ID exists.
+func ConsumerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConsumerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/consumerGroup:ConsumerGroup", id, state, "", opts...)
+}
+
 type consumerGroupArgs struct {
 	// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
 	EventhubEndpointName string `pulumi:"eventhubEndpointName"`

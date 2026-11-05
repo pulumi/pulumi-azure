@@ -213,6 +213,12 @@ func (AccountConnectionAccountKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountConnectionAccountKeyState)(nil)).Elem()
 }
 
+// AccountConnectionAccountKeyExists checks whether an existing AccountConnectionAccountKey resource with the given ID exists.
+func AccountConnectionAccountKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountConnectionAccountKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey", id, state, "", opts...)
+}
+
 type accountConnectionAccountKeyArgs struct {
 	// The account key used for authentication.
 	AccountKey string `pulumi:"accountKey"`

@@ -140,6 +140,12 @@ func (HciClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciClusterState)(nil)).Elem()
 }
 
+// HciClusterExists checks whether an existing HciCluster resource with the given ID exists.
+func HciClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciCluster:HciCluster", id, state, "", opts...)
+}
+
 type hciClusterArgs struct {
 	// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
 	AutomanageConfigurationId *string `pulumi:"automanageConfigurationId"`

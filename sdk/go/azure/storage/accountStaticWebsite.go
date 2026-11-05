@@ -135,6 +135,12 @@ func (AccountStaticWebsiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountStaticWebsiteState)(nil)).Elem()
 }
 
+// AccountStaticWebsiteExists checks whether an existing AccountStaticWebsite resource with the given ID exists.
+func AccountStaticWebsiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountStaticWebsiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/accountStaticWebsite:AccountStaticWebsite", id, state, "", opts...)
+}
+
 type accountStaticWebsiteArgs struct {
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`

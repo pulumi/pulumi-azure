@@ -1005,6 +1005,52 @@ class LinkedServiceSftp(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return LinkedServiceSftp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]]] = None,
+            key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']]] = None,
+            key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["authenticationType"] = authentication_type
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["host"] = host
+        __props__["hostKeyFingerprint"] = host_key_fingerprint
+        __props__["integrationRuntimeName"] = integration_runtime_name
+        __props__["keyVaultPasswords"] = key_vault_passwords
+        __props__["keyVaultPrivateKeyContentBase64"] = key_vault_private_key_content_base64
+        __props__["keyVaultPrivateKeyPassphrase"] = key_vault_private_key_passphrase
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["password"] = password
+        __props__["port"] = port
+        __props__["privateKeyContentBase64"] = private_key_content_base64
+        __props__["privateKeyPassphrase"] = private_key_passphrase
+        __props__["privateKeyPath"] = private_key_path
+        __props__["skipHostKeyValidation"] = skip_host_key_validation
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/linkedServiceSftp:LinkedServiceSftp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

@@ -592,6 +592,32 @@ class EventHub(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capture_description: pulumi.Input[Optional[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict', 'outputs.EventHubCaptureDescription']]] = None,
+            message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            partition_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_description: pulumi.Input[Optional[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict', 'outputs.EventHubRetentionDescription']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["captureDescription"] = capture_description
+        __props__["messageRetention"] = message_retention
+        __props__["name"] = name
+        __props__["namespaceId"] = namespace_id
+        __props__["namespaceName"] = namespace_name
+        __props__["partitionCount"] = partition_count
+        __props__["partitionIds"] = partition_ids
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionDescription"] = retention_description
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/eventHub:EventHub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="captureDescription")
     def capture_description(self) -> pulumi.Output[Optional['outputs.EventHubCaptureDescription']]:

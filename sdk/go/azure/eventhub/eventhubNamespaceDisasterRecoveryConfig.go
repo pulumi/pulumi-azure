@@ -160,6 +160,12 @@ func (EventhubNamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubNamespaceDisasterRecoveryConfigState)(nil)).Elem()
 }
 
+// EventhubNamespaceDisasterRecoveryConfigExists checks whether an existing EventhubNamespaceDisasterRecoveryConfig resource with the given ID exists.
+func EventhubNamespaceDisasterRecoveryConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventhubNamespaceDisasterRecoveryConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", id, state, "", opts...)
+}
+
 type eventhubNamespaceDisasterRecoveryConfigArgs struct {
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

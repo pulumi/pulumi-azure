@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
@@ -116,19 +116,19 @@ import javax.annotation.Nullable;
  *                 ConfigurationConfigFileArgs.builder()
  *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                         .input("""
- * http {
- *     server {
+ * http }{{@code
+ *     server }{{@code
  *         listen 80;
- *         location / {
+ *         location / }{{@code
  *             default_type text/html;
- *             return 200 '<!doctype html><html lang=\"en\"><head></head><body>
+ *             return 200 '<!doctype html><html lang=}&#92;{@code "en}&#92;{@code "><head></head><body>
  *                 <div>this one will be updated</div>
  *                 <div>at 10:38 am</div>
  *             </body></html>';
- *         }
+ *         }}{@code
  *         include site/*.conf;
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  *                         """)
  *                         .build()).result())
  *                     .virtualPath("/etc/nginx/nginx.conf")
@@ -136,21 +136,21 @@ import javax.annotation.Nullable;
  *                 ConfigurationConfigFileArgs.builder()
  *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                         .input("""
- * location /bbb {
+ * location /bbb }{{@code
  *  default_type text/html;
- *  return 200 '<!doctype html><html lang=\"en\"><head></head><body>
+ *  return 200 '<!doctype html><html lang=}&#92;{@code "en}&#92;{@code "><head></head><body>
  *   <div>this one will be updated</div>
  *   <div>at 10:38 am</div>
  *  </body></html>';
- * }
+ * }}{@code
  *                         """)
  *                         .build()).result())
  *                     .virtualPath("/etc/nginx/site/b.conf")
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

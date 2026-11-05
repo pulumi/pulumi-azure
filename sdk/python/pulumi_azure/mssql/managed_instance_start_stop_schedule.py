@@ -708,6 +708,24 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         __props__.__dict__["timezone_id"] = timezone_id
         return ManagedInstanceStartStopSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            next_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+            next_run_action: pulumi.Input[Optional[_builtins.str]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]]] = None,
+            timezone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["managedInstanceId"] = managed_instance_id
+        __props__["nextExecutionTime"] = next_execution_time
+        __props__["nextRunAction"] = next_run_action
+        __props__["schedules"] = schedules
+        __props__["timezoneId"] = timezone_id
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

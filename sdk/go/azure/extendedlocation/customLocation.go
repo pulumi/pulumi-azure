@@ -133,6 +133,12 @@ func (CustomLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customLocationState)(nil)).Elem()
 }
 
+// CustomLocationExists checks whether an existing CustomLocation resource with the given ID exists.
+func CustomLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:extendedlocation/customLocation:CustomLocation", id, state, "", opts...)
+}
+
 type customLocationArgs struct {
 	// An `authentication` block as defined below.
 	Authentication *CustomLocationAuthentication `pulumi:"authentication"`

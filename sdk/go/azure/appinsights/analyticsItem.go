@@ -193,6 +193,12 @@ func (AnalyticsItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsItemState)(nil)).Elem()
 }
 
+// AnalyticsItemExists checks whether an existing AnalyticsItem resource with the given ID exists.
+func AnalyticsItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyticsItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appinsights/analyticsItem:AnalyticsItem", id, state, "", opts...)
+}
+
 type analyticsItemArgs struct {
 	// The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`

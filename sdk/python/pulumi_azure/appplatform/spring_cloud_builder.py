@@ -345,6 +345,20 @@ class SpringCloudBuilder(pulumi.CustomResource):
         __props__.__dict__["stack"] = stack
         return SpringCloudBuilder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            build_pack_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudBuilderBuildPackGroupArgs', 'SpringCloudBuilderBuildPackGroupArgsDict', 'outputs.SpringCloudBuilderBuildPackGroup']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            stack: pulumi.Input[Optional[Union['SpringCloudBuilderStackArgs', 'SpringCloudBuilderStackArgsDict', 'outputs.SpringCloudBuilderStack']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["buildPackGroups"] = build_pack_groups
+        __props__["name"] = name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        __props__["stack"] = stack
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudBuilder:SpringCloudBuilder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="buildPackGroups")
     def build_pack_groups(self) -> pulumi.Output[Sequence['outputs.SpringCloudBuilderBuildPackGroup']]:

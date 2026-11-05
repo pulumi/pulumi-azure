@@ -185,6 +185,12 @@ func (NamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceState)(nil)).Elem()
 }
 
+// NamespaceExists checks whether an existing Namespace resource with the given ID exists.
+func NamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:relay/namespace:Namespace", id, state, "", opts...)
+}
+
 type namespaceArgs struct {
 	// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

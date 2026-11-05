@@ -1302,6 +1302,68 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
+            dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']]] = None,
+            network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']]] = None,
+            outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customQuestionAnsweringSearchServiceId"] = custom_question_answering_search_service_id
+        __props__["customQuestionAnsweringSearchServiceKey"] = custom_question_answering_search_service_key
+        __props__["customSubdomainName"] = custom_subdomain_name
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["dynamicThrottlingEnabled"] = dynamic_throttling_enabled
+        __props__["endpoint"] = endpoint
+        __props__["fqdns"] = fqdns
+        __props__["identity"] = identity
+        __props__["kind"] = kind
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["metricsAdvisorAadClientId"] = metrics_advisor_aad_client_id
+        __props__["metricsAdvisorAadTenantId"] = metrics_advisor_aad_tenant_id
+        __props__["metricsAdvisorSuperUserName"] = metrics_advisor_super_user_name
+        __props__["metricsAdvisorWebsiteName"] = metrics_advisor_website_name
+        __props__["name"] = name
+        __props__["networkAcls"] = network_acls
+        __props__["networkInjection"] = network_injection
+        __props__["outboundNetworkAccessRestricted"] = outbound_network_access_restricted
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["projectManagementEnabled"] = project_management_enabled
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["qnaRuntimeEndpoint"] = qna_runtime_endpoint
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["skuName"] = sku_name
+        __props__["storages"] = storages
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceId")
     def custom_question_answering_search_service_id(self) -> pulumi.Output[Optional[_builtins.str]]:

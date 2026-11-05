@@ -670,6 +670,40 @@ class VirtualHub(pulumi.CustomResource):
         __props__.__dict__["virtual_wan_id"] = virtual_wan_id
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefix"] = address_prefix
+        __props__["branchToBranchTrafficEnabled"] = branch_to_branch_traffic_enabled
+        __props__["defaultRouteTableId"] = default_route_table_id
+        __props__["hubRoutingPreference"] = hub_routing_preference
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routes"] = routes
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["virtualRouterAsn"] = virtual_router_asn
+        __props__["virtualRouterAutoScaleMinCapacity"] = virtual_router_auto_scale_min_capacity
+        __props__["virtualRouterIps"] = virtual_router_ips
+        __props__["virtualWanId"] = virtual_wan_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualHub:VirtualHub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
     def address_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:

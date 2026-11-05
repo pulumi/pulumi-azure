@@ -284,6 +284,12 @@ func (AuthorizationServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationServerState)(nil)).Elem()
 }
 
+// AuthorizationServerExists checks whether an existing AuthorizationServer resource with the given ID exists.
+func AuthorizationServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizationServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/authorizationServer:AuthorizationServer", id, state, "", opts...)
+}
+
 type authorizationServerArgs struct {
 	// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

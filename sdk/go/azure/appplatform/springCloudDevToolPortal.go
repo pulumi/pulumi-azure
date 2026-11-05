@@ -169,6 +169,12 @@ func (SpringCloudDevToolPortalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudDevToolPortalState)(nil)).Elem()
 }
 
+// SpringCloudDevToolPortalExists checks whether an existing SpringCloudDevToolPortal resource with the given ID exists.
+func SpringCloudDevToolPortalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudDevToolPortalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal", id, state, "", opts...)
+}
+
 type springCloudDevToolPortalArgs struct {
 	// Should the Accelerator plugin be enabled?
 	ApplicationAcceleratorEnabled *bool `pulumi:"applicationAcceleratorEnabled"`

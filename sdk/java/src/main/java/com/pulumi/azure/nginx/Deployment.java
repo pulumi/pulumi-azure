@@ -199,11 +199,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
+    @Deprecated
     @Export(name="diagnoseSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diagnoseSupportEnabled;
 
@@ -295,11 +294,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
+    @Deprecated
     @Export(name="loggingStorageAccounts", refs={List.class,DeploymentLoggingStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentLoggingStorageAccount>> loggingStorageAccounts;
 
@@ -307,11 +305,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loggingStorageAccounts);
     }
     /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="managedResourceGroup", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroup;
 

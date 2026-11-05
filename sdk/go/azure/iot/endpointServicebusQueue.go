@@ -226,6 +226,12 @@ func (EndpointServicebusQueueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusQueueState)(nil)).Elem()
 }
 
+// EndpointServicebusQueueExists checks whether an existing EndpointServicebusQueue resource with the given ID exists.
+func EndpointServicebusQueueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointServicebusQueueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/endpointServicebusQueue:EndpointServicebusQueue", id, state, "", opts...)
+}
+
 type endpointServicebusQueueArgs struct {
 	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

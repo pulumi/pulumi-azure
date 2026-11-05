@@ -242,6 +242,12 @@ func (SoftwareUpdateConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*softwareUpdateConfigurationState)(nil)).Elem()
 }
 
+// SoftwareUpdateConfigurationExists checks whether an existing SoftwareUpdateConfiguration resource with the given ID exists.
+func SoftwareUpdateConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SoftwareUpdateConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration", id, state, "", opts...)
+}
+
 type softwareUpdateConfigurationArgs struct {
 	// The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
 	AutomationAccountId string `pulumi:"automationAccountId"`

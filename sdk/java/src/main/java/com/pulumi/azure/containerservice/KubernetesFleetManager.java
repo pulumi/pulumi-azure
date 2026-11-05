@@ -84,11 +84,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/kubernetesFleetManager:KubernetesFleetManager")
 public class KubernetesFleetManager extends com.pulumi.resources.CustomResource {
     /**
-     * @deprecated
-     * The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      * 
      */
-    @Deprecated /* The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview */
+    @Deprecated
     @Export(name="hubProfile", refs={KubernetesFleetManagerHubProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesFleetManagerHubProfile> hubProfile;
 

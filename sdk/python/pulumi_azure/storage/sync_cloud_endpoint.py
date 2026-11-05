@@ -416,6 +416,22 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         __props__.__dict__["storage_sync_group_id"] = storage_sync_group_id
         return SyncCloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fileShareName"] = file_share_name
+        __props__["name"] = name
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountTenantId"] = storage_account_tenant_id
+        __props__["storageSyncGroupId"] = storage_sync_group_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/syncCloudEndpoint:SyncCloudEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fileShareName")
     def file_share_name(self) -> pulumi.Output[_builtins.str]:

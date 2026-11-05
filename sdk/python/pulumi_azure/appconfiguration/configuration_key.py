@@ -730,6 +730,32 @@ class ConfigurationKey(pulumi.CustomResource):
         __props__.__dict__["vault_key_reference"] = vault_key_reference
         return ConfigurationKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_key_reference: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configurationStoreId"] = configuration_store_id
+        __props__["contentType"] = content_type
+        __props__["etag"] = etag
+        __props__["key"] = key
+        __props__["label"] = label
+        __props__["locked"] = locked
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["value"] = value
+        __props__["vaultKeyReference"] = vault_key_reference
+        return pulumi.runtime.exists_resource(None, 'azure:appconfiguration/configurationKey:ConfigurationKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configurationStoreId")
     def configuration_store_id(self) -> pulumi.Output[_builtins.str]:

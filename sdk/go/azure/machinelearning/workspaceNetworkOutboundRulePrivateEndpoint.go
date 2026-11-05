@@ -239,6 +239,12 @@ func (WorkspaceNetworkOutboundRulePrivateEndpointState) ElementType() reflect.Ty
 	return reflect.TypeOf((*workspaceNetworkOutboundRulePrivateEndpointState)(nil)).Elem()
 }
 
+// WorkspaceNetworkOutboundRulePrivateEndpointExists checks whether an existing WorkspaceNetworkOutboundRulePrivateEndpoint resource with the given ID exists.
+func WorkspaceNetworkOutboundRulePrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceNetworkOutboundRulePrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint", id, state, "", opts...)
+}
+
 type workspaceNetworkOutboundRulePrivateEndpointArgs struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

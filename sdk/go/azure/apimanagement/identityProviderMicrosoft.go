@@ -163,6 +163,12 @@ func (IdentityProviderMicrosoftState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderMicrosoftState)(nil)).Elem()
 }
 
+// IdentityProviderMicrosoftExists checks whether an existing IdentityProviderMicrosoft resource with the given ID exists.
+func IdentityProviderMicrosoftExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderMicrosoftState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft", id, state, "", opts...)
+}
+
 type identityProviderMicrosoftArgs struct {
 	// The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

@@ -399,6 +399,20 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         __props__.__dict__["signalr_service_id"] = signalr_service_id
         return ServiceNetworkAcl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]]] = None,
+            public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']]] = None,
+            signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultAction"] = default_action
+        __props__["privateEndpoints"] = private_endpoints
+        __props__["publicNetwork"] = public_network
+        __props__["signalrServiceId"] = signalr_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:signalr/serviceNetworkAcl:ServiceNetworkAcl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output[_builtins.str]:

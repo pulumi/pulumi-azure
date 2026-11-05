@@ -193,6 +193,12 @@ func (BackendAddressPoolAddressState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendAddressPoolAddressState)(nil)).Elem()
 }
 
+// BackendAddressPoolAddressExists checks whether an existing BackendAddressPoolAddress resource with the given ID exists.
+func BackendAddressPoolAddressExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackendAddressPoolAddressState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress", id, state, "", opts...)
+}
+
 type backendAddressPoolAddressArgs struct {
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
 	//

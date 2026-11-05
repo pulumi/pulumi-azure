@@ -130,6 +130,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
 	Scope string `pulumi:"scope"`

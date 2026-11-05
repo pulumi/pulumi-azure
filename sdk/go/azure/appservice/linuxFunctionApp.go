@@ -507,6 +507,12 @@ func (LinuxFunctionAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxFunctionAppState)(nil)).Elem()
 }
 
+// LinuxFunctionAppExists checks whether an existing LinuxFunctionApp resource with the given ID exists.
+func LinuxFunctionAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxFunctionAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/linuxFunctionApp:LinuxFunctionApp", id, state, "", opts...)
+}
+
 type linuxFunctionAppArgs struct {
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//

@@ -205,6 +205,12 @@ func (DatasetHttpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetHttpState)(nil)).Elem()
 }
 
+// DatasetHttpExists checks whether an existing DatasetHttp resource with the given ID exists.
+func DatasetHttpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetHttpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetHttp:DatasetHttp", id, state, "", opts...)
+}
+
 type datasetHttpArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

@@ -762,6 +762,38 @@ class LinkService(pulumi.CustomResource):
         __props__.__dict__["visibility_subscription_ids"] = visibility_subscription_ids
         return LinkService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]]] = None,
+            proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["autoApprovalSubscriptionIds"] = auto_approval_subscription_ids
+        __props__["destinationIpAddress"] = destination_ip_address
+        __props__["enableProxyProtocol"] = enable_proxy_protocol
+        __props__["fqdns"] = fqdns
+        __props__["loadBalancerFrontendIpConfigurationIds"] = load_balancer_frontend_ip_configuration_ids
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["natIpConfigurations"] = nat_ip_configurations
+        __props__["proxyProtocolEnabled"] = proxy_protocol_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["visibilitySubscriptionIds"] = visibility_subscription_ids
+        return pulumi.runtime.exists_resource(None, 'azure:privatedns/linkService:LinkService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:

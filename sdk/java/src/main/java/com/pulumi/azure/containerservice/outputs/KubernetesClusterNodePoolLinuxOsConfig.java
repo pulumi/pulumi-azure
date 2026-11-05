@@ -34,11 +34,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
      */
     private @Nullable String transparentHugePageDefrag;
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     private @Nullable String transparentHugePageEnabled;
 
     private KubernetesClusterNodePoolLinuxOsConfig() {}
@@ -71,11 +70,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         return Optional.ofNullable(this.transparentHugePageDefrag);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     public Optional<String> transparentHugePageEnabled() {
         return Optional.ofNullable(this.transparentHugePageEnabled);
     }

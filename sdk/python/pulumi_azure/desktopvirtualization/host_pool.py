@@ -886,6 +886,46 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["vm_template"] = vm_template
         return HostPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_rdp_properties: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_sessions_allowed: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            personal_desktop_assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']]] = None,
+            start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+            vm_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customRdpProperties"] = custom_rdp_properties
+        __props__["description"] = description
+        __props__["friendlyName"] = friendly_name
+        __props__["loadBalancerType"] = load_balancer_type
+        __props__["location"] = location
+        __props__["maximumSessionsAllowed"] = maximum_sessions_allowed
+        __props__["name"] = name
+        __props__["personalDesktopAssignmentType"] = personal_desktop_assignment_type
+        __props__["preferredAppGroupType"] = preferred_app_group_type
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scheduledAgentUpdates"] = scheduled_agent_updates
+        __props__["startVmOnConnect"] = start_vm_on_connect
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["validateEnvironment"] = validate_environment
+        __props__["vmTemplate"] = vm_template
+        return pulumi.runtime.exists_resource(None, 'azure:desktopvirtualization/hostPool:HostPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customRdpProperties")
     def custom_rdp_properties(self) -> pulumi.Output[Optional[_builtins.str]]:

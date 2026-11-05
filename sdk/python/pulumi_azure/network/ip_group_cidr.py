@@ -286,6 +286,16 @@ class IPGroupCIDR(pulumi.CustomResource):
         __props__.__dict__["ip_group_id"] = ip_group_id
         return IPGroupCIDR(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cidr"] = cidr
+        __props__["ipGroupId"] = ip_group_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/iPGroupCIDR:IPGroupCIDR', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:

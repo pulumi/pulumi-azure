@@ -592,6 +592,32 @@ class VpnSite(pulumi.CustomResource):
         __props__.__dict__["virtual_wan_id"] = virtual_wan_id
         return VpnSite(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            device_model: pulumi.Input[Optional[_builtins.str]] = None,
+            device_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnSiteLinkArgs', 'VpnSiteLinkArgsDict', 'outputs.VpnSiteLink']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            o365_policy: pulumi.Input[Optional[Union['VpnSiteO365PolicyArgs', 'VpnSiteO365PolicyArgsDict', 'outputs.VpnSiteO365Policy']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressCidrs"] = address_cidrs
+        __props__["deviceModel"] = device_model
+        __props__["deviceVendor"] = device_vendor
+        __props__["links"] = links
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["o365Policy"] = o365_policy
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["virtualWanId"] = virtual_wan_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/vpnSite:VpnSite', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressCidrs")
     def address_cidrs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

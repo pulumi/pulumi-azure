@@ -179,6 +179,12 @@ func (FunctionJavascriptUdaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavascriptUdaState)(nil)).Elem()
 }
 
+// FunctionJavascriptUdaExists checks whether an existing FunctionJavascriptUda resource with the given ID exists.
+func FunctionJavascriptUdaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionJavascriptUdaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", id, state, "", opts...)
+}
+
 type functionJavascriptUdaArgs struct {
 	// One or more `input` blocks as defined below.
 	Inputs []FunctionJavascriptUdaInputType `pulumi:"inputs"`

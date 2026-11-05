@@ -31,39 +31,35 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="namespaceName")
     private @Nullable String namespaceName;
 
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="resourceGroupName")
     private @Nullable String resourceGroupName;
 
     /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -84,20 +80,18 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="topicName")
     private @Nullable String topicName;
 
     /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<String> topicName() {
         return Optional.ofNullable(this.topicName);
     }
@@ -144,11 +138,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+         * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder namespaceName(@Nullable String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -157,11 +150,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+         * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
@@ -181,11 +173,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @return builder
          * 
-         * @deprecated
-         * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
+         * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder topicName(@Nullable String topicName) {
             $.topicName = topicName;
             return this;

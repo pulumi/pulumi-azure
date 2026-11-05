@@ -267,6 +267,12 @@ func (ScaleSetPacketCaptureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scaleSetPacketCaptureState)(nil)).Elem()
 }
 
+// ScaleSetPacketCaptureExists checks whether an existing ScaleSetPacketCapture resource with the given ID exists.
+func ScaleSetPacketCaptureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScaleSetPacketCaptureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", id, state, "", opts...)
+}
+
 type scaleSetPacketCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters []ScaleSetPacketCaptureFilter `pulumi:"filters"`

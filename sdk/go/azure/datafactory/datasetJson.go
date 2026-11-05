@@ -214,6 +214,12 @@ func (DatasetJsonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetJsonState)(nil)).Elem()
 }
 
+// DatasetJsonExists checks whether an existing DatasetJson resource with the given ID exists.
+func DatasetJsonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetJsonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetJson:DatasetJson", id, state, "", opts...)
+}
+
 type datasetJsonArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

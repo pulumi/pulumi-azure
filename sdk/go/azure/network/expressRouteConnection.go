@@ -242,6 +242,12 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteConnectionState)(nil)).Elem()
 }
 
+// ExpressRouteConnectionExists checks whether an existing ExpressRouteConnection resource with the given ID exists.
+func ExpressRouteConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteConnection:ExpressRouteConnection", id, state, "", opts...)
+}
+
 type expressRouteConnectionArgs struct {
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`

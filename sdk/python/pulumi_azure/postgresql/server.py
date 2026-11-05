@@ -1114,6 +1114,58 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_detection_policy: pulumi.Input[Optional[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict', 'outputs.ServerThreatDetectionPolicy']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorLogin"] = administrator_login
+        __props__["administratorLoginPassword"] = administrator_login_password
+        __props__["administratorLoginPasswordWoVersion"] = administrator_login_password_wo_version
+        __props__["autoGrowEnabled"] = auto_grow_enabled
+        __props__["backupRetentionDays"] = backup_retention_days
+        __props__["createMode"] = create_mode
+        __props__["creationSourceServerId"] = creation_source_server_id
+        __props__["fqdn"] = fqdn
+        __props__["geoRedundantBackupEnabled"] = geo_redundant_backup_enabled
+        __props__["identity"] = identity
+        __props__["infrastructureEncryptionEnabled"] = infrastructure_encryption_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["restorePointInTime"] = restore_point_in_time
+        __props__["skuName"] = sku_name
+        __props__["sslEnforcementEnabled"] = ssl_enforcement_enabled
+        __props__["sslMinimalTlsVersionEnforced"] = ssl_minimal_tls_version_enforced
+        __props__["storageMb"] = storage_mb
+        __props__["tags"] = tags
+        __props__["threatDetectionPolicy"] = threat_detection_policy
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:postgresql/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[_builtins.str]:

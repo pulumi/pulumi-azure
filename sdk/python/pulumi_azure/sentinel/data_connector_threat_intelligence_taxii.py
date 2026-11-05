@@ -590,6 +590,32 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         __props__.__dict__["user_name"] = user_name
         return DataConnectorThreatIntelligenceTaxii(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_root_url: pulumi.Input[Optional[_builtins.str]] = None,
+            collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lookback_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            polling_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiRootUrl"] = api_root_url
+        __props__["collectionId"] = collection_id
+        __props__["displayName"] = display_name
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["lookbackDate"] = lookback_date
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["pollingFrequency"] = polling_frequency
+        __props__["tenantId"] = tenant_id
+        __props__["userName"] = user_name
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiRootUrl")
     def api_root_url(self) -> pulumi.Output[_builtins.str]:

@@ -717,6 +717,30 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         __props__.__dict__["test_groups"] = test_groups
         return NetworkConnectionMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict', 'outputs.NetworkConnectionMonitorEndpoint']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict', 'outputs.NetworkConnectionMonitorTestConfiguration']]]]] = None,
+            test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict', 'outputs.NetworkConnectionMonitorTestGroup']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpoints"] = endpoints
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkWatcherId"] = network_watcher_id
+        __props__["notes"] = notes
+        __props__["outputWorkspaceResourceIds"] = output_workspace_resource_ids
+        __props__["tags"] = tags
+        __props__["testConfigurations"] = test_configurations
+        __props__["testGroups"] = test_groups
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkConnectionMonitor:NetworkConnectionMonitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.NetworkConnectionMonitorEndpoint']]:

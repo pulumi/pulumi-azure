@@ -173,6 +173,12 @@ func (VirtualMachineManagerVirtualNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineManagerVirtualNetworkState)(nil)).Elem()
 }
 
+// VirtualMachineManagerVirtualNetworkExists checks whether an existing VirtualMachineManagerVirtualNetwork resource with the given ID exists.
+func VirtualMachineManagerVirtualNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineManagerVirtualNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork", id, state, "", opts...)
+}
+
 type virtualMachineManagerVirtualNetworkArgs struct {
 	// The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Network. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

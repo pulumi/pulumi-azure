@@ -465,6 +465,20 @@ class WorkspaceKey(pulumi.CustomResource):
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return WorkspaceKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            customer_managed_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["customerManagedKeyName"] = customer_managed_key_name
+        __props__["customerManagedKeyVersionlessId"] = customer_managed_key_versionless_id
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/workspaceKey:WorkspaceKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:

@@ -143,6 +143,12 @@ func (DataConnectorOffice365ProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorOffice365ProjectState)(nil)).Elem()
 }
 
+// DataConnectorOffice365ProjectExists checks whether an existing DataConnectorOffice365Project resource with the given ID exists.
+func DataConnectorOffice365ProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorOffice365ProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", id, state, "", opts...)
+}
+
 type dataConnectorOffice365ProjectArgs struct {
 	// The ID of the Log Analytics Workspace that this Office 365 Project Data Connector resides in. Changing this forces a new Office 365 Project Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

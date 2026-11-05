@@ -157,6 +157,12 @@ func (AnomalyAlertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anomalyAlertState)(nil)).Elem()
 }
 
+// AnomalyAlertExists checks whether an existing AnomalyAlert resource with the given ID exists.
+func AnomalyAlertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnomalyAlertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:costmanagement/anomalyAlert:AnomalyAlert", id, state, "", opts...)
+}
+
 type anomalyAlertArgs struct {
 	// The display name which should be used for this Cost Anomaly Alert.
 	DisplayName string `pulumi:"displayName"`

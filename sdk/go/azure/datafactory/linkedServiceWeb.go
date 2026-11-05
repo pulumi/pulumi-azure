@@ -198,6 +198,12 @@ func (LinkedServiceWebState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceWebState)(nil)).Elem()
 }
 
+// LinkedServiceWebExists checks whether an existing LinkedServiceWeb resource with the given ID exists.
+func LinkedServiceWebExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceWebState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceWeb:LinkedServiceWeb", id, state, "", opts...)
+}
+
 type linkedServiceWebArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

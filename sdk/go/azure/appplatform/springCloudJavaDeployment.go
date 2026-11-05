@@ -179,6 +179,12 @@ func (SpringCloudJavaDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudJavaDeploymentState)(nil)).Elem()
 }
 
+// SpringCloudJavaDeploymentExists checks whether an existing SpringCloudJavaDeployment resource with the given ID exists.
+func SpringCloudJavaDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudJavaDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment", id, state, "", opts...)
+}
+
 type springCloudJavaDeploymentArgs struct {
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`

@@ -565,6 +565,30 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         __props__.__dict__["resource_group_id"] = resource_group_id
         return ResourceGroupCostManagementExport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']]] = None,
+            export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_period_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            recurrence_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["exportDataOptions"] = export_data_options
+        __props__["exportDataStorageLocation"] = export_data_storage_location
+        __props__["fileFormat"] = file_format
+        __props__["name"] = name
+        __props__["recurrencePeriodEndDate"] = recurrence_period_end_date
+        __props__["recurrencePeriodStartDate"] = recurrence_period_start_date
+        __props__["recurrenceType"] = recurrence_type
+        __props__["resourceGroupId"] = resource_group_id
+        return pulumi.runtime.exists_resource(None, 'azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

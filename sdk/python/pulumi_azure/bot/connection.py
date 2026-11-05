@@ -532,6 +532,30 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["service_provider_name"] = service_provider_name
         return Connection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[_builtins.str]] = None,
+            service_provider_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scopes"] = scopes
+        __props__["serviceProviderName"] = service_provider_name
+        return pulumi.runtime.exists_resource(None, 'azure:bot/connection:Connection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

@@ -619,6 +619,28 @@ class PacketCapture(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict', 'outputs.PacketCaptureFilter']]]]] = None,
+            maximum_bytes_per_packet: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_bytes_per_session: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_capture_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_location: pulumi.Input[Optional[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict', 'outputs.PacketCaptureStorageLocation']]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["filters"] = filters
+        __props__["maximumBytesPerPacket"] = maximum_bytes_per_packet
+        __props__["maximumBytesPerSession"] = maximum_bytes_per_session
+        __props__["maximumCaptureDurationInSeconds"] = maximum_capture_duration_in_seconds
+        __props__["name"] = name
+        __props__["networkWatcherId"] = network_watcher_id
+        __props__["storageLocation"] = storage_location
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:compute/packetCapture:PacketCapture', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional[Sequence['outputs.PacketCaptureFilter']]]:

@@ -156,6 +156,12 @@ func (SpringCloudStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudStorageState)(nil)).Elem()
 }
 
+// SpringCloudStorageExists checks whether an existing SpringCloudStorage resource with the given ID exists.
+func SpringCloudStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudStorage:SpringCloudStorage", id, state, "", opts...)
+}
+
 type springCloudStorageArgs struct {
 	// The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
 	Name *string `pulumi:"name"`

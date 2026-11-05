@@ -127,6 +127,12 @@ func (DiskAccessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskAccessState)(nil)).Elem()
 }
 
+// DiskAccessExists checks whether an existing DiskAccess resource with the given ID exists.
+func DiskAccessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiskAccessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/diskAccess:DiskAccess", id, state, "", opts...)
+}
+
 type diskAccessArgs struct {
 	// The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
 	Location *string `pulumi:"location"`

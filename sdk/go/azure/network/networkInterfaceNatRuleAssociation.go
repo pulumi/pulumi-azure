@@ -210,6 +210,12 @@ func (NetworkInterfaceNatRuleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceNatRuleAssociationState)(nil)).Elem()
 }
 
+// NetworkInterfaceNatRuleAssociationExists checks whether an existing NetworkInterfaceNatRuleAssociation resource with the given ID exists.
+func NetworkInterfaceNatRuleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceNatRuleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", id, state, "", opts...)
+}
+
 type networkInterfaceNatRuleAssociationArgs struct {
 	// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
 	IpConfigurationName string `pulumi:"ipConfigurationName"`

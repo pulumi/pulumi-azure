@@ -211,6 +211,12 @@ func (ProtectedVMState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedVMState)(nil)).Elem()
 }
 
+// ProtectedVMExists checks whether an existing ProtectedVM resource with the given ID exists.
+func ProtectedVMExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectedVMState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/protectedVM:ProtectedVM", id, state, "", opts...)
+}
+
 type protectedVMArgs struct {
 	// Specifies the ID of the backup policy to use.
 	//

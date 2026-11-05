@@ -1050,6 +1050,50 @@ class Slot(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Slot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict', 'outputs.SlotAuthSettings']]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict', 'outputs.SlotConnectionString']]]]] = None,
+            default_site_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['SlotIdentityArgs', 'SlotIdentityArgsDict', 'outputs.SlotIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['SlotLogsArgs', 'SlotLogsArgsDict', 'outputs.SlotLogs']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict', 'outputs.SlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotSiteCredentialArgs', 'SlotSiteCredentialArgsDict', 'outputs.SlotSiteCredential']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict', 'outputs.SlotStorageAccount']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceName"] = app_service_name
+        __props__["appServicePlanId"] = app_service_plan_id
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["clientAffinityEnabled"] = client_affinity_enabled
+        __props__["connectionStrings"] = connection_strings
+        __props__["defaultSiteHostname"] = default_site_hostname
+        __props__["enabled"] = enabled
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["location"] = location
+        __props__["logs"] = logs
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["storageAccounts"] = storage_accounts
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/slot:Slot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceName")
     def app_service_name(self) -> pulumi.Output[_builtins.str]:

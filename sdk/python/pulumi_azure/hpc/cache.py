@@ -925,6 +925,48 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Cache(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']]] = None,
+            directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']]] = None,
+            directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']]] = None,
+            directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']]] = None,
+            dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']]] = None,
+            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ntp_server: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automaticallyRotateKeyToLatestEnabled"] = automatically_rotate_key_to_latest_enabled
+        __props__["cacheSizeInGb"] = cache_size_in_gb
+        __props__["defaultAccessPolicy"] = default_access_policy
+        __props__["directoryActiveDirectory"] = directory_active_directory
+        __props__["directoryFlatFile"] = directory_flat_file
+        __props__["directoryLdap"] = directory_ldap
+        __props__["dns"] = dns
+        __props__["identity"] = identity
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        __props__["location"] = location
+        __props__["mountAddresses"] = mount_addresses
+        __props__["mtu"] = mtu
+        __props__["name"] = name
+        __props__["ntpServer"] = ntp_server
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:hpc/cache:Cache', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
     def automatically_rotate_key_to_latest_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

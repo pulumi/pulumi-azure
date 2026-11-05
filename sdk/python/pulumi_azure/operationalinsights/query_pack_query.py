@@ -593,6 +593,32 @@ class QueryPackQuery(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return QueryPackQuery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_pack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalSettingsJson"] = additional_settings_json
+        __props__["body"] = body
+        __props__["categories"] = categories
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["name"] = name
+        __props__["queryPackId"] = query_pack_id
+        __props__["resourceTypes"] = resource_types
+        __props__["solutions"] = solutions
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:operationalinsights/queryPackQuery:QueryPackQuery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalSettingsJson")
     def additional_settings_json(self) -> pulumi.Output[Optional[_builtins.str]]:

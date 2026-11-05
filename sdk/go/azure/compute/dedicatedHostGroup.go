@@ -157,6 +157,12 @@ func (DedicatedHostGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostGroupState)(nil)).Elem()
 }
 
+// DedicatedHostGroupExists checks whether an existing DedicatedHostGroup resource with the given ID exists.
+func DedicatedHostGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DedicatedHostGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/dedicatedHostGroup:DedicatedHostGroup", id, state, "", opts...)
+}
+
 type dedicatedHostGroupArgs struct {
 	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
 	AutomaticPlacementEnabled *bool `pulumi:"automaticPlacementEnabled"`

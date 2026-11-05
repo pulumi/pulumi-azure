@@ -141,6 +141,12 @@ func (DataConnectorAwsCloudTrailState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorAwsCloudTrailState)(nil)).Elem()
 }
 
+// DataConnectorAwsCloudTrailExists checks whether an existing DataConnectorAwsCloudTrail resource with the given ID exists.
+func DataConnectorAwsCloudTrailExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorAwsCloudTrailState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail", id, state, "", opts...)
+}
+
 type dataConnectorAwsCloudTrailArgs struct {
 	// The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
 	AwsRoleArn string `pulumi:"awsRoleArn"`

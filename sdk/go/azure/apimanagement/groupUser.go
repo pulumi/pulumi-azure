@@ -145,6 +145,12 @@ func (GroupUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupUserState)(nil)).Elem()
 }
 
+// GroupUserExists checks whether an existing GroupUser resource with the given ID exists.
+func GroupUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/groupUser:GroupUser", id, state, "", opts...)
+}
+
 type groupUserArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

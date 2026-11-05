@@ -615,6 +615,34 @@ class MongoCollection(pulumi.CustomResource):
         __props__.__dict__["throughput"] = throughput
         return MongoCollection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict', 'outputs.MongoCollectionAutoscaleSettings']]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict', 'outputs.MongoCollectionIndex']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            shard_key: pulumi.Input[Optional[_builtins.str]] = None,
+            system_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoCollectionSystemIndexArgs', 'MongoCollectionSystemIndexArgsDict', 'outputs.MongoCollectionSystemIndex']]]]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["analyticalStorageTtl"] = analytical_storage_ttl
+        __props__["autoscaleSettings"] = autoscale_settings
+        __props__["databaseName"] = database_name
+        __props__["defaultTtlSeconds"] = default_ttl_seconds
+        __props__["indices"] = indices
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["shardKey"] = shard_key
+        __props__["systemIndexes"] = system_indexes
+        __props__["throughput"] = throughput
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/mongoCollection:MongoCollection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

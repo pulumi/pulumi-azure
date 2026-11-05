@@ -362,6 +362,20 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         __props__.__dict__["security_admin_configuration_id"] = security_admin_configuration_id
         return NetworkManagerAdminRuleCollection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_admin_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["networkGroupIds"] = network_group_ids
+        __props__["securityAdminConfigurationId"] = security_admin_configuration_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

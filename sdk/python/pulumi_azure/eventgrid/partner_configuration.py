@@ -339,6 +339,20 @@ class PartnerConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return PartnerConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultMaximumExpirationTimeInDays"] = default_maximum_expiration_time_in_days
+        __props__["partnerAuthorizations"] = partner_authorizations
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/partnerConfiguration:PartnerConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultMaximumExpirationTimeInDays")
     def default_maximum_expiration_time_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:

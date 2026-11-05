@@ -157,6 +157,12 @@ func (ResolverState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverState)(nil)).Elem()
 }
 
+// ResolverExists checks whether an existing Resolver resource with the given ID exists.
+func ResolverExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResolverState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/resolver:Resolver", id, state, "", opts...)
+}
+
 type resolverArgs struct {
 	// Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
 	Location *string `pulumi:"location"`

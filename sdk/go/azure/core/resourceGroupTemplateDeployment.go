@@ -263,6 +263,12 @@ func (ResourceGroupTemplateDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupTemplateDeploymentState)(nil)).Elem()
 }
 
+// ResourceGroupTemplateDeploymentExists checks whether an existing ResourceGroupTemplateDeployment resource with the given ID exists.
+func ResourceGroupTemplateDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupTemplateDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", id, state, "", opts...)
+}
+
 type resourceGroupTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`

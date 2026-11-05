@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? RequestTimeout { get; set; }
 
         /// <summary>
-        /// The Server Name Indication (SNI) hostname to send to the backend servers. 
+        /// The Server Name Indication (SNI) hostname to send to the backend servers.
         /// 
         /// &gt; **Note:** `SniName` can only be set when `SniValidationEnabled` is set to `True`.
         /// </summary>

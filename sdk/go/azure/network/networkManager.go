@@ -179,6 +179,12 @@ func (NetworkManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerState)(nil)).Elem()
 }
 
+// NetworkManagerExists checks whether an existing NetworkManager resource with the given ID exists.
+func NetworkManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManager:NetworkManager", id, state, "", opts...)
+}
+
 type networkManagerArgs struct {
 	// A description of the Network Manager.
 	Description *string `pulumi:"description"`

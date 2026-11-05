@@ -156,6 +156,12 @@ func (ChannelLineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelLineState)(nil)).Elem()
 }
 
+// ChannelLineExists checks whether an existing ChannelLine resource with the given ID exists.
+func ChannelLineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelLineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelLine:ChannelLine", id, state, "", opts...)
+}
+
 type channelLineArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

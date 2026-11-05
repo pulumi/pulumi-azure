@@ -94,6 +94,12 @@ func (ScalingPlanHostPoolAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scalingPlanHostPoolAssociationState)(nil)).Elem()
 }
 
+// ScalingPlanHostPoolAssociationExists checks whether an existing ScalingPlanHostPoolAssociation resource with the given ID exists.
+func ScalingPlanHostPoolAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScalingPlanHostPoolAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation", id, state, "", opts...)
+}
+
 type scalingPlanHostPoolAssociationArgs struct {
 	// Should the Scaling Plan be enabled on this Host Pool.
 	Enabled bool `pulumi:"enabled"`

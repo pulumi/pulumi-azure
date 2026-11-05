@@ -143,22 +143,20 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Resource Manager ID of this File Share.
      * 
-     * @deprecated
-     * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+     * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
+    @Deprecated
     @Import(name="resourceManagerId")
     private @Nullable Output<String> resourceManagerId;
 
     /**
      * @return The Resource Manager ID of this File Share.
      * 
-     * @deprecated
-     * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+     * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      * 
      */
-    @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
+    @Deprecated
     public Optional<Output<String>> resourceManagerId() {
         return Optional.ofNullable(this.resourceManagerId);
     }
@@ -187,11 +185,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
+    @Deprecated
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
@@ -200,11 +197,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
+    @Deprecated
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
@@ -436,11 +432,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+         * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
          * 
          */
-        @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
+        @Deprecated
         public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
             $.resourceManagerId = resourceManagerId;
             return this;
@@ -451,11 +446,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+         * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
          * 
          */
-        @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
+        @Deprecated
         public Builder resourceManagerId(String resourceManagerId) {
             return resourceManagerId(Output.of(resourceManagerId));
         }
@@ -492,11 +486,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+         * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
+        @Deprecated
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
@@ -509,11 +502,10 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+         * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
+        @Deprecated
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }

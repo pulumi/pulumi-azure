@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? RequestTimeout;
         /// <summary>
-        /// The Server Name Indication (SNI) hostname to send to the backend servers. 
+        /// The Server Name Indication (SNI) hostname to send to the backend servers.
         /// 
         /// &gt; **Note:** `SniName` can only be set when `SniValidationEnabled` is set to `True`.
         /// </summary>

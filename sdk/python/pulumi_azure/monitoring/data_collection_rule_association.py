@@ -510,6 +510,22 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         __props__.__dict__["target_resource_id"] = target_resource_id
         return DataCollectionRuleAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataCollectionEndpointId"] = data_collection_endpoint_id
+        __props__["dataCollectionRuleId"] = data_collection_rule_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["targetResourceId"] = target_resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointId")
     def data_collection_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:

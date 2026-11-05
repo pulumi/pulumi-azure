@@ -390,6 +390,16 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         return BackupVaultCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataProtectionBackupVaultId"] = data_protection_backup_vault_id
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataProtectionBackupVaultId")
     def data_protection_backup_vault_id(self) -> pulumi.Output[_builtins.str]:

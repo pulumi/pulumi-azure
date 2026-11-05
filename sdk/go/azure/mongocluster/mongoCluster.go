@@ -294,6 +294,12 @@ func (MongoClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoClusterState)(nil)).Elem()
 }
 
+// MongoClusterExists checks whether an existing MongoCluster resource with the given ID exists.
+func MongoClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MongoClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mongocluster/mongoCluster:MongoCluster", id, state, "", opts...)
+}
+
 type mongoClusterArgs struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword *string `pulumi:"administratorPassword"`

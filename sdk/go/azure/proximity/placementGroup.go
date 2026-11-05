@@ -162,6 +162,12 @@ func (PlacementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupState)(nil)).Elem()
 }
 
+// PlacementGroupExists checks whether an existing PlacementGroup resource with the given ID exists.
+func PlacementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlacementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:proximity/placementGroup:PlacementGroup", id, state, "", opts...)
+}
+
 type placementGroupArgs struct {
 	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
 	//

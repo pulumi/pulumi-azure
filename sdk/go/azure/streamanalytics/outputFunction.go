@@ -230,6 +230,12 @@ func (OutputFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputFunctionState)(nil)).Elem()
 }
 
+// OutputFunctionExists checks whether an existing OutputFunction resource with the given ID exists.
+func OutputFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputFunction:OutputFunction", id, state, "", opts...)
+}
+
 type outputFunctionArgs struct {
 	// The API key for the Function.
 	ApiKey string `pulumi:"apiKey"`

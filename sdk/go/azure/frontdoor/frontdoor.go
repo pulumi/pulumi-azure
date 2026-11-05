@@ -301,6 +301,12 @@ func (FrontdoorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorState)(nil)).Elem()
 }
 
+// FrontdoorExists checks whether an existing Frontdoor resource with the given ID exists.
+func FrontdoorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:frontdoor/frontdoor:Frontdoor", id, state, "", opts...)
+}
+
 type frontdoorArgs struct {
 	// A `backendPoolHealthProbe` block as defined below.
 	BackendPoolHealthProbes []FrontdoorBackendPoolHealthProbe `pulumi:"backendPoolHealthProbes"`

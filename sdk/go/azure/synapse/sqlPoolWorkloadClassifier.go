@@ -215,6 +215,12 @@ func (SqlPoolWorkloadClassifierState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolWorkloadClassifierState)(nil)).Elem()
 }
 
+// SqlPoolWorkloadClassifierExists checks whether an existing SqlPoolWorkloadClassifier resource with the given ID exists.
+func SqlPoolWorkloadClassifierExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlPoolWorkloadClassifierState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier", id, state, "", opts...)
+}
+
 type sqlPoolWorkloadClassifierArgs struct {
 	// Specifies the session context value that a request can be classified against.
 	Context *string `pulumi:"context"`

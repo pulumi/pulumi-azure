@@ -53,20 +53,18 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
     }
 
     /**
-     * @deprecated
-     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
      * 
      */
-    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+    @Deprecated
     @Import(name="vmSizes")
     private @Nullable Output<List<String>> vmSizes;
 
     /**
-     * @deprecated
-     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
      * 
      */
-    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+    @Deprecated
     public Optional<Output<List<String>>> vmSizes() {
         return Optional.ofNullable(this.vmSizes);
     }
@@ -158,11 +156,10 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+         * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
          * 
          */
-        @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+        @Deprecated
         public Builder vmSizes(@Nullable Output<List<String>> vmSizes) {
             $.vmSizes = vmSizes;
             return this;
@@ -171,11 +168,10 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+         * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
          * 
          */
-        @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+        @Deprecated
         public Builder vmSizes(List<String> vmSizes) {
             return vmSizes(Output.of(vmSizes));
         }
@@ -183,11 +179,10 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfileArgs extends com.
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+         * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
          * 
          */
-        @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+        @Deprecated
         public Builder vmSizes(String... vmSizes) {
             return vmSizes(List.of(vmSizes));
         }

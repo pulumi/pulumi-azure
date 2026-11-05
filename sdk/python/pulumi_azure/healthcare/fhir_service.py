@@ -760,6 +760,40 @@ class FhirService(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return FhirService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']]] = None,
+            configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            container_registry_login_server_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']]] = None,
+            identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessPolicyObjectIds"] = access_policy_object_ids
+        __props__["authentication"] = authentication
+        __props__["configurationExportStorageAccountName"] = configuration_export_storage_account_name
+        __props__["containerRegistryLoginServerUrls"] = container_registry_login_server_urls
+        __props__["cors"] = cors
+        __props__["identity"] = identity
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["ociArtifacts"] = oci_artifacts
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:healthcare/fhirService:FhirService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
     def access_policy_object_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

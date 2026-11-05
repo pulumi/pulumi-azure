@@ -632,6 +632,28 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return CosmosdbDataConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cosmosdb_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cosmosdbContainerId"] = cosmosdb_container_id
+        __props__["kustoDatabaseId"] = kusto_database_id
+        __props__["location"] = location
+        __props__["managedIdentityId"] = managed_identity_id
+        __props__["mappingRuleName"] = mapping_rule_name
+        __props__["name"] = name
+        __props__["retrievalStartDate"] = retrieval_start_date
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cosmosdbContainerId")
     def cosmosdb_container_id(self) -> pulumi.Output[_builtins.str]:

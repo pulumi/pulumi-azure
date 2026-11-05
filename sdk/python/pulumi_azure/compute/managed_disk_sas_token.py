@@ -352,6 +352,20 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         __props__.__dict__["sas_url"] = sas_url
         return ManagedDiskSasToken(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_level: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessLevel"] = access_level
+        __props__["durationInSeconds"] = duration_in_seconds
+        __props__["managedDiskId"] = managed_disk_id
+        __props__["sasUrl"] = sas_url
+        return pulumi.runtime.exists_resource(None, 'azure:compute/managedDiskSasToken:ManagedDiskSasToken', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessLevel")
     def access_level(self) -> pulumi.Output[_builtins.str]:

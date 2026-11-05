@@ -174,6 +174,12 @@ func (IntegrationAccountMapResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountMapResourceState)(nil)).Elem()
 }
 
+// IntegrationAccountMapResourceExists checks whether an existing IntegrationAccountMapResource resource with the given ID exists.
+func IntegrationAccountMapResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountMapResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountMap:IntegrationAccountMap", id, state, "", opts...)
+}
+
 type integrationAccountMapResourceArgs struct {
 	// The content of the Logic App Integration Account Map.
 	Content string `pulumi:"content"`

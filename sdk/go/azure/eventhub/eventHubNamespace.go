@@ -254,6 +254,12 @@ func (EventHubNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubNamespaceState)(nil)).Elem()
 }
 
+// EventHubNamespaceExists checks whether an existing EventHubNamespace resource with the given ID exists.
+func EventHubNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHubNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventHubNamespace:EventHubNamespace", id, state, "", opts...)
+}
+
 type eventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`

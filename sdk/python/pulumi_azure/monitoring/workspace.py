@@ -428,6 +428,28 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            query_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultDataCollectionEndpointId"] = default_data_collection_endpoint_id
+        __props__["defaultDataCollectionRuleId"] = default_data_collection_rule_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["queryEndpoint"] = query_endpoint
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultDataCollectionEndpointId")
     def default_data_collection_endpoint_id(self) -> pulumi.Output[_builtins.str]:

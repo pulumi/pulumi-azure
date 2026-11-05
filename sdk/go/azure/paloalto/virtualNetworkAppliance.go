@@ -150,6 +150,12 @@ func (VirtualNetworkApplianceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkApplianceState)(nil)).Elem()
 }
 
+// VirtualNetworkApplianceExists checks whether an existing VirtualNetworkAppliance resource with the given ID exists.
+func VirtualNetworkApplianceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkApplianceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance", id, state, "", opts...)
+}
+
 type virtualNetworkApplianceArgs struct {
 	// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
 	Name *string `pulumi:"name"`

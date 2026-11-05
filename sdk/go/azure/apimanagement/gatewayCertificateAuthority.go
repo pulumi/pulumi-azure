@@ -183,6 +183,12 @@ func (GatewayCertificateAuthorityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayCertificateAuthorityState)(nil)).Elem()
 }
 
+// GatewayCertificateAuthorityExists checks whether an existing GatewayCertificateAuthority resource with the given ID exists.
+func GatewayCertificateAuthorityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayCertificateAuthorityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", id, state, "", opts...)
+}
+
 type gatewayCertificateAuthorityArgs struct {
 	// The ID of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

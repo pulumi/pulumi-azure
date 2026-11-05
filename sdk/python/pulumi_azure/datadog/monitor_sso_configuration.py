@@ -415,6 +415,24 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         __props__.__dict__["single_sign_on_enabled"] = single_sign_on_enabled
         return MonitorSsoConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            datadog_monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            login_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["datadogMonitorId"] = datadog_monitor_id
+        __props__["enterpriseApplicationId"] = enterprise_application_id
+        __props__["loginUrl"] = login_url
+        __props__["name"] = name
+        __props__["singleSignOn"] = single_sign_on
+        __props__["singleSignOnEnabled"] = single_sign_on_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
     def datadog_monitor_id(self) -> pulumi.Output[_builtins.str]:

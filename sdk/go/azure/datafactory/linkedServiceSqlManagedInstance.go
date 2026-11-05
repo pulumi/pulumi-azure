@@ -210,6 +210,12 @@ func (LinkedServiceSqlManagedInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSqlManagedInstanceState)(nil)).Elem()
 }
 
+// LinkedServiceSqlManagedInstanceExists checks whether an existing LinkedServiceSqlManagedInstance resource with the given ID exists.
+func LinkedServiceSqlManagedInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceSqlManagedInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceSqlManagedInstance:LinkedServiceSqlManagedInstance", id, state, "", opts...)
+}
+
 type linkedServiceSqlManagedInstanceArgs struct {
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Managed Instance.
 	Annotations []string `pulumi:"annotations"`

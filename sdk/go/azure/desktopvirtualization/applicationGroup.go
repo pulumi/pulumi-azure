@@ -208,6 +208,12 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGroupState)(nil)).Elem()
 }
 
+// ApplicationGroupExists checks whether an existing ApplicationGroup resource with the given ID exists.
+func ApplicationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/applicationGroup:ApplicationGroup", id, state, "", opts...)
+}
+
 type applicationGroupArgs struct {
 	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName *string `pulumi:"defaultDesktopDisplayName"`

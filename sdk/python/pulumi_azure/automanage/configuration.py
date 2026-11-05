@@ -776,6 +776,38 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']]] = None,
+            automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']]] = None,
+            backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']]] = None,
+            boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["antimalware"] = antimalware
+        __props__["automationAccountEnabled"] = automation_account_enabled
+        __props__["azureSecurityBaseline"] = azure_security_baseline
+        __props__["backup"] = backup
+        __props__["bootDiagnosticsEnabled"] = boot_diagnostics_enabled
+        __props__["defenderForCloudEnabled"] = defender_for_cloud_enabled
+        __props__["guestConfigurationEnabled"] = guest_configuration_enabled
+        __props__["location"] = location
+        __props__["logAnalyticsEnabled"] = log_analytics_enabled
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["statusChangeAlertEnabled"] = status_change_alert_enabled
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automanage/configuration:Configuration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def antimalware(self) -> pulumi.Output[Optional['outputs.ConfigurationAntimalware']]:

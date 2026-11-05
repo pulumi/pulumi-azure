@@ -367,6 +367,22 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         __props__.__dict__["sqs_urls"] = sqs_urls
         return DataConnectorAwsS3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_table: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsRoleArn"] = aws_role_arn
+        __props__["destinationTable"] = destination_table
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["sqsUrls"] = sqs_urls
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsRoleArn")
     def aws_role_arn(self) -> pulumi.Output[_builtins.str]:

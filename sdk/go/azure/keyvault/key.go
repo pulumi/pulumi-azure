@@ -311,6 +311,12 @@ func (KeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyState)(nil)).Elem()
 }
 
+// KeyExists checks whether an existing Key resource with the given ID exists.
+func KeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/key:Key", id, state, "", opts...)
+}
+
 type keyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
 	Curve *string `pulumi:"curve"`

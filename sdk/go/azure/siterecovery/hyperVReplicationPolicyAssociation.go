@@ -159,6 +159,12 @@ func (HyperVReplicationPolicyAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperVReplicationPolicyAssociationState)(nil)).Elem()
 }
 
+// HyperVReplicationPolicyAssociationExists checks whether an existing HyperVReplicationPolicyAssociation resource with the given ID exists.
+func HyperVReplicationPolicyAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HyperVReplicationPolicyAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation", id, state, "", opts...)
+}
+
 type hyperVReplicationPolicyAssociationArgs struct {
 	// The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
 	HypervSiteId string `pulumi:"hypervSiteId"`

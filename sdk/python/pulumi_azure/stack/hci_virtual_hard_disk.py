@@ -718,6 +718,38 @@ class HciVirtualHardDisk(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return HciVirtualHardDisk(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blockSizeInBytes"] = block_size_in_bytes
+        __props__["customLocationId"] = custom_location_id
+        __props__["diskFileFormat"] = disk_file_format
+        __props__["diskSizeInGb"] = disk_size_in_gb
+        __props__["dynamicEnabled"] = dynamic_enabled
+        __props__["hypervGeneration"] = hyperv_generation
+        __props__["location"] = location
+        __props__["logicalSectorInBytes"] = logical_sector_in_bytes
+        __props__["name"] = name
+        __props__["physicalSectorInBytes"] = physical_sector_in_bytes
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storagePathId"] = storage_path_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:stack/hciVirtualHardDisk:HciVirtualHardDisk', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blockSizeInBytes")
     def block_size_in_bytes(self) -> pulumi.Output[Optional[_builtins.int]]:

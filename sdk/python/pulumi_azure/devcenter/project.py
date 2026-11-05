@@ -526,6 +526,30 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["devCenterId"] = dev_center_id
+        __props__["devCenterUri"] = dev_center_uri
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["maximumDevBoxesPerUser"] = maximum_dev_boxes_per_user
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/project:Project', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

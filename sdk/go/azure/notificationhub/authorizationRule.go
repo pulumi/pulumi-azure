@@ -219,6 +219,12 @@ func (AuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleState)(nil)).Elem()
 }
 
+// AuthorizationRuleExists checks whether an existing AuthorizationRule resource with the given ID exists.
+func AuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:notificationhub/authorizationRule:AuthorizationRule", id, state, "", opts...)
+}
+
 type authorizationRuleArgs struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`

@@ -231,6 +231,12 @@ func (NatPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natPoolState)(nil)).Elem()
 }
 
+// NatPoolExists checks whether an existing NatPool resource with the given ID exists.
+func NatPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/natPool:NatPool", id, state, "", opts...)
+}
+
 type natPoolArgs struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`

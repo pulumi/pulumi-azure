@@ -444,6 +444,12 @@ func (LinuxFunctionAppSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxFunctionAppSlotState)(nil)).Elem()
 }
 
+// LinuxFunctionAppSlotExists checks whether an existing LinuxFunctionAppSlot resource with the given ID exists.
+func LinuxFunctionAppSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxFunctionAppSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", id, state, "", opts...)
+}
+
 type linuxFunctionAppSlotArgs struct {
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`

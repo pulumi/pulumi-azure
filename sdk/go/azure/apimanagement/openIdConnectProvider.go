@@ -200,6 +200,12 @@ func (OpenIdConnectProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderState)(nil)).Elem()
 }
 
+// OpenIdConnectProviderExists checks whether an existing OpenIdConnectProvider resource with the given ID exists.
+func OpenIdConnectProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenIdConnectProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", id, state, "", opts...)
+}
+
 type openIdConnectProviderArgs struct {
 	// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

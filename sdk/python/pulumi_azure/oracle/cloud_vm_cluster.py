@@ -1483,6 +1483,76 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["zone_id"] = zone_id
         return CloudVmCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
+            data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
+            db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]]] = None,
+            gi_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            local_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ocid: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scan_listener_port_tcp: pulumi.Input[Optional[_builtins.int]] = None,
+            scan_listener_port_tcp_ssl: pulumi.Input[Optional[_builtins.int]] = None,
+            sparse_diskgroup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            system_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupSubnetCidr"] = backup_subnet_cidr
+        __props__["cloudExadataInfrastructureId"] = cloud_exadata_infrastructure_id
+        __props__["clusterName"] = cluster_name
+        __props__["cpuCoreCount"] = cpu_core_count
+        __props__["dataCollectionOptions"] = data_collection_options
+        __props__["dataStoragePercentage"] = data_storage_percentage
+        __props__["dataStorageSizeInTbs"] = data_storage_size_in_tbs
+        __props__["dbNodeStorageSizeInGbs"] = db_node_storage_size_in_gbs
+        __props__["dbServers"] = db_servers
+        __props__["displayName"] = display_name
+        __props__["domain"] = domain
+        __props__["fileSystemConfigurations"] = file_system_configurations
+        __props__["giVersion"] = gi_version
+        __props__["hostname"] = hostname
+        __props__["hostnameActual"] = hostname_actual
+        __props__["licenseModel"] = license_model
+        __props__["localBackupEnabled"] = local_backup_enabled
+        __props__["location"] = location
+        __props__["memorySizeInGbs"] = memory_size_in_gbs
+        __props__["name"] = name
+        __props__["ocid"] = ocid
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scanListenerPortTcp"] = scan_listener_port_tcp
+        __props__["scanListenerPortTcpSsl"] = scan_listener_port_tcp_ssl
+        __props__["sparseDiskgroupEnabled"] = sparse_diskgroup_enabled
+        __props__["sshPublicKeys"] = ssh_public_keys
+        __props__["subnetId"] = subnet_id
+        __props__["systemVersion"] = system_version
+        __props__["tags"] = tags
+        __props__["timeZone"] = time_zone
+        __props__["virtualNetworkId"] = virtual_network_id
+        __props__["zoneId"] = zone_id
+        return pulumi.runtime.exists_resource(None, 'azure:oracle/cloudVmCluster:CloudVmCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> pulumi.Output[Optional[_builtins.str]]:

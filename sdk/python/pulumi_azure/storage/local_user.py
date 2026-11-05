@@ -546,6 +546,30 @@ class LocalUser(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return LocalUser(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict', 'outputs.LocalUserPermissionScope']]]]] = None,
+            sid: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict', 'outputs.LocalUserSshAuthorizedKey']]]]] = None,
+            ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["homeDirectory"] = home_directory
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["permissionScopes"] = permission_scopes
+        __props__["sid"] = sid
+        __props__["sshAuthorizedKeys"] = ssh_authorized_keys
+        __props__["sshKeyEnabled"] = ssh_key_enabled
+        __props__["sshPasswordEnabled"] = ssh_password_enabled
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/localUser:LocalUser', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Output[Optional[_builtins.str]]:

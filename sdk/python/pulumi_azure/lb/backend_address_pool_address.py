@@ -428,6 +428,24 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return BackendAddressPoolAddress(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_nat_rule_port_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict', 'outputs.BackendAddressPoolAddressInboundNatRulePortMapping']]]]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backendAddressIpConfigurationId"] = backend_address_ip_configuration_id
+        __props__["backendAddressPoolId"] = backend_address_pool_id
+        __props__["inboundNatRulePortMappings"] = inbound_nat_rule_port_mappings
+        __props__["ipAddress"] = ip_address
+        __props__["name"] = name
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backendAddressIpConfigurationId")
     def backend_address_ip_configuration_id(self) -> pulumi.Output[Optional[_builtins.str]]:

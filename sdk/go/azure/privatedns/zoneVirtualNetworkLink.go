@@ -179,6 +179,12 @@ func (ZoneVirtualNetworkLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneVirtualNetworkLinkState)(nil)).Elem()
 }
 
+// ZoneVirtualNetworkLinkExists checks whether an existing ZoneVirtualNetworkLink resource with the given ID exists.
+func ZoneVirtualNetworkLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneVirtualNetworkLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", id, state, "", opts...)
+}
+
 type zoneVirtualNetworkLinkArgs struct {
 	// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

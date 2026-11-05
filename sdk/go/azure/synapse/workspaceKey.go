@@ -246,6 +246,12 @@ func (WorkspaceKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceKeyState)(nil)).Elem()
 }
 
+// WorkspaceKeyExists checks whether an existing WorkspaceKey resource with the given ID exists.
+func WorkspaceKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/workspaceKey:WorkspaceKey", id, state, "", opts...)
+}
+
 type workspaceKeyArgs struct {
 	// Specifies if the workspace should be encrypted with this key.
 	//

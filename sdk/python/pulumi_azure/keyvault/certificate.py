@@ -910,6 +910,42 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["versionless_secret_id"] = versionless_secret_id
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate: pulumi.Input[Optional[Union['CertificateCertificateArgs', 'CertificateCertificateArgsDict', 'outputs.CertificateCertificate']]] = None,
+            certificate_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateCertificateAttributeArgs', 'CertificateCertificateAttributeArgsDict', 'outputs.CertificateCertificateAttribute']]]]] = None,
+            certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_policy: pulumi.Input[Optional[Union['CertificateCertificatePolicyArgs', 'CertificateCertificatePolicyArgsDict', 'outputs.CertificateCertificatePolicy']]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_secret_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificate"] = certificate
+        __props__["certificateAttributes"] = certificate_attributes
+        __props__["certificateData"] = certificate_data
+        __props__["certificateDataBase64"] = certificate_data_base64
+        __props__["certificatePolicy"] = certificate_policy
+        __props__["keyVaultId"] = key_vault_id
+        __props__["name"] = name
+        __props__["resourceManagerId"] = resource_manager_id
+        __props__["resourceManagerVersionlessId"] = resource_manager_versionless_id
+        __props__["secretId"] = secret_id
+        __props__["tags"] = tags
+        __props__["thumbprint"] = thumbprint
+        __props__["version"] = version
+        __props__["versionlessId"] = versionless_id
+        __props__["versionlessSecretId"] = versionless_secret_id
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[Optional['outputs.CertificateCertificate']]:

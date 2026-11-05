@@ -617,6 +617,32 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activities_json: pulumi.Input[Optional[_builtins.str]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activitiesJson"] = activities_json
+        __props__["annotations"] = annotations
+        __props__["concurrency"] = concurrency
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["folder"] = folder
+        __props__["moniterMetricsAfterDuration"] = moniter_metrics_after_duration
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/pipeline:Pipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activitiesJson")
     def activities_json(self) -> pulumi.Output[Optional[_builtins.str]]:

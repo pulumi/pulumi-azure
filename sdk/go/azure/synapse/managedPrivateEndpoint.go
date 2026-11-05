@@ -223,6 +223,12 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrivateEndpointState)(nil)).Elem()
 }
 
+// ManagedPrivateEndpointExists checks whether an existing ManagedPrivateEndpoint resource with the given ID exists.
+func ManagedPrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint", id, state, "", opts...)
+}
+
 type managedPrivateEndpointArgs struct {
 	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
 	//

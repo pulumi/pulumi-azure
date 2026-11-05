@@ -101,11 +101,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
  * ```
  * 
- * @deprecated
- * azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
+ * @deprecated azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
  * 
  */
-@Deprecated /* azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile */
+@Deprecated
 @ResourceType(type="azure:trafficmanager/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
     /**

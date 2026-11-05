@@ -232,6 +232,12 @@ func (BackupPolicyMysqlFlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyMysqlFlexibleServerState)(nil)).Elem()
 }
 
+// BackupPolicyMysqlFlexibleServerExists checks whether an existing BackupPolicyMysqlFlexibleServer resource with the given ID exists.
+func BackupPolicyMysqlFlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyMysqlFlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer", id, state, "", opts...)
+}
+
 type backupPolicyMysqlFlexibleServerArgs struct {
 	// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

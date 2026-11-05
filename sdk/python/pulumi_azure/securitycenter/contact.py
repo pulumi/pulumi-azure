@@ -352,6 +352,22 @@ class Contact(pulumi.CustomResource):
         __props__.__dict__["phone"] = phone
         return Contact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alert_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            alerts_to_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertNotifications"] = alert_notifications
+        __props__["alertsToAdmins"] = alerts_to_admins
+        __props__["email"] = email
+        __props__["name"] = name
+        __props__["phone"] = phone
+        return pulumi.runtime.exists_resource(None, 'azure:securitycenter/contact:Contact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertNotifications")
     def alert_notifications(self) -> pulumi.Output[_builtins.bool]:

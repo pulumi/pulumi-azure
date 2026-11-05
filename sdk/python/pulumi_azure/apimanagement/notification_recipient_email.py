@@ -300,6 +300,18 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         __props__.__dict__["notification_type"] = notification_type
         return NotificationRecipientEmail(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementId"] = api_management_id
+        __props__["email"] = email
+        __props__["notificationType"] = notification_type
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[_builtins.str]:

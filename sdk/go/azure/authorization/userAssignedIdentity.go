@@ -171,6 +171,12 @@ func (UserAssignedIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityState)(nil)).Elem()
 }
 
+// UserAssignedIdentityExists checks whether an existing UserAssignedIdentity resource with the given ID exists.
+func UserAssignedIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserAssignedIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:authorization/userAssignedIdentity:UserAssignedIdentity", id, state, "", opts...)
+}
+
 type userAssignedIdentityArgs struct {
 	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
 	IsolationScope *string `pulumi:"isolationScope"`

@@ -632,6 +632,34 @@ class ApiOperation(pulumi.CustomResource):
         __props__.__dict__["url_template"] = url_template
         return ApiOperation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]]] = None,
+            template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]]] = None,
+            url_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["apiName"] = api_name
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["method"] = method
+        __props__["operationId"] = operation_id
+        __props__["request"] = request
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["responses"] = responses
+        __props__["templateParameters"] = template_parameters
+        __props__["urlTemplate"] = url_template
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/apiOperation:ApiOperation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

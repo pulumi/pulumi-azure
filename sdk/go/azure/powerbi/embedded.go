@@ -163,6 +163,12 @@ func (EmbeddedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*embeddedState)(nil)).Elem()
 }
 
+// EmbeddedExists checks whether an existing Embedded resource with the given ID exists.
+func EmbeddedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmbeddedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:powerbi/embedded:Embedded", id, state, "", opts...)
+}
+
 type embeddedArgs struct {
 	// A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
 	Administrators []string `pulumi:"administrators"`

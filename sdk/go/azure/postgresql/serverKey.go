@@ -224,6 +224,12 @@ func (ServerKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverKeyState)(nil)).Elem()
 }
 
+// ServerKeyExists checks whether an existing ServerKey resource with the given ID exists.
+func ServerKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/serverKey:ServerKey", id, state, "", opts...)
+}
+
 type serverKeyArgs struct {
 	// The URL to a Key Vault Key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`

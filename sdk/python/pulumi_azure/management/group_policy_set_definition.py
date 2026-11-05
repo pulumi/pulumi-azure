@@ -559,6 +559,30 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
         __props__.__dict__["policy_type"] = policy_type
         return GroupPolicySetDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]]] = None,
+            policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["managementGroupId"] = management_group_id
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["policyDefinitionGroups"] = policy_definition_groups
+        __props__["policyDefinitionReferences"] = policy_definition_references
+        __props__["policyType"] = policy_type
+        return pulumi.runtime.exists_resource(None, 'azure:management/groupPolicySetDefinition:GroupPolicySetDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

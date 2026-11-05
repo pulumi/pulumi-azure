@@ -193,6 +193,12 @@ func (ClusterManagedPrivateEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterManagedPrivateEndpointState)(nil)).Elem()
 }
 
+// ClusterManagedPrivateEndpointExists checks whether an existing ClusterManagedPrivateEndpoint resource with the given ID exists.
+func ClusterManagedPrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterManagedPrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", id, state, "", opts...)
+}
+
 type clusterManagedPrivateEndpointArgs struct {
 	// The name of the Kusto Cluster. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`

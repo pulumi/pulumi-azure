@@ -116,6 +116,12 @@ func (DatasetDataLakeGen2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetDataLakeGen2State)(nil)).Elem()
 }
 
+// DatasetDataLakeGen2Exists checks whether an existing DatasetDataLakeGen2 resource with the given ID exists.
+func DatasetDataLakeGen2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetDataLakeGen2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2", id, state, "", opts...)
+}
+
 type datasetDataLakeGen2Args struct {
 	// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
 	FilePath *string `pulumi:"filePath"`

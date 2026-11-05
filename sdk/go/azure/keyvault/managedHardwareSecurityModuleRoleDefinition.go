@@ -169,6 +169,12 @@ func (ManagedHardwareSecurityModuleRoleDefinitionState) ElementType() reflect.Ty
 	return reflect.TypeOf((*managedHardwareSecurityModuleRoleDefinitionState)(nil)).Elem()
 }
 
+// ManagedHardwareSecurityModuleRoleDefinitionExists checks whether an existing ManagedHardwareSecurityModuleRoleDefinition resource with the given ID exists.
+func ManagedHardwareSecurityModuleRoleDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedHardwareSecurityModuleRoleDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", id, state, "", opts...)
+}
+
 type managedHardwareSecurityModuleRoleDefinitionArgs struct {
 	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
 	Description *string `pulumi:"description"`

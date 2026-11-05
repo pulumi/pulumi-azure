@@ -792,6 +792,30 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         __props__.__dict__["secondary_type"] = secondary_type
         return ManagedInstanceFailoverGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict', 'outputs.ManagedInstanceFailoverGroupPartnerRegion']]]]] = None,
+            read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']]] = None,
+            readonly_endpoint_failover_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["managedInstanceId"] = managed_instance_id
+        __props__["name"] = name
+        __props__["partnerManagedInstanceId"] = partner_managed_instance_id
+        __props__["partnerRegions"] = partner_regions
+        __props__["readWriteEndpointFailoverPolicy"] = read_write_endpoint_failover_policy
+        __props__["readonlyEndpointFailoverPolicyEnabled"] = readonly_endpoint_failover_policy_enabled
+        __props__["role"] = role
+        __props__["secondaryType"] = secondary_type
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

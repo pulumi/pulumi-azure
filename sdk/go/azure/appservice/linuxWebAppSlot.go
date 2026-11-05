@@ -409,6 +409,12 @@ func (LinuxWebAppSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxWebAppSlotState)(nil)).Elem()
 }
 
+// LinuxWebAppSlotExists checks whether an existing LinuxWebAppSlot resource with the given ID exists.
+func LinuxWebAppSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxWebAppSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", id, state, "", opts...)
+}
+
 type linuxWebAppSlotArgs struct {
 	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId string `pulumi:"appServiceId"`

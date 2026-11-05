@@ -280,6 +280,18 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
         __props__.__dict__["token"] = token
         return GetHostPoolRegistrationInfo(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            hostpool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["expirationDate"] = expiration_date
+        __props__["hostpoolId"] = hostpool_id
+        __props__["token"] = token
+        return pulumi.runtime.exists_resource(None, 'azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> pulumi.Output[_builtins.str]:

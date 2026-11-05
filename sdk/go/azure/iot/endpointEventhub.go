@@ -229,6 +229,12 @@ func (EndpointEventhubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointEventhubState)(nil)).Elem()
 }
 
+// EndpointEventhubExists checks whether an existing EndpointEventhub resource with the given ID exists.
+func EndpointEventhubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointEventhubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/endpointEventhub:EndpointEventhub", id, state, "", opts...)
+}
+
 type endpointEventhubArgs struct {
 	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

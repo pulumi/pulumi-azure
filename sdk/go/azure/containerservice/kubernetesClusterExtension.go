@@ -203,6 +203,12 @@ func (KubernetesClusterExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterExtensionState)(nil)).Elem()
 }
 
+// KubernetesClusterExtensionExists checks whether an existing KubernetesClusterExtension resource with the given ID exists.
+func KubernetesClusterExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesClusterExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", id, state, "", opts...)
+}
+
 type kubernetesClusterExtensionArgs struct {
 	// Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ClusterId string `pulumi:"clusterId"`

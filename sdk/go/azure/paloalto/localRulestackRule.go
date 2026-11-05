@@ -275,6 +275,12 @@ func (LocalRulestackRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRulestackRuleState)(nil)).Elem()
 }
 
+// LocalRulestackRuleExists checks whether an existing LocalRulestackRule resource with the given ID exists.
+func LocalRulestackRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestackRule:LocalRulestackRule", id, state, "", opts...)
+}
+
 type localRulestackRuleArgs struct {
 	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action string `pulumi:"action"`

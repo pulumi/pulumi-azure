@@ -303,6 +303,12 @@ func (ImplicitDataDiskFromSourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*implicitDataDiskFromSourceState)(nil)).Elem()
 }
 
+// ImplicitDataDiskFromSourceExists checks whether an existing ImplicitDataDiskFromSource resource with the given ID exists.
+func ImplicitDataDiskFromSourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImplicitDataDiskFromSourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource", id, state, "", opts...)
+}
+
 type implicitDataDiskFromSourceArgs struct {
 	// Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
 	Caching *string `pulumi:"caching"`

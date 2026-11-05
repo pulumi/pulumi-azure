@@ -205,6 +205,12 @@ func (VirtualHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubState)(nil)).Elem()
 }
 
+// VirtualHubExists checks whether an existing VirtualHub resource with the given ID exists.
+func VirtualHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualHub:VirtualHub", id, state, "", opts...)
+}
+
 type virtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`

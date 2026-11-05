@@ -174,6 +174,12 @@ func (SubscriptionPricingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionPricingState)(nil)).Elem()
 }
 
+// SubscriptionPricingExists checks whether an existing SubscriptionPricing resource with the given ID exists.
+func SubscriptionPricingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionPricingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", id, state, "", opts...)
+}
+
 type subscriptionPricingArgs struct {
 	// One or more `extension` blocks as defined below.
 	Extensions []SubscriptionPricingExtension `pulumi:"extensions"`

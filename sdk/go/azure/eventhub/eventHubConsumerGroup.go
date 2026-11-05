@@ -173,6 +173,12 @@ func (EventHubConsumerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubConsumerGroupState)(nil)).Elem()
 }
 
+// EventHubConsumerGroupExists checks whether an existing EventHubConsumerGroup resource with the given ID exists.
+func EventHubConsumerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHubConsumerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", id, state, "", opts...)
+}
+
 type eventHubConsumerGroupArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName string `pulumi:"eventhubName"`

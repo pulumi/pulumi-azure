@@ -215,6 +215,12 @@ func (NatGatewayPublicIpPrefixAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayPublicIpPrefixAssociationState)(nil)).Elem()
 }
 
+// NatGatewayPublicIpPrefixAssociationExists checks whether an existing NatGatewayPublicIpPrefixAssociation resource with the given ID exists.
+func NatGatewayPublicIpPrefixAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatGatewayPublicIpPrefixAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation", id, state, "", opts...)
+}
+
 type natGatewayPublicIpPrefixAssociationArgs struct {
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId string `pulumi:"natGatewayId"`

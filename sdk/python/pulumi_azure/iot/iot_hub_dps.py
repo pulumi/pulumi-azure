@@ -630,6 +630,38 @@ class IotHubDps(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return IotHubDps(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            data_residency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            device_provisioning_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            id_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]]] = None,
+            linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_operations_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationPolicy"] = allocation_policy
+        __props__["dataResidencyEnabled"] = data_residency_enabled
+        __props__["deviceProvisioningHostName"] = device_provisioning_host_name
+        __props__["idScope"] = id_scope
+        __props__["ipFilterRules"] = ip_filter_rules
+        __props__["linkedHubs"] = linked_hubs
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceOperationsHostName"] = service_operations_host_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:iot/iotHubDps:IotHubDps', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationPolicy")
     def allocation_policy(self) -> pulumi.Output[Optional[_builtins.str]]:

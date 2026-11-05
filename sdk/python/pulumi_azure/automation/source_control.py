@@ -587,6 +587,32 @@ class SourceControl(pulumi.CustomResource):
         __props__.__dict__["source_control_type"] = source_control_type
         return SourceControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_sync: pulumi.Input[Optional[_builtins.bool]] = None,
+            automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_runbook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+            security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']]] = None,
+            source_control_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automaticSync"] = automatic_sync
+        __props__["automationAccountId"] = automation_account_id
+        __props__["branch"] = branch
+        __props__["description"] = description
+        __props__["folderPath"] = folder_path
+        __props__["name"] = name
+        __props__["publishRunbookEnabled"] = publish_runbook_enabled
+        __props__["repositoryUrl"] = repository_url
+        __props__["security"] = security
+        __props__["sourceControlType"] = source_control_type
+        return pulumi.runtime.exists_resource(None, 'azure:automation/sourceControl:SourceControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automaticSync")
     def automatic_sync(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -1131,6 +1131,50 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']]] = None,
+            connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restorable_dropped_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorLogin"] = administrator_login
+        __props__["administratorLoginPassword"] = administrator_login_password
+        __props__["administratorLoginPasswordWoVersion"] = administrator_login_password_wo_version
+        __props__["azureadAdministrator"] = azuread_administrator
+        __props__["connectionPolicy"] = connection_policy
+        __props__["expressVulnerabilityAssessmentEnabled"] = express_vulnerability_assessment_enabled
+        __props__["fullyQualifiedDomainName"] = fully_qualified_domain_name
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["minimumTlsVersion"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["outboundNetworkRestrictionEnabled"] = outbound_network_restriction_enabled
+        __props__["primaryUserAssignedIdentityId"] = primary_user_assigned_identity_id
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["restorableDroppedDatabaseIds"] = restorable_dropped_database_ids
+        __props__["tags"] = tags
+        __props__["transparentDataEncryptionKeyVaultKeyId"] = transparent_data_encryption_key_vault_key_id
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[_builtins.str]:

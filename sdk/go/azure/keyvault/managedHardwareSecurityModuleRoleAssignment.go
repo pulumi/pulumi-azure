@@ -150,6 +150,12 @@ func (ManagedHardwareSecurityModuleRoleAssignmentState) ElementType() reflect.Ty
 	return reflect.TypeOf((*managedHardwareSecurityModuleRoleAssignmentState)(nil)).Elem()
 }
 
+// ManagedHardwareSecurityModuleRoleAssignmentExists checks whether an existing ManagedHardwareSecurityModuleRoleAssignment resource with the given ID exists.
+func ManagedHardwareSecurityModuleRoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedHardwareSecurityModuleRoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment", id, state, "", opts...)
+}
+
 type managedHardwareSecurityModuleRoleAssignmentArgs struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	ManagedHsmId string `pulumi:"managedHsmId"`

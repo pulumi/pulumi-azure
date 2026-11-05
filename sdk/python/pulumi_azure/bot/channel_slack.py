@@ -495,6 +495,28 @@ class ChannelSlack(pulumi.CustomResource):
         __props__.__dict__["verification_token"] = verification_token
         return ChannelSlack(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["botName"] = bot_name
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["landingPageUrl"] = landing_page_url
+        __props__["location"] = location
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["signingSecret"] = signing_secret
+        __props__["verificationToken"] = verification_token
+        return pulumi.runtime.exists_resource(None, 'azure:bot/channelSlack:ChannelSlack', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="botName")
     def bot_name(self) -> pulumi.Output[_builtins.str]:

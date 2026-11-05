@@ -359,6 +359,12 @@ func (ManagedInstanceTransparentDataEncryptionState) ElementType() reflect.Type 
 	return reflect.TypeOf((*managedInstanceTransparentDataEncryptionState)(nil)).Elem()
 }
 
+// ManagedInstanceTransparentDataEncryptionExists checks whether an existing ManagedInstanceTransparentDataEncryption resource with the given ID exists.
+func ManagedInstanceTransparentDataEncryptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceTransparentDataEncryptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption", id, state, "", opts...)
+}
+
 type managedInstanceTransparentDataEncryptionArgs struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`

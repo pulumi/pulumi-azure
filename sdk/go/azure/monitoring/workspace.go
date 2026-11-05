@@ -162,6 +162,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

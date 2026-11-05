@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("workflow-resources")
  *             .location("West Europe")
@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *             .name("example-trigger")
  *             .logicAppId(exampleWorkflow.id())
  *             .body("""
- * {
- *   \"recurrence\": {
- *     \"frequency\": \"Day\",
- *     \"interval\": 1
- *   },
- *   \"type\": \"Recurrence\"
- * }
+ * }{{@code
+ *   }&#92;{@code "recurrence}&#92;{@code ": }{{@code
+ *     }&#92;{@code "frequency}&#92;{@code ": }&#92;{@code "Day}&#92;{@code ",
+ *     }&#92;{@code "interval}&#92;{@code ": 1
+ *   }}{@code ,
+ *   }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Recurrence}&#92;{@code "
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

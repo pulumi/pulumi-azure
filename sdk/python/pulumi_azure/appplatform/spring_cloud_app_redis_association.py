@@ -390,6 +390,22 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         __props__.__dict__["ssl_enabled"] = ssl_enabled
         return SpringCloudAppRedisAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["redisAccessKey"] = redis_access_key
+        __props__["redisCacheId"] = redis_cache_id
+        __props__["springCloudAppId"] = spring_cloud_app_id
+        __props__["sslEnabled"] = ssl_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

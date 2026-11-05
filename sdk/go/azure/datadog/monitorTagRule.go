@@ -170,6 +170,12 @@ func (MonitorTagRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorTagRuleState)(nil)).Elem()
 }
 
+// MonitorTagRuleExists checks whether an existing MonitorTagRule resource with the given ID exists.
+func MonitorTagRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorTagRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datadog/monitorTagRule:MonitorTagRule", id, state, "", opts...)
+}
+
 type monitorTagRuleArgs struct {
 	// The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
 	DatadogMonitorId string `pulumi:"datadogMonitorId"`

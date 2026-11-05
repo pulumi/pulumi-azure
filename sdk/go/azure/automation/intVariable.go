@@ -153,6 +153,12 @@ func (IntVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*intVariableState)(nil)).Elem()
 }
 
+// IntVariableExists checks whether an existing IntVariable resource with the given ID exists.
+func IntVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/intVariable:IntVariable", id, state, "", opts...)
+}
+
 type intVariableArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

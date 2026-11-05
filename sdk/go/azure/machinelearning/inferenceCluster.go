@@ -281,6 +281,12 @@ func (InferenceClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*inferenceClusterState)(nil)).Elem()
 }
 
+// InferenceClusterExists checks whether an existing InferenceCluster resource with the given ID exists.
+func InferenceClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InferenceClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/inferenceCluster:InferenceCluster", id, state, "", opts...)
+}
+
 type inferenceClusterArgs struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	//

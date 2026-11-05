@@ -232,6 +232,12 @@ func (NetworkMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkMappingState)(nil)).Elem()
 }
 
+// NetworkMappingExists checks whether an existing NetworkMapping resource with the given ID exists.
+func NetworkMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/networkMapping:NetworkMapping", id, state, "", opts...)
+}
+
 type networkMappingArgs struct {
 	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

@@ -190,6 +190,12 @@ func (AnalyticsSolutionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsSolutionState)(nil)).Elem()
 }
 
+// AnalyticsSolutionExists checks whether an existing AnalyticsSolution resource with the given ID exists.
+func AnalyticsSolutionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnalyticsSolutionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", id, state, "", opts...)
+}
+
 type analyticsSolutionArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

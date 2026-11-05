@@ -184,6 +184,12 @@ func (ConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationState)(nil)).Elem()
 }
 
+// ConfigurationExists checks whether an existing Configuration resource with the given ID exists.
+func ConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maintenance/configuration:Configuration", id, state, "", opts...)
+}
+
 type configurationArgs struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode *string `pulumi:"inGuestUserPatchMode"`

@@ -206,6 +206,12 @@ func (WorkspaceNetworkOutboundRuleServiceTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceNetworkOutboundRuleServiceTagState)(nil)).Elem()
 }
 
+// WorkspaceNetworkOutboundRuleServiceTagExists checks whether an existing WorkspaceNetworkOutboundRuleServiceTag resource with the given ID exists.
+func WorkspaceNetworkOutboundRuleServiceTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceNetworkOutboundRuleServiceTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag", id, state, "", opts...)
+}
+
 type workspaceNetworkOutboundRuleServiceTagArgs struct {
 	// Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

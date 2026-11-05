@@ -160,6 +160,12 @@ func (MoverAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*moverAgentState)(nil)).Elem()
 }
 
+// MoverAgentExists checks whether an existing MoverAgent resource with the given ID exists.
+func MoverAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MoverAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/moverAgent:MoverAgent", id, state, "", opts...)
+}
+
 type moverAgentArgs struct {
 	// Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
 	ArcVirtualMachineId string `pulumi:"arcVirtualMachineId"`

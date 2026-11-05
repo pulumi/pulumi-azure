@@ -195,6 +195,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/connection:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

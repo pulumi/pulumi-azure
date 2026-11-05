@@ -209,6 +209,12 @@ func (ObjectReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectReplicationState)(nil)).Elem()
 }
 
+// ObjectReplicationExists checks whether an existing ObjectReplication resource with the given ID exists.
+func ObjectReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/objectReplication:ObjectReplication", id, state, "", opts...)
+}
+
 type objectReplicationArgs struct {
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId string `pulumi:"destinationStorageAccountId"`

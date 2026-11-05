@@ -820,6 +820,38 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["zone_redundant"] = zone_redundant
         return Plan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+            reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceEnvironmentId"] = app_service_environment_id
+        __props__["isXenon"] = is_xenon
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["maximumElasticWorkerCount"] = maximum_elastic_worker_count
+        __props__["maximumNumberOfWorkers"] = maximum_number_of_workers
+        __props__["name"] = name
+        __props__["perSiteScaling"] = per_site_scaling
+        __props__["reserved"] = reserved
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["zoneRedundant"] = zone_redundant
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/plan:Plan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceEnvironmentId")
     def app_service_environment_id(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -416,6 +416,24 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return IntegrationAccountCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["integrationAccountName"] = integration_account_name
+        __props__["keyVaultKey"] = key_vault_key
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["publicCertificate"] = public_certificate
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
     def integration_account_name(self) -> pulumi.Output[_builtins.str]:

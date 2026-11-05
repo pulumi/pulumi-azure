@@ -250,6 +250,12 @@ func (LinkedServiceSqlServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSqlServerState)(nil)).Elem()
 }
 
+// LinkedServiceSqlServerExists checks whether an existing LinkedServiceSqlServer resource with the given ID exists.
+func LinkedServiceSqlServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceSqlServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", id, state, "", opts...)
+}
+
 type linkedServiceSqlServerArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service SQL Server.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

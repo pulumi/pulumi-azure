@@ -253,6 +253,12 @@ func (DatastoreBlobstorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreBlobstorageState)(nil)).Elem()
 }
 
+// DatastoreBlobstorageExists checks whether an existing DatastoreBlobstorage resource with the given ID exists.
+func DatastoreBlobstorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreBlobstorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage", id, state, "", opts...)
+}
+
 type datastoreBlobstorageArgs struct {
 	// The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
 	AccountKey *string `pulumi:"accountKey"`

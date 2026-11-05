@@ -253,6 +253,12 @@ func (PointToPointVpnGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pointToPointVpnGatewayState)(nil)).Elem()
 }
 
+// PointToPointVpnGatewayExists checks whether an existing PointToPointVpnGateway resource with the given ID exists.
+func PointToPointVpnGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PointToPointVpnGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", id, state, "", opts...)
+}
+
 type pointToPointVpnGatewayArgs struct {
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfigurations []PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfigurations"`

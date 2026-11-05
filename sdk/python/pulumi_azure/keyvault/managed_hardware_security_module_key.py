@@ -620,6 +620,32 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         __props__.__dict__["versioned_id"] = versioned_id
         return ManagedHardwareSecurityModuleKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            curve: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            versioned_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["curve"] = curve
+        __props__["expirationDate"] = expiration_date
+        __props__["keyOpts"] = key_opts
+        __props__["keySize"] = key_size
+        __props__["keyType"] = key_type
+        __props__["managedHsmId"] = managed_hsm_id
+        __props__["name"] = name
+        __props__["notBeforeDate"] = not_before_date
+        __props__["tags"] = tags
+        __props__["versionedId"] = versioned_id
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def curve(self) -> pulumi.Output[Optional[_builtins.str]]:

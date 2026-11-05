@@ -227,6 +227,12 @@ func (NamespaceCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceCustomerManagedKeyState)(nil)).Elem()
 }
 
+// NamespaceCustomerManagedKeyExists checks whether an existing NamespaceCustomerManagedKey resource with the given ID exists.
+func NamespaceCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", id, state, "", opts...)
+}
+
 type namespaceCustomerManagedKeyArgs struct {
 	// Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`

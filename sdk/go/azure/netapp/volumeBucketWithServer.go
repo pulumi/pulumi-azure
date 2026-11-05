@@ -574,6 +574,12 @@ func (VolumeBucketWithServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeBucketWithServerState)(nil)).Elem()
 }
 
+// VolumeBucketWithServerExists checks whether an existing VolumeBucketWithServer resource with the given ID exists.
+func VolumeBucketWithServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeBucketWithServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/volumeBucketWithServer:VolumeBucketWithServer", id, state, "", opts...)
+}
+
 type volumeBucketWithServerArgs struct {
 	// The CIFS username used by the bucket when accessing volume data over SMB. Exactly one of `fileSystemNfsUser` or `fileSystemCifsUsername` must be specified.
 	FileSystemCifsUsername *string `pulumi:"fileSystemCifsUsername"`

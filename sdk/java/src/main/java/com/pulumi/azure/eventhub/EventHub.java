@@ -154,11 +154,10 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.namespaceId;
     }
     /**
-     * @deprecated
-     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
@@ -202,11 +201,10 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.partitionIds;
     }
     /**
-     * @deprecated
-     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 

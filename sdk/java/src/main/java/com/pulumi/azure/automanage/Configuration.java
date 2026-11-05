@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-automanage")
  *             .location("West Europe")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .antimalware(ConfigurationAntimalwareArgs.builder()
  *                 .exclusions(ConfigurationAntimalwareExclusionsArgs.builder()
  *                     .extensions("exe;dll")
- *                     .paths("C:\\Windows\\Temp;D:\\Temp")
+ *                     .paths("C:}&#92;&#92;{@code Windows}&#92;&#92;{@code Temp;D:}&#92;&#92;{@code Temp")
  *                     .processes("svchost.exe;notepad.exe")
  *                     .build())
  *                 .realTimeProtectionEnabled(true)
@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("env", "test"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -98,6 +98,17 @@ export class MoverJobDefinition extends pulumi.CustomResource {
         return new MoverJobDefinition(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing MoverJobDefinition resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: MoverJobDefinitionState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:storage/moverJobDefinition:MoverJobDefinition", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:storage/moverJobDefinition:MoverJobDefinition';
 

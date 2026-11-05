@@ -202,6 +202,12 @@ func (ProjectEnvironmentTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectEnvironmentTypeState)(nil)).Elem()
 }
 
+// ProjectEnvironmentTypeExists checks whether an existing ProjectEnvironmentType resource with the given ID exists.
+func ProjectEnvironmentTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectEnvironmentTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/projectEnvironmentType:ProjectEnvironmentType", id, state, "", opts...)
+}
+
 type projectEnvironmentTypeArgs struct {
 	// A list of roles to assign to the environment creator.
 	CreatorRoleAssignmentRoles []string `pulumi:"creatorRoleAssignmentRoles"`

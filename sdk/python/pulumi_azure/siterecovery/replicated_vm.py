@@ -1409,6 +1409,60 @@ class ReplicatedVM(pulumi.CustomResource):
         __props__.__dict__["unmanaged_disks"] = unmanaged_disks
         return ReplicatedVM(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]]] = None,
+            multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]]] = None,
+            recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_boot_diagnostic_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_protection_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
+            target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["managedDisks"] = managed_disks
+        __props__["multiVmGroupName"] = multi_vm_group_name
+        __props__["name"] = name
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["recoveryReplicationPolicyId"] = recovery_replication_policy_id
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceRecoveryFabricName"] = source_recovery_fabric_name
+        __props__["sourceRecoveryProtectionContainerName"] = source_recovery_protection_container_name
+        __props__["sourceVmId"] = source_vm_id
+        __props__["targetAvailabilitySetId"] = target_availability_set_id
+        __props__["targetBootDiagnosticStorageAccountId"] = target_boot_diagnostic_storage_account_id
+        __props__["targetCapacityReservationGroupId"] = target_capacity_reservation_group_id
+        __props__["targetEdgeZone"] = target_edge_zone
+        __props__["targetNetworkId"] = target_network_id
+        __props__["targetProximityPlacementGroupId"] = target_proximity_placement_group_id
+        __props__["targetRecoveryFabricId"] = target_recovery_fabric_id
+        __props__["targetRecoveryProtectionContainerId"] = target_recovery_protection_container_id
+        __props__["targetResourceGroupId"] = target_resource_group_id
+        __props__["targetVirtualMachineScaleSetId"] = target_virtual_machine_scale_set_id
+        __props__["targetVirtualMachineSize"] = target_virtual_machine_size
+        __props__["targetZone"] = target_zone
+        __props__["testNetworkId"] = test_network_id
+        __props__["unmanagedDisks"] = unmanaged_disks
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/replicatedVM:ReplicatedVM', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="managedDisks")
     def managed_disks(self) -> pulumi.Output[Sequence['outputs.ReplicatedVMManagedDisk']]:

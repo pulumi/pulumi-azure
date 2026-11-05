@@ -135,6 +135,12 @@ func (ManagedHardwareSecurityModuleKeyRotationPolicyState) ElementType() reflect
 	return reflect.TypeOf((*managedHardwareSecurityModuleKeyRotationPolicyState)(nil)).Elem()
 }
 
+// ManagedHardwareSecurityModuleKeyRotationPolicyExists checks whether an existing ManagedHardwareSecurityModuleKeyRotationPolicy resource with the given ID exists.
+func ManagedHardwareSecurityModuleKeyRotationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedHardwareSecurityModuleKeyRotationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy", id, state, "", opts...)
+}
+
 type managedHardwareSecurityModuleKeyRotationPolicyArgs struct {
 	// Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
 	ExpireAfter string `pulumi:"expireAfter"`

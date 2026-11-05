@@ -543,6 +543,32 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         __props__.__dict__["service_bus_suffix"] = service_bus_suffix
         return FunctionAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["functionAppId"] = function_app_id
+        __props__["hostname"] = hostname
+        __props__["namespaceName"] = namespace_name
+        __props__["port"] = port
+        __props__["relayId"] = relay_id
+        __props__["relayName"] = relay_name
+        __props__["sendKeyName"] = send_key_name
+        __props__["sendKeyValue"] = send_key_value
+        __props__["serviceBusNamespace"] = service_bus_namespace
+        __props__["serviceBusSuffix"] = service_bus_suffix
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="functionAppId")
     def function_app_id(self) -> pulumi.Output[_builtins.str]:

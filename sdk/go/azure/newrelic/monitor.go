@@ -263,6 +263,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:newrelic/monitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource *string `pulumi:"accountCreationSource"`

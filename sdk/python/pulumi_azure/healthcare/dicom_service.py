@@ -628,6 +628,38 @@ class DicomService(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return DicomService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict', 'outputs.DicomServiceAuthentication']]]]] = None,
+            cors: pulumi.Input[Optional[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict', 'outputs.DicomServiceCors']]] = None,
+            data_partitions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict', 'outputs.DicomServiceIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DicomServicePrivateEndpointArgs', 'DicomServicePrivateEndpointArgsDict', 'outputs.DicomServicePrivateEndpoint']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict', 'outputs.DicomServiceStorage']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authentications"] = authentications
+        __props__["cors"] = cors
+        __props__["dataPartitionsEnabled"] = data_partitions_enabled
+        __props__["encryptionKeyUrl"] = encryption_key_url
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateEndpoints"] = private_endpoints
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["serviceUrl"] = service_url
+        __props__["storage"] = storage
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:healthcare/dicomService:DicomService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authentications(self) -> pulumi.Output[Sequence['outputs.DicomServiceAuthentication']]:

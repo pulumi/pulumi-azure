@@ -206,6 +206,12 @@ func (SqlRoleDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlRoleDefinitionState)(nil)).Elem()
 }
 
+// SqlRoleDefinitionExists checks whether an existing SqlRoleDefinition resource with the given ID exists.
+func SqlRoleDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlRoleDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition", id, state, "", opts...)
+}
+
 type sqlRoleDefinitionArgs struct {
 	// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

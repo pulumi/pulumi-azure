@@ -80,20 +80,18 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="verifyClientCertIssuerDn")
     private @Nullable Output<Boolean> verifyClientCertIssuerDn;
 
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<Boolean>> verifyClientCertIssuerDn() {
         return Optional.ofNullable(this.verifyClientCertIssuerDn);
     }
@@ -255,11 +253,10 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+         * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder verifyClientCertIssuerDn(@Nullable Output<Boolean> verifyClientCertIssuerDn) {
             $.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
             return this;
@@ -268,11 +265,10 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+         * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder verifyClientCertIssuerDn(Boolean verifyClientCertIssuerDn) {
             return verifyClientCertIssuerDn(Output.of(verifyClientCertIssuerDn));
         }

@@ -424,6 +424,24 @@ class EndpointEventGrid(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return EndpointEventGrid(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dead_letter_storage_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_topic_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_topic_primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_topic_secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deadLetterStorageSecret"] = dead_letter_storage_secret
+        __props__["digitalTwinsId"] = digital_twins_id
+        __props__["eventgridTopicEndpoint"] = eventgrid_topic_endpoint
+        __props__["eventgridTopicPrimaryAccessKey"] = eventgrid_topic_primary_access_key
+        __props__["eventgridTopicSecondaryAccessKey"] = eventgrid_topic_secondary_access_key
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:digitaltwins/endpointEventGrid:EndpointEventGrid', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deadLetterStorageSecret")
     def dead_letter_storage_secret(self) -> pulumi.Output[Optional[_builtins.str]]:

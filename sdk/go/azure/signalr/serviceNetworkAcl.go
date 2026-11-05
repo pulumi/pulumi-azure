@@ -207,6 +207,12 @@ func (ServiceNetworkAclState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceNetworkAclState)(nil)).Elem()
 }
 
+// ServiceNetworkAclExists checks whether an existing ServiceNetworkAcl resource with the given ID exists.
+func ServiceNetworkAclExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceNetworkAclState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl", id, state, "", opts...)
+}
+
 type serviceNetworkAclArgs struct {
 	// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`

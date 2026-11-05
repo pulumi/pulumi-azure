@@ -30,20 +30,18 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
     }
 
     /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+    @Deprecated
     @Import(name="gracefulShutdown")
     private @Nullable Output<Boolean> gracefulShutdown;
 
     /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+    @Deprecated
     public Optional<Output<Boolean>> gracefulShutdown() {
         return Optional.ofNullable(this.gracefulShutdown);
     }
@@ -103,11 +101,10 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+         * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+        @Deprecated
         public Builder gracefulShutdown(@Nullable Output<Boolean> gracefulShutdown) {
             $.gracefulShutdown = gracefulShutdown;
             return this;
@@ -116,11 +113,10 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+         * @deprecated &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
+        @Deprecated
         public Builder gracefulShutdown(Boolean gracefulShutdown) {
             return gracefulShutdown(Output.of(gracefulShutdown));
         }

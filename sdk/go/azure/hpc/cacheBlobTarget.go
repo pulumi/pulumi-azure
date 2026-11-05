@@ -123,6 +123,12 @@ func (CacheBlobTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheBlobTargetState)(nil)).Elem()
 }
 
+// CacheBlobTargetExists checks whether an existing CacheBlobTarget resource with the given ID exists.
+func CacheBlobTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheBlobTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hpc/cacheBlobTarget:CacheBlobTarget", id, state, "", opts...)
+}
+
 type cacheBlobTargetArgs struct {
 	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName *string `pulumi:"accessPolicyName"`

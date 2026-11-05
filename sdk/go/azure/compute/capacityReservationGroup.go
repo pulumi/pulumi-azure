@@ -141,6 +141,12 @@ func (CapacityReservationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationGroupState)(nil)).Elem()
 }
 
+// CapacityReservationGroupExists checks whether an existing CapacityReservationGroup resource with the given ID exists.
+func CapacityReservationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityReservationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/capacityReservationGroup:CapacityReservationGroup", id, state, "", opts...)
+}
+
 type capacityReservationGroupArgs struct {
 	// The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

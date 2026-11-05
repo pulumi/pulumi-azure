@@ -379,6 +379,22 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         __props__.__dict__["workspace_name"] = workspace_name
         return DataSourceWindowsEvent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            event_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventLogName"] = event_log_name
+        __props__["eventTypes"] = event_types
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["workspaceName"] = workspace_name
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventLogName")
     def event_log_name(self) -> pulumi.Output[_builtins.str]:

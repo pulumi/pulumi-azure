@@ -184,6 +184,12 @@ func (CredentialUserManagedIdentityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialUserManagedIdentityState)(nil)).Elem()
 }
 
+// CredentialUserManagedIdentityExists checks whether an existing CredentialUserManagedIdentity resource with the given ID exists.
+func CredentialUserManagedIdentityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CredentialUserManagedIdentityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity", id, state, "", opts...)
+}
+
 type credentialUserManagedIdentityArgs struct {
 	// List of tags that can be used for describing the Data Factory Credential.
 	//

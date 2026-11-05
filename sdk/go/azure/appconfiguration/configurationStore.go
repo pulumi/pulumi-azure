@@ -414,6 +414,12 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationStoreState)(nil)).Elem()
 }
 
+// ConfigurationStoreExists checks whether an existing ConfigurationStore resource with the given ID exists.
+func ConfigurationStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/configurationStore:ConfigurationStore", id, state, "", opts...)
+}
+
 type configurationStoreArgs struct {
 	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
 	DataPlaneProxyAuthenticationMode *string `pulumi:"dataPlaneProxyAuthenticationMode"`

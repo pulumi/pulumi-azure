@@ -395,6 +395,22 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["target_resource_id"] = target_resource_id
         return ManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["streamAnalyticsClusterName"] = stream_analytics_cluster_name
+        __props__["subresourceName"] = subresource_name
+        __props__["targetResourceId"] = target_resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

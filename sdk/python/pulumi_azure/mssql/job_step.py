@@ -770,6 +770,36 @@ class JobStep(pulumi.CustomResource):
         __props__.__dict__["timeout_seconds"] = timeout_seconds
         return JobStep(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            initial_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            job_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_step_index: pulumi.Input[Optional[_builtins.int]] = None,
+            job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']]] = None,
+            retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
+            sql_script: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["initialRetryIntervalSeconds"] = initial_retry_interval_seconds
+        __props__["jobCredentialId"] = job_credential_id
+        __props__["jobId"] = job_id
+        __props__["jobStepIndex"] = job_step_index
+        __props__["jobTargetGroupId"] = job_target_group_id
+        __props__["maximumRetryIntervalSeconds"] = maximum_retry_interval_seconds
+        __props__["name"] = name
+        __props__["outputTarget"] = output_target
+        __props__["retryAttempts"] = retry_attempts
+        __props__["retryIntervalBackoffMultiplier"] = retry_interval_backoff_multiplier
+        __props__["sqlScript"] = sql_script
+        __props__["timeoutSeconds"] = timeout_seconds
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/jobStep:JobStep', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="initialRetryIntervalSeconds")
     def initial_retry_interval_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:

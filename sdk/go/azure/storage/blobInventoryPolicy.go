@@ -158,6 +158,12 @@ func (BlobInventoryPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobInventoryPolicyState)(nil)).Elem()
 }
 
+// BlobInventoryPolicyExists checks whether an existing BlobInventoryPolicy resource with the given ID exists.
+func BlobInventoryPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BlobInventoryPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", id, state, "", opts...)
+}
+
 type blobInventoryPolicyArgs struct {
 	// One or more `rules` blocks as defined below.
 	Rules []BlobInventoryPolicyRule `pulumi:"rules"`

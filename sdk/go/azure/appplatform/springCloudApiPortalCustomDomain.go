@@ -151,6 +151,12 @@ func (SpringCloudApiPortalCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudApiPortalCustomDomainState)(nil)).Elem()
 }
 
+// SpringCloudApiPortalCustomDomainExists checks whether an existing SpringCloudApiPortalCustomDomain resource with the given ID exists.
+func SpringCloudApiPortalCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudApiPortalCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", id, state, "", opts...)
+}
+
 type springCloudApiPortalCustomDomainArgs struct {
 	// The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
 	Name *string `pulumi:"name"`

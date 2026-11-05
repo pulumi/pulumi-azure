@@ -154,6 +154,12 @@ func (VmwareReplicationPolicyAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vmwareReplicationPolicyAssociationState)(nil)).Elem()
 }
 
+// VmwareReplicationPolicyAssociationExists checks whether an existing VmwareReplicationPolicyAssociation resource with the given ID exists.
+func VmwareReplicationPolicyAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VmwareReplicationPolicyAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation", id, state, "", opts...)
+}
+
 type vmwareReplicationPolicyAssociationArgs struct {
 	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name *string `pulumi:"name"`

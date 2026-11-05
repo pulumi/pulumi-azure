@@ -168,6 +168,12 @@ func (TokenPasswordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tokenPasswordState)(nil)).Elem()
 }
 
+// TokenPasswordExists checks whether an existing TokenPassword resource with the given ID exists.
+func TokenPasswordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TokenPasswordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/tokenPassword:TokenPassword", id, state, "", opts...)
+}
+
 type tokenPasswordArgs struct {
 	// The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
 	ContainerRegistryTokenId string `pulumi:"containerRegistryTokenId"`

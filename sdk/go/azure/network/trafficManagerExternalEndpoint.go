@@ -205,6 +205,12 @@ func (TrafficManagerExternalEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerExternalEndpointState)(nil)).Elem()
 }
 
+// TrafficManagerExternalEndpointExists checks whether an existing TrafficManagerExternalEndpoint resource with the given ID exists.
+func TrafficManagerExternalEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficManagerExternalEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint", id, state, "", opts...)
+}
+
 type trafficManagerExternalEndpointArgs struct {
 	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
 	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`

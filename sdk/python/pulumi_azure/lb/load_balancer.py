@@ -641,6 +641,36 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["edgeZone"] = edge_zone
+        __props__["frontendIpConfigurations"] = frontend_ip_configurations
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateIpAddress"] = private_ip_address
+        __props__["privateIpAddresses"] = private_ip_addresses
+        __props__["publicIpAddressId"] = public_ip_address_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["skuTier"] = sku_tier
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:lb/loadBalancer:LoadBalancer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> pulumi.Output[Optional[_builtins.str]]:

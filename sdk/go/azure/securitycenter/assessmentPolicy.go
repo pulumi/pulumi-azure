@@ -160,6 +160,12 @@ func (AssessmentPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentPolicyState)(nil)).Elem()
 }
 
+// AssessmentPolicyExists checks whether an existing AssessmentPolicy resource with the given ID exists.
+func AssessmentPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssessmentPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/assessmentPolicy:AssessmentPolicy", id, state, "", opts...)
+}
+
 type assessmentPolicyArgs struct {
 	// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
 	Categories []string `pulumi:"categories"`

@@ -412,6 +412,22 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return NetworkSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkSecurityGroupSecurityRuleArgs', 'NetworkSecurityGroupSecurityRuleArgsDict', 'outputs.NetworkSecurityGroupSecurityRule']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["securityRules"] = security_rules
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkSecurityGroup:NetworkSecurityGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:

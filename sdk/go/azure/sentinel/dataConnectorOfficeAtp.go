@@ -143,6 +143,12 @@ func (DataConnectorOfficeAtpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorOfficeAtpState)(nil)).Elem()
 }
 
+// DataConnectorOfficeAtpExists checks whether an existing DataConnectorOfficeAtp resource with the given ID exists.
+func DataConnectorOfficeAtpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorOfficeAtpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp", id, state, "", opts...)
+}
+
 type dataConnectorOfficeAtpArgs struct {
 	// The ID of the Log Analytics Workspace that this Office ATP Data Connector resides in. Changing this forces a new Office ATP Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

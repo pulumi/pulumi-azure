@@ -266,6 +266,12 @@ func (NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState) ElementTyp
 	return reflect.TypeOf((*networkManagerVerifierWorkspaceReachabilityAnalysisIntentState)(nil)).Elem()
 }
 
+// NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentExists checks whether an existing NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resource with the given ID exists.
+func NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent", id, state, "", opts...)
+}
+
 type networkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs struct {
 	// The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
 	Description *string `pulumi:"description"`

@@ -161,20 +161,18 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     @Import(name="storageShareId")
     private @Nullable Output<String> storageShareId;
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     public Optional<Output<String>> storageShareId() {
         return Optional.ofNullable(this.storageShareId);
     }
@@ -428,11 +426,10 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+         * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+        @Deprecated
         public Builder storageShareId(@Nullable Output<String> storageShareId) {
             $.storageShareId = storageShareId;
             return this;
@@ -441,11 +438,10 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+         * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
+        @Deprecated
         public Builder storageShareId(String storageShareId) {
             return storageShareId(Output.of(storageShareId));
         }

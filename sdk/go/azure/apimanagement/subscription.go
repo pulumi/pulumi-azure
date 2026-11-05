@@ -223,6 +223,12 @@ func (SubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionState)(nil)).Elem()
 }
 
+// SubscriptionExists checks whether an existing Subscription resource with the given ID exists.
+func SubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/subscription:Subscription", id, state, "", opts...)
+}
+
 type subscriptionArgs struct {
 	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing *bool `pulumi:"allowTracing"`

@@ -278,6 +278,12 @@ func (DiagnosticSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*diagnosticSettingState)(nil)).Elem()
 }
 
+// DiagnosticSettingExists checks whether an existing DiagnosticSetting resource with the given ID exists.
+func DiagnosticSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiagnosticSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/diagnosticSetting:DiagnosticSetting", id, state, "", opts...)
+}
+
 type diagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	//

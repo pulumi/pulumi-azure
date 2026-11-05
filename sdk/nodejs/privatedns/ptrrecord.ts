@@ -59,6 +59,17 @@ export class PTRRecord extends pulumi.CustomResource {
         return new PTRRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing PTRRecord resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: PTRRecordState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:privatedns/pTRRecord:PTRRecord", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:privatedns/pTRRecord:PTRRecord';
 

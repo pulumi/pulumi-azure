@@ -387,6 +387,20 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         __props__.__dict__["validation_type"] = validation_type
         return StaticSiteCustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            static_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_token: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainName"] = domain_name
+        __props__["staticSiteId"] = static_site_id
+        __props__["validationToken"] = validation_token
+        __props__["validationType"] = validation_type
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:

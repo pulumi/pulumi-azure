@@ -424,6 +424,22 @@ class BgpConnection(pulumi.CustomResource):
         __props__.__dict__["virtual_network_connection_id"] = virtual_network_connection_id
         return BgpConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["peerAsn"] = peer_asn
+        __props__["peerIp"] = peer_ip
+        __props__["virtualHubId"] = virtual_hub_id
+        __props__["virtualNetworkConnectionId"] = virtual_network_connection_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/bgpConnection:BgpConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

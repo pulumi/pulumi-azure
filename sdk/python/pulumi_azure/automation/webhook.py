@@ -569,6 +569,30 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            run_on_worker_group: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["enabled"] = enabled
+        __props__["expiryTime"] = expiry_time
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["runOnWorkerGroup"] = run_on_worker_group
+        __props__["runbookName"] = runbook_name
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'azure:automation/webhook:Webhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

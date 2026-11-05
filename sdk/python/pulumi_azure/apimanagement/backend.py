@@ -697,6 +697,38 @@ class Backend(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Backend(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            circuit_breaker_rule: pulumi.Input[Optional[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict', 'outputs.BackendCircuitBreakerRule']]] = None,
+            credentials: pulumi.Input[Optional[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict', 'outputs.BackendCredentials']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy: pulumi.Input[Optional[Union['BackendProxyArgs', 'BackendProxyArgsDict', 'outputs.BackendProxy']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_fabric_cluster: pulumi.Input[Optional[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict', 'outputs.BackendServiceFabricCluster']]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            tls: pulumi.Input[Optional[Union['BackendTlsArgs', 'BackendTlsArgsDict', 'outputs.BackendTls']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementName"] = api_management_name
+        __props__["circuitBreakerRule"] = circuit_breaker_rule
+        __props__["credentials"] = credentials
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["protocol"] = protocol
+        __props__["proxy"] = proxy
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["resourceId"] = resource_id
+        __props__["serviceFabricCluster"] = service_fabric_cluster
+        __props__["title"] = title
+        __props__["tls"] = tls
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/backend:Backend', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[_builtins.str]:

@@ -182,6 +182,12 @@ func (DataSourceWindowsPerformanceCounterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceWindowsPerformanceCounterState)(nil)).Elem()
 }
 
+// DataSourceWindowsPerformanceCounterExists checks whether an existing DataSourceWindowsPerformanceCounter resource with the given ID exists.
+func DataSourceWindowsPerformanceCounterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceWindowsPerformanceCounterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", id, state, "", opts...)
+}
+
 type dataSourceWindowsPerformanceCounterArgs struct {
 	// The friendly name of the performance counter.
 	CounterName string `pulumi:"counterName"`

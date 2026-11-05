@@ -213,6 +213,12 @@ func (ExadataInfrastructureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*exadataInfrastructureState)(nil)).Elem()
 }
 
+// ExadataInfrastructureExists checks whether an existing ExadataInfrastructure resource with the given ID exists.
+func ExadataInfrastructureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExadataInfrastructureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:oracle/exadataInfrastructure:ExadataInfrastructure", id, state, "", opts...)
+}
+
 type exadataInfrastructureArgs struct {
 	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount int `pulumi:"computeCount"`

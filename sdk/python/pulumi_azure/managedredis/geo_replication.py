@@ -280,6 +280,16 @@ class GeoReplication(pulumi.CustomResource):
         __props__.__dict__["managed_redis_id"] = managed_redis_id
         return GeoReplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            linked_managed_redis_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["linkedManagedRedisIds"] = linked_managed_redis_ids
+        __props__["managedRedisId"] = managed_redis_id
+        return pulumi.runtime.exists_resource(None, 'azure:managedredis/geoReplication:GeoReplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="linkedManagedRedisIds")
     def linked_managed_redis_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

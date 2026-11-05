@@ -599,6 +599,28 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         __props__.__dict__["system_center_virtual_machine_manager_availability_set_ids"] = system_center_virtual_machine_manager_availability_set_ids
         return VirtualMachineManagerVirtualMachineInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']]] = None,
+            infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]]] = None,
+            operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']]] = None,
+            scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]]] = None,
+            system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customLocationId"] = custom_location_id
+        __props__["hardware"] = hardware
+        __props__["infrastructure"] = infrastructure
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["operatingSystem"] = operating_system
+        __props__["scopedResourceId"] = scoped_resource_id
+        __props__["storageDisks"] = storage_disks
+        __props__["systemCenterVirtualMachineManagerAvailabilitySetIds"] = system_center_virtual_machine_manager_availability_set_ids
+        return pulumi.runtime.exists_resource(None, 'azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customLocationId")
     def custom_location_id(self) -> pulumi.Output[_builtins.str]:

@@ -151,6 +151,12 @@ func (FrontdoorEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorEndpointState)(nil)).Elem()
 }
 
+// FrontdoorEndpointExists checks whether an existing FrontdoorEndpoint resource with the given ID exists.
+func FrontdoorEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint", id, state, "", opts...)
+}
+
 type frontdoorEndpointArgs struct {
 	// The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

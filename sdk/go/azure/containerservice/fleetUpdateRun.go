@@ -197,6 +197,12 @@ func (FleetUpdateRunState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetUpdateRunState)(nil)).Elem()
 }
 
+// FleetUpdateRunExists checks whether an existing FleetUpdateRun resource with the given ID exists.
+func FleetUpdateRunExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetUpdateRunState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/fleetUpdateRun:FleetUpdateRun", id, state, "", opts...)
+}
+
 type fleetUpdateRunArgs struct {
 	// The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
 	FleetUpdateStrategyId *string `pulumi:"fleetUpdateStrategyId"`

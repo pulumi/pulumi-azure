@@ -216,6 +216,12 @@ func (HybridConnectionAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridConnectionAuthorizationRuleState)(nil)).Elem()
 }
 
+// HybridConnectionAuthorizationRuleExists checks whether an existing HybridConnectionAuthorizationRule resource with the given ID exists.
+func HybridConnectionAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HybridConnectionAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule", id, state, "", opts...)
+}
+
 type hybridConnectionAuthorizationRuleArgs struct {
 	// Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
 	HybridConnectionName string `pulumi:"hybridConnectionName"`

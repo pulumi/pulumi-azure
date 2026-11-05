@@ -29,11 +29,10 @@ public final class DiagnosticSettingEnabledLog {
      */
     private @Nullable String categoryGroup;
     /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * @deprecated `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated
     private @Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
 
     private DiagnosticSettingEnabledLog() {}
@@ -58,11 +57,10 @@ public final class DiagnosticSettingEnabledLog {
         return Optional.ofNullable(this.categoryGroup);
     }
     /**
-     * @deprecated
-     * `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * @deprecated `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated
     public Optional<DiagnosticSettingEnabledLogRetentionPolicy> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }

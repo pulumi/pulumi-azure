@@ -252,6 +252,12 @@ func (SpringCloudServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudServiceState)(nil)).Elem()
 }
 
+// SpringCloudServiceExists checks whether an existing SpringCloudService resource with the given ID exists.
+func SpringCloudServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudService:SpringCloudService", id, state, "", opts...)
+}
+
 type springCloudServiceArgs struct {
 	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`

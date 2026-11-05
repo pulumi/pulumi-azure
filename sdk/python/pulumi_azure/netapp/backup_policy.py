@@ -543,6 +543,30 @@ class BackupPolicy(pulumi.CustomResource):
         __props__.__dict__["weekly_backups_to_keep"] = weekly_backups_to_keep
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            monthly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            weekly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["dailyBackupsToKeep"] = daily_backups_to_keep
+        __props__["enabled"] = enabled
+        __props__["location"] = location
+        __props__["monthlyBackupsToKeep"] = monthly_backups_to_keep
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["weeklyBackupsToKeep"] = weekly_backups_to_keep
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/backupPolicy:BackupPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

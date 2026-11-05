@@ -137,6 +137,12 @@ func (DataConnectorIotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorIotState)(nil)).Elem()
 }
 
+// DataConnectorIotExists checks whether an existing DataConnectorIot resource with the given ID exists.
+func DataConnectorIotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorIotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorIot:DataConnectorIot", id, state, "", opts...)
+}
+
 type dataConnectorIotArgs struct {
 	// The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

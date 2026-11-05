@@ -151,6 +151,12 @@ func (PostgresqlRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresqlRoleState)(nil)).Elem()
 }
 
+// PostgresqlRoleExists checks whether an existing PostgresqlRole resource with the given ID exists.
+func PostgresqlRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresqlRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/postgresqlRole:PostgresqlRole", id, state, "", opts...)
+}
+
 type postgresqlRoleArgs struct {
 	// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`

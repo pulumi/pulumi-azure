@@ -151,6 +151,12 @@ func (FlexibleServerDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerDatabaseState)(nil)).Elem()
 }
 
+// FlexibleServerDatabaseExists checks whether an existing FlexibleServerDatabase resource with the given ID exists.
+func FlexibleServerDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase", id, state, "", opts...)
+}
+
 type flexibleServerDatabaseArgs struct {
 	// Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Charset *string `pulumi:"charset"`

@@ -464,6 +464,26 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return DataLakeGen2Filesystem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]]] = None,
+            default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aces"] = aces
+        __props__["defaultEncryptionScope"] = default_encryption_scope
+        __props__["group"] = group
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["properties"] = properties
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aces(self) -> pulumi.Output[Sequence['outputs.DataLakeGen2FilesystemAce']]:

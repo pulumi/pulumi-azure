@@ -764,6 +764,34 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["target_resource_id"] = target_resource_id
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict', 'outputs.DiagnosticSettingEnabledLog']]]]] = None,
+            enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledMetricArgs', 'DiagnosticSettingEnabledMetricArgsDict', 'outputs.DiagnosticSettingEnabledMetric']]]]] = None,
+            eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict', 'outputs.DiagnosticSettingMetric']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabledLogs"] = enabled_logs
+        __props__["enabledMetrics"] = enabled_metrics
+        __props__["eventhubAuthorizationRuleId"] = eventhub_authorization_rule_id
+        __props__["eventhubName"] = eventhub_name
+        __props__["logAnalyticsDestinationType"] = log_analytics_destination_type
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["metrics"] = metrics
+        __props__["name"] = name
+        __props__["partnerSolutionId"] = partner_solution_id
+        __props__["storageAccountId"] = storage_account_id
+        __props__["targetResourceId"] = target_resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/diagnosticSetting:DiagnosticSetting', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enabledLogs")
     def enabled_logs(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingEnabledLog']]]:

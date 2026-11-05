@@ -204,6 +204,12 @@ func (SqlRoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlRoleAssignmentState)(nil)).Elem()
 }
 
+// SqlRoleAssignmentExists checks whether an existing SqlRoleAssignment resource with the given ID exists.
+func SqlRoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlRoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment", id, state, "", opts...)
+}
+
 type sqlRoleAssignmentArgs struct {
 	// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

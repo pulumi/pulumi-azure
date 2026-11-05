@@ -202,6 +202,12 @@ func (BgpConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpConnectionState)(nil)).Elem()
 }
 
+// BgpConnectionExists checks whether an existing BgpConnection resource with the given ID exists.
+func BgpConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BgpConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/bgpConnection:BgpConnection", id, state, "", opts...)
+}
+
 type bgpConnectionArgs struct {
 	// The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

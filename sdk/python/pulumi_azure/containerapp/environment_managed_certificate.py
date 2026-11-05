@@ -471,6 +471,24 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
         __props__.__dict__["validation_token"] = validation_token
         return EnvironmentManagedCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_control_validation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validation_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["domainControlValidation"] = domain_control_validation
+        __props__["name"] = name
+        __props__["subjectName"] = subject_name
+        __props__["tags"] = tags
+        __props__["validationToken"] = validation_token
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerAppEnvironmentId")
     def container_app_environment_id(self) -> pulumi.Output[_builtins.str]:

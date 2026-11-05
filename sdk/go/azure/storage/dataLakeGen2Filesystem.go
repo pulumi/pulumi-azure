@@ -168,6 +168,12 @@ func (DataLakeGen2FilesystemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeGen2FilesystemState)(nil)).Elem()
 }
 
+// DataLakeGen2FilesystemExists checks whether an existing DataLakeGen2Filesystem resource with the given ID exists.
+func DataLakeGen2FilesystemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeGen2FilesystemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", id, state, "", opts...)
+}
+
 type dataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`

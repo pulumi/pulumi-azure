@@ -186,6 +186,12 @@ func (SlotCustomHostnameBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotCustomHostnameBindingState)(nil)).Elem()
 }
 
+// SlotCustomHostnameBindingExists checks whether an existing SlotCustomHostnameBinding resource with the given ID exists.
+func SlotCustomHostnameBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SlotCustomHostnameBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", id, state, "", opts...)
+}
+
 type slotCustomHostnameBindingArgs struct {
 	// The ID of the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceSlotId string `pulumi:"appServiceSlotId"`

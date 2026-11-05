@@ -207,6 +207,12 @@ func (ExpressRoutePortState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRoutePortState)(nil)).Elem()
 }
 
+// ExpressRoutePortExists checks whether an existing ExpressRoutePort resource with the given ID exists.
+func ExpressRoutePortExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRoutePortState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRoutePort:ExpressRoutePort", id, state, "", opts...)
+}
+
 type expressRoutePortArgs struct {
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps int `pulumi:"bandwidthInGbps"`

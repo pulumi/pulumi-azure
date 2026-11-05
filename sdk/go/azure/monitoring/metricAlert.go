@@ -291,6 +291,12 @@ func (MetricAlertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlertState)(nil)).Elem()
 }
 
+// MetricAlertExists checks whether an existing MetricAlert resource with the given ID exists.
+func MetricAlertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricAlertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/metricAlert:MetricAlert", id, state, "", opts...)
+}
+
 type metricAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions []MetricAlertAction `pulumi:"actions"`

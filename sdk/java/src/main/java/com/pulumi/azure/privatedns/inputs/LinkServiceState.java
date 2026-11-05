@@ -65,20 +65,18 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableProxyProtocol")
     private @Nullable Output<Boolean> enableProxyProtocol;
 
     /**
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableProxyProtocol() {
         return Optional.ofNullable(this.enableProxyProtocol);
     }
@@ -334,11 +332,10 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableProxyProtocol(@Nullable Output<Boolean> enableProxyProtocol) {
             $.enableProxyProtocol = enableProxyProtocol;
             return this;
@@ -347,11 +344,10 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
             return enableProxyProtocol(Output.of(enableProxyProtocol));
         }

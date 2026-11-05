@@ -209,6 +209,12 @@ func (DatasetBinaryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetBinaryState)(nil)).Elem()
 }
 
+// DatasetBinaryExists checks whether an existing DatasetBinary resource with the given ID exists.
+func DatasetBinaryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetBinaryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetBinary:DatasetBinary", id, state, "", opts...)
+}
+
 type datasetBinaryArgs struct {
 	// A map of additional properties to associate with the Data Factory Binary Dataset.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

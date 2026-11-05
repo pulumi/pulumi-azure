@@ -313,6 +313,18 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         return HyperVReplicationPolicyAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            hyperv_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["hypervSiteId"] = hyperv_site_id
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="hypervSiteId")
     def hyperv_site_id(self) -> pulumi.Output[_builtins.str]:

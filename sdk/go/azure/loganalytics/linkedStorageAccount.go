@@ -168,6 +168,12 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedStorageAccountState)(nil)).Elem()
 }
 
+// LinkedStorageAccountExists checks whether an existing LinkedStorageAccount resource with the given ID exists.
+func LinkedStorageAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedStorageAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/linkedStorageAccount:LinkedStorageAccount", id, state, "", opts...)
+}
+
 type linkedStorageAccountArgs struct {
 	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType string `pulumi:"dataSourceType"`

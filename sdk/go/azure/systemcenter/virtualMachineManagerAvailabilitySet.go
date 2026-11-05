@@ -167,6 +167,12 @@ func (VirtualMachineManagerAvailabilitySetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineManagerAvailabilitySetState)(nil)).Elem()
 }
 
+// VirtualMachineManagerAvailabilitySetExists checks whether an existing VirtualMachineManagerAvailabilitySet resource with the given ID exists.
+func VirtualMachineManagerAvailabilitySetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineManagerAvailabilitySetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", id, state, "", opts...)
+}
+
 type virtualMachineManagerAvailabilitySetArgs struct {
 	// The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

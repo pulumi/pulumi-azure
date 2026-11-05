@@ -48,20 +48,18 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="clusterResourceId")
     private @Nullable Output<String> clusterResourceId;
 
     /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<Output<String>> clusterResourceId() {
         return Optional.ofNullable(this.clusterResourceId);
     }
@@ -269,11 +267,10 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
         /**
          * @return builder
          * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+         * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder clusterResourceId(@Nullable Output<String> clusterResourceId) {
             $.clusterResourceId = clusterResourceId;
             return this;
@@ -282,11 +279,10 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
         /**
          * @return builder
          * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+         * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder clusterResourceId(String clusterResourceId) {
             return clusterResourceId(Output.of(clusterResourceId));
         }

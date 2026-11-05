@@ -231,6 +231,12 @@ func (ManangementLockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*manangementLockState)(nil)).Elem()
 }
 
+// ManangementLockExists checks whether an existing ManangementLock resource with the given ID exists.
+func ManangementLockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManangementLockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:managementresource/manangementLock:ManangementLock", id, state, "", opts...)
+}
+
 type manangementLockArgs struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
 	//

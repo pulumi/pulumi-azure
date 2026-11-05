@@ -479,6 +479,28 @@ class VirtualWan(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            office365_local_breakout_category: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowBranchToBranchTraffic"] = allow_branch_to_branch_traffic
+        __props__["disableVpnEncryption"] = disable_vpn_encryption
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["office365LocalBreakoutCategory"] = office365_local_breakout_category
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualWan:VirtualWan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowBranchToBranchTraffic")
     def allow_branch_to_branch_traffic(self) -> pulumi.Output[Optional[_builtins.bool]]:

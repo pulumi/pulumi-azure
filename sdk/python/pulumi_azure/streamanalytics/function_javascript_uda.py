@@ -405,6 +405,22 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         return FunctionJavascriptUda(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict', 'outputs.FunctionJavascriptUdaInput']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output: pulumi.Input[Optional[Union['FunctionJavascriptUdaOutputArgs', 'FunctionJavascriptUdaOutputArgsDict', 'outputs.FunctionJavascriptUdaOutput']]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["inputs"] = inputs
+        __props__["name"] = name
+        __props__["output"] = output
+        __props__["script"] = script
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def inputs(self) -> pulumi.Output[Sequence['outputs.FunctionJavascriptUdaInput']]:

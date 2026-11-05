@@ -464,6 +464,12 @@ func (RunCommandState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runCommandState)(nil)).Elem()
 }
 
+// RunCommandExists checks whether an existing RunCommand resource with the given ID exists.
+func RunCommandExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RunCommandState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/runCommand:RunCommand", id, state, "", opts...)
+}
+
 type runCommandArgs struct {
 	// An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
 	ErrorBlobManagedIdentity *RunCommandErrorBlobManagedIdentity `pulumi:"errorBlobManagedIdentity"`

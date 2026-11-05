@@ -279,6 +279,12 @@ func (SubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionState)(nil)).Elem()
 }
 
+// SubscriptionExists checks whether an existing Subscription resource with the given ID exists.
+func SubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscription:Subscription", id, state, "", opts...)
+}
+
 type subscriptionArgs struct {
 	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias *string `pulumi:"alias"`

@@ -515,6 +515,32 @@ class WebAppHybridConnection(pulumi.CustomResource):
         __props__.__dict__["web_app_id"] = web_app_id
         return WebAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            web_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["hostname"] = hostname
+        __props__["namespaceName"] = namespace_name
+        __props__["port"] = port
+        __props__["relayId"] = relay_id
+        __props__["relayName"] = relay_name
+        __props__["sendKeyName"] = send_key_name
+        __props__["sendKeyValue"] = send_key_value
+        __props__["serviceBusNamespace"] = service_bus_namespace
+        __props__["serviceBusSuffix"] = service_bus_suffix
+        __props__["webAppId"] = web_app_id
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/webAppHybridConnection:WebAppHybridConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def hostname(self) -> pulumi.Output[_builtins.str]:

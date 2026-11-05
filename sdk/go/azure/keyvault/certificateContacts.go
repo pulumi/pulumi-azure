@@ -158,6 +158,12 @@ func (CertificateContactsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateContactsState)(nil)).Elem()
 }
 
+// CertificateContactsExists checks whether an existing CertificateContacts resource with the given ID exists.
+func CertificateContactsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateContactsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/certificateContacts:CertificateContacts", id, state, "", opts...)
+}
+
 type certificateContactsArgs struct {
 	// One or more `contact` blocks as defined below.
 	Contacts []CertificateContactsContact `pulumi:"contacts"`

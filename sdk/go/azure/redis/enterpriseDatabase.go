@@ -228,6 +228,12 @@ func (EnterpriseDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enterpriseDatabaseState)(nil)).Elem()
 }
 
+// EnterpriseDatabaseExists checks whether an existing EnterpriseDatabase resource with the given ID exists.
+func EnterpriseDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnterpriseDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/enterpriseDatabase:EnterpriseDatabase", id, state, "", opts...)
+}
+
 type enterpriseDatabaseArgs struct {
 	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol *string `pulumi:"clientProtocol"`

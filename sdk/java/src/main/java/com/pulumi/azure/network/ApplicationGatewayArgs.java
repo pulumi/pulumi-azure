@@ -145,20 +145,18 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableHttp2")
     private @Nullable Output<Boolean> enableHttp2;
 
     /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableHttp2() {
         return Optional.ofNullable(this.enableHttp2);
     }
@@ -884,11 +882,10 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableHttp2(@Nullable Output<Boolean> enableHttp2) {
             $.enableHttp2 = enableHttp2;
             return this;
@@ -897,11 +894,10 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableHttp2(Boolean enableHttp2) {
             return enableHttp2(Output.of(enableHttp2));
         }

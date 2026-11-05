@@ -241,6 +241,12 @@ func (ReferenceInputMssqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceInputMssqlState)(nil)).Elem()
 }
 
+// ReferenceInputMssqlExists checks whether an existing ReferenceInputMssql resource with the given ID exists.
+func ReferenceInputMssqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReferenceInputMssqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/referenceInputMssql:ReferenceInputMssql", id, state, "", opts...)
+}
+
 type referenceInputMssqlArgs struct {
 	// The MS SQL database name where the reference data exists.
 	Database string `pulumi:"database"`

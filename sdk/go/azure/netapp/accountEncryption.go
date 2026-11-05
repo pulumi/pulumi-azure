@@ -269,6 +269,12 @@ func (AccountEncryptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountEncryptionState)(nil)).Elem()
 }
 
+// AccountEncryptionExists checks whether an existing AccountEncryption resource with the given ID exists.
+func AccountEncryptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountEncryptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/accountEncryption:AccountEncryption", id, state, "", opts...)
+}
+
 type accountEncryptionArgs struct {
 	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
 	CrossTenantKeyVaultResourceId *string `pulumi:"crossTenantKeyVaultResourceId"`

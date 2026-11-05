@@ -656,6 +656,32 @@ class ProjectPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ProjectPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_attached_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_administrator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["devBoxDefinitionName"] = dev_box_definition_name
+        __props__["devCenterAttachedNetworkName"] = dev_center_attached_network_name
+        __props__["devCenterProjectId"] = dev_center_project_id
+        __props__["localAdministratorEnabled"] = local_administrator_enabled
+        __props__["location"] = location
+        __props__["managedVirtualNetworkRegions"] = managed_virtual_network_regions
+        __props__["name"] = name
+        __props__["singleSignOnEnabled"] = single_sign_on_enabled
+        __props__["stopOnDisconnectGracePeriodMinutes"] = stop_on_disconnect_grace_period_minutes
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/projectPool:ProjectPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="devBoxDefinitionName")
     def dev_box_definition_name(self) -> pulumi.Output[_builtins.str]:

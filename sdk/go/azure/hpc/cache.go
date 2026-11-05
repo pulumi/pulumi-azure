@@ -276,6 +276,12 @@ func (CacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheState)(nil)).Elem()
 }
 
+// CacheExists checks whether an existing Cache resource with the given ID exists.
+func CacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hpc/cache:Cache", id, state, "", opts...)
+}
+
 type cacheArgs struct {
 	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`

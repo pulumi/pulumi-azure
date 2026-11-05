@@ -389,6 +389,20 @@ class MongoUserDefinition(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return MongoUserDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cosmosMongoDatabaseId"] = cosmos_mongo_database_id
+        __props__["inheritedRoleNames"] = inherited_role_names
+        __props__["password"] = password
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/mongoUserDefinition:MongoUserDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cosmosMongoDatabaseId")
     def cosmos_mongo_database_id(self) -> pulumi.Output[_builtins.str]:

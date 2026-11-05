@@ -1526,6 +1526,80 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
+            create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
+            data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']]] = None,
+            data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']]] = None,
+            data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']]] = None,
+            encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+            export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]]] = None,
+            kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mount_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_features: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            security_style: pulumi.Input[Optional[_builtins.str]] = None,
+            service_level: pulumi.Input[Optional[_builtins.str]] = None,
+            smb3_protocol_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_access_based_enumeration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_continuous_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_non_browsable_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_quota_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_in_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+            volume_path: pulumi.Input[Optional[_builtins.str]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptGrowCapacityPoolForShortTermCloneSplit"] = accept_grow_capacity_pool_for_short_term_clone_split
+        __props__["accountName"] = account_name
+        __props__["azureVmwareDataStoreEnabled"] = azure_vmware_data_store_enabled
+        __props__["coolAccess"] = cool_access
+        __props__["createFromSnapshotResourceId"] = create_from_snapshot_resource_id
+        __props__["dataProtectionAdvancedRansomware"] = data_protection_advanced_ransomware
+        __props__["dataProtectionBackupPolicy"] = data_protection_backup_policy
+        __props__["dataProtectionReplication"] = data_protection_replication
+        __props__["dataProtectionSnapshotPolicy"] = data_protection_snapshot_policy
+        __props__["encryptionKeySource"] = encryption_key_source
+        __props__["exportPolicyRules"] = export_policy_rules
+        __props__["kerberosEnabled"] = kerberos_enabled
+        __props__["keyVaultPrivateEndpointId"] = key_vault_private_endpoint_id
+        __props__["largeVolumeEnabled"] = large_volume_enabled
+        __props__["location"] = location
+        __props__["mountIpAddresses"] = mount_ip_addresses
+        __props__["name"] = name
+        __props__["networkFeatures"] = network_features
+        __props__["poolName"] = pool_name
+        __props__["protocols"] = protocols
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["securityStyle"] = security_style
+        __props__["serviceLevel"] = service_level
+        __props__["smb3ProtocolEncryptionEnabled"] = smb3_protocol_encryption_enabled
+        __props__["smbAccessBasedEnumerationEnabled"] = smb_access_based_enumeration_enabled
+        __props__["smbContinuousAvailabilityEnabled"] = smb_continuous_availability_enabled
+        __props__["smbNonBrowsableEnabled"] = smb_non_browsable_enabled
+        __props__["snapshotDirectoryVisible"] = snapshot_directory_visible
+        __props__["storageQuotaInGb"] = storage_quota_in_gb
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["throughputInMibps"] = throughput_in_mibps
+        __props__["volumePath"] = volume_path
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'azure:netapp/volume:Volume', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptGrowCapacityPoolForShortTermCloneSplit")
     def accept_grow_capacity_pool_for_short_term_clone_split(self) -> pulumi.Output[Optional[_builtins.str]]:

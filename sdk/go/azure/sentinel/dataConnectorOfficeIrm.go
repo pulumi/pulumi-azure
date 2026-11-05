@@ -143,6 +143,12 @@ func (DataConnectorOfficeIrmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorOfficeIrmState)(nil)).Elem()
 }
 
+// DataConnectorOfficeIrmExists checks whether an existing DataConnectorOfficeIrm resource with the given ID exists.
+func DataConnectorOfficeIrmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorOfficeIrmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm", id, state, "", opts...)
+}
+
 type dataConnectorOfficeIrmArgs struct {
 	// The ID of the Log Analytics Workspace that this Office IRM Data Connector resides in. Changing this forces a new Office IRM Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

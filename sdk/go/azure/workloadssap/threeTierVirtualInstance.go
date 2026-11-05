@@ -510,6 +510,12 @@ func (ThreeTierVirtualInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*threeTierVirtualInstanceState)(nil)).Elem()
 }
 
+// ThreeTierVirtualInstanceExists checks whether an existing ThreeTierVirtualInstance resource with the given ID exists.
+func ThreeTierVirtualInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThreeTierVirtualInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance", id, state, "", opts...)
+}
+
 type threeTierVirtualInstanceArgs struct {
 	// The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
 	AppLocation string `pulumi:"appLocation"`

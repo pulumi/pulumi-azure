@@ -397,6 +397,22 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["redis_cache_id"] = redis_cache_id
         return CacheAccessPolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessPolicyName"] = access_policy_name
+        __props__["name"] = name
+        __props__["objectId"] = object_id
+        __props__["objectIdAlias"] = object_id_alias
+        __props__["redisCacheId"] = redis_cache_id
+        return pulumi.runtime.exists_resource(None, 'azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
     def access_policy_name(self) -> pulumi.Output[_builtins.str]:

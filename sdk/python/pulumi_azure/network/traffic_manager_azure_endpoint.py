@@ -614,6 +614,32 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         __props__.__dict__["weight"] = weight
         return TrafficManagerAzureEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weight: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alwaysServeEnabled"] = always_serve_enabled
+        __props__["customHeaders"] = custom_headers
+        __props__["enabled"] = enabled
+        __props__["geoMappings"] = geo_mappings
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["profileId"] = profile_id
+        __props__["subnets"] = subnets
+        __props__["targetResourceId"] = target_resource_id
+        __props__["weight"] = weight
+        return pulumi.runtime.exists_resource(None, 'azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alwaysServeEnabled")
     def always_serve_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

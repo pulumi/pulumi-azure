@@ -158,6 +158,12 @@ func (NotificationRecipientUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRecipientUserState)(nil)).Elem()
 }
 
+// NotificationRecipientUserExists checks whether an existing NotificationRecipientUser resource with the given ID exists.
+func NotificationRecipientUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationRecipientUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser", id, state, "", opts...)
+}
+
 type notificationRecipientUserArgs struct {
 	// The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

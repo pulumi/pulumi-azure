@@ -173,6 +173,12 @@ func (VirtualHubConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubConnectionState)(nil)).Elem()
 }
 
+// VirtualHubConnectionExists checks whether an existing VirtualHubConnection resource with the given ID exists.
+func VirtualHubConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHubConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualHubConnection:VirtualHubConnection", id, state, "", opts...)
+}
+
 type virtualHubConnectionArgs struct {
 	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`

@@ -146,6 +146,12 @@ func (PostgresqlNodeConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresqlNodeConfigurationState)(nil)).Elem()
 }
 
+// PostgresqlNodeConfigurationExists checks whether an existing PostgresqlNodeConfiguration resource with the given ID exists.
+func PostgresqlNodeConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresqlNodeConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", id, state, "", opts...)
+}
+
 type postgresqlNodeConfigurationArgs struct {
 	// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`

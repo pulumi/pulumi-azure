@@ -28,11 +28,10 @@ public final class GetFrontdoorCustomDomainTl {
      */
     private List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites;
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private String minimumTlsVersion;
     /**
      * @return The TLS protocol version that will be used for Https connections.
@@ -63,11 +62,10 @@ public final class GetFrontdoorCustomDomainTl {
         return this.cipherSuites;
     }
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public String minimumTlsVersion() {
         return this.minimumTlsVersion;
     }

@@ -206,6 +206,12 @@ func (ScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleState)(nil)).Elem()
 }
 
+// ScheduleExists checks whether an existing Schedule resource with the given ID exists.
+func ScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/schedule:Schedule", id, state, "", opts...)
+}
+
 type scheduleArgs struct {
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

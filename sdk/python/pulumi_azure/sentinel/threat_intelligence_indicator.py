@@ -1120,6 +1120,68 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return ThreatIntelligenceIndicator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            confidence: pulumi.Input[Optional[_builtins.int]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            defanged: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extension: pulumi.Input[Optional[_builtins.str]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            external_last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            external_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict', 'outputs.ThreatIntelligenceIndicatorExternalReference']]]]] = None,
+            granular_markings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict', 'outputs.ThreatIntelligenceIndicatorGranularMarking']]]]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            indicator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kill_chain_phases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorKillChainPhaseArgs', 'ThreatIntelligenceIndicatorKillChainPhaseArgsDict', 'outputs.ThreatIntelligenceIndicatorKillChainPhase']]]]] = None,
+            language: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            object_marking_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parsed_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorParsedPatternArgs', 'ThreatIntelligenceIndicatorParsedPatternArgsDict', 'outputs.ThreatIntelligenceIndicatorParsedPattern']]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern_version: pulumi.Input[Optional[_builtins.str]] = None,
+            revoked: pulumi.Input[Optional[_builtins.bool]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            threat_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            validate_from_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            validate_until_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["confidence"] = confidence
+        __props__["createdBy"] = created_by
+        __props__["createdOn"] = created_on
+        __props__["defanged"] = defanged
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["extension"] = extension
+        __props__["externalId"] = external_id
+        __props__["externalLastUpdatedTimeUtc"] = external_last_updated_time_utc
+        __props__["externalReferences"] = external_references
+        __props__["granularMarkings"] = granular_markings
+        __props__["guid"] = guid
+        __props__["indicatorTypes"] = indicator_types
+        __props__["killChainPhases"] = kill_chain_phases
+        __props__["language"] = language
+        __props__["lastUpdatedTimeUtc"] = last_updated_time_utc
+        __props__["objectMarkingRefs"] = object_marking_refs
+        __props__["parsedPatterns"] = parsed_patterns
+        __props__["pattern"] = pattern
+        __props__["patternType"] = pattern_type
+        __props__["patternVersion"] = pattern_version
+        __props__["revoked"] = revoked
+        __props__["source"] = source
+        __props__["tags"] = tags
+        __props__["threatTypes"] = threat_types
+        __props__["validateFromUtc"] = validate_from_utc
+        __props__["validateUntilUtc"] = validate_until_utc
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def confidence(self) -> pulumi.Output[Optional[_builtins.int]]:

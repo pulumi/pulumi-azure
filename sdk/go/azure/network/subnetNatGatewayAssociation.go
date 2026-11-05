@@ -155,6 +155,12 @@ func (SubnetNatGatewayAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNatGatewayAssociationState)(nil)).Elem()
 }
 
+// SubnetNatGatewayAssociationExists checks whether an existing SubnetNatGatewayAssociation resource with the given ID exists.
+func SubnetNatGatewayAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubnetNatGatewayAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation", id, state, "", opts...)
+}
+
 type subnetNatGatewayAssociationArgs struct {
 	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId string `pulumi:"natGatewayId"`

@@ -241,6 +241,12 @@ func (PolicyFileShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyFileShareState)(nil)).Elem()
 }
 
+// PolicyFileShareExists checks whether an existing PolicyFileShare resource with the given ID exists.
+func PolicyFileShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyFileShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/policyFileShare:PolicyFileShare", id, state, "", opts...)
+}
+
 type policyFileShareArgs struct {
 	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackup `pulumi:"backup"`

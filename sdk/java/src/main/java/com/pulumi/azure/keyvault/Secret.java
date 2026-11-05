@@ -251,7 +251,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `&#92;n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/&#92;n/&#34;, &#34;&#92;n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     @Export(name="valueWoVersion", refs={Integer.class}, tree="[0]")
@@ -260,7 +260,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
     /**
      * @return An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `&#92;n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/&#92;n/&#34;, &#34;&#92;n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     public Output<Optional<Integer>> valueWoVersion() {

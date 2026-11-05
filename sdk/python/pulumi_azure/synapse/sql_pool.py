@@ -630,6 +630,34 @@ class SqlPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return SqlPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["collation"] = collation
+        __props__["createMode"] = create_mode
+        __props__["dataEncrypted"] = data_encrypted
+        __props__["geoBackupPolicyEnabled"] = geo_backup_policy_enabled
+        __props__["name"] = name
+        __props__["recoveryDatabaseId"] = recovery_database_id
+        __props__["restore"] = restore
+        __props__["skuName"] = sku_name
+        __props__["storageAccountType"] = storage_account_type
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/sqlPool:SqlPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def collation(self) -> pulumi.Output[_builtins.str]:

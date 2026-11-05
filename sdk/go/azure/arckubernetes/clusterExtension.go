@@ -205,6 +205,12 @@ func (ClusterExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterExtensionState)(nil)).Elem()
 }
 
+// ClusterExtensionExists checks whether an existing ClusterExtension resource with the given ID exists.
+func ClusterExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arckubernetes/clusterExtension:ClusterExtension", id, state, "", opts...)
+}
+
 type clusterExtensionArgs struct {
 	// Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ClusterId string `pulumi:"clusterId"`

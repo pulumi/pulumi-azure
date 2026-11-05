@@ -224,6 +224,12 @@ func (SubscriptionPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionPolicyAssignmentState)(nil)).Elem()
 }
 
+// SubscriptionPolicyAssignmentExists checks whether an existing SubscriptionPolicyAssignment resource with the given ID exists.
+func SubscriptionPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment", id, state, "", opts...)
+}
+
 type subscriptionPolicyAssignmentArgs struct {
 	// A description which should be used for this Policy Assignment.
 	Description *string `pulumi:"description"`

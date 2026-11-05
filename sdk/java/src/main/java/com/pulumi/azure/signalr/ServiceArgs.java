@@ -116,20 +116,18 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
+     * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
+    @Deprecated
     @Import(name="liveTraceEnabled")
     private @Nullable Output<Boolean> liveTraceEnabled;
 
     /**
-     * @deprecated
-     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
+     * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
+    @Deprecated
     public Optional<Output<Boolean>> liveTraceEnabled() {
         return Optional.ofNullable(this.liveTraceEnabled);
     }
@@ -503,11 +501,10 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
+         * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
          * 
          */
-        @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
+        @Deprecated
         public Builder liveTraceEnabled(@Nullable Output<Boolean> liveTraceEnabled) {
             $.liveTraceEnabled = liveTraceEnabled;
             return this;
@@ -516,11 +513,10 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
+         * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
          * 
          */
-        @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
+        @Deprecated
         public Builder liveTraceEnabled(Boolean liveTraceEnabled) {
             return liveTraceEnabled(Output.of(liveTraceEnabled));
         }

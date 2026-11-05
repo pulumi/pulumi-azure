@@ -215,6 +215,12 @@ func (ElasticsearchState) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticsearchState)(nil)).Elem()
 }
 
+// ElasticsearchExists checks whether an existing Elasticsearch resource with the given ID exists.
+func ElasticsearchExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ElasticsearchState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:elasticcloud/elasticsearch:Elasticsearch", id, state, "", opts...)
+}
+
 type elasticsearchArgs struct {
 	// Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
 	ElasticCloudEmailAddress string `pulumi:"elasticCloudEmailAddress"`

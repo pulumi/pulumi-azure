@@ -176,6 +176,12 @@ func (AttachedNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachedNetworkState)(nil)).Elem()
 }
 
+// AttachedNetworkExists checks whether an existing AttachedNetwork resource with the given ID exists.
+func AttachedNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachedNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/attachedNetwork:AttachedNetwork", id, state, "", opts...)
+}
+
 type attachedNetworkArgs struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId string `pulumi:"devCenterId"`

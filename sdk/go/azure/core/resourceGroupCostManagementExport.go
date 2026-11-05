@@ -208,6 +208,12 @@ func (ResourceGroupCostManagementExportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupCostManagementExportState)(nil)).Elem()
 }
 
+// ResourceGroupCostManagementExportExists checks whether an existing ResourceGroupCostManagementExport resource with the given ID exists.
+func ResourceGroupCostManagementExportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupCostManagementExportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport", id, state, "", opts...)
+}
+
 type resourceGroupCostManagementExportArgs struct {
 	// Is the cost management export active? Default is `true`.
 	Active *bool `pulumi:"active"`

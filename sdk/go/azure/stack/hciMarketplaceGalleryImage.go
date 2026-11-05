@@ -143,6 +143,12 @@ func (HciMarketplaceGalleryImageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciMarketplaceGalleryImageState)(nil)).Elem()
 }
 
+// HciMarketplaceGalleryImageExists checks whether an existing HciMarketplaceGalleryImage resource with the given ID exists.
+func HciMarketplaceGalleryImageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciMarketplaceGalleryImageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage", id, state, "", opts...)
+}
+
 type hciMarketplaceGalleryImageArgs struct {
 	// The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

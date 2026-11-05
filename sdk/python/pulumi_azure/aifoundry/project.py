@@ -616,6 +616,32 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ai_services_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aiServicesHubId"] = ai_services_hub_id
+        __props__["description"] = description
+        __props__["friendlyName"] = friendly_name
+        __props__["highBusinessImpactEnabled"] = high_business_impact_enabled
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primaryUserAssignedIdentity"] = primary_user_assigned_identity
+        __props__["projectId"] = project_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:aifoundry/project:Project', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aiServicesHubId")
     def ai_services_hub_id(self) -> pulumi.Output[_builtins.str]:

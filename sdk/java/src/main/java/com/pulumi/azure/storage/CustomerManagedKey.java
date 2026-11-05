@@ -179,11 +179,10 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.federatedIdentityClientId);
     }
     /**
-     * @deprecated
-     * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
@@ -191,11 +190,10 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return this.keyName;
     }
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
@@ -217,11 +215,10 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return this.keyVaultKeyId;
     }
     /**
-     * @deprecated
-     * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="keyVaultUri", refs={String.class}, tree="[0]")
     private Output<String> keyVaultUri;
 
@@ -229,11 +226,10 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return this.keyVaultUri;
     }
     /**
-     * @deprecated
-     * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="keyVersion", refs={String.class}, tree="[0]")
     private Output<String> keyVersion;
 
@@ -241,11 +237,10 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return this.keyVersion;
     }
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output<String> managedHsmKeyId;
 

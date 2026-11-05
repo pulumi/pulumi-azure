@@ -234,6 +234,12 @@ func (CustomCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customCertificateState)(nil)).Elem()
 }
 
+// CustomCertificateExists checks whether an existing CustomCertificate resource with the given ID exists.
+func CustomCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:webpubsub/customCertificate:CustomCertificate", id, state, "", opts...)
+}
+
 type customCertificateArgs struct {
 	// The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
 	//

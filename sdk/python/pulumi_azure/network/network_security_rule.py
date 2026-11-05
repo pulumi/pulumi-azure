@@ -930,6 +930,48 @@ class NetworkSecurityRule(pulumi.CustomResource):
         __props__.__dict__["source_port_ranges"] = source_port_ranges
         return NetworkSecurityRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destination_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_application_security_group_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["access"] = access
+        __props__["description"] = description
+        __props__["destinationAddressPrefix"] = destination_address_prefix
+        __props__["destinationAddressPrefixes"] = destination_address_prefixes
+        __props__["destinationApplicationSecurityGroupIds"] = destination_application_security_group_ids
+        __props__["destinationPortRange"] = destination_port_range
+        __props__["destinationPortRanges"] = destination_port_ranges
+        __props__["direction"] = direction
+        __props__["name"] = name
+        __props__["networkSecurityGroupName"] = network_security_group_name
+        __props__["priority"] = priority
+        __props__["protocol"] = protocol
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceAddressPrefix"] = source_address_prefix
+        __props__["sourceAddressPrefixes"] = source_address_prefixes
+        __props__["sourceApplicationSecurityGroupIds"] = source_application_security_group_ids
+        __props__["sourcePortRange"] = source_port_range
+        __props__["sourcePortRanges"] = source_port_ranges
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkSecurityRule:NetworkSecurityRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def access(self) -> pulumi.Output[_builtins.str]:

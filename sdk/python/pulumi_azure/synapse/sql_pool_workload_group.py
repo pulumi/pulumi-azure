@@ -527,6 +527,28 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         __props__.__dict__["sql_pool_id"] = sql_pool_id
         return SqlPoolWorkloadGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            importance: pulumi.Input[Optional[_builtins.str]] = None,
+            max_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            max_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+            min_resource_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            min_resource_percent_per_request: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_execution_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            sql_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["importance"] = importance
+        __props__["maxResourcePercent"] = max_resource_percent
+        __props__["maxResourcePercentPerRequest"] = max_resource_percent_per_request
+        __props__["minResourcePercent"] = min_resource_percent
+        __props__["minResourcePercentPerRequest"] = min_resource_percent_per_request
+        __props__["name"] = name
+        __props__["queryExecutionTimeoutInSeconds"] = query_execution_timeout_in_seconds
+        __props__["sqlPoolId"] = sql_pool_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def importance(self) -> pulumi.Output[Optional[_builtins.str]]:

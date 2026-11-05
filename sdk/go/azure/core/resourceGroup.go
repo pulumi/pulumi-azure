@@ -119,6 +119,12 @@ func (ResourceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupState)(nil)).Elem()
 }
 
+// ResourceGroupExists checks whether an existing ResourceGroup resource with the given ID exists.
+func ResourceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceGroup:ResourceGroup", id, state, "", opts...)
+}
+
 type resourceGroupArgs struct {
 	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`

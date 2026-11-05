@@ -120,6 +120,12 @@ func (PrivateLinkHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkHubState)(nil)).Elem()
 }
 
+// PrivateLinkHubExists checks whether an existing PrivateLinkHub resource with the given ID exists.
+func PrivateLinkHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/privateLinkHub:PrivateLinkHub", id, state, "", opts...)
+}
+
 type privateLinkHubArgs struct {
 	// Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

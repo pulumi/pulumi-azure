@@ -191,6 +191,12 @@ func (NamedValueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namedValueState)(nil)).Elem()
 }
 
+// NamedValueExists checks whether an existing NamedValue resource with the given ID exists.
+func NamedValueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamedValueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/namedValue:NamedValue", id, state, "", opts...)
+}
+
 type namedValueArgs struct {
 	// The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

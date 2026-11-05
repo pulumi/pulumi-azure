@@ -87,7 +87,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> ContentStoragePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;). Defaults to `en-US`.
         /// </summary>
         [Output("dataLocale")]
         public Output<string?> DataLocale { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ContentStoragePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;). Defaults to `en-US`.
         /// </summary>
         [Input("dataLocale")]
         public Input<string>? DataLocale { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ContentStoragePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;). Defaults to `en-US`.
         /// </summary>
         [Input("dataLocale")]
         public Input<string>? DataLocale { get; set; }

@@ -601,6 +601,24 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
         return ServerMicrosoftSupportAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blobStorageEndpoint"] = blob_storage_endpoint
+        __props__["enabled"] = enabled
+        __props__["logMonitoringEnabled"] = log_monitoring_enabled
+        __props__["serverId"] = server_id
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountSubscriptionId"] = storage_account_subscription_id
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blobStorageEndpoint")
     def blob_storage_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -224,6 +224,12 @@ func (DefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionState)(nil)).Elem()
 }
 
+// DefinitionExists checks whether an existing Definition resource with the given ID exists.
+func DefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:role/definition:Definition", id, state, "", opts...)
+}
+
 type definitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//

@@ -382,6 +382,26 @@ class SpringCloudCertificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return SpringCloudCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateContent"] = certificate_content
+        __props__["excludePrivateKey"] = exclude_private_key
+        __props__["keyVaultCertificateId"] = key_vault_certificate_id
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceName"] = service_name
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudCertificate:SpringCloudCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateContent")
     def certificate_content(self) -> pulumi.Output[Optional[_builtins.str]]:

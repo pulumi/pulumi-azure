@@ -175,6 +175,12 @@ func (ActionHttpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionHttpState)(nil)).Elem()
 }
 
+// ActionHttpExists checks whether an existing ActionHttp resource with the given ID exists.
+func ActionHttpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionHttpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/actionHttp:ActionHttp", id, state, "", opts...)
+}
+
 type actionHttpArgs struct {
 	// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
 	Body *string `pulumi:"body"`

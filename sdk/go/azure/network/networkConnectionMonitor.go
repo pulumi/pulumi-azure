@@ -324,6 +324,12 @@ func (NetworkConnectionMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectionMonitorState)(nil)).Elem()
 }
 
+// NetworkConnectionMonitorExists checks whether an existing NetworkConnectionMonitor resource with the given ID exists.
+func NetworkConnectionMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkConnectionMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", id, state, "", opts...)
+}
+
 type networkConnectionMonitorArgs struct {
 	// A `endpoint` block as defined below.
 	Endpoints []NetworkConnectionMonitorEndpoint `pulumi:"endpoints"`

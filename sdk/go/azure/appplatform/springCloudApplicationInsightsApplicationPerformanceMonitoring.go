@@ -187,6 +187,12 @@ func (SpringCloudApplicationInsightsApplicationPerformanceMonitoringState) Eleme
 	return reflect.TypeOf((*springCloudApplicationInsightsApplicationPerformanceMonitoringState)(nil)).Elem()
 }
 
+// SpringCloudApplicationInsightsApplicationPerformanceMonitoringExists checks whether an existing SpringCloudApplicationInsightsApplicationPerformanceMonitoring resource with the given ID exists.
+func SpringCloudApplicationInsightsApplicationPerformanceMonitoringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudApplicationInsightsApplicationPerformanceMonitoringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring", id, state, "", opts...)
+}
+
 type springCloudApplicationInsightsApplicationPerformanceMonitoringArgs struct {
 	// The instrumentation key used to push data to Application Insights.
 	ConnectionString *string `pulumi:"connectionString"`

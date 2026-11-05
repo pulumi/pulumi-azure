@@ -572,6 +572,30 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["zone_resilient"] = zone_resilient
         return Image(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict', 'outputs.ImageDataDisk']]]]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_disk: pulumi.Input[Optional[Union['ImageOsDiskArgs', 'ImageOsDiskArgsDict', 'outputs.ImageOsDisk']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_resilient: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataDisks"] = data_disks
+        __props__["hyperVGeneration"] = hyper_v_generation
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["osDisk"] = os_disk
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceVirtualMachineId"] = source_virtual_machine_id
+        __props__["tags"] = tags
+        __props__["zoneResilient"] = zone_resilient
+        return pulumi.runtime.exists_resource(None, 'azure:compute/image:Image', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> pulumi.Output[Optional[Sequence['outputs.ImageDataDisk']]]:

@@ -155,6 +155,12 @@ func (ProductPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*productPolicyState)(nil)).Elem()
 }
 
+// ProductPolicyExists checks whether an existing ProductPolicy resource with the given ID exists.
+func ProductPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProductPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/productPolicy:ProductPolicy", id, state, "", opts...)
+}
+
 type productPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

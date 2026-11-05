@@ -944,6 +944,52 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return AnalyticsWorkspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_resource_only_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+            cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
+            immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_capacity_in_gb_per_day: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            secondary_shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowResourceOnlyPermissions"] = allow_resource_only_permissions
+        __props__["cmkForQueryForced"] = cmk_for_query_forced
+        __props__["dailyQuotaGb"] = daily_quota_gb
+        __props__["dataCollectionRuleId"] = data_collection_rule_id
+        __props__["identity"] = identity
+        __props__["immediateDataPurgeOn30DaysEnabled"] = immediate_data_purge_on30_days_enabled
+        __props__["internetIngestionEnabled"] = internet_ingestion_enabled
+        __props__["internetQueryEnabled"] = internet_query_enabled
+        __props__["localAuthenticationDisabled"] = local_authentication_disabled
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["primarySharedKey"] = primary_shared_key
+        __props__["reservationCapacityInGbPerDay"] = reservation_capacity_in_gb_per_day
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionInDays"] = retention_in_days
+        __props__["secondarySharedKey"] = secondary_shared_key
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowResourceOnlyPermissions")
     def allow_resource_only_permissions(self) -> pulumi.Output[Optional[_builtins.bool]]:

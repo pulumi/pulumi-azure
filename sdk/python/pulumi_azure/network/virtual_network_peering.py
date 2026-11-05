@@ -920,6 +920,38 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["virtual_network_name"] = virtual_network_name
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_subnet_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            only_ipv6_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            peer_complete_virtual_networks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            remote_subnet_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowForwardedTraffic"] = allow_forwarded_traffic
+        __props__["allowGatewayTransit"] = allow_gateway_transit
+        __props__["allowVirtualNetworkAccess"] = allow_virtual_network_access
+        __props__["localSubnetNames"] = local_subnet_names
+        __props__["name"] = name
+        __props__["onlyIpv6PeeringEnabled"] = only_ipv6_peering_enabled
+        __props__["peerCompleteVirtualNetworksEnabled"] = peer_complete_virtual_networks_enabled
+        __props__["remoteSubnetNames"] = remote_subnet_names
+        __props__["remoteVirtualNetworkId"] = remote_virtual_network_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["triggers"] = triggers
+        __props__["useRemoteGateways"] = use_remote_gateways
+        __props__["virtualNetworkName"] = virtual_network_name
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualNetworkPeering:VirtualNetworkPeering', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowForwardedTraffic")
     def allow_forwarded_traffic(self) -> pulumi.Output[Optional[_builtins.bool]]:

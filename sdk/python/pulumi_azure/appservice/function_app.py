@@ -1345,6 +1345,66 @@ class FunctionApp(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return FunctionApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['FunctionAppAuthSettingsArgs', 'FunctionAppAuthSettingsArgsDict', 'outputs.FunctionAppAuthSettings']]] = None,
+            client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppConnectionStringArgs', 'FunctionAppConnectionStringArgsDict', 'outputs.FunctionAppConnectionString']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['FunctionAppIdentityArgs', 'FunctionAppIdentityArgsDict', 'outputs.FunctionAppIdentity']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['FunctionAppSiteConfigArgs', 'FunctionAppSiteConfigArgsDict', 'outputs.FunctionAppSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSiteCredentialArgs', 'FunctionAppSiteCredentialArgsDict', 'outputs.FunctionAppSiteCredential']]]]] = None,
+            source_control: pulumi.Input[Optional[Union['FunctionAppSourceControlArgs', 'FunctionAppSourceControlArgsDict', 'outputs.FunctionAppSourceControl']]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServicePlanId"] = app_service_plan_id
+        __props__["appSettings"] = app_settings
+        __props__["authSettings"] = auth_settings
+        __props__["clientCertMode"] = client_cert_mode
+        __props__["connectionStrings"] = connection_strings
+        __props__["customDomainVerificationId"] = custom_domain_verification_id
+        __props__["dailyMemoryTimeQuota"] = daily_memory_time_quota
+        __props__["defaultHostname"] = default_hostname
+        __props__["enableBuiltinLogging"] = enable_builtin_logging
+        __props__["enabled"] = enabled
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["keyVaultReferenceIdentityId"] = key_vault_reference_identity_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["osType"] = os_type
+        __props__["outboundIpAddresses"] = outbound_ip_addresses
+        __props__["possibleOutboundIpAddresses"] = possible_outbound_ip_addresses
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["siteConfig"] = site_config
+        __props__["siteCredentials"] = site_credentials
+        __props__["sourceControl"] = source_control
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["tags"] = tags
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/functionApp:FunctionApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> pulumi.Output[_builtins.str]:

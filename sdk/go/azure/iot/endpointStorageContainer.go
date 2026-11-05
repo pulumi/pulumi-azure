@@ -246,6 +246,12 @@ func (EndpointStorageContainerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointStorageContainerState)(nil)).Elem()
 }
 
+// EndpointStorageContainerExists checks whether an existing EndpointStorageContainer resource with the given ID exists.
+func EndpointStorageContainerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointStorageContainerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", id, state, "", opts...)
+}
+
 type endpointStorageContainerArgs struct {
 	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

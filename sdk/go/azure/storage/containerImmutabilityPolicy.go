@@ -172,6 +172,12 @@ func (ContainerImmutabilityPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerImmutabilityPolicyState)(nil)).Elem()
 }
 
+// ContainerImmutabilityPolicyExists checks whether an existing ContainerImmutabilityPolicy resource with the given ID exists.
+func ContainerImmutabilityPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContainerImmutabilityPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy", id, state, "", opts...)
+}
+
 type containerImmutabilityPolicyArgs struct {
 	// The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
 	ImmutabilityPeriodInDays int `pulumi:"immutabilityPeriodInDays"`

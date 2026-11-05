@@ -135,6 +135,12 @@ func (NetworkWatcherState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkWatcherState)(nil)).Elem()
 }
 
+// NetworkWatcherExists checks whether an existing NetworkWatcher resource with the given ID exists.
+func NetworkWatcherExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkWatcherState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkWatcher:NetworkWatcher", id, state, "", opts...)
+}
+
 type networkWatcherArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

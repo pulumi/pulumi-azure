@@ -160,6 +160,12 @@ func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeSelfHostedState)(nil)).Elem()
 }
 
+// IntegrationRuntimeSelfHostedExists checks whether an existing IntegrationRuntimeSelfHosted resource with the given ID exists.
+func IntegrationRuntimeSelfHostedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationRuntimeSelfHostedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", id, state, "", opts...)
+}
+
 type integrationRuntimeSelfHostedArgs struct {
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`

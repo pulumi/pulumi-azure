@@ -331,11 +331,10 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.keyVaultPassword);
     }
     /**
-     * @deprecated
-     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="msiWorkSpaceResourceId", refs={String.class}, tree="[0]")
     private Output<String> msiWorkSpaceResourceId;
 

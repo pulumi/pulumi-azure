@@ -144,6 +144,12 @@ func (EmailServiceDomainSenderUsernameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailServiceDomainSenderUsernameState)(nil)).Elem()
 }
 
+// EmailServiceDomainSenderUsernameExists checks whether an existing EmailServiceDomainSenderUsername resource with the given ID exists.
+func EmailServiceDomainSenderUsernameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailServiceDomainSenderUsernameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername", id, state, "", opts...)
+}
+
 type emailServiceDomainSenderUsernameArgs struct {
 	// The display name for the Email Communication Service Domain Sender Username resource.
 	DisplayName *string `pulumi:"displayName"`

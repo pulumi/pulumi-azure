@@ -66,18 +66,16 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
      */
     private String storageAccountType;
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
+     * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
      * 
      */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
+    @Deprecated
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
+     * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
      * 
      */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
+    @Deprecated
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -158,20 +156,18 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         return this.storageAccountType;
     }
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
+     * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
      * 
      */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
+    @Deprecated
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
+     * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
      * 
      */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
+    @Deprecated
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
     }

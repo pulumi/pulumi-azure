@@ -389,6 +389,22 @@ class HypervNetworkMapping(pulumi.CustomResource):
         __props__.__dict__["target_network_id"] = target_network_id
         return HypervNetworkMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_system_center_virtual_machine_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["recoveryVaultId"] = recovery_vault_id
+        __props__["sourceNetworkName"] = source_network_name
+        __props__["sourceSystemCenterVirtualMachineManagerName"] = source_system_center_virtual_machine_manager_name
+        __props__["targetNetworkId"] = target_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

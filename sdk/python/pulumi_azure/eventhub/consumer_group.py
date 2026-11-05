@@ -398,6 +398,22 @@ class ConsumerGroup(pulumi.CustomResource):
         __props__.__dict__["user_metadata"] = user_metadata
         return ConsumerGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_metadata: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventhubName"] = eventhub_name
+        __props__["name"] = name
+        __props__["namespaceName"] = namespace_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["userMetadata"] = user_metadata
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/consumerGroup:ConsumerGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventhubName")
     def eventhub_name(self) -> pulumi.Output[_builtins.str]:

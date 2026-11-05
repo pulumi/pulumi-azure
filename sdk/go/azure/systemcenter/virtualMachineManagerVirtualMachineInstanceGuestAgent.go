@@ -225,6 +225,12 @@ func (VirtualMachineManagerVirtualMachineInstanceGuestAgentState) ElementType() 
 	return reflect.TypeOf((*virtualMachineManagerVirtualMachineInstanceGuestAgentState)(nil)).Elem()
 }
 
+// VirtualMachineManagerVirtualMachineInstanceGuestAgentExists checks whether an existing VirtualMachineManagerVirtualMachineInstanceGuestAgent resource with the given ID exists.
+func VirtualMachineManagerVirtualMachineInstanceGuestAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineManagerVirtualMachineInstanceGuestAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent:VirtualMachineManagerVirtualMachineInstanceGuestAgent", id, state, "", opts...)
+}
+
 type virtualMachineManagerVirtualMachineInstanceGuestAgentArgs struct {
 	// The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`

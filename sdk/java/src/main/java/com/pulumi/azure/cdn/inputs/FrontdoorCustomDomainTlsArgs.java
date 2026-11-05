@@ -74,20 +74,18 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<Output<String>> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }
@@ -213,11 +211,10 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @return builder
          * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
             $.minimumTlsVersion = minimumTlsVersion;
             return this;
@@ -226,11 +223,10 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @return builder
          * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }

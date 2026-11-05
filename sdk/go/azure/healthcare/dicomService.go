@@ -192,6 +192,12 @@ func (DicomServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dicomServiceState)(nil)).Elem()
 }
 
+// DicomServiceExists checks whether an existing DicomService resource with the given ID exists.
+func DicomServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DicomServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:healthcare/dicomService:DicomService", id, state, "", opts...)
+}
+
 type dicomServiceArgs struct {
 	// A `cors` block as defined below.
 	Cors *DicomServiceCors `pulumi:"cors"`

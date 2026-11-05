@@ -533,6 +533,30 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint_algorithm"] = thumbprint_algorithm
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            public_data: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint_algorithm: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountName"] = account_name
+        __props__["certificate"] = certificate
+        __props__["format"] = format
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["publicData"] = public_data
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["thumbprint"] = thumbprint
+        __props__["thumbprintAlgorithm"] = thumbprint_algorithm
+        return pulumi.runtime.exists_resource(None, 'azure:batch/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:

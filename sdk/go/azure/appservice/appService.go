@@ -302,6 +302,12 @@ func (AppServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceState)(nil)).Elem()
 }
 
+// AppServiceExists checks whether an existing AppService resource with the given ID exists.
+func AppServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/appService:AppService", id, state, "", opts...)
+}
+
 type appServiceArgs struct {
 	// The ID of the App Service Plan within which to create this App Service.
 	AppServicePlanId string `pulumi:"appServicePlanId"`

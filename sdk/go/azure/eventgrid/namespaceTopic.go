@@ -137,6 +137,12 @@ func (NamespaceTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceTopicState)(nil)).Elem()
 }
 
+// NamespaceTopicExists checks whether an existing NamespaceTopic resource with the given ID exists.
+func NamespaceTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/namespaceTopic:NamespaceTopic", id, state, "", opts...)
+}
+
 type namespaceTopicArgs struct {
 	// Event retention for the namespace topic expressed in days. Defaults to `7`.
 	EventRetentionInDays *int `pulumi:"eventRetentionInDays"`

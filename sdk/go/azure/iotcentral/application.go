@@ -187,6 +187,12 @@ func (ApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationState)(nil)).Elem()
 }
 
+// ApplicationExists checks whether an existing Application resource with the given ID exists.
+func ApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iotcentral/application:Application", id, state, "", opts...)
+}
+
 type applicationArgs struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	//

@@ -291,6 +291,12 @@ func (ServerTransparentDataEncryptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverTransparentDataEncryptionState)(nil)).Elem()
 }
 
+// ServerTransparentDataEncryptionExists checks whether an existing ServerTransparentDataEncryption resource with the given ID exists.
+func ServerTransparentDataEncryptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerTransparentDataEncryptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption", id, state, "", opts...)
+}
+
 type serverTransparentDataEncryptionArgs struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`

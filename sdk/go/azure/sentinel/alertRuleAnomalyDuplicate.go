@@ -262,6 +262,12 @@ func (AlertRuleAnomalyDuplicateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertRuleAnomalyDuplicateState)(nil)).Elem()
 }
 
+// AlertRuleAnomalyDuplicateExists checks whether an existing AlertRuleAnomalyDuplicate resource with the given ID exists.
+func AlertRuleAnomalyDuplicateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertRuleAnomalyDuplicateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate", id, state, "", opts...)
+}
+
 type alertRuleAnomalyDuplicateArgs struct {
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId string `pulumi:"builtInRuleId"`

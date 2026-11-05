@@ -145,6 +145,12 @@ func (ClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterState)(nil)).Elem()
 }
 
+// ClusterExists checks whether an existing Cluster resource with the given ID exists.
+func ClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/cluster:Cluster", id, state, "", opts...)
+}
+
 type clusterArgs struct {
 	// The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

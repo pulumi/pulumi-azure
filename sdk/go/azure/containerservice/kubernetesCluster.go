@@ -858,6 +858,12 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterState)(nil)).Elem()
 }
 
+// KubernetesClusterExists checks whether an existing KubernetesCluster resource with the given ID exists.
+func KubernetesClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/kubernetesCluster:KubernetesCluster", id, state, "", opts...)
+}
+
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`

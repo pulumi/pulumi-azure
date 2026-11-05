@@ -205,6 +205,12 @@ func (NetworkInterfaceBackendAddressPoolAssociationState) ElementType() reflect.
 	return reflect.TypeOf((*networkInterfaceBackendAddressPoolAssociationState)(nil)).Elem()
 }
 
+// NetworkInterfaceBackendAddressPoolAssociationExists checks whether an existing NetworkInterfaceBackendAddressPoolAssociation resource with the given ID exists.
+func NetworkInterfaceBackendAddressPoolAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceBackendAddressPoolAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", id, state, "", opts...)
+}
+
 type networkInterfaceBackendAddressPoolAssociationArgs struct {
 	// The ID of the Load Balancer Backend Address Pool which this Network Interface should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`

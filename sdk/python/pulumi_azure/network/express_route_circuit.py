@@ -775,6 +775,42 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ExpressRouteCircuit(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_classic_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            bandwidth_in_gbps: pulumi.Input[Optional[_builtins.float]] = None,
+            bandwidth_in_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+            express_route_port_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peering_location: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limiting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_provider_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowClassicOperations"] = allow_classic_operations
+        __props__["authorizationKey"] = authorization_key
+        __props__["bandwidthInGbps"] = bandwidth_in_gbps
+        __props__["bandwidthInMbps"] = bandwidth_in_mbps
+        __props__["expressRoutePortId"] = express_route_port_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["peeringLocation"] = peering_location
+        __props__["rateLimitingEnabled"] = rate_limiting_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceKey"] = service_key
+        __props__["serviceProviderName"] = service_provider_name
+        __props__["serviceProviderProvisioningState"] = service_provider_provisioning_state
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteCircuit:ExpressRouteCircuit', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowClassicOperations")
     def allow_classic_operations(self) -> pulumi.Output[Optional[_builtins.bool]]:

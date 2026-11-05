@@ -445,6 +445,24 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return WorkspaceExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["logMonitoringEnabled"] = log_monitoring_enabled
+        __props__["retentionInDays"] = retention_in_days
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageAccountAccessKeyIsSecondary"] = storage_account_access_key_is_secondary
+        __props__["storageEndpoint"] = storage_endpoint
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -165,6 +165,12 @@ func (RegistryCacheRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryCacheRuleState)(nil)).Elem()
 }
 
+// RegistryCacheRuleExists checks whether an existing RegistryCacheRule resource with the given ID exists.
+func RegistryCacheRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryCacheRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryCacheRule:RegistryCacheRule", id, state, "", opts...)
+}
+
 type registryCacheRuleArgs struct {
 	// The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
 	ContainerRegistryId string `pulumi:"containerRegistryId"`

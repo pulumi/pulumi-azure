@@ -207,6 +207,12 @@ func (FallbackRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fallbackRouteState)(nil)).Elem()
 }
 
+// FallbackRouteExists checks whether an existing FallbackRoute resource with the given ID exists.
+func FallbackRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FallbackRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/fallbackRoute:FallbackRoute", id, state, "", opts...)
+}
+
 type fallbackRouteArgs struct {
 	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition *string `pulumi:"condition"`

@@ -2528,11 +2528,10 @@ public final class CoreFunctions {
      * 
      * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
-     * @deprecated
-     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
      * 
      */
-    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    @Deprecated
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args) {
         return getUserAssignedIdentity(args, InvokeOptions.Empty);
     }
@@ -2585,11 +2584,10 @@ public final class CoreFunctions {
      * 
      * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
-     * @deprecated
-     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
      * 
      */
-    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    @Deprecated
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args) {
         return getUserAssignedIdentityPlain(args, InvokeOptions.Empty);
     }
@@ -2642,11 +2640,10 @@ public final class CoreFunctions {
      * 
      * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
-     * @deprecated
-     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
      * 
      */
-    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    @Deprecated
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
     }
@@ -2699,11 +2696,10 @@ public final class CoreFunctions {
      * 
      * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
-     * @deprecated
-     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
      * 
      */
-    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    @Deprecated
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
     }
@@ -2756,11 +2752,10 @@ public final class CoreFunctions {
      * 
      * * `Microsoft.ManagedIdentity` - 2024-11-30
      * 
-     * @deprecated
-     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
      * 
      */
-    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    @Deprecated
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
     }

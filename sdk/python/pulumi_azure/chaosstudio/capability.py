@@ -306,6 +306,18 @@ class Capability(pulumi.CustomResource):
         __props__.__dict__["chaos_studio_target_id"] = chaos_studio_target_id
         return Capability(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capability_type: pulumi.Input[Optional[_builtins.str]] = None,
+            capability_urn: pulumi.Input[Optional[_builtins.str]] = None,
+            chaos_studio_target_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capabilityType"] = capability_type
+        __props__["capabilityUrn"] = capability_urn
+        __props__["chaosStudioTargetId"] = chaos_studio_target_id
+        return pulumi.runtime.exists_resource(None, 'azure:chaosstudio/capability:Capability', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="capabilityType")
     def capability_type(self) -> pulumi.Output[_builtins.str]:

@@ -172,6 +172,12 @@ func (StaticSiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticSiteState)(nil)).Elem()
 }
 
+// StaticSiteExists checks whether an existing StaticSite resource with the given ID exists.
+func StaticSiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StaticSiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/staticSite:StaticSite", id, state, "", opts...)
+}
+
 type staticSiteArgs struct {
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`

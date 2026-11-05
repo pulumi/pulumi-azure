@@ -137,6 +137,12 @@ func (DataConnectorAzureSecurityCenterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorAzureSecurityCenterState)(nil)).Elem()
 }
 
+// DataConnectorAzureSecurityCenterExists checks whether an existing DataConnectorAzureSecurityCenter resource with the given ID exists.
+func DataConnectorAzureSecurityCenterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorAzureSecurityCenterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter", id, state, "", opts...)
+}
+
 type dataConnectorAzureSecurityCenterArgs struct {
 	// The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

@@ -174,6 +174,12 @@ func (FunctionJavaScriptUDFState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavaScriptUDFState)(nil)).Elem()
 }
 
+// FunctionJavaScriptUDFExists checks whether an existing FunctionJavaScriptUDF resource with the given ID exists.
+func FunctionJavaScriptUDFExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionJavaScriptUDFState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", id, state, "", opts...)
+}
+
 type functionJavaScriptUDFArgs struct {
 	// One or more `input` blocks as defined below.
 	Inputs []FunctionJavaScriptUDFInputType `pulumi:"inputs"`

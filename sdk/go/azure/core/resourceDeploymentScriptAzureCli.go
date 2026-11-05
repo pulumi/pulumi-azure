@@ -249,6 +249,12 @@ func (ResourceDeploymentScriptAzureCliState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDeploymentScriptAzureCliState)(nil)).Elem()
 }
 
+// ResourceDeploymentScriptAzureCliExists checks whether an existing ResourceDeploymentScriptAzureCli resource with the given ID exists.
+func ResourceDeploymentScriptAzureCliExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceDeploymentScriptAzureCliState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli", id, state, "", opts...)
+}
+
 type resourceDeploymentScriptAzureCliArgs struct {
 	// Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
 	CleanupPreference *string `pulumi:"cleanupPreference"`

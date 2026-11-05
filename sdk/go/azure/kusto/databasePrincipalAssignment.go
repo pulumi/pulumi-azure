@@ -221,6 +221,12 @@ func (DatabasePrincipalAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasePrincipalAssignmentState)(nil)).Elem()
 }
 
+// DatabasePrincipalAssignmentExists checks whether an existing DatabasePrincipalAssignment resource with the given ID exists.
+func DatabasePrincipalAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasePrincipalAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment", id, state, "", opts...)
+}
+
 type databasePrincipalAssignmentArgs struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`

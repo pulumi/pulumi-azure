@@ -309,6 +309,12 @@ func (AssignmentVirtualMachineScaleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentVirtualMachineScaleSetState)(nil)).Elem()
 }
 
+// AssignmentVirtualMachineScaleSetExists checks whether an existing AssignmentVirtualMachineScaleSet resource with the given ID exists.
+func AssignmentVirtualMachineScaleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentVirtualMachineScaleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", id, state, "", opts...)
+}
+
 type assignmentVirtualMachineScaleSetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

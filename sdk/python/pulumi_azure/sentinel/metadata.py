@@ -1045,6 +1045,54 @@ class Metadata(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return Metadata(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            author: pulumi.Input[Optional[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict', 'outputs.MetadataAuthor']]] = None,
+            category: pulumi.Input[Optional[Union['MetadataCategoryArgs', 'MetadataCategoryArgsDict', 'outputs.MetadataCategory']]] = None,
+            content_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_version: pulumi.Input[Optional[_builtins.str]] = None,
+            dependency: pulumi.Input[Optional[_builtins.str]] = None,
+            first_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preview_images: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            preview_images_darks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source: pulumi.Input[Optional[Union['MetadataSourceArgs', 'MetadataSourceArgsDict', 'outputs.MetadataSource']]] = None,
+            support: pulumi.Input[Optional[Union['MetadataSupportArgs', 'MetadataSupportArgsDict', 'outputs.MetadataSupport']]] = None,
+            threat_analysis_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            threat_analysis_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["author"] = author
+        __props__["category"] = category
+        __props__["contentId"] = content_id
+        __props__["contentSchemaVersion"] = content_schema_version
+        __props__["customVersion"] = custom_version
+        __props__["dependency"] = dependency
+        __props__["firstPublishDate"] = first_publish_date
+        __props__["iconId"] = icon_id
+        __props__["kind"] = kind
+        __props__["lastPublishDate"] = last_publish_date
+        __props__["name"] = name
+        __props__["parentId"] = parent_id
+        __props__["previewImages"] = preview_images
+        __props__["previewImagesDarks"] = preview_images_darks
+        __props__["providers"] = providers
+        __props__["source"] = source
+        __props__["support"] = support
+        __props__["threatAnalysisTactics"] = threat_analysis_tactics
+        __props__["threatAnalysisTechniques"] = threat_analysis_techniques
+        __props__["version"] = version
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/metadata:Metadata', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def author(self) -> pulumi.Output[Optional['outputs.MetadataAuthor']]:

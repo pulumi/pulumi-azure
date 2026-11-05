@@ -333,6 +333,12 @@ func (ServerMicrosoftSupportAuditingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverMicrosoftSupportAuditingPolicyState)(nil)).Elem()
 }
 
+// ServerMicrosoftSupportAuditingPolicyExists checks whether an existing ServerMicrosoftSupportAuditingPolicy resource with the given ID exists.
+func ServerMicrosoftSupportAuditingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerMicrosoftSupportAuditingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", id, state, "", opts...)
+}
+
 type serverMicrosoftSupportAuditingPolicyArgs struct {
 	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`

@@ -198,11 +198,10 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetQueryEnabled);
     }
     /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> localAuthenticationDisabled;
 

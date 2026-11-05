@@ -691,6 +691,40 @@ class CassandraCluster(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CassandraCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
+            identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMethod"] = authentication_method
+        __props__["clientCertificatePems"] = client_certificate_pems
+        __props__["defaultAdminPassword"] = default_admin_password
+        __props__["delegatedManagementSubnetId"] = delegated_management_subnet_id
+        __props__["externalGossipCertificatePems"] = external_gossip_certificate_pems
+        __props__["externalSeedNodeIpAddresses"] = external_seed_node_ip_addresses
+        __props__["hoursBetweenBackups"] = hours_between_backups
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["repairEnabled"] = repair_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/cassandraCluster:CassandraCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> pulumi.Output[Optional[_builtins.str]]:

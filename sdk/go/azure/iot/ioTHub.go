@@ -372,6 +372,12 @@ func (IoTHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ioTHubState)(nil)).Elem()
 }
 
+// IoTHubExists checks whether an existing IoTHub resource with the given ID exists.
+func IoTHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IoTHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/ioTHub:IoTHub", id, state, "", opts...)
+}
+
 type ioTHubArgs struct {
 	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.

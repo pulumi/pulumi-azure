@@ -242,6 +242,12 @@ func (ApplicationSecurityGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSecurityGroupAssociationState)(nil)).Elem()
 }
 
+// ApplicationSecurityGroupAssociationExists checks whether an existing ApplicationSecurityGroupAssociation resource with the given ID exists.
+func ApplicationSecurityGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationSecurityGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation", id, state, "", opts...)
+}
+
 type applicationSecurityGroupAssociationArgs struct {
 	// The id of application security group to associate. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId string `pulumi:"applicationSecurityGroupId"`

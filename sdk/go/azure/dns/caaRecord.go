@@ -197,6 +197,12 @@ func (CaaRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*caaRecordState)(nil)).Elem()
 }
 
+// CaaRecordExists checks whether an existing CaaRecord resource with the given ID exists.
+func CaaRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaaRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dns/caaRecord:CaaRecord", id, state, "", opts...)
+}
+
 type caaRecordArgs struct {
 	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

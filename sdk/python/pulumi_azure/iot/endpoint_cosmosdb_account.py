@@ -796,6 +796,38 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         __props__.__dict__["subscription_id"] = subscription_id
         return EndpointCosmosdbAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationType"] = authentication_type
+        __props__["containerName"] = container_name
+        __props__["databaseName"] = database_name
+        __props__["endpointUri"] = endpoint_uri
+        __props__["identityId"] = identity_id
+        __props__["iothubId"] = iothub_id
+        __props__["name"] = name
+        __props__["partitionKeyName"] = partition_key_name
+        __props__["partitionKeyTemplate"] = partition_key_template
+        __props__["primaryKey"] = primary_key
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryKey"] = secondary_key
+        __props__["subscriptionId"] = subscription_id
+        return pulumi.runtime.exists_resource(None, 'azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[Optional[_builtins.str]]:

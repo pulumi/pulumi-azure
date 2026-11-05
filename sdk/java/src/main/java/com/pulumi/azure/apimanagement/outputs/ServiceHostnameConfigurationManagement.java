@@ -53,11 +53,10 @@ public final class ServiceHostnameConfigurationManagement {
      */
     private @Nullable String keyVaultCertificateId;
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable String keyVaultId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -137,11 +136,10 @@ public final class ServiceHostnameConfigurationManagement {
         return Optional.ofNullable(this.keyVaultCertificateId);
     }
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<String> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }

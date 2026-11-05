@@ -134,6 +134,12 @@ func (LicationLoadBalancerFrontendState) ElementType() reflect.Type {
 	return reflect.TypeOf((*licationLoadBalancerFrontendState)(nil)).Elem()
 }
 
+// LicationLoadBalancerFrontendExists checks whether an existing LicationLoadBalancerFrontend resource with the given ID exists.
+func LicationLoadBalancerFrontendExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LicationLoadBalancerFrontendState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend", id, state, "", opts...)
+}
+
 type licationLoadBalancerFrontendArgs struct {
 	// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
 	ApplicationLoadBalancerId string `pulumi:"applicationLoadBalancerId"`

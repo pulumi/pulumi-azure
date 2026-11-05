@@ -34,11 +34,10 @@ public final class FrontdoorCustomDomainTls {
      */
     private @Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite;
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     private @Nullable String minimumTlsVersion;
     /**
      * @return TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
@@ -75,11 +74,10 @@ public final class FrontdoorCustomDomainTls {
         return Optional.ofNullable(this.cipherSuite);
     }
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     public Optional<String> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }

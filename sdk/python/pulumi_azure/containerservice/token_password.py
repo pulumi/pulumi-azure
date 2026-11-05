@@ -335,6 +335,18 @@ class TokenPassword(pulumi.CustomResource):
         __props__.__dict__["password2"] = password2
         return TokenPassword(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+            password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']]] = None,
+            password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerRegistryTokenId"] = container_registry_token_id
+        __props__["password1"] = password1
+        __props__["password2"] = password2
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/tokenPassword:TokenPassword', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerRegistryTokenId")
     def container_registry_token_id(self) -> pulumi.Output[_builtins.str]:

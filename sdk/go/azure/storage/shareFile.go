@@ -198,6 +198,12 @@ func (ShareFileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareFileState)(nil)).Elem()
 }
 
+// ShareFileExists checks whether an existing ShareFile resource with the given ID exists.
+func ShareFileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShareFileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/shareFile:ShareFile", id, state, "", opts...)
+}
+
 type shareFileArgs struct {
 	// Sets the file’s Content-Disposition header.
 	ContentDisposition *string `pulumi:"contentDisposition"`

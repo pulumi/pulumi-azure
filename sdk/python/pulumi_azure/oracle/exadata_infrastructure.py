@@ -695,6 +695,38 @@ class ExadataInfrastructure(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return ExadataInfrastructure(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compute_count: pulumi.Input[Optional[_builtins.int]] = None,
+            customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            shape: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_count: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["computeCount"] = compute_count
+        __props__["customerContacts"] = customer_contacts
+        __props__["databaseServerType"] = database_server_type
+        __props__["displayName"] = display_name
+        __props__["location"] = location
+        __props__["maintenanceWindows"] = maintenance_windows
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["shape"] = shape
+        __props__["storageCount"] = storage_count
+        __props__["storageServerType"] = storage_server_type
+        __props__["tags"] = tags
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:oracle/exadataInfrastructure:ExadataInfrastructure', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> pulumi.Output[_builtins.int]:

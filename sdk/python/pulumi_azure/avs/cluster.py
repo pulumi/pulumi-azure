@@ -391,6 +391,24 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["vmware_cloud_id"] = vmware_cloud_id
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_number: pulumi.Input[Optional[_builtins.int]] = None,
+            hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vmware_cloud_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterNodeCount"] = cluster_node_count
+        __props__["clusterNumber"] = cluster_number
+        __props__["hosts"] = hosts
+        __props__["name"] = name
+        __props__["skuName"] = sku_name
+        __props__["vmwareCloudId"] = vmware_cloud_id
+        return pulumi.runtime.exists_resource(None, 'azure:avs/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterNodeCount")
     def cluster_node_count(self) -> pulumi.Output[_builtins.int]:

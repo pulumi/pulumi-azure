@@ -246,6 +246,18 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
         __props__.__dict__["scaling_plan_id"] = scaling_plan_id
         return ScalingPlanHostPoolAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_plan_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["hostPoolId"] = host_pool_id
+        __props__["scalingPlanId"] = scaling_plan_id
+        return pulumi.runtime.exists_resource(None, 'azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:

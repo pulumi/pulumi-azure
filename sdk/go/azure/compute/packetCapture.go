@@ -272,6 +272,12 @@ func (PacketCaptureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packetCaptureState)(nil)).Elem()
 }
 
+// PacketCaptureExists checks whether an existing PacketCapture resource with the given ID exists.
+func PacketCaptureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PacketCaptureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/packetCapture:PacketCapture", id, state, "", opts...)
+}
+
 type packetCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters []PacketCaptureFilter `pulumi:"filters"`

@@ -259,6 +259,12 @@ func (DataCollectionRuleAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCollectionRuleAssociationState)(nil)).Elem()
 }
 
+// DataCollectionRuleAssociationExists checks whether an existing DataCollectionRuleAssociation resource with the given ID exists.
+func DataCollectionRuleAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCollectionRuleAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", id, state, "", opts...)
+}
+
 type dataCollectionRuleAssociationArgs struct {
 	// The ID of the Data Collection Endpoint which will be associated to the target resource.
 	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`

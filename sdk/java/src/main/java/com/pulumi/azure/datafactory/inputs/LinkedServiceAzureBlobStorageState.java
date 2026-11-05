@@ -135,20 +135,18 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * @deprecated
-     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="keyVaultSasToken")
     private @Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken;
 
     /**
-     * @deprecated
-     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>> keyVaultSasToken() {
         return Optional.ofNullable(this.keyVaultSasToken);
     }
@@ -472,11 +470,10 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder keyVaultSasToken(@Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken) {
             $.keyVaultSasToken = keyVaultSasToken;
             return this;
@@ -485,11 +482,10 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder keyVaultSasToken(LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs keyVaultSasToken) {
             return keyVaultSasToken(Output.of(keyVaultSasToken));
         }

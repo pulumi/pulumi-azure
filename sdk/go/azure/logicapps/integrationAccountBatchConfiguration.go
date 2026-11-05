@@ -169,6 +169,12 @@ func (IntegrationAccountBatchConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountBatchConfigurationState)(nil)).Elem()
 }
 
+// IntegrationAccountBatchConfigurationExists checks whether an existing IntegrationAccountBatchConfiguration resource with the given ID exists.
+func IntegrationAccountBatchConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountBatchConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration", id, state, "", opts...)
+}
+
 type integrationAccountBatchConfigurationArgs struct {
 	// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
 	BatchGroupName string `pulumi:"batchGroupName"`

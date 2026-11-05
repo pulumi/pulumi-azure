@@ -229,6 +229,12 @@ func (BackupInstanceDataLakeStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstanceDataLakeStorageState)(nil)).Elem()
 }
 
+// BackupInstanceDataLakeStorageExists checks whether an existing BackupInstanceDataLakeStorage resource with the given ID exists.
+func BackupInstanceDataLakeStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstanceDataLakeStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage", id, state, "", opts...)
+}
+
 type backupInstanceDataLakeStorageArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyDataLakeStorageId string `pulumi:"backupPolicyDataLakeStorageId"`

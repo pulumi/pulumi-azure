@@ -408,6 +408,22 @@ class DscNodeConfiguration(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return DscNodeConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content_embedded: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["configurationName"] = configuration_name
+        __props__["contentEmbedded"] = content_embedded
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:automation/dscNodeConfiguration:DscNodeConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

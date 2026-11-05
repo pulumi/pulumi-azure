@@ -826,6 +826,40 @@ class ComputeCluster(pulumi.CustomResource):
         __props__.__dict__["vm_size"] = vm_size
         return ComputeCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']]] = None,
+            ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']]] = None,
+            ssh_public_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vm_priority: pulumi.Input[Optional[_builtins.str]] = None,
+            vm_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["identity"] = identity
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["machineLearningWorkspaceId"] = machine_learning_workspace_id
+        __props__["name"] = name
+        __props__["nodePublicIpEnabled"] = node_public_ip_enabled
+        __props__["scaleSettings"] = scale_settings
+        __props__["ssh"] = ssh
+        __props__["sshPublicAccessEnabled"] = ssh_public_access_enabled
+        __props__["subnetResourceId"] = subnet_resource_id
+        __props__["tags"] = tags
+        __props__["vmPriority"] = vm_priority
+        __props__["vmSize"] = vm_size
+        return pulumi.runtime.exists_resource(None, 'azure:machinelearning/computeCluster:ComputeCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

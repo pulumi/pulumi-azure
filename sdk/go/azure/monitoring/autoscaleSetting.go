@@ -641,6 +641,12 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoscaleSettingState)(nil)).Elem()
 }
 
+// AutoscaleSettingExists checks whether an existing AutoscaleSetting resource with the given ID exists.
+func AutoscaleSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoscaleSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/autoscaleSetting:AutoscaleSetting", id, state, "", opts...)
+}
+
 type autoscaleSettingArgs struct {
 	// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

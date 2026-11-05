@@ -950,6 +950,50 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Job(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compatibility_level: pulumi.Input[Optional[_builtins.str]] = None,
+            content_storage_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            data_locale: pulumi.Input[Optional[_builtins.str]] = None,
+            events_late_arrival_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_units: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transformation_query: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["compatibilityLevel"] = compatibility_level
+        __props__["contentStoragePolicy"] = content_storage_policy
+        __props__["dataLocale"] = data_locale
+        __props__["eventsLateArrivalMaxDelayInSeconds"] = events_late_arrival_max_delay_in_seconds
+        __props__["eventsOutOfOrderMaxDelayInSeconds"] = events_out_of_order_max_delay_in_seconds
+        __props__["eventsOutOfOrderPolicy"] = events_out_of_order_policy
+        __props__["identity"] = identity
+        __props__["jobId"] = job_id
+        __props__["jobStorageAccounts"] = job_storage_accounts
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["outputErrorPolicy"] = output_error_policy
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["streamAnalyticsClusterId"] = stream_analytics_cluster_id
+        __props__["streamingUnits"] = streaming_units
+        __props__["tags"] = tags
+        __props__["transformationQuery"] = transformation_query
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/job:Job', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="compatibilityLevel")
     def compatibility_level(self) -> pulumi.Output[_builtins.str]:

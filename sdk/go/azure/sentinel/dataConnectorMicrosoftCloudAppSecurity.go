@@ -163,6 +163,12 @@ func (DataConnectorMicrosoftCloudAppSecurityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorMicrosoftCloudAppSecurityState)(nil)).Elem()
 }
 
+// DataConnectorMicrosoftCloudAppSecurityExists checks whether an existing DataConnectorMicrosoftCloudAppSecurity resource with the given ID exists.
+func DataConnectorMicrosoftCloudAppSecurityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorMicrosoftCloudAppSecurityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity", id, state, "", opts...)
+}
+
 type dataConnectorMicrosoftCloudAppSecurityArgs struct {
 	// Should the alerts be enabled? Defaults to `true`.
 	AlertsEnabled *bool `pulumi:"alertsEnabled"`

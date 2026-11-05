@@ -224,6 +224,12 @@ func (ApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyState)(nil)).Elem()
 }
 
+// ApiKeyExists checks whether an existing ApiKey resource with the given ID exists.
+func ApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:nginx/apiKey:ApiKey", id, state, "", opts...)
+}
+
 type apiKeyArgs struct {
 	// The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
 	EndDateTime string `pulumi:"endDateTime"`

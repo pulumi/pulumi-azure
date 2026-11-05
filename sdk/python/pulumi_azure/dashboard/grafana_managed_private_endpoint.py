@@ -557,6 +557,30 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return GrafanaManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            grafana_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["grafanaId"] = grafana_id
+        __props__["groupIds"] = group_ids
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateLinkResourceId"] = private_link_resource_id
+        __props__["privateLinkResourceRegion"] = private_link_resource_region
+        __props__["privateLinkServiceUrl"] = private_link_service_url
+        __props__["requestMessage"] = request_message
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="grafanaId")
     def grafana_id(self) -> pulumi.Output[_builtins.str]:

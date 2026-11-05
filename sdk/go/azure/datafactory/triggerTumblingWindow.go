@@ -251,6 +251,12 @@ func (TriggerTumblingWindowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerTumblingWindowState)(nil)).Elem()
 }
 
+// TriggerTumblingWindowExists checks whether an existing TriggerTumblingWindow resource with the given ID exists.
+func TriggerTumblingWindowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerTumblingWindowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow", id, state, "", opts...)
+}
+
 type triggerTumblingWindowArgs struct {
 	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
 	Activated *bool `pulumi:"activated"`

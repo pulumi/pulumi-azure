@@ -369,6 +369,20 @@ class ApiTagDescription(pulumi.CustomResource):
         __props__.__dict__["external_documentation_url"] = external_documentation_url
         return ApiTagDescription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_tag_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_documentation_description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_documentation_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiTagId"] = api_tag_id
+        __props__["description"] = description
+        __props__["externalDocumentationDescription"] = external_documentation_description
+        __props__["externalDocumentationUrl"] = external_documentation_url
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/apiTagDescription:ApiTagDescription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiTagId")
     def api_tag_id(self) -> pulumi.Output[_builtins.str]:

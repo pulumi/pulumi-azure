@@ -642,6 +642,20 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return NamespaceCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventhubNamespaceId"] = eventhub_namespace_id
+        __props__["infrastructureEncryptionEnabled"] = infrastructure_encryption_enabled
+        __props__["keyVaultKeyIds"] = key_vault_key_ids
+        __props__["userAssignedIdentityId"] = user_assigned_identity_id
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventhubNamespaceId")
     def eventhub_namespace_id(self) -> pulumi.Output[_builtins.str]:

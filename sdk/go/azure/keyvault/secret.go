@@ -241,6 +241,12 @@ func (SecretState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretState)(nil)).Elem()
 }
 
+// SecretExists checks whether an existing Secret resource with the given ID exists.
+func SecretExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/secret:Secret", id, state, "", opts...)
+}
+
 type secretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType *string `pulumi:"contentType"`

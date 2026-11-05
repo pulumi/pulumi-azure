@@ -214,6 +214,12 @@ func (DatasetAzureBlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetAzureBlobState)(nil)).Elem()
 }
 
+// DatasetAzureBlobExists checks whether an existing DatasetAzureBlob resource with the given ID exists.
+func DatasetAzureBlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetAzureBlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", id, state, "", opts...)
+}
+
 type datasetAzureBlobArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	//

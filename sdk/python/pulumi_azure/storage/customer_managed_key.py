@@ -644,6 +644,30 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            federated_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            key_version: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["federatedIdentityClientId"] = federated_identity_client_id
+        __props__["keyName"] = key_name
+        __props__["keyVaultId"] = key_vault_id
+        __props__["keyVaultKeyId"] = key_vault_key_id
+        __props__["keyVaultUri"] = key_vault_uri
+        __props__["keyVersion"] = key_version
+        __props__["managedHsmKeyId"] = managed_hsm_key_id
+        __props__["storageAccountId"] = storage_account_id
+        __props__["userAssignedIdentityId"] = user_assigned_identity_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/customerManagedKey:CustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="federatedIdentityClientId")
     def federated_identity_client_id(self) -> pulumi.Output[Optional[_builtins.str]]:

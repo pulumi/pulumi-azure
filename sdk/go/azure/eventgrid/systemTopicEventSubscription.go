@@ -293,6 +293,12 @@ func (SystemTopicEventSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*systemTopicEventSubscriptionState)(nil)).Elem()
 }
 
+// SystemTopicEventSubscriptionExists checks whether an existing SystemTopicEventSubscription resource with the given ID exists.
+func SystemTopicEventSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SystemTopicEventSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription", id, state, "", opts...)
+}
+
 type systemTopicEventSubscriptionArgs struct {
 	// A `advancedFilter` block as defined below.
 	AdvancedFilter *SystemTopicEventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`

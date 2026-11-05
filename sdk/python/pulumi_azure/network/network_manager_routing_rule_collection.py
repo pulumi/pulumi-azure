@@ -399,6 +399,22 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
         __props__.__dict__["routing_configuration_id"] = routing_configuration_id
         return NetworkManagerRoutingRuleCollection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bgp_route_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            routing_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bgpRoutePropagationEnabled"] = bgp_route_propagation_enabled
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["networkGroupIds"] = network_group_ids
+        __props__["routingConfigurationId"] = routing_configuration_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
     def bgp_route_propagation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

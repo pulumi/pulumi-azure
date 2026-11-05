@@ -703,6 +703,34 @@ class EnvironmentCertificate(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return EnvironmentCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']]] = None,
+            certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issue_date: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateBlobBase64"] = certificate_blob_base64
+        __props__["certificateKeyVault"] = certificate_key_vault
+        __props__["certificatePassword"] = certificate_password
+        __props__["containerAppEnvironmentId"] = container_app_environment_id
+        __props__["expirationDate"] = expiration_date
+        __props__["issueDate"] = issue_date
+        __props__["issuer"] = issuer
+        __props__["name"] = name
+        __props__["subjectName"] = subject_name
+        __props__["tags"] = tags
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:containerapp/environmentCertificate:EnvironmentCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateBlobBase64")
     def certificate_blob_base64(self) -> pulumi.Output[Optional[_builtins.str]]:

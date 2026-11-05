@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .build());
@@ -57,52 +57,52 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .managementGroupId(example.id())
  *             .templateContent("""
- * {
- *   \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\",
- *   \"contentVersion\": \"1.0.0.0\",
- *   \"parameters\": {
- *     \"policyAssignmentName\": {
- *       \"type\": \"string\",
- *       \"defaultValue\": \"[guid(parameters('policyDefinitionID'), resourceGroup().name)]\",
- *       \"metadata\": {
- *         \"description\": \"Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.\"
- *       }
- *     },
- *     \"policyDefinitionID\": {
- *       \"type\": \"string\",
- *       \"metadata\": {
- *         \"description\": \"Specifies the ID of the policy definition or policy set definition being assigned.\"
- *       }
- *     }
- *   },
- *   \"resources\": [
- *     {
- *       \"type\": \"Microsoft.Authorization/policyAssignments\",
- *       \"name\": \"[parameters('policyAssignmentName')]\",
- *       \"apiVersion\": \"2019-09-01\",
- *       \"properties\": {
- *         \"scope\": \"[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]\",
- *         \"policyDefinitionId\": \"[parameters('policyDefinitionID')]\"
- *       }
- *     }
+ * }{{@code
+ *   }&#92;{@code "$schema}&#92;{@code ": }&#92;{@code "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#}&#92;{@code ",
+ *   }&#92;{@code "contentVersion}&#92;{@code ": }&#92;{@code "1.0.0.0}&#92;{@code ",
+ *   }&#92;{@code "parameters}&#92;{@code ": }{{@code
+ *     }&#92;{@code "policyAssignmentName}&#92;{@code ": }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code ",
+ *       }&#92;{@code "defaultValue}&#92;{@code ": }&#92;{@code "[guid(parameters('policyDefinitionID'), resourceGroup().name)]}&#92;{@code ",
+ *       }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *         }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.}&#92;{@code "
+ *       }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "policyDefinitionID}&#92;{@code ": }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code ",
+ *       }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *         }&#92;{@code "description}&#92;{@code ": }&#92;{@code "Specifies the ID of the policy definition or policy set definition being assigned.}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
+ *   }}{@code ,
+ *   }&#92;{@code "resources}&#92;{@code ": [
+ *     }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Microsoft.Authorization/policyAssignments}&#92;{@code ",
+ *       }&#92;{@code "name}&#92;{@code ": }&#92;{@code "[parameters('policyAssignmentName')]}&#92;{@code ",
+ *       }&#92;{@code "apiVersion}&#92;{@code ": }&#92;{@code "2019-09-01}&#92;{@code ",
+ *       }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *         }&#92;{@code "scope}&#92;{@code ": }&#92;{@code "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]}&#92;{@code ",
+ *         }&#92;{@code "policyDefinitionId}&#92;{@code ": }&#92;{@code "[parameters('policyDefinitionID')]}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
  *   ]
- * }
+ * }}{@code
  *             """)
  *             .parametersContent("""
- * {
- *   \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#\",
- *   \"contentVersion\": \"1.0.0.0\",
- *   \"parameters\": {
- *     \"policyDefinitionID\": {
- *       \"value\": \"/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a\"
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "$schema}&#92;{@code ": }&#92;{@code "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#}&#92;{@code ",
+ *   }&#92;{@code "contentVersion}&#92;{@code ": }&#92;{@code "1.0.0.0}&#92;{@code ",
+ *   }&#92;{@code "parameters}&#92;{@code ": }{{@code
+ *     }&#92;{@code "policyDefinitionID}&#92;{@code ": }{{@code
+ *       }&#92;{@code "value}&#92;{@code ": }&#92;{@code "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a}&#92;{@code "
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -1141,6 +1141,62 @@ class PostgresqlCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return PostgresqlCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            citus_version: pulumi.Input[Optional[_builtins.str]] = None,
+            coordinator_public_ip_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            coordinator_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+            coordinator_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            coordinator_vcore_count: pulumi.Input[Optional[_builtins.int]] = None,
+            earliest_restore_time: pulumi.Input[Optional[_builtins.str]] = None,
+            ha_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            node_public_ip_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            node_server_edition: pulumi.Input[Optional[_builtins.str]] = None,
+            node_storage_quota_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            node_vcores: pulumi.Input[Optional[_builtins.int]] = None,
+            point_in_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresqlClusterServerArgs', 'PostgresqlClusterServerArgsDict', 'outputs.PostgresqlClusterServer']]]]] = None,
+            shards_on_coordinator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_location: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administratorLoginPassword"] = administrator_login_password
+        __props__["citusVersion"] = citus_version
+        __props__["coordinatorPublicIpAccessEnabled"] = coordinator_public_ip_access_enabled
+        __props__["coordinatorServerEdition"] = coordinator_server_edition
+        __props__["coordinatorStorageQuotaInMb"] = coordinator_storage_quota_in_mb
+        __props__["coordinatorVcoreCount"] = coordinator_vcore_count
+        __props__["earliestRestoreTime"] = earliest_restore_time
+        __props__["haEnabled"] = ha_enabled
+        __props__["location"] = location
+        __props__["maintenanceWindow"] = maintenance_window
+        __props__["name"] = name
+        __props__["nodeCount"] = node_count
+        __props__["nodePublicIpAccessEnabled"] = node_public_ip_access_enabled
+        __props__["nodeServerEdition"] = node_server_edition
+        __props__["nodeStorageQuotaInMb"] = node_storage_quota_in_mb
+        __props__["nodeVcores"] = node_vcores
+        __props__["pointInTimeInUtc"] = point_in_time_in_utc
+        __props__["preferredPrimaryZone"] = preferred_primary_zone
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["servers"] = servers
+        __props__["shardsOnCoordinatorEnabled"] = shards_on_coordinator_enabled
+        __props__["sourceLocation"] = source_location
+        __props__["sourceResourceId"] = source_resource_id
+        __props__["sqlVersion"] = sql_version
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/postgresqlCluster:PostgresqlCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
     def administrator_login_password(self) -> pulumi.Output[Optional[_builtins.str]]:

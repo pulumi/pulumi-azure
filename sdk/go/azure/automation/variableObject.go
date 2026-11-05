@@ -163,6 +163,12 @@ func (VariableObjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableObjectState)(nil)).Elem()
 }
 
+// VariableObjectExists checks whether an existing VariableObject resource with the given ID exists.
+func VariableObjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariableObjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/variableObject:VariableObject", id, state, "", opts...)
+}
+
 type variableObjectArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`

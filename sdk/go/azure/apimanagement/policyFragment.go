@@ -177,6 +177,12 @@ func (PolicyFragmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyFragmentState)(nil)).Elem()
 }
 
+// PolicyFragmentExists checks whether an existing PolicyFragment resource with the given ID exists.
+func PolicyFragmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyFragmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/policyFragment:PolicyFragment", id, state, "", opts...)
+}
+
 type policyFragmentArgs struct {
 	// The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

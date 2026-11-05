@@ -243,6 +243,12 @@ func (ScheduledQueryRulesLogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRulesLogState)(nil)).Elem()
 }
 
+// ScheduledQueryRulesLogExists checks whether an existing ScheduledQueryRulesLog resource with the given ID exists.
+func ScheduledQueryRulesLogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScheduledQueryRulesLogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", id, state, "", opts...)
+}
+
 type scheduledQueryRulesLogArgs struct {
 	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`

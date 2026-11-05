@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> DdosProtectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of DDoS protection plan associated with the public IP. 
+        /// The ID of DDoS protection plan associated with the public IP.
         /// 
         /// &gt; **Note:** `DdosProtectionPlanId` can only be set when `DdosProtectionMode` is `Enabled`.
         /// </summary>
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? DdosProtectionMode { get; set; }
 
         /// <summary>
-        /// The ID of DDoS protection plan associated with the public IP. 
+        /// The ID of DDoS protection plan associated with the public IP.
         /// 
         /// &gt; **Note:** `DdosProtectionPlanId` can only be set when `DdosProtectionMode` is `Enabled`.
         /// </summary>
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? DdosProtectionMode { get; set; }
 
         /// <summary>
-        /// The ID of DDoS protection plan associated with the public IP. 
+        /// The ID of DDoS protection plan associated with the public IP.
         /// 
         /// &gt; **Note:** `DdosProtectionPlanId` can only be set when `DdosProtectionMode` is `Enabled`.
         /// </summary>

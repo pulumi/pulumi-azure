@@ -174,6 +174,12 @@ func (HypervNetworkMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hypervNetworkMappingState)(nil)).Elem()
 }
 
+// HypervNetworkMappingExists checks whether an existing HypervNetworkMapping resource with the given ID exists.
+func HypervNetworkMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HypervNetworkMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping", id, state, "", opts...)
+}
+
 type hypervNetworkMappingArgs struct {
 	// The name of the HyperV network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

@@ -653,6 +653,12 @@ func (WindowsVirtualMachineScaleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineScaleSetState)(nil)).Elem()
 }
 
+// WindowsVirtualMachineScaleSetExists checks whether an existing WindowsVirtualMachineScaleSet resource with the given ID exists.
+func WindowsVirtualMachineScaleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsVirtualMachineScaleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", id, state, "", opts...)
+}
+
 type windowsVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`

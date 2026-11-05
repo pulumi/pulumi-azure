@@ -258,6 +258,12 @@ func (JobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobState)(nil)).Elem()
 }
 
+// JobExists checks whether an existing Job resource with the given ID exists.
+func JobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/job:Job", id, state, "", opts...)
+}
+
 type jobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	//

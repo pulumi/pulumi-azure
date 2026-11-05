@@ -155,6 +155,12 @@ func (WorkspaceApplicationGroupAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceApplicationGroupAssociationState)(nil)).Elem()
 }
 
+// WorkspaceApplicationGroupAssociationExists checks whether an existing WorkspaceApplicationGroupAssociation resource with the given ID exists.
+func WorkspaceApplicationGroupAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceApplicationGroupAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", id, state, "", opts...)
+}
+
 type workspaceApplicationGroupAssociationArgs struct {
 	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId string `pulumi:"applicationGroupId"`

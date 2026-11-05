@@ -231,6 +231,12 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyState)(nil)).Elem()
 }
 
+// FirewallPolicyExists checks whether an existing FirewallPolicy resource with the given ID exists.
+func FirewallPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/firewallPolicy:FirewallPolicy", id, state, "", opts...)
+}
+
 type firewallPolicyArgs struct {
 	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled *bool `pulumi:"autoLearnPrivateRangesEnabled"`

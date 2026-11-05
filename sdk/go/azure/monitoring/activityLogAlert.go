@@ -213,6 +213,12 @@ func (ActivityLogAlertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityLogAlertState)(nil)).Elem()
 }
 
+// ActivityLogAlertExists checks whether an existing ActivityLogAlert resource with the given ID exists.
+func ActivityLogAlertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActivityLogAlertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/activityLogAlert:ActivityLogAlert", id, state, "", opts...)
+}
+
 type activityLogAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions []ActivityLogAlertAction `pulumi:"actions"`

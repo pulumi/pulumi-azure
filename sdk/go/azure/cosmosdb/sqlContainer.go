@@ -253,6 +253,12 @@ func (SqlContainerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlContainerState)(nil)).Elem()
 }
 
+// SqlContainerExists checks whether an existing SqlContainer resource with the given ID exists.
+func SqlContainerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlContainerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlContainer:SqlContainer", id, state, "", opts...)
+}
+
 type sqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

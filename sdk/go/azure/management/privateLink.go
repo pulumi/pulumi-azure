@@ -129,6 +129,12 @@ func (PrivateLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkState)(nil)).Elem()
 }
 
+// PrivateLinkExists checks whether an existing PrivateLink resource with the given ID exists.
+func PrivateLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/privateLink:PrivateLink", id, state, "", opts...)
+}
+
 type privateLinkArgs struct {
 	// The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
 	Location *string `pulumi:"location"`

@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -84,9 +84,9 @@ import javax.annotation.Nullable;
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
- * {
- *   \"connectionString\":\"%s\"
- * }
+ * }{{@code
+ *   }&#92;{@code "connectionString}&#92;{@code ":}&#92;{@code "%s}&#92;{@code "
+ * }}{@code
  * ", _primaryConnectionString)))
  *             .build());
  * 
@@ -105,15 +105,15 @@ import javax.annotation.Nullable;
  *                 .parameters(Map.of("key1", "value1"))
  *                 .build())
  *             .typePropertiesJson(exampleContainer.name().applyValue(_name -> """
- * {
- *   \"location\": {
- *     \"container\":\"%s\",
- *     \"fileName\":\"foo.txt\",
- *     \"folderPath\": \"foo/bar/\",
- *     \"type\":\"AzureBlobStorageLocation\"
- *   },
- *   \"encodingName\":\"UTF-8\"
- * }
+ * }{{@code
+ *   }&#92;{@code "location}&#92;{@code ": }{{@code
+ *     }&#92;{@code "container}&#92;{@code ":}&#92;{@code "%s}&#92;{@code ",
+ *     }&#92;{@code "fileName}&#92;{@code ":}&#92;{@code "foo.txt}&#92;{@code ",
+ *     }&#92;{@code "folderPath}&#92;{@code ": }&#92;{@code "foo/bar/}&#92;{@code ",
+ *     }&#92;{@code "type}&#92;{@code ":}&#92;{@code "AzureBlobStorageLocation}&#92;{@code "
+ *   }}{@code ,
+ *   }&#92;{@code "encodingName}&#92;{@code ":}&#92;{@code "UTF-8}&#92;{@code "
+ * }}{@code
  * ", _name)))
  *             .description("test description")
  *             .annotations(            
@@ -130,30 +130,30 @@ import javax.annotation.Nullable;
  *                 Map.entry("bar", "test2")
  *             ))
  *             .schemaJson("""
- * {
- *   \"type\": \"object\",
- *   \"properties\": {
- *     \"name\": {
- *       \"type\": \"object\",
- *       \"properties\": {
- *         \"firstName\": {
- *           \"type\": \"string\"
- *         },
- *         \"lastName\": {
- *           \"type\": \"string\"
- *         }
- *       }
- *     },
- *     \"age\": {
- *       \"type\": \"integer\"
- *     }
- *   }
- * }
+ * }{{@code
+ *   }&#92;{@code "type}&#92;{@code ": }&#92;{@code "object}&#92;{@code ",
+ *   }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *     }&#92;{@code "name}&#92;{@code ": }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "object}&#92;{@code ",
+ *       }&#92;{@code "properties}&#92;{@code ": }{{@code
+ *         }&#92;{@code "firstName}&#92;{@code ": }{{@code
+ *           }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code "
+ *         }}{@code ,
+ *         }&#92;{@code "lastName}&#92;{@code ": }{{@code
+ *           }&#92;{@code "type}&#92;{@code ": }&#92;{@code "string}&#92;{@code "
+ *         }}{@code
+ *       }}{@code
+ *     }}{@code ,
+ *     }&#92;{@code "age}&#92;{@code ": }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "integer}&#92;{@code "
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

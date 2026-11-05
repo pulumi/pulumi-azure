@@ -473,6 +473,24 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return BackupPolicyDataLakeStorage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDataLakeStorageRetentionRuleArgs', 'BackupPolicyDataLakeStorageRetentionRuleArgsDict', 'outputs.BackupPolicyDataLakeStorageRetentionRule']]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupSchedules"] = backup_schedules
+        __props__["dataProtectionBackupVaultId"] = data_protection_backup_vault_id
+        __props__["defaultRetentionDuration"] = default_retention_duration
+        __props__["name"] = name
+        __props__["retentionRules"] = retention_rules
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupSchedules")
     def backup_schedules(self) -> pulumi.Output[Sequence[_builtins.str]]:

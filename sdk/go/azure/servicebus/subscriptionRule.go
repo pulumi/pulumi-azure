@@ -261,6 +261,12 @@ func (SubscriptionRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionRuleState)(nil)).Elem()
 }
 
+// SubscriptionRuleExists checks whether an existing SubscriptionRule resource with the given ID exists.
+func SubscriptionRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicebus/subscriptionRule:SubscriptionRule", id, state, "", opts...)
+}
+
 type subscriptionRuleArgs struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action *string `pulumi:"action"`

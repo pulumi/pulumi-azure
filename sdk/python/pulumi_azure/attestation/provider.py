@@ -586,6 +586,34 @@ class Provider(pulumi.CustomResource):
         __props__.__dict__["trust_model"] = trust_model
         return Provider(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attestation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_signing_certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sev_snp_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            sgx_enclave_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tpm_policy_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_model: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attestationUri"] = attestation_uri
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["openEnclavePolicyBase64"] = open_enclave_policy_base64
+        __props__["policySigningCertificateData"] = policy_signing_certificate_data
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sevSnpPolicyBase64"] = sev_snp_policy_base64
+        __props__["sgxEnclavePolicyBase64"] = sgx_enclave_policy_base64
+        __props__["tags"] = tags
+        __props__["tpmPolicyBase64"] = tpm_policy_base64
+        __props__["trustModel"] = trust_model
+        return pulumi.runtime.exists_resource(None, 'azure:attestation/provider:Provider', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="attestationUri")
     def attestation_uri(self) -> pulumi.Output[_builtins.str]:

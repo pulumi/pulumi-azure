@@ -141,6 +141,12 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopeState)(nil)).Elem()
 }
 
+// PrivateLinkScopeExists checks whether an existing PrivateLinkScope resource with the given ID exists.
+func PrivateLinkScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arc/privateLinkScope:PrivateLinkScope", id, state, "", opts...)
+}
+
 type privateLinkScopeArgs struct {
 	// The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created.
 	Location *string `pulumi:"location"`

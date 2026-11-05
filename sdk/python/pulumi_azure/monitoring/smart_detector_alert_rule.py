@@ -633,6 +633,34 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         __props__.__dict__["throttling_duration"] = throttling_duration
         return SmartDetectorAlertRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throttling_duration: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionGroup"] = action_group
+        __props__["description"] = description
+        __props__["detectorType"] = detector_type
+        __props__["enabled"] = enabled
+        __props__["frequency"] = frequency
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scopeResourceIds"] = scope_resource_ids
+        __props__["severity"] = severity
+        __props__["tags"] = tags
+        __props__["throttlingDuration"] = throttling_duration
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionGroup")
     def action_group(self) -> pulumi.Output['outputs.SmartDetectorAlertRuleActionGroup']:

@@ -265,6 +265,12 @@ func (ProjectPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectPoolState)(nil)).Elem()
 }
 
+// ProjectPoolExists checks whether an existing ProjectPool resource with the given ID exists.
+func ProjectPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/projectPool:ProjectPool", id, state, "", opts...)
+}
+
 type projectPoolArgs struct {
 	// The name of the Dev Center Dev Box Definition.
 	DevBoxDefinitionName string `pulumi:"devBoxDefinitionName"`

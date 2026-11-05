@@ -167,6 +167,12 @@ func (SpringCloudCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudCustomDomainState)(nil)).Elem()
 }
 
+// SpringCloudCustomDomainExists checks whether an existing SpringCloudCustomDomain resource with the given ID exists.
+func SpringCloudCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain", id, state, "", opts...)
+}
+
 type springCloudCustomDomainArgs struct {
 	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName *string `pulumi:"certificateName"`

@@ -231,6 +231,12 @@ func (WebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppState)(nil)).Elem()
 }
 
+// WebAppExists checks whether an existing WebApp resource with the given ID exists.
+func WebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/webApp:WebApp", id, state, "", opts...)
+}
+
 type webAppArgs struct {
 	// The Application Insights API Key to associate with the Web App Bot.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`

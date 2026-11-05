@@ -295,6 +295,12 @@ func (AssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentState)(nil)).Elem()
 }
 
+// AssignmentExists checks whether an existing Assignment resource with the given ID exists.
+func AssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:blueprint/assignment:Assignment", id, state, "", opts...)
+}
+
 type assignmentArgs struct {
 	// An `identity` block as defined below.
 	Identity AssignmentIdentity `pulumi:"identity"`

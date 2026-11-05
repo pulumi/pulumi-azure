@@ -171,20 +171,18 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
     }
 
     /**
-     * @deprecated
-     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="msiWorkSpaceResourceId")
     private @Nullable Output<String> msiWorkSpaceResourceId;
 
     /**
-     * @deprecated
-     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<String>> msiWorkSpaceResourceId() {
         return Optional.ofNullable(this.msiWorkSpaceResourceId);
     }
@@ -510,11 +508,10 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder msiWorkSpaceResourceId(@Nullable Output<String> msiWorkSpaceResourceId) {
             $.msiWorkSpaceResourceId = msiWorkSpaceResourceId;
             return this;
@@ -523,11 +520,10 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         /**
          * @return builder
          * 
-         * @deprecated
-         * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder msiWorkSpaceResourceId(String msiWorkSpaceResourceId) {
             return msiWorkSpaceResourceId(Output.of(msiWorkSpaceResourceId));
         }

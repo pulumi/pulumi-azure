@@ -545,6 +545,26 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return GlobalVMShutdownSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            daily_recurrence_time: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dailyRecurrenceTime"] = daily_recurrence_time
+        __props__["enabled"] = enabled
+        __props__["location"] = location
+        __props__["notificationSettings"] = notification_settings
+        __props__["tags"] = tags
+        __props__["timezone"] = timezone
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dailyRecurrenceTime")
     def daily_recurrence_time(self) -> pulumi.Output[_builtins.str]:

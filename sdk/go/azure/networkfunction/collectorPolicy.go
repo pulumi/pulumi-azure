@@ -217,6 +217,12 @@ func (CollectorPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*collectorPolicyState)(nil)).Elem()
 }
 
+// CollectorPolicyExists checks whether an existing CollectorPolicy resource with the given ID exists.
+func CollectorPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CollectorPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:networkfunction/collectorPolicy:CollectorPolicy", id, state, "", opts...)
+}
+
 type collectorPolicyArgs struct {
 	// An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
 	IpfxEmission CollectorPolicyIpfxEmission `pulumi:"ipfxEmission"`

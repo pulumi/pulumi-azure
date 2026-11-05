@@ -332,6 +332,12 @@ func (PortalDashboardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portalDashboardState)(nil)).Elem()
 }
 
+// PortalDashboardExists checks whether an existing PortalDashboard resource with the given ID exists.
+func PortalDashboardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortalDashboardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:portal/portalDashboard:PortalDashboard", id, state, "", opts...)
+}
+
 type portalDashboardArgs struct {
 	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties string `pulumi:"dashboardProperties"`

@@ -388,6 +388,12 @@ func (ManagedInstanceStartStopScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedInstanceStartStopScheduleState)(nil)).Elem()
 }
 
+// ManagedInstanceStartStopScheduleExists checks whether an existing ManagedInstanceStartStopSchedule resource with the given ID exists.
+func ManagedInstanceStartStopScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceStartStopScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule", id, state, "", opts...)
+}
+
 type managedInstanceStartStopScheduleArgs struct {
 	// Specifies the description of the schedule.
 	Description *string `pulumi:"description"`

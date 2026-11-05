@@ -141,6 +141,12 @@ func (FlexibleServerBackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*flexibleServerBackupState)(nil)).Elem()
 }
 
+// FlexibleServerBackupExists checks whether an existing FlexibleServerBackup resource with the given ID exists.
+func FlexibleServerBackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FlexibleServerBackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/flexibleServerBackup:FlexibleServerBackup", id, state, "", opts...)
+}
+
 type flexibleServerBackupArgs struct {
 	// Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

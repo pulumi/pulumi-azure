@@ -170,6 +170,12 @@ func (CapacityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityState)(nil)).Elem()
 }
 
+// CapacityExists checks whether an existing Capacity resource with the given ID exists.
+func CapacityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CapacityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:fabric/capacity:Capacity", id, state, "", opts...)
+}
+
 type capacityArgs struct {
 	// An array of administrator user identities. The member must be an Entra user or a service principal.
 	//

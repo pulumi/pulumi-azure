@@ -1030,6 +1030,52 @@ class PublicIp(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return PublicIp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            ddos_protection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            ddos_protection_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_label: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name_label_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allocationMethod"] = allocation_method
+        __props__["ddosProtectionMode"] = ddos_protection_mode
+        __props__["ddosProtectionPlanId"] = ddos_protection_plan_id
+        __props__["domainNameLabel"] = domain_name_label
+        __props__["domainNameLabelScope"] = domain_name_label_scope
+        __props__["edgeZone"] = edge_zone
+        __props__["fqdn"] = fqdn
+        __props__["idleTimeoutInMinutes"] = idle_timeout_in_minutes
+        __props__["ipAddress"] = ip_address
+        __props__["ipTags"] = ip_tags
+        __props__["ipVersion"] = ip_version
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicIpPrefixId"] = public_ip_prefix_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["reverseFqdn"] = reverse_fqdn
+        __props__["sku"] = sku
+        __props__["skuTier"] = sku_tier
+        __props__["tags"] = tags
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:network/publicIp:PublicIp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> pulumi.Output[_builtins.str]:

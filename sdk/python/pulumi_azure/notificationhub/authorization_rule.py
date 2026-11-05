@@ -566,6 +566,34 @@ class AuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["send"] = send
         return AuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            listen: pulumi.Input[Optional[_builtins.bool]] = None,
+            manage: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["listen"] = listen
+        __props__["manage"] = manage
+        __props__["name"] = name
+        __props__["namespaceName"] = namespace_name
+        __props__["notificationHubName"] = notification_hub_name
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["send"] = send
+        return pulumi.runtime.exists_resource(None, 'azure:notificationhub/authorizationRule:AuthorizationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def listen(self) -> pulumi.Output[Optional[_builtins.bool]]:

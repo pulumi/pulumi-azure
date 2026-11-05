@@ -216,6 +216,12 @@ func (AssignmentVirtualMachineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentVirtualMachineState)(nil)).Elem()
 }
 
+// AssignmentVirtualMachineExists checks whether an existing AssignmentVirtualMachine resource with the given ID exists.
+func AssignmentVirtualMachineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentVirtualMachineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", id, state, "", opts...)
+}
+
 type assignmentVirtualMachineArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

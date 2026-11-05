@@ -180,6 +180,12 @@ func (SubscriptionPolicyExemptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionPolicyExemptionState)(nil)).Elem()
 }
 
+// SubscriptionPolicyExemptionExists checks whether an existing SubscriptionPolicyExemption resource with the given ID exists.
+func SubscriptionPolicyExemptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionPolicyExemptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption", id, state, "", opts...)
+}
+
 type subscriptionPolicyExemptionArgs struct {
 	// A description to use for this Policy Exemption.
 	Description *string `pulumi:"description"`

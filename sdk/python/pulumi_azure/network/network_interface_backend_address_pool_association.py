@@ -360,6 +360,18 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         __props__.__dict__["network_interface_id"] = network_interface_id
         return NetworkInterfaceBackendAddressPoolAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backendAddressPoolId"] = backend_address_pool_id
+        __props__["ipConfigurationName"] = ip_configuration_name
+        __props__["networkInterfaceId"] = network_interface_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
     def backend_address_pool_id(self) -> pulumi.Output[_builtins.str]:

@@ -383,6 +383,12 @@ func (NamespaceCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceCustomerManagedKeyState)(nil)).Elem()
 }
 
+// NamespaceCustomerManagedKeyExists checks whether an existing NamespaceCustomerManagedKey resource with the given ID exists.
+func NamespaceCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", id, state, "", opts...)
+}
+
 type namespaceCustomerManagedKeyArgs struct {
 	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	EventhubNamespaceId string `pulumi:"eventhubNamespaceId"`

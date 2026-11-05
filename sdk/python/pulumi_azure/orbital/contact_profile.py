@@ -649,6 +649,32 @@ class ContactProfile(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ContactProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_tracking: pulumi.Input[Optional[_builtins.str]] = None,
+            event_hub_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_elevation_degrees: pulumi.Input[Optional[_builtins.float]] = None,
+            minimum_variable_contact_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoTracking"] = auto_tracking
+        __props__["eventHubUri"] = event_hub_uri
+        __props__["links"] = links
+        __props__["location"] = location
+        __props__["minimumElevationDegrees"] = minimum_elevation_degrees
+        __props__["minimumVariableContactDuration"] = minimum_variable_contact_duration
+        __props__["name"] = name
+        __props__["networkConfigurationSubnetId"] = network_configuration_subnet_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:orbital/contactProfile:ContactProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoTracking")
     def auto_tracking(self) -> pulumi.Output[_builtins.str]:

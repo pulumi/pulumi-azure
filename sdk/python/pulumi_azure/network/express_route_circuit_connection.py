@@ -525,6 +525,24 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         __props__.__dict__["peering_id"] = peering_id
         return ExpressRouteCircuitConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefix_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            address_prefix_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            peering_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefixIpv4"] = address_prefix_ipv4
+        __props__["addressPrefixIpv6"] = address_prefix_ipv6
+        __props__["authorizationKey"] = authorization_key
+        __props__["name"] = name
+        __props__["peerPeeringId"] = peer_peering_id
+        __props__["peeringId"] = peering_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefixIpv4")
     def address_prefix_ipv4(self) -> pulumi.Output[_builtins.str]:

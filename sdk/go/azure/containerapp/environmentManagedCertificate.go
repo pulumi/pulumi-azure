@@ -216,6 +216,12 @@ func (EnvironmentManagedCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentManagedCertificateState)(nil)).Elem()
 }
 
+// EnvironmentManagedCertificateExists checks whether an existing EnvironmentManagedCertificate resource with the given ID exists.
+func EnvironmentManagedCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentManagedCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate", id, state, "", opts...)
+}
+
 type environmentManagedCertificateArgs struct {
 	// The Container App Managed Environment ID to configure this Managed Certificate on. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`

@@ -653,6 +653,34 @@ class TriggerCustomEvent(pulumi.CustomResource):
         __props__.__dict__["subject_ends_with"] = subject_ends_with
         return TriggerCustomEvent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            eventgrid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerCustomEventPipelineArgs', 'TriggerCustomEventPipelineArgsDict', 'outputs.TriggerCustomEventPipeline']]]]] = None,
+            subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activated"] = activated
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["eventgridTopicId"] = eventgrid_topic_id
+        __props__["events"] = events
+        __props__["name"] = name
+        __props__["pipelines"] = pipelines
+        __props__["subjectBeginsWith"] = subject_begins_with
+        __props__["subjectEndsWith"] = subject_ends_with
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/triggerCustomEvent:TriggerCustomEvent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def activated(self) -> pulumi.Output[Optional[_builtins.bool]]:

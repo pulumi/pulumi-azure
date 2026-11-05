@@ -827,6 +827,40 @@ class FunctionAppFunction(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return FunctionAppFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_json: pulumi.Input[Optional[_builtins.str]] = None,
+            config_url: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]]] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            language: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            script_root_path_url: pulumi.Input[Optional[_builtins.str]] = None,
+            script_url: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_file_url: pulumi.Input[Optional[_builtins.str]] = None,
+            test_data: pulumi.Input[Optional[_builtins.str]] = None,
+            test_data_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configJson"] = config_json
+        __props__["configUrl"] = config_url
+        __props__["enabled"] = enabled
+        __props__["files"] = files
+        __props__["functionAppId"] = function_app_id
+        __props__["invocationUrl"] = invocation_url
+        __props__["language"] = language
+        __props__["name"] = name
+        __props__["scriptRootPathUrl"] = script_root_path_url
+        __props__["scriptUrl"] = script_url
+        __props__["secretsFileUrl"] = secrets_file_url
+        __props__["testData"] = test_data
+        __props__["testDataUrl"] = test_data_url
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/functionAppFunction:FunctionAppFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configJson")
     def config_json(self) -> pulumi.Output[_builtins.str]:

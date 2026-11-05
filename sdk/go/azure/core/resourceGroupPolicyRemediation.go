@@ -215,6 +215,12 @@ func (ResourceGroupPolicyRemediationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupPolicyRemediationState)(nil)).Elem()
 }
 
+// ResourceGroupPolicyRemediationExists checks whether an existing ResourceGroupPolicyRemediation resource with the given ID exists.
+func ResourceGroupPolicyRemediationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupPolicyRemediationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation", id, state, "", opts...)
+}
+
 type resourceGroupPolicyRemediationArgs struct {
 	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage *float64 `pulumi:"failurePercentage"`

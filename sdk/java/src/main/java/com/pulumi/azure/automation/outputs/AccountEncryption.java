@@ -13,11 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountEncryption {
     /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+     * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
      * 
      */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+    @Deprecated
     private @Nullable String keySource;
     /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
@@ -32,11 +31,10 @@ public final class AccountEncryption {
 
     private AccountEncryption() {}
     /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
+     * @deprecated `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
      * 
      */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
+    @Deprecated
     public Optional<String> keySource() {
         return Optional.ofNullable(this.keySource);
     }

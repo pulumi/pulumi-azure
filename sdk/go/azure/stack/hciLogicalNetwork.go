@@ -186,6 +186,12 @@ func (HciLogicalNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciLogicalNetworkState)(nil)).Elem()
 }
 
+// HciLogicalNetworkExists checks whether an existing HciLogicalNetwork resource with the given ID exists.
+func HciLogicalNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciLogicalNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciLogicalNetwork:HciLogicalNetwork", id, state, "", opts...)
+}
+
 type hciLogicalNetworkArgs struct {
 	// The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
 	CustomLocationId string `pulumi:"customLocationId"`

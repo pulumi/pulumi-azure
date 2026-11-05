@@ -132,6 +132,12 @@ func (AdvancedThreatProtectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*advancedThreatProtectionState)(nil)).Elem()
 }
 
+// AdvancedThreatProtectionExists checks whether an existing AdvancedThreatProtection resource with the given ID exists.
+func AdvancedThreatProtectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdvancedThreatProtectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", id, state, "", opts...)
+}
+
 type advancedThreatProtectionArgs struct {
 	// Should Advanced Threat Protection be enabled on this resource?
 	Enabled bool `pulumi:"enabled"`

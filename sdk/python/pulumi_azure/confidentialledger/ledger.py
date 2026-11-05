@@ -498,6 +498,30 @@ class Ledger(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Ledger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azuread_based_service_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict', 'outputs.LedgerAzureadBasedServicePrincipal']]]]] = None,
+            certificate_based_security_principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LedgerCertificateBasedSecurityPrincipalArgs', 'LedgerCertificateBasedSecurityPrincipalArgsDict', 'outputs.LedgerCertificateBasedSecurityPrincipal']]]]] = None,
+            identity_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ledger_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            ledger_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureadBasedServicePrincipals"] = azuread_based_service_principals
+        __props__["certificateBasedSecurityPrincipals"] = certificate_based_security_principals
+        __props__["identityServiceEndpoint"] = identity_service_endpoint
+        __props__["ledgerEndpoint"] = ledger_endpoint
+        __props__["ledgerType"] = ledger_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:confidentialledger/ledger:Ledger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureadBasedServicePrincipals")
     def azuread_based_service_principals(self) -> pulumi.Output[Sequence['outputs.LedgerAzureadBasedServicePrincipal']]:

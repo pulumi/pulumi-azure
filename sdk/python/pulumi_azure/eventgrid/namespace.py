@@ -565,6 +565,32 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["topic_spaces_configurations"] = topic_spaces_configurations
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capacity"] = capacity
+        __props__["identity"] = identity
+        __props__["inboundIpRules"] = inbound_ip_rules
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicNetworkAccess"] = public_network_access
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["topicSpacesConfigurations"] = topic_spaces_configurations
+        return pulumi.runtime.exists_resource(None, 'azure:eventgrid/namespace:Namespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[_builtins.int]]:

@@ -135,6 +135,12 @@ func (NetworkSecurityPerimeterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityPerimeterState)(nil)).Elem()
 }
 
+// NetworkSecurityPerimeterExists checks whether an existing NetworkSecurityPerimeter resource with the given ID exists.
+func NetworkSecurityPerimeterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityPerimeterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter", id, state, "", opts...)
+}
+
 type networkSecurityPerimeterArgs struct {
 	// The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
 	Location *string `pulumi:"location"`

@@ -688,6 +688,36 @@ class ReferenceInputMssql(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return ReferenceInputMssql(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            delta_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+            full_snapshot_query: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_interval_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["database"] = database
+        __props__["deltaSnapshotQuery"] = delta_snapshot_query
+        __props__["fullSnapshotQuery"] = full_snapshot_query
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["refreshIntervalDuration"] = refresh_interval_duration
+        __props__["refreshType"] = refresh_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["server"] = server
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        __props__["table"] = table
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/referenceInputMssql:ReferenceInputMssql', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def database(self) -> pulumi.Output[_builtins.str]:

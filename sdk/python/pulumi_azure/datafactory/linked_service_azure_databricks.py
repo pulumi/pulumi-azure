@@ -883,6 +883,42 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         return LinkedServiceAzureDatabricks(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token: pulumi.Input[Optional[_builtins.str]] = None,
+            adb_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_pool: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksInstancePoolArgs', 'LinkedServiceAzureDatabricksInstancePoolArgsDict', 'outputs.LinkedServiceAzureDatabricksInstancePool']]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksKeyVaultPasswordArgs', 'LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict', 'outputs.LinkedServiceAzureDatabricksKeyVaultPassword']]] = None,
+            msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            new_cluster_config: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksNewClusterConfigArgs', 'LinkedServiceAzureDatabricksNewClusterConfigArgsDict', 'outputs.LinkedServiceAzureDatabricksNewClusterConfig']]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessToken"] = access_token
+        __props__["adbDomain"] = adb_domain
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["existingClusterId"] = existing_cluster_id
+        __props__["instancePool"] = instance_pool
+        __props__["integrationRuntimeName"] = integration_runtime_name
+        __props__["keyVaultPassword"] = key_vault_password
+        __props__["msiWorkSpaceResourceId"] = msi_work_space_resource_id
+        __props__["msiWorkspaceId"] = msi_workspace_id
+        __props__["name"] = name
+        __props__["newClusterConfig"] = new_cluster_config
+        __props__["parameters"] = parameters
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[_builtins.str]]:

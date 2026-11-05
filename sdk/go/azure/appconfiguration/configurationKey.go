@@ -318,6 +318,12 @@ func (ConfigurationKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationKeyState)(nil)).Elem()
 }
 
+// ConfigurationKeyExists checks whether an existing ConfigurationKey resource with the given ID exists.
+func ConfigurationKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/configurationKey:ConfigurationKey", id, state, "", opts...)
+}
+
 type configurationKeyArgs struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId string `pulumi:"configurationStoreId"`

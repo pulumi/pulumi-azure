@@ -585,6 +585,34 @@ class Container(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Container(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_immutability_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_legal_hold: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerAccessType"] = container_access_type
+        __props__["defaultEncryptionScope"] = default_encryption_scope
+        __props__["encryptionScopeOverrideEnabled"] = encryption_scope_override_enabled
+        __props__["hasImmutabilityPolicy"] = has_immutability_policy
+        __props__["hasLegalHold"] = has_legal_hold
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["resourceManagerId"] = resource_manager_id
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountName"] = storage_account_name
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:storage/container:Container', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerAccessType")
     def container_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:

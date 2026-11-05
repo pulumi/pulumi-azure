@@ -517,6 +517,28 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudApplicationInsightsApplicationPerformanceMonitoring(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionString"] = connection_string
+        __props__["globallyEnabled"] = globally_enabled
+        __props__["name"] = name
+        __props__["roleInstance"] = role_instance
+        __props__["roleName"] = role_name
+        __props__["samplingPercentage"] = sampling_percentage
+        __props__["samplingRequestsPerSecond"] = sampling_requests_per_second
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Output[Optional[_builtins.str]]:

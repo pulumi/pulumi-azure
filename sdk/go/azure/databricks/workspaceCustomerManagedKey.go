@@ -142,6 +142,12 @@ func (WorkspaceCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceCustomerManagedKeyState)(nil)).Elem()
 }
 
+// WorkspaceCustomerManagedKeyExists checks whether an existing WorkspaceCustomerManagedKey resource with the given ID exists.
+func WorkspaceCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", id, state, "", opts...)
+}
+
 type workspaceCustomerManagedKeyArgs struct {
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The unique identifier of the databricks workspace in Databricks control plane.

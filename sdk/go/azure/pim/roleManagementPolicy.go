@@ -188,6 +188,12 @@ func (RoleManagementPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleManagementPolicyState)(nil)).Elem()
 }
 
+// RoleManagementPolicyExists checks whether an existing RoleManagementPolicy resource with the given ID exists.
+func RoleManagementPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleManagementPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:pim/roleManagementPolicy:RoleManagementPolicy", id, state, "", opts...)
+}
+
 type roleManagementPolicyArgs struct {
 	// An `activationRules` block as defined below.
 	ActivationRules *RoleManagementPolicyActivationRules `pulumi:"activationRules"`

@@ -383,6 +383,26 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Zone(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            max_number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["maxNumberOfRecordSets"] = max_number_of_record_sets
+        __props__["name"] = name
+        __props__["nameServers"] = name_servers
+        __props__["numberOfRecordSets"] = number_of_record_sets
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["soaRecord"] = soa_record
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:dns/zone:Zone', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="maxNumberOfRecordSets")
     def max_number_of_record_sets(self) -> pulumi.Output[_builtins.int]:

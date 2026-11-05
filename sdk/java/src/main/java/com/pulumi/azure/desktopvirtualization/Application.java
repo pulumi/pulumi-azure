@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example-virtualdesktop")
  *             .location("West Europe")
@@ -86,16 +86,16 @@ import javax.annotation.Nullable;
  *             .applicationGroupId(remoteapp.id())
  *             .friendlyName("Google Chrome")
  *             .description("Chromium based web browser")
- *             .path("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
+ *             .path("C:}&#92;&#92;{@code Program Files}&#92;&#92;{@code Google}&#92;&#92;{@code Chrome}&#92;&#92;{@code Application}&#92;&#92;{@code chrome.exe")
  *             .commandLineArgumentPolicy("DoNotAllow")
  *             .commandLineArguments("--incognito")
  *             .showInPortal(false)
- *             .iconPath("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
+ *             .iconPath("C:}&#92;&#92;{@code Program Files}&#92;&#92;{@code Google}&#92;&#92;{@code Chrome}&#92;&#92;{@code Application}&#92;&#92;{@code chrome.exe")
  *             .iconIndex(0)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

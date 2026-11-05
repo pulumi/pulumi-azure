@@ -191,6 +191,12 @@ func (ProbeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*probeState)(nil)).Elem()
 }
 
+// ProbeExists checks whether an existing Probe resource with the given ID exists.
+func ProbeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProbeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:lb/probe:Probe", id, state, "", opts...)
+}
+
 type probeArgs struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`

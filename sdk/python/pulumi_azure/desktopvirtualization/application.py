@@ -615,6 +615,32 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["show_in_portal"] = show_in_portal
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            command_line_argument_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_index: pulumi.Input[Optional[_builtins.int]] = None,
+            icon_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            show_in_portal: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationGroupId"] = application_group_id
+        __props__["commandLineArgumentPolicy"] = command_line_argument_policy
+        __props__["commandLineArguments"] = command_line_arguments
+        __props__["description"] = description
+        __props__["friendlyName"] = friendly_name
+        __props__["iconIndex"] = icon_index
+        __props__["iconPath"] = icon_path
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["showInPortal"] = show_in_portal
+        return pulumi.runtime.exists_resource(None, 'azure:desktopvirtualization/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> pulumi.Output[_builtins.str]:

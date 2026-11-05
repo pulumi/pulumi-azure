@@ -170,6 +170,12 @@ func (SpringCloudConfigurationServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudConfigurationServiceState)(nil)).Elem()
 }
 
+// SpringCloudConfigurationServiceExists checks whether an existing SpringCloudConfigurationService resource with the given ID exists.
+func SpringCloudConfigurationServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudConfigurationServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService", id, state, "", opts...)
+}
+
 type springCloudConfigurationServiceArgs struct {
 	// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
 	Generation *string `pulumi:"generation"`

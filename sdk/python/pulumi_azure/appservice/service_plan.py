@@ -753,6 +753,40 @@ class ServicePlan(pulumi.CustomResource):
         __props__.__dict__["zone_balancing_enabled"] = zone_balancing_enabled
         return ServicePlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            per_site_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            premium_plan_auto_scale_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+            zone_balancing_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServiceEnvironmentId"] = app_service_environment_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["maximumElasticWorkerCount"] = maximum_elastic_worker_count
+        __props__["name"] = name
+        __props__["osType"] = os_type
+        __props__["perSiteScalingEnabled"] = per_site_scaling_enabled
+        __props__["premiumPlanAutoScaleEnabled"] = premium_plan_auto_scale_enabled
+        __props__["reserved"] = reserved
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        __props__["workerCount"] = worker_count
+        __props__["zoneBalancingEnabled"] = zone_balancing_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/servicePlan:ServicePlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServiceEnvironmentId")
     def app_service_environment_id(self) -> pulumi.Output[Optional[_builtins.str]]:

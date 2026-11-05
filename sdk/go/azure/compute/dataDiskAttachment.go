@@ -253,6 +253,12 @@ func (DataDiskAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataDiskAttachmentState)(nil)).Elem()
 }
 
+// DataDiskAttachmentExists checks whether an existing DataDiskAttachment resource with the given ID exists.
+func DataDiskAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataDiskAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/dataDiskAttachment:DataDiskAttachment", id, state, "", opts...)
+}
+
 type dataDiskAttachmentArgs struct {
 	// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`

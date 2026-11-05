@@ -142,6 +142,12 @@ func (AccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyState)(nil)).Elem()
 }
 
+// AccessPolicyExists checks whether an existing AccessPolicy resource with the given ID exists.
+func AccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/accessPolicy:AccessPolicy", id, state, "", opts...)
+}
+
 type accessPolicyArgs struct {
 	// The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
 	ApplicationId *string `pulumi:"applicationId"`

@@ -69,6 +69,17 @@ export class SpringCloudElasticApplicationPerformanceMonitoring extends pulumi.C
         return new SpringCloudElasticApplicationPerformanceMonitoring(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing SpringCloudElasticApplicationPerformanceMonitoring resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: SpringCloudElasticApplicationPerformanceMonitoringState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring';
 

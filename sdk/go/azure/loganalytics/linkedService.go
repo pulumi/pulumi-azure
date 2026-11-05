@@ -179,6 +179,12 @@ func (LinkedServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceState)(nil)).Elem()
 }
 
+// LinkedServiceExists checks whether an existing LinkedService resource with the given ID exists.
+func LinkedServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/linkedService:LinkedService", id, state, "", opts...)
+}
+
 type linkedServiceArgs struct {
 	// The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
 	ReadAccessId *string `pulumi:"readAccessId"`

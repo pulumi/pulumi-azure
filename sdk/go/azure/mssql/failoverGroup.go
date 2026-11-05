@@ -212,6 +212,12 @@ func (FailoverGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*failoverGroupState)(nil)).Elem()
 }
 
+// FailoverGroupExists checks whether an existing FailoverGroup resource with the given ID exists.
+func FailoverGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FailoverGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/failoverGroup:FailoverGroup", id, state, "", opts...)
+}
+
 type failoverGroupArgs struct {
 	// A set of database names to include in the failover group.
 	Databases []string `pulumi:"databases"`

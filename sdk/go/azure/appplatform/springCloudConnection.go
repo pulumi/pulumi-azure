@@ -222,6 +222,12 @@ func (SpringCloudConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudConnectionState)(nil)).Elem()
 }
 
+// SpringCloudConnectionExists checks whether an existing SpringCloudConnection resource with the given ID exists.
+func SpringCloudConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudConnection:SpringCloudConnection", id, state, "", opts...)
+}
+
 type springCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`

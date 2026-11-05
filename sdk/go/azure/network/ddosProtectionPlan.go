@@ -145,6 +145,12 @@ func (DdosProtectionPlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ddosProtectionPlanState)(nil)).Elem()
 }
 
+// DdosProtectionPlanExists checks whether an existing DdosProtectionPlan resource with the given ID exists.
+func DdosProtectionPlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DdosProtectionPlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/ddosProtectionPlan:DdosProtectionPlan", id, state, "", opts...)
+}
+
 type ddosProtectionPlanArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

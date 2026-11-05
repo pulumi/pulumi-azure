@@ -143,6 +143,12 @@ func (DataConnectorDynamics365State) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorDynamics365State)(nil)).Elem()
 }
 
+// DataConnectorDynamics365Exists checks whether an existing DataConnectorDynamics365 resource with the given ID exists.
+func DataConnectorDynamics365Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorDynamics365State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", id, state, "", opts...)
+}
+
 type dataConnectorDynamics365Args struct {
 	// The ID of the Log Analytics Workspace that this Dynamics 365 Data Connector resides in. Changing this forces a new Dynamics 365 Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

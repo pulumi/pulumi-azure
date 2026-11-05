@@ -262,6 +262,12 @@ func (AccountCustomerManagedKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountCustomerManagedKeyState)(nil)).Elem()
 }
 
+// AccountCustomerManagedKeyExists checks whether an existing AccountCustomerManagedKey resource with the given ID exists.
+func AccountCustomerManagedKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountCustomerManagedKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey", id, state, "", opts...)
+}
+
 type accountCustomerManagedKeyArgs struct {
 	// The ID of the Cognitive Account. Changing this forces a new resource to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`

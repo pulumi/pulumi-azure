@@ -661,6 +661,36 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["week_days"] = week_days
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            month_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            monthly_occurrence: pulumi.Input[Optional[Union['ScheduleMonthlyOccurrenceArgs', 'ScheduleMonthlyOccurrenceArgsDict', 'outputs.ScheduleMonthlyOccurrence']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            week_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["description"] = description
+        __props__["expiryTime"] = expiry_time
+        __props__["frequency"] = frequency
+        __props__["interval"] = interval
+        __props__["monthDays"] = month_days
+        __props__["monthlyOccurrence"] = monthly_occurrence
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["startTime"] = start_time
+        __props__["timezone"] = timezone
+        __props__["weekDays"] = week_days
+        return pulumi.runtime.exists_resource(None, 'azure:automation/schedule:Schedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

@@ -344,6 +344,22 @@ class Suppression(pulumi.CustomResource):
         __props__.__dict__["ttl"] = ttl
         return Suppression(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recommendation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            suppression_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["recommendationId"] = recommendation_id
+        __props__["resourceId"] = resource_id
+        __props__["suppressionId"] = suppression_id
+        __props__["ttl"] = ttl
+        return pulumi.runtime.exists_resource(None, 'azure:advisor/suppression:Suppression', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

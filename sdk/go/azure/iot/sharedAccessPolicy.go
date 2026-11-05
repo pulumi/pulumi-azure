@@ -206,6 +206,12 @@ func (SharedAccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedAccessPolicyState)(nil)).Elem()
 }
 
+// SharedAccessPolicyExists checks whether an existing SharedAccessPolicy resource with the given ID exists.
+func SharedAccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedAccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", id, state, "", opts...)
+}
+
 type sharedAccessPolicyArgs struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 	//

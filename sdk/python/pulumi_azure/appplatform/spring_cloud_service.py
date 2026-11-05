@@ -924,6 +924,52 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["zone_redundant"] = zone_redundant
         return SpringCloudService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            build_agent_pool_size: pulumi.Input[Optional[_builtins.str]] = None,
+            config_server_git_setting: pulumi.Input[Optional[Union['SpringCloudServiceConfigServerGitSettingArgs', 'SpringCloudServiceConfigServerGitSettingArgsDict', 'outputs.SpringCloudServiceConfigServerGitSetting']]] = None,
+            container_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudServiceContainerRegistryArgs', 'SpringCloudServiceContainerRegistryArgsDict', 'outputs.SpringCloudServiceContainerRegistry']]]]] = None,
+            default_build_service: pulumi.Input[Optional[Union['SpringCloudServiceDefaultBuildServiceArgs', 'SpringCloudServiceDefaultBuildServiceArgsDict', 'outputs.SpringCloudServiceDefaultBuildService']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_stream_public_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace: pulumi.Input[Optional[Union['SpringCloudServiceMarketplaceArgs', 'SpringCloudServiceMarketplaceArgsDict', 'outputs.SpringCloudServiceMarketplace']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['SpringCloudServiceNetworkArgs', 'SpringCloudServiceNetworkArgsDict', 'outputs.SpringCloudServiceNetwork']]] = None,
+            outbound_public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            required_network_traffic_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudServiceRequiredNetworkTrafficRuleArgs', 'SpringCloudServiceRequiredNetworkTrafficRuleArgsDict', 'outputs.SpringCloudServiceRequiredNetworkTrafficRule']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_registry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trace: pulumi.Input[Optional[Union['SpringCloudServiceTraceArgs', 'SpringCloudServiceTraceArgsDict', 'outputs.SpringCloudServiceTrace']]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["buildAgentPoolSize"] = build_agent_pool_size
+        __props__["configServerGitSetting"] = config_server_git_setting
+        __props__["containerRegistries"] = container_registries
+        __props__["defaultBuildService"] = default_build_service
+        __props__["location"] = location
+        __props__["logStreamPublicEndpointEnabled"] = log_stream_public_endpoint_enabled
+        __props__["managedEnvironmentId"] = managed_environment_id
+        __props__["marketplace"] = marketplace
+        __props__["name"] = name
+        __props__["network"] = network
+        __props__["outboundPublicIpAddresses"] = outbound_public_ip_addresses
+        __props__["requiredNetworkTrafficRules"] = required_network_traffic_rules
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceRegistryEnabled"] = service_registry_enabled
+        __props__["serviceRegistryId"] = service_registry_id
+        __props__["skuName"] = sku_name
+        __props__["skuTier"] = sku_tier
+        __props__["tags"] = tags
+        __props__["trace"] = trace
+        __props__["zoneRedundant"] = zone_redundant
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudService:SpringCloudService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="buildAgentPoolSize")
     def build_agent_pool_size(self) -> pulumi.Output[Optional[_builtins.str]]:

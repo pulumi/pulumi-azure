@@ -235,6 +235,12 @@ func (NextGenerationFirewallVirtualHubPanoramaState) ElementType() reflect.Type 
 	return reflect.TypeOf((*nextGenerationFirewallVirtualHubPanoramaState)(nil)).Elem()
 }
 
+// NextGenerationFirewallVirtualHubPanoramaExists checks whether an existing NextGenerationFirewallVirtualHubPanorama resource with the given ID exists.
+func NextGenerationFirewallVirtualHubPanoramaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NextGenerationFirewallVirtualHubPanoramaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama", id, state, "", opts...)
+}
+
 type nextGenerationFirewallVirtualHubPanoramaArgs struct {
 	// One or more `destinationNat` blocks as defined below.
 	DestinationNats []NextGenerationFirewallVirtualHubPanoramaDestinationNat `pulumi:"destinationNats"`

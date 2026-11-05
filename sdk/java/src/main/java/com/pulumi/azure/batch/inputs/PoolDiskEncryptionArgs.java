@@ -15,14 +15,14 @@ public final class PoolDiskEncryptionArgs extends com.pulumi.resources.ResourceA
     public static final PoolDiskEncryptionArgs Empty = new PoolDiskEncryptionArgs();
 
     /**
-     * On Linux pool, only \&#34;TemporaryDisk\&#34; is supported; on Windows pool, \&#34;OsDisk\&#34; and \&#34;TemporaryDisk\&#34; must be specified.
+     * On Linux pool, only &#92;&#34;TemporaryDisk&#92;&#34; is supported; on Windows pool, &#92;&#34;OsDisk&#92;&#34; and &#92;&#34;TemporaryDisk&#92;&#34; must be specified.
      * 
      */
     @Import(name="diskEncryptionTarget", required=true)
     private Output<String> diskEncryptionTarget;
 
     /**
-     * @return On Linux pool, only \&#34;TemporaryDisk\&#34; is supported; on Windows pool, \&#34;OsDisk\&#34; and \&#34;TemporaryDisk\&#34; must be specified.
+     * @return On Linux pool, only &#92;&#34;TemporaryDisk&#92;&#34; is supported; on Windows pool, &#92;&#34;OsDisk&#92;&#34; and &#92;&#34;TemporaryDisk&#92;&#34; must be specified.
      * 
      */
     public Output<String> diskEncryptionTarget() {
@@ -54,7 +54,7 @@ public final class PoolDiskEncryptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskEncryptionTarget On Linux pool, only \&#34;TemporaryDisk\&#34; is supported; on Windows pool, \&#34;OsDisk\&#34; and \&#34;TemporaryDisk\&#34; must be specified.
+         * @param diskEncryptionTarget On Linux pool, only &#92;&#34;TemporaryDisk&#92;&#34; is supported; on Windows pool, &#92;&#34;OsDisk&#92;&#34; and &#92;&#34;TemporaryDisk&#92;&#34; must be specified.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PoolDiskEncryptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskEncryptionTarget On Linux pool, only \&#34;TemporaryDisk\&#34; is supported; on Windows pool, \&#34;OsDisk\&#34; and \&#34;TemporaryDisk\&#34; must be specified.
+         * @param diskEncryptionTarget On Linux pool, only &#92;&#34;TemporaryDisk&#92;&#34; is supported; on Windows pool, &#92;&#34;OsDisk&#92;&#34; and &#92;&#34;TemporaryDisk&#92;&#34; must be specified.
          * 
          * @return builder
          * 

@@ -176,6 +176,12 @@ func (ResourceBridgeApplianceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceBridgeApplianceState)(nil)).Elem()
 }
 
+// ResourceBridgeApplianceExists checks whether an existing ResourceBridgeAppliance resource with the given ID exists.
+func ResourceBridgeApplianceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceBridgeApplianceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance", id, state, "", opts...)
+}
+
 type resourceBridgeApplianceArgs struct {
 	// Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
 	Distro string `pulumi:"distro"`

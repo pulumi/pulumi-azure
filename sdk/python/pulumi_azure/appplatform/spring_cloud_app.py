@@ -682,6 +682,40 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_persistent_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudAppCustomPersistentDiskArgs', 'SpringCloudAppCustomPersistentDiskArgsDict', 'outputs.SpringCloudAppCustomPersistentDisk']]]]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['SpringCloudAppIdentityArgs', 'SpringCloudAppIdentityArgsDict', 'outputs.SpringCloudAppIdentity']]] = None,
+            ingress_settings: pulumi.Input[Optional[Union['SpringCloudAppIngressSettingsArgs', 'SpringCloudAppIngressSettingsArgsDict', 'outputs.SpringCloudAppIngressSettings']]] = None,
+            is_public: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            persistent_disk: pulumi.Input[Optional[Union['SpringCloudAppPersistentDiskArgs', 'SpringCloudAppPersistentDiskArgsDict', 'outputs.SpringCloudAppPersistentDisk']]] = None,
+            public_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addonJson"] = addon_json
+        __props__["customPersistentDisks"] = custom_persistent_disks
+        __props__["fqdn"] = fqdn
+        __props__["httpsOnly"] = https_only
+        __props__["identity"] = identity
+        __props__["ingressSettings"] = ingress_settings
+        __props__["isPublic"] = is_public
+        __props__["name"] = name
+        __props__["persistentDisk"] = persistent_disk
+        __props__["publicEndpointEnabled"] = public_endpoint_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceName"] = service_name
+        __props__["tlsEnabled"] = tls_enabled
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudApp:SpringCloudApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addonJson")
     def addon_json(self) -> pulumi.Output[_builtins.str]:

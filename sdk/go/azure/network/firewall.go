@@ -254,6 +254,12 @@ func (FirewallState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallState)(nil)).Elem()
 }
 
+// FirewallExists checks whether an existing Firewall resource with the given ID exists.
+func FirewallExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/firewall:Firewall", id, state, "", opts...)
+}
+
 type firewallArgs struct {
 	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
 	DnsProxyEnabled *bool `pulumi:"dnsProxyEnabled"`

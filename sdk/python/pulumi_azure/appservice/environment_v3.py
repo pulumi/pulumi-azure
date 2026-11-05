@@ -882,6 +882,50 @@ class EnvironmentV3(pulumi.CustomResource):
         __props__.__dict__["zone_redundant"] = zone_redundant
         return EnvironmentV3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+            cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict', 'outputs.EnvironmentV3ClusterSetting']]]]] = None,
+            dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+            dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            external_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inbound_network_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3InboundNetworkDependencyArgs', 'EnvironmentV3InboundNetworkDependencyArgsDict', 'outputs.EnvironmentV3InboundNetworkDependency']]]]] = None,
+            internal_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_ssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+            linux_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pricing_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            windows_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowNewPrivateEndpointConnections"] = allow_new_private_endpoint_connections
+        __props__["clusterSettings"] = cluster_settings
+        __props__["dedicatedHostCount"] = dedicated_host_count
+        __props__["dnsSuffix"] = dns_suffix
+        __props__["externalInboundIpAddresses"] = external_inbound_ip_addresses
+        __props__["inboundNetworkDependencies"] = inbound_network_dependencies
+        __props__["internalInboundIpAddresses"] = internal_inbound_ip_addresses
+        __props__["internalLoadBalancingMode"] = internal_load_balancing_mode
+        __props__["ipSslAddressCount"] = ip_ssl_address_count
+        __props__["linuxOutboundIpAddresses"] = linux_outbound_ip_addresses
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["pricingTier"] = pricing_tier
+        __props__["remoteDebuggingEnabled"] = remote_debugging_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["windowsOutboundIpAddresses"] = windows_outbound_ip_addresses
+        __props__["zoneRedundant"] = zone_redundant
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/environmentV3:EnvironmentV3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
     def allow_new_private_endpoint_connections(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -1910,6 +1910,82 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return ManagedDisk(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_option: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_mbps_read_only: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']]] = None,
+            gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logical_sector_size: pulumi.Input[Optional[_builtins.int]] = None,
+            max_shares: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            on_demand_bursting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            optimized_frequent_attach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            performance_plus_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_vm_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            upload_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createOption"] = create_option
+        __props__["diskAccessId"] = disk_access_id
+        __props__["diskEncryptionSetId"] = disk_encryption_set_id
+        __props__["diskIopsReadOnly"] = disk_iops_read_only
+        __props__["diskIopsReadWrite"] = disk_iops_read_write
+        __props__["diskMbpsReadOnly"] = disk_mbps_read_only
+        __props__["diskMbpsReadWrite"] = disk_mbps_read_write
+        __props__["diskSizeGb"] = disk_size_gb
+        __props__["edgeZone"] = edge_zone
+        __props__["encryptionSettings"] = encryption_settings
+        __props__["galleryImageReferenceId"] = gallery_image_reference_id
+        __props__["hyperVGeneration"] = hyper_v_generation
+        __props__["imageReferenceId"] = image_reference_id
+        __props__["location"] = location
+        __props__["logicalSectorSize"] = logical_sector_size
+        __props__["maxShares"] = max_shares
+        __props__["name"] = name
+        __props__["networkAccessPolicy"] = network_access_policy
+        __props__["onDemandBurstingEnabled"] = on_demand_bursting_enabled
+        __props__["optimizedFrequentAttachEnabled"] = optimized_frequent_attach_enabled
+        __props__["osType"] = os_type
+        __props__["performancePlusEnabled"] = performance_plus_enabled
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secureVmDiskEncryptionSetId"] = secure_vm_disk_encryption_set_id
+        __props__["securityType"] = security_type
+        __props__["sourceResourceId"] = source_resource_id
+        __props__["sourceUri"] = source_uri
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountType"] = storage_account_type
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        __props__["trustedLaunchEnabled"] = trusted_launch_enabled
+        __props__["uploadSizeBytes"] = upload_size_bytes
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'azure:compute/managedDisk:ManagedDisk', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Output[_builtins.str]:

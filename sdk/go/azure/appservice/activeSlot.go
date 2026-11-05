@@ -138,6 +138,12 @@ func (ActiveSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeSlotState)(nil)).Elem()
 }
 
+// ActiveSlotExists checks whether an existing ActiveSlot resource with the given ID exists.
+func ActiveSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActiveSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/activeSlot:ActiveSlot", id, state, "", opts...)
+}
+
 type activeSlotArgs struct {
 	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName string `pulumi:"appServiceName"`

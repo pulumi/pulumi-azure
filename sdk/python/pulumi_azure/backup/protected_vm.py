@@ -527,6 +527,26 @@ class ProtectedVM(pulumi.CustomResource):
         __props__.__dict__["source_vm_id"] = source_vm_id
         return ProtectedVM(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            include_disk_luns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            protection_state: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backupPolicyId"] = backup_policy_id
+        __props__["excludeDiskLuns"] = exclude_disk_luns
+        __props__["includeDiskLuns"] = include_disk_luns
+        __props__["protectionState"] = protection_state
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceVmId"] = source_vm_id
+        return pulumi.runtime.exists_resource(None, 'azure:backup/protectedVM:ProtectedVM', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> pulumi.Output[Optional[_builtins.str]]:

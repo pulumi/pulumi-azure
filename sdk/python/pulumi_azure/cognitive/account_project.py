@@ -525,6 +525,30 @@ class AccountProject(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AccountProject(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cognitiveAccountId"] = cognitive_account_id
+        __props__["default"] = default
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["endpoints"] = endpoints
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cognitive/accountProject:AccountProject', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cognitiveAccountId")
     def cognitive_account_id(self) -> pulumi.Output[_builtins.str]:

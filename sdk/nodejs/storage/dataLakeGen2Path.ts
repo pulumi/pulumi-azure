@@ -64,6 +64,17 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
         return new DataLakeGen2Path(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing DataLakeGen2Path resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: DataLakeGen2PathState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:storage/dataLakeGen2Path:DataLakeGen2Path", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:storage/dataLakeGen2Path:DataLakeGen2Path';
 

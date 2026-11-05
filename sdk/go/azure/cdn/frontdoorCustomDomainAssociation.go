@@ -248,6 +248,12 @@ func (FrontdoorCustomDomainAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorCustomDomainAssociationState)(nil)).Elem()
 }
 
+// FrontdoorCustomDomainAssociationExists checks whether an existing FrontdoorCustomDomainAssociation resource with the given ID exists.
+func FrontdoorCustomDomainAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorCustomDomainAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", id, state, "", opts...)
+}
+
 type frontdoorCustomDomainAssociationArgs struct {
 	// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
 	CdnFrontdoorCustomDomainId string `pulumi:"cdnFrontdoorCustomDomainId"`

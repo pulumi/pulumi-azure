@@ -293,6 +293,12 @@ func (ComputeClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeClusterState)(nil)).Elem()
 }
 
+// ComputeClusterExists checks whether an existing ComputeCluster resource with the given ID exists.
+func ComputeClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/computeCluster:ComputeCluster", id, state, "", opts...)
+}
+
 type computeClusterArgs struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description *string `pulumi:"description"`

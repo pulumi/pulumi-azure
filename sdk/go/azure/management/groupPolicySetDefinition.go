@@ -193,6 +193,12 @@ func (GroupPolicySetDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicySetDefinitionState)(nil)).Elem()
 }
 
+// GroupPolicySetDefinitionExists checks whether an existing GroupPolicySetDefinition resource with the given ID exists.
+func GroupPolicySetDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupPolicySetDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/groupPolicySetDefinition:GroupPolicySetDefinition", id, state, "", opts...)
+}
+
 type groupPolicySetDefinitionArgs struct {
 	// The description of this Policy Set Definition.
 	Description *string `pulumi:"description"`

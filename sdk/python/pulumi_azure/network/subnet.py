@@ -786,6 +786,36 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["virtual_network_name"] = virtual_network_name
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_outbound_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]]] = None,
+            ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefixes"] = address_prefixes
+        __props__["defaultOutboundAccessEnabled"] = default_outbound_access_enabled
+        __props__["delegations"] = delegations
+        __props__["ipAddressPool"] = ip_address_pool
+        __props__["name"] = name
+        __props__["privateEndpointNetworkPolicies"] = private_endpoint_network_policies
+        __props__["privateLinkServiceNetworkPoliciesEnabled"] = private_link_service_network_policies_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serviceEndpointPolicyIds"] = service_endpoint_policy_ids
+        __props__["serviceEndpoints"] = service_endpoints
+        __props__["sharingScope"] = sharing_scope
+        __props__["virtualNetworkName"] = virtual_network_name
+        return pulumi.runtime.exists_resource(None, 'azure:network/subnet:Subnet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

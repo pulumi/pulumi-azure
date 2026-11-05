@@ -143,6 +143,12 @@ func (DataConnectorAzureActiveDirectoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorAzureActiveDirectoryState)(nil)).Elem()
 }
 
+// DataConnectorAzureActiveDirectoryExists checks whether an existing DataConnectorAzureActiveDirectory resource with the given ID exists.
+func DataConnectorAzureActiveDirectoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorAzureActiveDirectoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory", id, state, "", opts...)
+}
+
 type dataConnectorAzureActiveDirectoryArgs struct {
 	// The ID of the Log Analytics Workspace that this Azure Active Directory Data Connector resides in. Changing this forces a new Azure Active Directory Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`

@@ -72,20 +72,18 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+    @Deprecated
     @Import(name="certificates")
     private @Nullable Output<List<PoolCertificateArgs>> certificates;
 
     /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+    @Deprecated
     public Optional<Output<List<PoolCertificateArgs>>> certificates() {
         return Optional.ofNullable(this.certificates);
     }
@@ -597,11 +595,10 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+        @Deprecated
         public Builder certificates(@Nullable Output<List<PoolCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
@@ -610,11 +607,10 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+        @Deprecated
         public Builder certificates(List<PoolCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
@@ -622,11 +618,10 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
+         * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
+        @Deprecated
         public Builder certificates(PoolCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }

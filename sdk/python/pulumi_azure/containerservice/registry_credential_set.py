@@ -525,6 +525,22 @@ class RegistryCredentialSet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return RegistryCredentialSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']]] = None,
+            login_server: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationCredentials"] = authentication_credentials
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["identity"] = identity
+        __props__["loginServer"] = login_server
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/registryCredentialSet:RegistryCredentialSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationCredentials")
     def authentication_credentials(self) -> pulumi.Output['outputs.RegistryCredentialSetAuthenticationCredentials']:

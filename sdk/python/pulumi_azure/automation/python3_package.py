@@ -505,6 +505,28 @@ class Python3Package(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Python3Package(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            content_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["contentUri"] = content_uri
+        __props__["contentVersion"] = content_version
+        __props__["hashAlgorithm"] = hash_algorithm
+        __props__["hashValue"] = hash_value
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/python3Package:Python3Package', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

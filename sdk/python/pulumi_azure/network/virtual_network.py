@@ -855,6 +855,42 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
+            ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']]] = None,
+            flow_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            guid: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_vnet_policies: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressSpaces"] = address_spaces
+        __props__["bgpCommunity"] = bgp_community
+        __props__["ddosProtectionPlan"] = ddos_protection_plan
+        __props__["dnsServers"] = dns_servers
+        __props__["edgeZone"] = edge_zone
+        __props__["encryption"] = encryption
+        __props__["flowTimeoutInMinutes"] = flow_timeout_in_minutes
+        __props__["guid"] = guid
+        __props__["ipAddressPools"] = ip_address_pools
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateEndpointVnetPolicies"] = private_endpoint_vnet_policies
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnets"] = subnets
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualNetwork:VirtualNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

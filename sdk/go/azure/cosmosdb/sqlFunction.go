@@ -150,6 +150,12 @@ func (SqlFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlFunctionState)(nil)).Elem()
 }
 
+// SqlFunctionExists checks whether an existing SqlFunction resource with the given ID exists.
+func SqlFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlFunction:SqlFunction", id, state, "", opts...)
+}
+
 type sqlFunctionArgs struct {
 	// Body of the User Defined Function.
 	Body string `pulumi:"body"`

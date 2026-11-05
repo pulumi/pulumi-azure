@@ -568,6 +568,32 @@ class GalleryApplication(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            eula: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            supported_os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["endOfLifeDate"] = end_of_life_date
+        __props__["eula"] = eula
+        __props__["galleryId"] = gallery_id
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privacyStatementUri"] = privacy_statement_uri
+        __props__["releaseNoteUri"] = release_note_uri
+        __props__["supportedOsType"] = supported_os_type
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:compute/galleryApplication:GalleryApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

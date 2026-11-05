@@ -353,6 +353,20 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         __props__.__dict__["thumbprint"] = thumbprint
         return SpringCloudCustomDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateName"] = certificate_name
+        __props__["name"] = name
+        __props__["springCloudAppId"] = spring_cloud_app_id
+        __props__["thumbprint"] = thumbprint
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Output[Optional[_builtins.str]]:

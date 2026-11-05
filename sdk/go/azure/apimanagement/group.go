@@ -172,6 +172,12 @@ func (GroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupState)(nil)).Elem()
 }
 
+// GroupExists checks whether an existing Group resource with the given ID exists.
+func GroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/group:Group", id, state, "", opts...)
+}
+
 type groupArgs struct {
 	// The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

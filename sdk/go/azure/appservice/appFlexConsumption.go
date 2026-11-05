@@ -500,6 +500,12 @@ func (AppFlexConsumptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appFlexConsumptionState)(nil)).Elem()
 }
 
+// AppFlexConsumptionExists checks whether an existing AppFlexConsumption resource with the given ID exists.
+func AppFlexConsumptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppFlexConsumptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/appFlexConsumption:AppFlexConsumption", id, state, "", opts...)
+}
+
 type appFlexConsumptionArgs struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`

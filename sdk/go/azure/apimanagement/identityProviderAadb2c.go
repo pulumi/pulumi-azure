@@ -247,6 +247,12 @@ func (IdentityProviderAadb2cState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderAadb2cState)(nil)).Elem()
 }
 
+// IdentityProviderAadb2cExists checks whether an existing IdentityProviderAadb2c resource with the given ID exists.
+func IdentityProviderAadb2cExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentityProviderAadb2cState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c", id, state, "", opts...)
+}
+
 type identityProviderAadb2cArgs struct {
 	// The allowed AAD tenant, usually your B2C tenant domain.
 	AllowedTenant string `pulumi:"allowedTenant"`

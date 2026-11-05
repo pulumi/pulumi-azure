@@ -823,6 +823,48 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']]] = None,
+            default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']]] = None,
+            premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["capacity"] = capacity
+        __props__["customerManagedKey"] = customer_managed_key
+        __props__["defaultPrimaryConnectionString"] = default_primary_connection_string
+        __props__["defaultPrimaryKey"] = default_primary_key
+        __props__["defaultSecondaryConnectionString"] = default_secondary_connection_string
+        __props__["defaultSecondaryKey"] = default_secondary_key
+        __props__["endpoint"] = endpoint
+        __props__["identity"] = identity
+        __props__["localAuthEnabled"] = local_auth_enabled
+        __props__["location"] = location
+        __props__["minimumTlsVersion"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["networkRuleSet"] = network_rule_set
+        __props__["premiumMessagingPartitions"] = premium_messaging_partitions
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/namespace:Namespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[_builtins.int]]:

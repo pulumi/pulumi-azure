@@ -473,6 +473,26 @@ class StorageInsights(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return StorageInsights(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blob_container_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            table_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blobContainerNames"] = blob_container_names
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storageAccountId"] = storage_account_id
+        __props__["storageAccountKey"] = storage_account_key
+        __props__["tableNames"] = table_names
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/storageInsights:StorageInsights', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blobContainerNames")
     def blob_container_names(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

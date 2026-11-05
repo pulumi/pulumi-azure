@@ -357,6 +357,22 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ExpressRouteCircuitAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_use_status: pulumi.Input[Optional[_builtins.str]] = None,
+            express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizationKey"] = authorization_key
+        __props__["authorizationUseStatus"] = authorization_use_status
+        __props__["expressRouteCircuitName"] = express_route_circuit_name
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
     def authorization_key(self) -> pulumi.Output[_builtins.str]:

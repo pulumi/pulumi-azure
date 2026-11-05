@@ -242,6 +242,12 @@ func (TriggerBlobEventState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerBlobEventState)(nil)).Elem()
 }
 
+// TriggerBlobEventExists checks whether an existing TriggerBlobEvent resource with the given ID exists.
+func TriggerBlobEventExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerBlobEventState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/triggerBlobEvent:TriggerBlobEvent", id, state, "", opts...)
+}
+
 type triggerBlobEventArgs struct {
 	// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
 	Activated *bool `pulumi:"activated"`

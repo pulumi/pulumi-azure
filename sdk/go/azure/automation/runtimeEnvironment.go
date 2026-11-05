@@ -183,6 +183,12 @@ func (RuntimeEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*runtimeEnvironmentState)(nil)).Elem()
 }
 
+// RuntimeEnvironmentExists checks whether an existing RuntimeEnvironment resource with the given ID exists.
+func RuntimeEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuntimeEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/runtimeEnvironment:RuntimeEnvironment", id, state, "", opts...)
+}
+
 type runtimeEnvironmentArgs struct {
 	// The ID of the automation account in which the Automation Runtime Environment is created. Changing this forces a new resource to be created.
 	AutomationAccountId string `pulumi:"automationAccountId"`

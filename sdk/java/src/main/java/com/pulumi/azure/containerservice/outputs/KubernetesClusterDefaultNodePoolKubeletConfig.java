@@ -25,11 +25,10 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
      */
     private @Nullable Integer containerLogMaxFiles;
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Integer containerLogMaxLine;
     /**
      * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -88,11 +87,10 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         return Optional.ofNullable(this.containerLogMaxFiles);
     }
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Integer> containerLogMaxLine() {
         return Optional.ofNullable(this.containerLogMaxLine);
     }

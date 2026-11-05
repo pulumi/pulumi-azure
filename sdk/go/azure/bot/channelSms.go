@@ -178,6 +178,12 @@ func (ChannelSmsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelSmsState)(nil)).Elem()
 }
 
+// ChannelSmsExists checks whether an existing ChannelSms resource with the given ID exists.
+func ChannelSmsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelSmsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelSms:ChannelSms", id, state, "", opts...)
+}
+
 type channelSmsArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

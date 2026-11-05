@@ -104,6 +104,12 @@ func (AutoProvisioningState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoProvisioningState)(nil)).Elem()
 }
 
+// AutoProvisioningExists checks whether an existing AutoProvisioning resource with the given ID exists.
+func AutoProvisioningExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoProvisioningState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:securitycenter/autoProvisioning:AutoProvisioning", id, state, "", opts...)
+}
+
 type autoProvisioningArgs struct {
 	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision string `pulumi:"autoProvision"`

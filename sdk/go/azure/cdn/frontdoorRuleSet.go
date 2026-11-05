@@ -132,6 +132,12 @@ func (FrontdoorRuleSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorRuleSetState)(nil)).Elem()
 }
 
+// FrontdoorRuleSetExists checks whether an existing FrontdoorRuleSet resource with the given ID exists.
+func FrontdoorRuleSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorRuleSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet", id, state, "", opts...)
+}
+
 type frontdoorRuleSetArgs struct {
 	// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

@@ -546,6 +546,28 @@ class OutputCosmosdb(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         return OutputCosmosdb(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_sql_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            document_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMode"] = authentication_mode
+        __props__["containerName"] = container_name
+        __props__["cosmosdbAccountKey"] = cosmosdb_account_key
+        __props__["cosmosdbSqlDatabaseId"] = cosmosdb_sql_database_id
+        __props__["documentId"] = document_id
+        __props__["name"] = name
+        __props__["partitionKey"] = partition_key
+        __props__["streamAnalyticsJobId"] = stream_analytics_job_id
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputCosmosdb:OutputCosmosdb', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

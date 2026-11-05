@@ -220,6 +220,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/connection:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// The ID of the data source web app. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`

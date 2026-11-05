@@ -776,6 +776,50 @@ class PrivateCloud(pulumi.CustomResource):
         __props__.__dict__["vmotion_subnet_cidr"] = vmotion_subnet_cidr
         return PrivateCloud(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            circuits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict', 'outputs.PrivateCloudCircuit']]]]] = None,
+            hcx_cloud_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']]] = None,
+            management_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vcenter_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+            vcsa_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            vmotion_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["circuits"] = circuits
+        __props__["hcxCloudManagerEndpoint"] = hcx_cloud_manager_endpoint
+        __props__["internetConnectionEnabled"] = internet_connection_enabled
+        __props__["location"] = location
+        __props__["managementCluster"] = management_cluster
+        __props__["managementSubnetCidr"] = management_subnet_cidr
+        __props__["name"] = name
+        __props__["networkSubnetCidr"] = network_subnet_cidr
+        __props__["nsxtCertificateThumbprint"] = nsxt_certificate_thumbprint
+        __props__["nsxtManagerEndpoint"] = nsxt_manager_endpoint
+        __props__["nsxtPassword"] = nsxt_password
+        __props__["provisioningSubnetCidr"] = provisioning_subnet_cidr
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        __props__["vcenterCertificateThumbprint"] = vcenter_certificate_thumbprint
+        __props__["vcenterPassword"] = vcenter_password
+        __props__["vcsaEndpoint"] = vcsa_endpoint
+        __props__["vmotionSubnetCidr"] = vmotion_subnet_cidr
+        return pulumi.runtime.exists_resource(None, 'azure:avs/privateCloud:PrivateCloud', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def circuits(self) -> pulumi.Output[Sequence['outputs.PrivateCloudCircuit']]:

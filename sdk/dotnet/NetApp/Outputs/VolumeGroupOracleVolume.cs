@@ -57,7 +57,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Protocols;
         /// <summary>
-        /// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+        /// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
         /// 
         /// &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `Zone`.
         /// </summary>

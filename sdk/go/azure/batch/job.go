@@ -173,6 +173,12 @@ func (JobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobState)(nil)).Elem()
 }
 
+// JobExists checks whether an existing Job resource with the given ID exists.
+func JobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:batch/job:Job", id, state, "", opts...)
+}
+
 type jobArgs struct {
 	// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
 	BatchPoolId string `pulumi:"batchPoolId"`

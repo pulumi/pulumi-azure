@@ -264,6 +264,12 @@ func (PoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolState)(nil)).Elem()
 }
 
+// PoolExists checks whether an existing Pool resource with the given ID exists.
+func PoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/pool:Pool", id, state, "", opts...)
+}
+
 type poolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

@@ -229,6 +229,12 @@ func (ProvisionedClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionedClusterState)(nil)).Elem()
 }
 
+// ProvisionedClusterExists checks whether an existing ProvisionedCluster resource with the given ID exists.
+func ProvisionedClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisionedClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:arckubernetes/provisionedCluster:ProvisionedCluster", id, state, "", opts...)
+}
+
 type provisionedClusterArgs struct {
 	// Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
 	ArcAgentAutoUpgradeEnabled *bool `pulumi:"arcAgentAutoUpgradeEnabled"`

@@ -626,6 +626,40 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dsc_primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            dsc_secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            dsc_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]]] = None,
+            hybrid_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountPrivateEndpointConnectionArgs', 'AccountPrivateEndpointConnectionArgsDict', 'outputs.AccountPrivateEndpointConnection']]]]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dscPrimaryAccessKey"] = dsc_primary_access_key
+        __props__["dscSecondaryAccessKey"] = dsc_secondary_access_key
+        __props__["dscServerEndpoint"] = dsc_server_endpoint
+        __props__["encryptions"] = encryptions
+        __props__["hybridServiceUrl"] = hybrid_service_url
+        __props__["identity"] = identity
+        __props__["localAuthenticationEnabled"] = local_authentication_enabled
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateEndpointConnections"] = private_endpoint_connections
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dscPrimaryAccessKey")
     def dsc_primary_access_key(self) -> pulumi.Output[_builtins.str]:

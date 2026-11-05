@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .xmlContent("""
  * <policies>
  *   <inbound>
- *     <find-and-replace from=\"abc\" to=\"xyz\" />
+ *     <find-and-replace from=}&#92;{@code "abc}&#92;{@code " to=}&#92;{@code "xyz}&#92;{@code " />
  *   </inbound>
  * </policies>
  *             """)

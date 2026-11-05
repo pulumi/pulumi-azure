@@ -155,6 +155,12 @@ func (WorkspaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceState)(nil)).Elem()
 }
 
+// WorkspaceExists checks whether an existing Workspace resource with the given ID exists.
+func WorkspaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:desktopvirtualization/workspace:Workspace", id, state, "", opts...)
+}
+
 type workspaceArgs struct {
 	// A description for the Virtual Desktop Workspace.
 	Description *string `pulumi:"description"`

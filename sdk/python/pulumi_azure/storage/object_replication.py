@@ -435,6 +435,24 @@ class ObjectReplication(pulumi.CustomResource):
         __props__.__dict__["source_storage_account_id"] = source_storage_account_id
         return ObjectReplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]]] = None,
+            source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationObjectReplicationId"] = destination_object_replication_id
+        __props__["destinationStorageAccountId"] = destination_storage_account_id
+        __props__["metricsEnabled"] = metrics_enabled
+        __props__["rules"] = rules
+        __props__["sourceObjectReplicationId"] = source_object_replication_id
+        __props__["sourceStorageAccountId"] = source_storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/objectReplication:ObjectReplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationObjectReplicationId")
     def destination_object_replication_id(self) -> pulumi.Output[_builtins.str]:

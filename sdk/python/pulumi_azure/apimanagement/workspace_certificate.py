@@ -513,6 +513,30 @@ class WorkspaceCertificate(pulumi.CustomResource):
         __props__.__dict__["user_assigned_identity_client_id"] = user_assigned_identity_client_id
         return WorkspaceCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            user_assigned_identity_client_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiManagementWorkspaceId"] = api_management_workspace_id
+        __props__["certificateDataBase64"] = certificate_data_base64
+        __props__["expiration"] = expiration
+        __props__["keyVaultSecretId"] = key_vault_secret_id
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["subject"] = subject
+        __props__["thumbprint"] = thumbprint
+        __props__["userAssignedIdentityClientId"] = user_assigned_identity_client_id
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/workspaceCertificate:WorkspaceCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
     def api_management_workspace_id(self) -> pulumi.Output[_builtins.str]:

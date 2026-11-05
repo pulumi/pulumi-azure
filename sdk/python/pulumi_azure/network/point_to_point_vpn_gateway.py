@@ -659,6 +659,32 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         __props__.__dict__["vpn_server_configuration_id"] = vpn_server_configuration_id
         return PointToPointVpnGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict', 'outputs.PointToPointVpnGatewayConnectionConfiguration']]]]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_preference_internet_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionConfigurations"] = connection_configurations
+        __props__["dnsServers"] = dns_servers
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routingPreferenceInternetEnabled"] = routing_preference_internet_enabled
+        __props__["scaleUnit"] = scale_unit
+        __props__["tags"] = tags
+        __props__["virtualHubId"] = virtual_hub_id
+        __props__["vpnServerConfigurationId"] = vpn_server_configuration_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/pointToPointVpnGateway:PointToPointVpnGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionConfigurations")
     def connection_configurations(self) -> pulumi.Output[Sequence['outputs.PointToPointVpnGatewayConnectionConfiguration']]:

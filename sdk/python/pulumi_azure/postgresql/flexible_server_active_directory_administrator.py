@@ -362,6 +362,24 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return FlexibleServerActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["objectId"] = object_id
+        __props__["principalName"] = principal_name
+        __props__["principalType"] = principal_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverName"] = server_name
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[_builtins.str]:

@@ -180,6 +180,12 @@ func (JobCredentialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobCredentialState)(nil)).Elem()
 }
 
+// JobCredentialExists checks whether an existing JobCredential resource with the given ID exists.
+func JobCredentialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobCredentialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/jobCredential:JobCredential", id, state, "", opts...)
+}
+
 type jobCredentialArgs struct {
 	// The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
 	JobAgentId string `pulumi:"jobAgentId"`

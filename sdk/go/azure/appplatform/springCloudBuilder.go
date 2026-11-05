@@ -158,6 +158,12 @@ func (SpringCloudBuilderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudBuilderState)(nil)).Elem()
 }
 
+// SpringCloudBuilderExists checks whether an existing SpringCloudBuilder resource with the given ID exists.
+func SpringCloudBuilderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudBuilderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudBuilder:SpringCloudBuilder", id, state, "", opts...)
+}
+
 type springCloudBuilderArgs struct {
 	// One or more `buildPackGroup` blocks as defined below.
 	BuildPackGroups []SpringCloudBuilderBuildPackGroup `pulumi:"buildPackGroups"`

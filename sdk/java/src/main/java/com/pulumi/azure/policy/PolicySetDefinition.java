@@ -41,41 +41,41 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()
  *             .name("example")
  *             .policyType("Custom")
  *             .displayName("Example")
  *             .parameters("""
- *     {
- *         \"allowedLocations\": {
- *             \"type\": \"Array\",
- *             \"metadata\": {
- *                 \"description\": \"The list of allowed locations for resources.\",
- *                 \"displayName\": \"Allowed locations\",
- *                 \"strongType\": \"location\"
- *             }
- *         }
- *     }
+ *     }{{@code
+ *         }&#92;{@code "allowedLocations}&#92;{@code ": }{{@code
+ *             }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Array}&#92;{@code ",
+ *             }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *                 }&#92;{@code "description}&#92;{@code ": }&#92;{@code "The list of allowed locations for resources.}&#92;{@code ",
+ *                 }&#92;{@code "displayName}&#92;{@code ": }&#92;{@code "Allowed locations}&#92;{@code ",
+ *                 }&#92;{@code "strongType}&#92;{@code ": }&#92;{@code "location}&#92;{@code "
+ *             }}{@code
+ *         }}{@code
+ *     }}{@code
  *             """)
  *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
  *                 .version("1.0.*")
  *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
  *                 .parameterValues("""
- *     {
- *       \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}
- *     }
+ *     }{{@code
+ *       }&#92;{@code "listOfAllowedLocations}&#92;{@code ": }{&#92;{@code "value}&#92;{@code ": }&#92;{@code "[parameters('allowedLocations')]}&#92;{@code "}}{@code
+ *     }}{@code
  *                 """)
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -128,11 +128,10 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * @deprecated
-     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managementGroupId;
 

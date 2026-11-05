@@ -509,6 +509,34 @@ class HciCluster(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return HciCluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automanage_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_provider_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automanageConfigurationId"] = automanage_configuration_id
+        __props__["clientId"] = client_id
+        __props__["cloudId"] = cloud_id
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["resourceProviderObjectId"] = resource_provider_object_id
+        __props__["serviceEndpoint"] = service_endpoint
+        __props__["tags"] = tags
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:stack/hciCluster:HciCluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automanageConfigurationId")
     def automanage_configuration_id(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -573,6 +573,32 @@ class VpnGateway(pulumi.CustomResource):
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return VpnGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict', 'outputs.VpnGatewayIpConfiguration']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bgpRouteTranslationForNatEnabled"] = bgp_route_translation_for_nat_enabled
+        __props__["bgpSettings"] = bgp_settings
+        __props__["ipConfigurations"] = ip_configurations
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routingPreference"] = routing_preference
+        __props__["scaleUnit"] = scale_unit
+        __props__["tags"] = tags
+        __props__["virtualHubId"] = virtual_hub_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/vpnGateway:VpnGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
     def bgp_route_translation_for_nat_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

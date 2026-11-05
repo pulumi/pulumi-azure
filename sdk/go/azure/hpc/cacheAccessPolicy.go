@@ -173,6 +173,12 @@ func (CacheAccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheAccessPolicyState)(nil)).Elem()
 }
 
+// CacheAccessPolicyExists checks whether an existing CacheAccessPolicy resource with the given ID exists.
+func CacheAccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheAccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hpc/cacheAccessPolicy:CacheAccessPolicy", id, state, "", opts...)
+}
+
 type cacheAccessPolicyArgs struct {
 	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules []CacheAccessPolicyAccessRule `pulumi:"accessRules"`

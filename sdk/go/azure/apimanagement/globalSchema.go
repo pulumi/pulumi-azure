@@ -179,6 +179,12 @@ func (GlobalSchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalSchemaState)(nil)).Elem()
 }
 
+// GlobalSchemaExists checks whether an existing GlobalSchema resource with the given ID exists.
+func GlobalSchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalSchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/globalSchema:GlobalSchema", id, state, "", opts...)
+}
+
 type globalSchemaArgs struct {
 	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

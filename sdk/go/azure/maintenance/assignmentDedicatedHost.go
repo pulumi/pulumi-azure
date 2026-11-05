@@ -161,6 +161,12 @@ func (AssignmentDedicatedHostState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentDedicatedHostState)(nil)).Elem()
 }
 
+// AssignmentDedicatedHostExists checks whether an existing AssignmentDedicatedHost resource with the given ID exists.
+func AssignmentDedicatedHostExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentDedicatedHostState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", id, state, "", opts...)
+}
+
 type assignmentDedicatedHostArgs struct {
 	// Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
 	DedicatedHostId string `pulumi:"dedicatedHostId"`

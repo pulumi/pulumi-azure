@@ -56,11 +56,10 @@ public final class VolumeExportPolicyRule {
      */
     private @Nullable String protocol;
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     private @Nullable String protocolsEnabled;
     /**
      * @return Is root access permitted to this volume?
@@ -141,11 +140,10 @@ public final class VolumeExportPolicyRule {
         return Optional.ofNullable(this.protocol);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+     * @deprecated this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
+    @Deprecated
     public Optional<String> protocolsEnabled() {
         return Optional.ofNullable(this.protocolsEnabled);
     }

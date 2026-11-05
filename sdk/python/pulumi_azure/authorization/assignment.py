@@ -903,6 +903,34 @@ class Assignment(pulumi.CustomResource):
         __props__.__dict__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            condition: pulumi.Input[Optional[_builtins.str]] = None,
+            condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["condition"] = condition
+        __props__["conditionVersion"] = condition_version
+        __props__["delegatedManagedIdentityResourceId"] = delegated_managed_identity_resource_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["principalId"] = principal_id
+        __props__["principalType"] = principal_type
+        __props__["roleDefinitionId"] = role_definition_id
+        __props__["roleDefinitionName"] = role_definition_name
+        __props__["scope"] = scope
+        __props__["skipServicePrincipalAadCheck"] = skip_service_principal_aad_check
+        return pulumi.runtime.exists_resource(None, 'azure:authorization/assignment:Assignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -208,6 +208,12 @@ func (WorkspaceTableCustomLogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceTableCustomLogState)(nil)).Elem()
 }
 
+// WorkspaceTableCustomLogExists checks whether an existing WorkspaceTableCustomLog resource with the given ID exists.
+func WorkspaceTableCustomLogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceTableCustomLogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog", id, state, "", opts...)
+}
+
 type workspaceTableCustomLogArgs struct {
 	// One or more `column` blocks as defined below.
 	Columns []WorkspaceTableCustomLogColumn `pulumi:"columns"`

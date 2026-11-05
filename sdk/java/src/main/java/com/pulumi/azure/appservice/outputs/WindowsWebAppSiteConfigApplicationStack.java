@@ -65,18 +65,16 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      */
     private @Nullable String dotnetVersion;
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     private @Nullable String javaContainer;
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     private @Nullable String javaContainerVersion;
     /**
      * @return Should the Java Embedded Server (Java SE) be used to run the app.
@@ -185,20 +183,18 @@ public final class WindowsWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     public Optional<String> javaContainer() {
         return Optional.ofNullable(this.javaContainer);
     }
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     public Optional<String> javaContainerVersion() {
         return Optional.ofNullable(this.javaContainerVersion);
     }

@@ -216,6 +216,12 @@ func (SnapshotPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotPolicyState)(nil)).Elem()
 }
 
+// SnapshotPolicyExists checks whether an existing SnapshotPolicy resource with the given ID exists.
+func SnapshotPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/snapshotPolicy:SnapshotPolicy", id, state, "", opts...)
+}
+
 type snapshotPolicyArgs struct {
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

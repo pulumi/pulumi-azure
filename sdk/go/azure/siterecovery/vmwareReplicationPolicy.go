@@ -154,6 +154,12 @@ func (VMWareReplicationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vmwareReplicationPolicyState)(nil)).Elem()
 }
 
+// VMWareReplicationPolicyExists checks whether an existing VMWareReplicationPolicy resource with the given ID exists.
+func VMWareReplicationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VMWareReplicationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy", id, state, "", opts...)
+}
+
 type vmwareReplicationPolicyArgs struct {
 	// Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
 	ApplicationConsistentSnapshotFrequencyInMinutes int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`

@@ -141,6 +141,12 @@ func (RouteFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeFilterState)(nil)).Elem()
 }
 
+// RouteFilterExists checks whether an existing RouteFilter resource with the given ID exists.
+func RouteFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/routeFilter:RouteFilter", id, state, "", opts...)
+}
+
 type routeFilterArgs struct {
 	// The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	Location *string `pulumi:"location"`

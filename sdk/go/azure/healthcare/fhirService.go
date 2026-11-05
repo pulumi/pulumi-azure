@@ -245,6 +245,12 @@ func (FhirServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fhirServiceState)(nil)).Elem()
 }
 
+// FhirServiceExists checks whether an existing FhirService resource with the given ID exists.
+func FhirServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FhirServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:healthcare/fhirService:FhirService", id, state, "", opts...)
+}
+
 type fhirServiceArgs struct {
 	// A list of the access policies of the service instance.
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`

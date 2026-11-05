@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
@@ -156,14 +156,14 @@ import javax.annotation.Nullable;
  *             .databaseId(exampleDatabase.id())
  *             .scriptContent("""
  * .create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
- * .create table TestTable ingestion json mapping \"TestMapping\"
+ * .create table TestTable ingestion json mapping }&#92;{@code "TestMapping}&#92;{@code "
  * '['
- * '    {\"column\":\"Id\",\"path\":\"$.id\"},'
- * '    {\"column\":\"Name\",\"path\":\"$.name\"},'
- * '    {\"column\":\"_ts\",\"path\":\"$._ts\"},'
- * '    {\"column\":\"_timestamp\",\"path\":\"$._ts\", \"transform\":\"DateTimeFromUnixSeconds\"}'
+ * '    }{&#92;{@code "column}&#92;{@code ":}&#92;{@code "Id}&#92;{@code ",}&#92;{@code "path}&#92;{@code ":}&#92;{@code "$.id}&#92;{@code "}}{@code ,'
+ * '    }{&#92;{@code "column}&#92;{@code ":}&#92;{@code "Name}&#92;{@code ",}&#92;{@code "path}&#92;{@code ":}&#92;{@code "$.name}&#92;{@code "}}{@code ,'
+ * '    }{&#92;{@code "column}&#92;{@code ":}&#92;{@code "_ts}&#92;{@code ",}&#92;{@code "path}&#92;{@code ":}&#92;{@code "$._ts}&#92;{@code "}}{@code ,'
+ * '    }{&#92;{@code "column}&#92;{@code ":}&#92;{@code "_timestamp}&#92;{@code ",}&#92;{@code "path}&#92;{@code ":}&#92;{@code "$._ts}&#92;{@code ", }&#92;{@code "transform}&#92;{@code ":}&#92;{@code "DateTimeFromUnixSeconds}&#92;{@code "}}{@code '
  * ']'
- * .alter table TestTable policy ingestionbatching \"{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}\"
+ * .alter table TestTable policy ingestionbatching }&#92;{@code "}{{@code 'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}}&#92;{@code "
  *             """)
  *             .build());
  * 
@@ -178,8 +178,8 @@ import javax.annotation.Nullable;
  *             .retrievalStartDate("2023-06-26T12:00:00.6554616Z")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

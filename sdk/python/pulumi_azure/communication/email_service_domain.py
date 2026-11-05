@@ -433,6 +433,28 @@ class EmailServiceDomain(pulumi.CustomResource):
         __props__.__dict__["verification_records"] = verification_records
         return EmailServiceDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            domain_management: pulumi.Input[Optional[_builtins.str]] = None,
+            email_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            mail_from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            verification_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict', 'outputs.EmailServiceDomainVerificationRecord']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["domainManagement"] = domain_management
+        __props__["emailServiceId"] = email_service_id
+        __props__["fromSenderDomain"] = from_sender_domain
+        __props__["mailFromSenderDomain"] = mail_from_sender_domain
+        __props__["name"] = name
+        __props__["tags"] = tags
+        __props__["userEngagementTrackingEnabled"] = user_engagement_tracking_enabled
+        __props__["verificationRecords"] = verification_records
+        return pulumi.runtime.exists_resource(None, 'azure:communication/emailServiceDomain:EmailServiceDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="domainManagement")
     def domain_management(self) -> pulumi.Output[_builtins.str]:

@@ -199,6 +199,12 @@ func (SpringCloudApiPortalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudApiPortalState)(nil)).Elem()
 }
 
+// SpringCloudApiPortalExists checks whether an existing SpringCloudApiPortal resource with the given ID exists.
+func SpringCloudApiPortalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudApiPortalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal", id, state, "", opts...)
+}
+
 type springCloudApiPortalArgs struct {
 	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
 	ApiTryOutEnabled *bool `pulumi:"apiTryOutEnabled"`

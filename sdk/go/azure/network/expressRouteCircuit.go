@@ -240,6 +240,12 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitState)(nil)).Elem()
 }
 
+// ExpressRouteCircuitExists checks whether an existing ExpressRouteCircuit resource with the given ID exists.
+func ExpressRouteCircuitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteCircuitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", id, state, "", opts...)
+}
+
 type expressRouteCircuitArgs struct {
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`

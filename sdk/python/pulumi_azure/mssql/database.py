@@ -1906,6 +1906,82 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_pause_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elastic_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict', 'outputs.DatabaseIdentity']]] = None,
+            import_: pulumi.Input[Optional[Union['DatabaseImportArgs', 'DatabaseImportArgsDict', 'outputs.DatabaseImport']]] = None,
+            ledger_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            long_term_retention_policy: pulumi.Input[Optional[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict', 'outputs.DatabaseLongTermRetentionPolicy']]] = None,
+            maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            read_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            read_scale: pulumi.Input[Optional[_builtins.bool]] = None,
+            recover_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_long_term_retention_backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+            sample_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_type: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            short_term_retention_policy: pulumi.Input[Optional[Union['DatabaseShortTermRetentionPolicyArgs', 'DatabaseShortTermRetentionPolicyArgsDict', 'outputs.DatabaseShortTermRetentionPolicy']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_detection_policy: pulumi.Input[Optional[Union['DatabaseThreatDetectionPolicyArgs', 'DatabaseThreatDetectionPolicyArgsDict', 'outputs.DatabaseThreatDetectionPolicy']]] = None,
+            transparent_data_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            transparent_data_encryption_key_automatic_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoPauseDelayInMinutes"] = auto_pause_delay_in_minutes
+        __props__["collation"] = collation
+        __props__["createMode"] = create_mode
+        __props__["creationSourceDatabaseId"] = creation_source_database_id
+        __props__["elasticPoolId"] = elastic_pool_id
+        __props__["enclaveType"] = enclave_type
+        __props__["geoBackupEnabled"] = geo_backup_enabled
+        __props__["identity"] = identity
+        __props__["import"] = import_
+        __props__["ledgerEnabled"] = ledger_enabled
+        __props__["licenseType"] = license_type
+        __props__["longTermRetentionPolicy"] = long_term_retention_policy
+        __props__["maintenanceConfigurationName"] = maintenance_configuration_name
+        __props__["maxSizeGb"] = max_size_gb
+        __props__["minCapacity"] = min_capacity
+        __props__["name"] = name
+        __props__["readReplicaCount"] = read_replica_count
+        __props__["readScale"] = read_scale
+        __props__["recoverDatabaseId"] = recover_database_id
+        __props__["recoveryPointId"] = recovery_point_id
+        __props__["restoreDroppedDatabaseId"] = restore_dropped_database_id
+        __props__["restoreLongTermRetentionBackupId"] = restore_long_term_retention_backup_id
+        __props__["restorePointInTime"] = restore_point_in_time
+        __props__["sampleName"] = sample_name
+        __props__["secondaryType"] = secondary_type
+        __props__["serverId"] = server_id
+        __props__["shortTermRetentionPolicy"] = short_term_retention_policy
+        __props__["skuName"] = sku_name
+        __props__["storageAccountType"] = storage_account_type
+        __props__["tags"] = tags
+        __props__["threatDetectionPolicy"] = threat_detection_policy
+        __props__["transparentDataEncryptionEnabled"] = transparent_data_encryption_enabled
+        __props__["transparentDataEncryptionKeyAutomaticRotationEnabled"] = transparent_data_encryption_key_automatic_rotation_enabled
+        __props__["transparentDataEncryptionKeyVaultKeyId"] = transparent_data_encryption_key_vault_key_id
+        __props__["zoneRedundant"] = zone_redundant
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/database:Database', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoPauseDelayInMinutes")
     def auto_pause_delay_in_minutes(self) -> pulumi.Output[_builtins.int]:

@@ -336,6 +336,12 @@ func (PlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*planState)(nil)).Elem()
 }
 
+// PlanExists checks whether an existing Plan resource with the given ID exists.
+func PlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/plan:Plan", id, state, "", opts...)
+}
+
 type planArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	//

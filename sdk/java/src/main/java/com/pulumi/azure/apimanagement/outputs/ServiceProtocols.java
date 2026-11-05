@@ -12,11 +12,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceProtocols {
     /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableHttp2;
     /**
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
@@ -26,11 +25,10 @@ public final class ServiceProtocols {
 
     private ServiceProtocols() {}
     /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableHttp2() {
         return Optional.ofNullable(this.enableHttp2);
     }

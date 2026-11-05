@@ -892,6 +892,52 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["tls_certificate"] = tls_certificate
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_learn_private_ranges_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            base_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            child_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dns: pulumi.Input[Optional[Union['FirewallPolicyDnsArgs', 'FirewallPolicyDnsArgsDict', 'outputs.FirewallPolicyDns']]] = None,
+            explicit_proxy: pulumi.Input[Optional[Union['FirewallPolicyExplicitProxyArgs', 'FirewallPolicyExplicitProxyArgsDict', 'outputs.FirewallPolicyExplicitProxy']]] = None,
+            firewalls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['FirewallPolicyIdentityArgs', 'FirewallPolicyIdentityArgsDict', 'outputs.FirewallPolicyIdentity']]] = None,
+            insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict', 'outputs.FirewallPolicyInsights']]] = None,
+            intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict', 'outputs.FirewallPolicyIntrusionDetection']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_collection_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_redirect_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_intelligence_allowlist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelligenceAllowlistArgs', 'FirewallPolicyThreatIntelligenceAllowlistArgsDict', 'outputs.FirewallPolicyThreatIntelligenceAllowlist']]] = None,
+            threat_intelligence_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_certificate: pulumi.Input[Optional[Union['FirewallPolicyTlsCertificateArgs', 'FirewallPolicyTlsCertificateArgsDict', 'outputs.FirewallPolicyTlsCertificate']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoLearnPrivateRangesEnabled"] = auto_learn_private_ranges_enabled
+        __props__["basePolicyId"] = base_policy_id
+        __props__["childPolicies"] = child_policies
+        __props__["dns"] = dns
+        __props__["explicitProxy"] = explicit_proxy
+        __props__["firewalls"] = firewalls
+        __props__["identity"] = identity
+        __props__["insights"] = insights
+        __props__["intrusionDetection"] = intrusion_detection
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateIpRanges"] = private_ip_ranges
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["ruleCollectionGroups"] = rule_collection_groups
+        __props__["sku"] = sku
+        __props__["sqlRedirectAllowed"] = sql_redirect_allowed
+        __props__["tags"] = tags
+        __props__["threatIntelligenceAllowlist"] = threat_intelligence_allowlist
+        __props__["threatIntelligenceMode"] = threat_intelligence_mode
+        __props__["tlsCertificate"] = tls_certificate
+        return pulumi.runtime.exists_resource(None, 'azure:network/firewallPolicy:FirewallPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
     def auto_learn_private_ranges_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

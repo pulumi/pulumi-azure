@@ -285,6 +285,12 @@ func (NextGenerationFirewallVirtualNetworkStrataCloudManagerState) ElementType()
 	return reflect.TypeOf((*nextGenerationFirewallVirtualNetworkStrataCloudManagerState)(nil)).Elem()
 }
 
+// NextGenerationFirewallVirtualNetworkStrataCloudManagerExists checks whether an existing NextGenerationFirewallVirtualNetworkStrataCloudManager resource with the given ID exists.
+func NextGenerationFirewallVirtualNetworkStrataCloudManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NextGenerationFirewallVirtualNetworkStrataCloudManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager", id, state, "", opts...)
+}
+
 type nextGenerationFirewallVirtualNetworkStrataCloudManagerArgs struct {
 	// One or more `destinationNat` blocks as defined below.
 	DestinationNats []NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat `pulumi:"destinationNats"`

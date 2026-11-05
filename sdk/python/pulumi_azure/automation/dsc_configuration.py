@@ -510,6 +510,30 @@ class DscConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return DscConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content_embedded: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["contentEmbedded"] = content_embedded
+        __props__["description"] = description
+        __props__["location"] = location
+        __props__["logVerbose"] = log_verbose
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["state"] = state
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/dscConfiguration:DscConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

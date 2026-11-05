@@ -401,6 +401,18 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         __props__.__dict__["frontend_endpoint_id"] = frontend_endpoint_id
         return CustomHttpsConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]] = None,
+            custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customHttpsConfiguration"] = custom_https_configuration
+        __props__["customHttpsProvisioningEnabled"] = custom_https_provisioning_enabled
+        __props__["frontendEndpointId"] = frontend_endpoint_id
+        return pulumi.runtime.exists_resource(None, 'azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customHttpsConfiguration")
     def custom_https_configuration(self) -> pulumi.Output[Optional['outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]:

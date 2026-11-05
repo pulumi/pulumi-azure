@@ -235,6 +235,12 @@ func (LockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*lockState)(nil)).Elem()
 }
 
+// LockExists checks whether an existing Lock resource with the given ID exists.
+func LockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/lock:Lock", id, state, "", opts...)
+}
+
 type lockArgs struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
 	//

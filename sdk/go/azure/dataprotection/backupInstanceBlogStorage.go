@@ -210,6 +210,12 @@ func (BackupInstanceBlogStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstanceBlogStorageState)(nil)).Elem()
 }
 
+// BackupInstanceBlogStorageExists checks whether an existing BackupInstanceBlogStorage resource with the given ID exists.
+func BackupInstanceBlogStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstanceBlogStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage", id, state, "", opts...)
+}
+
 type backupInstanceBlogStorageArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

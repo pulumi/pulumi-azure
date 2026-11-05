@@ -143,6 +143,12 @@ func (DomainTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainTopicState)(nil)).Elem()
 }
 
+// DomainTopicExists checks whether an existing DomainTopic resource with the given ID exists.
+func DomainTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/domainTopic:DomainTopic", id, state, "", opts...)
+}
+
 type domainTopicArgs struct {
 	// Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
 	DomainName string `pulumi:"domainName"`

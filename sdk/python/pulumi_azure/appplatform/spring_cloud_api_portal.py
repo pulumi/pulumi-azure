@@ -545,6 +545,30 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return SpringCloudApiPortal(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiTryOutEnabled"] = api_try_out_enabled
+        __props__["gatewayIds"] = gateway_ids
+        __props__["httpsOnlyEnabled"] = https_only_enabled
+        __props__["instanceCount"] = instance_count
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        __props__["sso"] = sso
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudApiPortal:SpringCloudApiPortal', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiTryOutEnabled")
     def api_try_out_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

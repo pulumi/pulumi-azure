@@ -150,6 +150,12 @@ func (ChannelWebChatState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelWebChatState)(nil)).Elem()
 }
 
+// ChannelWebChatExists checks whether an existing ChannelWebChat resource with the given ID exists.
+func ChannelWebChatExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelWebChatState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelWebChat:ChannelWebChat", id, state, "", opts...)
+}
+
 type channelWebChatArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

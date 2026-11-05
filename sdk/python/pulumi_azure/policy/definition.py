@@ -606,6 +606,32 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["role_definition_ids"] = role_definition_ids
         return Definition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_rule: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["managementGroupId"] = management_group_id
+        __props__["metadata"] = metadata
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["policyRule"] = policy_rule
+        __props__["policyType"] = policy_type
+        __props__["roleDefinitionIds"] = role_definition_ids
+        return pulumi.runtime.exists_resource(None, 'azure:policy/definition:Definition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

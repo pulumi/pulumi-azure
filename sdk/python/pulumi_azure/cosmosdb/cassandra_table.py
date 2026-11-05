@@ -535,6 +535,26 @@ class CassandraTable(pulumi.CustomResource):
         __props__.__dict__["throughput"] = throughput
         return CassandraTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict', 'outputs.CassandraTableAutoscaleSettings']]] = None,
+            cassandra_keyspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict', 'outputs.CassandraTableSchema']]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["analyticalStorageTtl"] = analytical_storage_ttl
+        __props__["autoscaleSettings"] = autoscale_settings
+        __props__["cassandraKeyspaceId"] = cassandra_keyspace_id
+        __props__["defaultTtl"] = default_ttl
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["throughput"] = throughput
+        return pulumi.runtime.exists_resource(None, 'azure:cosmosdb/cassandraTable:CassandraTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
     def analytical_storage_ttl(self) -> pulumi.Output[Optional[_builtins.int]]:

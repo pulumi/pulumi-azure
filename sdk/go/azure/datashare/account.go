@@ -150,6 +150,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datashare/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity AccountIdentity `pulumi:"identity"`

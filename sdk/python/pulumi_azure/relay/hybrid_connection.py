@@ -383,6 +383,22 @@ class HybridConnection(pulumi.CustomResource):
         __props__.__dict__["user_metadata"] = user_metadata
         return HybridConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_metadata: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["relayNamespaceName"] = relay_namespace_name
+        __props__["requiresClientAuthorization"] = requires_client_authorization
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["userMetadata"] = user_metadata
+        return pulumi.runtime.exists_resource(None, 'azure:relay/hybridConnection:HybridConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

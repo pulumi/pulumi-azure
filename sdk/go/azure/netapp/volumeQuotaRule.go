@@ -274,6 +274,12 @@ func (VolumeQuotaRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeQuotaRuleState)(nil)).Elem()
 }
 
+// VolumeQuotaRuleExists checks whether an existing VolumeQuotaRule resource with the given ID exists.
+func VolumeQuotaRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeQuotaRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/volumeQuotaRule:VolumeQuotaRule", id, state, "", opts...)
+}
+
 type volumeQuotaRuleArgs struct {
 	// The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
 	Location *string `pulumi:"location"`

@@ -220,6 +220,12 @@ func (BackupPolicyBlobStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyBlobStorageState)(nil)).Elem()
 }
 
+// BackupPolicyBlobStorageExists checks whether an existing BackupPolicyBlobStorage resource with the given ID exists.
+func BackupPolicyBlobStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyBlobStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage", id, state, "", opts...)
+}
+
 type backupPolicyBlobStorageArgs struct {
 	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy Blob Storage to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

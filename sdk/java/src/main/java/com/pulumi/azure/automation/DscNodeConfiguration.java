@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .location(example.location())
- *             .contentEmbedded("configuration test {}")
+ *             .contentEmbedded("configuration test }{}{@code ")
  *             .build());
  * 
  *         var exampleDscNodeConfiguration = new DscNodeConfiguration("exampleDscNodeConfiguration", DscNodeConfigurationArgs.builder()
@@ -73,33 +73,33 @@ import javax.annotation.Nullable;
  *             .automationAccountName(exampleAccount.name())
  *             .contentEmbedded("""
  * instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
- * {
- *   ResourceID = \"[File]bla\";
- *   Ensure = \"Present\";
- *   Contents = \"bogus Content\";
- *   DestinationPath = \"c:\\\\bogus.txt\";
- *   ModuleName = \"PSDesiredStateConfiguration\";
- *   SourceInfo = \"::3::9::file\";
- *   ModuleVersion = \"1.0\";
- *   ConfigurationName = \"bla\";
- * };
+ * }{{@code
+ *   ResourceID = }&#92;{@code "[File]bla}&#92;{@code ";
+ *   Ensure = }&#92;{@code "Present}&#92;{@code ";
+ *   Contents = }&#92;{@code "bogus Content}&#92;{@code ";
+ *   DestinationPath = }&#92;{@code "c:}&#92;&#92;&#92;&#92;{@code bogus.txt}&#92;{@code ";
+ *   ModuleName = }&#92;{@code "PSDesiredStateConfiguration}&#92;{@code ";
+ *   SourceInfo = }&#92;{@code "::3::9::file}&#92;{@code ";
+ *   ModuleVersion = }&#92;{@code "1.0}&#92;{@code ";
+ *   ConfigurationName = }&#92;{@code "bla}&#92;{@code ";
+ * }}{@code ;
  * instance of OMI_ConfigurationDocument
- * {
- *   Version=\"2.0.0\";
- *   MinimumCompatibleVersion = \"1.0.0\";
- *   CompatibleVersionAdditionalProperties= {\"Omi_BaseResource:ConfigurationName\"};
- *   Author=\"bogusAuthor\";
- *   GenerationDate=\"06/15/2018 14:06:24\";
- *   GenerationHost=\"bogusComputer\";
- *   Name=\"test\";
- * };
+ * }{{@code
+ *   Version=}&#92;{@code "2.0.0}&#92;{@code ";
+ *   MinimumCompatibleVersion = }&#92;{@code "1.0.0}&#92;{@code ";
+ *   CompatibleVersionAdditionalProperties= }{&#92;{@code "Omi_BaseResource:ConfigurationName}&#92;{@code "}}{@code ;
+ *   Author=}&#92;{@code "bogusAuthor}&#92;{@code ";
+ *   GenerationDate=}&#92;{@code "06/15/2018 14:06:24}&#92;{@code ";
+ *   GenerationHost=}&#92;{@code "bogusComputer}&#92;{@code ";
+ *   Name=}&#92;{@code "test}&#92;{@code ";
+ * }}{@code ;
  *             """)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleDscConfiguration)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

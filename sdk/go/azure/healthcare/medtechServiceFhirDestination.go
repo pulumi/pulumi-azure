@@ -264,6 +264,12 @@ func (MedtechServiceFhirDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*medtechServiceFhirDestinationState)(nil)).Elem()
 }
 
+// MedtechServiceFhirDestinationExists checks whether an existing MedtechServiceFhirDestination resource with the given ID exists.
+func MedtechServiceFhirDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MedtechServiceFhirDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", id, state, "", opts...)
+}
+
 type medtechServiceFhirDestinationArgs struct {
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson string `pulumi:"destinationFhirMappingJson"`

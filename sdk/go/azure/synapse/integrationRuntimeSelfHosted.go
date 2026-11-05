@@ -183,6 +183,12 @@ func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeSelfHostedState)(nil)).Elem()
 }
 
+// IntegrationRuntimeSelfHostedExists checks whether an existing IntegrationRuntimeSelfHosted resource with the given ID exists.
+func IntegrationRuntimeSelfHostedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationRuntimeSelfHostedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", id, state, "", opts...)
+}
+
 type integrationRuntimeSelfHostedArgs struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`

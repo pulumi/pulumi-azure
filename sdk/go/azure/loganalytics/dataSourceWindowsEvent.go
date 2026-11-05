@@ -164,6 +164,12 @@ func (DataSourceWindowsEventState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceWindowsEventState)(nil)).Elem()
 }
 
+// DataSourceWindowsEventExists checks whether an existing DataSourceWindowsEvent resource with the given ID exists.
+func DataSourceWindowsEventExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataSourceWindowsEventState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", id, state, "", opts...)
+}
+
 type dataSourceWindowsEventArgs struct {
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName string `pulumi:"eventLogName"`

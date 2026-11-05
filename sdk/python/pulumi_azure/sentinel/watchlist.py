@@ -456,6 +456,26 @@ class Watchlist(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return Watchlist(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            item_search_key: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultDuration"] = default_duration
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["itemSearchKey"] = item_search_key
+        __props__["labels"] = labels
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/watchlist:Watchlist', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultDuration")
     def default_duration(self) -> pulumi.Output[Optional[_builtins.str]]:

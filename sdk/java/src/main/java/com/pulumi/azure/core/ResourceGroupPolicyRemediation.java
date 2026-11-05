@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -61,29 +61,29 @@ import javax.annotation.Nullable;
  *             .mode("All")
  *             .displayName("my-policy-definition")
  *             .policyRule("""
- *     {
- *     "if": {
- *       "not": {
+ *     }{{@code
+ *     "if": }{{@code
+ *       "not": }{{@code
  *         "field": "location",
  *         "in": "[parameters('allowedLocations')]"
- *       }
- *     },
- *     "then": {
+ *       }}{@code
+ *     }}{@code ,
+ *     "then": }{{@code
  *       "effect": "audit"
- *     }
- *   }
+ *     }}{@code
+ *   }}{@code
  *             """)
  *             .parameters("""
- *     {
- *     \"allowedLocations\": {
- *       \"type\": \"Array\",
- *       \"metadata\": {
- *         \"description\": \"The list of allowed locations for resources.\",
- *         \"displayName\": \"Allowed locations\",
- *         \"strongType\": \"location\"
- *       }
- *     }
- *   }
+ *     }{{@code
+ *     }&#92;{@code "allowedLocations}&#92;{@code ": }{{@code
+ *       }&#92;{@code "type}&#92;{@code ": }&#92;{@code "Array}&#92;{@code ",
+ *       }&#92;{@code "metadata}&#92;{@code ": }{{@code
+ *         }&#92;{@code "description}&#92;{@code ": }&#92;{@code "The list of allowed locations for resources.}&#92;{@code ",
+ *         }&#92;{@code "displayName}&#92;{@code ": }&#92;{@code "Allowed locations}&#92;{@code ",
+ *         }&#92;{@code "strongType}&#92;{@code ": }&#92;{@code "location}&#92;{@code "
+ *       }}{@code
+ *     }}{@code
+ *   }}{@code
  *             """)
  *             .build());
  * 
@@ -100,8 +100,8 @@ import javax.annotation.Nullable;
  *             .locationFilters("West Europe")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

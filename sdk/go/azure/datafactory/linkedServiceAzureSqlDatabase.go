@@ -202,6 +202,12 @@ func (LinkedServiceAzureSqlDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureSqlDatabaseState)(nil)).Elem()
 }
 
+// LinkedServiceAzureSqlDatabaseExists checks whether an existing LinkedServiceAzureSqlDatabase resource with the given ID exists.
+func LinkedServiceAzureSqlDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceAzureSqlDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase", id, state, "", opts...)
+}
+
 type linkedServiceAzureSqlDatabaseArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

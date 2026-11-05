@@ -86,11 +86,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:eventhub/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/queues/snqueue1
  * ```
  * 
- * @deprecated
- * azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue
+ * @deprecated azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue
  * 
  */
-@Deprecated /* azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue */
+@Deprecated
 @ResourceType(type="azure:eventhub/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
     /**

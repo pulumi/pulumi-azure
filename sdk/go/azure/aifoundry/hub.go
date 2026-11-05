@@ -285,6 +285,12 @@ func (HubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubState)(nil)).Elem()
 }
 
+// HubExists checks whether an existing Hub resource with the given ID exists.
+func HubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:aifoundry/hub:Hub", id, state, "", opts...)
+}
+
 type hubArgs struct {
 	// The Application Insights ID that should be used by this AI Foundry Hub.
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`

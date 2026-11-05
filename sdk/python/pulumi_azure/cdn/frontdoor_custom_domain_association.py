@@ -400,6 +400,16 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         __props__.__dict__["cdn_frontdoor_route_ids"] = cdn_frontdoor_route_ids
         return FrontdoorCustomDomainAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cdn_frontdoor_custom_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_route_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cdnFrontdoorCustomDomainId"] = cdn_frontdoor_custom_domain_id
+        __props__["cdnFrontdoorRouteIds"] = cdn_frontdoor_route_ids
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
     def cdn_frontdoor_custom_domain_id(self) -> pulumi.Output[_builtins.str]:

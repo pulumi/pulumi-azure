@@ -160,6 +160,12 @@ func (WatchlistItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*watchlistItemState)(nil)).Elem()
 }
 
+// WatchlistItemExists checks whether an existing WatchlistItem resource with the given ID exists.
+func WatchlistItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WatchlistItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/watchlistItem:WatchlistItem", id, state, "", opts...)
+}
+
 type watchlistItemArgs struct {
 	// The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
 	Name *string `pulumi:"name"`

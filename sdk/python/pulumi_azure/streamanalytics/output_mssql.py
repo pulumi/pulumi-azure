@@ -636,6 +636,34 @@ class OutputMssql(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return OutputMssql(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_count: pulumi.Input[Optional[_builtins.float]] = None,
+            max_writer_count: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMode"] = authentication_mode
+        __props__["database"] = database
+        __props__["maxBatchCount"] = max_batch_count
+        __props__["maxWriterCount"] = max_writer_count
+        __props__["name"] = name
+        __props__["password"] = password
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["server"] = server
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        __props__["table"] = table
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputMssql:OutputMssql', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

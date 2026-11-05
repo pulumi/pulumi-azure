@@ -143,11 +143,10 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deploymentEnvironment);
     }
     /**
-     * @deprecated
-     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Export(name="enableCalling", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableCalling;
 

@@ -269,6 +269,12 @@ func (VolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeState)(nil)).Elem()
 }
 
+// VolumeExists checks whether an existing Volume resource with the given ID exists.
+func VolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:elasticsan/volume:Volume", id, state, "", opts...)
+}
+
 type volumeArgs struct {
 	// A `createSource` block as defined below. Changing this forces a new resource to be created.
 	CreateSource *VolumeCreateSource `pulumi:"createSource"`

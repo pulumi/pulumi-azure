@@ -162,6 +162,12 @@ func (HyperVReplicationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hyperVReplicationPolicyState)(nil)).Elem()
 }
 
+// HyperVReplicationPolicyExists checks whether an existing HyperVReplicationPolicy resource with the given ID exists.
+func HyperVReplicationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HyperVReplicationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy", id, state, "", opts...)
+}
+
 type hyperVReplicationPolicyArgs struct {
 	// Specifies the frequency at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInHours int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`

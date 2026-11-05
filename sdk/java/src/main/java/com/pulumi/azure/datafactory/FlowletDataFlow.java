@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -86,9 +86,9 @@ import javax.annotation.Nullable;
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
- * {
- *   \"connectionString\": \"%s\"
- * }
+ * }{{@code
+ *   }&#92;{@code "connectionString}&#92;{@code ": }&#92;{@code "%s}&#92;{@code "
+ * }}{@code
  * ", _primaryConnectionString)))
  *             .build());
  * 
@@ -212,8 +212,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

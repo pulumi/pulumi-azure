@@ -287,6 +287,12 @@ func (LinkedServiceSftpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSftpState)(nil)).Elem()
 }
 
+// LinkedServiceSftpExists checks whether an existing LinkedServiceSftp resource with the given ID exists.
+func LinkedServiceSftpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceSftpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceSftp:LinkedServiceSftp", id, state, "", opts...)
+}
+
 type linkedServiceSftpArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

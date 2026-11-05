@@ -384,6 +384,22 @@ class SmartDetectionRule(pulumi.CustomResource):
         __props__.__dict__["send_emails_to_subscription_owners"] = send_emails_to_subscription_owners
         return SmartDetectionRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalEmailRecipients"] = additional_email_recipients
+        __props__["applicationInsightsId"] = application_insights_id
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["sendEmailsToSubscriptionOwners"] = send_emails_to_subscription_owners
+        return pulumi.runtime.exists_resource(None, 'azure:appinsights/smartDetectionRule:SmartDetectionRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalEmailRecipients")
     def additional_email_recipients(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

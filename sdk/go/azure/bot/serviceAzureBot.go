@@ -223,6 +223,12 @@ func (ServiceAzureBotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceAzureBotState)(nil)).Elem()
 }
 
+// ServiceAzureBotExists checks whether an existing ServiceAzureBot resource with the given ID exists.
+func ServiceAzureBotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceAzureBotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/serviceAzureBot:ServiceAzureBot", id, state, "", opts...)
+}
+
 type serviceAzureBotArgs struct {
 	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
 	//

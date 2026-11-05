@@ -187,6 +187,12 @@ func (PolicySetDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policySetDefinitionState)(nil)).Elem()
 }
 
+// PolicySetDefinitionExists checks whether an existing PolicySetDefinition resource with the given ID exists.
+func PolicySetDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicySetDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:policy/policySetDefinition:PolicySetDefinition", id, state, "", opts...)
+}
+
 type policySetDefinitionArgs struct {
 	// The description of this Policy Set Definition.
 	Description *string `pulumi:"description"`

@@ -184,6 +184,12 @@ func (ProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectState)(nil)).Elem()
 }
 
+// ProjectExists checks whether an existing Project resource with the given ID exists.
+func ProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/project:Project", id, state, "", opts...)
+}
+
 type projectArgs struct {
 	// Description of the project. Changing this forces a new Dev Center Project to be created.
 	Description *string `pulumi:"description"`

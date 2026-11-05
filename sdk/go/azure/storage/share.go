@@ -251,6 +251,12 @@ func (ShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareState)(nil)).Elem()
 }
 
+// ShareExists checks whether an existing Share resource with the given ID exists.
+func ShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/share:Share", id, state, "", opts...)
+}
+
 type shareArgs struct {
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
 	//

@@ -499,6 +499,18 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         __props__.__dict__["vmware_cluster_id"] = vmware_cluster_id
         return NetappVolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            netapp_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vmware_cluster_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["netappVolumeId"] = netapp_volume_id
+        __props__["vmwareClusterId"] = vmware_cluster_id
+        return pulumi.runtime.exists_resource(None, 'azure:avs/netappVolumeAttachment:NetappVolumeAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

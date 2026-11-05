@@ -158,6 +158,12 @@ func (DataCollectionRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataCollectionRuleState)(nil)).Elem()
 }
 
+// DataCollectionRuleExists checks whether an existing DataCollectionRule resource with the given ID exists.
+func DataCollectionRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataCollectionRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/dataCollectionRule:DataCollectionRule", id, state, "", opts...)
+}
+
 type dataCollectionRuleArgs struct {
 	// The resource ID of the Data Collection Endpoint that this rule can be used with.
 	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`

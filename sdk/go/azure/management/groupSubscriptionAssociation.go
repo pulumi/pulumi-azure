@@ -132,6 +132,12 @@ func (GroupSubscriptionAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupSubscriptionAssociationState)(nil)).Elem()
 }
 
+// GroupSubscriptionAssociationExists checks whether an existing GroupSubscriptionAssociation resource with the given ID exists.
+func GroupSubscriptionAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupSubscriptionAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", id, state, "", opts...)
+}
+
 type groupSubscriptionAssociationArgs struct {
 	// The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
 	ManagementGroupId string `pulumi:"managementGroupId"`

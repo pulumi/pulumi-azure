@@ -381,6 +381,20 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
         __props__.__dict__["number_of_ip_addresses_to_allocate"] = number_of_ip_addresses_to_allocate
         return NetworkManagerIpamPoolStaticCidr(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_ip_addresses_to_allocate: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefixes"] = address_prefixes
+        __props__["ipamPoolId"] = ipam_pool_id
+        __props__["name"] = name
+        __props__["numberOfIpAddressesToAllocate"] = number_of_ip_addresses_to_allocate
+        return pulumi.runtime.exists_resource(None, 'azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

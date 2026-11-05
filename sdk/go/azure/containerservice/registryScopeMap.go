@@ -169,6 +169,12 @@ func (RegistryScopeMapState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryScopeMapState)(nil)).Elem()
 }
 
+// RegistryScopeMapExists checks whether an existing RegistryScopeMap resource with the given ID exists.
+func RegistryScopeMapExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryScopeMapState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/registryScopeMap:RegistryScopeMap", id, state, "", opts...)
+}
+
 type registryScopeMapArgs struct {
 	// A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
 	Actions []string `pulumi:"actions"`

@@ -754,6 +754,40 @@ class DatasetParquet(pulumi.CustomResource):
         __props__.__dict__["schema_columns"] = schema_columns
         return DatasetParquet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            azure_blob_fs_location: pulumi.Input[Optional[Union['DatasetParquetAzureBlobFsLocationArgs', 'DatasetParquetAzureBlobFsLocationArgsDict', 'outputs.DatasetParquetAzureBlobFsLocation']]] = None,
+            azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetParquetAzureBlobStorageLocationArgs', 'DatasetParquetAzureBlobStorageLocationArgsDict', 'outputs.DatasetParquetAzureBlobStorageLocation']]] = None,
+            compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+            compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            http_server_location: pulumi.Input[Optional[Union['DatasetParquetHttpServerLocationArgs', 'DatasetParquetHttpServerLocationArgsDict', 'outputs.DatasetParquetHttpServerLocation']]] = None,
+            linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetParquetSchemaColumnArgs', 'DatasetParquetSchemaColumnArgsDict', 'outputs.DatasetParquetSchemaColumn']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalProperties"] = additional_properties
+        __props__["annotations"] = annotations
+        __props__["azureBlobFsLocation"] = azure_blob_fs_location
+        __props__["azureBlobStorageLocation"] = azure_blob_storage_location
+        __props__["compressionCodec"] = compression_codec
+        __props__["compressionLevel"] = compression_level
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["folder"] = folder
+        __props__["httpServerLocation"] = http_server_location
+        __props__["linkedServiceName"] = linked_service_name
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["schemaColumns"] = schema_columns
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/datasetParquet:DatasetParquet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

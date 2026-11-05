@@ -588,6 +588,32 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         __props__.__dict__["severity_filters"] = severity_filters
         return AlertRuleMsSecurityIncident(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name_exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            severity_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertRuleTemplateGuid"] = alert_rule_template_guid
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["displayNameExcludeFilters"] = display_name_exclude_filters
+        __props__["displayNameFilters"] = display_name_filters
+        __props__["enabled"] = enabled
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["productFilter"] = product_filter
+        __props__["severityFilters"] = severity_filters
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateGuid")
     def alert_rule_template_guid(self) -> pulumi.Output[Optional[_builtins.str]]:

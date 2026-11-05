@@ -373,6 +373,24 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return ManagedHardwareSecurityModuleRoleAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["managedHsmId"] = managed_hsm_id
+        __props__["name"] = name
+        __props__["principalId"] = principal_id
+        __props__["resourceId"] = resource_id
+        __props__["roleDefinitionId"] = role_definition_id
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="managedHsmId")
     def managed_hsm_id(self) -> pulumi.Output[_builtins.str]:

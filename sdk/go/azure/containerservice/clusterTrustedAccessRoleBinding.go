@@ -227,6 +227,12 @@ func (ClusterTrustedAccessRoleBindingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterTrustedAccessRoleBindingState)(nil)).Elem()
 }
 
+// ClusterTrustedAccessRoleBindingExists checks whether an existing ClusterTrustedAccessRoleBinding resource with the given ID exists.
+func ClusterTrustedAccessRoleBindingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterTrustedAccessRoleBindingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding", id, state, "", opts...)
+}
+
 type clusterTrustedAccessRoleBindingArgs struct {
 	// Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`

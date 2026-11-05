@@ -407,6 +407,20 @@ class Assessment(pulumi.CustomResource):
         __props__.__dict__["target_resource_id"] = target_resource_id
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalData"] = additional_data
+        __props__["assessmentPolicyId"] = assessment_policy_id
+        __props__["status"] = status
+        __props__["targetResourceId"] = target_resource_id
+        return pulumi.runtime.exists_resource(None, 'azure:securitycenter/assessment:Assessment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalData")
     def additional_data(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

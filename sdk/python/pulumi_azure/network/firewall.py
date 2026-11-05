@@ -814,6 +814,42 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallIpConfigurationArgs', 'FirewallIpConfigurationArgsDict', 'outputs.FirewallIpConfiguration']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_ip_configuration: pulumi.Input[Optional[Union['FirewallManagementIpConfigurationArgs', 'FirewallManagementIpConfigurationArgsDict', 'outputs.FirewallManagementIpConfiguration']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_intel_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_hub: pulumi.Input[Optional[Union['FirewallVirtualHubArgs', 'FirewallVirtualHubArgsDict', 'outputs.FirewallVirtualHub']]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnsProxyEnabled"] = dns_proxy_enabled
+        __props__["dnsServers"] = dns_servers
+        __props__["firewallPolicyId"] = firewall_policy_id
+        __props__["ipConfigurations"] = ip_configurations
+        __props__["location"] = location
+        __props__["managementIpConfiguration"] = management_ip_configuration
+        __props__["name"] = name
+        __props__["privateIpRanges"] = private_ip_ranges
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["skuTier"] = sku_tier
+        __props__["tags"] = tags
+        __props__["threatIntelMode"] = threat_intel_mode
+        __props__["virtualHub"] = virtual_hub
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:network/firewall:Firewall', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnsProxyEnabled")
     def dns_proxy_enabled(self) -> pulumi.Output[_builtins.bool]:

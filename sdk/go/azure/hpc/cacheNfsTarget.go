@@ -307,6 +307,12 @@ func (CacheNfsTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheNfsTargetState)(nil)).Elem()
 }
 
+// CacheNfsTargetExists checks whether an existing CacheNfsTarget resource with the given ID exists.
+func CacheNfsTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheNfsTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hpc/cacheNfsTarget:CacheNfsTarget", id, state, "", opts...)
+}
+
 type cacheNfsTargetArgs struct {
 	// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
 	CacheName string `pulumi:"cacheName"`

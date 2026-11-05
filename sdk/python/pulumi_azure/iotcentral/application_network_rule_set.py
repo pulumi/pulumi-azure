@@ -361,6 +361,20 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         __props__.__dict__["ip_rules"] = ip_rules
         return ApplicationNetworkRuleSet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_to_device: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            iotcentral_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationNetworkRuleSetIpRuleArgs', 'ApplicationNetworkRuleSetIpRuleArgsDict', 'outputs.ApplicationNetworkRuleSetIpRule']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyToDevice"] = apply_to_device
+        __props__["defaultAction"] = default_action
+        __props__["iotcentralApplicationId"] = iotcentral_application_id
+        __props__["ipRules"] = ip_rules
+        return pulumi.runtime.exists_resource(None, 'azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyToDevice")
     def apply_to_device(self) -> pulumi.Output[Optional[_builtins.bool]]:

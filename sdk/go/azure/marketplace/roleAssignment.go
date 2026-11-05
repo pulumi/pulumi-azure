@@ -234,6 +234,12 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAssignmentState)(nil)).Elem()
 }
 
+// RoleAssignmentExists checks whether an existing RoleAssignment resource with the given ID exists.
+func RoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:marketplace/roleAssignment:RoleAssignment", id, state, "", opts...)
+}
+
 type roleAssignmentArgs struct {
 	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
 	Condition *string `pulumi:"condition"`

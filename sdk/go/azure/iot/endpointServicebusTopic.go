@@ -225,6 +225,12 @@ func (EndpointServicebusTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusTopicState)(nil)).Elem()
 }
 
+// EndpointServicebusTopicExists checks whether an existing EndpointServicebusTopic resource with the given ID exists.
+func EndpointServicebusTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointServicebusTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/endpointServicebusTopic:EndpointServicebusTopic", id, state, "", opts...)
+}
+
 type endpointServicebusTopicArgs struct {
 	// Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`

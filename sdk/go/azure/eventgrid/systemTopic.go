@@ -199,6 +199,12 @@ func (SystemTopicState) ElementType() reflect.Type {
 	return reflect.TypeOf((*systemTopicState)(nil)).Elem()
 }
 
+// SystemTopicExists checks whether an existing SystemTopic resource with the given ID exists.
+func SystemTopicExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SystemTopicState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventgrid/systemTopic:SystemTopic", id, state, "", opts...)
+}
+
 type systemTopicArgs struct {
 	// An `identity` block as defined below.
 	Identity *SystemTopicIdentity `pulumi:"identity"`

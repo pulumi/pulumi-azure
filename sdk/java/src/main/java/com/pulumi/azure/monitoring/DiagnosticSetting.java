@@ -230,11 +230,10 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
     }
     /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated
     @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
     private Output<List<DiagnosticSettingMetric>> metrics;
 

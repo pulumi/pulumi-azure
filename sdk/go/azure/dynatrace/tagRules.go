@@ -181,6 +181,12 @@ func (TagRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagRulesState)(nil)).Elem()
 }
 
+// TagRulesExists checks whether an existing TagRules resource with the given ID exists.
+func TagRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dynatrace/tagRules:TagRules", id, state, "", opts...)
+}
+
 type tagRulesArgs struct {
 	// Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
 	LogRule *TagRulesLogRule `pulumi:"logRule"`

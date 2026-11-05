@@ -171,6 +171,12 @@ func (CnameRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cnameRecordState)(nil)).Elem()
 }
 
+// CnameRecordExists checks whether an existing CnameRecord resource with the given ID exists.
+func CnameRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CnameRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:privatedns/cnameRecord:CnameRecord", id, state, "", opts...)
+}
+
 type cnameRecordArgs struct {
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

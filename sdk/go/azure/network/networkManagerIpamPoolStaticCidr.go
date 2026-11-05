@@ -179,6 +179,12 @@ func (NetworkManagerIpamPoolStaticCidrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerIpamPoolStaticCidrState)(nil)).Elem()
 }
 
+// NetworkManagerIpamPoolStaticCidrExists checks whether an existing NetworkManagerIpamPoolStaticCidr resource with the given ID exists.
+func NetworkManagerIpamPoolStaticCidrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerIpamPoolStaticCidrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr", id, state, "", opts...)
+}
+
 type networkManagerIpamPoolStaticCidrArgs struct {
 	// Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
 	//

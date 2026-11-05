@@ -163,6 +163,12 @@ func (DataConnectorAwsS3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataConnectorAwsS3State)(nil)).Elem()
 }
 
+// DataConnectorAwsS3Exists checks whether an existing DataConnectorAwsS3 resource with the given ID exists.
+func DataConnectorAwsS3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataConnectorAwsS3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3", id, state, "", opts...)
+}
+
 type dataConnectorAwsS3Args struct {
 	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn string `pulumi:"awsRoleArn"`

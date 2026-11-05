@@ -161,6 +161,12 @@ func (LocalRulestackCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRulestackCertificateState)(nil)).Elem()
 }
 
+// LocalRulestackCertificateExists checks whether an existing LocalRulestackCertificate resource with the given ID exists.
+func LocalRulestackCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestackCertificate:LocalRulestackCertificate", id, state, "", opts...)
+}
+
 type localRulestackCertificateArgs struct {
 	// The comment for Audit purposes.
 	AuditComment *string `pulumi:"auditComment"`

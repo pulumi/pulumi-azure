@@ -818,6 +818,40 @@ class ElasticPool(pulumi.CustomResource):
         __props__.__dict__["zone_redundant"] = zone_redundant
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+            high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict', 'outputs.ElasticPoolPerDatabaseSettings']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict', 'outputs.ElasticPoolSku']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enclaveType"] = enclave_type
+        __props__["highAvailabilityReplicaCount"] = high_availability_replica_count
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["maintenanceConfigurationName"] = maintenance_configuration_name
+        __props__["maxSizeBytes"] = max_size_bytes
+        __props__["maxSizeGb"] = max_size_gb
+        __props__["name"] = name
+        __props__["perDatabaseSettings"] = per_database_settings
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverName"] = server_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["zoneRedundant"] = zone_redundant
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/elasticPool:ElasticPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enclaveType")
     def enclave_type(self) -> pulumi.Output[_builtins.str]:

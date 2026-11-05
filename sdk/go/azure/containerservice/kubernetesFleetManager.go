@@ -145,6 +145,12 @@ func (KubernetesFleetManagerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesFleetManagerState)(nil)).Elem()
 }
 
+// KubernetesFleetManagerExists checks whether an existing KubernetesFleetManager resource with the given ID exists.
+func KubernetesFleetManagerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesFleetManagerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager", id, state, "", opts...)
+}
+
 type kubernetesFleetManagerArgs struct {
 	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile *KubernetesFleetManagerHubProfile `pulumi:"hubProfile"`

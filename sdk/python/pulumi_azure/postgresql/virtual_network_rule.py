@@ -456,6 +456,22 @@ class VirtualNetworkRule(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ignoreMissingVnetServiceEndpoint"] = ignore_missing_vnet_service_endpoint
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverName"] = server_name
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'azure:postgresql/virtualNetworkRule:VirtualNetworkRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> pulumi.Output[Optional[_builtins.bool]]:

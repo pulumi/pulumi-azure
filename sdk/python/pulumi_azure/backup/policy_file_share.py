@@ -689,6 +689,34 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return PolicyFileShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup: pulumi.Input[Optional[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict', 'outputs.PolicyFileShareBackup']]] = None,
+            backup_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_daily: pulumi.Input[Optional[Union['PolicyFileShareRetentionDailyArgs', 'PolicyFileShareRetentionDailyArgsDict', 'outputs.PolicyFileShareRetentionDaily']]] = None,
+            retention_monthly: pulumi.Input[Optional[Union['PolicyFileShareRetentionMonthlyArgs', 'PolicyFileShareRetentionMonthlyArgsDict', 'outputs.PolicyFileShareRetentionMonthly']]] = None,
+            retention_weekly: pulumi.Input[Optional[Union['PolicyFileShareRetentionWeeklyArgs', 'PolicyFileShareRetentionWeeklyArgsDict', 'outputs.PolicyFileShareRetentionWeekly']]] = None,
+            retention_yearly: pulumi.Input[Optional[Union['PolicyFileShareRetentionYearlyArgs', 'PolicyFileShareRetentionYearlyArgsDict', 'outputs.PolicyFileShareRetentionYearly']]] = None,
+            snapshot_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backup"] = backup
+        __props__["backupTier"] = backup_tier
+        __props__["name"] = name
+        __props__["recoveryVaultName"] = recovery_vault_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionDaily"] = retention_daily
+        __props__["retentionMonthly"] = retention_monthly
+        __props__["retentionWeekly"] = retention_weekly
+        __props__["retentionYearly"] = retention_yearly
+        __props__["snapshotRetentionInDays"] = snapshot_retention_in_days
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'azure:backup/policyFileShare:PolicyFileShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def backup(self) -> pulumi.Output['outputs.PolicyFileShareBackup']:

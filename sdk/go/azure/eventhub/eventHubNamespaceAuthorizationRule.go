@@ -217,6 +217,12 @@ func (EventHubNamespaceAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubNamespaceAuthorizationRuleState)(nil)).Elem()
 }
 
+// EventHubNamespaceAuthorizationRuleExists checks whether an existing EventHubNamespaceAuthorizationRule resource with the given ID exists.
+func EventHubNamespaceAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHubNamespaceAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", id, state, "", opts...)
+}
+
 type eventHubNamespaceAuthorizationRuleArgs struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`

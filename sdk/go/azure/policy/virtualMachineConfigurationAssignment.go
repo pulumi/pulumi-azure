@@ -243,6 +243,12 @@ func (VirtualMachineConfigurationAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineConfigurationAssignmentState)(nil)).Elem()
 }
 
+// VirtualMachineConfigurationAssignmentExists checks whether an existing VirtualMachineConfigurationAssignment resource with the given ID exists.
+func VirtualMachineConfigurationAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualMachineConfigurationAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", id, state, "", opts...)
+}
+
 type virtualMachineConfigurationAssignmentArgs struct {
 	// A `configuration` block as defined below.
 	Configuration VirtualMachineConfigurationAssignmentConfiguration `pulumi:"configuration"`

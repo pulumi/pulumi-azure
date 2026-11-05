@@ -499,6 +499,22 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["root_file"] = root_file
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict', 'outputs.ConfigurationConfigFile']]]]] = None,
+            nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            package_data: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationProtectedFileArgs', 'ConfigurationProtectedFileArgsDict', 'outputs.ConfigurationProtectedFile']]]]] = None,
+            root_file: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["configFiles"] = config_files
+        __props__["nginxDeploymentId"] = nginx_deployment_id
+        __props__["packageData"] = package_data
+        __props__["protectedFiles"] = protected_files
+        __props__["rootFile"] = root_file
+        return pulumi.runtime.exists_resource(None, 'azure:nginx/configuration:Configuration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="configFiles")
     def config_files(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationConfigFile']]]:

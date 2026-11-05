@@ -209,6 +209,12 @@ func (TrafficManagerAzureEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerAzureEndpointState)(nil)).Elem()
 }
 
+// TrafficManagerAzureEndpointExists checks whether an existing TrafficManagerAzureEndpoint resource with the given ID exists.
+func TrafficManagerAzureEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficManagerAzureEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", id, state, "", opts...)
+}
+
 type trafficManagerAzureEndpointArgs struct {
 	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
 	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`

@@ -221,6 +221,12 @@ func (GatewayHostNameConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayHostNameConfigurationState)(nil)).Elem()
 }
 
+// GatewayHostNameConfigurationExists checks whether an existing GatewayHostNameConfiguration resource with the given ID exists.
+func GatewayHostNameConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayHostNameConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration", id, state, "", opts...)
+}
+
 type gatewayHostNameConfigurationArgs struct {
 	// The ID of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`

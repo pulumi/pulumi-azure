@@ -171,6 +171,12 @@ func (ManagedDiskSasTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDiskSasTokenState)(nil)).Elem()
 }
 
+// ManagedDiskSasTokenExists checks whether an existing ManagedDiskSasToken resource with the given ID exists.
+func ManagedDiskSasTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedDiskSasTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/managedDiskSasToken:ManagedDiskSasToken", id, state, "", opts...)
+}
+
 type managedDiskSasTokenArgs struct {
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	//

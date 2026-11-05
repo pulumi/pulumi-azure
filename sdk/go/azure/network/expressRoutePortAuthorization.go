@@ -159,6 +159,12 @@ func (ExpressRoutePortAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRoutePortAuthorizationState)(nil)).Elem()
 }
 
+// ExpressRoutePortAuthorizationExists checks whether an existing ExpressRoutePortAuthorization resource with the given ID exists.
+func ExpressRoutePortAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRoutePortAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", id, state, "", opts...)
+}
+
 type expressRoutePortAuthorizationArgs struct {
 	// The name of the Express Route Port in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRoutePortName string `pulumi:"expressRoutePortName"`

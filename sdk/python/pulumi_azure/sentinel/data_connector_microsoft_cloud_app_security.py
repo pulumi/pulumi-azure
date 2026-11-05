@@ -386,6 +386,22 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return DataConnectorMicrosoftCloudAppSecurity(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alerts_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            discovery_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alertsEnabled"] = alerts_enabled
+        __props__["discoveryLogsEnabled"] = discovery_logs_enabled
+        __props__["logAnalyticsWorkspaceId"] = log_analytics_workspace_id
+        __props__["name"] = name
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alertsEnabled")
     def alerts_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

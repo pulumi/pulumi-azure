@@ -935,6 +935,50 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         __props__.__dict__["vnet_integration"] = vnet_integration
         return IntegrationRuntimeSsis(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_info: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict', 'outputs.IntegrationRuntimeSsisCatalogInfo']]] = None,
+            copy_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCopyComputeScaleArgs', 'IntegrationRuntimeSsisCopyComputeScaleArgsDict', 'outputs.IntegrationRuntimeSsisCopyComputeScale']]] = None,
+            credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_setup_script: pulumi.Input[Optional[Union['IntegrationRuntimeSsisCustomSetupScriptArgs', 'IntegrationRuntimeSsisCustomSetupScriptArgsDict', 'outputs.IntegrationRuntimeSsisCustomSetupScript']]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            express_custom_setup: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressCustomSetupArgs', 'IntegrationRuntimeSsisExpressCustomSetupArgsDict', 'outputs.IntegrationRuntimeSsisExpressCustomSetup']]] = None,
+            express_vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisExpressVnetIntegrationArgs', 'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict', 'outputs.IntegrationRuntimeSsisExpressVnetIntegration']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_parallel_executions_per_node: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_size: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            package_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSsisPackageStoreArgs', 'IntegrationRuntimeSsisPackageStoreArgsDict', 'outputs.IntegrationRuntimeSsisPackageStore']]]]] = None,
+            pipeline_external_compute_scale: pulumi.Input[Optional[Union['IntegrationRuntimeSsisPipelineExternalComputeScaleArgs', 'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict', 'outputs.IntegrationRuntimeSsisPipelineExternalComputeScale']]] = None,
+            proxy: pulumi.Input[Optional[Union['IntegrationRuntimeSsisProxyArgs', 'IntegrationRuntimeSsisProxyArgsDict', 'outputs.IntegrationRuntimeSsisProxy']]] = None,
+            vnet_integration: pulumi.Input[Optional[Union['IntegrationRuntimeSsisVnetIntegrationArgs', 'IntegrationRuntimeSsisVnetIntegrationArgsDict', 'outputs.IntegrationRuntimeSsisVnetIntegration']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogInfo"] = catalog_info
+        __props__["copyComputeScale"] = copy_compute_scale
+        __props__["credentialName"] = credential_name
+        __props__["customSetupScript"] = custom_setup_script
+        __props__["dataFactoryId"] = data_factory_id
+        __props__["description"] = description
+        __props__["edition"] = edition
+        __props__["expressCustomSetup"] = express_custom_setup
+        __props__["expressVnetIntegration"] = express_vnet_integration
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["maxParallelExecutionsPerNode"] = max_parallel_executions_per_node
+        __props__["name"] = name
+        __props__["nodeSize"] = node_size
+        __props__["numberOfNodes"] = number_of_nodes
+        __props__["packageStores"] = package_stores
+        __props__["pipelineExternalComputeScale"] = pipeline_external_compute_scale
+        __props__["proxy"] = proxy
+        __props__["vnetIntegration"] = vnet_integration
+        return pulumi.runtime.exists_resource(None, 'azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogInfo")
     def catalog_info(self) -> pulumi.Output[Optional['outputs.IntegrationRuntimeSsisCatalogInfo']]:

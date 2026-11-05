@@ -97,6 +97,12 @@ func (AssignmentDynamicScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentDynamicScopeState)(nil)).Elem()
 }
 
+// AssignmentDynamicScopeExists checks whether an existing AssignmentDynamicScope resource with the given ID exists.
+func AssignmentDynamicScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignmentDynamicScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope", id, state, "", opts...)
+}
+
 type assignmentDynamicScopeArgs struct {
 	// A `filter` block as defined below.
 	Filter AssignmentDynamicScopeFilter `pulumi:"filter"`

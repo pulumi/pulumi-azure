@@ -323,6 +323,12 @@ func (InteractiveQueryClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*interactiveQueryClusterState)(nil)).Elem()
 }
 
+// InteractiveQueryClusterExists checks whether an existing InteractiveQueryCluster resource with the given ID exists.
+func InteractiveQueryClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *InteractiveQueryClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", id, state, "", opts...)
+}
+
 type interactiveQueryClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion string `pulumi:"clusterVersion"`

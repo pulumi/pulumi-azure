@@ -246,6 +246,12 @@ func (ManagedCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedCertificateState)(nil)).Elem()
 }
 
+// ManagedCertificateExists checks whether an existing ManagedCertificate resource with the given ID exists.
+func ManagedCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/managedCertificate:ManagedCertificate", id, state, "", opts...)
+}
+
 type managedCertificateArgs struct {
 	// The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
 	CustomHostnameBindingId string `pulumi:"customHostnameBindingId"`

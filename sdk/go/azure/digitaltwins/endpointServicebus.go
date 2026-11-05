@@ -198,6 +198,12 @@ func (EndpointServicebusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusState)(nil)).Elem()
 }
 
+// EndpointServicebusExists checks whether an existing EndpointServicebus resource with the given ID exists.
+func EndpointServicebusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndpointServicebusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:digitaltwins/endpointServicebus:EndpointServicebus", id, state, "", opts...)
+}
+
 type endpointServicebusArgs struct {
 	// The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
 	DeadLetterStorageSecret *string `pulumi:"deadLetterStorageSecret"`

@@ -156,6 +156,12 @@ func (GremlinDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinDatabaseState)(nil)).Elem()
 }
 
+// GremlinDatabaseExists checks whether an existing GremlinDatabase resource with the given ID exists.
+func GremlinDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GremlinDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/gremlinDatabase:GremlinDatabase", id, state, "", opts...)
+}
+
 type gremlinDatabaseArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

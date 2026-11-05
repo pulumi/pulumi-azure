@@ -217,6 +217,12 @@ func (VaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultState)(nil)).Elem()
 }
 
+// VaultExists checks whether an existing Vault resource with the given ID exists.
+func VaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:recoveryservices/vault:Vault", id, state, "", opts...)
+}
+
 type vaultArgs struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled *bool `pulumi:"classicVmwareReplicationEnabled"`

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .forceUpdateTag("1")
  *             .timeout("PT30M")
  *             .scriptContent("""
- *             echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH
+ *             echo }&#92;{@code "}{&#92;&#92;&#92;{@code "name}&#92;&#92;&#92;{@code ":}{&#92;&#92;&#92;{@code "displayName}&#92;&#92;&#92;{@code ":}&#92;&#92;&#92;{@code "$1 $2}&#92;&#92;&#92;{@code "}}}&#92;{@code " > $AZ_SCRIPTS_OUTPUT_PATH
  *             """)
  *             .identity(ResourceDeploymentScriptAzureCliIdentityArgs.builder()
  *                 .type("UserAssigned")
@@ -83,8 +83,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -927,6 +927,50 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content_types_to_compresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]]] = None,
+            global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']]] = None,
+            is_compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_http_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_https_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optimization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]]] = None,
+            probe_path: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            querystring_caching_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contentTypesToCompresses"] = content_types_to_compresses
+        __props__["deliveryRules"] = delivery_rules
+        __props__["fqdn"] = fqdn
+        __props__["geoFilters"] = geo_filters
+        __props__["globalDeliveryRule"] = global_delivery_rule
+        __props__["isCompressionEnabled"] = is_compression_enabled
+        __props__["isHttpAllowed"] = is_http_allowed
+        __props__["isHttpsAllowed"] = is_https_allowed
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["optimizationType"] = optimization_type
+        __props__["originHostHeader"] = origin_host_header
+        __props__["originPath"] = origin_path
+        __props__["origins"] = origins
+        __props__["probePath"] = probe_path
+        __props__["profileName"] = profile_name
+        __props__["querystringCachingBehaviour"] = querystring_caching_behaviour
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:cdn/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contentTypesToCompresses")
     def content_types_to_compresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

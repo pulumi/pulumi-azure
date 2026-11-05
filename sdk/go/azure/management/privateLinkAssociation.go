@@ -177,6 +177,12 @@ func (PrivateLinkAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkAssociationState)(nil)).Elem()
 }
 
+// PrivateLinkAssociationExists checks whether an existing PrivateLinkAssociation resource with the given ID exists.
+func PrivateLinkAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:management/privateLinkAssociation:PrivateLinkAssociation", id, state, "", opts...)
+}
+
 type privateLinkAssociationArgs struct {
 	// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 	//

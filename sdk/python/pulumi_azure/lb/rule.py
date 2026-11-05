@@ -845,6 +845,44 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return Rule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+            disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
+            floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            frontend_port: pulumi.Input[Optional[_builtins.int]] = None,
+            idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            load_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            tcp_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backendAddressPoolIds"] = backend_address_pool_ids
+        __props__["backendPort"] = backend_port
+        __props__["disableOutboundSnat"] = disable_outbound_snat
+        __props__["enableFloatingIp"] = enable_floating_ip
+        __props__["enableTcpReset"] = enable_tcp_reset
+        __props__["floatingIpEnabled"] = floating_ip_enabled
+        __props__["frontendIpConfigurationId"] = frontend_ip_configuration_id
+        __props__["frontendIpConfigurationName"] = frontend_ip_configuration_name
+        __props__["frontendPort"] = frontend_port
+        __props__["idleTimeoutInMinutes"] = idle_timeout_in_minutes
+        __props__["loadDistribution"] = load_distribution
+        __props__["loadbalancerId"] = loadbalancer_id
+        __props__["name"] = name
+        __props__["probeId"] = probe_id
+        __props__["protocol"] = protocol
+        __props__["tcpResetEnabled"] = tcp_reset_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:lb/rule:Rule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolIds")
     def backend_address_pool_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

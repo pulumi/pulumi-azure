@@ -16,11 +16,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineAutoBackup {
     /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+     * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+    @Deprecated
     private @Nullable Boolean encryptionEnabled;
     /**
      * @return Encryption password to use. Setting a password will enable encryption.
@@ -55,11 +54,10 @@ public final class VirtualMachineAutoBackup {
 
     private VirtualMachineAutoBackup() {}
     /**
-     * @deprecated
-     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
+     * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
+    @Deprecated
     public Optional<Boolean> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }

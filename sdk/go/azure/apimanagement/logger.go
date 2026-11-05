@@ -187,6 +187,12 @@ func (LoggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerState)(nil)).Elem()
 }
 
+// LoggerExists checks whether an existing Logger resource with the given ID exists.
+func LoggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/logger:Logger", id, state, "", opts...)
+}
+
 type loggerArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`

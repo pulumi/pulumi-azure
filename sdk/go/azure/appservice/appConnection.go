@@ -232,6 +232,12 @@ func (AppConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appConnectionState)(nil)).Elem()
 }
 
+// AppConnectionExists checks whether an existing AppConnection resource with the given ID exists.
+func AppConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/appConnection:AppConnection", id, state, "", opts...)
+}
+
 type appConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	//

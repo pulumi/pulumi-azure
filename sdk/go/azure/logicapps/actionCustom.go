@@ -157,6 +157,12 @@ func (ActionCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionCustomState)(nil)).Elem()
 }
 
+// ActionCustomExists checks whether an existing ActionCustom resource with the given ID exists.
+func ActionCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/actionCustom:ActionCustom", id, state, "", opts...)
+}
+
 type actionCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
 	Body string `pulumi:"body"`

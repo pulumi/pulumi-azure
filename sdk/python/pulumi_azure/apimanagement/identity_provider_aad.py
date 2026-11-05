@@ -464,6 +464,26 @@ class IdentityProviderAad(pulumi.CustomResource):
         __props__.__dict__["signin_tenant"] = signin_tenant
         return IdentityProviderAad(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_library: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signin_tenant: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedTenants"] = allowed_tenants
+        __props__["apiManagementName"] = api_management_name
+        __props__["clientId"] = client_id
+        __props__["clientLibrary"] = client_library
+        __props__["clientSecret"] = client_secret
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["signinTenant"] = signin_tenant
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/identityProviderAad:IdentityProviderAad', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedTenants")
     def allowed_tenants(self) -> pulumi.Output[Sequence[_builtins.str]]:

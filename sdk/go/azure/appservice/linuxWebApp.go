@@ -404,6 +404,12 @@ func (LinuxWebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxWebAppState)(nil)).Elem()
 }
 
+// LinuxWebAppExists checks whether an existing LinuxWebApp resource with the given ID exists.
+func LinuxWebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinuxWebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/linuxWebApp:LinuxWebApp", id, state, "", opts...)
+}
+
 type linuxWebAppArgs struct {
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`

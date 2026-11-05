@@ -520,6 +520,28 @@ class Hub(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apns_credential: pulumi.Input[Optional[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict', 'outputs.HubApnsCredential']]] = None,
+            browser_credential: pulumi.Input[Optional[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict', 'outputs.HubBrowserCredential']]] = None,
+            gcm_credential: pulumi.Input[Optional[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict', 'outputs.HubGcmCredential']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apnsCredential"] = apns_credential
+        __props__["browserCredential"] = browser_credential
+        __props__["gcmCredential"] = gcm_credential
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["namespaceName"] = namespace_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:notificationhub/hub:Hub', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apnsCredential")
     def apns_credential(self) -> pulumi.Output[Optional['outputs.HubApnsCredential']]:

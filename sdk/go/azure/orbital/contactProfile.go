@@ -247,6 +247,12 @@ func (ContactProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactProfileState)(nil)).Elem()
 }
 
+// ContactProfileExists checks whether an existing ContactProfile resource with the given ID exists.
+func ContactProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ContactProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:orbital/contactProfile:ContactProfile", id, state, "", opts...)
+}
+
 type contactProfileArgs struct {
 	// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
 	AutoTracking string `pulumi:"autoTracking"`

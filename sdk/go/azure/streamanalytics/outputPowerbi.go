@@ -180,6 +180,12 @@ func (OutputPowerbiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputPowerbiState)(nil)).Elem()
 }
 
+// OutputPowerbiExists checks whether an existing OutputPowerbi resource with the given ID exists.
+func OutputPowerbiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OutputPowerbiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/outputPowerbi:OutputPowerbi", id, state, "", opts...)
+}
+
 type outputPowerbiArgs struct {
 	// The name of the Power BI dataset.
 	Dataset string `pulumi:"dataset"`

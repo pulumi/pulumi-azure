@@ -200,6 +200,12 @@ func (ClusterPrincipalAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPrincipalAssignmentState)(nil)).Elem()
 }
 
+// ClusterPrincipalAssignmentExists checks whether an existing ClusterPrincipalAssignment resource with the given ID exists.
+func ClusterPrincipalAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ClusterPrincipalAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment", id, state, "", opts...)
+}
+
 type clusterPrincipalAssignmentArgs struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`

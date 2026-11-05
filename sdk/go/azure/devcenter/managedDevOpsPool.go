@@ -237,6 +237,12 @@ func (ManagedDevOpsPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDevOpsPoolState)(nil)).Elem()
 }
 
+// ManagedDevOpsPoolExists checks whether an existing ManagedDevOpsPool resource with the given ID exists.
+func ManagedDevOpsPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedDevOpsPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/managedDevOpsPool:ManagedDevOpsPool", id, state, "", opts...)
+}
+
 type managedDevOpsPoolArgs struct {
 	// An `azureDevopsOrganization` block as defined below.
 	AzureDevopsOrganization ManagedDevOpsPoolAzureDevopsOrganization `pulumi:"azureDevopsOrganization"`

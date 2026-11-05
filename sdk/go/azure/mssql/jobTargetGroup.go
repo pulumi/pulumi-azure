@@ -171,6 +171,12 @@ func (JobTargetGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobTargetGroupState)(nil)).Elem()
 }
 
+// JobTargetGroupExists checks whether an existing JobTargetGroup resource with the given ID exists.
+func JobTargetGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobTargetGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/jobTargetGroup:JobTargetGroup", id, state, "", opts...)
+}
+
 type jobTargetGroupArgs struct {
 	// The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
 	JobAgentId string `pulumi:"jobAgentId"`

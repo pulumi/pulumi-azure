@@ -189,6 +189,12 @@ func (DatasetMysqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetMysqlState)(nil)).Elem()
 }
 
+// DatasetMysqlExists checks whether an existing DatasetMysql resource with the given ID exists.
+func DatasetMysqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetMysqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/datasetMysql:DatasetMysql", id, state, "", opts...)
+}
+
 type datasetMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
 	//

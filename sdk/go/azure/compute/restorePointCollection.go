@@ -225,6 +225,12 @@ func (RestorePointCollectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restorePointCollectionState)(nil)).Elem()
 }
 
+// RestorePointCollectionExists checks whether an existing RestorePointCollection resource with the given ID exists.
+func RestorePointCollectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestorePointCollectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/restorePointCollection:RestorePointCollection", id, state, "", opts...)
+}
+
 type restorePointCollectionArgs struct {
 	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

@@ -241,6 +241,12 @@ func (DatastoreFileshareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreFileshareState)(nil)).Elem()
 }
 
+// DatastoreFileshareExists checks whether an existing DatastoreFileshare resource with the given ID exists.
+func DatastoreFileshareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreFileshareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/datastoreFileshare:DatastoreFileshare", id, state, "", opts...)
+}
+
 type datastoreFileshareArgs struct {
 	// The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
 	AccountKey *string `pulumi:"accountKey"`

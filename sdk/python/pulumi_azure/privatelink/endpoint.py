@@ -893,6 +893,38 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict', 'outputs.EndpointCustomDnsConfig']]]]] = None,
+            custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]]] = None,
+            private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict', 'outputs.EndpointPrivateDnsZoneConfig']]]]] = None,
+            private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
+            private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customDnsConfigs"] = custom_dns_configs
+        __props__["customNetworkInterfaceName"] = custom_network_interface_name
+        __props__["edgeZone"] = edge_zone
+        __props__["ipConfigurations"] = ip_configurations
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkInterfaces"] = network_interfaces
+        __props__["privateDnsZoneConfigs"] = private_dns_zone_configs
+        __props__["privateDnsZoneGroup"] = private_dns_zone_group
+        __props__["privateServiceConnection"] = private_service_connection
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:privatelink/endpoint:Endpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> pulumi.Output[Sequence['outputs.EndpointCustomDnsConfig']]:

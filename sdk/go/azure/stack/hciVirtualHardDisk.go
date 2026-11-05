@@ -220,6 +220,12 @@ func (HciVirtualHardDiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciVirtualHardDiskState)(nil)).Elem()
 }
 
+// HciVirtualHardDiskExists checks whether an existing HciVirtualHardDisk resource with the given ID exists.
+func HciVirtualHardDiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciVirtualHardDiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciVirtualHardDisk:HciVirtualHardDisk", id, state, "", opts...)
+}
+
 type hciVirtualHardDiskArgs struct {
 	// The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
 	BlockSizeInBytes *int `pulumi:"blockSizeInBytes"`

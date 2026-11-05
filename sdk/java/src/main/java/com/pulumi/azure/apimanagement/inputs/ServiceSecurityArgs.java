@@ -73,115 +73,103 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableBackendSsl30")
     private @Nullable Output<Boolean> enableBackendSsl30;
 
     /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableBackendSsl30() {
         return Optional.ofNullable(this.enableBackendSsl30);
     }
 
     /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableBackendTls10")
     private @Nullable Output<Boolean> enableBackendTls10;
 
     /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableBackendTls10() {
         return Optional.ofNullable(this.enableBackendTls10);
     }
 
     /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableBackendTls11")
     private @Nullable Output<Boolean> enableBackendTls11;
 
     /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableBackendTls11() {
         return Optional.ofNullable(this.enableBackendTls11);
     }
 
     /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableFrontendSsl30")
     private @Nullable Output<Boolean> enableFrontendSsl30;
 
     /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableFrontendSsl30() {
         return Optional.ofNullable(this.enableFrontendSsl30);
     }
 
     /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableFrontendTls10")
     private @Nullable Output<Boolean> enableFrontendTls10;
 
     /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableFrontendTls10() {
         return Optional.ofNullable(this.enableFrontendTls10);
     }
 
     /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableFrontendTls11")
     private @Nullable Output<Boolean> enableFrontendTls11;
 
     /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableFrontendTls11() {
         return Optional.ofNullable(this.enableFrontendTls11);
     }
@@ -576,11 +564,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendSsl30(@Nullable Output<Boolean> enableBackendSsl30) {
             $.enableBackendSsl30 = enableBackendSsl30;
             return this;
@@ -589,11 +576,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendSsl30(Boolean enableBackendSsl30) {
             return enableBackendSsl30(Output.of(enableBackendSsl30));
         }
@@ -601,11 +587,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendTls10(@Nullable Output<Boolean> enableBackendTls10) {
             $.enableBackendTls10 = enableBackendTls10;
             return this;
@@ -614,11 +599,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendTls10(Boolean enableBackendTls10) {
             return enableBackendTls10(Output.of(enableBackendTls10));
         }
@@ -626,11 +610,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendTls11(@Nullable Output<Boolean> enableBackendTls11) {
             $.enableBackendTls11 = enableBackendTls11;
             return this;
@@ -639,11 +622,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableBackendTls11(Boolean enableBackendTls11) {
             return enableBackendTls11(Output.of(enableBackendTls11));
         }
@@ -651,11 +633,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendSsl30(@Nullable Output<Boolean> enableFrontendSsl30) {
             $.enableFrontendSsl30 = enableFrontendSsl30;
             return this;
@@ -664,11 +645,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendSsl30(Boolean enableFrontendSsl30) {
             return enableFrontendSsl30(Output.of(enableFrontendSsl30));
         }
@@ -676,11 +656,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendTls10(@Nullable Output<Boolean> enableFrontendTls10) {
             $.enableFrontendTls10 = enableFrontendTls10;
             return this;
@@ -689,11 +668,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendTls10(Boolean enableFrontendTls10) {
             return enableFrontendTls10(Output.of(enableFrontendTls10));
         }
@@ -701,11 +679,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendTls11(@Nullable Output<Boolean> enableFrontendTls11) {
             $.enableFrontendTls11 = enableFrontendTls11;
             return this;
@@ -714,11 +691,10 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @return builder
          * 
-         * @deprecated
-         * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableFrontendTls11(Boolean enableFrontendTls11) {
             return enableFrontendTls11(Output.of(enableFrontendTls11));
         }

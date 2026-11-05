@@ -654,6 +654,42 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            atlas_kafka_endpoint_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            atlas_kafka_endpoint_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            guardian_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict', 'outputs.AccountManagedResource']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scan_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["atlasKafkaEndpointPrimaryConnectionString"] = atlas_kafka_endpoint_primary_connection_string
+        __props__["atlasKafkaEndpointSecondaryConnectionString"] = atlas_kafka_endpoint_secondary_connection_string
+        __props__["awsExternalId"] = aws_external_id
+        __props__["catalogEndpoint"] = catalog_endpoint
+        __props__["guardianEndpoint"] = guardian_endpoint
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["managedEventHubEnabled"] = managed_event_hub_enabled
+        __props__["managedResourceGroupName"] = managed_resource_group_name
+        __props__["managedResources"] = managed_resources
+        __props__["name"] = name
+        __props__["publicNetworkEnabled"] = public_network_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scanEndpoint"] = scan_endpoint
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:purview/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="atlasKafkaEndpointPrimaryConnectionString")
     def atlas_kafka_endpoint_primary_connection_string(self) -> pulumi.Output[_builtins.str]:

@@ -385,6 +385,12 @@ func (FrontdoorFirewallPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorFirewallPolicyState)(nil)).Elem()
 }
 
+// FrontdoorFirewallPolicyExists checks whether an existing FrontdoorFirewallPolicy resource with the given ID exists.
+func FrontdoorFirewallPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorFirewallPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", id, state, "", opts...)
+}
+
 type frontdoorFirewallPolicyArgs struct {
 	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
 	//

@@ -188,6 +188,12 @@ func (HciExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hciExtensionState)(nil)).Elem()
 }
 
+// HciExtensionExists checks whether an existing HciExtension resource with the given ID exists.
+func HciExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HciExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:stack/hciExtension:HciExtension", id, state, "", opts...)
+}
+
 type hciExtensionArgs struct {
 	// The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
 	ArcSettingId string `pulumi:"arcSettingId"`

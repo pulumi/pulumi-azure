@@ -244,6 +244,12 @@ func (ExpressRouteCircuitConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitConnectionState)(nil)).Elem()
 }
 
+// ExpressRouteCircuitConnectionExists checks whether an existing ExpressRouteCircuitConnection resource with the given ID exists.
+func ExpressRouteCircuitConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExpressRouteCircuitConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", id, state, "", opts...)
+}
+
 type expressRouteCircuitConnectionArgs struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 string `pulumi:"addressPrefixIpv4"`

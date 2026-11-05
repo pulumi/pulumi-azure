@@ -403,6 +403,12 @@ func (WindowsWebAppSlotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsWebAppSlotState)(nil)).Elem()
 }
 
+// WindowsWebAppSlotExists checks whether an existing WindowsWebAppSlot resource with the given ID exists.
+func WindowsWebAppSlotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsWebAppSlotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", id, state, "", opts...)
+}
+
 type windowsWebAppSlotArgs struct {
 	// The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
 	AppServiceId string `pulumi:"appServiceId"`

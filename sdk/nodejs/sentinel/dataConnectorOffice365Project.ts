@@ -52,6 +52,17 @@ export class DataConnectorOffice365Project extends pulumi.CustomResource {
         return new DataConnectorOffice365Project(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing DataConnectorOffice365Project resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: DataConnectorOffice365ProjectState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project';
 

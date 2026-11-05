@@ -1288,6 +1288,62 @@ class AutonomousDatabaseCloneFromBackup(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return AutonomousDatabaseCloneFromBackup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            clone_type: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+            compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_storage_size_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+            database_version: pulumi.Input[Optional[_builtins.str]] = None,
+            database_workload: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_autonomous_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminPassword"] = admin_password
+        __props__["allowedIpAddresses"] = allowed_ip_addresses
+        __props__["autoScalingEnabled"] = auto_scaling_enabled
+        __props__["autoScalingForStorageEnabled"] = auto_scaling_for_storage_enabled
+        __props__["backupRetentionPeriodInDays"] = backup_retention_period_in_days
+        __props__["backupTimestamp"] = backup_timestamp
+        __props__["characterSet"] = character_set
+        __props__["cloneType"] = clone_type
+        __props__["computeCount"] = compute_count
+        __props__["computeModel"] = compute_model
+        __props__["customerContacts"] = customer_contacts
+        __props__["dataStorageSizeInTb"] = data_storage_size_in_tb
+        __props__["databaseVersion"] = database_version
+        __props__["databaseWorkload"] = database_workload
+        __props__["displayName"] = display_name
+        __props__["licenseModel"] = license_model
+        __props__["location"] = location
+        __props__["mtlsConnectionRequired"] = mtls_connection_required
+        __props__["name"] = name
+        __props__["nationalCharacterSet"] = national_character_set
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["sourceAutonomousDatabaseId"] = source_autonomous_database_id
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:oracle/autonomousDatabaseCloneFromBackup:AutonomousDatabaseCloneFromBackup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[_builtins.str]:

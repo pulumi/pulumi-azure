@@ -209,6 +209,12 @@ func (AccountConnectionApiKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountConnectionApiKeyState)(nil)).Elem()
 }
 
+// AccountConnectionApiKeyExists checks whether an existing AccountConnectionApiKey resource with the given ID exists.
+func AccountConnectionApiKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountConnectionApiKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey", id, state, "", opts...)
+}
+
 type accountConnectionApiKeyArgs struct {
 	// The API key for authentication. This field is sensitive.
 	ApiKey string `pulumi:"apiKey"`

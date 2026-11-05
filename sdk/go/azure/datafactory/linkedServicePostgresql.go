@@ -163,6 +163,12 @@ func (LinkedServicePostgresqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServicePostgresqlState)(nil)).Elem()
 }
 
+// LinkedServicePostgresqlExists checks whether an existing LinkedServicePostgresql resource with the given ID exists.
+func LinkedServicePostgresqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServicePostgresqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", id, state, "", opts...)
+}
+
 type linkedServicePostgresqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

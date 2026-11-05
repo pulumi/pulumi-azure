@@ -294,6 +294,12 @@ func (PublicIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIpState)(nil)).Elem()
 }
 
+// PublicIpExists checks whether an existing PublicIp resource with the given ID exists.
+func PublicIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PublicIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/publicIp:PublicIp", id, state, "", opts...)
+}
+
 type publicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	//

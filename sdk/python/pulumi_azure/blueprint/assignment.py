@@ -758,6 +758,40 @@ class Assignment(pulumi.CustomResource):
         __props__.__dict__["version_id"] = version_id
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_groups: pulumi.Input[Optional[_builtins.str]] = None,
+            target_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blueprintName"] = blueprint_name
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["lockExcludeActions"] = lock_exclude_actions
+        __props__["lockExcludePrincipals"] = lock_exclude_principals
+        __props__["lockMode"] = lock_mode
+        __props__["name"] = name
+        __props__["parameterValues"] = parameter_values
+        __props__["resourceGroups"] = resource_groups
+        __props__["targetSubscriptionId"] = target_subscription_id
+        __props__["type"] = type
+        __props__["versionId"] = version_id
+        return pulumi.runtime.exists_resource(None, 'azure:blueprint/assignment:Assignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blueprintName")
     def blueprint_name(self) -> pulumi.Output[_builtins.str]:

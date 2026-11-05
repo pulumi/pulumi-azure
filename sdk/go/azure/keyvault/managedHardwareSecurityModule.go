@@ -230,6 +230,12 @@ func (ManagedHardwareSecurityModuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedHardwareSecurityModuleState)(nil)).Elem()
 }
 
+// ManagedHardwareSecurityModuleExists checks whether an existing ManagedHardwareSecurityModule resource with the given ID exists.
+func ManagedHardwareSecurityModuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedHardwareSecurityModuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", id, state, "", opts...)
+}
+
 type managedHardwareSecurityModuleArgs struct {
 	// Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	AdminObjectIds []string `pulumi:"adminObjectIds"`

@@ -472,6 +472,26 @@ class ExpressRouteGateway(pulumi.CustomResource):
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return ExpressRouteGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_non_virtual_wan_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_units: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowNonVirtualWanTraffic"] = allow_non_virtual_wan_traffic
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["scaleUnits"] = scale_units
+        __props__["tags"] = tags
+        __props__["virtualHubId"] = virtual_hub_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteGateway:ExpressRouteGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowNonVirtualWanTraffic")
     def allow_non_virtual_wan_traffic(self) -> pulumi.Output[Optional[_builtins.bool]]:

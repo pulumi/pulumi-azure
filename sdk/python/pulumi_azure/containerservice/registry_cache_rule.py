@@ -384,6 +384,22 @@ class RegistryCacheRule(pulumi.CustomResource):
         __props__.__dict__["target_repo"] = target_repo
         return RegistryCacheRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_repo: pulumi.Input[Optional[_builtins.str]] = None,
+            target_repo: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["credentialSetId"] = credential_set_id
+        __props__["name"] = name
+        __props__["sourceRepo"] = source_repo
+        __props__["targetRepo"] = target_repo
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/registryCacheRule:RegistryCacheRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerRegistryId")
     def container_registry_id(self) -> pulumi.Output[_builtins.str]:

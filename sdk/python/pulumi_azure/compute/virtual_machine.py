@@ -1288,6 +1288,60 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_capabilities: pulumi.Input[Optional[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict', 'outputs.VirtualMachineAdditionalCapabilities']]] = None,
+            availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict', 'outputs.VirtualMachineBootDiagnostics']]] = None,
+            delete_data_disks_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_os_disk_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict', 'outputs.VirtualMachineIdentity']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            os_profile: pulumi.Input[Optional[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict', 'outputs.VirtualMachineOsProfile']]] = None,
+            os_profile_linux_config: pulumi.Input[Optional[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict', 'outputs.VirtualMachineOsProfileLinuxConfig']]] = None,
+            os_profile_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict', 'outputs.VirtualMachineOsProfileSecret']]]]] = None,
+            os_profile_windows_config: pulumi.Input[Optional[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict', 'outputs.VirtualMachineOsProfileWindowsConfig']]] = None,
+            plan: pulumi.Input[Optional[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict', 'outputs.VirtualMachinePlan']]] = None,
+            primary_network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict', 'outputs.VirtualMachineStorageDataDisk']]]]] = None,
+            storage_image_reference: pulumi.Input[Optional[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict', 'outputs.VirtualMachineStorageImageReference']]] = None,
+            storage_os_disk: pulumi.Input[Optional[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict', 'outputs.VirtualMachineStorageOsDisk']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalCapabilities"] = additional_capabilities
+        __props__["availabilitySetId"] = availability_set_id
+        __props__["bootDiagnostics"] = boot_diagnostics
+        __props__["deleteDataDisksOnTermination"] = delete_data_disks_on_termination
+        __props__["deleteOsDiskOnTermination"] = delete_os_disk_on_termination
+        __props__["identity"] = identity
+        __props__["licenseType"] = license_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkInterfaceIds"] = network_interface_ids
+        __props__["osProfile"] = os_profile
+        __props__["osProfileLinuxConfig"] = os_profile_linux_config
+        __props__["osProfileSecrets"] = os_profile_secrets
+        __props__["osProfileWindowsConfig"] = os_profile_windows_config
+        __props__["plan"] = plan
+        __props__["primaryNetworkInterfaceId"] = primary_network_interface_id
+        __props__["proximityPlacementGroupId"] = proximity_placement_group_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["storageDataDisks"] = storage_data_disks
+        __props__["storageImageReference"] = storage_image_reference
+        __props__["storageOsDisk"] = storage_os_disk
+        __props__["tags"] = tags
+        __props__["vmSize"] = vm_size
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:compute/virtualMachine:VirtualMachine', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> pulumi.Output[Optional['outputs.VirtualMachineAdditionalCapabilities']]:

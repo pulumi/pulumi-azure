@@ -389,6 +389,12 @@ func (FrontdoorCustomDomainState) ElementType() reflect.Type {
 	return reflect.TypeOf((*frontdoorCustomDomainState)(nil)).Elem()
 }
 
+// FrontdoorCustomDomainExists checks whether an existing FrontdoorCustomDomain resource with the given ID exists.
+func FrontdoorCustomDomainExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FrontdoorCustomDomainState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", id, state, "", opts...)
+}
+
 type frontdoorCustomDomainArgs struct {
 	// The ID of the Front Door Profile. Changing this forces a new resource to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`

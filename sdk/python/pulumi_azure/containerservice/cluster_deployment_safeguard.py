@@ -366,6 +366,20 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
         __props__.__dict__["pod_security_standards_level"] = pod_security_standards_level
         return ClusterDeploymentSafeguard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            level: pulumi.Input[Optional[_builtins.str]] = None,
+            pod_security_standards_level: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["excludedNamespaces"] = excluded_namespaces
+        __props__["kubernetesClusterId"] = kubernetes_cluster_id
+        __props__["level"] = level
+        __props__["podSecurityStandardsLevel"] = pod_security_standards_level
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="excludedNamespaces")
     def excluded_namespaces(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

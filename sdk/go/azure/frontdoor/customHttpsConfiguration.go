@@ -221,6 +221,12 @@ func (CustomHttpsConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customHttpsConfigurationState)(nil)).Elem()
 }
 
+// CustomHttpsConfigurationExists checks whether an existing CustomHttpsConfiguration resource with the given ID exists.
+func CustomHttpsConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomHttpsConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration", id, state, "", opts...)
+}
+
 type customHttpsConfigurationArgs struct {
 	// A `customHttpsConfiguration` block as defined above.
 	CustomHttpsConfiguration *CustomHttpsConfigurationCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`

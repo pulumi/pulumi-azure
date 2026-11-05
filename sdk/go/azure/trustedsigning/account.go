@@ -151,6 +151,12 @@ func (AccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountState)(nil)).Elem()
 }
 
+// AccountExists checks whether an existing Account resource with the given ID exists.
+func AccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:trustedsigning/account:Account", id, state, "", opts...)
+}
+
 type accountArgs struct {
 	// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
 	Location *string `pulumi:"location"`

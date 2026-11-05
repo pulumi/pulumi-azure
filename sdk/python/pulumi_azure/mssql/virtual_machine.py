@@ -819,6 +819,44 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["wsfc_domain_credential"] = wsfc_domain_credential
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assessment: pulumi.Input[Optional[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict', 'outputs.VirtualMachineAssessment']]] = None,
+            auto_backup: pulumi.Input[Optional[Union['VirtualMachineAutoBackupArgs', 'VirtualMachineAutoBackupArgsDict', 'outputs.VirtualMachineAutoBackup']]] = None,
+            auto_patching: pulumi.Input[Optional[Union['VirtualMachineAutoPatchingArgs', 'VirtualMachineAutoPatchingArgsDict', 'outputs.VirtualMachineAutoPatching']]] = None,
+            key_vault_credential: pulumi.Input[Optional[Union['VirtualMachineKeyVaultCredentialArgs', 'VirtualMachineKeyVaultCredentialArgsDict', 'outputs.VirtualMachineKeyVaultCredential']]] = None,
+            r_services_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sql_connectivity_port: pulumi.Input[Optional[_builtins.int]] = None,
+            sql_connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_connectivity_update_password: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_connectivity_update_username: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_instance: pulumi.Input[Optional[Union['VirtualMachineSqlInstanceArgs', 'VirtualMachineSqlInstanceArgsDict', 'outputs.VirtualMachineSqlInstance']]] = None,
+            sql_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_virtual_machine_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_configuration: pulumi.Input[Optional[Union['VirtualMachineStorageConfigurationArgs', 'VirtualMachineStorageConfigurationArgsDict', 'outputs.VirtualMachineStorageConfiguration']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            wsfc_domain_credential: pulumi.Input[Optional[Union['VirtualMachineWsfcDomainCredentialArgs', 'VirtualMachineWsfcDomainCredentialArgsDict', 'outputs.VirtualMachineWsfcDomainCredential']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assessment"] = assessment
+        __props__["autoBackup"] = auto_backup
+        __props__["autoPatching"] = auto_patching
+        __props__["keyVaultCredential"] = key_vault_credential
+        __props__["rServicesEnabled"] = r_services_enabled
+        __props__["sqlConnectivityPort"] = sql_connectivity_port
+        __props__["sqlConnectivityType"] = sql_connectivity_type
+        __props__["sqlConnectivityUpdatePassword"] = sql_connectivity_update_password
+        __props__["sqlConnectivityUpdateUsername"] = sql_connectivity_update_username
+        __props__["sqlInstance"] = sql_instance
+        __props__["sqlLicenseType"] = sql_license_type
+        __props__["sqlVirtualMachineGroupId"] = sql_virtual_machine_group_id
+        __props__["storageConfiguration"] = storage_configuration
+        __props__["tags"] = tags
+        __props__["virtualMachineId"] = virtual_machine_id
+        __props__["wsfcDomainCredential"] = wsfc_domain_credential
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/virtualMachine:VirtualMachine', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def assessment(self) -> pulumi.Output[Optional['outputs.VirtualMachineAssessment']]:

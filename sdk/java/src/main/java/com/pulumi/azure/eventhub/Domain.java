@@ -82,11 +82,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:eventhub/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
  * ```
  * 
- * @deprecated
- * azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
+ * @deprecated azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
  * 
  */
-@Deprecated /* azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain */
+@Deprecated
 @ResourceType(type="azure:eventhub/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
     /**

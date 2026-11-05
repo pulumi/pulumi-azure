@@ -238,6 +238,12 @@ func (GlobalVMShutdownScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalVMShutdownScheduleState)(nil)).Elem()
 }
 
+// GlobalVMShutdownScheduleExists checks whether an existing GlobalVMShutdownSchedule resource with the given ID exists.
+func GlobalVMShutdownScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalVMShutdownScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", id, state, "", opts...)
+}
+
 type globalVMShutdownScheduleArgs struct {
 	// The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
 	DailyRecurrenceTime string `pulumi:"dailyRecurrenceTime"`

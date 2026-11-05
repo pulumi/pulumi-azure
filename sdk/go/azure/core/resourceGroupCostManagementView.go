@@ -215,6 +215,12 @@ func (ResourceGroupCostManagementViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupCostManagementViewState)(nil)).Elem()
 }
 
+// ResourceGroupCostManagementViewExists checks whether an existing ResourceGroupCostManagementView resource with the given ID exists.
+func ResourceGroupCostManagementViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceGroupCostManagementViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", id, state, "", opts...)
+}
+
 type resourceGroupCostManagementViewArgs struct {
 	// Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
 	Accumulated bool `pulumi:"accumulated"`

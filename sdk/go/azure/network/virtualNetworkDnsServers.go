@@ -146,6 +146,12 @@ func (VirtualNetworkDnsServersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkDnsServersState)(nil)).Elem()
 }
 
+// VirtualNetworkDnsServersExists checks whether an existing VirtualNetworkDnsServers resource with the given ID exists.
+func VirtualNetworkDnsServersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNetworkDnsServersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers", id, state, "", opts...)
+}
+
 type virtualNetworkDnsServersArgs struct {
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`

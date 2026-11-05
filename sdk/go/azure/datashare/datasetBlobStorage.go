@@ -116,6 +116,12 @@ func (DatasetBlobStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetBlobStorageState)(nil)).Elem()
 }
 
+// DatasetBlobStorageExists checks whether an existing DatasetBlobStorage resource with the given ID exists.
+func DatasetBlobStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatasetBlobStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datashare/datasetBlobStorage:DatasetBlobStorage", id, state, "", opts...)
+}
+
 type datasetBlobStorageArgs struct {
 	// The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	ContainerName string `pulumi:"containerName"`

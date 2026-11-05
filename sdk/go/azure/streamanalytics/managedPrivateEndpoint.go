@@ -174,6 +174,12 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedPrivateEndpointState)(nil)).Elem()
 }
 
+// ManagedPrivateEndpointExists checks whether an existing ManagedPrivateEndpoint resource with the given ID exists.
+func ManagedPrivateEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedPrivateEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint", id, state, "", opts...)
+}
+
 type managedPrivateEndpointArgs struct {
 	// The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

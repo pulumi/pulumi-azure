@@ -154,6 +154,12 @@ func (LocalRulestackFqdnListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRulestackFqdnListState)(nil)).Elem()
 }
 
+// LocalRulestackFqdnListExists checks whether an existing LocalRulestackFqdnList resource with the given ID exists.
+func LocalRulestackFqdnListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRulestackFqdnListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList", id, state, "", opts...)
+}
+
 type localRulestackFqdnListArgs struct {
 	// The comment for Audit purposes.
 	AuditComment *string `pulumi:"auditComment"`

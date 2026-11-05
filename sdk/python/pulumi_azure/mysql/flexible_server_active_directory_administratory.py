@@ -406,6 +406,22 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return FlexibleServerActiveDirectoryAdministratory(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            login: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identityId"] = identity_id
+        __props__["login"] = login
+        __props__["objectId"] = object_id
+        __props__["serverId"] = server_id
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[_builtins.str]:

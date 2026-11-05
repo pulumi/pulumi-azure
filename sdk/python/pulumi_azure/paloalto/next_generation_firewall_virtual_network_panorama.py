@@ -707,6 +707,34 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return NextGenerationFirewallVirtualNetworkPanorama(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]]] = None,
+            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']]] = None,
+            panorama_base64_config: pulumi.Input[Optional[_builtins.str]] = None,
+            panoramas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaPanorama']]]]] = None,
+            plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationNats"] = destination_nats
+        __props__["dnsSettings"] = dns_settings
+        __props__["location"] = location
+        __props__["marketplaceOfferId"] = marketplace_offer_id
+        __props__["name"] = name
+        __props__["networkProfile"] = network_profile
+        __props__["panoramaBase64Config"] = panorama_base64_config
+        __props__["panoramas"] = panoramas
+        __props__["planId"] = plan_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationNats")
     def destination_nats(self) -> pulumi.Output[Optional[Sequence['outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]:

@@ -150,6 +150,12 @@ func (AzureTrafficCollectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureTrafficCollectorState)(nil)).Elem()
 }
 
+// AzureTrafficCollectorExists checks whether an existing AzureTrafficCollector resource with the given ID exists.
+func AzureTrafficCollectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AzureTrafficCollectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", id, state, "", opts...)
+}
+
 type azureTrafficCollectorArgs struct {
 	// Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
 	Location *string `pulumi:"location"`

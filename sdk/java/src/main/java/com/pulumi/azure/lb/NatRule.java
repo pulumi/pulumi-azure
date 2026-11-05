@@ -163,11 +163,10 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.backendPort;
     }
     /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableFloatingIp;
 
@@ -175,11 +174,10 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.enableFloatingIp;
     }
     /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated
     @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTcpReset;
 

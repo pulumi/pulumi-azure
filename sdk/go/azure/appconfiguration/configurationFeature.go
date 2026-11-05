@@ -210,6 +210,12 @@ func (ConfigurationFeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationFeatureState)(nil)).Elem()
 }
 
+// ConfigurationFeatureExists checks whether an existing ConfigurationFeature resource with the given ID exists.
+func ConfigurationFeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConfigurationFeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appconfiguration/configurationFeature:ConfigurationFeature", id, state, "", opts...)
+}
+
 type configurationFeatureArgs struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId string `pulumi:"configurationStoreId"`

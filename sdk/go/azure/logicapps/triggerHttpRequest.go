@@ -175,6 +175,12 @@ func (TriggerHttpRequestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerHttpRequestState)(nil)).Elem()
 }
 
+// TriggerHttpRequestExists checks whether an existing TriggerHttpRequest resource with the given ID exists.
+func TriggerHttpRequestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerHttpRequestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", id, state, "", opts...)
+}
+
 type triggerHttpRequestArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId string `pulumi:"logicAppId"`

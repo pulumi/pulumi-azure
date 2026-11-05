@@ -897,6 +897,50 @@ class SparkPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return SparkPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']]] = None,
+            auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']]] = None,
+            cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+            compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dynamic_executor_allocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict', 'outputs.SparkPoolLibraryRequirement']]] = None,
+            max_executors: pulumi.Input[Optional[_builtins.int]] = None,
+            min_executors: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            node_size: pulumi.Input[Optional[_builtins.str]] = None,
+            node_size_family: pulumi.Input[Optional[_builtins.str]] = None,
+            session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict', 'outputs.SparkPoolSparkConfig']]] = None,
+            spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
+            spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
+            spark_version: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoPause"] = auto_pause
+        __props__["autoScale"] = auto_scale
+        __props__["cacheSize"] = cache_size
+        __props__["computeIsolationEnabled"] = compute_isolation_enabled
+        __props__["dynamicExecutorAllocationEnabled"] = dynamic_executor_allocation_enabled
+        __props__["libraryRequirement"] = library_requirement
+        __props__["maxExecutors"] = max_executors
+        __props__["minExecutors"] = min_executors
+        __props__["name"] = name
+        __props__["nodeCount"] = node_count
+        __props__["nodeSize"] = node_size
+        __props__["nodeSizeFamily"] = node_size_family
+        __props__["sessionLevelPackagesEnabled"] = session_level_packages_enabled
+        __props__["sparkConfig"] = spark_config
+        __props__["sparkEventsFolder"] = spark_events_folder
+        __props__["sparkLogFolder"] = spark_log_folder
+        __props__["sparkVersion"] = spark_version
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/sparkPool:SparkPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoPause")
     def auto_pause(self) -> pulumi.Output[Optional['outputs.SparkPoolAutoPause']]:

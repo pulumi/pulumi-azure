@@ -149,6 +149,12 @@ func (Powershell72ModuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*powershell72ModuleState)(nil)).Elem()
 }
 
+// Powershell72ModuleExists checks whether an existing Powershell72Module resource with the given ID exists.
+func Powershell72ModuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Powershell72ModuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/powershell72Module:Powershell72Module", id, state, "", opts...)
+}
+
 type powershell72ModuleArgs struct {
 	// The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
 	AutomationAccountId string `pulumi:"automationAccountId"`

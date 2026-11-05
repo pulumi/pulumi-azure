@@ -174,6 +174,12 @@ func (ActiveDirectoryAdministratorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeDirectoryAdministratorState)(nil)).Elem()
 }
 
+// ActiveDirectoryAdministratorExists checks whether an existing ActiveDirectoryAdministrator resource with the given ID exists.
+func ActiveDirectoryAdministratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActiveDirectoryAdministratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", id, state, "", opts...)
+}
+
 type activeDirectoryAdministratorArgs struct {
 	// The login name of the principal to set as the server administrator
 	Login string `pulumi:"login"`

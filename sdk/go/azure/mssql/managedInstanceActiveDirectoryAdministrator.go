@@ -225,6 +225,12 @@ func (ManagedInstanceActiveDirectoryAdministratorState) ElementType() reflect.Ty
 	return reflect.TypeOf((*managedInstanceActiveDirectoryAdministratorState)(nil)).Elem()
 }
 
+// ManagedInstanceActiveDirectoryAdministratorExists checks whether an existing ManagedInstanceActiveDirectoryAdministrator resource with the given ID exists.
+func ManagedInstanceActiveDirectoryAdministratorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedInstanceActiveDirectoryAdministratorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", id, state, "", opts...)
+}
+
 type managedInstanceActiveDirectoryAdministratorArgs struct {
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`

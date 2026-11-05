@@ -262,6 +262,12 @@ func (NetworkManagerAdminRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerAdminRuleState)(nil)).Elem()
 }
 
+// NetworkManagerAdminRuleExists checks whether an existing NetworkManagerAdminRule resource with the given ID exists.
+func NetworkManagerAdminRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerAdminRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerAdminRule:NetworkManagerAdminRule", id, state, "", opts...)
+}
+
 type networkManagerAdminRuleArgs struct {
 	// Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
 	Action string `pulumi:"action"`

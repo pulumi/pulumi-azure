@@ -159,7 +159,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes256GcmSha384CiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         /// </summary>

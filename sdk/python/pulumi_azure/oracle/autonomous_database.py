@@ -1158,6 +1158,58 @@ class AutonomousDatabase(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return AutonomousDatabase(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            allowed_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_scaling_for_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_count: pulumi.Input[Optional[_builtins.float]] = None,
+            compute_model: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.int]] = None,
+            db_version: pulumi.Input[Optional[_builtins.str]] = None,
+            db_workload: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            long_term_backup_schedule: pulumi.Input[Optional[Union['AutonomousDatabaseLongTermBackupScheduleArgs', 'AutonomousDatabaseLongTermBackupScheduleArgsDict', 'outputs.AutonomousDatabaseLongTermBackupSchedule']]] = None,
+            mtls_connection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            national_character_set: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminPassword"] = admin_password
+        __props__["allowedIps"] = allowed_ips
+        __props__["autoScalingEnabled"] = auto_scaling_enabled
+        __props__["autoScalingForStorageEnabled"] = auto_scaling_for_storage_enabled
+        __props__["backupRetentionPeriodInDays"] = backup_retention_period_in_days
+        __props__["characterSet"] = character_set
+        __props__["computeCount"] = compute_count
+        __props__["computeModel"] = compute_model
+        __props__["customerContacts"] = customer_contacts
+        __props__["dataStorageSizeInTbs"] = data_storage_size_in_tbs
+        __props__["dbVersion"] = db_version
+        __props__["dbWorkload"] = db_workload
+        __props__["displayName"] = display_name
+        __props__["licenseModel"] = license_model
+        __props__["location"] = location
+        __props__["longTermBackupSchedule"] = long_term_backup_schedule
+        __props__["mtlsConnectionRequired"] = mtls_connection_required
+        __props__["name"] = name
+        __props__["nationalCharacterSet"] = national_character_set
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:oracle/autonomousDatabase:AutonomousDatabase', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[_builtins.str]:

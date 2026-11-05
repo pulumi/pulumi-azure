@@ -18,11 +18,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * @deprecated
- * ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
+ * @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
  * 
  */
-@Deprecated /* ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
+@Deprecated
 @ResourceType(type="azure:storage/zipBlob:ZipBlob")
 public class ZipBlob extends com.pulumi.resources.CustomResource {
     @Export(name="accessTier", refs={String.class}, tree="[0]")
@@ -98,11 +97,10 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceUri);
     }
     /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
@@ -116,11 +114,10 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
         return this.storageContainerId;
     }
     /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 

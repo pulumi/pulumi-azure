@@ -1042,6 +1042,40 @@ class RunCommand(pulumi.CustomResource):
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return RunCommand(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            error_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict', 'outputs.RunCommandErrorBlobManagedIdentity']]] = None,
+            error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_views: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandInstanceViewArgs', 'RunCommandInstanceViewArgsDict', 'outputs.RunCommandInstanceView']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict', 'outputs.RunCommandOutputBlobManagedIdentity']]] = None,
+            output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict', 'outputs.RunCommandParameter']]]]] = None,
+            protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict', 'outputs.RunCommandProtectedParameter']]]]] = None,
+            run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+            run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict', 'outputs.RunCommandSource']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["errorBlobManagedIdentity"] = error_blob_managed_identity
+        __props__["errorBlobUri"] = error_blob_uri
+        __props__["instanceViews"] = instance_views
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["outputBlobManagedIdentity"] = output_blob_managed_identity
+        __props__["outputBlobUri"] = output_blob_uri
+        __props__["parameters"] = parameters
+        __props__["protectedParameters"] = protected_parameters
+        __props__["runAsPassword"] = run_as_password
+        __props__["runAsUser"] = run_as_user
+        __props__["source"] = source
+        __props__["tags"] = tags
+        __props__["virtualMachineId"] = virtual_machine_id
+        return pulumi.runtime.exists_resource(None, 'azure:compute/runCommand:RunCommand', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="errorBlobManagedIdentity")
     def error_blob_managed_identity(self) -> pulumi.Output[Optional['outputs.RunCommandErrorBlobManagedIdentity']]:

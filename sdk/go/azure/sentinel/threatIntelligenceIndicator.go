@@ -307,6 +307,12 @@ func (ThreatIntelligenceIndicatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelligenceIndicatorState)(nil)).Elem()
 }
 
+// ThreatIntelligenceIndicatorExists checks whether an existing ThreatIntelligenceIndicator resource with the given ID exists.
+func ThreatIntelligenceIndicatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThreatIntelligenceIndicatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator", id, state, "", opts...)
+}
+
 type threatIntelligenceIndicatorArgs struct {
 	// Confidence levels of the Threat Intelligence Indicator.
 	Confidence *int `pulumi:"confidence"`

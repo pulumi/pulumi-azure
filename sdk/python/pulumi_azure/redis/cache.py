@@ -1252,6 +1252,70 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Cache(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            family: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict', 'outputs.CachePatchSchedule']]]]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            redis_configuration: pulumi.Input[Optional[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict', 'outputs.CacheRedisConfiguration']]] = None,
+            redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+            replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+            replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_port: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessKeysAuthenticationEnabled"] = access_keys_authentication_enabled
+        __props__["capacity"] = capacity
+        __props__["family"] = family
+        __props__["hostname"] = hostname
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["minimumTlsVersion"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["nonSslPortEnabled"] = non_ssl_port_enabled
+        __props__["patchSchedules"] = patch_schedules
+        __props__["port"] = port
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["primaryConnectionString"] = primary_connection_string
+        __props__["privateStaticIpAddress"] = private_static_ip_address
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["redisConfiguration"] = redis_configuration
+        __props__["redisVersion"] = redis_version
+        __props__["replicasPerMaster"] = replicas_per_master
+        __props__["replicasPerPrimary"] = replicas_per_primary
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["secondaryAccessKey"] = secondary_access_key
+        __props__["secondaryConnectionString"] = secondary_connection_string
+        __props__["shardCount"] = shard_count
+        __props__["skuName"] = sku_name
+        __props__["sslPort"] = ssl_port
+        __props__["subnetId"] = subnet_id
+        __props__["tags"] = tags
+        __props__["tenantSettings"] = tenant_settings
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:redis/cache:Cache', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessKeysAuthenticationEnabled")
     def access_keys_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

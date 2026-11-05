@@ -279,6 +279,12 @@ func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState) Elem
 	return reflect.TypeOf((*networkInterfaceApplicationGatewayBackendAddressPoolAssociationState)(nil)).Elem()
 }
 
+// NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationExists checks whether an existing NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resource with the given ID exists.
+func NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", id, state, "", opts...)
+}
+
 type networkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs struct {
 	// The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`

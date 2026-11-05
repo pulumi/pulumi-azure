@@ -770,6 +770,40 @@ class OutputBlob(pulumi.CustomResource):
         __props__.__dict__["time_format"] = time_format
         return OutputBlob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_max_wait_time: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_min_rows: pulumi.Input[Optional[_builtins.int]] = None,
+            blob_write_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']]] = None,
+            storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMode"] = authentication_mode
+        __props__["batchMaxWaitTime"] = batch_max_wait_time
+        __props__["batchMinRows"] = batch_min_rows
+        __props__["blobWriteMode"] = blob_write_mode
+        __props__["dateFormat"] = date_format
+        __props__["name"] = name
+        __props__["pathPattern"] = path_pattern
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serialization"] = serialization
+        __props__["storageAccountKey"] = storage_account_key
+        __props__["storageAccountName"] = storage_account_name
+        __props__["storageContainerName"] = storage_container_name
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        __props__["timeFormat"] = time_format
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputBlob:OutputBlob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

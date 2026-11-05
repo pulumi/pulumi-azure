@@ -760,6 +760,38 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_configuration: pulumi.Input[Optional[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict', 'outputs.ServiceAuthenticationConfiguration']]] = None,
+            configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_configuration: pulumi.Input[Optional[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict', 'outputs.ServiceCorsConfiguration']]] = None,
+            cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessPolicyObjectIds"] = access_policy_object_ids
+        __props__["authenticationConfiguration"] = authentication_configuration
+        __props__["configurationExportStorageAccountName"] = configuration_export_storage_account_name
+        __props__["corsConfiguration"] = cors_configuration
+        __props__["cosmosdbKeyVaultKeyVersionlessId"] = cosmosdb_key_vault_key_versionless_id
+        __props__["cosmosdbThroughput"] = cosmosdb_throughput
+        __props__["identity"] = identity
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:healthcare/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
     def access_policy_object_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

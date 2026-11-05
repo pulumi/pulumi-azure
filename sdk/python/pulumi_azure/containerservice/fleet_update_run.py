@@ -439,6 +439,22 @@ class FleetUpdateRun(pulumi.CustomResource):
         __props__.__dict__["stages"] = stages
         return FleetUpdateRun(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fleetUpdateStrategyId"] = fleet_update_strategy_id
+        __props__["kubernetesFleetManagerId"] = kubernetes_fleet_manager_id
+        __props__["managedClusterUpdate"] = managed_cluster_update
+        __props__["name"] = name
+        __props__["stages"] = stages
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/fleetUpdateRun:FleetUpdateRun', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fleetUpdateStrategyId")
     def fleet_update_strategy_id(self) -> pulumi.Output[Optional[_builtins.str]]:

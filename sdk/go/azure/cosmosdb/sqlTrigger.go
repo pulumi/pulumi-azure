@@ -170,6 +170,12 @@ func (SqlTriggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlTriggerState)(nil)).Elem()
 }
 
+// SqlTriggerExists checks whether an existing SqlTrigger resource with the given ID exists.
+func SqlTriggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlTriggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/sqlTrigger:SqlTrigger", id, state, "", opts...)
+}
+
 type sqlTriggerArgs struct {
 	// Body of the Trigger.
 	Body string `pulumi:"body"`

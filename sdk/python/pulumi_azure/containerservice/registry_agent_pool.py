@@ -492,6 +492,28 @@ class RegistryAgentPool(pulumi.CustomResource):
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         return RegistryAgentPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["containerRegistryName"] = container_registry_name
+        __props__["instanceCount"] = instance_count
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        __props__["virtualNetworkSubnetId"] = virtual_network_subnet_id
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/registryAgentPool:RegistryAgentPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="containerRegistryName")
     def container_registry_name(self) -> pulumi.Output[_builtins.str]:

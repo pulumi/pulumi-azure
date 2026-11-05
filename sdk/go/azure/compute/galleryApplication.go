@@ -183,6 +183,12 @@ func (GalleryApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*galleryApplicationState)(nil)).Elem()
 }
 
+// GalleryApplicationExists checks whether an existing GalleryApplication resource with the given ID exists.
+func GalleryApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GalleryApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:compute/galleryApplication:GalleryApplication", id, state, "", opts...)
+}
+
 type galleryApplicationArgs struct {
 	// A description of the Gallery Application.
 	Description *string `pulumi:"description"`

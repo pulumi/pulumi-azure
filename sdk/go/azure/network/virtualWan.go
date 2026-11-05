@@ -159,6 +159,12 @@ func (VirtualWanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWanState)(nil)).Elem()
 }
 
+// VirtualWanExists checks whether an existing VirtualWan resource with the given ID exists.
+func VirtualWanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualWanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualWan:VirtualWan", id, state, "", opts...)
+}
+
 type virtualWanArgs struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`

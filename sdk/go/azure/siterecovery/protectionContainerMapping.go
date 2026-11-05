@@ -241,6 +241,12 @@ func (ProtectionContainerMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerMappingState)(nil)).Elem()
 }
 
+// ProtectionContainerMappingExists checks whether an existing ProtectionContainerMapping resource with the given ID exists.
+func ProtectionContainerMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProtectionContainerMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", id, state, "", opts...)
+}
+
 type protectionContainerMappingArgs struct {
 	// a `automaticUpdate` block defined as below.
 	AutomaticUpdate *ProtectionContainerMappingAutomaticUpdate `pulumi:"automaticUpdate"`

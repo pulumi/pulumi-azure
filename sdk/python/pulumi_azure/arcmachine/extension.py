@@ -644,6 +644,34 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["type_handler_version"] = type_handler_version
         return Extension(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_handler_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arcMachineId"] = arc_machine_id
+        __props__["automaticUpgradeEnabled"] = automatic_upgrade_enabled
+        __props__["forceUpdateTag"] = force_update_tag
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["protectedSettings"] = protected_settings
+        __props__["publisher"] = publisher
+        __props__["settings"] = settings
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["typeHandlerVersion"] = type_handler_version
+        return pulumi.runtime.exists_resource(None, 'azure:arcmachine/extension:Extension', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="arcMachineId")
     def arc_machine_id(self) -> pulumi.Output[_builtins.str]:

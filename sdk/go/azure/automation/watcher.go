@@ -229,6 +229,12 @@ func (WatcherState) ElementType() reflect.Type {
 	return reflect.TypeOf((*watcherState)(nil)).Elem()
 }
 
+// WatcherExists checks whether an existing Watcher resource with the given ID exists.
+func WatcherExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WatcherState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:automation/watcher:Watcher", id, state, "", opts...)
+}
+
 type watcherArgs struct {
 	// The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
 	AutomationAccountId string `pulumi:"automationAccountId"`

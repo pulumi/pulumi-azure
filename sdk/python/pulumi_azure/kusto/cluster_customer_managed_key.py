@@ -531,6 +531,24 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["user_identity"] = user_identity
         return ClusterCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_version: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identity: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterId"] = cluster_id
+        __props__["keyName"] = key_name
+        __props__["keyVaultId"] = key_vault_id
+        __props__["keyVersion"] = key_version
+        __props__["managedHsmKeyId"] = managed_hsm_key_id
+        __props__["userIdentity"] = user_identity
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:

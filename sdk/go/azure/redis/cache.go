@@ -341,6 +341,12 @@ func (CacheState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheState)(nil)).Elem()
 }
 
+// CacheExists checks whether an existing Cache resource with the given ID exists.
+func CacheExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CacheState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:redis/cache:Cache", id, state, "", opts...)
+}
+
 type cacheArgs struct {
 	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
 	AccessKeysAuthenticationEnabled *bool `pulumi:"accessKeysAuthenticationEnabled"`

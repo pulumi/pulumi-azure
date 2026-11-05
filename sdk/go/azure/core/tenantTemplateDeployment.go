@@ -154,6 +154,12 @@ func (TenantTemplateDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantTemplateDeploymentState)(nil)).Elem()
 }
 
+// TenantTemplateDeploymentExists checks whether an existing TenantTemplateDeployment resource with the given ID exists.
+func TenantTemplateDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TenantTemplateDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/tenantTemplateDeployment:TenantTemplateDeployment", id, state, "", opts...)
+}
+
 type tenantTemplateDeploymentArgs struct {
 	// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
 	DebugLevel *string `pulumi:"debugLevel"`

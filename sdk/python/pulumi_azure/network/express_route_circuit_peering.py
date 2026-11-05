@@ -887,6 +887,44 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         __props__.__dict__["vlan_id"] = vlan_id
         return ExpressRouteCircuitPeering(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_manager_etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']]] = None,
+            microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']]] = None,
+            peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            peering_type: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_azure_port: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_peer_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            route_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_azure_port: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_peer_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            vlan_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureAsn"] = azure_asn
+        __props__["expressRouteCircuitName"] = express_route_circuit_name
+        __props__["gatewayManagerEtag"] = gateway_manager_etag
+        __props__["ipv4Enabled"] = ipv4_enabled
+        __props__["ipv6"] = ipv6
+        __props__["microsoftPeeringConfig"] = microsoft_peering_config
+        __props__["peerAsn"] = peer_asn
+        __props__["peeringType"] = peering_type
+        __props__["primaryAzurePort"] = primary_azure_port
+        __props__["primaryPeerAddressPrefix"] = primary_peer_address_prefix
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routeFilterId"] = route_filter_id
+        __props__["secondaryAzurePort"] = secondary_azure_port
+        __props__["secondaryPeerAddressPrefix"] = secondary_peer_address_prefix
+        __props__["sharedKey"] = shared_key
+        __props__["vlanId"] = vlan_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureAsn")
     def azure_asn(self) -> pulumi.Output[_builtins.int]:

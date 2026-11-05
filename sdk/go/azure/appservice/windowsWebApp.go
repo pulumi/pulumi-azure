@@ -404,6 +404,12 @@ func (WindowsWebAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsWebAppState)(nil)).Elem()
 }
 
+// WindowsWebAppExists checks whether an existing WindowsWebApp resource with the given ID exists.
+func WindowsWebAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WindowsWebAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appservice/windowsWebApp:WindowsWebApp", id, state, "", opts...)
+}
+
 type windowsWebAppArgs struct {
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`

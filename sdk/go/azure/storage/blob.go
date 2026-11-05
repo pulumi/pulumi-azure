@@ -261,6 +261,12 @@ func (BlobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobState)(nil)).Elem()
 }
 
+// BlobExists checks whether an existing Blob resource with the given ID exists.
+func BlobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BlobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/blob:Blob", id, state, "", opts...)
+}
+
 type blobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`

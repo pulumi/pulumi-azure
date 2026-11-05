@@ -253,6 +253,12 @@ func (ManagedClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedClusterState)(nil)).Elem()
 }
 
+// ManagedClusterExists checks whether an existing ManagedCluster resource with the given ID exists.
+func ManagedClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicefabric/managedCluster:ManagedCluster", id, state, "", opts...)
+}
+
 type managedClusterArgs struct {
 	// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
 	Authentication *ManagedClusterAuthentication `pulumi:"authentication"`

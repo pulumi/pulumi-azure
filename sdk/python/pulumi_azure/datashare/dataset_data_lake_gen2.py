@@ -379,6 +379,26 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return DatasetDataLakeGen2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_path: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_name: pulumi.Input[Optional[_builtins.str]] = None,
+            folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            share_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["filePath"] = file_path
+        __props__["fileSystemName"] = file_system_name
+        __props__["folderPath"] = folder_path
+        __props__["name"] = name
+        __props__["shareId"] = share_id
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

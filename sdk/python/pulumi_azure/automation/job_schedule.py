@@ -487,6 +487,28 @@ class JobSchedule(pulumi.CustomResource):
         __props__.__dict__["schedule_name"] = schedule_name
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            run_on: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["jobScheduleId"] = job_schedule_id
+        __props__["parameters"] = parameters
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["resourceManagerId"] = resource_manager_id
+        __props__["runOn"] = run_on
+        __props__["runbookName"] = runbook_name
+        __props__["scheduleName"] = schedule_name
+        return pulumi.runtime.exists_resource(None, 'azure:automation/jobSchedule:JobSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

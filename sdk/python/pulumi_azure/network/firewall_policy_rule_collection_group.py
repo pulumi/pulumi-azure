@@ -534,6 +534,24 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         return FirewallPolicyRuleCollectionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict', 'outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollection']]]]] = None,
+            firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict', 'outputs.FirewallPolicyRuleCollectionGroupNatRuleCollection']]]]] = None,
+            network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict', 'outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollection']]]]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationRuleCollections"] = application_rule_collections
+        __props__["firewallPolicyId"] = firewall_policy_id
+        __props__["name"] = name
+        __props__["natRuleCollections"] = nat_rule_collections
+        __props__["networkRuleCollections"] = network_rule_collections
+        __props__["priority"] = priority
+        return pulumi.runtime.exists_resource(None, 'azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationRuleCollections")
     def application_rule_collections(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollection']]]:

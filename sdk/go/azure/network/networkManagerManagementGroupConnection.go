@@ -198,6 +198,12 @@ func (NetworkManagerManagementGroupConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerManagementGroupConnectionState)(nil)).Elem()
 }
 
+// NetworkManagerManagementGroupConnectionExists checks whether an existing NetworkManagerManagementGroupConnection resource with the given ID exists.
+func NetworkManagerManagementGroupConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerManagementGroupConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection", id, state, "", opts...)
+}
+
 type networkManagerManagementGroupConnectionArgs struct {
 	// A description of the Network Manager Management Group Connection.
 	Description *string `pulumi:"description"`

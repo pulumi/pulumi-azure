@@ -90,11 +90,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
  * ```
  * 
- * @deprecated
- * azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster
+ * @deprecated azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster
  * 
  */
-@Deprecated /* azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster */
+@Deprecated
 @ResourceType(type="azure:cosmosdb/mongoCluster:MongoCluster")
 public class MongoCluster extends com.pulumi.resources.CustomResource {
     /**

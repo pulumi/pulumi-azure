@@ -27,11 +27,10 @@ public final class GetServiceResult {
     /**
      * @return Does the Private Link Service support the Proxy Protocol?
      * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private Boolean enableProxyProtocol;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -89,11 +88,10 @@ public final class GetServiceResult {
     /**
      * @return Does the Private Link Service support the Proxy Protocol?
      * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Boolean enableProxyProtocol() {
         return this.enableProxyProtocol;
     }

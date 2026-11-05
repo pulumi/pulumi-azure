@@ -832,6 +832,42 @@ class EventhubDataConnection(pulumi.CustomResource):
         __props__.__dict__["table_name"] = table_name
         return EventhubDataConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+            data_format: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_routing_type: pulumi.Input[Optional[_builtins.str]] = None,
+            event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            eventhub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterName"] = cluster_name
+        __props__["compression"] = compression
+        __props__["consumerGroup"] = consumer_group
+        __props__["dataFormat"] = data_format
+        __props__["databaseName"] = database_name
+        __props__["databaseRoutingType"] = database_routing_type
+        __props__["eventSystemProperties"] = event_system_properties
+        __props__["eventhubId"] = eventhub_id
+        __props__["identityId"] = identity_id
+        __props__["location"] = location
+        __props__["mappingRuleName"] = mapping_rule_name
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retrievalStartDate"] = retrieval_start_date
+        __props__["tableName"] = table_name
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/eventhubDataConnection:EventhubDataConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:

@@ -626,6 +626,34 @@ class EnterpriseDatabase(pulumi.CustomResource):
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         return EnterpriseDatabase(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientProtocol"] = client_protocol
+        __props__["clusterId"] = cluster_id
+        __props__["clusteringPolicy"] = clustering_policy
+        __props__["evictionPolicy"] = eviction_policy
+        __props__["linkedDatabaseGroupNickname"] = linked_database_group_nickname
+        __props__["linkedDatabaseIds"] = linked_database_ids
+        __props__["modules"] = modules
+        __props__["name"] = name
+        __props__["port"] = port
+        __props__["primaryAccessKey"] = primary_access_key
+        __props__["secondaryAccessKey"] = secondary_access_key
+        return pulumi.runtime.exists_resource(None, 'azure:redis/enterpriseDatabase:EnterpriseDatabase', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientProtocol")
     def client_protocol(self) -> pulumi.Output[Optional[_builtins.str]]:

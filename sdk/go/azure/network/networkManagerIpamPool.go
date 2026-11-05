@@ -187,6 +187,12 @@ func (NetworkManagerIpamPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerIpamPoolState)(nil)).Elem()
 }
 
+// NetworkManagerIpamPoolExists checks whether an existing NetworkManagerIpamPool resource with the given ID exists.
+func NetworkManagerIpamPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerIpamPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerIpamPool:NetworkManagerIpamPool", id, state, "", opts...)
+}
+
 type networkManagerIpamPoolArgs struct {
 	// Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`

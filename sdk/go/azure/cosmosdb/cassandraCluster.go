@@ -173,6 +173,12 @@ func (CassandraClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraClusterState)(nil)).Elem()
 }
 
+// CassandraClusterExists checks whether an existing CassandraCluster resource with the given ID exists.
+func CassandraClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CassandraClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/cassandraCluster:CassandraCluster", id, state, "", opts...)
+}
+
 type cassandraClusterArgs struct {
 	// The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`

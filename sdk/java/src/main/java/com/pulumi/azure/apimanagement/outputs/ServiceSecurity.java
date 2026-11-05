@@ -33,46 +33,40 @@ public final class ServiceSecurity {
      */
     private @Nullable Boolean backendTls11Enabled;
     /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableBackendSsl30;
     /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableBackendTls10;
     /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableBackendTls11;
     /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableFrontendSsl30;
     /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableFrontendTls10;
     /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     private @Nullable Boolean enableFrontendTls11;
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
@@ -202,56 +196,50 @@ public final class ServiceSecurity {
         return Optional.ofNullable(this.backendTls11Enabled);
     }
     /**
-     * @deprecated
-     * `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableBackendSsl30() {
         return Optional.ofNullable(this.enableBackendSsl30);
     }
     /**
-     * @deprecated
-     * `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableBackendTls10() {
         return Optional.ofNullable(this.enableBackendTls10);
     }
     /**
-     * @deprecated
-     * `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableBackendTls11() {
         return Optional.ofNullable(this.enableBackendTls11);
     }
     /**
-     * @deprecated
-     * `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableFrontendSsl30() {
         return Optional.ofNullable(this.enableFrontendSsl30);
     }
     /**
-     * @deprecated
-     * `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableFrontendTls10() {
         return Optional.ofNullable(this.enableFrontendTls10);
     }
     /**
-     * @deprecated
-     * `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Boolean> enableFrontendTls11() {
         return Optional.ofNullable(this.enableFrontendTls11);
     }

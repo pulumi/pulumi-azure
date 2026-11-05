@@ -130,7 +130,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `False`. 
+        /// IP security restrictions for scm to use main. Defaults to `False`.
         /// 
         /// &gt; **NOTE** Any `ScmIpRestriction` blocks configured are ignored by the service when `ScmUseMainIpRestriction` is set to `True`. Any scm restrictions will become active if this is subsequently set to `False` or removed.
         /// </summary>

@@ -427,6 +427,24 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         return FunctionJavaScriptUDF(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionJavaScriptUDFInputArgs', 'FunctionJavaScriptUDFInputArgsDict', 'outputs.FunctionJavaScriptUDFInput']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output: pulumi.Input[Optional[Union['FunctionJavaScriptUDFOutputArgs', 'FunctionJavaScriptUDFOutputArgsDict', 'outputs.FunctionJavaScriptUDFOutput']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            script: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["inputs"] = inputs
+        __props__["name"] = name
+        __props__["output"] = output
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["script"] = script
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def inputs(self) -> pulumi.Output[Sequence['outputs.FunctionJavaScriptUDFInput']]:

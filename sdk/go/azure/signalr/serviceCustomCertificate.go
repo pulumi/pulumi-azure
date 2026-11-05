@@ -229,6 +229,12 @@ func (ServiceCustomCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceCustomCertificateState)(nil)).Elem()
 }
 
+// ServiceCustomCertificateExists checks whether an existing ServiceCustomCertificate resource with the given ID exists.
+func ServiceCustomCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceCustomCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", id, state, "", opts...)
+}
+
 type serviceCustomCertificateArgs struct {
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
 	//

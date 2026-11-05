@@ -209,6 +209,12 @@ func (NetworkConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectionState)(nil)).Elem()
 }
 
+// NetworkConnectionExists checks whether an existing NetworkConnection resource with the given ID exists.
+func NetworkConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:devcenter/networkConnection:NetworkConnection", id, state, "", opts...)
+}
+
 type networkConnectionArgs struct {
 	// The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
 	DomainJoinType string `pulumi:"domainJoinType"`

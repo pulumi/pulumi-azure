@@ -140,6 +140,12 @@ func (GatewayApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayApiState)(nil)).Elem()
 }
 
+// GatewayApiExists checks whether an existing GatewayApi resource with the given ID exists.
+func GatewayApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GatewayApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/gatewayApi:GatewayApi", id, state, "", opts...)
+}
+
 type gatewayApiArgs struct {
 	// The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
 	ApiId string `pulumi:"apiId"`

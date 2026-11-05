@@ -414,11 +414,10 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
     /**
      * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
     private Output<String> managedHsmKeyId;
 

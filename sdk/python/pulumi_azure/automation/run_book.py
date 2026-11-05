@@ -806,6 +806,42 @@ class RunBook(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return RunBook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            draft: pulumi.Input[Optional[Union['RunBookDraftArgs', 'RunBookDraftArgsDict', 'outputs.RunBookDraft']]] = None,
+            job_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict', 'outputs.RunBookJobSchedule']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_activity_trace_level: pulumi.Input[Optional[_builtins.int]] = None,
+            log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_verbose: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_content_link: pulumi.Input[Optional[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict', 'outputs.RunBookPublishContentLink']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automationAccountName"] = automation_account_name
+        __props__["content"] = content
+        __props__["description"] = description
+        __props__["draft"] = draft
+        __props__["jobSchedules"] = job_schedules
+        __props__["location"] = location
+        __props__["logActivityTraceLevel"] = log_activity_trace_level
+        __props__["logProgress"] = log_progress
+        __props__["logVerbose"] = log_verbose
+        __props__["name"] = name
+        __props__["publishContentLink"] = publish_content_link
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["runbookType"] = runbook_type
+        __props__["runtimeEnvironmentName"] = runtime_environment_name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:automation/runBook:RunBook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
     def automation_account_name(self) -> pulumi.Output[_builtins.str]:

@@ -249,6 +249,12 @@ func (LinkedServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceState)(nil)).Elem()
 }
 
+// LinkedServiceExists checks whether an existing LinkedService resource with the given ID exists.
+func LinkedServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/linkedService:LinkedService", id, state, "", opts...)
+}
+
 type linkedServiceArgs struct {
 	// A map of additional properties to associate with the Synapse Linked Service.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`

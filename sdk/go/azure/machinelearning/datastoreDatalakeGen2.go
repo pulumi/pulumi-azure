@@ -246,6 +246,12 @@ func (DatastoreDatalakeGen2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreDatalakeGen2State)(nil)).Elem()
 }
 
+// DatastoreDatalakeGen2Exists checks whether an existing DatastoreDatalakeGen2 resource with the given ID exists.
+func DatastoreDatalakeGen2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreDatalakeGen2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2", id, state, "", opts...)
+}
+
 type datastoreDatalakeGen2Args struct {
 	// An URL used for authentication.
 	AuthorityUrl *string `pulumi:"authorityUrl"`

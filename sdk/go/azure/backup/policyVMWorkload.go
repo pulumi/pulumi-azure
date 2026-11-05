@@ -189,6 +189,12 @@ func (PolicyVMWorkloadState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyVMWorkloadState)(nil)).Elem()
 }
 
+// PolicyVMWorkloadExists checks whether an existing PolicyVMWorkload resource with the given ID exists.
+func PolicyVMWorkloadExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyVMWorkloadState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:backup/policyVMWorkload:PolicyVMWorkload", id, state, "", opts...)
+}
+
 type policyVMWorkloadArgs struct {
 	// The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

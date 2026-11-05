@@ -156,6 +156,12 @@ func (SpringCloudActiveDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudActiveDeploymentState)(nil)).Elem()
 }
 
+// SpringCloudActiveDeploymentExists checks whether an existing SpringCloudActiveDeployment resource with the given ID exists.
+func SpringCloudActiveDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudActiveDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment", id, state, "", opts...)
+}
+
 type springCloudActiveDeploymentArgs struct {
 	// Specifies the name of Spring Cloud Deployment which is going to be active.
 	DeploymentName string `pulumi:"deploymentName"`

@@ -395,6 +395,22 @@ class VirtualHubConnection(pulumi.CustomResource):
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return VirtualHubConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            routing: pulumi.Input[Optional[Union['VirtualHubConnectionRoutingArgs', 'VirtualHubConnectionRoutingArgsDict', 'outputs.VirtualHubConnectionRouting']]] = None,
+            virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["internetSecurityEnabled"] = internet_security_enabled
+        __props__["name"] = name
+        __props__["remoteVirtualNetworkId"] = remote_virtual_network_id
+        __props__["routing"] = routing
+        __props__["virtualHubId"] = virtual_hub_id
+        return pulumi.runtime.exists_resource(None, 'azure:network/virtualHubConnection:VirtualHubConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

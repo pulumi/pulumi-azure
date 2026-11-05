@@ -253,6 +253,12 @@ func (NetworkManagerConnectivityConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkManagerConnectivityConfigurationState)(nil)).Elem()
 }
 
+// NetworkManagerConnectivityConfigurationExists checks whether an existing NetworkManagerConnectivityConfiguration resource with the given ID exists.
+func NetworkManagerConnectivityConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkManagerConnectivityConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration", id, state, "", opts...)
+}
+
 type networkManagerConnectivityConfigurationArgs struct {
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups []NetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`

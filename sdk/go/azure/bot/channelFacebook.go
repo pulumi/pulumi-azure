@@ -183,6 +183,12 @@ func (ChannelFacebookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelFacebookState)(nil)).Elem()
 }
 
+// ChannelFacebookExists checks whether an existing ChannelFacebook resource with the given ID exists.
+func ChannelFacebookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelFacebookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelFacebook:ChannelFacebook", id, state, "", opts...)
+}
+
 type channelFacebookArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

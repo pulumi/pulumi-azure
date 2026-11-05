@@ -205,6 +205,12 @@ func (TriggerScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerScheduleState)(nil)).Elem()
 }
 
+// TriggerScheduleExists checks whether an existing TriggerSchedule resource with the given ID exists.
+func TriggerScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TriggerScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/triggerSchedule:TriggerSchedule", id, state, "", opts...)
+}
+
 type triggerScheduleArgs struct {
 	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
 	Activated *bool `pulumi:"activated"`

@@ -1857,6 +1857,88 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict', 'outputs.ApplicationGatewayAuthenticationCertificate']]]]] = None,
+            autoscale_configuration: pulumi.Input[Optional[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict', 'outputs.ApplicationGatewayAutoscaleConfiguration']]] = None,
+            backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict', 'outputs.ApplicationGatewayBackendAddressPool']]]]] = None,
+            backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict', 'outputs.ApplicationGatewayBackendHttpSetting']]]]] = None,
+            backends: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendArgs', 'ApplicationGatewayBackendArgsDict', 'outputs.ApplicationGatewayBackend']]]]] = None,
+            custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayCustomErrorConfigurationArgs', 'ApplicationGatewayCustomErrorConfigurationArgsDict', 'outputs.ApplicationGatewayCustomErrorConfiguration']]]]] = None,
+            enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+            fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayFrontendIpConfigurationArgs', 'ApplicationGatewayFrontendIpConfigurationArgsDict', 'outputs.ApplicationGatewayFrontendIpConfiguration']]]]] = None,
+            frontend_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayFrontendPortArgs', 'ApplicationGatewayFrontendPortArgsDict', 'outputs.ApplicationGatewayFrontendPort']]]]] = None,
+            gateway_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayGatewayIpConfigurationArgs', 'ApplicationGatewayGatewayIpConfigurationArgsDict', 'outputs.ApplicationGatewayGatewayIpConfiguration']]]]] = None,
+            global_: pulumi.Input[Optional[Union['ApplicationGatewayGlobalArgs', 'ApplicationGatewayGlobalArgsDict', 'outputs.ApplicationGatewayGlobal']]] = None,
+            http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            http_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayHttpListenerArgs', 'ApplicationGatewayHttpListenerArgsDict', 'outputs.ApplicationGatewayHttpListener']]]]] = None,
+            identity: pulumi.Input[Optional[Union['ApplicationGatewayIdentityArgs', 'ApplicationGatewayIdentityArgsDict', 'outputs.ApplicationGatewayIdentity']]] = None,
+            listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayListenerArgs', 'ApplicationGatewayListenerArgsDict', 'outputs.ApplicationGatewayListener']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayPrivateEndpointConnectionArgs', 'ApplicationGatewayPrivateEndpointConnectionArgsDict', 'outputs.ApplicationGatewayPrivateEndpointConnection']]]]] = None,
+            private_link_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayPrivateLinkConfigurationArgs', 'ApplicationGatewayPrivateLinkConfigurationArgsDict', 'outputs.ApplicationGatewayPrivateLinkConfiguration']]]]] = None,
+            probes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayProbeArgs', 'ApplicationGatewayProbeArgsDict', 'outputs.ApplicationGatewayProbe']]]]] = None,
+            redirect_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayRedirectConfigurationArgs', 'ApplicationGatewayRedirectConfigurationArgsDict', 'outputs.ApplicationGatewayRedirectConfiguration']]]]] = None,
+            request_routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayRequestRoutingRuleArgs', 'ApplicationGatewayRequestRoutingRuleArgsDict', 'outputs.ApplicationGatewayRequestRoutingRule']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rewrite_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayRewriteRuleSetArgs', 'ApplicationGatewayRewriteRuleSetArgsDict', 'outputs.ApplicationGatewayRewriteRuleSet']]]]] = None,
+            routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayRoutingRuleArgs', 'ApplicationGatewayRoutingRuleArgsDict', 'outputs.ApplicationGatewayRoutingRule']]]]] = None,
+            sku: pulumi.Input[Optional[Union['ApplicationGatewaySkuArgs', 'ApplicationGatewaySkuArgsDict', 'outputs.ApplicationGatewaySku']]] = None,
+            ssl_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewaySslCertificateArgs', 'ApplicationGatewaySslCertificateArgsDict', 'outputs.ApplicationGatewaySslCertificate']]]]] = None,
+            ssl_policy: pulumi.Input[Optional[Union['ApplicationGatewaySslPolicyArgs', 'ApplicationGatewaySslPolicyArgsDict', 'outputs.ApplicationGatewaySslPolicy']]] = None,
+            ssl_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewaySslProfileArgs', 'ApplicationGatewaySslProfileArgsDict', 'outputs.ApplicationGatewaySslProfile']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_client_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayTrustedClientCertificateArgs', 'ApplicationGatewayTrustedClientCertificateArgsDict', 'outputs.ApplicationGatewayTrustedClientCertificate']]]]] = None,
+            trusted_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayTrustedRootCertificateArgs', 'ApplicationGatewayTrustedRootCertificateArgsDict', 'outputs.ApplicationGatewayTrustedRootCertificate']]]]] = None,
+            url_path_maps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayUrlPathMapArgs', 'ApplicationGatewayUrlPathMapArgsDict', 'outputs.ApplicationGatewayUrlPathMap']]]]] = None,
+            waf_configuration: pulumi.Input[Optional[Union['ApplicationGatewayWafConfigurationArgs', 'ApplicationGatewayWafConfigurationArgsDict', 'outputs.ApplicationGatewayWafConfiguration']]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationCertificates"] = authentication_certificates
+        __props__["autoscaleConfiguration"] = autoscale_configuration
+        __props__["backendAddressPools"] = backend_address_pools
+        __props__["backendHttpSettings"] = backend_http_settings
+        __props__["backends"] = backends
+        __props__["customErrorConfigurations"] = custom_error_configurations
+        __props__["enableHttp2"] = enable_http2
+        __props__["fipsEnabled"] = fips_enabled
+        __props__["firewallPolicyId"] = firewall_policy_id
+        __props__["forceFirewallPolicyAssociation"] = force_firewall_policy_association
+        __props__["frontendIpConfigurations"] = frontend_ip_configurations
+        __props__["frontendPorts"] = frontend_ports
+        __props__["gatewayIpConfigurations"] = gateway_ip_configurations
+        __props__["global"] = global_
+        __props__["http2Enabled"] = http2_enabled
+        __props__["httpListeners"] = http_listeners
+        __props__["identity"] = identity
+        __props__["listeners"] = listeners
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["privateEndpointConnections"] = private_endpoint_connections
+        __props__["privateLinkConfigurations"] = private_link_configurations
+        __props__["probes"] = probes
+        __props__["redirectConfigurations"] = redirect_configurations
+        __props__["requestRoutingRules"] = request_routing_rules
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rewriteRuleSets"] = rewrite_rule_sets
+        __props__["routingRules"] = routing_rules
+        __props__["sku"] = sku
+        __props__["sslCertificates"] = ssl_certificates
+        __props__["sslPolicy"] = ssl_policy
+        __props__["sslProfiles"] = ssl_profiles
+        __props__["tags"] = tags
+        __props__["trustedClientCertificates"] = trusted_client_certificates
+        __props__["trustedRootCertificates"] = trusted_root_certificates
+        __props__["urlPathMaps"] = url_path_maps
+        __props__["wafConfiguration"] = waf_configuration
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'azure:network/applicationGateway:ApplicationGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationCertificates")
     def authentication_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificate']]]:

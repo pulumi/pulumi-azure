@@ -459,6 +459,26 @@ class DataLakeGen2Path(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         return DataLakeGen2Path(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict', 'outputs.DataLakeGen2PathAce']]]]] = None,
+            filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            resource: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aces"] = aces
+        __props__["filesystemName"] = filesystem_name
+        __props__["group"] = group
+        __props__["owner"] = owner
+        __props__["path"] = path
+        __props__["resource"] = resource
+        __props__["storageAccountId"] = storage_account_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/dataLakeGen2Path:DataLakeGen2Path', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aces(self) -> pulumi.Output[Sequence['outputs.DataLakeGen2PathAce']]:

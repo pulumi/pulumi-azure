@@ -456,6 +456,24 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return IotHubDeviceUpdateInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            device_update_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            diagnostic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deviceUpdateAccountId"] = device_update_account_id
+        __props__["diagnosticEnabled"] = diagnostic_enabled
+        __props__["diagnosticStorageAccount"] = diagnostic_storage_account
+        __props__["iothubId"] = iothub_id
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deviceUpdateAccountId")
     def device_update_account_id(self) -> pulumi.Output[_builtins.str]:

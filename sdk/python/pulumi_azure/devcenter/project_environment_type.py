@@ -525,6 +525,28 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         __props__.__dict__["user_role_assignments"] = user_role_assignments
         return ProjectEnvironmentType(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            creator_role_assignment_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["creatorRoleAssignmentRoles"] = creator_role_assignment_roles
+        __props__["deploymentTargetId"] = deployment_target_id
+        __props__["devCenterProjectId"] = dev_center_project_id
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["tags"] = tags
+        __props__["userRoleAssignments"] = user_role_assignments
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/projectEnvironmentType:ProjectEnvironmentType', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="creatorRoleAssignmentRoles")
     def creator_role_assignment_roles(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

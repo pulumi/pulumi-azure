@@ -808,6 +808,46 @@ class StaticWebApp(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return StaticWebApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            basic_auth: pulumi.Input[Optional[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict', 'outputs.StaticWebAppBasicAuth']]] = None,
+            configuration_file_changes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict', 'outputs.StaticWebAppIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preview_environments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_token: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_size: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["appSettings"] = app_settings
+        __props__["basicAuth"] = basic_auth
+        __props__["configurationFileChangesEnabled"] = configuration_file_changes_enabled
+        __props__["defaultHostName"] = default_host_name
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["previewEnvironmentsEnabled"] = preview_environments_enabled
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["repositoryBranch"] = repository_branch
+        __props__["repositoryToken"] = repository_token
+        __props__["repositoryUrl"] = repository_url
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuSize"] = sku_size
+        __props__["skuTier"] = sku_tier
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:appservice/staticWebApp:StaticWebApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

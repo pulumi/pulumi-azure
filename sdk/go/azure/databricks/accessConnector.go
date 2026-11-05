@@ -147,6 +147,12 @@ func (AccessConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessConnectorState)(nil)).Elem()
 }
 
+// AccessConnectorExists checks whether an existing AccessConnector resource with the given ID exists.
+func AccessConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:databricks/accessConnector:AccessConnector", id, state, "", opts...)
+}
+
 type accessConnectorArgs struct {
 	// An `identity` block as defined below.
 	Identity *AccessConnectorIdentity `pulumi:"identity"`

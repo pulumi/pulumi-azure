@@ -121,6 +121,12 @@ func (PortalTenantConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*portalTenantConfigurationState)(nil)).Elem()
 }
 
+// PortalTenantConfigurationExists checks whether an existing PortalTenantConfiguration resource with the given ID exists.
+func PortalTenantConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PortalTenantConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/portalTenantConfiguration:PortalTenantConfiguration", id, state, "", opts...)
+}
+
 type portalTenantConfigurationArgs struct {
 	// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
 	//

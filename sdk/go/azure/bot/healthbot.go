@@ -157,6 +157,12 @@ func (HealthbotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthbotState)(nil)).Elem()
 }
 
+// HealthbotExists checks whether an existing Healthbot resource with the given ID exists.
+func HealthbotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HealthbotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/healthbot:Healthbot", id, state, "", opts...)
+}
+
 type healthbotArgs struct {
 	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location *string `pulumi:"location"`

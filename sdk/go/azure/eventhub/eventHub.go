@@ -203,6 +203,12 @@ func (EventHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubState)(nil)).Elem()
 }
 
+// EventHubExists checks whether an existing EventHub resource with the given ID exists.
+func EventHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:eventhub/eventHub:EventHub", id, state, "", opts...)
+}
+
 type eventHubArgs struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`

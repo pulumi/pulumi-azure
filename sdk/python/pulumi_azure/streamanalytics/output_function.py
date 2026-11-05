@@ -559,6 +559,28 @@ class OutputFunction(pulumi.CustomResource):
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         return OutputFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_max_count: pulumi.Input[Optional[_builtins.int]] = None,
+            batch_max_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            function_app: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["batchMaxCount"] = batch_max_count
+        __props__["batchMaxInBytes"] = batch_max_in_bytes
+        __props__["functionApp"] = function_app
+        __props__["functionName"] = function_name
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["streamAnalyticsJobName"] = stream_analytics_job_name
+        return pulumi.runtime.exists_resource(None, 'azure:streamanalytics/outputFunction:OutputFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

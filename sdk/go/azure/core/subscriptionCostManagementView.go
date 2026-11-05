@@ -208,6 +208,12 @@ func (SubscriptionCostManagementViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionCostManagementViewState)(nil)).Elem()
 }
 
+// SubscriptionCostManagementViewExists checks whether an existing SubscriptionCostManagementView resource with the given ID exists.
+func SubscriptionCostManagementViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionCostManagementViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", id, state, "", opts...)
+}
+
 type subscriptionCostManagementViewArgs struct {
 	// Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
 	Accumulated bool `pulumi:"accumulated"`

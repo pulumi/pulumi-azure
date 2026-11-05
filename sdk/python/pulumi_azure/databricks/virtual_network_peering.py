@@ -629,6 +629,34 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressSpacePrefixes"] = address_space_prefixes
+        __props__["allowForwardedTraffic"] = allow_forwarded_traffic
+        __props__["allowGatewayTransit"] = allow_gateway_transit
+        __props__["allowVirtualNetworkAccess"] = allow_virtual_network_access
+        __props__["name"] = name
+        __props__["remoteAddressSpacePrefixes"] = remote_address_space_prefixes
+        __props__["remoteVirtualNetworkId"] = remote_virtual_network_id
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["useRemoteGateways"] = use_remote_gateways
+        __props__["virtualNetworkId"] = virtual_network_id
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:databricks/virtualNetworkPeering:VirtualNetworkPeering', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressSpacePrefixes")
     def address_space_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

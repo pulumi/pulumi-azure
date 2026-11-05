@@ -347,6 +347,20 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         return FlexibleServerDatabase(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            charset: pulumi.Input[Optional[_builtins.str]] = None,
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["charset"] = charset
+        __props__["collation"] = collation
+        __props__["name"] = name
+        __props__["serverId"] = server_id
+        return pulumi.runtime.exists_resource(None, 'azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def charset(self) -> pulumi.Output[Optional[_builtins.str]]:

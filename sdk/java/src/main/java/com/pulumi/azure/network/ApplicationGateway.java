@@ -297,11 +297,10 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customErrorConfigurations);
     }
     /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Export(name="enableHttp2", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableHttp2;
 

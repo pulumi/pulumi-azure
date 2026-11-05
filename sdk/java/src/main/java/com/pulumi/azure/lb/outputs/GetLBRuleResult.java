@@ -30,20 +30,18 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
-     * @deprecated
-     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
+     * @deprecated The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
+    @Deprecated
     private Boolean enableFloatingIp;
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
-     * @deprecated
-     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
+     * @deprecated The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
+    @Deprecated
     private Boolean enableTcpReset;
     private Boolean floatingIpEnabled;
     /**
@@ -110,22 +108,20 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
-     * @deprecated
-     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
+     * @deprecated The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
+    @Deprecated
     public Boolean enableFloatingIp() {
         return this.enableFloatingIp;
     }
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
-     * @deprecated
-     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
+     * @deprecated The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
+    @Deprecated
     public Boolean enableTcpReset() {
         return this.enableTcpReset;
     }

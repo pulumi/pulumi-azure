@@ -37,12 +37,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name("my-api")
  *             .apiManagementName("example-apim")
@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
  *             .xmlContent("""
  * <policies>
  *   <inbound>
- *     <find-and-replace from=\"xyz\" to=\"abc\" />
+ *     <find-and-replace from=}&#92;{@code "xyz}&#92;{@code " to=}&#92;{@code "abc}&#92;{@code " />
  *   </inbound>
  * </policies>
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

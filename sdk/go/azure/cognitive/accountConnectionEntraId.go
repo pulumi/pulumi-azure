@@ -195,6 +195,12 @@ func (AccountConnectionEntraIdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountConnectionEntraIdState)(nil)).Elem()
 }
 
+// AccountConnectionEntraIdExists checks whether an existing AccountConnectionEntraId resource with the given ID exists.
+func AccountConnectionEntraIdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountConnectionEntraIdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId", id, state, "", opts...)
+}
+
 type accountConnectionEntraIdArgs struct {
 	// The category of the connection. Possible values are `AIServices`, `ApiManagement`, `AppConfig`, `AzureOpenAI`, `AzureStorageAccount`, `CognitiveSearch`, `CognitiveService`, `CosmosDb`, `Databricks`, `ManagedOnlineEndpoint`, `MicrosoftFabric`, and `Sharepoint`. Changing this forces a new resource to be created.
 	Category string `pulumi:"category"`

@@ -171,6 +171,12 @@ func (ShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareState)(nil)).Elem()
 }
 
+// ShareExists checks whether an existing Share resource with the given ID exists.
+func ShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datashare/share:Share", id, state, "", opts...)
+}
+
 type shareArgs struct {
 	// The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
 	AccountId string `pulumi:"accountId"`

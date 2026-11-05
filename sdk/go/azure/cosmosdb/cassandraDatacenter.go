@@ -157,6 +157,12 @@ func (CassandraDatacenterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraDatacenterState)(nil)).Elem()
 }
 
+// CassandraDatacenterExists checks whether an existing CassandraDatacenter resource with the given ID exists.
+func CassandraDatacenterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CassandraDatacenterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter", id, state, "", opts...)
+}
+
 type cassandraDatacenterArgs struct {
 	// Determines whether availability zones are enabled. Defaults to `true`.
 	AvailabilityZonesEnabled *bool `pulumi:"availabilityZonesEnabled"`

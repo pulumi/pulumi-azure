@@ -938,6 +938,48 @@ class KeyVault(pulumi.CustomResource):
         __props__.__dict__["vault_uri"] = vault_uri
         return KeyVault(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict', 'outputs.KeyVaultAccessPolicy']]]]] = None,
+            contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyVaultContactArgs', 'KeyVaultContactArgsDict', 'outputs.KeyVaultContact']]]]] = None,
+            enable_rbac_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled_for_template_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict', 'outputs.KeyVaultNetworkAcls']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rbac_authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessPolicies"] = access_policies
+        __props__["contacts"] = contacts
+        __props__["enableRbacAuthorization"] = enable_rbac_authorization
+        __props__["enabledForDeployment"] = enabled_for_deployment
+        __props__["enabledForDiskEncryption"] = enabled_for_disk_encryption
+        __props__["enabledForTemplateDeployment"] = enabled_for_template_deployment
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkAcls"] = network_acls
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["purgeProtectionEnabled"] = purge_protection_enabled
+        __props__["rbacAuthorizationEnabled"] = rbac_authorization_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["skuName"] = sku_name
+        __props__["softDeleteRetentionDays"] = soft_delete_retention_days
+        __props__["tags"] = tags
+        __props__["tenantId"] = tenant_id
+        __props__["vaultUri"] = vault_uri
+        return pulumi.runtime.exists_resource(None, 'azure:keyvault/keyVault:KeyVault', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[Sequence['outputs.KeyVaultAccessPolicy']]:

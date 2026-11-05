@@ -138,6 +138,12 @@ func (ApplicationSecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSecurityGroupState)(nil)).Elem()
 }
 
+// ApplicationSecurityGroupExists checks whether an existing ApplicationSecurityGroup resource with the given ID exists.
+func ApplicationSecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationSecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", id, state, "", opts...)
+}
+
 type applicationSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

@@ -1320,6 +1320,64 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Registry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_endpoint_host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict', 'outputs.RegistryEncryption']]] = None,
+            export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            georeplications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict', 'outputs.RegistryGeoreplication']]]]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict', 'outputs.RegistryIdentity']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            login_server: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict', 'outputs.RegistryNetworkRuleSet']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminEnabled"] = admin_enabled
+        __props__["adminPassword"] = admin_password
+        __props__["adminUsername"] = admin_username
+        __props__["anonymousPullEnabled"] = anonymous_pull_enabled
+        __props__["azureadAuthenticationAsArmPolicyEnabled"] = azuread_authentication_as_arm_policy_enabled
+        __props__["dataEndpointEnabled"] = data_endpoint_enabled
+        __props__["dataEndpointHostNames"] = data_endpoint_host_names
+        __props__["encryption"] = encryption
+        __props__["exportPolicyEnabled"] = export_policy_enabled
+        __props__["georeplications"] = georeplications
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["loginServer"] = login_server
+        __props__["name"] = name
+        __props__["networkRuleBypassForTasksEnabled"] = network_rule_bypass_for_tasks_enabled
+        __props__["networkRuleBypassOption"] = network_rule_bypass_option
+        __props__["networkRuleSet"] = network_rule_set
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["quarantinePolicyEnabled"] = quarantine_policy_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionPolicyInDays"] = retention_policy_in_days
+        __props__["roleAssignmentMode"] = role_assignment_mode
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["trustPolicyEnabled"] = trust_policy_enabled
+        __props__["zoneRedundancyEnabled"] = zone_redundancy_enabled
+        return pulumi.runtime.exists_resource(None, 'azure:containerservice/registry:Registry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminEnabled")
     def admin_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

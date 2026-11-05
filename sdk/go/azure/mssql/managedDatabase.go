@@ -192,6 +192,12 @@ func (ManagedDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDatabaseState)(nil)).Elem()
 }
 
+// ManagedDatabaseExists checks whether an existing ManagedDatabase resource with the given ID exists.
+func ManagedDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:mssql/managedDatabase:ManagedDatabase", id, state, "", opts...)
+}
+
 type managedDatabaseArgs struct {
 	// A `longTermRetentionPolicy` block as defined below.
 	LongTermRetentionPolicy *ManagedDatabaseLongTermRetentionPolicy `pulumi:"longTermRetentionPolicy"`

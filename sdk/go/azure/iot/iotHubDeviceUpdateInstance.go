@@ -189,6 +189,12 @@ func (IotHubDeviceUpdateInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubDeviceUpdateInstanceState)(nil)).Elem()
 }
 
+// IotHubDeviceUpdateInstanceExists checks whether an existing IotHubDeviceUpdateInstance resource with the given ID exists.
+func IotHubDeviceUpdateInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IotHubDeviceUpdateInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", id, state, "", opts...)
+}
+
 type iotHubDeviceUpdateInstanceArgs struct {
 	// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
 	DeviceUpdateAccountId string `pulumi:"deviceUpdateAccountId"`

@@ -156,39 +156,35 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     @Import(name="javaContainer")
     private @Nullable Output<String> javaContainer;
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     public Optional<Output<String>> javaContainer() {
         return Optional.ofNullable(this.javaContainer);
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     @Import(name="javaContainerVersion")
     private @Nullable Output<String> javaContainerVersion;
 
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+     * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+    @Deprecated
     public Optional<Output<String>> javaContainerVersion() {
         return Optional.ofNullable(this.javaContainerVersion);
     }
@@ -521,11 +517,10 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+         * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+        @Deprecated
         public Builder javaContainer(@Nullable Output<String> javaContainer) {
             $.javaContainer = javaContainer;
             return this;
@@ -534,11 +529,10 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @return builder
          * 
-         * @deprecated
-         * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+         * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+        @Deprecated
         public Builder javaContainer(String javaContainer) {
             return javaContainer(Output.of(javaContainer));
         }
@@ -546,11 +540,10 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+         * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          * 
          */
-        @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+        @Deprecated
         public Builder javaContainerVersion(@Nullable Output<String> javaContainerVersion) {
             $.javaContainerVersion = javaContainerVersion;
             return this;
@@ -559,11 +552,10 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
+         * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          * 
          */
-        @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
+        @Deprecated
         public Builder javaContainerVersion(String javaContainerVersion) {
             return javaContainerVersion(Output.of(javaContainerVersion));
         }

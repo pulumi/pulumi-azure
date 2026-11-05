@@ -604,6 +604,30 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_endpoint"] = storage_endpoint
         return ServerSecurityAlertPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabledAlerts"] = disabled_alerts
+        __props__["emailAccountAdmins"] = email_account_admins
+        __props__["emailAddresses"] = email_addresses
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["retentionDays"] = retention_days
+        __props__["serverName"] = server_name
+        __props__["state"] = state
+        __props__["storageAccountAccessKey"] = storage_account_access_key
+        __props__["storageEndpoint"] = storage_endpoint
+        return pulumi.runtime.exists_resource(None, 'azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
     def disabled_alerts(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

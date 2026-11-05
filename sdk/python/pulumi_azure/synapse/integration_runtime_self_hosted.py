@@ -366,6 +366,22 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return IntegrationRuntimeSelfHosted(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_key_primary: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_key_secondary: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizationKeyPrimary"] = authorization_key_primary
+        __props__["authorizationKeySecondary"] = authorization_key_secondary
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["synapseWorkspaceId"] = synapse_workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizationKeyPrimary")
     def authorization_key_primary(self) -> pulumi.Output[_builtins.str]:

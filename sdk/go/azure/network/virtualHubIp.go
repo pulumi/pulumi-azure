@@ -199,6 +199,12 @@ func (VirtualHubIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubIpState)(nil)).Elem()
 }
 
+// VirtualHubIpExists checks whether an existing VirtualHubIp resource with the given ID exists.
+func VirtualHubIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHubIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/virtualHubIp:VirtualHubIp", id, state, "", opts...)
+}
+
 type virtualHubIpArgs struct {
 	// The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

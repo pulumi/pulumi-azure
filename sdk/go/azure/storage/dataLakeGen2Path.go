@@ -177,6 +177,12 @@ func (DataLakeGen2PathState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeGen2PathState)(nil)).Elem()
 }
 
+// DataLakeGen2PathExists checks whether an existing DataLakeGen2Path resource with the given ID exists.
+func DataLakeGen2PathExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataLakeGen2PathState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:storage/dataLakeGen2Path:DataLakeGen2Path", id, state, "", opts...)
+}
+
 type dataLakeGen2PathArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2PathAce `pulumi:"aces"`

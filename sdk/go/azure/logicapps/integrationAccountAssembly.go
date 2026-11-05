@@ -183,6 +183,12 @@ func (IntegrationAccountAssemblyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountAssemblyState)(nil)).Elem()
 }
 
+// IntegrationAccountAssemblyExists checks whether an existing IntegrationAccountAssembly resource with the given ID exists.
+func IntegrationAccountAssemblyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountAssemblyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly", id, state, "", opts...)
+}
+
 type integrationAccountAssemblyArgs struct {
 	// The name of the Logic App Integration Account Assembly.
 	AssemblyName string `pulumi:"assemblyName"`

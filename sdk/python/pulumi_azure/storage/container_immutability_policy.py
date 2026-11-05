@@ -403,6 +403,22 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_container_resource_manager_id"] = storage_container_resource_manager_id
         return ContainerImmutabilityPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            immutability_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_container_resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["immutabilityPeriodInDays"] = immutability_period_in_days
+        __props__["locked"] = locked
+        __props__["protectedAppendWritesAllEnabled"] = protected_append_writes_all_enabled
+        __props__["protectedAppendWritesEnabled"] = protected_append_writes_enabled
+        __props__["storageContainerResourceManagerId"] = storage_container_resource_manager_id
+        return pulumi.runtime.exists_resource(None, 'azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="immutabilityPeriodInDays")
     def immutability_period_in_days(self) -> pulumi.Output[_builtins.int]:

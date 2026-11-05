@@ -424,6 +424,24 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["route_table_name"] = route_table_name
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            next_hop_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addressPrefix"] = address_prefix
+        __props__["name"] = name
+        __props__["nextHopInIpAddress"] = next_hop_in_ip_address
+        __props__["nextHopType"] = next_hop_type
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["routeTableName"] = route_table_name
+        return pulumi.runtime.exists_resource(None, 'azure:network/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
     def address_prefix(self) -> pulumi.Output[_builtins.str]:

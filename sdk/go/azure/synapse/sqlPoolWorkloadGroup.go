@@ -205,6 +205,12 @@ func (SqlPoolWorkloadGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolWorkloadGroupState)(nil)).Elem()
 }
 
+// SqlPoolWorkloadGroupExists checks whether an existing SqlPoolWorkloadGroup resource with the given ID exists.
+func SqlPoolWorkloadGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SqlPoolWorkloadGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup", id, state, "", opts...)
+}
+
 type sqlPoolWorkloadGroupArgs struct {
 	// The workload group importance level. Defaults to `normal`.
 	Importance *string `pulumi:"importance"`

@@ -174,6 +174,12 @@ func (CertificateIssuerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateIssuerState)(nil)).Elem()
 }
 
+// CertificateIssuerExists checks whether an existing CertificateIssuer resource with the given ID exists.
+func CertificateIssuerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CertificateIssuerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:keyvault/certificateIssuer:CertificateIssuer", id, state, "", opts...)
+}
+
 type certificateIssuerArgs struct {
 	// The account number with the third-party Certificate Issuer.
 	AccountId *string `pulumi:"accountId"`

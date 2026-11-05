@@ -468,6 +468,26 @@ class LinkedServer(pulumi.CustomResource):
         __props__.__dict__["target_redis_cache_name"] = target_redis_cache_name
         return LinkedServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            geo_replicated_primary_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_role: pulumi.Input[Optional[_builtins.str]] = None,
+            target_redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["geoReplicatedPrimaryHostName"] = geo_replicated_primary_host_name
+        __props__["linkedRedisCacheId"] = linked_redis_cache_id
+        __props__["linkedRedisCacheLocation"] = linked_redis_cache_location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverRole"] = server_role
+        __props__["targetRedisCacheName"] = target_redis_cache_name
+        return pulumi.runtime.exists_resource(None, 'azure:redis/linkedServer:LinkedServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="geoReplicatedPrimaryHostName")
     def geo_replicated_primary_host_name(self) -> pulumi.Output[_builtins.str]:

@@ -181,6 +181,12 @@ func (LinkedServiceAzureTableStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureTableStorageState)(nil)).Elem()
 }
 
+// LinkedServiceAzureTableStorageExists checks whether an existing LinkedServiceAzureTableStorage resource with the given ID exists.
+func LinkedServiceAzureTableStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkedServiceAzureTableStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", id, state, "", opts...)
+}
+
 type linkedServiceAzureTableStorageArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
 	//

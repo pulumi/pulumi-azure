@@ -168,6 +168,12 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationPolicyState)(nil)).Elem()
 }
 
+// ReplicationPolicyExists checks whether an existing ReplicationPolicy resource with the given ID exists.
+func ReplicationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReplicationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:siterecovery/replicationPolicy:ReplicationPolicy", id, state, "", opts...)
+}
+
 type replicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	//

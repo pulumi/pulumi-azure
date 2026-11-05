@@ -572,6 +572,30 @@ class FluxConfiguration(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return FluxConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blob_storage: pulumi.Input[Optional[Union['FluxConfigurationBlobStorageArgs', 'FluxConfigurationBlobStorageArgsDict', 'outputs.FluxConfigurationBlobStorage']]] = None,
+            bucket: pulumi.Input[Optional[Union['FluxConfigurationBucketArgs', 'FluxConfigurationBucketArgsDict', 'outputs.FluxConfigurationBucket']]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            continuous_reconciliation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            git_repository: pulumi.Input[Optional[Union['FluxConfigurationGitRepositoryArgs', 'FluxConfigurationGitRepositoryArgsDict', 'outputs.FluxConfigurationGitRepository']]] = None,
+            kustomizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FluxConfigurationKustomizationArgs', 'FluxConfigurationKustomizationArgsDict', 'outputs.FluxConfigurationKustomization']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blobStorage"] = blob_storage
+        __props__["bucket"] = bucket
+        __props__["clusterId"] = cluster_id
+        __props__["continuousReconciliationEnabled"] = continuous_reconciliation_enabled
+        __props__["gitRepository"] = git_repository
+        __props__["kustomizations"] = kustomizations
+        __props__["name"] = name
+        __props__["namespace"] = namespace
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'azure:arckubernetes/fluxConfiguration:FluxConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="blobStorage")
     def blob_storage(self) -> pulumi.Output[Optional['outputs.FluxConfigurationBlobStorage']]:

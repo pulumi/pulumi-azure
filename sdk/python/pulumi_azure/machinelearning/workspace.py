@@ -1387,6 +1387,64 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']]] = None,
+            feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']]] = None,
+            friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_business_impact: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
+            image_build_compute_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']]] = None,
+            service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationInsightsId"] = application_insights_id
+        __props__["containerRegistryId"] = container_registry_id
+        __props__["description"] = description
+        __props__["discoveryUrl"] = discovery_url
+        __props__["encryption"] = encryption
+        __props__["featureStore"] = feature_store
+        __props__["friendlyName"] = friendly_name
+        __props__["highBusinessImpact"] = high_business_impact
+        __props__["identity"] = identity
+        __props__["imageBuildComputeName"] = image_build_compute_name
+        __props__["keyVaultId"] = key_vault_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["managedNetwork"] = managed_network
+        __props__["name"] = name
+        __props__["primaryUserAssignedIdentity"] = primary_user_assigned_identity
+        __props__["publicNetworkAccessEnabled"] = public_network_access_enabled
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["serverlessCompute"] = serverless_compute
+        __props__["serviceSideEncryptionEnabled"] = service_side_encryption_enabled
+        __props__["skuName"] = sku_name
+        __props__["storageAccountAccessType"] = storage_account_access_type
+        __props__["storageAccountId"] = storage_account_id
+        __props__["tags"] = tags
+        __props__["v1LegacyModeEnabled"] = v1_legacy_mode_enabled
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'azure:machinelearning/workspace:Workspace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
     def application_insights_id(self) -> pulumi.Output[_builtins.str]:

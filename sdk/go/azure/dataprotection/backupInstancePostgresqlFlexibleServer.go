@@ -224,6 +224,12 @@ func (BackupInstancePostgresqlFlexibleServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupInstancePostgresqlFlexibleServerState)(nil)).Elem()
 }
 
+// BackupInstancePostgresqlFlexibleServerExists checks whether an existing BackupInstancePostgresqlFlexibleServer resource with the given ID exists.
+func BackupInstancePostgresqlFlexibleServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupInstancePostgresqlFlexibleServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer", id, state, "", opts...)
+}
+
 type backupInstancePostgresqlFlexibleServerArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`

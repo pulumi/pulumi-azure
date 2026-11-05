@@ -198,6 +198,12 @@ func (DiscoveryVirtualInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*discoveryVirtualInstanceState)(nil)).Elem()
 }
 
+// DiscoveryVirtualInstanceExists checks whether an existing DiscoveryVirtualInstance resource with the given ID exists.
+func DiscoveryVirtualInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DiscoveryVirtualInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance", id, state, "", opts...)
+}
+
 type discoveryVirtualInstanceArgs struct {
 	// The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
 	CentralServerVirtualMachineId string `pulumi:"centralServerVirtualMachineId"`

@@ -160,6 +160,12 @@ func (ServicesAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicesAccountState)(nil)).Elem()
 }
 
+// ServicesAccountExists checks whether an existing ServicesAccount resource with the given ID exists.
+func ServicesAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicesAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:graph/servicesAccount:ServicesAccount", id, state, "", opts...)
+}
+
 type servicesAccountArgs struct {
 	// Customer owned application ID. Changing this forces a new Account to be created.
 	ApplicationId string `pulumi:"applicationId"`

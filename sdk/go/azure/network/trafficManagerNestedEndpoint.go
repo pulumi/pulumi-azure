@@ -254,6 +254,12 @@ func (TrafficManagerNestedEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerNestedEndpointState)(nil)).Elem()
 }
 
+// TrafficManagerNestedEndpointExists checks whether an existing TrafficManagerNestedEndpoint resource with the given ID exists.
+func TrafficManagerNestedEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficManagerNestedEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", id, state, "", opts...)
+}
+
 type trafficManagerNestedEndpointArgs struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerNestedEndpointCustomHeader `pulumi:"customHeaders"`

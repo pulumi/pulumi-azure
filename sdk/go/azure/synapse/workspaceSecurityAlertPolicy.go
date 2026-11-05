@@ -222,6 +222,12 @@ func (WorkspaceSecurityAlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceSecurityAlertPolicyState)(nil)).Elem()
 }
 
+// WorkspaceSecurityAlertPolicyExists checks whether an existing WorkspaceSecurityAlertPolicy resource with the given ID exists.
+func WorkspaceSecurityAlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceSecurityAlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", id, state, "", opts...)
+}
+
 type workspaceSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`

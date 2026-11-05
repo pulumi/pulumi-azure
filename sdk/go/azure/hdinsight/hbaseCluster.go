@@ -317,6 +317,12 @@ func (HBaseClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hbaseClusterState)(nil)).Elem()
 }
 
+// HBaseClusterExists checks whether an existing HBaseCluster resource with the given ID exists.
+func HBaseClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HBaseClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:hdinsight/hBaseCluster:HBaseCluster", id, state, "", opts...)
+}
+
 type hbaseClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion string `pulumi:"clusterVersion"`

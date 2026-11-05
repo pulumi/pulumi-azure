@@ -212,6 +212,12 @@ func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceAuthorizationRuleState)(nil)).Elem()
 }
 
+// NamespaceAuthorizationRuleExists checks whether an existing NamespaceAuthorizationRule resource with the given ID exists.
+func NamespaceAuthorizationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NamespaceAuthorizationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", id, state, "", opts...)
+}
+
 type namespaceAuthorizationRuleArgs struct {
 	// Grants listen access to this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`

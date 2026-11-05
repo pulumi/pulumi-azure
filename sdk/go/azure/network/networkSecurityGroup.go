@@ -167,6 +167,12 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityGroupState)(nil)).Elem()
 }
 
+// NetworkSecurityGroupExists checks whether an existing NetworkSecurityGroup resource with the given ID exists.
+func NetworkSecurityGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSecurityGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/networkSecurityGroup:NetworkSecurityGroup", id, state, "", opts...)
+}
+
 type networkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

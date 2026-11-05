@@ -354,6 +354,12 @@ func (SingleNodeVirtualInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*singleNodeVirtualInstanceState)(nil)).Elem()
 }
 
+// SingleNodeVirtualInstanceExists checks whether an existing SingleNodeVirtualInstance resource with the given ID exists.
+func SingleNodeVirtualInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SingleNodeVirtualInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance", id, state, "", opts...)
+}
+
 type singleNodeVirtualInstanceArgs struct {
 	// The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
 	AppLocation string `pulumi:"appLocation"`

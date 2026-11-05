@@ -302,9 +302,9 @@ import javax.annotation.Nullable;
  * * Subroutine references and recursive patterns.
  * * Conditional patterns.
  * * Backtracking control verbs.
- * * The `\C` single-byte directive.
- * * The `\R` newline match directive.
- * * The `\K` start of match reset directive.
+ * * The `&#92;C` single-byte directive.
+ * * The `&#92;R` newline match directive.
+ * * The `&#92;K` start of match reset directive.
  * * Callouts and embedded code.
  * * Atomic grouping and possessive quantifiers.
  * 

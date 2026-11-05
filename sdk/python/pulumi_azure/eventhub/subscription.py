@@ -797,6 +797,42 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["topic_id"] = topic_id
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+            batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_scoped_subscription: pulumi.Input[Optional[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict', 'outputs.SubscriptionClientScopedSubscription']]] = None,
+            client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoDeleteOnIdle"] = auto_delete_on_idle
+        __props__["batchedOperationsEnabled"] = batched_operations_enabled
+        __props__["clientScopedSubscription"] = client_scoped_subscription
+        __props__["clientScopedSubscriptionEnabled"] = client_scoped_subscription_enabled
+        __props__["deadLetteringOnFilterEvaluationError"] = dead_lettering_on_filter_evaluation_error
+        __props__["deadLetteringOnMessageExpiration"] = dead_lettering_on_message_expiration
+        __props__["defaultMessageTtl"] = default_message_ttl
+        __props__["forwardDeadLetteredMessagesTo"] = forward_dead_lettered_messages_to
+        __props__["forwardTo"] = forward_to
+        __props__["lockDuration"] = lock_duration
+        __props__["maxDeliveryCount"] = max_delivery_count
+        __props__["name"] = name
+        __props__["requiresSession"] = requires_session
+        __props__["status"] = status
+        __props__["topicId"] = topic_id
+        return pulumi.runtime.exists_resource(None, 'azure:eventhub/subscription:Subscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> pulumi.Output[Optional[_builtins.str]]:

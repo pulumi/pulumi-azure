@@ -304,6 +304,12 @@ func (VolumeGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeGroupState)(nil)).Elem()
 }
 
+// VolumeGroupExists checks whether an existing VolumeGroup resource with the given ID exists.
+func VolumeGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:elasticsan/volumeGroup:VolumeGroup", id, state, "", opts...)
+}
+
 type volumeGroupArgs struct {
 	// Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
 	ElasticSanId string `pulumi:"elasticSanId"`

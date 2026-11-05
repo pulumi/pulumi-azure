@@ -92,11 +92,10 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webHooks/mywebhook1
  * ```
  * 
- * @deprecated
- * azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
+ * @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
  * 
  */
-@Deprecated /* azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook */
+@Deprecated
 @ResourceType(type="azure:containerservice/registryWebook:RegistryWebook")
 public class RegistryWebook extends com.pulumi.resources.CustomResource {
     /**

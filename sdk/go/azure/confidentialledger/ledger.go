@@ -183,6 +183,12 @@ func (LedgerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ledgerState)(nil)).Elem()
 }
 
+// LedgerExists checks whether an existing Ledger resource with the given ID exists.
+func LedgerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LedgerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:confidentialledger/ledger:Ledger", id, state, "", opts...)
+}
+
 type ledgerArgs struct {
 	// A list of `azureadBasedServicePrincipal` blocks as defined below.
 	AzureadBasedServicePrincipals []LedgerAzureadBasedServicePrincipal `pulumi:"azureadBasedServicePrincipals"`

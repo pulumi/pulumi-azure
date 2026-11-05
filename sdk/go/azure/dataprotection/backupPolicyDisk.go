@@ -185,6 +185,12 @@ func (BackupPolicyDiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupPolicyDiskState)(nil)).Elem()
 }
 
+// BackupPolicyDiskExists checks whether an existing BackupPolicyDisk resource with the given ID exists.
+func BackupPolicyDiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupPolicyDiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:dataprotection/backupPolicyDisk:BackupPolicyDisk", id, state, "", opts...)
+}
+
 type backupPolicyDiskArgs struct {
 	// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
 	BackupRepeatingTimeIntervals []string `pulumi:"backupRepeatingTimeIntervals"`

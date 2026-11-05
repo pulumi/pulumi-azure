@@ -985,6 +985,46 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["webhook_receivers"] = webhook_receivers
         return ActionGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]]] = None,
+            automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]]] = None,
+            azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]]] = None,
+            azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]]] = None,
+            email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]]] = None,
+            itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            short_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]]] = None,
+            webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["armRoleReceivers"] = arm_role_receivers
+        __props__["automationRunbookReceivers"] = automation_runbook_receivers
+        __props__["azureAppPushReceivers"] = azure_app_push_receivers
+        __props__["azureFunctionReceivers"] = azure_function_receivers
+        __props__["emailReceivers"] = email_receivers
+        __props__["enabled"] = enabled
+        __props__["eventHubReceivers"] = event_hub_receivers
+        __props__["itsmReceivers"] = itsm_receivers
+        __props__["location"] = location
+        __props__["logicAppReceivers"] = logic_app_receivers
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["shortName"] = short_name
+        __props__["smsReceivers"] = sms_receivers
+        __props__["tags"] = tags
+        __props__["voiceReceivers"] = voice_receivers
+        __props__["webhookReceivers"] = webhook_receivers
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/actionGroup:ActionGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="armRoleReceivers")
     def arm_role_receivers(self) -> pulumi.Output[Optional[Sequence['outputs.ActionGroupArmRoleReceiver']]]:

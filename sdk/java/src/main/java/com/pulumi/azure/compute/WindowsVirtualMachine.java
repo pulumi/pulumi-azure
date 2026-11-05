@@ -397,11 +397,10 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
+    @Deprecated
     @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableAutomaticUpdates;
 
@@ -999,11 +998,10 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
+    @Deprecated
     @Export(name="vmAgentPlatformUpdatesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vmAgentPlatformUpdatesEnabled;
 

@@ -489,6 +489,24 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         __props__.__dict__["rules"] = rules
         return FirewallNatRuleCollection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNatRuleCollectionRuleArgs', 'FirewallNatRuleCollectionRuleArgsDict', 'outputs.FirewallNatRuleCollectionRule']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["azureFirewallName"] = azure_firewall_name
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["rules"] = rules
+        return pulumi.runtime.exists_resource(None, 'azure:network/firewallNatRuleCollection:FirewallNatRuleCollection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:

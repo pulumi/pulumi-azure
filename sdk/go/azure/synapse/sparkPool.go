@@ -255,6 +255,12 @@ func (SparkPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkPoolState)(nil)).Elem()
 }
 
+// SparkPoolExists checks whether an existing SparkPool resource with the given ID exists.
+func SparkPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SparkPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:synapse/sparkPool:SparkPool", id, state, "", opts...)
+}
+
 type sparkPoolArgs struct {
 	// An `autoPause` block as defined below.
 	AutoPause *SparkPoolAutoPause `pulumi:"autoPause"`

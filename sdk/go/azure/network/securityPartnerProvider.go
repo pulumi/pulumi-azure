@@ -184,6 +184,12 @@ func (SecurityPartnerProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityPartnerProviderState)(nil)).Elem()
 }
 
+// SecurityPartnerProviderExists checks whether an existing SecurityPartnerProvider resource with the given ID exists.
+func SecurityPartnerProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityPartnerProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/securityPartnerProvider:SecurityPartnerProvider", id, state, "", opts...)
+}
+
 type securityPartnerProviderArgs struct {
 	// The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`

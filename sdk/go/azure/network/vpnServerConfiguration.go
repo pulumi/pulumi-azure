@@ -199,6 +199,12 @@ func (VpnServerConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnServerConfigurationState)(nil)).Elem()
 }
 
+// VpnServerConfigurationExists checks whether an existing VpnServerConfiguration resource with the given ID exists.
+func VpnServerConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpnServerConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:network/vpnServerConfiguration:VpnServerConfiguration", id, state, "", opts...)
+}
+
 type vpnServerConfigurationArgs struct {
 	AzureActiveDirectoryAuthentications []VpnServerConfigurationAzureActiveDirectoryAuthentication `pulumi:"azureActiveDirectoryAuthentications"`
 	ClientRevokedCertificates           []VpnServerConfigurationClientRevokedCertificate           `pulumi:"clientRevokedCertificates"`

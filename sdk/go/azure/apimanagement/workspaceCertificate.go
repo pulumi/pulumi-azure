@@ -215,6 +215,12 @@ func (WorkspaceCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceCertificateState)(nil)).Elem()
 }
 
+// WorkspaceCertificateExists checks whether an existing WorkspaceCertificate resource with the given ID exists.
+func WorkspaceCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkspaceCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:apimanagement/workspaceCertificate:WorkspaceCertificate", id, state, "", opts...)
+}
+
 type workspaceCertificateArgs struct {
 	// Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
 	ApiManagementWorkspaceId string `pulumi:"apiManagementWorkspaceId"`

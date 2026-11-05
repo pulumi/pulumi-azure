@@ -16,20 +16,18 @@ public final class ServiceProtocolsArgs extends com.pulumi.resources.ResourceArg
     public static final ServiceProtocolsArgs Empty = new ServiceProtocolsArgs();
 
     /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     @Import(name="enableHttp2")
     private @Nullable Output<Boolean> enableHttp2;
 
     /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated
     public Optional<Output<Boolean>> enableHttp2() {
         return Optional.ofNullable(this.enableHttp2);
     }
@@ -77,11 +75,10 @@ public final class ServiceProtocolsArgs extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableHttp2(@Nullable Output<Boolean> enableHttp2) {
             $.enableHttp2 = enableHttp2;
             return this;
@@ -90,11 +87,10 @@ public final class ServiceProtocolsArgs extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * @deprecated `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated
         public Builder enableHttp2(Boolean enableHttp2) {
             return enableHttp2(Output.of(enableHttp2));
         }

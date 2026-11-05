@@ -627,6 +627,38 @@ class DataCollectionRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return DataCollectionRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict', 'outputs.DataCollectionRuleDataFlow']]]]] = None,
+            data_sources: pulumi.Input[Optional[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict', 'outputs.DataCollectionRuleDataSources']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destinations: pulumi.Input[Optional[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict', 'outputs.DataCollectionRuleDestinations']]] = None,
+            identity: pulumi.Input[Optional[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict', 'outputs.DataCollectionRuleIdentity']]] = None,
+            immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_declarations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict', 'outputs.DataCollectionRuleStreamDeclaration']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataCollectionEndpointId"] = data_collection_endpoint_id
+        __props__["dataFlows"] = data_flows
+        __props__["dataSources"] = data_sources
+        __props__["description"] = description
+        __props__["destinations"] = destinations
+        __props__["identity"] = identity
+        __props__["immutableId"] = immutable_id
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["streamDeclarations"] = stream_declarations
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azure:monitoring/dataCollectionRule:DataCollectionRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointId")
     def data_collection_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:

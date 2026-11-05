@@ -134,11 +134,10 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
  * 
- * @deprecated
- * azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition
+ * @deprecated azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition
  * 
  */
-@Deprecated /* azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition */
+@Deprecated
 @ResourceType(type="azure:role/definition:Definition")
 public class Definition extends com.pulumi.resources.CustomResource {
     /**

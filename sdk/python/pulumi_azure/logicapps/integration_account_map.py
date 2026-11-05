@@ -420,6 +420,24 @@ class IntegrationAccountMap(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return IntegrationAccountMap(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            map_type: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["content"] = content
+        __props__["integrationAccountName"] = integration_account_name
+        __props__["mapType"] = map_type
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:logicapps/integrationAccountMap:IntegrationAccountMap', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:

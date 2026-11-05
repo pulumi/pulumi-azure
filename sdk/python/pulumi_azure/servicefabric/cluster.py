@@ -1139,6 +1139,60 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["vmss_zonal_upgrade_mode"] = vmss_zonal_upgrade_mode
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            add_on_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ClusterAzureActiveDirectoryArgs', 'ClusterAzureActiveDirectoryArgsDict', 'outputs.ClusterAzureActiveDirectory']]] = None,
+            certificate: pulumi.Input[Optional[Union['ClusterCertificateArgs', 'ClusterCertificateArgsDict', 'outputs.ClusterCertificate']]] = None,
+            certificate_common_names: pulumi.Input[Optional[Union['ClusterCertificateCommonNamesArgs', 'ClusterCertificateCommonNamesArgsDict', 'outputs.ClusterCertificateCommonNames']]] = None,
+            client_certificate_common_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClientCertificateCommonNameArgs', 'ClusterClientCertificateCommonNameArgsDict', 'outputs.ClusterClientCertificateCommonName']]]]] = None,
+            client_certificate_thumbprints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClientCertificateThumbprintArgs', 'ClusterClientCertificateThumbprintArgsDict', 'outputs.ClusterClientCertificateThumbprint']]]]] = None,
+            cluster_code_version: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            diagnostics_config: pulumi.Input[Optional[Union['ClusterDiagnosticsConfigArgs', 'ClusterDiagnosticsConfigArgsDict', 'outputs.ClusterDiagnosticsConfig']]] = None,
+            fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterFabricSettingArgs', 'ClusterFabricSettingArgsDict', 'outputs.ClusterFabricSetting']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterNodeTypeArgs', 'ClusterNodeTypeArgsDict', 'outputs.ClusterNodeType']]]]] = None,
+            reliability_level: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse_proxy_certificate: pulumi.Input[Optional[Union['ClusterReverseProxyCertificateArgs', 'ClusterReverseProxyCertificateArgsDict', 'outputs.ClusterReverseProxyCertificate']]] = None,
+            reverse_proxy_certificate_common_names: pulumi.Input[Optional[Union['ClusterReverseProxyCertificateCommonNamesArgs', 'ClusterReverseProxyCertificateCommonNamesArgsDict', 'outputs.ClusterReverseProxyCertificateCommonNames']]] = None,
+            service_fabric_zonal_upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']]] = None,
+            vm_image: pulumi.Input[Optional[_builtins.str]] = None,
+            vmss_zonal_upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addOnFeatures"] = add_on_features
+        __props__["azureActiveDirectory"] = azure_active_directory
+        __props__["certificate"] = certificate
+        __props__["certificateCommonNames"] = certificate_common_names
+        __props__["clientCertificateCommonNames"] = client_certificate_common_names
+        __props__["clientCertificateThumbprints"] = client_certificate_thumbprints
+        __props__["clusterCodeVersion"] = cluster_code_version
+        __props__["clusterEndpoint"] = cluster_endpoint
+        __props__["diagnosticsConfig"] = diagnostics_config
+        __props__["fabricSettings"] = fabric_settings
+        __props__["location"] = location
+        __props__["managementEndpoint"] = management_endpoint
+        __props__["name"] = name
+        __props__["nodeTypes"] = node_types
+        __props__["reliabilityLevel"] = reliability_level
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["reverseProxyCertificate"] = reverse_proxy_certificate
+        __props__["reverseProxyCertificateCommonNames"] = reverse_proxy_certificate_common_names
+        __props__["serviceFabricZonalUpgradeMode"] = service_fabric_zonal_upgrade_mode
+        __props__["tags"] = tags
+        __props__["upgradeMode"] = upgrade_mode
+        __props__["upgradePolicy"] = upgrade_policy
+        __props__["vmImage"] = vm_image
+        __props__["vmssZonalUpgradeMode"] = vmss_zonal_upgrade_mode
+        return pulumi.runtime.exists_resource(None, 'azure:servicefabric/cluster:Cluster', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addOnFeatures")
     def add_on_features(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

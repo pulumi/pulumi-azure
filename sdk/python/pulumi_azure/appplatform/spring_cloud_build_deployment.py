@@ -512,6 +512,28 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
         return SpringCloudBuildDeployment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+            application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            build_result_id: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota: pulumi.Input[Optional[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict', 'outputs.SpringCloudBuildDeploymentQuota']]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addonJson"] = addon_json
+        __props__["applicationPerformanceMonitoringIds"] = application_performance_monitoring_ids
+        __props__["buildResultId"] = build_result_id
+        __props__["environmentVariables"] = environment_variables
+        __props__["instanceCount"] = instance_count
+        __props__["name"] = name
+        __props__["quota"] = quota
+        __props__["springCloudAppId"] = spring_cloud_app_id
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="addonJson")
     def addon_json(self) -> pulumi.Output[_builtins.str]:

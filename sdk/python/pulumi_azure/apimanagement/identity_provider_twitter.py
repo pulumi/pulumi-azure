@@ -344,6 +344,20 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return IdentityProviderTwitter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["apiManagementName"] = api_management_name
+        __props__["apiSecretKey"] = api_secret_key
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

@@ -331,6 +331,18 @@ class AttachedNetwork(pulumi.CustomResource):
         __props__.__dict__["network_connection_id"] = network_connection_id
         return AttachedNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["devCenterId"] = dev_center_id
+        __props__["name"] = name
+        __props__["networkConnectionId"] = network_connection_id
+        return pulumi.runtime.exists_resource(None, 'azure:devcenter/attachedNetwork:AttachedNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="devCenterId")
     def dev_center_id(self) -> pulumi.Output[_builtins.str]:

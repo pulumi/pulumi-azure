@@ -463,6 +463,26 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         __props__.__dict__["workspace_name"] = workspace_name
         return DataSourceWindowsPerformanceCounter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+            interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            object_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["counterName"] = counter_name
+        __props__["instanceName"] = instance_name
+        __props__["intervalSeconds"] = interval_seconds
+        __props__["name"] = name
+        __props__["objectName"] = object_name
+        __props__["resourceGroupName"] = resource_group_name
+        __props__["workspaceName"] = workspace_name
+        return pulumi.runtime.exists_resource(None, 'azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="counterName")
     def counter_name(self) -> pulumi.Output[_builtins.str]:

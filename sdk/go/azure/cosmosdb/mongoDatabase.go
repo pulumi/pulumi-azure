@@ -156,6 +156,12 @@ func (MongoDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoDatabaseState)(nil)).Elem()
 }
 
+// MongoDatabaseExists checks whether an existing MongoDatabase resource with the given ID exists.
+func MongoDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MongoDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/mongoDatabase:MongoDatabase", id, state, "", opts...)
+}
+
 type mongoDatabaseArgs struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

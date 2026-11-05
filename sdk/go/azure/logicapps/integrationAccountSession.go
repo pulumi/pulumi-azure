@@ -151,6 +151,12 @@ func (IntegrationAccountSessionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountSessionState)(nil)).Elem()
 }
 
+// IntegrationAccountSessionExists checks whether an existing IntegrationAccountSession resource with the given ID exists.
+func IntegrationAccountSessionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountSessionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:logicapps/integrationAccountSession:IntegrationAccountSession", id, state, "", opts...)
+}
+
 type integrationAccountSessionArgs struct {
 	// The content of the Logic App Integration Account Session.
 	Content string `pulumi:"content"`

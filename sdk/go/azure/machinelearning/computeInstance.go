@@ -291,6 +291,12 @@ func (ComputeInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeInstanceState)(nil)).Elem()
 }
 
+// ComputeInstanceExists checks whether an existing ComputeInstance resource with the given ID exists.
+func ComputeInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputeInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:machinelearning/computeInstance:ComputeInstance", id, state, "", opts...)
+}
+
 type computeInstanceArgs struct {
 	// A `assignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	AssignToUser *ComputeInstanceAssignToUser `pulumi:"assignToUser"`

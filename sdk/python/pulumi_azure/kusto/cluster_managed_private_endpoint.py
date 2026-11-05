@@ -481,6 +481,26 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ClusterManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterName"] = cluster_name
+        __props__["groupId"] = group_id
+        __props__["name"] = name
+        __props__["privateLinkResourceId"] = private_link_resource_id
+        __props__["privateLinkResourceRegion"] = private_link_resource_region
+        __props__["requestMessage"] = request_message
+        __props__["resourceGroupName"] = resource_group_name
+        return pulumi.runtime.exists_resource(None, 'azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:

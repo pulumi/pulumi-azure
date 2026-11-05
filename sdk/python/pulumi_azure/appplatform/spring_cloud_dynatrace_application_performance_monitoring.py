@@ -553,6 +553,30 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
         __props__.__dict__["tenant_token"] = tenant_token
         return SpringCloudDynatraceApplicationPerformanceMonitoring(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_token: pulumi.Input[Optional[_builtins.str]] = None,
+            api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_point: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_token: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiToken"] = api_token
+        __props__["apiUrl"] = api_url
+        __props__["connectionPoint"] = connection_point
+        __props__["environmentId"] = environment_id
+        __props__["globallyEnabled"] = globally_enabled
+        __props__["name"] = name
+        __props__["springCloudServiceId"] = spring_cloud_service_id
+        __props__["tenant"] = tenant
+        __props__["tenantToken"] = tenant_token
+        return pulumi.runtime.exists_resource(None, 'azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiToken")
     def api_token(self) -> pulumi.Output[Optional[_builtins.str]]:

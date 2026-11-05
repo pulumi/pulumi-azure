@@ -213,6 +213,12 @@ func (SpringCloudAppCosmosDBAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudAppCosmosDBAssociationState)(nil)).Elem()
 }
 
+// SpringCloudAppCosmosDBAssociationExists checks whether an existing SpringCloudAppCosmosDBAssociation resource with the given ID exists.
+func SpringCloudAppCosmosDBAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAppCosmosDBAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation", id, state, "", opts...)
+}
+
 type springCloudAppCosmosDBAssociationArgs struct {
 	// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
 	ApiType string `pulumi:"apiType"`

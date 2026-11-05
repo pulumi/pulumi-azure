@@ -142,6 +142,12 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateLinkScopeState)(nil)).Elem()
 }
 
+// PrivateLinkScopeExists checks whether an existing PrivateLinkScope resource with the given ID exists.
+func PrivateLinkScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrivateLinkScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/privateLinkScope:PrivateLinkScope", id, state, "", opts...)
+}
+
 type privateLinkScopeArgs struct {
 	// The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
 	IngestionAccessMode *string `pulumi:"ingestionAccessMode"`

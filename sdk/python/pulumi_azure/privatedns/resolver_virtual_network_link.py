@@ -406,6 +406,20 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         __props__.__dict__["virtual_network_id"] = virtual_network_id
         return ResolverVirtualNetworkLink(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_forwarding_ruleset_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnsForwardingRulesetId"] = dns_forwarding_ruleset_id
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["virtualNetworkId"] = virtual_network_id
+        return pulumi.runtime.exists_resource(None, 'azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnsForwardingRulesetId")
     def dns_forwarding_ruleset_id(self) -> pulumi.Output[_builtins.str]:

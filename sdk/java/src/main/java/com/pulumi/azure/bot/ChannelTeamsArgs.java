@@ -78,20 +78,18 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     @Import(name="enableCalling")
     private @Nullable Output<Boolean> enableCalling;
 
     /**
-     * @deprecated
-     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated
     public Optional<Output<Boolean>> enableCalling() {
         return Optional.ofNullable(this.enableCalling);
     }
@@ -243,11 +241,10 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+         * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder enableCalling(@Nullable Output<Boolean> enableCalling) {
             $.enableCalling = enableCalling;
             return this;
@@ -256,11 +253,10 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
+         * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated
         public Builder enableCalling(Boolean enableCalling) {
             return enableCalling(Output.of(enableCalling));
         }

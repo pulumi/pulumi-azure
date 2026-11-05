@@ -182,6 +182,12 @@ func (AadDiagnosticSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*aadDiagnosticSettingState)(nil)).Elem()
 }
 
+// AadDiagnosticSettingExists checks whether an existing AadDiagnosticSetting resource with the given ID exists.
+func AadDiagnosticSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AadDiagnosticSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", id, state, "", opts...)
+}
+
 type aadDiagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs []AadDiagnosticSettingEnabledLog `pulumi:"enabledLogs"`

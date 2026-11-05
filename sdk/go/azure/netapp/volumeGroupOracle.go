@@ -516,6 +516,12 @@ func (VolumeGroupOracleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeGroupOracleState)(nil)).Elem()
 }
 
+// VolumeGroupOracleExists checks whether an existing VolumeGroupOracle resource with the given ID exists.
+func VolumeGroupOracleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeGroupOracleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:netapp/volumeGroupOracle:VolumeGroupOracle", id, state, "", opts...)
+}
+
 type volumeGroupOracleArgs struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName string `pulumi:"accountName"`

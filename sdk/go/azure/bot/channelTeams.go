@@ -165,6 +165,12 @@ func (ChannelTeamsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelTeamsState)(nil)).Elem()
 }
 
+// ChannelTeamsExists checks whether an existing ChannelTeams resource with the given ID exists.
+func ChannelTeamsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChannelTeamsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:bot/channelTeams:ChannelTeams", id, state, "", opts...)
+}
+
 type channelTeamsArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`

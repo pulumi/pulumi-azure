@@ -244,6 +244,12 @@ func (GremlinGraphState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinGraphState)(nil)).Elem()
 }
 
+// GremlinGraphExists checks whether an existing GremlinGraph resource with the given ID exists.
+func GremlinGraphExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GremlinGraphState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:cosmosdb/gremlinGraph:GremlinGraph", id, state, "", opts...)
+}
+
 type gremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`

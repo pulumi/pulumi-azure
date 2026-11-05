@@ -174,6 +174,12 @@ func (IotHubCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubCertificateState)(nil)).Elem()
 }
 
+// IotHubCertificateExists checks whether an existing IotHubCertificate resource with the given ID exists.
+func IotHubCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IotHubCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:iot/iotHubCertificate:IotHubCertificate", id, state, "", opts...)
+}
+
 type iotHubCertificateArgs struct {
 	// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
 	CertificateContent string `pulumi:"certificateContent"`

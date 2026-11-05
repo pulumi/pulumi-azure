@@ -203,6 +203,12 @@ func (SpringCloudAppMysqlAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudAppMysqlAssociationState)(nil)).Elem()
 }
 
+// SpringCloudAppMysqlAssociationExists checks whether an existing SpringCloudAppMysqlAssociation resource with the given ID exists.
+func SpringCloudAppMysqlAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpringCloudAppMysqlAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation", id, state, "", opts...)
+}
+
 type springCloudAppMysqlAssociationArgs struct {
 	// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
 	DatabaseName string `pulumi:"databaseName"`
