@@ -14,7 +14,7 @@ The Azure Classic provider for Pulumi can be used to provision many of the cloud
 
 Azure Classic must be configured with credentials to deploy and update resources in Azure; see [Installation & Configuration](./installation-configuration) for instructions.
 
-If you're upgrading from v5 to v6, please refer to the [v6 migration guide](./v6-migration/).
+If you're upgrading from v5 to v6, please refer to the [v6 migration guide](./guides/v6-migration/).
 
 ## Example
 
@@ -46,4 +46,4 @@ resources:
 
 {{% /chooser %}}
 
-Visit the [How-to Guides](./how-to-guides) to find step-by-step guides for specific scenarios like running an app in Azure App Service or setting up a serverless Azure Function.
+Visit the [Guides](./guides/) for the v6 migration guide.
