@@ -119,7 +119,7 @@ To do this, you will need to complete the following steps:
 
 ##### Configure OIDC between Pulumi and Azure
 
-Refer to the [Configuring OpenID Connect for Azure Guide](/docs/pulumi-cloud/oidc/azure/) for the step-by-step process on how to do this.
+Refer to the [Configuring OpenID Connect for Azure Guide](/docs/esc/guides/configuring-oidc/azure/) for the step-by-step process on how to do this.
 
 ##### [Optional] Move Pulumi config to your ESC environment
 
@@ -240,12 +240,12 @@ Once you have the Service Principal's authorization tokens, choose one of the wa
 
 Remember to pass `--secret` when setting `clientSecret` so that it is properly encrypted:
 
-    ```bash
-    $ pulumi config set azure:clientId <clientID>
-    $ pulumi config set azure:clientSecret <clientSecret> --secret
-    $ pulumi config set azure:tenantId <tenantID>
-    $ pulumi config set azure:subscriptionId <subscriptionId>
-    ```
+```bash
+$ pulumi config set azure:clientId <clientID>
+$ pulumi config set azure:clientSecret <clientSecret> --secret
+$ pulumi config set azure:tenantId <tenantID>
+$ pulumi config set azure:subscriptionId <subscriptionId>
+```
 
 ##### Set configuration using environment variables
 
@@ -284,23 +284,58 @@ export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
 {{% /choosable %}}
 {{< /chooser >}}
 
+#### Authenticate with a client certificate
+
+To authenticate the Service Principal with a certificate instead of a client secret, set `azure:clientCertificatePath` to the path of a PKCS#12 (`.pfx`) bundle, or `azure:clientCertificate` to the bundle's contents encoded as base64.
+If the bundle has a password, set `azure:clientCertificatePassword`.
+Set `azure:clientId`, `azure:tenantId`, and `azure:subscriptionId` as for a client secret:
+
+```bash
+$ pulumi config set azure:clientId <clientID>
+$ pulumi config set azure:clientCertificatePath /path/to/certificate.pfx
+$ pulumi config set azure:clientCertificatePassword <password> --secret
+$ pulumi config set azure:tenantId <tenantID>
+$ pulumi config set azure:subscriptionId <subscriptionId>
+```
+
+The equivalent environment variables are `ARM_CLIENT_CERTIFICATE_PATH`, `ARM_CLIENT_CERTIFICATE`, and `ARM_CLIENT_CERTIFICATE_PASSWORD`.
+
+### Authenticate using Managed Service Identity (MSI)
+
+When Pulumi runs on an Azure resource that has a managed identity, such as a virtual machine or a container, it can authenticate as that identity without a secret.
+Set `azure:useMsi` to `true`, or the environment variable `ARM_USE_MSI` to `true`, and set `azure:subscriptionId`:
+
+```bash
+$ pulumi config set azure:useMsi true
+$ pulumi config set azure:subscriptionId <subscriptionId>
+```
+
+For a user-assigned identity, also set `azure:clientId` to the identity's client ID.
+The provider discovers the MSI endpoint automatically; set `azure:msiEndpoint` only if it needs to be overridden.
+
 ## Configuration options
 
 Use `pulumi config set azure:<option>` or pass options to the [constructor of `new azure.Provider`](/registry/packages/azure/api-docs/provider).
 
-| Option | Required? | Description                                                                                                                                                                                                                                                                                            |
-| - | - |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `environment` | Required | The cloud environment to use. It can also be sourced from the ARM_ENVIRONMENT environment variable or configured through `metadataHost`. Supported values are: `public` (default), `usgovernment`, `china`.                                                                                            |
+| Option | Required? | Description |
+| - | - | - |
 | `subscriptionId` | Required | The subscription ID to use. It can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable. |
-| `location` | Optional | The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly.                                                                                                                                                                             |
-| `clientId` | Optional | The client ID to use. It can also be sourced from the `ARM_CLIENT_ID` environment variable.                                                                                                                                                                                                            |
-| `clientSecret` | Optional | The client secret to use. It can also be sourced from the `ARM_CLIENT_SECRET` environment variable.                                                                                                                                                                                                    |
-| `metadataHost` | Optional | The hostname of the Azure Control Plane for this Environment. It can also be sourced from the `ARM_METADATA_HOSTNAME` environment variable.                                                                                                                                                            |
-| `msiEndpoint` | Optional | The REST endpoint to retrieve an MSI token from. Pulumi will attempt to discover this automatically but it can be specified manually here. It can also be sourced from the `ARM_MSI_ENDPOINT` environment variable.                                                                                    |
-| `oidcRequestToken` | Optional | The token to exchange for OIDC authentication. It can also be sourced from the `ARM_OIDC_REQUEST_TOKEN` environment variable.                                                                                                                                                                          |
-| `oidcRequestUrl` | Optional | The token exchange URL for OIDC authentication. It can also be sourced from the `ARM_OIDC_REQUEST_URL` environment variable.                                                                                                                                                                           |
-| `skipCredentialsValidation` | Optional | Prevents the provider from validating the given credentials. When set to true, `skip_provider_registration` is assumed. It can also be sourced from the `ARM_SKIP_CREDENTIALS_VALIDATION` environment variable; defaults to `false`.                                                                   |
-| `skipProviderRegistration` | Optional | Prevents the provider from registering the ARM provider namespaces, this can be used if you don't wish to give the Active Directory Application permission to register resource providers. It can also be sourced from the `ARM_SKIP_PROVIDER_REGISTRATION` environment variable; defaults to `false`. |
-| `tenantId` | Optional | The tenant ID to use. It can also be sourced from the `ARM_TENANT_ID` environment variable.                                                                                                                                                                                                            |
-| `useMsi` | Optional | Set to true to authenticate using managed service identity. It can also be sourced from the `ARM_USE_MSI` environment variable.                                                                                                                                                                        |
-| `useOidc` | Optional | Set to true to authenticate using OIDC. It can also be sourced from the `ARM_USE_OIDC` environment variable.                                                                                                                                                                                           |
+| `environment` | Optional | The cloud environment to use. Supported values are `public`, `usgovernment`, and `china`; defaults to `public`. It can also be sourced from the `AZURE_ENVIRONMENT` or `ARM_ENVIRONMENT` environment variable, or configured through `metadataHost`. |
+| `location` | Optional | The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly. |
+| `clientId` | Optional | The client ID to use. It can also be sourced from the `ARM_CLIENT_ID` environment variable. |
+| `clientSecret` | Optional | The client secret to use. It can also be sourced from the `ARM_CLIENT_SECRET` environment variable. |
+| `clientCertificate` | Optional | A base64-encoded PKCS#12 certificate bundle to authenticate a Service Principal with. It can also be sourced from the `ARM_CLIENT_CERTIFICATE` environment variable. |
+| `clientCertificatePath` | Optional | The path to a PKCS#12 certificate bundle to authenticate a Service Principal with. It can also be sourced from the `ARM_CLIENT_CERTIFICATE_PATH` environment variable. |
+| `clientCertificatePassword` | Optional | The password for the client certificate bundle. It can also be sourced from the `ARM_CLIENT_CERTIFICATE_PASSWORD` environment variable. |
+| `metadataHost` | Optional | The hostname of the Azure Control Plane for this Environment. It can also be sourced from the `ARM_METADATA_HOSTNAME` environment variable. |
+| `msiEndpoint` | Optional | The REST endpoint to retrieve an MSI token from. Pulumi will attempt to discover this automatically but it can be specified manually here. It can also be sourced from the `ARM_MSI_ENDPOINT` environment variable. |
+| `oidcToken` | Optional | The ID token for OIDC authentication. It can also be sourced from the `ARM_OIDC_TOKEN` environment variable. |
+| `oidcRequestToken` | Optional | The token to exchange for OIDC authentication. It can also be sourced from the `ARM_OIDC_REQUEST_TOKEN` environment variable. |
+| `oidcRequestUrl` | Optional | The token exchange URL for OIDC authentication. It can also be sourced from the `ARM_OIDC_REQUEST_URL` environment variable. |
+| `resourceProviderRegistrations` | Optional | The set of resource providers to register automatically for the subscription: `core`, `extended`, `all`, `none`, or `legacy`. It can also be sourced from the `ARM_RESOURCE_PROVIDER_REGISTRATIONS` environment variable; defaults to `legacy`. |
+| `skipProviderRegistration` | Optional | Deprecated: use `resourceProviderRegistrations` set to `none` instead. Prevents the provider from registering the ARM provider namespaces. It can also be sourced from the `ARM_SKIP_PROVIDER_REGISTRATION` environment variable; defaults to `false`. |
+| `tenantId` | Optional | The tenant ID to use. It can also be sourced from the `ARM_TENANT_ID` environment variable. |
+| `useAksWorkloadIdentity` | Optional | Set to true to authenticate using AKS Workload Identity. It can also be sourced from the `ARM_USE_AKS_WORKLOAD_IDENTITY` environment variable. |
+| `useCli` | Optional | Set to false to stop the provider from authenticating with the Azure CLI. It can also be sourced from the `ARM_USE_CLI` environment variable; defaults to `true`. |
+| `useMsi` | Optional | Set to true to authenticate using managed service identity. It can also be sourced from the `ARM_USE_MSI` environment variable. |
+| `useOidc` | Optional | Set to true to authenticate using OIDC. It can also be sourced from the `ARM_USE_OIDC` environment variable. |
