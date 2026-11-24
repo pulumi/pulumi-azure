@@ -113,7 +113,7 @@ they match your setup, e.g., the type "branch" and the correct branch name if CI
 
 #### OIDC Dynamic Credentials with Pulumi ESC
 
-In addition to configuring the Azure provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/pulumi-cloud/esc/). Using this service will enable you to run Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
+In addition to configuring the Azure provider locally, you also have the option to centralize your configurations using [Pulumi ESC (Environments, Secrets, and Configuration)](/docs/esc/). Using this service will enable you to run Pulumi CLI commands with dynamically generated credentials, removing the need to configure and manage your credentials locally.
 
 To do this, you will need to complete the following steps:
 
@@ -143,10 +143,10 @@ values:
 ```
 
 {{< notes type="info" >}}
-To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/pulumi-cloud/esc/environments/#projecting-environment-variables).
+To learn more about projecting environment variables in Pulumi ESC, refer to the [relevant Pulumi ESC documentation](/docs/esc/concepts/outputs/#environmentvariables).
 {{< /notes >}}
 
-To [expose configuration values to Pulumi IaC](/docs/pulumi-cloud/esc/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key named `pulumiConfig` and define your desired values underneath it. Further, if your workflow does not require the exposure of environment variables, you can also define those variables under the `pulumiConfig` block as shown below:
+To [expose configuration values to Pulumi IaC](/docs/esc/concepts/environments/#using-environments-with-pulumi-iac), you will need to add a second-level key named `pulumiConfig` and define your desired values underneath it. Further, if your workflow does not require the exposure of environment variables, you can also define those variables under the `pulumiConfig` block as shown below:
 
 ```yaml
 values:
@@ -170,7 +170,7 @@ values:
 This will ensure that those values are scoped only to your `pulumi` run.
 
 {{< notes type="info" >}}
-The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/concepts/config/#code) section of the Pulumi documentation.
+The configuration values under `pulumiConfig` can also be referenced directly from within your Pulumi program code. This is done using the same method to reference values from your project's stack settings file. You can see examples of how to do this in the [Accessing Configuration from Code](/docs/iac/concepts/config/#code) section of the Pulumi documentation.
 {{< /notes >}}
 
 ##### Import your environment
