@@ -18,7 +18,7 @@ If you're upgrading from v5 to v6, please refer to the [v6 migration guide](./gu
 
 ## Example
 
-{{< chooser language "typescript,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 
 {{% choosable language typescript %}}
 
@@ -32,6 +32,81 @@ const resourceGroupName = new azure.core.ResourceGroup("my-group", {
 
 {{% /choosable %}}
 
+{{% choosable language python %}}
+
+```python
+import pulumi_azure as azure
+
+my_group = azure.core.ResourceGroup("my-group", location="westus2")
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```go
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := core.NewResourceGroup(ctx, "my-group", &core.ResourceGroupArgs{
+			Location: pulumi.String("westus2"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```csharp
+using Pulumi;
+using Azure = Pulumi.Azure;
+
+return await Deployment.RunAsync(() =>
+{
+    var myGroup = new Azure.Core.ResourceGroup("my-group", new()
+    {
+        Location = "westus2",
+    });
+});
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```java
+import com.pulumi.Context;
+import com.pulumi.Pulumi;
+import com.pulumi.azure.core.ResourceGroup;
+import com.pulumi.azure.core.ResourceGroupArgs;
+
+public class App {
+    public static void main(String[] args) {
+        Pulumi.run(App::stack);
+    }
+
+    private static void stack(Context ctx) {
+        final var myGroup = new ResourceGroup("my-group", ResourceGroupArgs.builder()
+            .location("westus2")
+            .build());
+    }
+}
+```
+
+{{% /choosable %}}
+
 {{% choosable language yaml %}}
 
 ```yaml
@@ -40,6 +115,24 @@ resources:
     type: azure:core:ResourceGroup
     properties:
       location: westus2
+```
+
+{{% /choosable %}}
+
+{{% choosable language hcl %}}
+
+```hcl
+terraform {
+  required_providers {
+    azure = {
+      source = "pulumi/azure"
+    }
+  }
+}
+
+resource "azure_core_resource_group" "my-group" {
+  location = "westus2"
+}
 ```
 
 {{% /choosable %}}
